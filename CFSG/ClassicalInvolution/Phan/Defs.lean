@@ -166,6 +166,10 @@ structure WeakPhanA {X : Type} [Group X] (n : ℕ) (U : Fin n → Subgroup X)
   pair : ∀ i j : Fin n, (j : ℕ) = i + 1 → UnitaryBlockStandardPair K p f (W i j) (U i) (U j)
   gen : ⨆ i, U i = ⊤
 
+@[expose] def AdjacentTripleFour {X : Type} [Group X] {n : ℕ} (W : Fin n → Fin n → Subgroup X) :
+    Prop :=
+  ∀ i j k : Fin n, (j : ℕ) = i + 1 → (k : ℕ) = j + 1 →
+    ∃ θ : Su K p f 4 →* X, θ.range = W i j ⊔ W j k ∧ θ.ker ≤ Subgroup.center (Su K p f 4)
 
 structure PhanFamily (Y : Type) [Group Y] (n : ℕ) where
   ι : Fin n → (Su K p f 2 →* Y)
@@ -187,5 +191,13 @@ end Defs
   ∀ (K : Type) [Field K] [Finite K] (p f : ℕ) [Fact p.Prime] [CharP K p],
     Nat.card K = (p ^ f) ^ 2 → 5 ≤ p ^ f → ∀ {n : ℕ}, 3 ≤ n → PhanUniversalAt K p f n
 
+@[expose] def WeakPhanUnitaryRecognitionOdd : Prop :=
+  ∀ (K : Type) [Field K] [Finite K] (p f : ℕ) [Fact p.Prime] [CharP K p],
+    Nat.card K = (p ^ f) ^ 2 → p ≠ 2 → ∀ {n : ℕ}, 3 ≤ n →
+    ∀ {X : Type} [Group X] {U : Fin n → Subgroup X} {W : Fin n → Fin n → Subgroup X},
+      WeakPhanA K p f n U W →
+      (5 ≤ p ^ f ∨ (p ^ f = 3 ∧ 4 ≤ n ∧ AdjacentTripleFour K p f W)) →
+      ∃ θ : Su K p f (n + 1) →* X, Function.Surjective θ ∧
+        θ.ker ≤ Subgroup.center (Su K p f (n + 1))
 
 end CFSG.ClassicalInvolution.Phan

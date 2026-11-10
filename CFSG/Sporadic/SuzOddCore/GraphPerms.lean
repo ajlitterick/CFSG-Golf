@@ -71,12 +71,15 @@ theorem localGen_le_strong : localGenArrs.size ≤ localStrongArrs.size := by
 
 @[expose] def centerFullPerm (r : ℕ) : Equiv.Perm (Fin 22880) := permC 22880 (centerFull r)
 
+@[expose] def centerCompactPerm (r : ℕ) : Equiv.Perm (Fin 280) := permC 280 (centerCompact r)
 
 @[expose] def suzOuter : Equiv.Perm (Fin 22880) := permC 22880 outerArr
 
 @[expose] def suzR : Subgroup (Equiv.Perm (Fin 22880)) :=
   Subgroup.closure (insert suzOuter (suzP : Set (Equiv.Perm (Fin 22880))))
 
+@[expose] def suzC : Matrix (Fin 64) (Fin 64) (ZMod 3) :=
+  CFSG.Blueprint.NativeSporadic.decode 3 64 1 suzd2F3r64aM1Text
 
 theorem rep_suzOuter : Rep 22880 outerArr suzOuter :=
   (rep_permC (Bool.and_eq_true_iff.1 graphArrays_check.1).2).1
@@ -85,5 +88,8 @@ theorem rep_centerFull
     {r : ℕ} (hr : r < 9) : Rep 22880 (centerFull r) (centerFullPerm r) :=
   (rep_permC (Bool.and_eq_true_iff.1 (graphArrays_check.2.2.1 r hr).1).2).1
 
+theorem rep_centerCompact {r : ℕ} (hr : r < 9) :
+    Rep 280 (centerCompact r) (centerCompactPerm r) :=
+  (rep_permC (Bool.and_eq_true_iff.1 (graphArrays_check.2.2.1 r hr).2).2).1
 
 end CFSG.Sporadic.SuzOddCore

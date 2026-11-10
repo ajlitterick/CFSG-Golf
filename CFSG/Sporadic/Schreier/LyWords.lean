@@ -198,5 +198,27 @@ theorem map_getD_extendByWords (f : G →* H) (start : List G) (ws : List (List 
   simp only [List.getD_eq_getElem?_getD, List.getElem?_map]
   cases (extendByWords start ws)[j]? <;> simp
 
+theorem extendByWords_getD_mem {K : Subgroup G} (start : List G) (ws : List (List ℤ))
+    (hstart : ∀ x ∈ start, x ∈ K) (j : ℕ) : (extendByWords start ws).getD j 1 ∈ K := by
+  induction ws generalizing start with
+  | nil =>
+    simp only [extendByWords, List.foldl_nil, List.getD_eq_getElem?_getD]
+    cases h : start[j]? with
+    | none => exact K.one_mem
+    | some x => exact hstart x (List.mem_of_getElem? h)
+  | cons w ws ih =>
+    rw [extendByWords_cons]
+    apply ih
+    intro x hx
+    rcases List.mem_append.1 hx with hx | hx
+    · exact hstart x hx
+    · rw [List.mem_singleton] at hx
+      subst hx
+      apply evalWord_mem
+      intro l _
+      simp only [List.getD_eq_getElem?_getD]
+      cases h : start[letterIdx l]? with
+      | none => exact K.one_mem
+      | some y => exact hstart y (List.mem_of_getElem? h)
 
 end CFSG.Sporadic.LySchreier

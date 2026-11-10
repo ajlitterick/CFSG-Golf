@@ -463,6 +463,9 @@ theorem o0_inc : incK o0w 0 = true := by quickRfl
 
 theorem o0_len : o0w.length = 2300 := by decide +kernel
 
+theorem o0_neg_walk : walksOK (o0w0.map (· ^^^ 1)) = false := by decide +kernel
+
+theorem o0_neg_inc : incK (o0w1 ++ o0w0) 0 = false := by decide +kernel
 
 theorem o0_walks : ∀ e ∈ o0w, walkOK e = true := by
   intro e he

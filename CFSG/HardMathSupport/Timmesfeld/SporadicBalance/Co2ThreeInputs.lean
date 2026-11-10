@@ -57,6 +57,11 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.RankThree.Native
     #[8, 752, 2083, 1210, 2194, 107], #[8, 154, 1503, 1961, 1466, 1463],
     #[3, 618, 1459, 2021, 584, 1349]]
 
+@[expose] def hypFuncs : Array Nat :=
+  #[27, 9, 36, 63, 3, 30, 57, 12, 39, 66, 21, 48, 75, 1, 28, 55, 10, 37, 64, 19, 46, 73, 4, 31,
+    58, 13, 40, 67, 22, 49, 76, 7, 34, 61, 16, 43, 70, 25, 52, 79]
+
+@[expose] def relPairs : Array (Nat × Nat) := #[(0, 1), (0, 2), (0, 3), (4, 5)]
 
 @[expose] def levels (_ : Unit := ()) : Array Level := rawLevels 2300 co2StrongArrs co2BaseArr
 
@@ -100,6 +105,19 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.RankThree.Native
   ((List.range 81).find? fun k =>
     dot3 m k == 0 && (E[k]!)[g[co2BaseArr[s]!]!]! == g[co2BaseArr[l]!]!).getD 81
 
+@[expose] def relsOf (ys : Array (Array Nat)) : Array (Option (Nat × Array Nat)) :=
+  #[none, some (0, ys[0]!), some (0, ys[1]!), some (0, ys[2]!), none, some (4, ys[3]!)]
+
+@[expose] def leaves (L : Array Level) (ys : Array (Array Nat)) : List (Array Nat) :=
+  dsearch 2300 L co2BaseArr (relsOf ys) (fun a => ys.all fun y => commA 2300 a y) 6 0
+    (idA 2300) (idA 2300)
+
+@[expose] def qCheck (_ : Unit := ()) : Bool :=
+  let L := levels ()
+  let gs := qGens2 ()
+  let c := qCert2 ()
+  enumOK 2300 gs co2E81.qKeys c && c.pts.size == 729 &&
+    allLt gs.size fun k => inP L gs[k]!
 
 @[expose] def dCheck (_ : Unit := ()) : Bool :=
   let L := levels ()
@@ -111,8 +129,38 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.RankThree.Native
   allLt 4 (fun i => allLt 4 fun j => commA 2300 dg[i]! dg[j]!) &&
   allLt 81 (fun k => allLt 81 fun k' => k == k' || !(eqA 2300 E[k]! E[k']!))
 
+@[expose] def fusCheck (_ : Unit := ()) : Bool :=
+  let L := levels ()
+  let c := qCert2 ()
+  let E := dElts ()
+  let hs := hGens ()
+  hs.size == 16 && allLt 16 (fun i => validA 2300 hs[i]! && inP L hs[i]!) &&
+  c.pts.size == 729 &&
+  allLt 729 fun k =>
+    let t := c.pts[k]!
+    !(eqA 2300 (powArr 2300 t 3) (idA 2300)) || eqA 2300 t (idA 2300) || inD E t ||
+      anyLt 16 fun i => inD E (conjA 2300 hs[i]! t)
 
 @[expose] def hypG (_ : Unit := ()) : Array (Array Nat) := hypTuples.map (rebuild (levels ()))
 
+@[expose] def hypC (_ : Unit := ()) : Array (Array Nat) :=
+  ((hypG ()).zip hypFuncs).map fun gm => relPairs.map fun p => coordOf (dElts ()) gm.1 gm.2 p.1 p.2
+
+@[expose] def hypY (_ : Unit := ()) : Array (Array (Array Nat)) :=
+  ((hypG ()).zip (hypC ())).map fun gc => gc.2.map fun k => conjInvA 2300 gc.1 (dElts ())[k]!
+
+@[expose] def hypCheck (_ : Unit := ()) : Bool :=
+  let L := levels ()
+  let G := hypG ()
+  let C := hypC ()
+  let Y := hypY ()
+  G.size == 40 && C.size == 40 && Y.size == 40 &&
+  parLt 40 8 (fun j => validA 2300 G[j]! && inP L G[j]! && (C[j]!).size == 4 &&
+    (Y[j]!).size == 4 &&
+    allLt 4 (fun t => decide ((C[j]!)[t]! < 81) && validA 2300 (Y[j]!)[t]! &&
+      ((Y[j]!)[t]!)[co2BaseArr[(relPairs[t]!).1]!]! == co2BaseArr[(relPairs[t]!).2]!) &&
+    decide ((leaves L Y[j]!).length ≤ 162)) &&
+  decide ((leaves L Y[4]!).length ≤ 81) &&
+  allLt 81 (fun m => m == 0 || anyLt 40 fun j => allLt 4 fun t => dot3 m (C[j]!)[t]! == 0)
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2T

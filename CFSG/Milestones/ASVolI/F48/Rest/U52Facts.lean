@@ -46,13 +46,65 @@ open CFSG.ONSchreier CFSG.ONSchreier.Native CFSG.Sporadic.HNOddCore CFSG.Monster
 
 attribute [local irreducible] burnsideF48t_u52LArr burnsideF48t_u52GensArr
 
+theorem burnsideF48t_u52_nodupP1 : burnsideF48t_u52BaseP1.Nodup := by decide
+theorem burnsideF48t_u52_nodupP2 : burnsideF48t_u52BaseP2.Nodup := by decide
+theorem burnsideF48t_u52_nodupB : burnsideF48t_u52BaseB.Nodup := by decide
+theorem burnsideF48t_u52_nodupK : burnsideF48t_u52BaseK.Nodup := by decide
+
+
+@[expose] def burnsideF48t_u52P1' : Subgroup (Equiv.Perm (Fin 462)) :=
+  arrGen 462 burnsideF48t_u52P1Arr
+
+@[expose] def burnsideF48t_u52P2' : Subgroup (Equiv.Perm (Fin 462)) :=
+  arrGen 462 burnsideF48t_u52P2Arr
+
+@[expose] def burnsideF48t_u52B' : Subgroup (Equiv.Perm (Fin 462)) :=
+  arrGen 462 burnsideF48t_u52BArr
+
+@[expose] def burnsideF48t_u52S0' : Subgroup (Equiv.Perm (Fin 462)) :=
+  arrGen 462 (burnsideF48t_u52S0Arr ())
+
+@[expose] def burnsideF48t_u52K' : Subgroup (Equiv.Perm (Fin 462)) :=
+  arrGen 462 (burnsideF48t_u52KArr ())
 
 section Chains
+
+theorem burnsideF48t_u52_chains : burnsideF48t_u52ChainXOK () = true ∧
+    burnsideF48t_u52ChainP1OK () = true ∧ burnsideF48t_u52ChainP2OK () = true ∧
+    burnsideF48t_u52ChainBOK () = true ∧ burnsideF48t_u52ChainS0OK () = true ∧
+    burnsideF48t_u52ChainKOK () = true :=
+  Certificates.certificate7767
+
+
+theorem burnsideF48t_u52_card_P1' : Nat.card ↥burnsideF48t_u52P1' = 82944 := by
+  rw [burnsideF48t_u52P1', card_arrGen_of_chainCheck (by norm_num) burnsideF48t_u52_nodupP1
+    burnsideF48t_u52_chains.2.1]
+  rfl
+
+theorem burnsideF48t_u52_card_P2' : Nat.card ↥burnsideF48t_u52P2' = 46080 := by
+  rw [burnsideF48t_u52P2', card_arrGen_of_chainCheck (by norm_num) burnsideF48t_u52_nodupP2
+    burnsideF48t_u52_chains.2.2.1]
+  rfl
+
+theorem burnsideF48t_u52_card_B' : Nat.card ↥burnsideF48t_u52B' = 9216 := by
+  rw [burnsideF48t_u52B', card_arrGen_of_chainCheck (by norm_num) burnsideF48t_u52_nodupB
+    burnsideF48t_u52_chains.2.2.2.1]
+  rfl
+
+
+theorem burnsideF48t_u52_card_K' : Nat.card ↥burnsideF48t_u52K' = 9 := by
+  rw [burnsideF48t_u52K', card_arrGen_of_chainCheck (by norm_num) burnsideF48t_u52_nodupK
+    burnsideF48t_u52_chains.2.2.2.2.2]
+  rfl
 
 
 end Chains
 
 section Letters
+
+
+@[expose] noncomputable def burnsideF48t_u52σ (i : ℕ) : Equiv.Perm (Fin 462) :=
+  CFSG.ONSchreier.permOfArr 462 burnsideF48t_u52LArr[i]!
 
 
 end Letters

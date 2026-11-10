@@ -54,6 +54,34 @@ theorem of_surjective [Finite G] (hcov : ∀ g, ∃ i, g * (r i)⁻¹ ∈ S)
   have := S.mul_mem (S.inv_mem hi) hj
   rwa [mul_inv_rev, inv_inv, mul_assoc, inv_mul_cancel_left] at this
 
+theorem exists_mul_inv_mem_of_closure [Finite G] {X : Set G} (hX : closure X = ⊤) {i₀ : I}
+    (hi₀ : r i₀ ∈ S) (hstep : ∀ i, ∀ x ∈ X, ∃ j, r i * x * (r j)⁻¹ ∈ S) (g : G) :
+    ∃ i, g * (r i)⁻¹ ∈ S := by
+  have hright : ∀ y ∈ X, ∀ x : G, (∃ i, x * (r i)⁻¹ ∈ S) → ∃ i, x * y * (r i)⁻¹ ∈ S := by
+    rintro y hy x ⟨i, hi⟩
+    obtain ⟨j, hj⟩ := hstep i y hy
+    refine ⟨j, ?_⟩
+    have := S.mul_mem hi hj
+    simpa only [mul_assoc, inv_mul_cancel_left] using this
+  have hpow : ∀ y ∈ X, ∀ n : ℕ, ∀ x : G, (∃ i, x * (r i)⁻¹ ∈ S) →
+      ∃ i, x * y ^ n * (r i)⁻¹ ∈ S := by
+    intro y hy n
+    induction n with
+    | zero => intro x hx; simpa using hx
+    | succ n ih =>
+      intro x hx
+      rw [pow_succ, ← mul_assoc]
+      exact hright y hy _ (ih x hx)
+  have hg : g ∈ closure X := hX ▸ Subgroup.mem_top g
+  induction hg using Subgroup.closure_induction_right with
+  | one => exact ⟨i₀, by rw [one_mul]; exact S.inv_mem hi₀⟩
+  | mul_right x _ y hy ih => exact hright y hy x ih
+  | mul_inv_cancel x _ y hy ih =>
+    have hinv : y ^ (orderOf y - 1) = y⁻¹ := by
+      rw [← mul_eq_one_iff_eq_inv, ← pow_succ, Nat.sub_add_cancel (orderOf_pos y),
+        pow_orderOf_eq_one]
+    have h := hpow y hy (orderOf y - 1) x ih
+    rwa [hinv] at h
 
 variable (hr : IsRightTransversal S r)
 include hr
@@ -72,6 +100,22 @@ theorem eq_of_mul_inv_mem {i j : I} (h : r i * (r j)⁻¹ ∈ S) : i = j :=
 theorem injective : Function.Injective r := fun i j h =>
   hr.eq_of_mul_inv_mem (by rw [h, mul_inv_cancel]; exact S.one_mem)
 
+theorem card_eq_index : Nat.card I = S.index := by
+  let φ : I → Quotient (QuotientGroup.rightRel S) := fun i => Quotient.mk'' (r i)
+  have hφ : Function.Bijective φ := by
+    constructor
+    · intro i j h
+      exact (hr.eq_of_mul_inv_mem (QuotientGroup.rightRel_apply.1 (Quotient.exact' h))).symm
+    · intro q
+      induction q using Quotient.inductionOn' with
+      | h g => exact ⟨hr.index g,
+          Quotient.sound' (QuotientGroup.rightRel_apply.2 (hr.mul_inv_mem_index g))⟩
+  rw [Nat.card_congr (Equiv.ofBijective φ hφ),
+    Nat.card_congr (QuotientGroup.quotientRightRelEquivQuotientLeftRel S),
+    Subgroup.index_eq_card]
+
+theorem fintype_card_eq_index [Fintype I] : Fintype.card I = S.index := by
+  rw [← Nat.card_eq_fintype_card, hr.card_eq_index]
 
 @[expose] noncomputable def act (i : I) (g : G) : I := hr.index (r i * g)
 
@@ -135,6 +179,8 @@ variable [Fintype I]
 theorem transfer₂_apply (f : S → S → ZMod 2) (g k : G) :
     hr.transfer₂ f g k = ∑ i, f (hr.coef i g) (hr.coef (hr.act i g) k) := rfl
 
+theorem transfer₁_apply (b : S → ZMod 2) (g : G) :
+    hr.transfer₁ b g = ∑ i, b (hr.coef i g) := rfl
 
 theorem transfer₂_add_coboundary (f : S → S → ZMod 2) (b : S → ZMod 2) (g k : G) :
     hr.transfer₂ (fun s t => f s t + coboundary b s t) g k =
@@ -143,6 +189,8 @@ theorem transfer₂_add_coboundary (f : S → S → ZMod 2) (b : S → ZMod 2) (
   rw [hr.sum_act (fun i => b (hr.coef i k)) g]
   simp only [← hr.coef_mul]
 
+theorem transfer₁_one {b : S → ZMod 2} (hb : b 1 = 0) : hr.transfer₁ b 1 = 0 := by
+  simp [transfer₁, hr.coef_one, hb]
 
 @[expose] noncomputable def transferCocycle (f : NormCocycle S) : NormCocycle G where
   toFun := hr.transfer₂ f
@@ -170,6 +218,24 @@ section Comparison
 
 variable {E : Type*} [Group E] {π : E →* G} {z : E}
 
+omit [Fintype I] in
+theorem exists_unique_exponents (hπ : IsCentralDoubleExt π z) (u : G → E)
+    (hu : ∀ g, π (u g) = g) (R : I → E) (hR : ∀ i, π (R i) = r i) :
+    (∃! h : G → G → ZMod 2, ∀ g k, u g * u k = z ^ (h g k).val * u (g * k)) ∧
+      ∃! c : I → G → ZMod 2,
+        ∀ i g, R i * u g = z ^ (c i g).val * u (hr.coef i g) * R (hr.act i g) := by
+  refine ⟨⟨fun g k => binCoord (u g * u k) (u (g * k)), fun g k =>
+      hπ.eq_pow_binCoord_mul (by rw [map_mul, hu, hu, hu]), fun h' hh' => ?_⟩,
+    ⟨fun i g => binCoord (R i * u g) (u (hr.coef i g) * R (hr.act i g)), fun i g => ?_,
+      fun c' hc' => ?_⟩⟩
+  · funext g k
+    exact (hπ.binCoord_eq (hh' g k)).symm
+  · rw [mul_assoc]
+    exact hπ.eq_pow_binCoord_mul (by simp only [map_mul, hu, hR]; exact hr.r_mul i g)
+  · funext i g
+    have h1 : R i * u g = z ^ (c' i g).val * (u (hr.coef i g) * R (hr.act i g)) := by
+      rw [hc' i g, mul_assoc]
+    exact (hπ.binCoord_eq h1).symm
 
 theorem eq_transfer_add_coboundary (hπ : IsCentralDoubleExt π z) (hodd : Odd (Fintype.card I))
     (u : G → E) (hu1 : u 1 = 1) (h : G → G → ZMod 2)
@@ -251,6 +317,29 @@ theorem exists_coboundary_eq_transfer (hπ : IsCentralDoubleExt π z)
     hr.exists_section_eq_transfer_add_coboundary hπ hodd u₀ hu₀ hu₀1 f hf
   exact ⟨C, hC1, fun s t => by rw [← hhS s t, hC s t]⟩
 
+theorem central_double_extension_odd_index_transfer_comparison (hπ : IsCentralDoubleExt π z)
+    (hodd : Odd (Fintype.card I)) :
+    (∀ (f f' : S → S → ZMod 2) (b : S → ZMod 2), (∀ s t, f' s t = f s t + coboundary b s t) →
+      ∀ g k, hr.transfer₂ f' g k = hr.transfer₂ f g k + coboundary (hr.transfer₁ b) g k) ∧
+    (∀ (u : G → E) (h : G → G → ZMod 2) (R : I → E) (c : I → G → ZMod 2), u 1 = 1 →
+      (∀ g k, u g * u k = z ^ (h g k).val * u (g * k)) →
+      (∀ i g, R i * u g = z ^ (c i g).val * u (hr.coef i g) * R (hr.act i g)) →
+      ∑ i, c i 1 = 0 ∧ ∀ g k,
+        h g k = hr.transfer₂ (fun s t => h s t) g k + coboundary (fun g => ∑ i, c i g) g k) ∧
+    ∀ (u₀ : S → E) (f : S → S → ZMod 2), (∀ s, π (u₀ s) = s) → u₀ 1 = 1 →
+      (∀ s t, u₀ s * u₀ t = z ^ (f s t).val * u₀ (s * t)) →
+      ∃ (u : G → E) (h : G → G → ZMod 2) (C : G → ZMod 2),
+        (∀ g, π (u g) = g) ∧ u 1 = 1 ∧ (∀ s : S, u s = u₀ s) ∧
+        (∀ g k, u g * u k = z ^ (h g k).val * u (g * k)) ∧ (∀ s t : S, h s t = f s t) ∧
+        C 1 = 0 ∧ (∀ g k, h g k = hr.transfer₂ f g k + coboundary C g k) ∧
+        ∀ s t : S, f s t = hr.transfer₂ f s t + coboundary C s t := by
+  refine ⟨fun f f' b hf' g k => ?_, fun u h R c hu1 hh hc =>
+    hr.eq_transfer_add_coboundary hπ hodd u hu1 h hh R c hc, fun u₀ f hu₀ hu₀1 hf => ?_⟩
+  · rw [← hr.transfer₂_add_coboundary]
+    exact congrArg (fun f'' => hr.transfer₂ f'' g k) (funext₂ hf')
+  · obtain ⟨u, h, C, hu, hu1, huS, hh, hhS, hC1, hC⟩ :=
+      hr.exists_section_eq_transfer_add_coboundary hπ hodd u₀ hu₀ hu₀1 f hf
+    exact ⟨u, h, C, hu, hu1, huS, hh, hhS, hC1, hC, fun s t => by rw [← hhS s t, hC s t]⟩
 
 end Comparison
 

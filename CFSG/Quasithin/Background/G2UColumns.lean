@@ -128,6 +128,9 @@ theorem map_XMat (i : Fin Tag.G2.rank) (c : R) : (XMat R i c).map σ = XMat S i 
   ext a b
   simp [XMat, map_colX]
 
+theorem map_YMat (i : Fin Tag.G2.rank) (c : R) : (YMat R i c).map σ = YMat S i (σ c) := by
+  ext a b
+  simp [YMat, map_colY]
 
 @[expose] def g0c : List ℕ :=
   [3, 2, 4, 24, 16, 416, 320, 128, 256, 1536, 1024, 2048, 12288, 8192]

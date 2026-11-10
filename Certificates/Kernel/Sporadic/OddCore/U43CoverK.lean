@@ -138,6 +138,8 @@ theorem cCl : slK (Nat.mul U43KC.cnt 10)
     (findPtK U43KC.cnt U43KC.T (prodQK 820 10 (mask 10) 10 U43KC.T (bothK 5 U43KC.GI U43KCI))
       U43KCCl) 0 (Nat.mul U43KC.cnt 10) = true := by quickRfl
 
+theorem in_neg : inK 6 1 = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.U43CoverK
 

@@ -17,6 +17,13 @@ attribute [local irreducible] burnsideF48t_g23LArr burnsideF48t_g23Tau burnsideF
 
 section Generic
 
+variable {N : ℕ}
+
+theorem burnsideF48t_permOfArr_mem_arrGen {O : Array (Array ℕ)} {t : Array ℕ} (ht : t ∈ O) :
+    CFSG.Monster.B.Co2.permOfArr N t ∈ arrGen N O := by
+  obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 ht
+  exact Subgroup.subset_closure ⟨k, hk, by rw [getElem!_pos O k hk]⟩
+
 
 end Generic
 

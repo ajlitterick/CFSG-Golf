@@ -16,6 +16,16 @@ variable {K : Type u} {V : Type v} [Field K] [AddCommGroup V] [Module K V]
 @[expose] def coordinateElement (T : Module.End K V) (a b : K) : scalarAlgebra T :=
   algebraMap K (scalarAlgebra T) a + b • generator T
 
+theorem coordinateElement_val (T : Module.End K V) (a b : K) :
+    (coordinateElement T a b).val = algebraMap K (Module.End K V) a + b • T := rfl
+
+theorem coordinateElement_zero (T : Module.End K V) : coordinateElement T 0 0 = 0 := by
+  simp only [coordinateElement, map_zero, zero_smul, add_zero]
+
+
+theorem coordinateElement_generator (T : Module.End K V) :
+    coordinateElement T 0 1 = generator T := by
+  simp only [coordinateElement, map_zero, one_smul, zero_add]
 
 theorem scalarBasis_expansion [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
@@ -49,6 +59,10 @@ theorem coordinateElement_eq_iff [Nontrivial V] (T : Module.End K V) (d : K)
   · rintro ⟨rfl, rfl⟩
     rfl
 
+theorem coordinateElement_eq_zero_iff [Nontrivial V] (T : Module.End K V) (d : K)
+    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
+    (a b : K) : coordinateElement T a b = 0 ↔ a = 0 ∧ b = 0 := by
+  rw [← coordinateElement_zero T, coordinateElement_eq_iff T d hns hsquare]
 
 theorem existsUnique_coordinates [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)

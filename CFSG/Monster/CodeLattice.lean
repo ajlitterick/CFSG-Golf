@@ -169,5 +169,24 @@ theorem sum_mul_emod_eight (hΩ : allOnes ∈ C) (hC4 : ∀ d ∈ C, weight d % 
   rw [e] at h1
   omega
 
+theorem codeForm_even_integral (hΩ : allOnes ∈ C) (hC4 : ∀ d ∈ C, weight d % 4 = 0)
+    {u v : Fin 24 → ℤ} (hu : u ∈ codeLattice C) (hv : v ∈ codeLattice C) :
+    (∃ n : ℤ, codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 2 * n) ∧
+      ∃ n : ℤ, codeForm (fun i => (u i : ℚ)) (fun i => (v i : ℚ)) = n := by
+  obtain ⟨a, ha⟩ : ∃ a, ∑ i, u i * u i = 16 * a :=
+    ⟨(∑ i, u i * u i) / 16, by have := sum_mul_self_emod_sixteen hC4 hu; omega⟩
+  obtain ⟨c, hc⟩ : ∃ c, ∑ i, u i * v i = 8 * c :=
+    ⟨(∑ i, u i * v i) / 8, by have := sum_mul_emod_eight hΩ hC4 hu hv; omega⟩
+  refine ⟨⟨a, ?_⟩, ⟨c, ?_⟩⟩
+  · unfold codeForm
+    have : (∑ i, (u i : ℚ) * (u i : ℚ)) = ((∑ i, u i * u i : ℤ) : ℚ) := by push_cast; rfl
+    rw [this, ha]
+    push_cast
+    ring
+  · unfold codeForm
+    have : (∑ i, (u i : ℚ) * (v i : ℚ)) = ((∑ i, u i * v i : ℤ) : ℚ) := by push_cast; rfl
+    rw [this, hc]
+    push_cast
+    ring
 
 end CFSG.Monster

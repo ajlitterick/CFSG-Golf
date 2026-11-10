@@ -157,6 +157,8 @@ theorem vA_eq {i : Nat} (hi : i < 13) : vA i = unpack 1755 11 (V i) := (v_eq hi)
 theorem cV {i : Nat} (hi : i < 13) : canonK 1755 11 (mask 11) (1755 * 11) (V i) = true :=
   (v_eq hi).2
 
+theorem vTab : ∀ j ∈ (List.range 13), vArrs[j]! = unpack 1755 11 (V j) ∧ C (V j) :=
+  fun _ hj => v_eq (List.mem_range.1 hj)
 
 theorem vProd_eq {l : List Nat} (hl : ∀ j ∈ l, j < 13) :
     vProd l = unpack 1755 11 (wP V l) ∧ C (wP V l) :=
@@ -178,6 +180,10 @@ theorem w2_eq : w2Arr = unpack 1755 11 W2 ∧ C W2 := by
   rw [Nat.eq_of_beq_eq_true w2B] at h1 h2
   exact ⟨h1, h2⟩
 
+theorem negPi : (listK 1755 W1 titsPiArr.toList 0).not = true := by quickRfl
+theorem negV : (Nat.beq (pcomp 1755 11 (mask 11) (wP TitsS.S [1, 2, 0, 2, 0, 0]) (pidn 1755 11))
+    (V 1)).not = true := by quickRfl
+theorem negW : (Nat.beq (wP TitsN.S [3, 2, 2, 1]) W2).not = true := by quickRfl
 
 end CertificateChecks.KernelEvenBN
 

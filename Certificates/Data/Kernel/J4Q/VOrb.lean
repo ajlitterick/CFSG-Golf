@@ -43,6 +43,8 @@ open CFSG.KC.Loop CFSG.KC.LQT.Syl
         (Nat.land e rm))
     EN
 
+@[expose] noncomputable def vtreeK (rm : Nat) (Rs : List (List Nat)) (root : Nat) (EN : List Nat) : Bool :=
+  vtGo rm Rs EN (vptsK rm root EN) (nat_lit 0) (nat_lit 1)
 
 @[expose] noncomputable def sincK (l : List Nat) (b : Nat) : Bool :=
   List.rec (motive := fun _ => Nat → Bool) (fun _ => true)

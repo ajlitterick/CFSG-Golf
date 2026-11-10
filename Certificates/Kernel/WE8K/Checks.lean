@@ -25,6 +25,19 @@ theorem ch18004_orb9 : orbFam 9 = true := ch18004o9
 
 theorem ch18004_oN : oN = [120, 3780, 37800, 113400, 3150, 37800, 3780, 120, 1, 15120] := rfl
 
+theorem ch18004_np : np = 21 := rfl
+
+theorem ch18004_nm : nm = 2 := rfl
+
+@[expose] noncomputable def chunksOK (B C n N : Nat) : Bool :=
+  bAnd(Nat.beq (byteAt B (nat_lit 0)) (nat_lit 0), bAnd(Nat.beq (byteAt B n) (nat_lit 240),
+    bAnd(allBelow n (nat_lit 1) fun k => Nat.blt (byteAt B k) (byteAt B (Nat.succ k)),
+      Nat.beq (sumBelow n (nat_lit 1) fun k => fld(C, Nat.shiftLeft k (nat_lit 4), nat_lit 0xFFFF))
+        N)))
+
+theorem ch18004_chunksP : chunksOK bp cp 21 199952 = true := by decide +kernel
+
+theorem ch18004_chunksM : chunksOK bm cm 2 15120 = true := by decide +kernel
 
 end CFSG.KD.WE8K
 

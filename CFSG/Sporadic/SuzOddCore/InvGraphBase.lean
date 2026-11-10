@@ -40,5 +40,18 @@ theorem suzM_eq_closure_gens :
     · left; rfl
     · right; rfl
 
+theorem ncard_finSet {n : ℕ} {l : List ℕ} (hl : PointList n l) : (finSet n l).ncard = l.length := by
+  classical
+  have hset : finSet n l =
+      ((l.pmap (fun x hx => (⟨x, hx⟩ : Fin n)) fun x hx => hl.lt x hx).toFinset : Set (Fin n)) := by
+    ext p
+    simp only [finSet, Set.mem_ofPred_eq, List.coe_toFinset, List.mem_pmap]
+    constructor
+    · intro hp
+      exact ⟨p, hp, rfl⟩
+    · rintro ⟨a, ha, rfl⟩
+      exact ha
+  rw [hset, Set.ncard_coe_finset, List.toFinset_card_of_nodup, List.length_pmap]
+  exact hl.sorted.nodup.pmap fun a _ b _ h => congrArg Fin.val h
 
 end CFSG.Sporadic.SuzOddCore

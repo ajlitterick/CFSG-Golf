@@ -114,6 +114,13 @@ theorem exists_lifts
     · rw [lift_ab23]
       simpa using hab23
 
+theorem lift_gen_T
+    (i : Fin 4) : FreeGroup.lift gen (FreeGroup.mk (T i)) = 1 := by
+  fin_cases i
+  · exact lift_gen_eq_one a2_mem
+  · exact lift_gen_eq_one r5_mem
+  · exact lift_gen_eq_one r6_mem
+  · exact lift_gen_eq_one r7_mem
 
 theorem r4_mem : castTo r4 ∈ pres.relators :=
   castTo_mem_relators (by rw [relatorLetters_eq]; decide +kernel)

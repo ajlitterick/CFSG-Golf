@@ -90,6 +90,9 @@ theorem act_pk (p : T24s2.Elem) {m : Nat} (hm : m < 2 ^ 11) :
     actM_matOf (xorLin_act11 _) 11 m hm]
   exact actM_unpk _ _ _ _
 
+theorem arr_get (p : T24s2.Elem) {i : Nat} (hi : i < 24) :
+    (T24s2.arr p)[i]! = CFSG.KC.Enum.pg 5 (CFSG.KS.mask 5) (pk E p) i :=
+  pg_pk packed p hi
 
 end CertificateChecks.KernelHMathieu.T24
 

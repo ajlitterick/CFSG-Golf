@@ -96,6 +96,14 @@ structure ClassData where
 @[expose] def ClassData.ok (D : ClassData) (gs : Array (Array ℕ)) (x : Array ℕ) (n : ℕ) : Bool :=
   classTreeOK gs x D.T D.P D.K D.idx && D.T.size == n
 
+@[expose] def d4ClassCheckOn (cz ct : ClassData) (eu : EnumData) : Bool :=
+  gensOK d4Gens && cz.ok d4Gens z0R 819 && ct.ok d4Gens t0R 68796 && gensOK uGens &&
+  eu.ok uGens 4096 &&
+  allLt 4096 fun i => !(mulR eu.El[i]! eu.El[i]! == oneR) || eu.El[i]! == oneR ||
+    memR cz.T cz.idx eu.El[i]! || memR ct.T ct.idx eu.El[i]!
+
+@[expose] def d4ClassCheck : Bool :=
+  d4ClassCheckOn (mkClass d4Gens z0R) (mkClass d4Gens t0R) (mkEnum uGens)
 
 @[expose] def twoSet (D : EnumData) (c3 : ℕ) : List ℕ :=
   (List.range 3072).filter fun i => sq12R D.El[i]! == oneR &&

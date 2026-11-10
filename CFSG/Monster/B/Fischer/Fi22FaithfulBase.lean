@@ -62,6 +62,16 @@ theorem getElem!_map_toArray {l : List ℕ} {f : ℕ → Array V} {i : ℕ} (hi 
   rw [getElem!_pos _ i (by rw [Array.size_map, List.size_toArray]; exact hi), Array.getElem_map,
     List.getElem_toArray, getElem!_pos l i hi]
 
+@[expose] noncomputable def fi22CommMap :
+    Matrix (Fin 77) (Fin 77) (ZMod 3) →ₗ[ZMod 3] (Fin 6 → Matrix (Fin 77) (Fin 77) (ZMod 3)) where
+  toFun M t := M * fi22T (fi22CentralizerIdx.getD t 0) - fi22T (fi22CentralizerIdx.getD t 0) * M
+  map_add' M N := by
+    funext t
+    simp only [Pi.add_apply, add_mul, mul_add]
+    abel
+  map_smul' c M := by
+    funext t
+    simp only [Pi.smul_apply, RingHom.id_apply, smul_sub, Matrix.smul_mul, Matrix.mul_smul]
 
 abbrev Fi22GL : Type := LinearMap.GeneralLinearGroup (ZMod 3) Fi22V
 
@@ -135,6 +145,8 @@ theorem fi22P_eq : fi22P = Subgroup.closure (Set.range fun k : Fin 2 => fi22GenP
 @[expose] noncomputable def fi22ToLin : GL (Fin 77) (ZMod 3) →* Fi22GL :=
   Matrix.GeneralLinearGroup.toLin.toMonoidHom
 
+theorem fi22ToLin_apply (g : GL (Fin 77) (ZMod 3)) :
+    fi22ToLin g = Matrix.GeneralLinearGroup.toLin g := rfl
 
 theorem fi22ToLin_injective : Function.Injective fi22ToLin :=
   Matrix.GeneralLinearGroup.toLin.injective
@@ -199,6 +211,10 @@ theorem fi22JEquivG_val (g : CFSG.Sporadic.Fi22.J) :
   Blueprint.NativeSporadic.matrixSeedEquiv 3 77 (by norm_num) mA mB (det_mA_ne_zero matrixFacts)
     (det_mB_ne_zero matrixFacts)
 
+theorem fi22MatEquiv_val (u : Blueprint.NativeSporadic.Fi22) :
+    (((fi22MatEquiv u : CFSG.Sporadic.Fi22.J) : GL (Fin 77) (ZMod 3)) :
+      Matrix (Fin 77) (Fin 77) (ZMod 3)) = u.val.val :=
+  Blueprint.NativeSporadic.matrixSeedEquiv_val 3 77 _ mA mB _ _ u
 
 @[expose] noncomputable def fi22EquivG :
     Blueprint.NativeSporadic.Fi22 ≃* fi22G :=
@@ -213,6 +229,13 @@ theorem fi22EquivG_apply (u : Blueprint.NativeSporadic.Fi22) :
 @[expose] noncomputable def fi22SeedB :
     Blueprint.NativeSporadic.Fi22 := fi22MatEquiv.symm b
 
+theorem fi22SeedA_val : fi22SeedA.val.val = mA := by
+  rw [← fi22MatEquiv_val, fi22SeedA, MulEquiv.apply_symm_apply]
+  rfl
+
+theorem fi22SeedB_val : fi22SeedB.val.val = mB := by
+  rw [← fi22MatEquiv_val, fi22SeedB, MulEquiv.apply_symm_apply]
+  rfl
 
 theorem fi22SeedGL_zero :
     fi22SeedGL ((0 : Fin 2) : ℕ) = gA := ite_eq_left rfl

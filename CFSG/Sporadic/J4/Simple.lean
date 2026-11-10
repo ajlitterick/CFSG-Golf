@@ -51,6 +51,25 @@ theorem z_pow : ((a : J) * (cJ⁻¹ * (a * b) * cJ)) ^ 43 = 1 := by
   rw [← this]
   simp only [Matrix.mul_assoc]
 
+theorem card_J_N : Nat.card J = 86775571046077562880 := by
+  have := isPretransitive_J hF
+  have h := Subgroup.card_mul_index (MulAction.stabilizer J (root0 hF))
+  rw [MulAction.index_stabilizer, MulAction.orbit_eq_univ, Set.ncard_univ, Nat.card_fin,
+    stabilizer_eq_Hj hF, card_Hj_N hF] at h
+  rw [← h]
+  rfl
+
+theorem isSimpleGroup_J_N : IsSimpleGroup J := by
+  have := isPreprimitive_J hF
+  have := faithful_J hF
+  refine isSimpleGroup_of_conj_product (Ω := Fin nPts) ?_ a b cJ closure_ab (root0 hF)
+    (ab_pow hF) (z_pow hF) ?_ ?_
+  · rw [Nat.card_eq_fintype_card, Fintype.card_fin]
+    decide
+  · rw [stabilizer_eq_Hj hF, card_Hj_N hF]
+    norm_num
+  · rw [stabilizer_eq_Hj hF, card_Hj_N hF]
+    norm_num
 
 end Facts
 

@@ -30,6 +30,9 @@ theorem ind_apply (s : Finset I) (i : I) : ind s i = if i ∈ s then 1 else 0 :=
     rintro c x ⟨hx, hx'⟩
     exact ⟨fun i hi => by simp [hx i hi], by simp [← Finset.mul_sum, hx']⟩
 
+omit [DecidableEq I] in
+theorem mem_evenSubsets {d : Finset I} {x : I → ZMod 2} :
+    x ∈ evenSubsets d ↔ (∀ i, i ∉ d → x i = 0) ∧ ∑ i ∈ d, x i = 0 := Iff.rfl
 
 @[expose] def complSpan (d : Finset I) : Submodule (ZMod 2) (evenSubsets d) :=
   (Submodule.span (ZMod 2) {ind d}).comap (evenSubsets d).subtype

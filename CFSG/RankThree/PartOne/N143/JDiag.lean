@@ -113,6 +113,8 @@ theorem exists_actsBy {ζ : Kˣ} (hζ : IsZeta p ζ) {m : SL3 K}
   ∀ (v : Fin 3 → Kˣ) (hv : ∏ i, v i = 1),
     m * diagSL v hv * m⁻¹ = diagSL (permVec σ v) (prod_permVec σ hv)
 
+theorem ActsAll.toBy {m : SL3 K} {σ : Equiv.Perm (Fin 3)} (h : ActsAll m σ) : ActsBy p m σ :=
+  fun v hv _ => h v hv
 
 theorem ActsAll.mul {m n : SL3 K} {σ τ : Equiv.Perm (Fin 3)} (hm : ActsAll m σ)
     (hn : ActsAll n τ) : ActsAll (m * n) (σ * τ) := fun v hv => by

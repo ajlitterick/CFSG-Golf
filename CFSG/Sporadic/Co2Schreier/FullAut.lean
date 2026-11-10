@@ -149,6 +149,11 @@ theorem CTUC_Co2_full_automorphisms_inner :
   · exact ⟨g⁻¹ * m, by rw [key 1 h, mul_one]⟩
   · exact ⟨g⁻¹ * m * zP, by rw [key (MulAut.conj zP) h, ← map_mul]⟩
 
+theorem range_conj_co2P :
+    (MulAut.conj : co2P →* MulAut co2P).range = ⊤ :=
+  eq_top_iff.2 fun α _ => by
+    obtain ⟨g, hg⟩ := CTUC_Co2_full_automorphisms_inner α
+    exact ⟨g, hg.symm⟩
 
 theorem forall_inner_of_mulEquiv {K H : Type*} [Group K] [Group H] (e : K ≃* H)
     (h : ∀ α : MulAut H, ∃ g : H, α = MulAut.conj g) :

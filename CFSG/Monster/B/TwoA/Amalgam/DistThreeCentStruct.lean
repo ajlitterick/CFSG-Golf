@@ -255,6 +255,11 @@ theorem zpowers_le_centralizer_self (s : vStab v) :
   MonoidHom.noncommCoprod (jStar.comap ρ).subtype (Subgroup.zpowers s).subtype
     (commute_comap_zpowers hsurj hker hs)
 
+theorem prodToStab_apply
+    (hsurj : Function.Surjective ρ)
+    (hker : ρ.ker = Subgroup.zpowers (cStab v)) (hs : ρ s = betaStarElt)
+    (x : (jStar.comap ρ) × Subgroup.zpowers s) :
+    prodToStab hsurj hker hs x = (x.1 : vStab v) * x.2 := rfl
 
 theorem prodToStab_mem
     (hsurj : Function.Surjective ρ)

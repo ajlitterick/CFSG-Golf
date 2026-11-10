@@ -123,6 +123,8 @@ theorem admits_K : Admits (D ⊔ A) (kOf X) := by
 theorem admits_k1 : Admits (D ⊔ A) (k1 X W) :=
   Lemma213.admits_cenIn S.admits_K S.admits_DA_W
 
+theorem admits_k2 : Admits (D ⊔ A) (k2 X W) :=
+  Lemma213.admits_cenIn S.admits_K S.admits_k1
 
 theorem K_le_normalizer_k1
     : kOf X ≤ Subgroup.normalizer (k1 X W : Set Γ) := by

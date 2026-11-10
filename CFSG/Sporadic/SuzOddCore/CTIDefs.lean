@@ -56,6 +56,8 @@ theorem qWords_lt (j : ℕ) : ∀ k ∈ qWords.getD j [], k < 10 := by
 @[expose] def kpermOf (hm : (fixList 0).length = 42) (k : ℕ) : Equiv.Perm (Fin 42) :=
   rho0Of hm (innerGenE (i := 0) (by norm_num) k)
 
+theorem kpermOf_mem (hm : (fixList 0).length = 42) (k : ℕ) : kpermOf hm k ∈ (rho0Of hm).range :=
+  ⟨_, rfl⟩
 
 theorem tabRep_kpermOf (hm : (fixList 0).length = 42) {k : ℕ} (hk : k < 22) :
     TabRep (kGens 0)[k]! (kpermOf hm k) :=

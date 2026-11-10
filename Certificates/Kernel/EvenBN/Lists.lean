@@ -109,6 +109,7 @@ theorem u10Arrs_eq : u10Arrs () = UL.map (unpack 1755 11) ∧ ∀ x ∈ UL, C x 
 
 theorem EL_len : EL.length = 32 := by rw [← beq_iff_eq.1 elK]; simp
 theorem FL_len : FL.length = 32 := by rw [← beq_iff_eq.1 flK]; simp
+theorem UL_len : UL.length = 8 := by rw [← beq_iff_eq.1 ulK]; simp
 
 @[expose] noncomputable def xkC (e : Bool × Bool × List Nat) : Nat :=
   Bool.rec (motive := fun _ => Nat) (wP TitsH.S e.2.2) (wP TitsN.S e.2.2) e.1

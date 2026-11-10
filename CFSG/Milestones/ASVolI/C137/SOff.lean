@@ -99,6 +99,14 @@ theorem burnsideC137_offΓ (H : Subgroup Γ) (h1 : H ≠ ⊥) (hsq : ∀ g ∈ H
     exact hH4
   exact ⟨S, hS, fun h => ⟨hHBS h, hHeq h⟩, fun v => ⟨hCS v, hCeq v⟩⟩
 
+theorem burnsideC137_not_ord3 {g : Γ} (h3 : IsOrd3 g) {k : ℕ} (hk : g ^ 2 ^ k = 1) : False := by
+  have hy3 : g ^ 3 = 1 := by rw [pow_succ, pow_two]; exact h3.1
+  have hd3 : orderOf g ∣ 3 := orderOf_dvd_of_pow_eq_one hy3
+  have hd2 : orderOf g ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one hk
+  have hcop : Nat.Coprime 3 (2 ^ k) := Nat.Coprime.pow_right _ (by norm_num)
+  have : orderOf g ∣ 1 := hcop.gcd_eq_one ▸ Nat.dvd_gcd hd3 hd2
+  exact h3.2 (orderOf_eq_one_iff.mp (Nat.dvd_one.mp this))
+
 
 section Off
 

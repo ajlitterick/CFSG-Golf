@@ -11,6 +11,9 @@ namespace CFSG.Sporadic.Recognition.LyonsSims.LyFinal
 open Equiv Equiv.Perm Subgroup CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallOddCore
   CFSG.Sporadic.Schreier.Native CFSG.Sporadic.Recognition.McLMultiplier CFSG.CosetTable
 
+theorem getElem!_ofFn' {α : Type*} [Inhabited α] {n : ℕ} (f : Fin n → α) {i : ℕ} (hi : i < n) :
+    (Array.ofFn f)[i]! = f ⟨i, hi⟩ := by
+  rw [getElem!_pos (Array.ofFn f) i (by simpa using hi), Array.getElem_ofFn]
 
 theorem lift_mk_single {G : Type*} [Group G] {m : ℕ} (g : Fin m → G) (l : Fin m × Bool) :
     FreeGroup.lift g (FreeGroup.mk [l]) = if l.2 then g l.1 else (g l.1)⁻¹ := by
@@ -71,6 +74,32 @@ theorem gB_mem (i : Fin 6) : gB i ∈ Ly0.B0 :=
 
 noncomputable def gBs (i : Fin 6) : Ly0.B0 := ⟨gB i, gB_mem i⟩
 
+theorem rep_genTabsB (h : Ly0.tabCheck = true) (i : Fin 6) :
+    Rep Ly0.deg genTabsB[i.val]! (gB i) := by
+  unfold genTabsB
+  rw [getElem!_ofFn' _ i.isLt]
+  exact Ly0.rep_word0 h _ (genZ_mem i)
+
+theorem rep_genInvTabsB (h : Ly0.tabCheck = true) (i : Fin 6) :
+    Rep Ly0.deg genInvTabsB[i.val]! (gB i)⁻¹ := by
+  have e : (gB i)⁻¹ = Ly0.wG Ly0.gens0 (invW (genZ i)) := by
+    unfold gB
+    rw [Ly0.wG_invW Ly0.gens0 (fun l hl => (genZ_mem i l hl).1)]
+  rw [e]
+  unfold genInvTabsB
+  rw [getElem!_ofFn' _ i.isLt]
+  exact Ly0.rep_word0 h _ (invW_mem (genZ_mem i))
+
+theorem rep_letterTabB (h : Ly0.tabCheck = true) (l : Fin 6 × Bool) :
+    Rep Ly0.deg (letterTabB l) (if l.2 then gB l.1 else (gB l.1)⁻¹) := by
+  unfold letterTabB
+  split_ifs with hb
+  · exact rep_genTabsB h l.1
+  · exact rep_genInvTabsB h l.1
+
+theorem rep_wordTabB (h : Ly0.tabCheck = true) (w : List (Fin 6 × Bool)) :
+    Rep Ly0.deg (wordTabB w) (FreeGroup.lift gB (FreeGroup.mk w)) :=
+  rep_foldr (by norm_num [Ly0.deg]) letterTabB gB w fun l _ => rep_letterTabB h l
 
 theorem coe_lift_gBs (x : FreeGroup (Fin 6)) :
     ((FreeGroup.lift gBs x : Ly0.B0) : Perm (Fin Ly0.deg)) = FreeGroup.lift gB x := by
@@ -78,6 +107,14 @@ theorem coe_lift_gBs (x : FreeGroup (Fin 6)) :
     FreeGroup.ext_hom _ _ fun i => by simp [gBs]
   exact DFunLike.congr_fun this x
 
+theorem lift_gBs_eq_one (h : Ly0.tabCheck = true) {r : List (Fin 6 × Bool)}
+    (hr : bWordCheck r = true) : FreeGroup.lift gBs (FreeGroup.mk r) = 1 := by
+  unfold bWordCheck at hr
+  rw [Bool.and_eq_true] at hr
+  have h1 := (tblEq_idT_iff (by norm_num [Ly0.deg]) (rep_wordTabB h r)).1 hr.2
+  apply Subtype.ext
+  rw [coe_lift_gBs]
+  exact h1
 
 section Transfer
 
@@ -105,6 +142,11 @@ theorem lift_gOf_bword {x₁ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0) (k : G) {r 
     · simp only [gOf, hne, Bool.false_eq_true, ite_false, map_inv]
     · simp only [gOf, hne, ite_true, ite_false]
 
+theorem lift_gOf_bword_eq_one {x₁ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0) (k : G)
+    (h : Ly0.tabCheck = true) {r : List (Fin 6 × Bool)} (hr : bWordCheck r = true) :
+    FreeGroup.lift (gOf φ k) (FreeGroup.mk r) = 1 := by
+  have hb : isBWord r = true := (Bool.and_eq_true_iff.1 hr).1
+  rw [lift_gOf_bword φ k hb, lift_gBs_eq_one h hr, map_one]
 
 theorem lift_gOf_kk {x₁ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0) {k : G} (hk : k * k = 1) :
     FreeGroup.lift (gOf φ k) (FreeGroup.mk kkRel) = 1 := by
@@ -207,6 +249,18 @@ theorem wordG_wordLetter_congr {X : Type*} [Group X] (f g : ℕ → X) (hfg : �
     · rw [wordLetter_of_pos _ h, wordLetter_of_pos _ h, hfg _ (by omega)]
     · rw [wordLetter_of_not_pos _ h, wordLetter_of_not_pos _ h, hfg _ (by omega)]
 
+theorem substW_range (hY : Ly1080.YOK) {Ut : List ℤ}
+    (hUt : ∀ l ∈ Ut, l ≠ 0 ∧ l.natAbs ≤ 4) : ∀ l ∈ substW Ut, l ≠ 0 ∧ l.natAbs ≤ 4 := by
+  intro l' hl'
+  simp only [substW, List.mem_flatMap] at hl'
+  obtain ⟨l, hl, hl'⟩ := hl'
+  have hl0 := hUt l hl
+  split_ifs at hl' with h
+  · exact Ly1080.words_range₄ hY _ (List.mem_append_left _ (erelWords_get_mem hY (by omega))) l' hl'
+  · have hneg : -l' ∈ Ly1080.erelWords[(-l - 1).toNat]! := by simpa [invW] using hl'
+    have := Ly1080.words_range₄ hY _
+      (List.mem_append_left _ (erelWords_get_mem hY (i := (-l - 1).toNat) (by omega))) (-l') hneg
+    omega
 
 theorem isBWord_iff (r : List (Fin 6 × Bool)) : isBWord r = true ↔ ∀ l ∈ r, l.1.val < 5 := by
   simp [isBWord]
@@ -217,6 +271,25 @@ theorem isBWord_iff (r : List (Fin 6 × Bool)) : isBWord r = true ↔ ∀ l ∈ 
     FreeGroup.lift gB (FreeGroup.mk ev.2.1) = wordG (wordLetter Ly0.uG) ev.1 ∧
     wordG (wordLetter Ly0.uG) (substW ev.1) * FreeGroup.lift gB (FreeGroup.mk ev.2.2) = 1
 
+theorem eEvHolds_of_eCheck (hY : Ly1080.YOK) (hM : Ly0.tabCheck = true) {ev : EEv}
+    (h : eCheck ev = true) : EEvHolds ev := by
+  obtain ⟨Ut, U, V⟩ := ev
+  simp only [eCheck, Bool.and_eq_true] at h
+  obtain ⟨⟨⟨⟨hUt, hU⟩, hV⟩, hE1⟩, hE2⟩ := h
+  have hUt' : ∀ l ∈ Ut, l ≠ 0 ∧ l.natAbs ≤ 4 := by
+    intro l hl
+    simp only [isUWord, List.all_eq_true, Bool.and_eq_true, bne_iff_ne, ne_eq,
+      decide_eq_true_eq] at hUt
+    exact hUt l hl
+  have hn : Ly0.deg < 2 ^ 32 := by norm_num [Ly0.deg]
+  have hrepU : Rep Ly0.deg (wordT Ly0.deg Glue.uLetB Ut) (wordG (wordLetter Ly0.uG) Ut) :=
+    Rep.wordT hn _ fun l hl => Glue.rep_uLetB hM (hUt' l hl)
+  have hrepS : Rep Ly0.deg (wordT Ly0.deg Glue.uLetB (substW Ut))
+      (wordG (wordLetter Ly0.uG) (substW Ut)) :=
+    Rep.wordT hn _ fun l hl => Glue.rep_uLetB hM (substW_range hY hUt' l hl)
+  exact ⟨hUt', (isBWord_iff U).1 hU, (isBWord_iff V).1 hV,
+    (tblEq_iff_eq (rep_wordTabB hM U) hrepU).1 hE1,
+    (tblEq_idT_iff hn (Rep.compT hrepS (rep_wordTabB hM V))).1 hE2⟩
 
 theorem lift_gOf_erel_of_holds {x₁ x₂ x₃ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0)
     (hφY : ((NN x₁ x₂).subgroupOf (NormX x₁)).map φ.toMonoidHom = Ly0.Y0) (M : ModelGlue)
@@ -263,6 +336,12 @@ theorem lift_gOf_erel_of_holds {x₁ x₂ x₃ : G} (φ : ↥(NormX x₁) ≃* L
   rw [e2, hkk]
   group
 
+theorem lift_gOf_erel {x₁ x₂ x₃ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0)
+    (hφY : ((NN x₁ x₂).subgroupOf (NormX x₁)).map φ.toMonoidHom = Ly0.Y0) (M : ModelGlue)
+    {k : G} (hk : IsSwapY0 x₁ x₂ x₃ (borelPhiY φ hφY M.ιY) k) (hY : Ly1080.YOK)
+    (hM : Ly0.tabCheck = true) {ev : EEv} (h : eCheck ev = true) :
+    FreeGroup.lift (gOf φ k) (FreeGroup.mk (eRelOf ev)) = 1 :=
+  lift_gOf_erel_of_holds φ hφY M hk hY (eEvHolds_of_eCheck hY hM h)
 
 end ERel
 
@@ -297,6 +376,16 @@ theorem trLetG_zOf (l : Fin 5 × Bool) :
     have h2 : (zOf (i, true)).toNat - 1 = i.val := by rw [zOf_true]; omega
     simp only [Ly243.trLetG, h1, ite_true, h2]
 
+theorem wordLetter_txG_zOf (l : Fin 5 × Bool) :
+    wordLetter Glue.txG (zOf l) = if l.2 then Glue.txG l.1.val else (Glue.txG l.1.val)⁻¹ := by
+  obtain ⟨i, b⟩ := l
+  cases b
+  · have h1 : ¬ (0 : ℤ) < zOf (i, false) := by rw [zOf_false]; omega
+    have h2 : (-zOf (i, false)).toNat - 1 = i.val := by rw [zOf_false]; omega
+    simp only [wordLetter, h1, ite_false, h2, Bool.false_eq_true]
+  · have h1 : (0 : ℤ) < zOf (i, true) := by rw [zOf_true]; omega
+    have h2 : (zOf (i, true)).toNat - 1 = i.val := by rw [zOf_true]; omega
+    simp only [wordLetter, h1, ite_true, h2]
 
 theorem rep_trWordTab (hT : Ly243.trCheck = true) (w : List (Fin 5 × Bool)) :
     Rep Ly243.deg (trWordTab w)
@@ -311,6 +400,15 @@ noncomputable def txP (i : Fin 5) : Perm (Fin Ly0.deg) := Glue.txG i.val
 
 theorem txP_def (i : Fin 5) : txP i = Glue.txG i.val := by unfold txP; rfl
 
+theorem rep_txWordTab (hM : Ly0.tabCheck = true) {t : List (Fin 5 × Bool)}
+    (ht : isTxWord t = true) :
+    Rep Ly0.deg (txWordTab t) (FreeGroup.lift txP (FreeGroup.mk t)) :=
+  rep_foldr (by norm_num [Ly0.deg]) (fun l => Glue.txLetB (zOf l)) txP t fun l hl => by
+    have hl4 : l.1.val < 4 := by
+      simp only [isTxWord, List.all_eq_true, decide_eq_true_eq] at ht
+      exact ht l hl
+    have := Glue.rep_txLetB hM (l := zOf l) ⟨zOf_ne_zero l, by rw [zOf_natAbs]; omega⟩
+    rwa [wordLetter_txG_zOf] at this
 
 theorem lift_congr {K : Type*} [Group K] {m : ℕ} (g g' : Fin m → K) (w : List (Fin m × Bool))
     (h : ∀ l ∈ w, g l.1 = g' l.1) :
@@ -346,6 +444,15 @@ noncomputable def gT5 {x₁ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0) (M : ModelGl
   (∀ l ∈ sg.1, l.1.val < 5) ∧ (∀ l ∈ sg.2, l.1.val < 4) ∧
     FreeGroup.lift gB (FreeGroup.mk sg.1) = FreeGroup.lift txP (FreeGroup.mk sg.2)
 
+theorem trSegHolds_of_segCheck (hM : Ly0.tabCheck = true) {sg : TrSeg} (h : segCheck sg = true) :
+    TrSegHolds sg := by
+  obtain ⟨s, t⟩ := sg
+  simp only [segCheck, Bool.and_eq_true] at h
+  obtain ⟨⟨hs, ht⟩, hE⟩ := h
+  refine ⟨(isBWord_iff s).1 hs, ?_, (tblEq_iff_eq (rep_wordTabB hM s) (rep_txWordTab hM ht)).1 hE⟩
+  intro l hl
+  simp only [isTxWord, List.all_eq_true, decide_eq_true_eq] at ht
+  exact ht l hl
 
 theorem lift_gOf_seg_of_holds {x₁ : G} (φ : ↥(NormX x₁) ≃* Ly0.B0) (M : ModelGlue)
     (hMtx : ∀ i : Fin 4, M.txW i = Glue.txWords.getD i.val []) (k : G) {sg : TrSeg}
@@ -405,6 +512,12 @@ variable {G : Type} [Group G] [Finite G] {t : G}
   TrSegHolds ev.1 ∧ (∀ sg ∈ ev.2, TrSegHolds sg) ∧
     FreeGroup.lift (fun i : Fin 5 => Ly243.gg i.val) (FreeGroup.mk (trWord ev)) = 1
 
+theorem trEvHolds_of_trCheck (hT : Ly243.trCheck = true) (hM : Ly0.tabCheck = true) {ev : TrEv}
+    (h : trCheck ev = true) : TrEvHolds ev := by
+  simp only [trCheck, Bool.and_eq_true, List.all_eq_true] at h
+  obtain ⟨⟨h0, hrest⟩, h243⟩ := h
+  exact ⟨trSegHolds_of_segCheck hM h0, fun sg hsg => trSegHolds_of_segCheck hM (hrest sg hsg),
+    (tblEq_idT_iff (by norm_num [Ly243.deg]) (rep_trWordTab hT _)).1 h243⟩
 
 theorem lift_gOf_trrel_of_holds (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
     (hY : Ly1080.YOK) (hT : Ly243.trCheck = true) (hτ : Tau.tauOK = true)
@@ -429,6 +542,19 @@ theorem lift_gOf_trrel_of_holds (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃
   rw [hseg0, hsegs, ← lift_mk_append]
   exact key
 
+theorem lift_gOf_trrel (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
+    (hY : Ly1080.YOK) (hT : Ly243.trCheck = true) (hτ : Tau.tauOK = true)
+    (hM : Ly0.tabCheck = true) (φ : ↥(NormX (x₁ : G)) ≃* Ly0.B0)
+    (hφY : ((NN (x₁ : G) (x₂ : G)).subgroupOf (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Y0)
+    (hφT : ((normalizer (A3 (x₁ : G) (x₂ : G) (x₃ : G) : Set G)).subgroupOf
+      (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Tx)
+    (hφK : ((NN (x₁ : G) (x₂ : G) ⊓ normalizer (zpowers (x₃ : G) : Set G)).subgroupOf
+      (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Txy) (M : ModelGlue)
+    (hMtx : ∀ i : Fin 4, M.txW i = Glue.txWords.getD i.val []) {k : G}
+    (hk : IsSwapY0 (x₁ : G) (x₂ : G) (x₃ : G) (borelPhiY φ hφY M.ιY) k) {ev : TrEv}
+    (h : trCheck ev = true) :
+    FreeGroup.lift (gOf φ k) (FreeGroup.mk (trRel ev)) = 1 :=
+  lift_gOf_trrel_of_holds D S hY hT hτ φ hφY hφT hφK M hMtx hk (trEvHolds_of_trCheck hT hM h)
 
 end TrFinal
 

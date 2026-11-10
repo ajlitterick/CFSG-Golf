@@ -88,6 +88,29 @@ theorem hyp_sound_q0 {U : Array Nat} {xw yw : List Int} {sel : Array Nat}
   · rw [hH_eq]; exact hfam
   · rw [hH_eq]; exact hS
 
+theorem hyp_sound {U : Array Nat} {xw yw : List Int} {sel : Array Nat} {selL UL GP : List Nat}
+    {UP PP XP YP J0 J1 J2 QB PW RES : Nat} {PB TP HS ML LB LI WT GI : Nat → Nat}
+    {PL NL : Nat → List Nat} {SP : List Nat}
+    (hU : U = UL.toArray) (hsel : sel = selL.toArray) (hp : ptsK UL UP = true)
+    (hpos : posK UL UP PP = true) (hg : ∀ k < 46, gensOK UL UP GP k 1 = true)
+    (hxy : xyK GP xw yw = true)
+    (hX : Nat.beq XP (powP 3 (wordG GP xw)) = true) (hY : Nat.beq YP (powP 2 (wordG GP yw)) = true)
+    (hperp : ∀ k < 21, perpK UP PB (33 * k) 33 = true) (hpl : plK PB PL = true)
+    (hl : ∀ k < 21, linesK UP PP PB PL (33 * k) 33 = true)
+    (htab : ∀ k < 21, tabK UP TP (33 * k) 33 = true)
+    (hmem : ∀ k < 12, memK HS ML (352 * k) 352 = true) (hdist : distinctK HS SP = true)
+    (ho0 : orbK UP XP YP HS ML J0 0 1 = true) (ho1 : orbK UP XP YP HS ML J1 1 2 = true)
+    (ho2 : orbK UP XP YP HS ML J2 2 3 = true)
+    (hlam : ∀ k < 32, lamK UP PP TP LB selL (32 * k) 32 = true)
+    (hli : ∀ k < 16, liK LB LI (64 * k) 64 = true)
+    (hlamOK : lamOKK UP PP PB LB PL selL = true) (hw : wordsK TP WT GI QB PW = true)
+    (hrL : ∀ k < 21, rootLK UP PP HS PL (33 * k) 33 = true) (hrC : rootCK TP HS ML = true)
+    (hnl : ∀ k < 21, nlK GI PL NL (33 * k) 33 = true)
+    (hs : ∀ j < 1024, searchK PB LB HS LI NL RES j 1 = true) :
+    hypG U xw yw sel = true := by
+  obtain ⟨hc, hm, hl', hz⟩ := tp_centers_geom (Pts.of hp hpos) htab
+  exact hyp_sound_q0 hU hsel hp hpos hg hxy hX hY hperp hpl hl htab hmem hdist ho0 ho1 ho2 hlam hli
+    hlamOK hw hrL hrC hnl hs (qb0_of_words hc hm hl' hz hw)
 
 end CFSG.KC.Misc.Hyp
 

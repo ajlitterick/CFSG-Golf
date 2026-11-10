@@ -36,11 +36,14 @@ theorem rs : packNK jsSR.toList RS = true := by quickRfl
 theorem fj : CFSG.KS.SporSch.J4E.fixK c rm one JP.1 PJ IJ RJ 62 = true := by quickRfl
 theorem fs : CFSG.KS.SporSch.J4E.fixK c rm one SP.1 PS IS RS 56 = true := by quickRfl
 
+theorem nfj : notB (CFSG.KS.SporSch.J4E.fixK c rm one JP.1 PJ IJ RJ 61) = true := by quickRfl
+theorem nfs : notB (CFSG.KS.SporSch.J4E.fixK c rm one SP.1 PS IS RS 57) = true := by quickRfl
 
 theorem jj : Nat.beq (mulJ c rm JP.1 JP.1) one = true := by quickRfl
 theorem ss : Nat.beq (mulJ c rm SP.1 SP.1) one = true := by quickRfl
 theorem sq : Nat.beq (mulJ c rm SP.1 QP.1) (mulJ c rm QP.1 SP.1) = true := by quickRfl
 
+theorem nsq : notB (Nat.beq (mulJ c rm SP.1 QP.1) QP.1) = true := by quickRfl
 
 end CertificateChecks.KernelJ4JS
 

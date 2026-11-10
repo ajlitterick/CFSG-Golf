@@ -98,6 +98,12 @@ theorem evI_spec {k : ℕ} (hk : k < 17) (refs : List ℕ) (x : ℕ) (hx : x < 3
     ((el k refs)⁻¹ ⟨x, hx⟩ : ℕ) = evI k refs x :=
   evTI_spec (tW_lt hk) refs x hx
 
+theorem ev_lt {k : ℕ} (hk : k < 17) (refs : List ℕ) {x : ℕ} (hx : x < 31671) : ev k refs x < 31671 := by
+  rw [← ev_spec hk refs x hx]; exact Fin.isLt _
+
+theorem evI_lt {k : ℕ} (hk : k < 17) (refs : List ℕ) {x : ℕ} (hx : x < 31671) :
+    evI k refs x < 31671 := by
+  rw [← evI_spec hk refs x hx]; exact Fin.isLt _
 
 @[expose] def Desc (g : Equiv.Perm (Fin 31671)) (f : ℕ → ℕ) : Prop :=
   ∀ (x : ℕ) (hx : x < 31671), (g ⟨x, hx⟩ : ℕ) = f x

@@ -23,6 +23,8 @@ variable {X Y : Type*} [Group X]
     simp only [Set.mem_ofPred_eq, map_inv] at hg ⊢
     rw [Equiv.Perm.inv_eq_iff_eq, hg]
 
+theorem mem_stabP {π : X →* Equiv.Perm Y} {y : Y} {g : X} : g ∈ stabP π y ↔ π g y = y :=
+  Iff.rfl
 
 theorem closure_le_stabP {π : X →* Equiv.Perm Y} {y : Y} {S : Set X} (h : ∀ g ∈ S, π g y = y) :
     Subgroup.closure S ≤ stabP π y :=
@@ -132,6 +134,14 @@ theorem card_W6 : Nat.card (Multiplicative W6) = 64 := by
   rw [Nat.card_congr Multiplicative.toAdd, Nat.card_fun, Nat.card_zmod, Nat.card_fin]
   norm_num
 
+theorem W6_mul_self (v : Multiplicative W6) : v * v = 1 := by
+  apply Multiplicative.toAdd.injective
+  rw [toAdd_mul, toAdd_one]
+  ext i
+  simp only [Pi.add_apply, Pi.zero_apply]
+  generalize Multiplicative.toAdd v i = c
+  revert c
+  decide
 
 theorem vapp_lt_of_foldr {m : List ℕ} (c : ℕ) :
     ∀ l : List ℕ, (∀ j ∈ l, m.getD j 0 < 2 ^ 6) →
@@ -198,6 +208,8 @@ theorem psiW_y_w0 : psiW (u33GenPG 4) w0 ≠ w0 := by
 @[expose] noncomputable def permW : U33G →* Equiv.Perm (Multiplicative W6) :=
   (MulAut.toPerm _).comp psiW
 
+theorem permW_apply (g : U33G) (v : Multiplicative W6) : permW g v = psiW g v :=
+  rfl
 
 theorem A_le_stab_w0
     : u33Data.A ≤ stabP permW w0 := by

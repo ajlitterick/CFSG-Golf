@@ -76,6 +76,8 @@ theorem map_equiv_centralizer_eq (e : L ≃* L') (B : Subgroup L) :
     normalizer (B : Set L) ≃* normalizer ((B.map e.toMonoidHom : Subgroup L') : Set L') :=
   (e.subgroupMap _).trans (MulEquiv.subgroupCongr (map_equiv_normalizer_eq B e))
 
+theorem normalizerCongr_apply (e : L ≃* L') (B : Subgroup L) (g : normalizer (B : Set L)) :
+    ((normalizerCongr e B g : normalizer _) : L') = e g := rfl
 
 noncomputable def automizerCongr (e : L ≃* L') (B : Subgroup L) :
     Automizer B ≃* Automizer (B.map e.toMonoidHom) :=

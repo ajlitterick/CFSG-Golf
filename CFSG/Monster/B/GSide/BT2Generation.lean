@@ -60,6 +60,10 @@ theorem Pc_zero_le_of_Qam_three
     exact hQ
   · exact (le_inf (Qam_le_Pc (Ne.symm hj)) (Qam_le_Pc (Ne.symm h3))).trans hK
 
+theorem Pc_zero_inf_Pc_three :
+    Pc 0 ⊓ Pc 3 = parJ (pairOff 0 3) :=
+  Pc_inf_Pc_eq (X := chamberCS) chamberCS_hpanel chamberCS_hres2 chamberCS_hres3
+    chamberCS_encard_panel mem_residue_chamberCS_iff Pc_eq_iSup_Qam 0 3 (by decide)
 
 theorem hU_eq_zero_of_mem_span {x y s t : V6} (hxy : hU x y = 0)
     (hs : s ∈ Submodule.span F4 {x}) (ht : t ∈ Submodule.span F4 {y}) : hU s t = 0 := by
@@ -261,6 +265,13 @@ theorem Pc_zero_le_of_not_mem_Pc_three
     · rw [hbR]
       exact actP1_mono hle x⁻¹
 
+theorem parJ_sup_zpowers_eq_Pc_zero
+    {a : Dfull} (ha : a ∈ Pc 0) (ha3 : a ∉ Pc 3) :
+    parJ (pairOff 0 3) ⊔ Subgroup.zpowers a = Pc 0 := by
+  rw [← Pc_zero_inf_Pc_three]
+  exact le_antisymm (sup_le inf_le_left ((Subgroup.zpowers_le).2 ha))
+    (Pc_zero_le_of_not_mem_Pc_three le_sup_left ha ha3
+      (Subgroup.mem_sup_right (Subgroup.mem_zpowers a)))
 
 theorem cEdgeFix_le_of_not_mem_Pc_three
     {X : Subgroup Shat}
@@ -273,5 +284,20 @@ theorem cEdgeFix_le_of_not_mem_Pc_three
   obtain ⟨y, hy, hyg⟩ := h (mem_cEdgeFix_iff.1 hg)
   rwa [Subtype.ext hyg] at hy
 
+theorem not_mem_Pc_three_of_cvMul_not_mem_cSigma
+    {a : Shat} {v : CVert} (hv : v ∈ cSigma 1)
+    (hva : cvMul v a ∉ cSigma 1) : (a : Dfull) ∉ Pc 3 := by
+  intro h3
+  rw [Pc_three] at h3
+  obtain ⟨x, hx, rfl⟩ := hv
+  refine hva ⟨x * a, Sp8.Xgrp.mul_mem hx h3.1, ?_⟩
+  rw [cvMul_cvOf, mul_one, mul_one]
+
+theorem cEdgeFix_le_of_cvMul_not_mem_cSigma
+    {X : Subgroup Shat}
+    (hK : ∀ g ∈ cEdgeFix, (g : Dfull) ∈ Pc 3 → g ∈ X) {a : Shat} (ha : a ∈ cEdgeFix)
+    (haX : a ∈ X) {v : CVert} (hv : v ∈ cSigma 1) (hva : cvMul v a ∉ cSigma 1) :
+    cEdgeFix ≤ X :=
+  cEdgeFix_le_of_not_mem_Pc_three hK ha (not_mem_Pc_three_of_cvMul_not_mem_cSigma hv hva) haX
 
 end CFSG.Monster.B.GSide

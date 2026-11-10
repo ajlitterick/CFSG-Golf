@@ -31,5 +31,49 @@ theorem fixedCoordinate_points_range
       TauCeti.AlgHom.mapDomain (BialgHom.id k M) x ↔ _
   rw [TauCeti.AlgHom.mapDomain_id, MonoidHom.id_apply]
 
+def fixedCoordinateMap
+    (M X : TauCeti.FiniteTypeCommHopfAlgCat.{u,u} k)
+    (σM : M →ₐc[k] M) (σX : X →ₐc[k] X) (f : M.obj ⟶ X.obj)
+    (hf : f.hom.comp σM = σX.comp f.hom) :
+    fixedCoordinate M σM ⟶ fixedCoordinate X σX := by
+  let qX := (TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient X (fixedHopfIdeal X σX)).hom.hom
+  let g := qX.comp f.hom
+  have hg : g.comp σM = g := by
+    dsimp only [g]
+    rw [BialgHom.comp_assoc, hf, ← BialgHom.comp_assoc]
+    rw [fixedCoordinateHom_comp]
+  exact TauCeti.FiniteTypeCommHopfAlgCat.liftQuotient (fixedHopfIdeal M σM)
+    (TauCeti.FiniteTypeCommHopfAlgCat.ofHom g)
+    (by
+      change (TauCeti.HopfIdeal.equalizer σM (BialgHom.id k M)).toIdeal ≤
+        RingHom.ker g.toAlgHom.toRingHom
+      exact (TauCeti.HopfIdeal.equalizer_le_ker_iff g.toAlgHom.toRingHom).2 fun x =>
+        congrArg (fun h : M →ₐc[k] fixedCoordinate X σX => h x) hg)
+
+omit [IsAlgClosed k] in
+theorem fixedCoordinateMap_comp
+    (M X : TauCeti.FiniteTypeCommHopfAlgCat.{u,u} k)
+    (σM : M →ₐc[k] M) (σX : X →ₐc[k] X) (f : M.obj ⟶ X.obj)
+    (hf : f.hom.comp σM = σX.comp f.hom) :
+    (fixedCoordinateMap M X σM σX f hf).hom.hom.comp
+      (TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient M (fixedHopfIdeal M σM)).hom.hom =
+      (TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient X (fixedHopfIdeal X σX)).hom.hom.comp
+        f.hom := by
+  have h := TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient_comp_liftQuotient
+    (fixedHopfIdeal M σM)
+    (TauCeti.FiniteTypeCommHopfAlgCat.ofHom
+      ((TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient X (fixedHopfIdeal X σX)).hom.hom.comp f.hom))
+    (by
+      let qX := (TauCeti.FiniteTypeCommHopfAlgCat.mkQuotient X (fixedHopfIdeal X σX)).hom.hom
+      let g := qX.comp f.hom
+      have hg : g.comp σM = g := by
+        dsimp only [g]
+        rw [BialgHom.comp_assoc, hf, ← BialgHom.comp_assoc, fixedCoordinateHom_comp]
+      change (TauCeti.HopfIdeal.equalizer σM (BialgHom.id k M)).toIdeal ≤
+        RingHom.ker g.toAlgHom.toRingHom
+      exact (TauCeti.HopfIdeal.equalizer_le_ker_iff g.toAlgHom.toRingHom).2 fun x =>
+        congrArg (fun h : M →ₐc[k] fixedCoordinate X σX => h x) hg)
+  exact congrArg TauCeti.FiniteTypeCommHopfAlgCat.toBialgHom h
+
 
 end CFSG.LieType.AlgebraicGroups

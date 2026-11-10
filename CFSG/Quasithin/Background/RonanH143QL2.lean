@@ -46,6 +46,13 @@ theorem ker_piQ_L2 :
   ker_piQ_of_card g1Perm_mem_mog22plus g2Perm_mem_mog22plus NQ2 NQ2_le_MY_Q nq2_fix_Zq
     (by rw [card_NQ2]; exact card_MY_Q_L2_le)
 
+theorem piQ_range_top_L2 : (piQ mog22plus).range = ⊤ :=
+  piQ_range_top g1Perm_mem_mog22plus g2Perm_mem_mog22plus
+
+theorem KY_Q_L2 :
+    KY mog22plus Qstd = NQ2 :=
+  pCoreOf_eq_of_ker (n := 5) (by norm_num) (piQ mog22plus) (Or.inl piQ_range_top_L2) ker_piQ_L2
+    NQ2_le_MY_Q isPGroup_NQ2
 
 theorem ePerm_notMem_mog22 : ePerm ∉ mog22 := by
   intro h
@@ -54,5 +61,39 @@ theorem ePerm_notMem_mog22 : ePerm ∉ mog22 := by
   rw [h0] at this
   exact absurd this (by decide)
 
+theorem MY_plus_inf_mog22 {α : Type*} [MulAction P24 α] (Y : α) :
+    MY mog22plus Y ⊓ mog22 = MY mog22 Y := by
+  ext g
+  simp only [MY, Subgroup.mem_inf]
+  constructor
+  · rintro ⟨⟨_, h2⟩, h3⟩
+    exact ⟨h3, h2⟩
+  · rintro ⟨h3, h2⟩
+    exact ⟨⟨mog22_le_mog22plus h3, h2⟩, h3⟩
+
+theorem NQ2_inf_mog22 : NQ2 ⊓ mog22 = NQ := by
+  apply le_antisymm
+  · rintro g ⟨⟨u, rfl⟩, hg⟩
+    by_cases hu : (u : ℕ) < 16
+    · refine ⟨⟨u % 16, by omega⟩, ?_⟩
+      simp only [nq2Perm, hu, ↓reduceIte]
+    · exfalso
+      simp only [nq2Perm, hu, ↓reduceIte] at hg
+      have h1 : ePerm ∈ mog22 := by
+        have := mog22.mul_mem (mog22.inv_mem (nqPerm_mem_mog22 ⟨u % 16, by omega⟩)) hg
+        simpa using this
+      exact ePerm_notMem_mog22 h1
+  · exact le_inf NQ_le_NQ2 NQ_le_mog22
+
+theorem P2_inf_mog22 : P2 ⊓ mog22 = PO := by
+  apply le_antisymm
+  · rintro g ⟨⟨y, hy, rfl | rfl⟩, hg⟩
+    · exact hy
+    · exfalso
+      have h1 : ePerm ∈ mog22 := by
+        have := mog22.mul_mem (mog22.inv_mem (PO_le_mog22 hy)) hg
+        simpa using this
+      exact ePerm_notMem_mog22 h1
+  · exact le_inf PO_le_P2 PO_le_mog22
 
 end CFSG.Quasithin.RonanH143

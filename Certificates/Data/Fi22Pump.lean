@@ -340,6 +340,8 @@ set_option compiler.extract_closed false
 
 @[expose] def sigmaArr (_ : Unit := ()) : Array Nat := hexTable3 3510 0 pumpHex
 
+@[expose] def pumpGens (_ : Unit := ()) : Array (Array Nat) :=
+  Array.ofFn (n := 2) fun i => hexTable3 3510 (3510 * (1 + i.val)) pumpHex
 
 @[expose] def fi22FixCount (t : Array Nat) : Nat := (List.range 3510).countP fun w => t[w]! == w
 
@@ -349,5 +351,31 @@ set_option compiler.extract_closed false
   let G := genT O
   Array.ofFn (n := 4) fun k => sigmaConj σ (eltT par G globRep[k.val]!)
 
+@[expose] def pairCheck (L : Array Level) (x : Array Nat) (gs : Array (Array Nat)) (fuel : Nat) :
+    Bool :=
+  let c := enumBfs 3510 gs fi22FiveKeyPts fuel
+  gs.size == 2 &&
+  allLt 2 (fun i => validA 3510 gs[i]! && siftA 3510 L fi22BaseArr 0 gs[i]! &&
+    commA 3510 gs[i]! x && eqA 3510 (powA 3510 gs[i]! 5) (idA 3510) &&
+    !(eqA 3510 gs[i]! (idA 3510))) &&
+  enumOK 3510 gs fi22FiveKeyPts c && decide (1080 < c.pts.size)
+
+@[expose] def fi22PumpOK (O : COrbit) : Bool :=
+  let σ := sigmaArr ()
+  let X := classImages O σ
+  let L := rawLevels 3510 fi22StrongArrs fi22BaseArr
+  validA 3510 σ &&
+  eqA 3510 (compA 3510 σ (natOf O.alpha)) (compA 3510 (fi22ChainGen 0) σ) &&
+  eqA 3510 (compA 3510 σ (natOf O.beta)) (compA 3510 (fi22ChainGen 1) σ) &&
+  fi22FixCount X[0]! == 0 && fi22FixCount X[1]! == 27 && fi22FixCount X[2]! == 36 &&
+    fi22FixCount X[3]! == 126 &&
+  pairCheck L X[3]! (pumpGens ()) 3000
+
+@[expose] def fiveLoop (C Q : Array (Array Nat)) : Bool :=
+  allLt C.size fun i =>
+    !(eqA 3510 (powA 3510 C[i]! 3) (idA 3510)) || eqA 3510 C[i]! (idA 3510) ||
+      (fi22FixCount C[i]! == 126 && Q.toList.any fun q => !(commA 3510 C[i]! q))
+
+@[expose] def fi22FiveOK (_ : Unit := ()) : Bool := fiveLoop (fi22FiveCCert 0).pts fi22FiveQCert.pts
 
 end CFSG.HardMathSupport.Solomon.Coordinator.Fi22Pump

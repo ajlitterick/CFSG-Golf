@@ -13,6 +13,9 @@ theorem conj_c_mem_P
     {x : Equiv.Perm (Fin N)} (hx : x ∈ Pv) : onc * x * onc⁻¹ ∈ Pv :=
   mul_mem (mul_mem onc_mem hx) (inv_mem onc_mem)
 
+theorem conj_cinv_mem_P
+    {x : Equiv.Perm (Fin N)} (hx : x ∈ Pv) : onc⁻¹ * x * onc ∈ Pv :=
+  mul_mem (mul_mem (inv_mem onc_mem) hx) onc_mem
 
 @[expose] def cP :
     Pv := ⟨onc, onc_mem⟩

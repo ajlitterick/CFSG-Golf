@@ -56,6 +56,30 @@ theorem conjMemK_spec {w m b c : Nat} {T A D : Nat → Nat} {y len : Nat}
       pg w m (T y) (pg w m (T (r32 A e)) c) = pg w m (T (r32 D e)) (pg w m (T y) c) :=
   fun e he => bmS_beq_pair (allN_spec h e he)
 
+theorem bmS_or_foldr (J : Nat → Nat) (q : Nat) : ∀ (l : List Nat) (s : Nat),
+    (l.foldr (fun e M => Nat.lor M (Nat.shiftLeft (nat_lit 1) (J e))) s).testBit q = true ↔
+      s.testBit q = true ∨ ∃ e ∈ l, J e = q
+  | [], s => by simp
+  | a :: l, s => by
+    rw [List.foldr_cons, bmS_testBit_lor_shl, Bool.or_eq_true, bmS_or_foldr J q l s,
+      decide_eq_true_iff]
+    constructor
+    · rintro ((h | ⟨e, he, rfl⟩) | rfl)
+      · exact Or.inl h
+      · exact Or.inr ⟨e, List.mem_cons_of_mem _ he, rfl⟩
+      · exact Or.inr ⟨a, List.mem_cons_self, rfl⟩
+    · rintro (h | ⟨e, he, rfl⟩)
+      · exact Or.inl (Or.inl h)
+      · rcases List.mem_cons.1 he with rfl | he
+        · exact Or.inr rfl
+        · exact Or.inl (Or.inr ⟨e, he, rfl⟩)
+
+theorem bmS_maskK (I : Nat → Nat) (o len q : Nat) :
+    (maskK I o len).testBit q = true ↔ ∃ e < len, r32 I (o + e) = q := by
+  unfold maskK
+  rw [Orb.foldN_eq, bmS_or_foldr (fun e => r32 I (Nat.add o e)), Nat.zero_testBit]
+  simp only [List.mem_range, Bool.false_eq_true, false_or]
+  rfl
 
 theorem bmS_dist (cnt : Nat) (J : Nat → Nat) (F : Nat → Nat → Nat)
     (hF : ∀ e M, F e M = if M.testBit (J e) = true then Nat.lor M (Nat.shiftLeft (nat_lit 1) cnt)

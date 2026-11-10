@@ -80,6 +80,9 @@ variable {B : Type*} {m : B → B → ℕ}
 
 @[simp] theorem isBraidPath_nil {x y : List B} : IsBraidPath m x [] y ↔ x = y := Iff.rfl
 
+theorem isBraidPath_cons {x y : List B} {e : BraidMove B} {γ : List (BraidMove B)} :
+    IsBraidPath m x (e :: γ) y ↔ e.IsValid m ∧ e.source = x ∧ IsBraidPath m e.target γ y :=
+  Iff.rfl
 
 theorem IsBraidPath.nil (x : List B) : IsBraidPath m x [] x := rfl
 
@@ -118,6 +121,9 @@ theorem IsBraidPath.of_append {x z : List B} {γ δ : List (BraidMove B)}
     reversePath (reversePath γ) = γ := by
   simp [reversePath, List.map_reverse, List.map_map, Function.comp_def]
 
+theorem reversePath_map_extend (α β : List B) (γ : List (BraidMove B)) :
+    reversePath (γ.map (BraidMove.extend α β)) = (reversePath γ).map (BraidMove.extend α β) := by
+  simp [reversePath, List.map_reverse, List.map_map, Function.comp_def]
 
 theorem IsBraidPath.reversePath (hm : ∀ a b, m a b = m b a) {x y : List B}
     {γ : List (BraidMove B)} (h : IsBraidPath m x γ y) :
@@ -501,6 +507,11 @@ variable {W : Type*} [Group W] {S : Set W}
 @[expose] def reducedWords (S : Set W) (w : W) : Set (List S) :=
   {l | IsReduced S l ∧ wordProd S l = w}
 
+@[expose] def PairPrefix (S : Set W) : Prop :=
+  ∀ (w : W) (s t : S), s ≠ t → s ∈ leftDescents S w → t ∈ leftDescents S w →
+    IsReduced S (altWord s t (pairOrder S s t)) ∧
+      wordLength S ((wordProd S (altWord s t (pairOrder S s t)))⁻¹ * w) =
+        wordLength S w - pairOrder S s t
 
 @[expose] def TriplePrefix (S : Set W) : Prop :=
   ∀ (w : W) (J : Finset S), J.card = 3 → (∀ s ∈ J, s ∈ leftDescents S w) →
@@ -1269,16 +1280,59 @@ section Main
 variable (hS2 : ∀ s ∈ S, orderOf s = 2)
 include hS2
 
+theorem IsBraidPath.mem_reducedWords {w : W} {x y : List S} {γ : List (BraidMove S)}
+    (hx : x ∈ reducedWords S w) (hγ : IsBraidPath (pairOrder S) x γ y) :
+    y ∈ reducedWords S w ∧
+      ∀ e ∈ γ, e.source ∈ reducedWords S w ∧ e.target ∈ reducedWords S w := by
+  refine ⟨⟨hγ.isReduced hS2 hx.1, (hγ.wordProd_eq hS2).trans hx.2⟩, fun e he => ?_⟩
+  obtain ⟨h1, h2⟩ := hγ.isReduced_source hS2 hx.1 e he
+  have hs : e.source ∈ reducedWords S w := ⟨h1, h2.trans hx.2⟩
+  exact ⟨hs, mem_reducedWords_target hS2 (hγ.isValid_of_mem he) hs⟩
 
 variable (hex : ExchangeCondition S)
 include hex
 
+theorem pairPrefix_of_exchangeCondition : PairPrefix S := by
+  intro w s t hst hs ht
+  have hw : ∃ l : List S, wordProd S l = w := by
+    by_contra hne
+    have h0 : {n | ∃ l : List S, l.length = n ∧ wordProd S l = w} = ∅ :=
+      Set.eq_empty_of_forall_notMem fun n ⟨l, _, hl⟩ => hne ⟨l, hl⟩
+    have h1 : wordLength S w = 0 := by
+      change sInf {n | ∃ l : List S, l.length = n ∧ wordProd S l = w} = 0
+      rw [h0, Nat.sInf_empty]
+    have hs' : wordLength S ((s : W) * w) < wordLength S w := hs
+    rw [h1] at hs'
+    exact Nat.not_lt_zero _ hs'
+  obtain ⟨l, rfl⟩ := hw
+  obtain ⟨l', hl', hl'p⟩ := exists_isReduced_wordProd_eq l
+  rw [← hl'p] at hs ht ⊢
+  obtain ⟨-, σ, hA, hAp⟩ := exists_isReduced_altWord_append hS2 hex hl' hs ht
+  change IsReduced S (altWord s t (orderOf ((s : W) * t))) ∧
+    wordLength S ((wordProd S (altWord s t (orderOf ((s : W) * t))))⁻¹ * wordProd S l') =
+      wordLength S (wordProd S l') - orderOf ((s : W) * t)
+  refine ⟨hA.of_append_left, ?_⟩
+  have h1 : (wordProd S (altWord s t (orderOf ((s : W) * t))))⁻¹ * wordProd S l' =
+      wordProd S σ := by
+    rw [← hAp, wordProd_append, inv_mul_cancel_left]
+  rw [h1, ← hA.of_append_right.length_eq, ← hAp, ← hA.length_eq, List.length_append,
+    length_altWord]
+  omega
 
 theorem homotopic_of_isReduced (htriple : TriplePrefix S) {x y : List S} (hx : IsReduced S x)
     {γ γ' : List (BraidMove S)} (hγ : IsBraidPath (pairOrder S) x γ y)
     (hγ' : IsBraidPath (pairOrder S) x γ' y) : Homotopic (pairOrder S) x y γ γ' :=
   allHomotopic hS2 hex htriple x.length x y hx rfl γ γ' hγ hγ'
 
+theorem reduced_word_rank_three_coherence (htriple : TriplePrefix S) {w : W} {x y : List S}
+    (hx : x ∈ reducedWords S w) (hy : y ∈ reducedWords S w) :
+    (∃ γ, IsBraidPath (pairOrder S) x γ y) ∧
+      (∀ γ γ', IsBraidPath (pairOrder S) x γ y → IsBraidPath (pairOrder S) x γ' y →
+        Homotopic (pairOrder S) x y γ γ') ∧
+      ∀ γ, IsBraidPath (pairOrder S) x γ x → Homotopic (pairOrder S) x x γ [] :=
+  ⟨exists_isBraidPath hS2 hex hx.1 hy.1 (hx.2.trans hy.2.symm),
+    fun _ _ hγ hγ' => homotopic_of_isReduced hS2 hex htriple hx.1 hγ hγ',
+    fun _ hγ => homotopic_of_isReduced hS2 hex htriple hx.1 hγ (IsBraidPath.nil x)⟩
 
 end Main
 

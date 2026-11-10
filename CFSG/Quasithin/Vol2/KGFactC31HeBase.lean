@@ -44,6 +44,7 @@ theorem rep_wAi {w : List ℤ} (hw : lettersOK 3 w = true) :
     Rep 8330 (wAi w) (elt w)⁻¹ :=
   rep_invCand_of_rep (rep_wA hw)
 
+theorem heAutU_mem' : heAutU ∈ heAutGroup := heAutU_mem_heAutGroup
 
 theorem elt_mem_heAutGroup (w : List ℤ) : elt w ∈ heAutGroup :=
   evalSignedWord_mem heAutGroup (fun g hg => by
@@ -141,6 +142,7 @@ theorem elt_conjW {n y : List ℤ} (hn : lettersOK 3 n = true) (hy : lettersOK 3
     elt (n ++ y ++ invW n) = elt n * elt y * (elt n)⁻¹ := by
   rw [elt_append (lettersOK_append hn hy) (lettersOK_invW hn), elt_append hn hy, elt_invW hn]
 
+theorem bs_eq : bs = heBase := rfl
 
 theorem hbs : ∀ b ∈ bs, b < 8330 := by decide
 

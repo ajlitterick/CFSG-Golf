@@ -54,6 +54,41 @@ theorem card_mul_card_stab_le (C : Subgroup G) (ω : Ω) (n : ℕ) (t : ℕ → 
   rw [Nat.card_prod, Nat.card_eq_fintype_card (α := Fin n), Fintype.card_fin] at this
   exact this
 
+theorem card_ge_of_conj_orbit (K : Subgroup G) (s : G) (I : Set ℕ) (m : ℕ) (g z : ℕ → G)
+    (hg : ∀ i ∈ I, ∃ c ∈ K, g i = c * s * c⁻¹)
+    (hginj : ∀ i ∈ I, ∀ j ∈ I, g i = g j → i = j)
+    (hz : ∀ j < m, z j ∈ K ⊓ Subgroup.centralizer ({s} : Set G))
+    (hzinj : ∀ i < m, ∀ j < m, z i = z j → i = j) :
+    I.ncard * m ≤ Nat.card ↥K := by
+  classical
+  choose! c hcK hcg using hg
+  let Φ : ℕ × ℕ → G := fun p => c p.1 * z p.2
+  have hzK : ∀ j < m, z j ∈ K := fun j hj => (Subgroup.mem_inf.1 (hz j hj)).1
+  have hzs : ∀ j < m, z j * s = s * z j := fun j hj =>
+    comm_of_mem_centralizer (Subgroup.mem_inf.1 (hz j hj)).2
+  have hmaps : ∀ p ∈ I ×ˢ Set.Iio m, Φ p ∈ (K : Set G) := by
+    rintro ⟨i, j⟩ ⟨hi, hj⟩
+    exact K.mul_mem (hcK i hi) (hzK j hj)
+  have hinj : Set.InjOn Φ (I ×ˢ Set.Iio m) := by
+    rintro ⟨i, j⟩ ⟨hi, hj⟩ ⟨i', j'⟩ ⟨hi', hj'⟩ e
+    have e1 : c i * z j = c i' * z j' := e
+    have hconj : ∀ (a b : ℕ), a ∈ I → b < m → (c a * z b) * s * (c a * z b)⁻¹ = g a := by
+      intro a b ha hb
+      calc (c a * z b) * s * (c a * z b)⁻¹ = c a * (z b * s * (z b)⁻¹) * (c a)⁻¹ := by group
+        _ = c a * s * (c a)⁻¹ := by rw [hzs b hb]; group
+        _ = g a := (hcg a ha).symm
+    have hgg : g i = g i' := by
+      rw [← hconj i j hi hj, ← hconj i' j' hi' hj', e1]
+    have hii : i = i' := hginj i hi i' hi' hgg
+    subst hii
+    have : z j = z j' := mul_left_cancel e1
+    have hjj : j = j' := hzinj j hj j' hj' this
+    rw [hjj]
+  have hle := Set.ncard_le_ncard_of_injOn Φ hmaps hinj (Set.toFinite _)
+  rw [Set.ncard_prod, Set.ncard_Iio_nat] at hle
+  have e : Nat.card ↥K = (K : Set G).ncard := Nat.card_coe_set_eq (K : Set G)
+  rw [e]
+  exact hle
 
 end Counting
 

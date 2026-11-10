@@ -198,6 +198,10 @@ theorem hEl_pow_three {ω : Kˣ} (hω3 : ω ^ 3 = 1) (j : Fin 2) : hEl ω j ^ 3 
   · show ell (GeneralLinearGroup.scalar (Fin 2) ω) ^ 3 = 1
     rw [ell, ← map_pow, ← map_pow, hω3, map_one, map_one]
 
+theorem hEl_mem (ω : Kˣ) (j : Fin 2) : hEl ω j ∈ Q2 K j := by
+  rcases fin_two_cases j with rfl | rfl
+  · exact (Q2 K 0).one_mem
+  · exact ell_mem_Q2_one _
 
 theorem comm_hEl_mem_rad [Finite K] (ω : Kˣ) (j : Fin 2) {n : StatedSp 2 K}
     (hn : n ∈ perfectCore (Q2 K j)) : hEl ω j * n * (hEl ω j)⁻¹ * n⁻¹ ∈ rad j := by

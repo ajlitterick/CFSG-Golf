@@ -190,8 +190,53 @@ theorem mul_z_mul_z {G : Type*} [Group G] {z : G} (hz : ∀ g, g * z = z * g) (h
     _ = a * b := by rw [hzz, mul_one]
 
 
+@[expose] def IsTri {V : Type*} (Γ : SimpleGraph V) (u v w : V) : Prop :=
+  Γ.Adj u v ∧ Γ.Adj v w ∧ Γ.Adj w u
+
 section Triangle
 
+variable {E : Type*} [Group E] {L : Subgroup E} {X Y : E}
+
+theorem yTri_of_cube (hX : X * X = 1) (hY : Y ∈ L) (hXY : (X * Y) ^ 3 = 1) (hXL : X ∉ L)
+    (g : E) :
+    yTri L X Y (Quotient.mk'' g) (Quotient.mk'' (X * g)) (Quotient.mk'' (X * Y * g)) := by
+  have hXi : X⁻¹ = X := inv_eq_of_mul_eq_one_right hX
+  refine ⟨g, rfl, rfl, rfl, ?_, ?_, ?_⟩
+  · intro h
+    rw [rc_mk_eq_mk_iff] at h
+    apply hXL
+    simpa using h
+  · intro h
+    rw [rc_mk_eq_mk_iff] at h
+    apply hXL
+    have e : X * Y * g * (X * g)⁻¹ = X * Y * X := by
+      rw [mul_inv_rev, hXi]
+      group
+    rw [e] at h
+    have h3 : X * Y * X * (Y * X * Y) = 1 := by
+      have := hXY
+      rw [pow_three] at this
+      simpa only [mul_assoc] using this
+    have e2 : X * Y * X = Y⁻¹ * X * Y⁻¹ := by
+      have := eq_inv_of_mul_eq_one_left h3
+      rw [this, mul_inv_rev, mul_inv_rev, hXi]
+      group
+    rw [e2] at h
+    have : X = Y * (Y⁻¹ * X * Y⁻¹) * Y := by group
+    rw [this]
+    exact L.mul_mem (L.mul_mem hY h) hY
+  · intro h
+    rw [rc_mk_eq_mk_iff] at h
+    apply hXL
+    have e : X * Y * g * g⁻¹ = X * Y := by group
+    rw [e] at h
+    have := L.mul_mem h (L.inv_mem hY)
+    simpa using this
+
+theorem isTri_of_cube (hX : X * X = 1) (hY : Y ∈ L) (hXY : (X * Y) ^ 3 = 1) (hXL : X ∉ L)
+    (g : E) :
+    IsTri (rcGraph L X) (Quotient.mk'' g) (Quotient.mk'' (X * g)) (Quotient.mk'' (X * Y * g)) :=
+  yTri_adj hX hY hXY (yTri_of_cube hX hY hXY hXL g)
 
 end Triangle
 

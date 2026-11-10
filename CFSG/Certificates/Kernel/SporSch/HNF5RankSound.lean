@@ -59,6 +59,47 @@ theorem diag5_sound {X : Nat → Nat} {r : Nat} (h : ∀ i < 133, X i = diagRow5
 theorem mword_one (S Si : Array (Array (Array Nat))) (l : Int) :
     mword S Si [l] = mulM 5 133 (mletter S Si l) (idM 133) := rfl
 
+theorem chain5_eq {MT OP L R : Nat → Nat} {n : Nat}
+    (hall : ∀ k < n, ∀ b < 7, entryOK2 MT OP L R k b = true)
+    (hcan : ∀ k < n, Canon5 (slice5 MT k)) {S Si : Array (Array (Array Nat))} {lt : Int → Nat}
+    {w : List Int} {o : Nat} (hlet : ∀ l ∈ w, mletter S Si l = rows5 (slice5 MT (lt l)))
+    (h : chainOK OP L R lt n w o = true) :
+    mword S Si w = rows5 (slice5 MT (o + w.length - 1)) := by
+  simp only [chainOK, Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq, List.all_eq_true,
+    List.mem_range] at h
+  obtain ⟨⟨⟨⟨⟨h1, hlen⟩, hl⟩, ho⟩, hL⟩, hs⟩ := h
+  have hlt : ∀ t < w.length, mletter S Si (w.getD t 0) = rows5 (slice5 MT (lt (w.getD t 0))) ∧
+      lt (w.getD t 0) < n := fun t ht => by
+    have hm : w.getD t 0 ∈ w := by
+      rw [List.getD_eq_getElem _ _ ht]
+      exact List.getElem_mem ht
+    exact ⟨hlet _ hm, hl _ hm⟩
+  have key : ∀ t, t < w.length →
+      mword S Si (w.drop (w.length - 1 - t)) = rows5 (slice5 MT (o + t)) := by
+    intro t
+    induction t with
+    | zero =>
+      intro _
+      have e : w.drop (w.length - 1 - 0) = [w.getD (w.length - 1) 0] := by
+        rw [Nat.sub_zero, List.drop_eq_getElem_cons (by omega), List.drop_of_length_le (by omega),
+          List.getD_eq_getElem _ _ (by omega)]
+      rw [e, mword_one, (hlt _ (by omega)).1, mulM5_idR (hcan _ (hlt _ (by omega)).2),
+        Nat.add_zero]
+      exact rows5_congr fun i hi => entry2_copy (hall o (by omega)) ho hL i hi
+    | succ t ih =>
+      intro ht
+      obtain ⟨⟨a, b⟩, c⟩ := hs t (by omega)
+      have e : w.drop (w.length - 1 - (t + 1)) =
+          w.getD (w.length - 2 - t) 0 :: w.drop (w.length - 1 - t) := by
+        rw [List.drop_eq_getElem_cons (by omega), List.getD_eq_getElem _ _ (by omega)]
+        congr 2 <;> omega
+      rw [e, mword, ih (by omega), (hlt _ (by omega)).1,
+        mulM5_sound (hcan _ (hlt _ (by omega)).2) (hcan _ (by omega))
+          (entry2_mul (hall _ (by omega)) a b c)]
+      rfl
+  have := key (w.length - 1) (by omega)
+  rwa [show w.length - 1 - (w.length - 1) = 0 by omega, List.drop_zero,
+    show o + (w.length - 1) = o + w.length - 1 by omega] at this
 
 end CFSG.KS.SporSch
 

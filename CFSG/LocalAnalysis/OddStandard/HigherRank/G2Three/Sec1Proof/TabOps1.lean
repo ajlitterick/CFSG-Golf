@@ -11,5 +11,10 @@ namespace CFSG.OddStandard.HigherRank.G2Three.Sec1Proof.Tab
 open Subgroup
 open scoped commutatorElement
 
+variable {Γ : Type} [Group Γ] {D : TabData} {elt : ℕ → Γ}
+
+
+@[expose] def topB (D : TabData) : BSet := BSet.ofFn D.n fun _ => true
+
 
 end CFSG.OddStandard.HigherRank.G2Three.Sec1Proof.Tab

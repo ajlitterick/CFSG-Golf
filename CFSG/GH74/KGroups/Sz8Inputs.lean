@@ -38,6 +38,9 @@ open scoped LinearAlgebra.Projectivization
 
 section Consequences
 
+variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
+
+include e
 
 end Consequences
 

@@ -258,6 +258,9 @@ end Regs
     Sˣ →* Matrix (Fin 248) (Fin 248) (ZMod 2) :=
   S.subtype.comp (Units.coeHom S)
 
+theorem unitsHom_apply (S : Submonoid (Matrix (Fin 248) (Fin 248) (ZMod 2))) (u : Sˣ) :
+    unitsHom S u = ((u : S) : Matrix (Fin 248) (Fin 248) (ZMod 2)) :=
+  rfl
 
 theorem unitsHom_injective (S : Submonoid (Matrix (Fin 248) (Fin 248) (ZMod 2))) :
     Function.Injective (unitsHom S) := by

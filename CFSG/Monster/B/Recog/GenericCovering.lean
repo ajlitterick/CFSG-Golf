@@ -148,6 +148,18 @@ theorem surjective (hf : IsCovering f) (hG : G.Preconnected) [Nonempty W] :
   obtain ⟨p⟩ := hG (f a) y
   exact ⟨hf.liftEnd p a rfl, hf.map_liftEnd p a rfl⟩
 
+theorem adj_iff_of_injective (hf : IsCovering f) (hinj : Function.Injective f) {a b : W} :
+    G.Adj (f a) (f b) ↔ H.Adj a b := by
+  refine ⟨fun h => ?_, fun h => f.map_adj h⟩
+  have := hf.adj_nbr a h
+  rwa [hinj (hf.map_nbr a h)] at this
+
+theorem exists_iso_of_triangulable (hf : IsCovering f) (ht : LiftsTriangles f)
+    (hG : Triangulable G) (hGc : G.Connected) (hH : H.Connected) : ∃ e : H ≃g G, ⇑e = f := by
+  have : Nonempty W := hH.nonempty
+  have hinj := hf.injective_of_triangulable ht hG hH.preconnected
+  exact ⟨{ toEquiv := Equiv.ofBijective f ⟨hinj, hf.surjective hGc.preconnected⟩
+           map_rel_iff' := hf.adj_iff_of_injective hinj }, rfl⟩
 
 end IsCovering
 

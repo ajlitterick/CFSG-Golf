@@ -195,6 +195,25 @@ theorem orbitK_sound {n m w wn kS kN : Nat} {NS PS : Nat → Nat} {O : Nat} (hm 
       Orb.unpack_get h0a, Orb.unpack_get h1a]
     exact ⟨⟨⟨h0a, h1a⟩, Nat.eq_of_beq_eq_true h0b⟩, Nat.eq_of_beq_eq_true h1b⟩
 
+theorem cex_orbitK : orbitK 4000 1 1 12 (fun _ => Nat.shiftLeft 3600 43200) (fun _ => 0) 3600 =
+    true := by
+  decide +kernel
+
+theorem cex_fo22OrbitOK : fo22OrbitOK
+    (Array.ofFn (n := 2) fun g => unpack 4000 12 ((fun _ => Nat.shiftLeft 3600 43200) g.val))
+    (unpack 1 12 3600) (Array.ofFn (n := 2) fun g => unpack 1 1 ((fun _ => 0) g.val)) 1 =
+      false := by
+  decide +kernel
+
+theorem orbitK_sound_false : ¬ ∀ (n m w wn kS kN : Nat) (NS PS : Nat → Nat) (O : Nat),
+    0 < m → 2 ≤ kS → 2 ≤ kN → orbitK n m w wn NS PS O = true →
+      fo22OrbitOK (Array.ofFn (n := kN) fun g => unpack n wn (NS g.val)) (unpack m wn O)
+        (Array.ofFn (n := kS) fun g => unpack m w (PS g.val)) m = true := by
+  intro h
+  have := h 4000 1 1 12 2 2 (fun _ => Nat.shiftLeft 3600 43200) (fun _ => 0) 3600 (by omega)
+    (by omega) (by omega) cex_orbitK
+  rw [cex_fo22OrbitOK] at this
+  exact Bool.false_ne_true this
 
 end CFSG.KS.OrbTree
 

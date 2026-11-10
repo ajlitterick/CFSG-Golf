@@ -43,5 +43,6 @@ namespace Certificates
 
 open CertificateChecks
 
+theorem certificate9103 : Nat.card TauCeti.SporadicName.Co2.Group ≤ 42305421312000 := KernelCo2.co2.2
 
 end Certificates

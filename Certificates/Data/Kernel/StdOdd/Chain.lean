@@ -93,6 +93,10 @@ open CFSG.KC.StdOdd.Orbit
     (fun ms _ ih U => andB (andB (Nat.beq (lenN ms) (lenN Ms)) (disjL ms))
       (forceLB (stepL Ms ms U) ih)) S U
 
+@[expose] noncomputable def repl (v w : Nat) : List Nat :=
+  Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+    (fun _ ih v => List.cons (Nat.mul (Nat.land v 1) (full w)) (ih (Nat.shiftRight v 1)))
+    (nat_lit 156) v
 
 @[expose] noncomputable def neqV (U : List Nat) (v w : Nat) : Nat :=
   forceN (full w) fun F =>
@@ -106,6 +110,10 @@ open CFSG.KC.StdOdd.Orbit
       (fun y FP' _ => forceN (Nat.lor acc (Nat.xor x
         (Nat.mul (Nat.land (Nat.shiftRight y k) 1) F))) (ih FP')) FP) U FP (nat_lit 0)
 
+@[expose] noncomputable def memMask (U FP : List Nat) (s w : Nat) : Nat :=
+  forceN (full w) fun F =>
+  Nat.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
+    (fun k ih acc => forceN (Nat.lor acc (andNot F (neqPt U FP k F))) ih) s (nat_lit 0)
 
 @[expose] noncomputable def chunkPl (U : List Nat) (off w : Nat) : List Nat :=
   forceNL (full w) fun F =>
@@ -122,6 +130,14 @@ open CFSG.KC.StdOdd.Orbit
     (fun ms _ ih => List.cons (List.rec (motive := fun _ => List Nat) List.nil
       (fun m _ ih' => List.cons (spread m r k) ih') ms) ih) S
 
+@[expose] noncomputable def catRow (Es : List (List Nat)) (r c : Nat) : Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun _ => nat_lit 0)
+    (fun E _ ih i => Nat.lor (Nat.shiftLeft (Nat.land (nthN E c) (full r)) (Nat.mul i r))
+      (ih (Nat.succ i))) Es 0
+
+@[expose] noncomputable def catPl (Es : List (List Nat)) (r : Nat) : List Nat :=
+  Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+    (fun _ ih c => List.cons (catRow Es r c) (ih (Nat.succ c))) (nat_lit 156) 0
 
 @[expose] noncomputable def profAll (X : Nat) (ks ts U : List Nat) (w FP : Nat) (BL : List Nat) :
     Nat :=
@@ -195,6 +211,22 @@ open CFSG.KC.StdOdd.Orbit
 @[expose] noncomputable def fixesOK (M : Nat) (vs : List Nat) (i : Nat) : Bool :=
   forceLB (vecsPl vs) fun U => Nat.beq (Nat.land (neqMask (mapRows M U) U) (full i)) 0
 
+@[expose] noncomputable def transB (M : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat → Nat → Nat) (fun _ _ acc => acc)
+    (fun _ ih c M acc => forceN (Nat.land M (full 156)) fun r =>
+      ih (Nat.succ c) (Nat.shiftRight M (nat_lit 156))
+        (Nat.rec (motive := fun _ => Nat → Nat → Nat → Nat) (fun _ _ acc => acc)
+          (fun _ ih' d r acc => forceN (Nat.lor acc
+              (Nat.shiftLeft (Nat.land r 1) (Nat.add (Nat.mul (nat_lit 156) d) c)))
+              (ih' (Nat.succ d) (Nat.shiftRight r 1)))
+          (nat_lit 156) 0 r acc)) (nat_lit 156) 0 M (nat_lit 0)
+
+@[expose] noncomputable def applyC (MT v : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat → Nat → Nat) (fun _ _ acc => acc)
+    (fun _ ih M v acc => forceN (Nat.shiftRight v 1) fun v' =>
+      ih (Nat.shiftRight M (nat_lit 156)) v'
+        (Bool.rec (motive := fun _ => Nat) (Nat.xor acc (Nat.land M (full 156))) acc
+          (Nat.beq (Nat.land v 1) 0))) (nat_lit 156) MT v (nat_lit 0)
 
 end CFSG.KC.StdOdd.Chain
 

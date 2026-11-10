@@ -18,6 +18,9 @@ open CFSG.Sporadic.J4.Native CFSG.Sporadic.J4.QT
 
 @[expose] def pathVec (path : List Nat) : V2 := pathVecFrom path rootV
 
+@[expose] def repCert (cap : Nat) : Bool :=
+  let bs := bfs (frTable rowsA) (frTable rowsB) rootV cap
+  (List.range 7).all fun i => (rdV2 bs.keys (subReps[i]?.getD 0)).beq (pathVec (repPaths.getD i []))
 
 @[expose] def pathRows : List Nat → Array V2
   | [] => idRows

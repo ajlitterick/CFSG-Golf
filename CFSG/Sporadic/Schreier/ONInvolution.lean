@@ -84,6 +84,13 @@ theorem qbase0 :
     QON.base.get ⟨0, by rw [qon_baseCount]; norm_num⟩ = x0 :=
   Fin.ext (by rw [qbase_val]; rfl)
 
+theorem qbase1 :
+    QON.base.get ⟨1, by rw [qon_baseCount]; norm_num⟩ = ⟨227759, by norm_num⟩ :=
+  Fin.ext (by rw [qbase_val]; rfl)
+
+theorem qbase2 :
+    QON.base.get ⟨2, by rw [qon_baseCount]; norm_num⟩ = ⟨100817, by norm_num⟩ :=
+  Fin.ext (by rw [qbase_val]; rfl)
 
 theorem mem_take_of
     {i j : ℕ} (hj : j < i) (hi : i ≤ QON.baseCount) :

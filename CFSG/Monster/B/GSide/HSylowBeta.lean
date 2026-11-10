@@ -45,6 +45,18 @@ theorem closure_pair_eq_set {a b : G} (ha : a * a = 1) (hb : b * b = 1) (hab : a
     · exact Subgroup.mul_mem _ (Subgroup.subset_closure (Set.mem_insert _ _))
         (Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl))
 
+theorem natCard_closure_pair {a b : G} (ha : a * a = 1) (hb : b * b = 1) (hab : a * b = b * a)
+    (ha1 : a ≠ 1) (hb1 : b ≠ 1) (hne : a ≠ b) :
+    Nat.card (Subgroup.closure ({a, b} : Set G)) = 4 := by
+  have hab1 : a * b ≠ 1 := fun h => hne (by
+    rw [mul_eq_one_iff_eq_inv] at h
+    rw [h, inv_eq_of_mul_eq_one_right hb])
+  have hab2 : a * b ≠ a := fun h => hb1 (by simpa using h)
+  have hab3 : a * b ≠ b := fun h => ha1 (by simpa using h)
+  rw [← SetLike.coe_sort_coe, Nat.card_coe_set_eq, closure_pair_eq_set ha hb hab,
+    Set.ncard_insert_of_notMem (by simp [ha1.symm, hb1.symm, hab1.symm]),
+    Set.ncard_insert_of_notMem (by simp [hne, hab2.symm]),
+    Set.ncard_insert_of_notMem (by simp [hab3.symm]), Set.ncard_singleton]
 
 theorem mul_mul_comm_of_comm {f c b : G} (h1 : f * c = c * f) (h2 : f * b = b * f) :
     f * (c * b) = c * b * f := by
@@ -213,12 +225,45 @@ theorem hc5_elem_facts
     y * y = 1 ∧ y ∈ commutator (vStab cv0) ∧ y ≠ cV0 ∧ y ∉ RA ∧ y ∉ RB :=
   ⟨hyy, hyc, fun h => hr (by rw [h, rkH_cV0]), not_mem_RA_of_rkH hr, not_mem_RB_of_rkH hrc⟩
 
+theorem hc5_U_eq
+    (hvu : cgraph.dist cv0 u = 3) (hβ : (β : Shat) = clabelS u)
+    (hXβ : X ≤ Subgroup.centralizer {β}) (hX : Nat.card X = 2 ^ 26) {a b : vStab cv0}
+    (hZPeq : hc5ZP u X = Subgroup.closure {a, b}) :
+    X ⊓ Subgroup.centralizer X ⊓ ⁅X, X⁆ = Subgroup.closure {a, b} := by
+  rw [inf_centralizer_eq_map_center, center_inf_commutator_eq hvu hβ hXβ hX, hZPeq]
+
+theorem hc5_center_eq
+    (hvu : cgraph.dist cv0 u = 3) (hβ : (β : Shat) = clabelS u)
+    (hXβ : X ≤ Subgroup.centralizer {β}) (hX : Nat.card X = 2 ^ 26) {a b : vStab cv0}
+    (hZPeq : hc5ZP u X = Subgroup.closure {a, b}) :
+    X ⊓ Subgroup.centralizer X = Subgroup.closure {cV0, β} ⊔ Subgroup.closure {a, b} := by
+  rw [inf_centralizer_eq_map_center]
+  refine le_antisymm (fun z hz => ?_) (sup_le ?_ ?_)
+  · have h := (mem_center_X_iff hvu hβ hXβ hX).1 (mem_center_map_subtype_iff.1 hz)
+    obtain ⟨f, hf, v, hv, rfl⟩ := h
+    rw [hZPeq] at hf
+    exact Subgroup.mul_mem _ (Subgroup.mem_sup_right hf) (Subgroup.mem_sup_left hv)
+  · rw [Subgroup.closure_le]
+    rintro x (rfl | rfl)
+    · exact mem_center_map_subtype_iff.2 ⟨cV0_mem_X hvu hβ hXβ hX, fun y _ => (cV0_comm y).symm⟩
+    · exact mem_center_map_subtype_iff.2 ⟨beta_mem_X hvu hβ hXβ hX, fun y hy =>
+        (Subgroup.mem_centralizer_singleton_iff.1 (hXβ hy)).symm⟩
+  · rw [← hZPeq]
+    intro f hf
+    exact mem_center_map_subtype_iff.2
+      ((mem_center_X_iff hvu hβ hXβ hX).2 ⟨f, hf, 1, Subgroup.one_mem _, (mul_one f).symm⟩)
 
 theorem hc5_closure_le_F {a b : vStab cv0} (hZPeq : hc5ZP u X = Subgroup.closure {a, b}) :
     Subgroup.closure ({a, b} : Set (vStab cv0)) ≤ hc5F u := by
   rw [← hZPeq]
   exact fun f hf => (mem_hc5ZP.1 hf).1.2
 
+theorem hc5_inf_eq_bot
+    (hvu : cgraph.dist cv0 u = 3) (hβ : (β : Shat) = clabelS u)
+    {a b : vStab cv0} (hZPeq : hc5ZP u X = Subgroup.closure {a, b}) :
+    Subgroup.closure {cV0, β} ⊓ Subgroup.closure {a, b} = ⊥ := by
+  refine eq_bot_iff.2 ((inf_le_inf_left _ (hc5_closure_le_F hZPeq)).trans ?_)
+  rw [inf_comm, hc5F_inf_closure hβ hvu]
 
 theorem hc5_cV0_mul_a
     {w : CVert} (hw : cgraph.Adj cv0 w) {a : vStab cv0}
@@ -427,6 +472,41 @@ theorem exists_sylow_centralizer_beta
     Nat.Prime.factorization_pow Nat.prime_two, Finsupp.single_eq_same,
     Nat.factorization_eq_zero_of_not_dvd (by norm_num), add_zero]
 
+theorem native_HC5_sylow_beta
+    {β : vStab cv0} (hβ : β ∈ FA) {X : Subgroup (vStab cv0)}
+    (hXβ : X ≤ Subgroup.centralizer {β}) (hX : Nat.card X = 2 ^ 26) :
+    Nat.card (Subgroup.centralizer ({β} : Set (vStab cv0))) = 2 ^ 26 * 197358525 ∧
+    ∃ a b : vStab cv0,
+      X ⊓ Subgroup.centralizer X ⊓ ⁅X, X⁆ = Subgroup.closure {a, b} ∧
+      X ⊓ Subgroup.centralizer X = Subgroup.closure {cV0, β} ⊔ Subgroup.closure {a, b} ∧
+      Subgroup.closure {cV0, β} ⊓ Subgroup.closure {a, b} = ⊥ ∧
+      Nat.card (Subgroup.closure ({a, b} : Set (vStab cv0))) = 4 ∧
+      a ∈ RB ∧ cV0 * a ∈ RA ∧
+      (∀ y ∈ ({b, a * b, cV0 * b, cV0 * (a * b)} : Set (vStab cv0)),
+        y * y = 1 ∧ y ∈ commutator (vStab cv0) ∧ y ≠ cV0 ∧ y ∉ RA ∧ y ∉ RB) ∧
+      rkH b = 2048 ∧ rkH (cV0 * b) = 2168 ∧ rkH (a * b) = 2048 ∧
+      rkH (cV0 * (a * b)) = 2168 ∧ β * b ∈ FA ∧ cV0 * (β * b) ∈ FB ∧
+      (∀ y ∈ Subgroup.closure ({a, b} : Set (vStab cv0)),
+        ∃ w ∈ Subgroup.closure ({a, b} : Set (vStab cv0)), w ≠ y ∧ IsConj (β * y) (β * w)) ∧
+      ∀ y ∈ Subgroup.closure ({a, b} : Set (vStab cv0)),
+        ∃ w ∈ Subgroup.closure ({a, b} : Set (vStab cv0)), w ≠ y ∧
+          IsConj (cV0 * β * y) (cV0 * β * w) := by
+  obtain ⟨u, hu, hβu⟩ := hβ
+  have hvu : cgraph.dist cv0 u = 3 := mem_sphereDistThree.1 hu
+  have hd := hc5_data hvu hβu hXβ hX
+  obtain ⟨w, w', a, b, hw, -, hdw', hcw, hww, hae, hbe, hZPeq, haa, hbb, hab, ha1, hb1, hne,
+    -, -, hrb, hrcb, hrab, hrcab⟩ := hd
+  have hβbFA := hc5_beta_b hβu hdw' hbe
+  have hcoset := hc5_coset hvu hβu hu hw hcw hdw' hww hae hbe haa hbb hab hb1 hβbFA
+  have hca := hc5_cV0_mul_a hw hae
+  refine ⟨natCard_centralizer_beta hvu hβu, a, b, hc5_U_eq hvu hβu hXβ hX hZPeq,
+    hc5_center_eq hvu hβu hXβ hX hZPeq, hc5_inf_eq_bot hvu hβu hZPeq,
+    natCard_closure_pair haa hbb hab ha1 hb1 hne, show cV0 * a ∈ RA from hca, hca,
+    hc5_four_facts hZPeq haa hbb hab hrb hrcb hrab hrcab, hrb, hrcb, hrab, hrcab, hβbFA, ?_,
+    hcoset, hc5_coset_c hcoset⟩
+  show cV0 * (cV0 * (β * b)) ∈ FA
+  rw [cV0_mul_cV0_mul]
+  exact hβbFA
 
 theorem native_HC5_extremal_data
     {β : vStab cv0} (hβ : β ∈ FA) {X : Subgroup (vStab cv0)}

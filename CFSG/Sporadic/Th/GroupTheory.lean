@@ -152,6 +152,38 @@ theorem stabilizer_le_of_schreier_mem (x₀ : X) {S : Set G} (hS : Subgroup.clos
     rw [schreier_inv_eq]
     exact K.inv_mem (hK r hr _)
 
+theorem stabilizer_le_of_schreier_successors (x₀ : X) (S : Set G)
+    (hgen : Subgroup.closure S = ⊤) (d : G → ℕ) (hdpos : ∀ s ∈ S, 0 < d s)
+    (hd : ∀ s ∈ S, s ^ d s = 1) (K : Subgroup G) (t : X → G) (ht : ∀ x, t x • x₀ = x)
+    (ht1 : t x₀ = 1) (E : G → Set X) (hE : ∀ s ∈ S, ∀ x ∈ E s, (t (s • x))⁻¹ * s * t x ∈ K)
+    (hcyc : ∀ s ∈ S, ∀ x, x ∈ E s ∨ ∀ i, 0 < i → i < d s → s ^ i • x ∈ E s) :
+    MulAction.stabilizer G x₀ ≤ K :=
+  stabilizer_le_of_schreier_mem x₀ hgen K t ht ht1 fun s hs =>
+    schreier_mem_of_cycle_tests K t s (hdpos s hs) (hd s hs) (E s) (hE s hs) (hcyc s hs)
+
+theorem stabilizer_le_of_schreier_cycles (x₀ : X) (S : Set G) (hgen : Subgroup.closure S = ⊤)
+    (d : G → ℕ) (hdpos : ∀ s ∈ S, 0 < d s) (hd : ∀ s ∈ S, s ^ d s = 1)
+    (K : Subgroup G) (t : X → G) (ht : ∀ x, t x • x₀ = x) (ht1 : t x₀ = 1)
+    (E : G → Set X) (hE : ∀ s ∈ S, ∀ x ∈ E s, (t (s • x))⁻¹ * s * t x ∈ K)
+    (hcyc : ∀ s ∈ S, ∀ x,
+      (MulAction.period s x = d s ∧
+        ∀ i j, s ^ i • x ∉ E s → s ^ j • x ∉ E s → s ^ i • x = s ^ j • x) ∨
+      (MulAction.period s x < d s ∧ ∀ i, s ^ i • x ∈ E s)) :
+    MulAction.stabilizer G x₀ ≤ K := by
+  refine stabilizer_le_of_schreier_successors x₀ S hgen d hdpos hd K t ht ht1 E hE
+    fun s hs x => ?_
+  rcases hcyc s hs x with ⟨hper, hone⟩ | ⟨-, hall⟩
+  · by_cases hx : x ∈ E s
+    · exact Or.inl hx
+    refine Or.inr fun i hi0 hid => ?_
+    by_contra hix
+    have hx' : s ^ 0 • x ∉ E s := by
+      rwa [pow_zero, one_smul]
+    have hfix := hone i 0 hix hx'
+    rw [pow_zero, one_smul] at hfix
+    exact MulAction.pow_smul_ne_of_lt_period hi0 (by rwa [hper]) hfix
+  · left
+    simpa only [pow_zero, one_smul] using hall 0
 
 end Schreier
 

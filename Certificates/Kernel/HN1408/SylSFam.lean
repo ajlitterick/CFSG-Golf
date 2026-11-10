@@ -37,6 +37,10 @@ theorem fam_layer5 : famLayerOK 5 = true := by quickRfl
 
 theorem fam_layer6 : famLayerOK 6 = true := by quickRfl
 
+theorem fam_neg : (!strictB ivMask (fun IM => allN (famCnt 5) (fun h =>
+    extK SylS.FM SylS.FG SylS.CM IM (Nat.add (famOff 5) (Nat.mul h 32))
+      (Nat.add (famGOff 5) (Nat.mul h 5)) 5 (famOff 6) 0))) = true := by
+  quickRfl
 
 end CFSG.KD.HN1408
 

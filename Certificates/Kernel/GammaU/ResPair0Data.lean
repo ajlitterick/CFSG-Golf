@@ -21,6 +21,7 @@ open CFSG.KC.IF4C CFSG.KC.GUV CFSG.KD.GUT0 CFSG.KD.GUP0
     d2aOK L CFSG.KD.GUC0.TH (letR (Nat.add j 1)) (Nat.add NN NN) (nthD [] RW j)
   else Nat.beq (nthD 0 RT j) 1 && d1OK L (letR (Nat.add j 1)) (Nat.add NN NN) (nthD [] RW j)
 
+@[expose] noncomputable def lists : Bool := Nat.beq (lenN RT) 29 && Nat.beq (lenN RW) 29
 
 end CFSG.KD.GURP0
 

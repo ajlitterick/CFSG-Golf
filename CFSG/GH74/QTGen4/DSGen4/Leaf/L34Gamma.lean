@@ -174,6 +174,20 @@ theorem gammaAut_map_Pt (F : Type) [Field F] [CharP F 2] :
     (gammaAut F).bijective
   rw [Pt, Subgroup.map_normalizer_eq_of_bijective _ hb, gammaAut_map_V1]
 
+theorem gammaAut_mem_U (F : Type) [Field F] [CharP F 2] {x : projectiveSL 3 F}
+    (hx : x ∈ projUnitriangular 3 F) : gammaAut F x ∈ projUnitriangular 3 F := by
+  obtain ⟨c, a, b, rfl⟩ := mem_Ubar.mp hx
+  rw [wP_xP_yP_eq_uElt, gammaAut_uElt]
+  exact uElt_mem_U _ _ _
+
+theorem gammaAut_map_U (F : Type) [Field F] [CharP F 2] :
+    (projUnitriangular 3 F).map (gammaAut F : projectiveSL 3 F →* projectiveSL 3 F) =
+      projUnitriangular 3 F := by
+  apply le_antisymm
+  · rintro _ ⟨x, hx, rfl⟩
+    exact gammaAut_mem_U F hx
+  · intro y hy
+    exact ⟨gammaAut F y, gammaAut_mem_U F hy, gammaAut_gammaAut F y⟩
 
 theorem gammaAut_map_B0 (F : Type) [Field F] [CharP F 2] :
     (Ln F ⊓ Pt F).map (gammaAut F : projectiveSL 3 F →* projectiveSL 3 F) = Ln F ⊓ Pt F := by

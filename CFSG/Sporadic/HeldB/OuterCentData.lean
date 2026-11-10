@@ -35,6 +35,8 @@ namespace CFSG.Sporadic.HeldB
     [2, 1, 2, 1, 2, 1, 2, 2, 1, 2],
     [1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 2, 1, 1]]
 
+@[expose] def hePerfRecords : List (ℕ × List ℤ) :=
+  [(0, []), (0, [1, 2, 2, 2, 1, 2, 1, 2, 2, 1])]
 
 @[expose] def heOuterLetters : List (Equiv.Perm (Fin 8330)) := [heGenPerm 0, heGenPerm 1, heAutU]
 

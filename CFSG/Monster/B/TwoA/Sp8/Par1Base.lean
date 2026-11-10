@@ -167,6 +167,11 @@ theorem map_P1 :
     obtain ⟨g, hg⟩ := p1Proj_surjective ⟨k, hk⟩
     exact ⟨⟨g, P1_le_Jhat g.2⟩, g.2, (coe_p1Proj g).symm.trans (congrArg Subtype.val hg)⟩
 
+theorem P1_inf_ker : P1.subgroupOf Jhat ⊓ jhatToKv0.ker = N1.subgroupOf Jhat := by
+  ext g
+  rw [Subgroup.mem_inf, ker_jhatToKv0, Subgroup.mem_subgroupOf, Subgroup.mem_subgroupOf,
+    Subgroup.mem_subgroupOf, N1, P1, Subgroup.mem_inf, Subgroup.mem_inf]
+  exact ⟨fun h => ⟨h.2, h.1.2⟩, fun h => ⟨⟨g.2, h.2⟩, h.1⟩⟩
 
 theorem pCore_two_eq_bot_of_odd {G X : Type*} [Group G] [Finite G] [MulAction G X] [Finite X]
     [FaithfulSMul G X] [MulAction.IsPretransitive G X] (hX : Odd (Nat.card X)) :

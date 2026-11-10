@@ -394,6 +394,9 @@ theorem KSp_le_N0 : KSp ≤ N0 := fun σ h => by
   obtain ⟨c, rfl⟩ := mem_KSp_iff.1 h
   exact mem_N0.2 ⟨KSp_le_MY0 (ksP_mem_KSp c), piM_ksP c⟩
 
+theorem card_N0 :
+    Nat.card ↥N0 = 192 := by
+  rw [N0, Subgroup.card_map_of_injective (MY M24g S0).subtype_injective, card_ker_piM]
 
 theorem cube_mem_KSp
     {σ : S24} (hσ : σ ∈ N0) : σ ^ 3 ∈ KSp := by
@@ -480,6 +483,19 @@ theorem hasArr_tP : HasArr tP tArr := hasArr_permOfArr t_ok.1
 
 theorem tP_mem : tP ∈ AutPerm := mem_AutPerm_of_arr _ t_ok.2
 
+theorem tP_cols : ∀ i < 24, tArr[i]! / 4 = i / 4 := by decide +kernel
+
+theorem colOf_tP (i : Fin 24) : colOf (tP i) = colOf i :=
+  Fin.ext (by
+    show (tP i : ℕ) / 4 = (i : ℕ) / 4
+    rw [hasArr_tP i]
+    exact tP_cols i i.2)
+
+theorem tP_mem_MY0 : tP ∈ MY M24g S0 := mem_MY0.2 ⟨tP_mem, ⟨1, colOf_tP⟩⟩
+
+theorem piM_tP : piM ⟨tP, tP_mem_MY0⟩ = 1 := piM_eq colOf_tP
+
+theorem tP_mem_N0 : tP ∈ N0 := mem_N0.2 ⟨tP_mem_MY0, piM_tP⟩
 
 theorem tArr_cube : cArr tArr (cArr tArr tArr) = idArr := by decide +kernel
 
@@ -498,5 +514,20 @@ theorem tP_ne_one : tP ≠ 1 := by
 
 theorem orderOf_tP : orderOf tP = 3 := orderOf_eq_prime tP_pow_three tP_ne_one
 
+theorem N0_eq_sup :
+    N0 = KSp ⊔ Subgroup.zpowers tP := by
+  refine (Subgroup.eq_of_le_of_card_ge (sup_le KSp_le_N0 ((Subgroup.zpowers_le).2 tP_mem_N0))
+    ?_).symm
+  have h64 : 64 ∣ Nat.card ↥(KSp ⊔ Subgroup.zpowers tP) := by
+    rw [← card_KSp]
+    exact Subgroup.card_dvd_of_le le_sup_left
+  have h3 : 3 ∣ Nat.card ↥(KSp ⊔ Subgroup.zpowers tP) := by
+    rw [← orderOf_tP, ← Nat.card_zpowers]
+    exact Subgroup.card_dvd_of_le le_sup_right
+  have h192 : 192 ∣ Nat.card ↥(KSp ⊔ Subgroup.zpowers tP) := by
+    have := Nat.Coprime.mul_dvd_of_dvd_of_dvd (by decide : Nat.Coprime 64 3) h64 h3
+    simpa using this
+  rw [card_N0]
+  exact Nat.le_of_dvd Nat.card_pos h192
 
 end CFSG.Quasithin.H153

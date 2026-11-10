@@ -91,6 +91,45 @@ end Toral
       (∃ W, LinearBlockStandardPair (GaloisField p f) W C L₃) →
       Commutes L₁ L₂ → Commutes L₁ L₃ → Commutes L₂ L₃ → False
 
+@[expose] def IsProdOrth (x : K7 p f) : Prop :=
+  ∃ (g : K7 p f) (γ₁ γ₂ : Fin 7 → ℤ) (r₁ r₂ : K7 p f), γ₁ ∈ (D7 p f).roots ∧
+    γ₂ ∈ (D7 p f).roots ∧ iform (τ := .E7) γ₁ γ₂ = 0 ∧ r₁ ∈ conjSub g (Rroot p f γ₁) ∧
+    r₂ ∈ conjSub g (Rroot p f γ₂) ∧ orderOf r₁ = 2 ∧ orderOf r₂ = 2 ∧ x = r₁ * r₂
+
+abbrev Vis (x : K7 p f) : Type :=
+  {R : Subgroup (K7 p f) // R ∈ F7 p f ∧ R ≤ Subgroup.centralizer ({x} : Set (K7 p f))}
+
+@[expose] def VisRel (x : K7 p f) : Option (Vis p f x) → Option (Vis p f x) → Prop
+  | none, none => False
+  | none, some _ => True
+  | some _, none => True
+  | some R, some R' => Commutes R.1 R'.1
+
+@[expose] def VisNC (x : K7 p f) (A B : Subgroup (K7 p f)) : Prop :=
+  A ∈ F7 p f ∧ A ≤ Subgroup.centralizer ({x} : Set (K7 p f)) ∧ B ∈ F7 p f ∧
+    B ≤ Subgroup.centralizer ({x} : Set (K7 p f)) ∧ ¬ Commutes A B
+
+@[expose] def E7VisConnected : Prop :=
+  ∀ (g : K7 p f) (γ₁ γ₂ ρ : Fin 7 → ℤ) (r₁ r₂ : K7 p f), γ₁ ∈ (D7 p f).roots →
+    γ₂ ∈ (D7 p f).roots → ρ ∈ (D7 p f).roots → iform (τ := .E7) γ₁ γ₂ = 0 →
+    (∀ i : Fin 7, iform (τ := .E7) ρ (Pi.single i 1) % 2 =
+      (iform (τ := .E7) γ₁ (Pi.single i 1) + iform (τ := .E7) γ₂ (Pi.single i 1)) % 2) →
+    r₁ ∈ conjSub g (Rroot p f γ₁) → r₂ ∈ conjSub g (Rroot p f γ₂) → orderOf r₁ = 2 →
+    orderOf r₂ = 2 →
+    conjSub g (Rroot p f ρ) ≤ Subgroup.centralizer ({r₁ * r₂} : Set (K7 p f)) ∧
+    (∀ S : Subgroup (K7 p f), S ∈ F7 p f →
+      S ≤ Subgroup.centralizer ({r₁ * r₂} : Set (K7 p f)) →
+      Commutes (conjSub g (Rroot p f ρ)) S) ∧
+    (∀ A : Subgroup (K7 p f), A ∈ F7 p f →
+      A ≤ Subgroup.centralizer ({r₁ * r₂} : Set (K7 p f)) → A ≠ conjSub g (Rroot p f ρ) →
+      ∃ S, VisNC p f (r₁ * r₂) A S) ∧
+    (∀ A B : Subgroup (K7 p f), A ∈ F7 p f →
+      A ≤ Subgroup.centralizer ({r₁ * r₂} : Set (K7 p f)) → B ∈ F7 p f →
+      B ≤ Subgroup.centralizer ({r₁ * r₂} : Set (K7 p f)) → A ≠ conjSub g (Rroot p f ρ) →
+      B ≠ conjSub g (Rroot p f ρ) → Relation.ReflTransGen (VisNC p f (r₁ * r₂)) A B)
+
+@[expose] def E8D8PerpRow : Prop :=
+  ∀ x : K7 p f, IsProdOrth p f x → PerpTableR p f (VisRel p f x) none .POmegaPlus 8
 
 @[expose] def E8P1x : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
@@ -108,5 +147,34 @@ end Toral
           ∀ ht : t * z * t⁻¹ = z, ∀ (g : K7 p f) (p₀ : Fin 7),
             (p₀ = 0 ∨ p₀ = 2 ∨ p₀ = 3 ∨ p₀ = 5) → ToralNormalAt p f c ht g p₀ → False
 
+@[expose] def E8R2Excluded : Prop :=
+  Gaps.FundNoncentral p → E7FrameRelations p f → E7FrameInvolutions p f → E7VisConnected p f →
+    E8D8PerpRow p f → D8NoThreeAdjPairs p .POmegaPlus 8 f → E8P1x p f →
+    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+      ∀ (K : Subgroup G) (z : G), RouteDSetup p f K z → LocalShapeT p f 1 .E7 0 (𝒞 K) z →
+        ∀ c : ETCtx p f .E7 0 (𝒞 K) K z, ∀ β ∈ 𝒞 K, ∀ t : G, IsClassicalMember p f β t →
+          (∃ W : Subgroup G, LinearBlockStandardPair (GaloisField p f) W K β) →
+          ∀ ht : t * z * t⁻¹ = z, ∀ (g : K7 p f) (p₀ : Fin 7), (p₀ = 1 ∨ p₀ = 4) →
+            ToralNormalAt p f c ht g p₀ → False
+
+theorem e8ClassExcluded_of_inputs (hMFZ : Gaps.FundNoncentral p) (hB8 : E7FrameRelations p f)
+    (hB9 : E7FrameInvolutions p f) (hB7 : E7PerpA2StarFree p f) (hConn : E7VisConnected p f)
+    (hRow : E8D8PerpRow p f) (hD8 : D8NoThreeAdjPairs p .POmegaPlus 8 f) (hP1x : E8P1x p f)
+    (h1 : E8R1Excluded p f) (h2 : E8R2Excluded p f) : E8ClassExcluded p f := by
+  intro G _ _ _ hnab K z S hshape c β hβ t htβ hKβ ht g p₀ hT
+  by_contra h6
+  have hcases : p₀ = 0 ∨ p₀ = 1 ∨ p₀ = 2 ∨ p₀ = 3 ∨ p₀ = 4 ∨ p₀ = 5 := by
+    fin_cases p₀ <;> simp_all
+  rcases hcases with h | h | h | h | h | h
+  · exact h1 hMFZ hB8 hB7 G hnab K z S hshape c β hβ t htβ hKβ ht g p₀ (Or.inl h) hT
+  · exact h2 hMFZ hB8 hB9 hConn hRow hD8 hP1x G hnab K z S hshape c β hβ t htβ hKβ ht g p₀
+      (Or.inl h) hT
+  · exact h1 hMFZ hB8 hB7 G hnab K z S hshape c β hβ t htβ hKβ ht g p₀ (Or.inr (Or.inl h)) hT
+  · exact h1 hMFZ hB8 hB7 G hnab K z S hshape c β hβ t htβ hKβ ht g p₀
+      (Or.inr (Or.inr (Or.inl h))) hT
+  · exact h2 hMFZ hB8 hB9 hConn hRow hD8 hP1x G hnab K z S hshape c β hβ t htβ hKβ ht g p₀
+      (Or.inr h) hT
+  · exact h1 hMFZ hB8 hB7 G hnab K z S hshape c β hβ t htβ hKβ ht g p₀
+      (Or.inr (Or.inr (Or.inr h))) hT
 
 end CFSG.ClassicalInvolution.RouteD.TypeE8

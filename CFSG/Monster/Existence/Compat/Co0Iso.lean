@@ -100,6 +100,8 @@ theorem sum_sq_actLin (g : latticeO) (u : Lat) :
 
 theorem coe_leechLin (u : Lat) : ((leechLin u : monsterLeech) : Fin 24 → ℤ) = permZ u := rfl
 
+theorem coe_leechLin_symm (v : monsterLeech) :
+    ((leechLin.symm v : Lat) : Fin 24 → ℤ) = permZ.symm v := rfl
 
 theorem monsterLeechNorm_leechLin (u : Lat) :
     monsterLeechNorm (leechLin u) = ∑ i, (u : Fin 24 → ℤ) i ^ 2 := by
@@ -322,6 +324,7 @@ theorem co0Hom_surjective : Function.Surjective co0Hom := by
 @[expose] def co0Equiv : latticeO ≃* monsterCo0 :=
   MulEquiv.ofBijective co0Hom ⟨co0Hom_injective, co0Hom_surjective⟩
 
+theorem co0Equiv_apply (g : latticeO) : co0Equiv g = co0Hom g := rfl
 
 theorem actLin_negOneO (u : Lat) : actLin negOneO u = -u := by
   refine Subtype.ext (ratVec_injective ?_)

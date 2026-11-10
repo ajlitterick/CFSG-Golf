@@ -13,6 +13,12 @@ private theorem zmod2_cases : ∀ c : ZMod 2, c = 0 ∨ c = 1 := by decide
 
 private theorem two_eq_zero' : (2 : ZMod 2) = 0 := rfl
 
+structure IsMoufangLoop (M : Type*) [Mul M] [One M] : Prop where
+  one_mul : ∀ x : M, 1 * x = x
+  mul_one : ∀ x : M, x * 1 = x
+  existsUnique_mul_left : ∀ a b : M, ∃! x, a * x = b
+  existsUnique_mul_right : ∀ a b : M, ∃! y, y * a = b
+  moufang : ∀ x y z : M, x * y * (z * x) = x * (y * z * x)
 
 theorem add_self_C (d : C) : d + d = 0 := by
   apply Subtype.ext
@@ -26,12 +32,55 @@ theorem θ_swap (d e : C) : θ e d = θ d e + K d e := by
 
 namespace Parker
 
+theorem isMoufangLoop : IsMoufangLoop Parker where
+  one_mul x := by ext <;> simp
+  mul_one x := by ext <;> simp
+  existsUnique_mul_left a b := by
+    refine ⟨⟨b.code - a.code, b.sign - a.sign - θ a.code (b.code - a.code)⟩, ?_, ?_⟩
+    · ext
+      · simp
+      · simp only [mul_sign]; ring
+    · rintro x rfl
+      ext
+      · simp
+      · simp only [mul_code, mul_sign, add_sub_cancel_left]
+        ring
+  existsUnique_mul_right a b := by
+    refine ⟨⟨b.code - a.code, b.sign - a.sign - θ (b.code - a.code) a.code⟩, ?_, ?_⟩
+    · ext
+      · simp
+      · simp only [mul_sign]; ring
+    · rintro x rfl
+      ext
+      · simp
+      · simp only [mul_code, mul_sign, add_sub_cancel_right]
+        ring
+  moufang x y z := by
+    ext
+    · simp only [mul_code]; abel_nf
+    · simp only [mul_code, mul_sign]
+      have e1 := θ_add_left x.code y.code (z.code + x.code)
+      have e2 := θ_add_right x.code z.code x.code
+      have e3 := θ_add_right y.code z.code x.code
+      have e4 := θ_add_left y.code z.code x.code
+      have e5 := θ_add_right x.code (y.code + z.code) x.code
+      have e6 := θ_add_right x.code y.code z.code
+      have hA1 : A x.code y.code ↑(z.code + x.code) = A x.code y.code z.code := by
+        rw [Submodule.coe_add, A_add_right, A_self_mid x.code.2 y.code.2, add_zero]
+      have hA2 : A y.code z.code x.code = A x.code y.code z.code := by
+        simp only [A_eq_sum]
+        exact Finset.sum_congr rfl fun i _ => by ring
+      linear_combination e1 + e2 + e3 + hA1 - e4 - hA2 - e5 - e6
 
 theorem card : Nat.card Parker = 8192 := by
   rw [Nat.card_congr equivProd, Nat.card_prod, Nat.card_congr basisC.equivFun.toEquiv,
     Nat.card_fun, Nat.card_zmod, Nat.card_eq_fintype_card, Fintype.card_fin]
   norm_num
 
+theorem negOne_central (x y : Parker) :
+    negOne * x = x * negOne ∧ negOne * x * y = negOne * (x * y) ∧
+      x * negOne * y = x * (negOne * y) ∧ x * y * negOne = x * (y * negOne) := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> ext <;> simp [negOne] <;> ring
 
 theorem mul_inv (x : Parker) :
     x * ⟨x.code, x.sign + P x.code⟩ = 1 ∧ ⟨x.code, x.sign + P x.code⟩ * x = 1 := by
@@ -51,6 +100,12 @@ theorem mul_comm' (x y : Parker) : y * x = x * y * ⟨0, K x.code y.code⟩ := b
   · simp only [mul_sign, mul_code, θ_zero_right, add_zero, θ_swap x.code y.code]
     ring
 
+theorem mul_assoc' (x y z : Parker) :
+    x * (y * z) = x * y * z * ⟨0, A x.code y.code z.code⟩ := by
+  ext
+  · simp only [mul_code, add_zero]; exact (add_assoc _ _ _).symm
+  · simp only [mul_sign, mul_code, θ_zero_right, add_zero, θ_add_left, θ_add_right]
+    linear_combination -(A x.code y.code z.code) * two_eq_zero'
 
 end Parker
 
@@ -243,5 +298,29 @@ theorem θ_colour_grey {e h : C} (he : (e : Fin 24 → ZMod 2) ∈ G) (hh : (h :
       simp only [Submodule.coe_smul, smul_dotProduct, smul_eq_mul]
       rfl
 
+theorem mog_loop_and_cocycle_identities :
+    (∀ d : C, θ d d = P d) ∧
+    (∀ d e : C, θ d e + θ e d = K d e) ∧
+    (∀ d e f : C, θ (d + e) f = θ d f + θ e f + A d e f) ∧
+    (∀ d e f : C, θ d (e + f) = θ d e + θ d f) ∧
+    IsMoufangLoop Parker ∧ Nat.card Parker = 8192 ∧
+    (∀ x y : Parker, Parker.negOne * x = x * Parker.negOne ∧
+      Parker.negOne * x * y = Parker.negOne * (x * y) ∧
+      x * Parker.negOne * y = x * (Parker.negOne * y) ∧
+      x * y * Parker.negOne = x * (y * Parker.negOne)) ∧
+    (∀ x : Parker, x * ⟨x.code, x.sign + P x.code⟩ = 1 ∧ ⟨x.code, x.sign + P x.code⟩ * x = 1) ∧
+    (∀ x : Parker, x * x = ⟨0, P x.code⟩) ∧
+    (∀ x y : Parker, y * x = x * y * ⟨0, K x.code y.code⟩) ∧
+    (∀ x y z : Parker, x * (y * z) = x * y * z * ⟨0, A x.code y.code z.code⟩) ∧
+    (∀ d f : C, θ (d + ⟨Ω, Ω_mem_C⟩) f = θ d f) ∧
+    (∀ (μ : Fin 6 → ZMod 2) (e f : C), (e : Fin 24 → ZMod 2) = ∑ j, μ j • g j →
+      θ e f = (f : Fin 24 → ZMod 2) ⬝ᵥ ((((greyWeight μ : ℤ) - 1 : ℤ) : ZMod 2) • greyGamma μ +
+        (((greyWeight μ).choose 2 : ℕ) : ZMod 2) • ωInf)) ∧
+    (∀ e h : C, (e : Fin 24 → ZMod 2) ∈ G → (h : Fin 24 → ZMod 2) ∈ H →
+      θ e h = 0 ∧ θ h e = (e : Fin 24 → ZMod 2) ⬝ᵥ colourGamma h) :=
+  ⟨θ_self, θ_add_θ_swap, θ_add_left, θ_add_right, Parker.isMoufangLoop, Parker.card,
+    Parker.negOne_central, Parker.mul_inv, Parker.mul_self, Parker.mul_comm', Parker.mul_assoc',
+    θ_add_Ω, fun μ e f he => θ_grey μ e f he,
+    fun _ _ he hh => ⟨θ_grey_colour he hh, θ_colour_grey he hh⟩⟩
 
 end CFSG.Monster.Code

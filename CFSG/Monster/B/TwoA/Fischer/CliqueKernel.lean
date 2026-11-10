@@ -207,6 +207,10 @@ theorem finite_sliceStab (u : V) : Finite (sliceStab act lab Y u) := by
   have hle : sliceStab act lab Y u ≤ sliceGroup lab Y := inf_le_left
   exact Finite.of_injective (Subgroup.inclusion hle) (Subgroup.inclusion_injective hle)
 
+theorem finite_setStab (C : Set V) : Finite (setStab act lab Y C) := by
+  have := hS.finite_sliceGroup
+  have hle : setStab act lab Y C ≤ sliceGroup lab Y := fun _ h => h.1
+  exact Finite.of_injective (Subgroup.inclusion hle) (Subgroup.inclusion_injective hle)
 
 theorem isElementaryAbelian_closure {C : Set V} (hCY : C ⊆ Y)
     (hC : (sliceGraph lab Y).IsClique C) :

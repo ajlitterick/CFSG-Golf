@@ -13,6 +13,13 @@ namespace CertificateChecks.KernelQ8W.L34E
 
 open CFSG.PSL3Four.Native
 
+meta def wL : List Nat :=
+  let tabs := (enumBFS 42 gensS 20160).tabs
+  let idx : Std.HashMap Nat Nat := (List.range tabs.size).foldl
+    (fun m k => m.insert (CFSG.KS.RawGen.pack 6 tabs[k]!) k) {}
+  let pts := (CFSG.KC.BfsGen.search 42 6
+    (CFSG.CGT.PushingUpLit.SolKNA.R4.Check.qGens Certificates.TwinPerpSmSp1.l34Wit.syl)).1
+  pts.toList.map fun a => (idx.get? (CFSG.KS.RawGen.pack 6 (CFSG.KS.RawGen.comp 42 a a))).getD 0
 
 end CertificateChecks.KernelQ8W.L34E
 

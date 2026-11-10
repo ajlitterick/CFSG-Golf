@@ -60,9 +60,13 @@ end Cube
 
 @[expose] noncomputable def xmS : SL(2, ZMod 3) := sl2Lower 1
 
+theorem xpS_eq : xpS = sl2Upper 1 := rfl
+
+theorem xmS_eq : xmS = sl2Lower 1 := rfl
 
 theorem coe_xpS : (xpS : Matrix (Fin 2) (Fin 2) (ZMod 3)) = !![1, 1; 0, 1] := rfl
 
+theorem coe_xmS : (xmS : Matrix (Fin 2) (Fin 2) (ZMod 3)) = !![1, 0; 1, 1] := rfl
 
 private theorem sl2Upper_mem_closure (c : ZMod 3) :
     sl2Upper c ∈ Subgroup.closure ({xpS, xmS} : Set SL(2, ZMod 3)) := by
@@ -113,9 +117,15 @@ theorem closure_xp_xm : Subgroup.closure ({xpS, xmS} : Set SL(2, ZMod 3)) = ⊤ 
     .positiveSum 0 1 (by decide), .difference 0 1 (by decide), .difference 1 0 (by decide),
     .negativeSum 0 1 (by decide)]
 
+@[expose] def v6Root : Fin 12 → RootSubgroupIndex 3 :=
+  ![.positiveLong 1, .negativeLong 1, .positiveLong 2, .negativeLong 2,
+    .difference 0 1 (by decide), .difference 1 0 (by decide), .difference 0 2 (by decide),
+    .difference 2 0 (by decide), .positiveSum 1 2 (by decide), .difference 1 2 (by decide),
+    .difference 2 1 (by decide), .negativeSum 1 2 (by decide)]
 
 @[expose] noncomputable def c2Mat : Fin 8 → StatedSp 2 (ZMod 3) := fun j => elt (c2Root j) 1
 
+@[expose] noncomputable def v6Mat : Fin 12 → StatedSp 3 (ZMod 3) := fun i => elt (v6Root i) 1
 
 private noncomputable def slMat3 : SL(3, ZMod 3) →* Matrix (Fin 3) (Fin 3) (ZMod 3) where
   toFun A := A
@@ -128,6 +138,9 @@ private noncomputable def c2N (j : Fin 8) :
     Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) (ZMod 3) :=
   1 + (1 : ZMod 3) • E (ZMod 3) (c2Root j)
 
+private noncomputable def v6N (i : Fin 12) :
+    Matrix (Fin 3 ⊕ Fin 3) (Fin 3 ⊕ Fin 3) (ZMod 3) :=
+  1 + (1 : ZMod 3) • E (ZMod 3) (v6Root i)
 
 theorem a2_relsHold : RelsHold a2Mat a2Words := by
   refine relsHold_of_evalCube slMat3 slMat3_injective a2Mat (fun i => (a2Mat i : Matrix _ _ _))
@@ -141,6 +154,11 @@ theorem c2_relsHold : RelsHold c2Mat c2Words := by
   · decide +kernel
   · decide +kernel
 
+theorem v6_relsHold : RelsHold v6Mat v6Words := by
+  refine relsHold_of_evalCube (mat 3 (ZMod 3)) mat_injective v6Mat v6N
+    (fun i => mat_elt (v6Root i) 1) ?_ ?_
+  · decide +kernel
+  · decide +kernel
 
 theorem a2Mat_zero : a2Mat 0 = blockSL (ZMod 3) 3 2 0 (by omega) xpS := rfl
 
@@ -150,6 +168,9 @@ theorem a2Mat_four : a2Mat 4 = blockSL (ZMod 3) 3 2 1 (by omega) xpS := rfl
 
 theorem a2Mat_five : a2Mat 5 = blockSL (ZMod 3) 3 2 1 (by omega) xmS := rfl
 
+theorem c2Mat_zero : c2Mat 0 = longBlock (ZMod 3) 2 0 xpS := (longBlock_sl2Upper 0 1).symm
+
+theorem c2Mat_one : c2Mat 1 = longBlock (ZMod 3) 2 0 xmS := (longBlock_sl2Lower 0 1).symm
 
 theorem c2Mat_two : c2Mat 2 = longBlock (ZMod 3) 2 1 xpS := (longBlock_sl2Upper 1 1).symm
 
@@ -161,5 +182,30 @@ theorem c2Mat_five : c2Mat 5 = shortBlock (ZMod 3) (zero_ne_one : (0 : Fin 2) �
 theorem c2Mat_six : c2Mat 6 = shortBlock (ZMod 3) (zero_ne_one : (0 : Fin 2) ≠ 1) xmS :=
   (shortBlock_sl2Lower _ 1).symm
 
+theorem v6Mat_zero : v6Mat 0 = longBlock (ZMod 3) 3 1 xpS := (longBlock_sl2Upper 1 1).symm
+
+theorem v6Mat_one : v6Mat 1 = longBlock (ZMod 3) 3 1 xmS := (longBlock_sl2Lower 1 1).symm
+
+theorem v6Mat_two : v6Mat 2 = longBlock (ZMod 3) 3 2 xpS := (longBlock_sl2Upper 2 1).symm
+
+theorem v6Mat_three : v6Mat 3 = longBlock (ZMod 3) 3 2 xmS := (longBlock_sl2Lower 2 1).symm
+
+theorem v6Mat_four : v6Mat 4 = shortBlock (ZMod 3) (show (0 : Fin 3) ≠ 1 by decide) xpS :=
+  (shortBlock_sl2Upper _ 1).symm
+
+theorem v6Mat_five : v6Mat 5 = shortBlock (ZMod 3) (show (0 : Fin 3) ≠ 1 by decide) xmS :=
+  (shortBlock_sl2Lower _ 1).symm
+
+theorem v6Mat_six : v6Mat 6 = shortBlock (ZMod 3) (show (0 : Fin 3) ≠ 2 by decide) xpS :=
+  (shortBlock_sl2Upper _ 1).symm
+
+theorem v6Mat_seven : v6Mat 7 = shortBlock (ZMod 3) (show (0 : Fin 3) ≠ 2 by decide) xmS :=
+  (shortBlock_sl2Lower _ 1).symm
+
+theorem v6Mat_nine : v6Mat 9 = shortBlock (ZMod 3) (show (1 : Fin 3) ≠ 2 by decide) xpS :=
+  (shortBlock_sl2Upper _ 1).symm
+
+theorem v6Mat_ten : v6Mat 10 = shortBlock (ZMod 3) (show (1 : Fin 3) ≠ 2 by decide) xmS :=
+  (shortBlock_sl2Lower _ 1).symm
 
 end CFSG.ClassicalInvolution.Q3.Q3Z

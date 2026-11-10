@@ -29,6 +29,11 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def DistinctBlocksCommuteStatement : Prop :=
   ∀ H B₁ B₂ : Subgroup G, CharTwo H → IsBlock2 H B₁ → IsBlock2 H B₂ → B₁ ≠ B₂ → ⁅B₁, B₂⁆ = ⊥
 
+@[expose] def BaumNormalizesChiBlocksStatement : Prop :=
+  ∀ H T V L : Subgroup G, CharTwo H → IsTwoReducedIn H V → IsSylowTwoOf T H → IsChiBlock H L →
+    ¬ ⁅L, thompsonJ T⁆ ≤ Subgroup.centralizer (V : Set G) →
+      baum T ≤ Subgroup.normalizer (L : Set G)
+
 
 end Statements
 

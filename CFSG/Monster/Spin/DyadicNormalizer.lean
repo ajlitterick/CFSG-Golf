@@ -102,5 +102,11 @@ theorem dyadic_of_conj_Q (s : Matrix SpinIdx SpinIdx ℚ) (hs : sᵀ * s = 1)
     (hconj : (fun g => s⁻¹ * g * s) '' Qmats = Qmats) (i j : SpinIdx) : s i j ∈ dyadic :=
   (dyadic_of_conj_Q_subset s hs (fun _ hg => hconj ▸ Set.mem_image_of_mem _ hg) i j).1
 
+theorem spin_rational_normalizers_dyadic :
+    Submodule.span dyadic Qmats = dyadicMatrices ∧
+    (∀ M : Matrix SpinIdx SpinIdx ℚ, M ∈ Submodule.span dyadic Qmats ↔ ∀ i j, M i j ∈ dyadic) ∧
+    ∀ s : Matrix SpinIdx SpinIdx ℚ, sᵀ * s = 1 → (fun g => s⁻¹ * g * s) '' Qmats = Qmats →
+      ∀ i j, s i j ∈ dyadic :=
+  ⟨span_dyadic_Qmats, mem_span_dyadic_Qmats_iff, dyadic_of_conj_Q⟩
 
 end CFSG.Monster.Spin

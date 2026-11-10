@@ -142,6 +142,14 @@ omit [Finite K] in
 theorem mpr_mpr (a : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2) : mpr (mpr a) = a := by
   rcases a with i | i | t <;> simp [mpr]
 
+omit [Finite K] in
+theorem mpr_ne (a : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2) : mpr a ≠ a := by
+  rcases a with i | i | t
+  · simp [mpr]
+  · simp [mpr]
+  · simp only [mpr, ne_eq, Sum.inr.injEq]
+    intro h
+    fin_cases t <;> simp at h
 
 variable (b) in
 @[expose] def mg : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2 → K

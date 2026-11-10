@@ -31,6 +31,10 @@ theorem nth_eq {α : Type} (d : α) : ∀ (l : List α) (i : Nat), nth d l i = l
     rw [nth_eq d l i]
     rfl
 
+theorem nth_map {α β : Type} (f : α → β) (d : α) (l : List α) (i : Nat) :
+    nth (f d) (l.map f) i = f (nth d l i) := by
+  rw [nth_eq, nth_eq, List.getD_eq_getElem?_getD, List.getD_eq_getElem?_getD, List.getElem?_map]
+  cases l[i]? <;> rfl
 
 theorem paK_lt (p : Nat) : paK p < 2 ^ 11 := Nat.mod_lt _ (by norm_num)
 

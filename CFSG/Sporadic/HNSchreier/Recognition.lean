@@ -9,6 +9,8 @@ namespace CFSG.Sporadic.HNSchreier
 
 open Equiv CFSG.Sporadic.HN.Local
 
+noncomputable abbrev altPartHom : alternatingGroup (Fin 12) →* Perm Part :=
+  natHom.comp (alternatingGroup (Fin 12)).subtype
 
 @[expose] def part0 : Part := ⟨{0, 1, 3, 4, 5, 6}, by decide⟩
 
@@ -31,6 +33,8 @@ theorem natHom_injective : Function.Injective (natHom : Perm (Fin 12) →* Perm 
   rw [MonoidHom.mem_ker] at hc
   exact cyc012_moves (congrArg (fun σ : Perm Part => σ part0) hc)
 
+theorem natHom_alt_injective : Function.Injective altPartHom :=
+  fun _ _ h => Subtype.val_injective (natHom_injective h)
 
 theorem card_eq_of_partition_labels {H : Type*} [Group H] [Finite H] (φ : H →* Perm (Fin 462))
     (x y : H) (hxy : Subgroup.closure ({x, y} : Set H) = ⊤) (lab : Fin 462 → Part)

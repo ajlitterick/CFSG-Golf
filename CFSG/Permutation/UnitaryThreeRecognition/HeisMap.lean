@@ -97,6 +97,7 @@ theorem rho_of_mem_Zs {w' : G} (hw' : w' ∈ W) {z : S.V} (hz : z ∈ S.Zs) :
 @[expose] noncomputable def iotaV : S.A →+ S.V :=
   S.Vp.subtype.toAddMonoidHom.comp S.iota.toAddMonoidHom
 
+theorem iotaV_apply (c : S.A) : S.iotaV c = (S.iota c : S.V) := rfl
 
 @[expose] noncomputable def beta : S.A →+ S.A →+ S.V :=
   (Baer.bracket.comp S.iotaV).compl₂ S.iotaV

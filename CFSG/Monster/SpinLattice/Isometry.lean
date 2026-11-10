@@ -134,5 +134,29 @@ theorem lamX_eq (a : C) :
   · rw [lamCode_of_P_zero hp]; simp [hp]
   · rw [lamCode_of_P_one hp]; simp [hp]
 
+theorem lamCocode_eq_sum (v : Fin 24 → ZMod 2) :
+    lamCocode (Submodule.Quotient.mk v) =
+      ∑ i, v i • cls (fun k => 1 - 4 * (Pi.single i (1 : ℤ) : Fin 24 → ℤ) k)
+        (lamSum_single i ▸ lamSum_mem _) := by
+  rw [lamCocode_mk, lamVec_eq_sum]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  congr 1
+  exact cls_congr _ (lamSum_single i)
+
+theorem spin_lattice_quadratic_isometry :
+    center Q = zpowers zQ ∧
+    (∀ e : Parker, phi (QuotientGroup.mk (XQ e)) = Multiplicative.ofAdd (lamX e.code)) ∧
+    (∀ δ : Cocode, phi (QuotientGroup.mk (DQ δ)) = Multiplicative.ofAdd (lamCocode δ)) ∧
+    (∀ ψ : (Q ⧸ center Q) →* Multiplicative L2,
+      (∀ e : Parker, ψ (QuotientGroup.mk (XQ e)) = Multiplicative.ofAdd (lamX e.code)) →
+      (∀ δ : Cocode, ψ (QuotientGroup.mk (DQ δ)) = Multiplicative.ofAdd (lamCocode δ)) →
+      ψ = phi.toMonoidHom) ∧
+    (∀ (r : Q) (e : ZMod 2), r ^ 2 = zQ ^ e.val →
+      qL (Multiplicative.toAdd (phi (QuotientGroup.mk r))) = e) ∧
+    (∀ (r t : Q) (f : ZMod 2), ⁅r, t⁆ = zQ ^ f.val →
+      QuadraticMap.polarBilin qL (Multiplicative.toAdd (phi (QuotientGroup.mk r)))
+        (Multiplicative.toAdd (phi (QuotientGroup.mk t))) = f) :=
+  ⟨center_Q, phi_XQ, phi_DQ, fun _ hX hD => eq_phi hX hD, fun _ _ h => qL_phi_of_sq h,
+    fun _ _ _ h => bL_phi_of_commutator h⟩
 
 end CFSG.Monster.SpinLattice

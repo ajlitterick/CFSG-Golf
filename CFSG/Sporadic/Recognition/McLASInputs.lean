@@ -64,6 +64,22 @@ structure ElemRow where
   centOrder : Nat
   centGens : List Table
 
+@[expose] def elemOK (n NP cap p : Nat) (pg pgInv : Array Table) (sift : Table → Bool)
+    (r : ElemRow) (o : Closure) : Bool :=
+  let t := r.rep
+  let cg := r.centGens.toArray
+  let C := mulClosureH n cg cap
+  permOK n t && sift t && ordTest n p t &&
+    conjTreeOK n pg pgInv t o.1 o.2.1 o.2.2 && hkeysDistinct n o.1.toList &&
+    o.1.size == r.classSize &&
+    cg.all (fun c => permOK n c && sift c && commTT n c t && invOK n c (invT n c)) &&
+    mulTreeOK n cg C.1 C.2.1 C.2.2 && hkeysDistinct n C.1.toList && C.1.size == r.centOrder &&
+    r.classSize * r.centOrder == NP
+
+@[expose] def elemRowsOK (n NP cap p : Nat) (pg pgInv : Array Table) (sift : Table → Bool)
+    (rows : List ElemRow) : Bool :=
+  allIn 0 pg.size (fun l => invOK n pg[l]! pgInv[l]!) &&
+    rows.all fun r => elemOK n NP cap p pg pgInv sift r (conjClosureH n pg pgInv r.rep cap)
 
 @[expose] def threeRow₁ : ElemRow :=
   { rep := threeTbl 0, classSize := 30800, centOrder := 29160,
@@ -73,6 +89,10 @@ structure ElemRow where
   { rep := threeTbl 3, classSize := 924000, centOrder := 972,
     centGens := [threeTbl 3, threeTbl 4, threeTbl 5] }
 
+@[expose] def threeRows : List ElemRow := [threeRow₁, threeRow₂]
+
+@[expose] def threeRowsOK : Bool :=
+  elemRowsOK 275 898128000 924000 3 mclPGTbls mclPGInvTbls mclSift threeRows
 
 @[expose] def sylowThreeGens : List Table := (List.range 5).map fun i => threeTbl (i + 6)
 

@@ -255,6 +255,39 @@ theorem eq_of_rel {Ra : Array M} {Rl : List Nat} (hR : Rel H Ra Rl) {r : Nat}
   obtain ⟨e, p⟩ := hR.2 r hr
   rw [e, H.eq p hX]
 
+theorem mcertN_of_chunks {A B : Nat} {C : MCert} {k m : Nat} (hn : 2 ≤ C.nregs)
+    (hp : C.prog.all (Op.lt C.nregs) = true) (hm : C.facts.length ≤ m * k)
+    (h : ∀ i < m, chunkN O A B C k i = true) : mcertN O A B C = true := by
+  unfold mcertN
+  rw [regsN_eq]
+  unfold certN
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true]
+  refine ⟨⟨hn, by simpa [List.all_eq_true] using hp⟩, fun f hf => ?_⟩
+  obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem hf
+  have hk : 0 < k := by
+    rcases Nat.eq_zero_or_pos k with h0 | h0
+    · subst h0
+      rw [Nat.mul_zero] at hm
+      omega
+    · exact h0
+  have hi : j / k < m := by
+    rw [Nat.div_lt_iff_lt_mul hk]
+    omega
+  have hc := h (j / k) hi
+  unfold chunkN at hc
+  rw [regsN_eq, List.all_eq_true] at hc
+  apply hc
+  have h1 : j / k * k ≤ j := Nat.div_mul_le_self j k
+  have h2 : j - j / k * k < k := by
+    have := Nat.lt_div_mul_add (a := j) hk
+    omega
+  have hmem : (C.facts.drop (j / k * k))[j - j / k * k]'(by simp; omega) = C.facts[j] := by
+    rw [List.getElem_drop]
+    congr 1
+    omega
+  rw [← hmem]
+  apply List.mem_iff_getElem.2
+  exact ⟨j - j / k * k, by simp; omega, by rw [List.getElem_take]⟩
 
 theorem seeds_of_N {sA sB : String} {A B : Nat} (eA : O₀.decode sA = H.U A)
     (eB : O₀.decode sB = H.U B) (hA : H.P A) (hB : H.P B) {n : Nat} {prog : List Op}

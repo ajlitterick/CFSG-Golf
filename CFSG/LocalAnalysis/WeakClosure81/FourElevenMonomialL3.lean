@@ -202,6 +202,15 @@ theorem zProj_mem_Vproj (T : Pair 3) :
     zProj (K := K) T ∈ GH74.Generic.BProg.B2.FixFourS3.Vproj K := by
   exact ⟨⟨zElt K T, zElt_mem_Vhat T⟩, rfl⟩
 
+theorem zProj_ne_one (h2 : (2 : K) ≠ 0) (T : Pair 3) : zProj (K := K) T ≠ 1 := by
+  intro h
+  have h' : LinearFlag.proj 3 K (zElt K T) =
+      LinearFlag.proj 3 K (1 : Matrix.SpecialLinearGroup (Fin 3) K) := by
+    simpa [zProj] using h
+  have hz : (⟨zElt K T, zElt_mem_Vhat T⟩ : GH74.Generic.BProg.B2.FixFourS3.Vhat K) =
+      ⟨1, one_mem _⟩ :=
+    GH74.Generic.BProg.B2.FixFourS3.proj_injective_Vhat h'
+  exact zElt_ne_one h2 T (congrArg Subtype.val hz)
 
 theorem zProj_injective (h2 : (2 : K) ≠ 0) : Function.Injective (zProj (K := K)) := by
   intro T T' h
@@ -299,6 +308,8 @@ def threeCycle : Equiv.Perm (Fin 3) := Fin.cycleRange 2
 
 def swap01 : Equiv.Perm (Fin 3) := Equiv.swap 0 1
 
+theorem swap01_mul_threeCycle_mul_swap01 : swap01 * threeCycle * swap01 = threeCycle⁻¹ := by
+  decide
 
 def rhoSL : Matrix.SpecialLinearGroup (Fin 3) K :=
   ⟨Matrix.permMatrixHom threeCycle, by

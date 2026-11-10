@@ -51,6 +51,10 @@ theorem ι_gramPt
   rw [gramPt, Equiv.apply_symm_apply]
   exact Cert.ι_jWord_o hi
 
+theorem eq_gramPt_of_ι
+    (Φ : Y ≃ CFSG.Monster.B.Fischer.Y) {i : ℕ} (hi : i < 78) {y : Y}
+    (hy : (ι (Φ y) : ℕ) = Cert.basisPt i) : y = gramPt Y Φ i :=
+  Φ.injective (ι_injective (Fin.ext (hy.trans (ι_gramPt Φ hi).symm)))
 
 namespace IsFischerSlice
 
@@ -118,6 +122,64 @@ theorem linearIndependent_gramPt :
     rw [hS.ncommQuotForm_gramPt hψ hx hxo hxT i k]
   exact congrFun (Matrix.eq_zero_of_vecMul_eq_zero gramMinor_det_ne_zero hvec)
 
+theorem le_finrank_ncommQuot :
+    78 ≤ Module.finrank (ZMod 2) (NcommQuot lab Y) := by
+  have : Finite Y := hS.finite.to_subtype
+  have h := (hS.linearIndependent_gramPt hψ hx hxo hxT).fintype_card_le_finrank
+  rwa [Fintype.card_fin] at h
+
+theorem gram_minor_of_identification :
+    (List.range 78).map Cert.basisPt =
+      [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 14, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 38,
+        39, 40, 42, 54, 55, 56, 57, 58, 59, 60, 62, 63, 64, 66, 70, 71, 72, 74, 86, 87, 88, 90,
+        94, 102, 118, 150, 151, 152, 154, 158, 166, 182, 278, 279, 282, 286, 294, 310, 406, 534,
+        535, 538, 566, 1046, 1047, 1078, 1110, 1174, 1270, 1334, 1462, 1686, 1942, 2326] ∧
+    (∀ i : Fin 78, ∃! y : Y, (ι (Φ y) : ℕ) = Cert.basisPt i) ∧
+    (∀ (i k : Fin 78) (y z : Y), (ι (Φ y) : ℕ) = Cert.basisPt i →
+      (ι (Φ z) : ℕ) = Cert.basisPt k →
+      ncommQuotForm lab Y (ncommVec lab Y y) (ncommVec lab Y z) =
+        rowsMatrix 78 Cert.gramRowArr i k) ∧
+    (rowsMatrix 78 Cert.gramRowArr).det ≠ 0 ∧
+    78 ≤ Module.finrank (ZMod 2) (NcommQuot lab Y) := by
+  refine ⟨Cert.fischer_gram_minor_certificate.1, fun i => ⟨gramPt Y Φ i, ι_gramPt Φ i.2,
+    fun y hy => eq_gramPt_of_ι Φ i.2 hy⟩, fun i k y z hy hz => ?_, gramMinor_det_ne_zero,
+    hS.le_finrank_ncommQuot hψ hx hxo hxT⟩
+  rw [eq_gramPt_of_ι Φ i.2 hy, eq_gramPt_of_ι Φ k.2 hz]
+  exact hS.ncommQuotForm_gramPt hψ hx hxo hxT i k
+
+omit hψ hxo hxT
+
+theorem nondegenerate_gram_minor
+    {C : Set V} (hC : IsSliceMaxClique lab Y C)
+    [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))] {x : V}
+    (hx : x ∈ hexadFiber lab Y C ∅) {η : C ≃ X₀}
+    {θ : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
+      CFSG.Blueprint.NativeSporadic.M22}
+    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
+      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
+    (hθ : ∀ (f : setStab act lab Y C) (z : C),
+      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
+    {φ : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
+    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
+    {α : setStab act lab Y C →* F₀}
+    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
+      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
+    (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ) :
+    (List.range 78).map Cert.basisPt =
+      [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 14, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 38,
+        39, 40, 42, 54, 55, 56, 57, 58, 59, 60, 62, 63, 64, 66, 70, 71, 72, 74, 86, 87, 88, 90,
+        94, 102, 118, 150, 151, 152, 154, 158, 166, 182, 278, 279, 282, 286, 294, 310, 406, 534,
+        535, 538, 566, 1046, 1047, 1078, 1110, 1174, 1270, 1334, 1462, 1686, 1942, 2326] ∧
+    (∀ i : Fin 78, ∃! y : Y, (ι (Φ y) : ℕ) = Cert.basisPt i) ∧
+    (∀ (i k : Fin 78) (y z : Y), (ι (Φ y) : ℕ) = Cert.basisPt i →
+      (ι (Φ z) : ℕ) = Cert.basisPt k →
+      ncommQuotForm lab Y (ncommVec lab Y y) (ncommVec lab Y z) =
+        rowsMatrix 78 Cert.gramRowArr i k) ∧
+    (rowsMatrix 78 Cert.gramRowArr).det ≠ 0 ∧
+    78 ≤ Module.finrank (ZMod 2) (NcommQuot lab Y) := by
+  obtain ⟨ψ, hψ, -, hxT, -⟩ := hS.canonical_permutation_identification hC hx hη hθ hφ hα hΦ
+  exact hS.gram_minor_of_identification hψ hx.1
+    ((FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα).phi_base hΦ) hxT
 
 end IsFischerSlice
 

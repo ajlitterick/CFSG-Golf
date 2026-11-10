@@ -27,6 +27,36 @@ namespace CFSG.Monster.Existence
 
 open CFSG.Monster CFSG.Monster.Griess CFSG.Monster.AxisCount
 
+theorem validB_of_isVis {g : Native.Gen} (h : g.isVis = true) : g.validB = true := by
+  cases g <;> simp_all [Native.Gen.isVis, Native.Gen.validB]
+
+theorem wordLin_eq_of_visConjCheck
+    {w₁ w₂ : List Native.Gen} (h : visConjCheck w₁ w₂ = true) :
+    wordLin w₁ = wordLin w₂ := by
+  unfold visConjCheck at h
+  rw [Bool.and_eq_true] at h
+  obtain ⟨hv, hc⟩ := h
+  have hv' : ∀ g ∈ w₁ ++ w₂, g.isVis = true := fun g hg => List.all_eq_true.1 hv g hg
+  refine wordLin_eq_of_checkP2
+    (fun g hg => Native.Gen.ne_tau_of_isVis (hv' g (List.mem_append_left _ hg)))
+    (fun g hg => Native.Gen.ne_tau_of_isVis (hv' g (List.mem_append_right _ hg))) ?_ hc
+  exact List.all_eq_true.2 fun g hg => validB_of_isVis (hv' g hg)
+
+theorem all_isVis_left_of_visConjCheck {w₁ w₂ : List Native.Gen} (h : visConjCheck w₁ w₂ = true) :
+    w₁.all Native.Gen.isVis = true := by
+  unfold visConjCheck at h
+  rw [Bool.and_eq_true] at h
+  have := h.1
+  simp only [List.all_append, Bool.and_eq_true] at this
+  exact this.1
+
+theorem mem_cent_xGriess_of_word {w : List Native.Gen} (hw : ∀ g ∈ w, ¬ g = .tau)
+    {e : MGriess} (he : e.val = wordLin w) : e ∈ cent xGriess := by
+  have h := wordLin_mem_Gvis w hw
+  rw [← map_cent_xGriess] at h
+  obtain ⟨u, hu, hu'⟩ := h
+  have e' : u = e := Subtype.ext (hu'.trans he.symm)
+  rwa [← e']
 
 theorem trace_order_of_conj {X K M : SpaceB ≃ₗ[ℚ] SpaceB} (hKX : K * X = M * K)
     (hM3 : M * M * M = 1) {T : ℚ}
@@ -53,6 +83,14 @@ theorem trace_order_of_conj {X K M : SpaceB ≃ₗ[ℚ] SpaceB} (hKX : K * X = M
     rw [h3] at hT
     exact hT' hT.symm
 
+theorem orderOf_three_of_cube {x : MGriess} (h3 : x.val * x.val * x.val = 1) (h1 : x.val ≠ 1) :
+    orderOf x = 3 := by
+  have := Fact.mk Nat.prime_three
+  refine orderOf_eq_prime ?_ fun h => h1 (by rw [h]; rfl)
+  refine Subtype.ext ?_
+  show x.val ^ 3 = 1
+  rw [pow_succ, pow_two]
+  exact h3
 
 theorem valid_permMonoA : Native.permValid permMonoA = true :=
   Certificates.certificate6091.1
@@ -94,6 +132,12 @@ theorem trace_threeARep :
     LinearMap.trace ℚ SpaceB ((threeARep.val : SpaceB ≃ₗ[ℚ] SpaceB) : SpaceB →ₗ[ℚ] SpaceB) = 783 :=
   (threeDataA).1
 
+theorem threeARep_mem_cent_xGriess : threeARep ∈ cent xGriess :=
+  mem_cent_xGriess_of_word (fun g hg h => by subst h; simp [wordThreeA] at hg) rfl
+
+theorem orderOf_threeARep :
+    orderOf threeARep = 3 :=
+  orderOf_three_of_cube (threeDataA).2.1 (threeDataA).2.2
 
 theorem valid_permMonoC : Native.permValid permMonoC = true :=
   Certificates.certificate6091.2.2.2.2.1
@@ -134,6 +178,13 @@ theorem threeDataC :
 theorem trace_threeCRep :
     LinearMap.trace ℚ SpaceB ((threeCRep.val : SpaceB ≃ₗ[ℚ] SpaceB) : SpaceB →ₗ[ℚ] SpaceB) = 0 :=
   (threeDataC).1
+
+theorem threeCRep_mem_cent_xGriess : threeCRep ∈ cent xGriess :=
+  mem_cent_xGriess_of_word (fun g hg h => by subst h; simp [wordThreeC] at hg) rfl
+
+theorem orderOf_threeCRep :
+    orderOf threeCRep = 3 :=
+  orderOf_three_of_cube (threeDataC).2.1 (threeDataC).2.2
 
 
 end CFSG.Monster.Existence

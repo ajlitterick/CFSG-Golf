@@ -74,11 +74,39 @@ theorem toMatZ_injOn {X Y : Array ℤ} (hX : X.size = 64) (hY : Y.size = 64)
     getElem!_pos Y t (by omega)] at this
   exact this
 
+theorem toMatZ_negZ (X : Array ℤ) : toMatZ (Native.negZ X) = -toMatZ X := by
+  ext i j
+  simp only [toMatZ, Matrix.neg_apply, Native.negZ]
+  by_cases h : 8 * i.val + j.val < X.size
+  · rw [getElem!_pos _ _ (by simpa using h), Array.getElem_map, getElem!_pos X _ h]
+  · rw [getElem!_neg _ _ (by simpa using h), getElem!_neg X _ h]
+    rfl
+
+theorem size_negZ (X : Array ℤ) : (Native.negZ X).size = X.size := by
+  simp [Native.negZ]
+
+theorem negZ_negZ (X : Array ℤ) : Native.negZ (Native.negZ X) = X := by
+  simp [Native.negZ, Array.map_map]
 
 theorem rows_z0 : z0.val.val = rowsMatrix 22 seedRowsArr[0]! := by
   rw [seedRowsArr_zero]
   exact z0_val
 
+theorem validM_z0R :
+    Native.validM seedRowsArr[0]! = true := validM_seeds 0 (by norm_num)
+
+theorem RepOK.mul_zPair
+    {y : FibP} {a : Array ℕ × Array ℤ} (h : RepOK y a) :
+    RepOK (y * cfgCz.zPair covMap coverZ covMap_coverZ)
+      (Native.mulRowsF a.1 seedRowsArr[0]!, Native.negZ a.2) := by
+  refine ⟨?_, by rw [size_negZ]; exact h.2.1, ?_, ?_⟩
+  · rw [mulRowsF_eq]
+    exact validM_mulRows h.1 validM_z0R
+  · show ((y.1.1 * (cfgCz.zE : Cz) : Cz) : K).val.val = _
+    rw [mulRowsF_eq, rowsMatrix_mulRows, Subgroup.coe_mul, val_val_mul, h.2.2.1, cfgCz_zE,
+      rows_z0]
+  · show (spinHom (y.1.2 * coverZ) : Matrix (Fin 8) (Fin 8) ℤ) = _
+    rw [map_mul, Units.val_mul, h.2.2.2, spinHom_coverZ, toMatZ_negZ, mul_neg, mul_one]
 
 theorem RepOK.eq
     {y y' : FibP} {a : Array ℕ × Array ℤ} (h : RepOK y a) (h' : RepOK y' a) :
@@ -96,5 +124,35 @@ theorem RepOK.unique
   Prod.ext (eq_of_rowsMatrix_eq h.1 h'.1 (h.2.2.1.symm.trans h'.2.2.1))
     (toMatZ_injOn h.2.1 h'.2.1 (h.2.2.2.symm.trans h'.2.2.2))
 
+theorem RepOK.mk_eq_iff
+    {y y' : FibP} {a a' : Array ℕ × Array ℤ} (h : RepOK y a)
+    (h' : RepOK y' a') :
+    (QuotientGroup.mk y : Hprime) = QuotientGroup.mk y' ↔
+      Native.eqvP seedRowsArr[0]! a a' = true := by
+  have hzp : (QuotientGroup.mk (cfgCz.zPair covMap coverZ covMap_coverZ) : Hprime) = 1 :=
+    (QuotientGroup.eq_one_iff _).mpr (Subgroup.subset_normalClosure rfl)
+  constructor
+  · intro e
+    rw [QuotientGroup.eq, mem_normalClosure_zPair] at e
+    rcases e with e | e
+    · have : y = y' := inv_mul_eq_one.mp e
+      subst this
+      rw [h.unique h']
+      simp [Native.eqvP]
+    · have hy : y = y' * cfgCz.zPair covMap coverZ covMap_coverZ := by
+        have h1 : y' = y * cfgCz.zPair covMap coverZ covMap_coverZ := by rw [← e]; group
+        rw [h1, mul_assoc, zPair_sq, mul_one]
+      have hr := h.unique (hy ▸ h'.mul_zPair)
+      simp only [Native.eqvP, Bool.or_eq_true, Bool.and_eq_true, beq_iff_eq]
+      exact Or.inr ⟨congrArg Prod.snd hr, congrArg Prod.fst hr⟩
+  · intro e
+    simp only [Native.eqvP, Bool.or_eq_true, Bool.and_eq_true, beq_iff_eq] at e
+    rcases e with ⟨e2, e1⟩ | ⟨e2, e1⟩
+    · have : a = a' := Prod.ext e1 e2
+      subst this
+      rw [h.eq h']
+    · have ha : a = (Native.mulRowsF a'.1 seedRowsArr[0]!, Native.negZ a'.2) := Prod.ext e1 e2
+      subst ha
+      rw [h.eq h'.mul_zPair, QuotientGroup.mk_mul, hzp, mul_one]
 
 end CFSG.Sporadic.Co2Smith

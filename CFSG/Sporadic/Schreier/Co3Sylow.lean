@@ -146,6 +146,14 @@ theorem co3T_center_iff
     · refine ⟨co3Z_mem_T, fun y hy => ?_⟩
       exact (Subgroup.mem_centralizer_singleton_iff.1 (co3T_le_centralizer_Z hy)).symm
 
+theorem co3T_centerIn :
+    (CFSG.centerIn co3T : Set (Equiv.Perm (Fin 276))) = {1, co3Z} := by
+  ext x
+  rw [SetLike.mem_coe, CFSG.centerIn, Subgroup.mem_inf, Subgroup.mem_centralizer_iff]
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff, SetLike.mem_coe]
+  rw [← co3T_center_iff]
+  exact ⟨fun ⟨h1, h2⟩ => ⟨h1, fun y hy => (h2 y hy).symm⟩,
+    fun ⟨h1, h2⟩ => ⟨h1, fun y hy => (h2 y hy).symm⟩⟩
 
 theorem card_co3T_subgroupOf :
     Nat.card (co3T.subgroupOf co3P) = 1024 := by
@@ -176,5 +184,12 @@ theorem co3TSylow_coe :
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   exact IsPGroup.toSylow_coe co3T_isPGroup co3T_not_dvd_index
 
+theorem AT_Co3_Sylow_center :
+    co3T ≤ co3P ∧ (∃ S : Sylow 2 co3P, (S : Subgroup co3P) = co3T.subgroupOf co3P) ∧
+    Nat.card co3T = 1024 ∧
+    (∀ x : Equiv.Perm (Fin 276), (x ∈ co3T ∧ ∀ y ∈ co3T, x * y = y * x) ↔ x = 1 ∨ x = co3Z) ∧
+    (CFSG.centerIn co3T : Set (Equiv.Perm (Fin 276))) = {1, co3Z} ∧ orderOf co3Z = 2 :=
+  ⟨co3T_le_P, ⟨co3TSylow, co3TSylow_coe⟩, card_co3T, co3T_center_iff, co3T_centerIn,
+    orderOf_co3Z⟩
 
 end CFSG.Sporadic.Schreier.Co3

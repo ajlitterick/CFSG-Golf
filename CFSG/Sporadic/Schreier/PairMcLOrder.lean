@@ -49,6 +49,36 @@ theorem card_mclP :
   simp only [← RawSchreierDatum.orbitSize_eq_card, mclChain_orbitSize]
   rfl
 
+theorem mclP_orbit_zero :
+    MulAction.orbit mclP (0 : Fin 275) = Set.univ := by
+  rw [mclP_eq_original]
+  have h0 : (0 : ℕ) < mclChain.baseCount := by decide
+  have horb := RawSchreierDatum.orbitPoints_eq_orbit mclChain ⟨0, h0⟩
+  rw [RawSchreierDatum.levelSubgroup_zero_eq_original mclChain mclChain_valid.1] at horb
+  have hcard : Nat.card (mclChain.orbitPoints ⟨0, h0⟩) = 275 := by
+    rw [← RawSchreierDatum.orbitSize_eq_card, mclChain_orbitSize]
+    rfl
+  rw [horb, show mclChain.base.get ⟨0, h0⟩ = 0 from rfl] at hcard
+  refine Set.eq_of_subset_of_ncard_le (Set.subset_univ _) ?_ (Set.toFinite _)
+  rw [Set.ncard_univ, Nat.card_eq_fintype_card, Fintype.card_fin, ← Nat.card_coe_set_eq, hcard]
+
+theorem mclP_transitive :
+    MulAction.IsPretransitive mclP (Fin 275) := by
+  refine ⟨fun x y => ?_⟩
+  have hx : x ∈ MulAction.orbit mclP (0 : Fin 275) := by rw [mclP_orbit_zero]; trivial
+  have hy : y ∈ MulAction.orbit mclP (0 : Fin 275) := by rw [mclP_orbit_zero]; trivial
+  obtain ⟨g, rfl⟩ := hx
+  obtain ⟨h, rfl⟩ := hy
+  exact ⟨h * g⁻¹, by rw [mul_smul, inv_smul_smul]⟩
+
+theorem card_mclP_stabilizer :
+    Nat.card (MulAction.stabilizer mclP (0 : Fin 275)) = 3265920 := by
+  have h1 := MulAction.index_stabilizer mclP (0 : Fin 275)
+  have h2 := (MulAction.stabilizer mclP (0 : Fin 275)).card_mul_index
+  rw [h1, mclP_orbit_zero, Set.ncard_univ, Nat.card_fin, card_mclP] at h2
+  have h3 : Nat.card (MulAction.stabilizer mclP (0 : Fin 275)) * 275 = 3265920 * 275 := by
+    rw [h2]
+  exact Nat.eq_of_mul_eq_mul_right (by norm_num) h3
 
 theorem mclGen_mem_P (k : ℕ) (hk : k < 2) : mclGen k ∈ mclP := by
   rcases (by omega : k = 0 ∨ k = 1) with rfl | rfl
@@ -94,5 +124,28 @@ theorem mcl_word_orders :
   obtain ⟨o3', o4'⟩ := (patRel_comm_iff o1 o2 (by norm_num) 11 5).1 hrel
   exact ⟨o1, o2, o3', o4'⟩
 
+theorem card_mcl :
+    Nat.card Blueprint.NativeSporadic.McL = 898128000 := by
+  rw [Nat.card_congr mclPermEquiv.toEquiv, card_mclP]
+
+theorem orderOf_mclSeed
+    (u : Blueprint.NativeSporadic.McL) :
+    orderOf u = orderOf (mclPermEquiv u : Equiv.Perm (Fin 275)) := by
+  rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq]
+
+theorem FAM_McL_order :
+    ValidSchreier mclChain ∧ mclChain.base.toList.map Fin.val = [0, 1, 2, 3, 4] ∧
+      (List.finRange mclChain.baseCount).map mclChain.orbitSize = [275, 112, 81, 45, 8] ∧
+      Nat.card mclP = 898128000 ∧ MulAction.IsPretransitive mclP (Fin 275) ∧
+      Nat.card (MulAction.stabilizer mclP (0 : Fin 275)) = 3265920 ∧
+      orderOf (mclGen 0) = 2 ∧ orderOf (mclGen 1) = 5 ∧ orderOf (mclGen 0 * mclGen 1) = 11 ∧
+      Nat.card Blueprint.NativeSporadic.McL = 898128000 ∧
+      orderOf mclSeedA = 2 ∧ orderOf mclSeedB = 5 ∧ orderOf (mclSeedA * mclSeedB) = 11 := by
+  obtain ⟨o1, o2, o3, -⟩ := mcl_word_orders
+  refine ⟨mclChain_valid.1, mclChain_base, mclChain_orbitSizes, card_mclP, mclP_transitive,
+    card_mclP_stabilizer, o1, o2, o3, card_mcl, ?_, ?_, ?_⟩
+  · rw [orderOf_mclSeed, mclPermEquiv_seedA, o1]
+  · rw [orderOf_mclSeed, mclPermEquiv_seedB, o2]
+  · rw [orderOf_mclSeed, map_mul, Subgroup.coe_mul, mclPermEquiv_seedA, mclPermEquiv_seedB, o3]
 
 end CFSG.Sporadic.Schreier

@@ -87,6 +87,37 @@ theorem sq_eq_of_lift_conj (h : IsCover11 ρ z) {x y : E} (hx : ρ x ^ 2 = 1) {g
 
 end IsCover11
 
+theorem cycleType_of_involution_11 {σ : Perm (Fin 11)} (h2 : σ ^ 2 = 1) (h1 : σ ≠ 1)
+    (hs : sign σ = 1) : σ.cycleType = {2, 2} ∨ σ.cycleType = {2, 2, 2, 2} := by
+  have hall : ∀ n ∈ σ.cycleType, n = 2 := by
+    intro n hn
+    have hd := dvd_of_mem_cycleType hn
+    have hd2 : orderOf σ ∣ 2 := orderOf_dvd_of_pow_eq_one h2
+    have := Nat.le_of_dvd (by norm_num) (hd.trans hd2)
+    have := two_le_of_mem_cycleType hn
+    omega
+  have hrep : σ.cycleType = Multiset.replicate (Multiset.card σ.cycleType) 2 :=
+    Multiset.eq_replicate.mpr ⟨rfl, hall⟩
+  have hsum : σ.cycleType.sum = 2 * Multiset.card σ.cycleType := by
+    conv_lhs => rw [hrep]
+    rw [Multiset.sum_replicate]; simp [mul_comm]
+  have hle : σ.cycleType.sum ≤ 11 := by
+    rw [sum_cycleType]
+    have := Finset.card_le_univ σ.support
+    simpa using this
+  have hne : σ.cycleType ≠ 0 := fun h => h1 (cycleType_eq_zero.mp h)
+  have hk0 : Multiset.card σ.cycleType ≠ 0 := fun h => hne (Multiset.card_eq_zero.mp h)
+  have hsg := sign_of_cycleType σ
+  rw [hs, hsum] at hsg
+  have heven : Even (2 * Multiset.card σ.cycleType + Multiset.card σ.cycleType) :=
+    (neg_one_pow_eq_one_iff_even (by decide : (-1 : ℤˣ) ≠ 1)).mp hsg.symm
+  rw [hsum] at hle
+  obtain ⟨m, hm⟩ := heven
+  have hk : Multiset.card σ.cycleType = 2 ∨ Multiset.card σ.cycleType = 4 := by omega
+  rcases hk with hk | hk
+  · left; rw [hrep, hk]; rfl
+  · right; rw [hrep, hk]; rfl
+
 
 theorem cycleType_of_sq_eq_one_11 {σ : Perm (Fin 11)} (h2 : σ ^ 2 = 1) :
     σ.cycleType = Multiset.replicate (σ.support.card / 2) 2 := by
@@ -411,6 +442,80 @@ theorem sq_eq_one_of_type2222_lift (h : IsCover11 ρ z) {x : E}
   rw [h.sq_eq_of_type2222 hty hx] at *
   exact h1
 
+theorem conj_mul_z_of_sq (h : IsCover11 ρ z) {a b : E} (ha : a ^ 2 = 1) (hb : b ^ 2 = z)
+    (hab : (a * b) ^ 2 = 1) : b * a * b⁻¹ = a * z := by
+  have ha' : a⁻¹ = a := by
+    apply inv_eq_of_mul_eq_one_right; rw [← pow_two]; exact ha
+  have h1 : (a * b)⁻¹ = a * b := by
+    apply inv_eq_of_mul_eq_one_right; rw [← pow_two]; exact hab
+  have e1 : a * b = z * (b * a) := by
+    calc a * b = (a * b)⁻¹ := h1.symm
+      _ = b⁻¹ * a⁻¹ := mul_inv_rev a b
+      _ = z * b * a := by rw [h.inv_eq_mul_z_of_sq hb, ha']
+      _ = z * (b * a) := by rw [mul_assoc]
+  have e2 : b * a = z * (a * b) := by
+    calc b * a = (z * z) * (b * a) := by rw [h.z_mul_z, one_mul]
+      _ = z * (z * (b * a)) := by rw [mul_assoc]
+      _ = z * (a * b) := by rw [← e1]
+  calc b * a * b⁻¹ = z * (a * b) * b⁻¹ := by rw [e2]
+    _ = z * a := by group
+    _ = a * z := (h.mul_z_comm a).symm
+
+theorem conj_mul_z_of_sq_sq (h : IsCover11 ρ z) {a b : E} (ha : a ^ 2 = z) (hb : b ^ 2 = z)
+    (hab : (a * b) ^ 2 = z) : b * a * b⁻¹ = a * z := by
+  have e1 := h.anticomm_of_sq ha hb hab
+  have e2 : b * a = z * (a * b) := by
+    calc b * a = (z * z) * (b * a) := by rw [h.z_mul_z, one_mul]
+      _ = z * (z * (b * a)) := by rw [mul_assoc]
+      _ = z * (a * b) := by rw [← e1]
+  calc b * a * b⁻¹ = z * (a * b) * b⁻¹ := by rw [e2]
+    _ = z * a := by group
+    _ = a * z := (h.mul_z_comm a).symm
+
+theorem conj_z (h : IsCover11 ρ z) (g : E) : g * z * g⁻¹ = z := by
+  rw [h.mul_z_comm g]; group
+
+theorem conj_mul_z (h : IsCover11 ρ z) (g w : E) : g * (w * z) * g⁻¹ = g * w * g⁻¹ * z := by
+  calc g * (w * z) * g⁻¹ = (g * w * g⁻¹) * (g * z * g⁻¹) := by group
+    _ = g * w * g⁻¹ * z := by rw [h.conj_z]
+
+theorem exists_conj_mul_z_of_even_conj (h : IsCover11 ρ z) {a₀ p₀ x : E}
+    (hp : p₀ * a₀ * p₀⁻¹ = a₀ * z) {g : Perm (Fin 11)} (hg : sign g = 1)
+    (hgx : g * ρ a₀ * g⁻¹ = ρ x) : ∃ p : E, p * x * p⁻¹ = x * z := by
+  obtain ⟨g', hg'⟩ := h.exists_lift hg
+  have h1 : ρ (g' * a₀ * g'⁻¹) = ρ x := by rw [map_mul, map_mul, map_inv, hg', hgx]
+  refine ⟨g' * p₀ * g'⁻¹, ?_⟩
+  have key : (g' * p₀ * g'⁻¹) * (g' * a₀ * g'⁻¹) * (g' * p₀ * g'⁻¹)⁻¹ =
+      (g' * a₀ * g'⁻¹) * z := by
+    calc (g' * p₀ * g'⁻¹) * (g' * a₀ * g'⁻¹) * (g' * p₀ * g'⁻¹)⁻¹
+        = g' * (p₀ * a₀ * p₀⁻¹) * g'⁻¹ := by group
+      _ = g' * (a₀ * z) * g'⁻¹ := by rw [hp]
+      _ = (g' * a₀ * g'⁻¹) * z := h.conj_mul_z g' a₀
+  rcases h.eq_or_eq_mul_z h1 with h2 | h2
+  · rw [h2, key]
+  · rw [h2, h.conj_mul_z, key]
+
+theorem type2222_of_involution (h : IsCover11 ρ z) {x : E} (hx : x ^ 2 = 1) (h1 : x ≠ 1)
+    (hz : x ≠ z) : (ρ x).cycleType = {2, 2, 2, 2} := by
+  have h2 : ρ x ^ 2 = 1 := by rw [← map_pow, hx, map_one]
+  have hne : ρ x ≠ 1 := fun e => by
+    rcases h.mem_ker_iff.mp e with e | e
+    · exact h1 e
+    · exact hz e
+  rcases cycleType_of_involution_11 h2 hne (h.sign_rho x) with ht | ht
+  · exfalso
+    have := h.sq_eq_z_of_type22 ht
+    rw [hx] at this
+    exact h.ne_one this.symm
+  · exact ht
+
+theorem isInvolution_of_type2222 (h : IsCover11 ρ z) {x : E}
+    (hx : (ρ x).cycleType = {2, 2, 2, 2}) : x ^ 2 = 1 ∧ x ≠ 1 ∧ x ≠ z := by
+  have hne : ρ x ≠ 1 := fun e => by
+    have : (ρ x).cycleType = 0 := by rw [e]; exact cycleType_one
+    rw [hx] at this; simp at this
+  refine ⟨h.sq_eq_one_of_type2222_lift hx, fun e => hne (by rw [e, map_one]), fun e => hne ?_⟩
+  rw [e]; exact h.rho_z
 
 theorem eq_of_rho_eq_of_pow_three (h : IsCover11 ρ z) {x y : E} (hx : x ^ 3 = 1) (hy : y ^ 3 = 1)
     (hxy : ρ x = ρ y) : x = y := by
@@ -422,6 +527,10 @@ theorem eq_of_rho_eq_of_pow_three (h : IsCover11 ρ z) {x y : E} (hx : x ^ 3 = 1
     rw [← h1, hy] at h3
     exact h.ne_one h3.symm
 
+theorem existsUnique_pow_three_lift (h : IsCover11 ρ z) {p : Perm (Fin 11)} (hp : sign p = 1)
+    (hp3 : p ^ 3 = 1) : ∃! c : E, ρ c = p ∧ c ^ 3 = 1 := by
+  obtain ⟨c, hc, hc3⟩ := h.exists_lift_cube_one hp hp3
+  exact ⟨c, ⟨hc, hc3⟩, fun d hd => h.eq_of_rho_eq_of_pow_three hd.2 hc3 (hd.1.trans hc.symm)⟩
 
 theorem commute_of_rho_commute_pow_three (h : IsCover11 ρ z) {x : E} (hx : x ^ 3 = 1) {g : E}
     (hg : ρ g * ρ x = ρ x * ρ g) : g * x = x * g := by
@@ -481,9 +590,49 @@ theorem card_comap (h : IsCover11 ρ z) {S : Subgroup (Perm (Fin 11))}
 
 end IsCover11
 
+private def permC0 : Perm (Fin 11) := swap 0 1 * swap 2 3 * swap 4 5 * swap 6 7
+private def permQ0 : Perm (Fin 11) := swap 0 2 * swap 1 3
+
+private theorem cycleType_permC0 : permC0.cycleType = {2, 2, 2, 2} := by
+  unfold permC0
+  exact cycleType_type2222_of_card_11 (by decide) (by decide)
+private theorem cycleType_permQ0 : permQ0.cycleType = {2, 2} := by
+  unfold permQ0
+  exact cycleType_type22_of_card_11 (by decide) (by decide)
+private theorem cycleType_permC0Q0 : (permC0 * permQ0).cycleType = {2, 2, 2, 2} := by
+  unfold permC0 permQ0
+  exact cycleType_type2222_of_card_11 (by decide) (by decide)
 
 namespace IsCover11
 
+variable {E : Type*} [Group E] {ρ : E →* Perm (Fin 11)} {z : E}
+
+theorem exists_conj_mul_z_type2222 (h : IsCover11 ρ z) {x : E}
+    (hx : (ρ x).cycleType = {2, 2, 2, 2}) : ∃ p : E, p * x * p⁻¹ = x * z := by
+  obtain ⟨a, ha⟩ := h.exists_lift (sign_of_type2222_11 cycleType_permC0)
+  obtain ⟨b, hb⟩ := h.exists_lift (sign_of_type22_11 cycleType_permQ0)
+  have ha2 : a ^ 2 = 1 := h.sq_eq_one_of_type2222_lift (by rw [ha]; exact cycleType_permC0)
+  have hb2 : b ^ 2 = z := h.sq_eq_z_of_type22 (by rw [hb]; exact cycleType_permQ0)
+  have hab : (a * b) ^ 2 = 1 :=
+    h.sq_eq_one_of_type2222_lift (by rw [map_mul, ha, hb]; exact cycleType_permC0Q0)
+  obtain ⟨g, hg, hgc⟩ := exists_even_conj_type2222_11 cycleType_permC0 hx
+  exact h.exists_conj_mul_z_of_even_conj (h.conj_mul_z_of_sq ha2 hb2 hab) hg
+    (by rw [ha]; exact hgc)
+
+theorem exists_conj_of_involutions (h : IsCover11 ρ z) {x y : E} (hx : x ^ 2 = 1) (hx1 : x ≠ 1)
+    (hxz : x ≠ z) (hy : y ^ 2 = 1) (hy1 : y ≠ 1) (hyz : y ≠ z) :
+    ∃ g : E, g * x * g⁻¹ = y := by
+  have tx := h.type2222_of_involution hx hx1 hxz
+  have ty := h.type2222_of_involution hy hy1 hyz
+  obtain ⟨g, hg, hgc⟩ := exists_even_conj_type2222_11 tx ty
+  obtain ⟨g', hg'⟩ := h.exists_lift hg
+  have h1 : ρ (g' * x * g'⁻¹) = ρ y := by rw [map_mul, map_mul, map_inv, hg', hgc]
+  rcases h.eq_or_eq_mul_z h1 with h2 | h2
+  · exact ⟨g', h2.symm⟩
+  · have tw : (ρ (g' * x * g'⁻¹)).cycleType = {2, 2, 2, 2} := by
+      rw [h1]; exact ty
+    obtain ⟨p, hp⟩ := h.exists_conj_mul_z_type2222 tw
+    exact ⟨p * g', by rw [h2, ← hp]; group⟩
 
 end IsCover11
 

@@ -43,9 +43,13 @@ theorem spiderWord_433 : spiderWord 4 3 =
 
 theorem A_mul_self : A * A = 1 := yGen_mul_self 4 3 3 0
 
+theorem B_mul_self (i : ℕ) : B i * B i = 1 := yGen_mul_self 4 3 3 _
+
+theorem C_mul_self (i : ℕ) : C i * C i = 1 := yGen_mul_self 4 3 3 _
 
 theorem D_mul_self (i : ℕ) : D i * D i = 1 := yGen_mul_self 4 3 3 _
 
+theorem E₁_mul_self : E₁ * E₁ = 1 := yGen_mul_self 4 3 3 _
 
 @[expose] noncomputable def T (i : ℕ) : U433 := A * B i * C i
 

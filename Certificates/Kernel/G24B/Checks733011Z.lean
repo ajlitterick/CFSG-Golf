@@ -29,6 +29,7 @@ open CFSG.KC.Misc.G24 CFSG.KC.F2BfsRec CFSG.KLie.CT CFSG.KC.M1F2 CFSG.Quasithin.
 
 theorem ch733011_zc : zcK zc = true := by quickRfl
 
+theorem ch733011_negZc : (!zcK (zc.map Nat.succ)) = true := by quickRfl
 
 end CFSG.KD.G24B
 

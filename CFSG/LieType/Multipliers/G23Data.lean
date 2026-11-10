@@ -71,6 +71,11 @@ open CFSG.Sporadic.He.Native CFSG.Quasithin.G2U
 @[expose] def wordArr (w : List (Fin 2 × Bool)) : Array (Array ℕ) :=
   w.foldr (fun l M => mulM 3 14 (letterArr l) M) (idM 14)
 
+@[expose] def modelCheck : Bool :=
+  (mulM 3 14 aArr aArr == idM 14) && (mulM 3 14 bArr bInvArr == idM 14) &&
+    rels.all (fun r => wordArr r == idM 14) &&
+    (List.finRange 4).all (fun j => wordArr (genWord j) == rootArr j) &&
+    (List.finRange 2).all fun i => wordArr (commWords (pairs i)) == letterArr (i, true)
 
 @[expose] def atlasA : String :=
   "1     4    27    27\n\

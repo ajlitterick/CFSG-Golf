@@ -50,7 +50,13 @@ end CertificateChecks.KernelMC.F24C
 namespace CertificateChecks.KernelMC.F24C
 
 open CFSG.KC.LocalComp.FactsV CFSG.AGLEmbedding.R3 CFSG.SectionRank.Native
+open CFSG.KD.MC.F24C (lay V P N)
 
+theorem neg_regs : Bool.not (regsV lay V P (fun s => TT (s + 1)) N CoreFi247.nregs
+    (CoreFi247.prog.take 284) RA) = true := by quickRfl
+
+theorem neg_facts : Bool.not (chunkV lay V P N RC CoreFi247.nregs CoreFi247.spec.facts
+    (fun i => HH (i + 1)) (selR 0 577) 32 0) = true := by quickRfl
 
 end CertificateChecks.KernelMC.F24C
 

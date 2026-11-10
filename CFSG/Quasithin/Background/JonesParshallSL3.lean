@@ -29,6 +29,7 @@ theorem e0_zero : (e0 : Fin 3 → F) 0 = 1 := rfl
 
 theorem e0_one : (e0 : Fin 3 → F) 1 = 0 := rfl
 
+theorem e0_two : (e0 : Fin 3 → F) 2 = 0 := rfl
 
 omit [Field F] in
 theorem vec3_ext {v w : Fin 3 → F} (h0 : v 0 = w 0) (h1 : v 1 = w 1) (h2 : v 2 = w 2) :

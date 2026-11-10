@@ -43,6 +43,9 @@ theorem pathNum_odd (α : RankTwoAmalgam.{u}) (b : Bool) (j : ℕ) :
     rw [h1, pathNum_succ_odd, ih]
     ring
 
+theorem pathNum_even (α : RankTwoAmalgam.{u}) (b : Bool) (j : ℕ) :
+    α.pathNum b (2 * j + 2) = (α.qv b + 1) * (α.qv b * α.qv (!b)) ^ j * α.qv (!b) := by
+  rw [pathNum_succ_odd, pathNum_odd]
 
 end RankTwoAmalgam
 

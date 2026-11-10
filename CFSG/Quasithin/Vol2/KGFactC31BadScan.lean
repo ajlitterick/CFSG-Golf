@@ -10,6 +10,16 @@ namespace CFSG.Quasithin.KGC31.Native
 
 open CFSG.Monster.B.Co2.Native CFSG.Sporadic.Schreier.PairNative
 
+@[expose] def countWI (f : List (Array Nat) → List (Array Nat) → Bool) :
+    List (Array (Array Nat × Array Nat)) → List (Array Nat) → List (Array Nat) → Nat
+  | [], acc, acci => if f acc acci then 1 else 0
+  | B :: Bs, acc, acci => B.foldl (fun c tt => c + countWI f Bs (tt.1 :: acc) (acci ++ [tt.2])) 0
+
+@[expose] def levBlockI (L : Array Level) (i : Nat) : Array (Array Nat × Array Nat) :=
+  Array.ofFn (n := L[i]!.pts.size) fun k => (L[i]!.tr[k.val]!, L[i]!.trInv[k.val]!)
+
+@[expose] def levBlocksI (L : Array Level) (k : Nat) : List (Array (Array Nat × Array Nat)) :=
+  (List.range k).map (levBlockI L)
 
 @[expose] def orbW (t0 : Array Nat) (w wi : List (Array Nat)) : Nat → List (List (Array Nat))
   | 0 => []
@@ -32,6 +42,19 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.Schreier.PairNative
     Bool :=
   inSpanW bs (spanW bs cand) (cand.map fun x => wi ++ x ++ w)
 
+@[expose] def candW (bs : List Nat) (norm : Bool) (w wi : List (Array Nat))
+    (os : List (List (Array Nat))) (cand : List (List (Array Nat))) : Bool :=
+  inSpanW bs (spanW bs os) cand && (!norm || normW bs w wi cand)
+
+@[expose] def goodW (bs : List Nat) (t0 : Array Nat) (ps : List Nat) (norm : Bool)
+    (cands : List (List (List (Array Nat)))) (w wi : List (Array Nat)) : Bool :=
+  ps.any fun p => fixB bs w p &&
+    (!((orbW t0 w wi p).all (commW bs t0)) || cands.any (candW bs norm w wi (orbW t0 w wi p)))
+
+@[expose] def badTest (bs : List Nat) (t0 s : Array Nat) (es ps : List Nat) (norm : Bool)
+    (cands : List (List (List (Array Nat)))) (w wi : List (Array Nat)) : Bool :=
+  baseImgs bs (wi ++ [s] ++ w ++ [t0]) == baseImgs bs (t0 :: (wi ++ [s] ++ w)) &&
+    es.any (fixB bs w) && !(goodW bs t0 ps norm cands w wi)
 
 end CFSG.Quasithin.KGC31.Native
 

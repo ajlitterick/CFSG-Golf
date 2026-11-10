@@ -15,6 +15,29 @@ namespace CFSG.ASVolI
 open CFSG.Open
 
 
+theorem burnsideA315x_centralizer_eq_bot {G : Type} [Group G] {L T B : Subgroup G}
+    (h : CFSG.Quasithin.A315Hyp L T B) : Subgroup.centralizer (L : Set G) = ⊥ := by
+  haveI := h.sqtk.finite
+  have hle := CFSG.centralizer_generalizedFitting_le G
+  rw [h.fitting] at hle
+  haveI := h.simple
+  obtain ⟨a, b, hab⟩ := h.nonabelian
+  rw [eq_bot_iff]
+  intro x hx
+  have hxL : x ∈ L := hle hx
+  rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal (Subgroup.center ↥L) with hc | hc
+  · have hmem : (⟨x, hxL⟩ : ↥L) ∈ Subgroup.center ↥L := by
+      rw [Subgroup.mem_center_iff]
+      intro g
+      have := Subgroup.mem_centralizer_iff.1 hx (g : G) g.2
+      exact Subtype.ext this
+    rw [hc, Subgroup.mem_bot] at hmem
+    exact (Subgroup.mem_bot).2 (congrArg Subtype.val hmem)
+  · exfalso
+    have hb : b ∈ Subgroup.center ↥L := hc ▸ Subgroup.mem_top b
+    exact hab ((Subgroup.mem_center_iff.1 hb a))
+
+
 open scoped Pointwise in
 theorem burnsideA315x_relIndex_sup {G : Type} [Group G] {A B : Subgroup G}
     (hB : B ≤ Subgroup.normalizer (A : Set G)) : B.relIndex (A ⊔ B) = B.relIndex A := by
@@ -33,6 +56,23 @@ theorem burnsideA315x_relIndex_sup {G : Type} [Group G] {A B : Subgroup G}
   rw [Subgroup.quotientSubgroupOfEmbeddingOfLE_apply_mk, QuotientGroup.eq,
     Subgroup.mem_subgroupOf]
   simpa using hb
+
+theorem burnsideA315x_sylow_inf {G : Type} [Group G] {L T : Subgroup G} [L.Normal]
+    (hT : CFSG.QuasithinUnique.IsSylowTwoOf T ⊤) :
+    CFSG.QuasithinUnique.IsSylowTwoOf (T ⊓ L) L := by
+  refine ⟨inf_le_right, hT.2.1.to_le inf_le_left, ?_⟩
+  have h1 : T.relIndex (L ⊔ T) = T.relIndex L :=
+    burnsideA315x_relIndex_sup (A := L) (B := T)
+      (by rw [Subgroup.normalizer_eq_top]; exact le_top)
+  have h2 : T.relIndex (L ⊔ T) ∣ T.relIndex ⊤ :=
+    Dvd.intro _ (Subgroup.relIndex_mul_relIndex T (L ⊔ T) ⊤ le_sup_right le_top)
+  have h3 : (T ⊓ L).relIndex L = T.relIndex L := Subgroup.inf_relIndex_right T L
+  intro h2L
+  apply hT.2.2
+  change 2 ∣ T.relIndex ⊤
+  change 2 ∣ (T ⊓ L).relIndex L at h2L
+  rw [h3, ← h1] at h2L
+  exact h2L.trans h2
 
 
 open scoped Pointwise in

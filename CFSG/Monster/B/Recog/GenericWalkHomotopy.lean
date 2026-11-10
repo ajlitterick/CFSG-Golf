@@ -168,5 +168,14 @@ theorem homotopic_reverse_append {u v : V} (p : G.Walk u v) :
     Homotopic (p.reverse.append p) .nil := by
   simpa using homotopic_append_reverse p.reverse
 
+theorem triangulable_iff_homotopic :
+    Triangulable G ↔ ∀ (u v : V) (p q : G.Walk u v), Homotopic p q := by
+  refine ⟨fun hG u v p q => ?_, fun h u p => h u u p .nil⟩
+  have h₁ : Homotopic (p.append (q.reverse.append q)) p := by
+    simpa using (homotopic_reverse_append q).append_left p
+  have h₂ : Homotopic ((p.append q.reverse).append q) q := by
+    simpa using (hG u (p.append q.reverse)).append_right q
+  rw [← Walk.append_assoc] at h₂
+  exact h₁.symm.trans h₂
 
 end CFSG.Monster.B.Recog

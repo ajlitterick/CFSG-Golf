@@ -177,6 +177,41 @@ theorem card_centralizer_z7_le (z : J) (hz : 𝕄 z = pkMat W.Z7) :
       C7A.OR7 C7A.OR8 C7A.OR9 C7A.OR10) D' = 9 by decide +kernel] at key
   omega
 
+theorem card_centralizer_13_le (z : J) (hz : orderOf z = 13) :
+    Nat.card (Subgroup.centralizer ({z} : Set J)) ≤ 39 := by
+  have := h.finite
+  have hJc := card_J_eq h
+  have : Finite J := Nat.finite_of_card_ne_zero (by rw [hJc]; decide)
+  have : Fact (Nat.Prime 13) := ⟨by norm_num⟩
+  obtain ⟨ψ, hψ, -⟩ := psi h
+  obtain ⟨ht, hpow, h1, hc, -, hfix⟩ := class_T (card_P_eq h) (hKc h).le C13A.misc C13A.diff.all
+    C13A.sel.all C13A.comm.all C13A.or1.all C13A.or2.all C13A.or3.all C13A.or4.all C13A.or5.all
+    C13A.or6.all C13A.or7.all C13A.or8.all C13A.or9.all C13A.or10.all
+  set y := ψ (wval gen C13A.word) with hy
+  have key : Nat.card (Subgroup.centralizer ({y} : Set J)) *
+      ∑ _i : Fin 1, 634023936 / (C13A.N1 * C13A.m1) ≤
+        (∑ D', fixB (C13A.N1 * C13A.m1) (nOf C13A.OR1 C13A.OR2 C13A.OR3 C13A.OR4 C13A.OR5
+          C13A.OR6 C13A.OR7 C13A.OR8 C13A.OR9 C13A.OR10) D') * 634023936 :=
+    card_centralizer_mul_le_of_conj (hKc h) (fun _ => ⟨wval gen C13A.word, ht⟩)
+      (fun _ => C13A.N1 * C13A.m1) (fun _ => hc) (fun i j hij => absurd (Subsingleton.elim i j) hij)
+      0 hfix ψ hψ y fun _ => IsConj.refl _
+  rw [show ∑ _i : Fin 1, 634023936 / (C13A.N1 * C13A.m1) = 48771072 by decide +kernel,
+    show ∑ D', fixB (C13A.N1 * C13A.m1) (nOf C13A.OR1 C13A.OR2 C13A.OR3 C13A.OR4 C13A.OR5
+      C13A.OR6 C13A.OR7 C13A.OR8 C13A.OR9 C13A.OR10) D' = 3 by decide +kernel] at key
+  have hcy : Nat.card (Subgroup.centralizer ({y} : Set J)) ≤ 39 := by omega
+  have hy13 : y ^ 13 = 1 := by
+    have e : wval gen C13A.word ^ 13 = 1 := hpow
+    rw [hy, ← map_pow, e, map_one]
+  have hy1 : y ≠ 1 := by
+    intro e
+    have e2 : wval gen C13A.word = 1 := hψ.1 (e.trans (map_one ψ).symm)
+    exact absurd (h1 e2) (by decide +kernel)
+  have hoy : orderOf y = 13 := orderOf_eq_prime hy13 hy1
+  have hfac : (Nat.card J).factorization 13 = 1 := by
+    rw [hJc, show thOrder = 13 * 6980457222144000 by norm_num [thOrder],
+      Nat.factorization_mul (by norm_num) (by norm_num), Finsupp.add_apply,
+      Nat.Prime.factorization_self (by norm_num), Nat.factorization_eq_zero_of_not_dvd (by norm_num)]
+  exact (card_centralizer_le_of_sylow hfac hoy hz).trans hcy
 
 end CertificateChecks.KernelThCent
 

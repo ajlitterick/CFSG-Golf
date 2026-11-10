@@ -25,6 +25,11 @@ theorem five_K : cub2K lay A B mclFiveData = true := by decide +kernel
 theorem sylow5H_K : cubK lay A B CFSG.AGLEmbedding.SporCubic.mclSylow5HData = true := by
   decide +kernel
 
+theorem mult_neg_seeds : (!cubK lay B A mclMultData) = true := by decide +kernel
+
+theorem five_neg : (!cub2K lay A B { mclFiveData with
+    h2 := { mclFiveData.h2 with oh := mclFiveData.h2.oh + 1 } }) = true := by
+  decide +kernel
 
 end CFSG.KD.LC.F3.McL
 

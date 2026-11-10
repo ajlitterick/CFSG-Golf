@@ -92,6 +92,7 @@ theorem size_hypY (h : ℕ) : (hypY h).1.size = 64 := by
   · exact size_wordP _
   · exact size_wordP _
 
+theorem size_eP (i : ℕ) : (eP i).1.size = 64 := size_wordP _
 
 theorem size_foldl (f : ℕ → Pr) (w : List ℕ) (acc : Pr) (hacc : acc.1.size = 64) :
     (w.foldl (fun acc s => mulP acc (f s)) acc).1.size = 64 := by

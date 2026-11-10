@@ -43,11 +43,23 @@ theorem ch431008p6 : planOK 276 9 7 Co3C.BP dp6 pl6 0 = true := by quickRfl
 
 theorem ch431008s0 :
     Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp0 ts0 pl0 0 0 0) 486 = true := by quickRfl
+theorem ch431008s1 :
+    Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp1 ts1 pl1 0 0 0) 1458 = true := by quickRfl
 theorem ch431008s2 :
     Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp2 ts2 pl2 0 0 0) 81 = true := by quickRfl
+theorem ch431008s3 :
+    Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp3 ts3 pl3 0 0 0) 972 = true := by quickRfl
+theorem ch431008s4 :
+    Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp4 ts4 pl4 0 0 0) 972 = true := by quickRfl
 theorem ch431008s5 :
     Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp5 ts5 pl5 0 0 0) 54 = true := by quickRfl
+theorem ch431008s6 :
+    Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp6 ts6 pl6 0 0 0) 54 = true := by quickRfl
 
+theorem neg431008s5 :
+    (!Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP dp5 [] pl5 0 0 0) 54) = true := by quickRfl
+theorem neg431008p0 : (!planOK 276 9 7 Co3C.BP dp1 pl0 0) = true := by quickRfl
+theorem neg431008d0 : (!dOK 276 9 xp0 yp0 dp1) = true := by quickRfl
 
 end CertificateChecks.KernelCo3Tw
 

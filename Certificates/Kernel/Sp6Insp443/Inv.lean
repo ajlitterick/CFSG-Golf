@@ -20,6 +20,9 @@ open CFSG.KC CFSG.KC.Enum CFSG.KS CFSG.KS.Sp6I CertificateChecks.KernelLC.Sp6J
 
 #kc_each ch725106i 0 12
 
+theorem ch725106n_inv : notB (allN 1 (fun j => permOK 36 6 (mask 6) (36 * 6)
+    (laneK (36 * 6) (XQ.S 1) j) (laneK (36 * 6) (XQ.S 1) j))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelS6I
 

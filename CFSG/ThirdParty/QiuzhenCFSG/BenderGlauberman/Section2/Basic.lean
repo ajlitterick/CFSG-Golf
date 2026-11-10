@@ -1141,6 +1141,9 @@ private lemma t1t2_mem_S0 (c : Hyp11 G) : c.t1 * c.t2 ∈ (c.S0 : Subgroup G) :=
   rw [c.S0_eq_zpowers]
   exact Subgroup.mem_zpowers (c.t1 * c.t2)
 
+/-- `t1·t2 ∈ H0`. -/
+private lemma t1t2_mem_H0 (c : Hyp11 G) : c.t1 * c.t2 ∈ c.H0 :=
+  S0_le_H0 c (t1t2_mem_S0 c)
 
 /-- The order of `z = t1·t2` is `2^m` (it generates `S0`, and `|S0| = 2^m`). -/
 private lemma t1t2_orderOf (c : Hyp11 G) : orderOf (c.t1 * c.t2) = 2 ^ c.m := by
@@ -1552,6 +1555,36 @@ public theorem lambda_fixed_by_s_iff (c : Hyp11 G) (h12 : Hyp12 c)
   rw [hF]
   simp
 
+/-- Existence of `κ1`: a linear character of `H0` whose kernel contains `S0`
+and `[S,U]`. -/
+theorem exists_kappaOne (c : Hyp11 G) (h12 : Hyp12 c) :
+    ∃ κ1 : ClassFunction (↥c.H0), IsLinearCharacter κ1 ∧
+      (∀ x : ↥c.H0, (x : G) ∈ (c.S0 : Subgroup G) → κ1 x = 1) ∧
+      (∀ x : ↥c.H0, (x : G) ∈ ⁅(c.S : Subgroup G), c.U⁆ → κ1 x = 1) := by
+  refine ⟨(1 : ClassFunction (↥c.H0)), isLinearCharacter_one, ?_, ?_⟩
+  · intro x hx
+    rfl
+  · intro x hx
+    rfl
+
+/-- `κ1`: a linear character of `H0` whose kernel contains `S0` and `[S,U]`. -/
+noncomputable def kappaOne (c : Hyp11 G) (h12 : Hyp12 c) : ClassFunction (↥c.H0) :=
+  Classical.choose (exists_kappaOne c h12)
+
+/-- `κ1` is a linear character of `H0`. -/
+theorem kappaOne_isLinear (c : Hyp11 G) (h12 : Hyp12 c) :
+    IsLinearCharacter (kappaOne c h12) := by
+  exact (Classical.choose_spec (exists_kappaOne c h12)).1
+
+/-- The kernel of `κ1` contains `S0`. -/
+theorem kappaOne_trivial_on_S0 (c : Hyp11 G) (h12 : Hyp12 c) :
+    ∀ x : ↥c.H0, (x : G) ∈ (c.S0 : Subgroup G) → kappaOne c h12 x = 1 := by
+  exact (Classical.choose_spec (exists_kappaOne c h12)).2.1
+
+/-- The kernel of `κ1` contains `[S,U]`. -/
+theorem kappaOne_trivial_on_comm (c : Hyp11 G) (h12 : Hyp12 c) :
+    ∀ x : ↥c.H0, (x : G) ∈ ⁅(c.S : Subgroup G), c.U⁆ → kappaOne c h12 x = 1 := by
+  exact (Classical.choose_spec (exists_kappaOne c h12)).2.2
 
 /-- `κ1` is fixed by `s` (`κ1^s = κ1`): `κ1` kills `S0` and `[S,U]`, and
 `H0 = U·S0` with `s` inverting `S0` and normalizing `U`. -/
@@ -1634,6 +1667,39 @@ theorem kappaOne_fixed_by_s (c : Hyp11 G) (h12 : Hyp12 c)
     ring
   exact hk1
 
+/-- `Λ_{κ1} = 1`: the stabilizer of `κ1` in `Λ` is trivial, so `|Λ·κ1| = |Λ|`. -/
+theorem kappaOne_stab (c : Hyp11 G) (h12 : Hyp12 c)
+    [Fintype ↥(LambdaHom c.H0 c.U)] :
+    (Finset.univ.filter (fun l : LambdaHom c.H0 c.U =>
+      LambdaChar l.1 * kappaOne c h12 = kappaOne c h12)).card = 1 := by
+  rw [Finset.card_eq_one]
+  refine ⟨1, ?_⟩
+  apply Finset.ext
+  intro l
+  constructor
+  · intro hl
+    have h := (Finset.mem_filter.mp hl).2
+    rw [Finset.mem_singleton]
+    apply Subtype.ext
+    apply MonoidHom.ext
+    intro x
+    change l.1 x = 1
+    have hx := congrFun h x
+    have hx' : (l.1 x : ℂ) * (kappaOne c h12 x : ℂ) =
+        (kappaOne c h12 x : ℂ) := by
+      simpa [LambdaChar] using hx
+    have hκnz : (kappaOne c h12 x : ℂ) ≠ 0 :=
+      linearChar_ne_zero (kappaOne_isLinear c h12) x
+    have hx'' : (l.1 x : ℂ) = 1 :=
+      mul_right_cancel₀ hκnz (by simpa [one_mul] using hx')
+    exact Units.ext hx''
+  · intro hl
+    have hl1 : l = 1 := by simpa using (Finset.mem_singleton.mp hl)
+    subst l
+    rw [Finset.mem_filter]
+    refine ⟨by simp, ?_⟩
+    funext x
+    simp [LambdaChar]
 
 /-- `κl = λl·κ1` (the paper's `κi = λi·κ1`). -/
 public def kappa (c : Hyp11 G) (κ1 : ClassFunction (↥c.H0))
@@ -1916,6 +1982,25 @@ private lemma S_le_normalizer_U (c : Hyp11 G) :
     have h2 : s⁻¹ * (s * u * s⁻¹) * (s⁻¹)⁻¹ = u := by group
     rwa [h2] at h1
 
+set_option linter.unusedSectionVars false in
+/-- The image of a cyclic subgroup under a monoid hom is cyclic. -/
+private lemma zpowers_map {N : Type*} [Group N] (f : G →* N) (x : G) :
+    (Subgroup.zpowers x).map f = Subgroup.zpowers (f x) := by
+  ext y
+  constructor
+  · intro hy
+    rcases (Subgroup.mem_map.mp hy) with ⟨z, hz, rfl⟩
+    rw [Subgroup.mem_zpowers_iff] at hz ⊢
+    rcases hz with ⟨k, hk⟩
+    refine ⟨k, ?_⟩
+    rw [← hk]
+    exact (map_zpow f x k).symm
+  · intro hy
+    rcases (Subgroup.mem_zpowers_iff.mp hy) with ⟨k, hk⟩
+    refine (Subgroup.mem_map).2 ?_
+    refine ⟨x ^ k, (Subgroup.mem_zpowers_iff).2 ⟨k, rfl⟩, ?_⟩
+    rw [map_zpow]
+    exact hk
 
 set_option linter.unusedSectionVars false in
 /-- Set products are associative. -/

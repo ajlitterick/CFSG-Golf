@@ -12,6 +12,8 @@ open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.Timmesfeld.Exceptional
 
 namespace F4Weyl
 
+@[expose] def f4J : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
+  !![0, 0, 0, 2; 0, 0, 2, 0; 0, 1, 0, 0; 1, 0, 0, 0]
 
 @[expose] def reflT (i : Fin Tag.F4.rank) : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
   Matrix.of fun k l => (if k = l then 1 else 0) - if l = i then Tag.F4.cartan i k else 0
@@ -41,6 +43,13 @@ theorem invTranspose_reflectUnit (i : Fin Tag.F4.rank) :
     Pi.single_apply, mul_ite, mul_one, mul_zero, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
   by_cases hkl : k = l <;> by_cases hli : l = i <;> simp [hkl, hli, eq_comm]
 
+theorem f4J_mul_f4J :
+    f4J * f4J = (2 : ℤ) • (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) := by
+  decide
+
+theorem f4J_mul_reflT (i : Fin Tag.F4.rank) : f4J * reflT i = reflT (Fin.rev i) * f4J := by
+  revert i
+  decide
 
 theorem mem_charMatrices {u : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ} :
     u ∈ charMatrices ↔ ∃ w : WeylGroup .F4, invTranspose (weylToAut .F4 w) = u := by
@@ -64,10 +73,77 @@ theorem invTranspose_weylToAut_mul_inv (w : WeylGroup .F4) :
     invTranspose (weylToAut .F4 w) * invTranspose (weylToAut .F4 w⁻¹) = 1 := by
   rw [← invTranspose_weylToAut_mul, mul_inv_cancel, map_one, invTranspose_one]
 
+theorem exists_f4J_mul_eq (w : WeylGroup .F4) : ∃ w' : WeylGroup .F4,
+    f4J * invTranspose (weylToAut .F4 w) = invTranspose (weylToAut .F4 w') * f4J := by
+  induction w using (coxeterSystem .F4).simple_induction_left with
+  | one => exact ⟨1, by rw [map_one, invTranspose_one, mul_one, one_mul]⟩
+  | mul_simple_left w i ih =>
+    obtain ⟨w', hw'⟩ := ih
+    refine ⟨simple .F4 (Fin.rev i) * w', ?_⟩
+    rw [invTranspose_weylToAut_mul, invTranspose_weylToAut_mul, invTranspose_weylToAut_simple,
+      invTranspose_weylToAut_simple, ← mul_assoc, f4J_mul_reflT, mul_assoc, hw', mul_assoc]
+
+theorem exists_f4J_mul_eq' (w' : WeylGroup .F4) : ∃ w : WeylGroup .F4,
+    f4J * invTranspose (weylToAut .F4 w) = invTranspose (weylToAut .F4 w') * f4J := by
+  induction w' using (coxeterSystem .F4).simple_induction_left with
+  | one => exact ⟨1, by rw [map_one, invTranspose_one, mul_one, one_mul]⟩
+  | mul_simple_left w' i ih =>
+    obtain ⟨w, hw⟩ := ih
+    refine ⟨simple .F4 (Fin.rev i) * w, ?_⟩
+    rw [invTranspose_weylToAut_mul, invTranspose_weylToAut_mul, invTranspose_weylToAut_simple,
+      invTranspose_weylToAut_simple, ← mul_assoc, f4J_mul_reflT, Fin.rev_rev, mul_assoc, hw,
+      mul_assoc]
+
+theorem image_f4J_mul_charMatrices :
+    (fun u => f4J * u) '' charMatrices = (fun u => u * f4J) '' charMatrices := by
+  ext x
+  constructor
+  · rintro ⟨u, hu, rfl⟩
+    obtain ⟨w, rfl⟩ := mem_charMatrices.1 hu
+    obtain ⟨w', hw'⟩ := exists_f4J_mul_eq w
+    exact ⟨_, mem_charMatrices.2 ⟨w', rfl⟩, hw'.symm⟩
+  · rintro ⟨u, hu, rfl⟩
+    obtain ⟨w', rfl⟩ := mem_charMatrices.1 hu
+    obtain ⟨w, hw⟩ := exists_f4J_mul_eq' w'
+    exact ⟨_, mem_charMatrices.2 ⟨w, rfl⟩, hw⟩
 
 @[expose] def longestWord : List (Fin 4) :=
   [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
 
+theorem list_prod_smul (l : List (Fin 4)) (v : Fin Tag.F4.rank → ℤ) :
+    (l.map fun i : Fin 4 => simple .F4 ⟨i.1, i.2⟩).prod • v =
+      l.foldr (fun i v => reflect .F4 ⟨i.1, i.2⟩ v) v := by
+  induction l with
+  | nil => simp
+  | cons i l ih => rw [List.map_cons, List.prod_cons, mul_smul, ih, simple_smul, List.foldr_cons]
+
+theorem longestWord_single :
+    ∀ j : Fin Tag.F4.rank, longestWord.foldr (fun i v => reflect .F4 ⟨i.1, i.2⟩ v)
+      (Pi.single j 1) = -Pi.single j 1 := by
+  decide
+
+theorem weylToAut_longest :
+    weylToAut .F4 (longestWord.map fun i : Fin 4 => simple .F4 ⟨i.1, i.2⟩).prod = -1 := by
+  refine Units.ext (LinearMap.pi_ext fun j x => ?_)
+  rw [weylToAut_apply, ← mul_one x, ← smul_eq_mul, Pi.single_smul, smul_comm, list_prod_smul,
+    longestWord_single, Units.val_neg, Units.val_one, LinearMap.neg_apply, Module.End.one_apply,
+    smul_neg]
+
+theorem neg_one_mem_latticeWeylGroup :
+    (-1 : (Module.End ℤ (Fin Tag.F4.rank → ℤ))ˣ) ∈ latticeWeylGroup .F4 := by
+  rw [← range_weylToAut]
+  exact ⟨_, weylToAut_longest⟩
+
+theorem invTranspose_neg_one : invTranspose (-1) = -1 := by
+  rw [invTranspose, inv_neg, inv_one, Units.val_neg, Units.val_one, map_neg,
+    LinearMap.toMatrix'_one, Matrix.transpose_neg, Matrix.transpose_one]
+
+theorem one_mem_charMatrices : (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) ∈ charMatrices :=
+  ⟨1, one_mem _, invTranspose_one⟩
+
+theorem neg_one_mem_charMatrices :
+    (-1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) ∈ charMatrices :=
+  ⟨-1, neg_one_mem_latticeWeylGroup, invTranspose_neg_one⟩
 
 theorem mul_reflT_apply (X : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ)
     (i k l : Fin Tag.F4.rank) :
@@ -218,6 +294,130 @@ theorem eq_one_or_neg_one_of_map_eq_scalar {p : ℕ} [Fact p.Prime] (hp2 : p ≠
   · right
     rw [hX, hd1, map_neg, map_one]
 
+theorem map_mul_f4J_ne_scalar {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
+    {u : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ} (hu : u ∈ charMatrices) (c : ZMod p) :
+    (u * f4J).map (Int.castRingHom (ZMod p)) ≠ Matrix.scalar (Fin Tag.F4.rank) c := by
+  intro hc
+  obtain ⟨w, rfl⟩ := mem_charMatrices.1 hu
+  set f := Int.castRingHom (ZMod p) with hf
+  have h2 : (2 : ZMod p) ≠ 0 := by
+    intro h
+    have h' : ((2 : ℕ) : ZMod p) = 0 := by exact_mod_cast h
+    rw [ZMod.natCast_eq_zero_iff] at h'
+    have := (Nat.prime_dvd_prime_iff_eq (Fact.out : p.Prime) Nat.prime_two).1 h'
+    exact hp2 this
+  have hJJ : f4J.map f * f4J.map f = (2 : ZMod p) • 1 := by
+    rw [← Matrix.map_mul, f4J_mul_f4J]
+    ext i j
+    simp only [Matrix.map_apply, Matrix.smul_apply, Matrix.one_apply, smul_eq_mul]
+    split_ifs <;> simp [hf]
+  have hcancel : ∀ A B : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ,
+      (A * f4J).map f = (B * f4J).map f → A.map f = B.map f := by
+    intro A B h
+    have h1 := congrArg (· * f4J.map f) h
+    simp only [Matrix.map_mul, mul_assoc, hJJ, Matrix.mul_smul, mul_one] at h1
+    exact smul_right_injective _ h2 h1
+  have hcomm : ∀ i, invTranspose (weylToAut .F4 w) * f4J * reflT i =
+      reflT i * (invTranspose (weylToAut .F4 w) * f4J) := by
+    intro i
+    have e1 : invTranspose (weylToAut .F4 w) * f4J * reflT i =
+        invTranspose (weylToAut .F4 (w * simple .F4 (Fin.rev i))) * f4J := by
+      rw [mul_assoc, f4J_mul_reflT, ← mul_assoc, invTranspose_weylToAut_mul,
+        invTranspose_weylToAut_simple]
+    have e2 : reflT i * (invTranspose (weylToAut .F4 w) * f4J) =
+        invTranspose (weylToAut .F4 (simple .F4 i * w)) * f4J := by
+      rw [← mul_assoc, invTranspose_weylToAut_mul, invTranspose_weylToAut_simple]
+    have hred : (invTranspose (weylToAut .F4 (w * simple .F4 (Fin.rev i))) * f4J).map f =
+        (invTranspose (weylToAut .F4 (simple .F4 i * w)) * f4J).map f := by
+      rw [← e1, ← e2]
+      exact map_mul_comm_of_eq_scalar hc
+    rw [e1, e2, injOn_map_charMatrices hp2 (mem_charMatrices.2 ⟨_, rfl⟩)
+      (mem_charMatrices.2 ⟨_, rfl⟩) (hcancel _ _ hred)]
+  have hX := eq_scalar_of_commute_reflT hcomm
+  set d := (invTranspose (weylToAut .F4 w) * f4J) ⟨0, by decide⟩ ⟨0, by decide⟩ with hd
+  obtain ⟨w', hw'⟩ := exists_f4J_mul_eq w
+  have hsq : invTranspose (weylToAut .F4 w) * f4J * (invTranspose (weylToAut .F4 w) * f4J) =
+      (2 : ℤ) • invTranspose (weylToAut .F4 (w * w')) := by
+    rw [← mul_assoc, mul_assoc _ f4J, hw', ← mul_assoc, mul_assoc _ f4J, f4J_mul_f4J,
+      Matrix.mul_smul, mul_one, invTranspose_weylToAut_mul]
+  rw [hX, ← map_mul] at hsq
+  set y := invTranspose (weylToAut .F4 (w * w')) with hy
+  have hentry : ∀ m, (if (⟨0, by decide⟩ : Fin Tag.F4.rank) = m then d * d else 0) =
+      2 * y ⟨0, by decide⟩ m := by
+    intro m
+    have h1 := congrFun (congrFun hsq ⟨0, by decide⟩) m
+    rw [Matrix.scalar_apply, Matrix.diagonal_apply, Matrix.smul_apply, smul_eq_mul] at h1
+    exact h1
+  have hy0 : ∀ m, m ≠ (⟨0, by decide⟩ : Fin Tag.F4.rank) → y ⟨0, by decide⟩ m = 0 := by
+    intro m hm
+    have h1 := hentry m
+    rw [ite_eq_right (Ne.symm hm)] at h1
+    linarith
+  have hdd : d * d = 2 * y ⟨0, by decide⟩ ⟨0, by decide⟩ := by
+    have h1 := hentry ⟨0, by decide⟩
+    rwa [ite_eq_left rfl] at h1
+  have hinv := invTranspose_weylToAut_mul_inv (w * w')
+  have h00 := congrFun (congrFun hinv ⟨0, by decide⟩) ⟨0, by decide⟩
+  rw [Matrix.mul_apply, Finset.sum_eq_single (⟨0, by decide⟩ : Fin Tag.F4.rank)
+    (fun m _ hm => by rw [← hy, hy0 m hm, zero_mul])
+    (fun h => absurd (Finset.mem_univ _) h), Matrix.one_apply_eq, ← hy] at h00
+  rcases Int.eq_one_or_neg_one_of_mul_eq_one' h00 with ⟨hy1, -⟩ | ⟨hy1, -⟩
+  · rw [hy1] at hdd
+    have hd1 : d ≤ 1 := by nlinarith
+    have hd2 : -1 ≤ d := by nlinarith
+    interval_cases d <;> omega
+  · rw [hy1] at hdd
+    nlinarith [mul_self_nonneg d]
+
+@[expose] def adjB : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
+  !![4, 6, 8, 4; 6, 12, 16, 8; 8, 16, 24, 12; 4, 8, 12, 8]
+
+theorem symmetrizedCartan_mul_adjB :
+    Tag.F4.symmetrizedCartan * adjB =
+      (4 : ℤ) • (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) := by
+  decide
+
+theorem adjB_mul_symmetrizedCartan :
+    adjB * Tag.F4.symmetrizedCartan =
+      (4 : ℤ) • (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) := by
+  decide
+
+theorem symmetrizedCartan_mul_transpose_f4J :
+    Tag.F4.symmetrizedCartan * f4J.transpose = f4J * Tag.F4.symmetrizedCartan := by
+  decide
+
+theorem transpose_f4J_mul_inv_mul_f4J :
+    (f4J.map (Int.castRingHom ℚ)).transpose *
+        (Tag.F4.symmetrizedCartan.map (Int.castRingHom ℚ))⁻¹ * f4J.map (Int.castRingHom ℚ) =
+      (2 : ℚ) • (Tag.F4.symmetrizedCartan.map (Int.castRingHom ℚ))⁻¹ := by
+  set B := Tag.F4.symmetrizedCartan.map (Int.castRingHom ℚ) with hB
+  set Jq := f4J.map (Int.castRingHom ℚ) with hJq
+  set C := (1 / 4 : ℚ) • adjB.map (Int.castRingHom ℚ) with hC
+  have hBC : B * C = 1 := by
+    rw [hC, Matrix.mul_smul, hB, ← Matrix.map_mul, symmetrizedCartan_mul_adjB]
+    ext i j
+    simp only [Matrix.smul_apply, Matrix.map_apply, Matrix.one_apply, smul_eq_mul]
+    split_ifs <;> norm_num
+  have hCB : C * B = 1 := by
+    rw [hC, Matrix.smul_mul, hB, ← Matrix.map_mul, adjB_mul_symmetrizedCartan]
+    ext i j
+    simp only [Matrix.smul_apply, Matrix.map_apply, Matrix.one_apply, smul_eq_mul]
+    split_ifs <;> norm_num
+  have hinv : B⁻¹ = C := Matrix.inv_eq_right_inv hBC
+  have hBJ : B * Jq.transpose = Jq * B := by
+    rw [hB, hJq, ← Matrix.transpose_map, ← Matrix.map_mul, ← Matrix.map_mul,
+      symmetrizedCartan_mul_transpose_f4J]
+  have hJJ : Jq * Jq = (2 : ℚ) • 1 := by
+    rw [hJq, ← Matrix.map_mul, f4J_mul_f4J]
+    ext i j
+    simp only [Matrix.smul_apply, Matrix.map_apply, Matrix.one_apply, smul_eq_mul]
+    split_ifs <;> norm_num
+  rw [hinv]
+  calc Jq.transpose * C * Jq = C * B * Jq.transpose * C * Jq := by rw [hCB, one_mul]
+    _ = C * (B * Jq.transpose) * C * Jq := by rw [mul_assoc C]
+    _ = C * Jq * (B * C) * Jq := by rw [hBJ]; noncomm_ring
+    _ = C * (Jq * Jq) := by rw [hBC, mul_one, mul_assoc]
+    _ = (2 : ℚ) • C := by rw [hJJ, Matrix.mul_smul, mul_one]
 
 theorem sum_length_eq [Fintype (WeylGroup .F4)] (q : ℕ) :
     ∑ w : WeylGroup .F4, q ^ (coxeterSystem .F4).length w =
@@ -249,5 +449,44 @@ end F4Weyl
 
 open F4Weyl
 
+open Polynomial in
+theorem F4_weyl_length_polynomial_and_exceptional_scalar_obstruction
+    [Fintype (WeylGroup .F4)] :
+    Nat.card (WeylGroup .F4) = 1152 ∧ Nat.card (latticeWeylGroup .F4) = 1152 ∧
+    (-1 : (Module.End ℤ (Fin Tag.F4.rank → ℤ))ˣ) ∈ latticeWeylGroup .F4 ∧
+    ∑ w : WeylGroup .F4, (X : ℤ[X]) ^ (coxeterSystem .F4).length w =
+      (([2, 6, 8, 12] : List ℕ).map fun d => ∑ i ∈ Finset.range d, (X : ℤ[X]) ^ i).prod ∧
+    f4J * f4J = (2 : ℤ) • (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) ∧
+    (fun u => f4J * u) '' charMatrices = (fun u => u * f4J) '' charMatrices ∧
+    (f4J.map (Int.castRingHom ℚ)).transpose *
+        (Tag.F4.symmetrizedCartan.map (Int.castRingHom ℚ))⁻¹ * f4J.map (Int.castRingHom ℚ) =
+      (2 : ℚ) • (Tag.F4.symmetrizedCartan.map (Int.castRingHom ℚ))⁻¹ ∧
+    (1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) ∈ charMatrices ∧
+    (-1 : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ) ∈ charMatrices ∧
+    ∀ p : ℕ, p.Prime → p ≠ 2 →
+      Set.InjOn (fun u : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ =>
+        u.map (Int.castRingHom (ZMod p))) charMatrices ∧
+      (∀ u ∈ charMatrices, (∃ c : ZMod p, u.map (Int.castRingHom (ZMod p)) =
+          Matrix.scalar (Fin Tag.F4.rank) c) ↔ u = 1 ∨ u = -1) ∧
+      ∀ u ∈ charMatrices, ∀ c : ZMod p,
+        (u * f4J).map (Int.castRingHom (ZMod p)) ≠ Matrix.scalar (Fin Tag.F4.rank) c := by
+  obtain ⟨hpoly, hcard⟩ := weyl_length_polynomial
+  refine ⟨hcard, by rw [← Nat.card_congr (weylEquivLattice .F4).toEquiv, hcard],
+    neg_one_mem_latticeWeylGroup, hpoly, f4J_mul_f4J, image_f4J_mul_charMatrices,
+    transpose_f4J_mul_inv_mul_f4J, one_mem_charMatrices, neg_one_mem_charMatrices,
+    fun p hp hp2 => ?_⟩
+  have : Fact p.Prime := ⟨hp⟩
+  refine ⟨injOn_map_charMatrices hp2, fun u hu => ⟨fun ⟨c, hc⟩ =>
+    eq_one_or_neg_one_of_map_eq_scalar hp2 hu hc, ?_⟩, fun u hu c =>
+    map_mul_f4J_ne_scalar hp2 hu c⟩
+  rintro (rfl | rfl)
+  · exact ⟨1, by rw [Matrix.map_one _ (map_zero _) (map_one _), map_one]⟩
+  · refine ⟨-1, ?_⟩
+    ext i j
+    simp only [Matrix.map_apply, Matrix.neg_apply, Matrix.one_apply, Matrix.scalar_apply,
+      Matrix.diagonal_apply]
+    split_ifs
+    · rw [map_neg, map_one]
+    · rw [neg_zero, map_zero]
 
 end CFSG.RankThree.Chevalley

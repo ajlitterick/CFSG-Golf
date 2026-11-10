@@ -84,6 +84,9 @@ theorem Corr.involutionComponent_right (h : Corr comp core layer a J b L) :
     InvolutionComponent comp L :=
   ⟨b, h.2.1, h.2.2.2.2.2.1, h.2.2.2.2.2.2.1⟩
 
+theorem UnbalancingTriple.involutionComponent (h : UnbalancingTriple comp core a x J) :
+    InvolutionComponent comp J :=
+  ⟨a, h.1, h.2.2.2.1, h.2.2.2.2.1⟩
 
 theorem Corr.layer_eq (h : Corr comp core layer a J b L) (hK : L ⊔ conjugate L a = L) :
     layer J b = layer L a := by
@@ -112,6 +115,25 @@ theorem conjugate_eq_map_conj {a : G} (ha : orderOf a = 2) (L : Subgroup G) :
   have haa : a * a = 1 := by rw [← sq, ← ha, pow_orderOf_eq_one]
   rw [conjugate, inv_eq_of_mul_eq_one_right haa]
 
+theorem forall_mem_commutator_mem_iff {b : G} (hb : orderOf b = 2) {J K : Subgroup G} :
+    (∀ j ∈ J, j⁻¹ * b⁻¹ * j * b ∈ K) ↔ ⁅J, zpowers b⁆ ≤ K := by
+  have hbb : b * b = 1 := by rw [← sq, ← hb, pow_orderOf_eq_one]
+  have hbinv : b⁻¹ = b := inv_eq_of_mul_eq_one_right hbb
+  constructor
+  · intro h
+    rw [Subgroup.commutator_le]
+    intro j hj c hc
+    obtain ⟨k, rfl⟩ := mem_zpowers_iff.mp hc
+    rcases Int.even_or_odd' k with ⟨m, rfl | rfl⟩
+    · rw [zpow_mul, zpow_two, hbb, one_zpow, commutatorElement_one_right]
+      exact one_mem _
+    · rw [zpow_add, zpow_mul, zpow_two, hbb, one_zpow, one_mul, zpow_one]
+      have h1 := h j⁻¹ (inv_mem hj)
+      rw [inv_inv, hbinv] at h1
+      rwa [commutatorElement_def, hbinv]
+  · intro h j hj
+    have hc := h (Subgroup.commutator_mem_commutator (inv_mem hj) (inv_mem (mem_zpowers b)))
+    simpa only [commutatorElement_def, inv_inv] using hc
 
 theorem closure_conj_commutator_eq_commutator (J D : Subgroup G) :
     closure {y | ∃ j ∈ J, ∃ d ∈ D, y = j⁻¹ * d⁻¹ * j * d} = ⁅J, D⁆ := by
@@ -155,6 +177,19 @@ section Conventions
 variable {comp : Subgroup G → Subgroup G → Prop} {core : Subgroup G → Subgroup G}
   {layer : Subgroup G → G → Subgroup G} {a b x : G} {J L : Subgroup G}
 
+theorem corr_iff_commutator :
+    Corr comp core layer a J b L ↔ orderOf a = 2 ∧ orderOf b = 2 ∧ a * b = b * a ∧
+      (J ≤ centralizer ({a} : Set G) ∧ comp J (centralizer ({a} : Set G))) ∧
+      (L ≤ centralizer ({b} : Set G) ∧ comp L (centralizer ({b} : Set G))) ∧
+      b ∈ normalizer (J : Set G) ∧ ⁅J, zpowers b⁆ ≤ core J ∧
+      layer J b = layer (L ⊔ L.map (MulAut.conj a).toMonoidHom) a := by
+  constructor
+  · rintro ⟨ha, hb, hab, hJa, hJ, hLb, hL, hbN, hJb, hfix⟩
+    exact ⟨ha, hb, hab, ⟨hJa, hJ⟩, ⟨hLb, hL⟩, hbN, (forall_mem_commutator_mem_iff hb).1 hJb,
+      conjugate_eq_map_conj ha L ▸ hfix⟩
+  · rintro ⟨ha, hb, hab, ⟨hJa, hJ⟩, ⟨hLb, hL⟩, hbN, hJb, hfix⟩
+    exact ⟨ha, hb, hab, hJa, hJ, hLb, hL, hbN, (forall_mem_commutator_mem_iff hb).2 hJb,
+      (conjugate_eq_map_conj ha L).symm ▸ hfix⟩
 
 theorem isoCorr_iff_sup {edge : G → Subgroup G → G → Subgroup G → Prop}
     (hle : edge a J b L → L ⊔ conjugate L a = L → layer J b ≤ L)

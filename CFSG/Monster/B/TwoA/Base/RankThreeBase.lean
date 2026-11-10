@@ -164,6 +164,7 @@ theorem H3_subgroupOf_eq :
   rw [H3_eq, HU_subgroupOf_eq]
   rfl
 
+theorem H3_le_K3 : H3 ≤ K3 := inf_le_right
 
 theorem C3_le_K3 : C3 ≤ K3 := Subgroup.centralizer_le_normalizer _
 
@@ -176,6 +177,9 @@ theorem C3_le_Jhat :
     C3 →* CU :=
   (zuProj Uplane).comp (MulEquiv.subgroupCongr C3_eq).toMonoidHom
 
+theorem coe_c3Proj
+    (g : C3) :
+    ((c3Proj g : CU) : Kstab v0) = jhatToKv0 ⟨g, C3_le_Jhat g.2⟩ := rfl
 
 theorem c3Proj_surjective :
     Function.Surjective c3Proj :=
@@ -229,6 +233,54 @@ instance C3_subgroupOf_normal :
 
 theorem xhat_mem_E3 : xhat ∈ E3 := Subgroup.subset_closure (by simp)
 
+theorem mem_H3_iff (g : K3) :
+    (g : Dfull) ∈ H3 ↔ conjE E3 g ⟨xhat, xhat_mem_E3⟩ = ⟨xhat, xhat_mem_E3⟩ := by
+  rw [← Subtype.coe_inj, coe_conjE, H3, Subgroup.mem_inf, ← centralizer_xhat,
+    Subgroup.mem_centralizer_singleton_iff, mul_inv_eq_iff_eq_mul]
+  exact ⟨fun h => h.1, fun h => ⟨h, g.2⟩⟩
+
+theorem mem_Ntwo_iff_conjE
+    (g : K3) :
+    (g : Dfull) ∈ Ntwo ↔
+      ∀ v : E3, (v : Dfull) ∈ Vhat → ((conjE E3 g v : E3) : Dfull) ∈ Vhat := by
+  constructor
+  · intro h v hv
+    rw [coe_conjE]
+    exact conj_mem_of_normalizer h hv
+  · intro h
+    refine Subgroup.mem_normalizer_fintype fun n hn => ?_
+    exact h ⟨n, Vhat_le_E3 hn⟩ hn
+
+theorem mem_Ntwo_iff_Mfr
+    (g : Jhat) : (g : Dfull) ∈ Ntwo ↔ jhatToKv0 g ∈ Mfr := by
+  obtain ⟨g₀, rfl⟩ := jhatEquiv.surjective g
+  have h1 := mem_Ptwo_iff g₀.2
+  have h2 : ((jhatToKv0 (jhatEquiv g₀) : Kstab v0) : OLq) = (jbarToKv g₀ : OLq) :=
+    jhatToKv0_jhatEquiv g₀
+  rw [mem_Mfr_iff, h2]
+  constructor
+  · intro h
+    exact h1.1 ⟨(jhatEquiv g₀).2, h⟩
+  · intro h
+    exact (h1.2 h).2
+
+theorem H3_inf_Ntwo_subgroupOf :
+    (H3 ⊓ Ntwo).subgroupOf Jhat = (NU ⊓ Mfr).comap jhatToKv0 := by
+  ext g
+  rw [Subgroup.mem_subgroupOf, Subgroup.mem_inf, Subgroup.mem_comap, Subgroup.mem_inf,
+    mem_Ntwo_iff_Mfr, ← Subgroup.mem_subgroupOf, H3_subgroupOf_eq, Subgroup.mem_comap]
+
+theorem natCard_NU_inf_Mfr :
+    Nat.card ↥(NU ⊓ Mfr) = 3932160 := by
+  rw [Nat.card_congr nuwEquivMono.toEquiv, natCard_monoSub, natCard_Ceq_quot, natCard_Ftwo]
+  norm_num
+
+theorem natCard_H3_inf_Ntwo :
+    Nat.card ↥(H3 ⊓ Ntwo) = 32985348833280 := by
+  have hle : H3 ⊓ Ntwo ≤ Jhat := inf_le_left.trans H3_le_Jhat
+  rw [← Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv, H3_inf_Ntwo_subgroupOf,
+    natCard_comap_of_surjective jhatToKv0_surjective, natCard_ker_jhatToKv0, natCard_NU_inf_Mfr]
+  norm_num
 
 attribute [local instance] vAction
 
@@ -245,5 +297,37 @@ theorem tauhat_mem_K3 :
 @[expose] def tauL :
     ↥(K3 ⊓ Ntwo) := ⟨tauhat, tauhat_mem_K3, tauhat_mem_Ntwo⟩
 
+theorem tauL_smul
+    (v : Vsharp) : tauL • v = tauN • v := rfl
+
+theorem stabilizer_vX_L :
+    MulAction.stabilizer ↥(K3 ⊓ Ntwo) vX = (H3 ⊓ Ntwo).subgroupOf (K3 ⊓ Ntwo) := by
+  ext g
+  rw [MulAction.mem_stabilizer_iff, Subgroup.mem_subgroupOf]
+  change l3ToNtwo g • vX = vX ↔ _
+  rw [smul_vX_eq_iff]
+  change (g : Dfull) ∈ Ptwo ↔ (g : Dfull) ∈ H3 ⊓ Ntwo
+  rw [Ptwo, Subgroup.mem_inf, Subgroup.mem_inf, H3, Subgroup.mem_inf]
+  exact ⟨fun h => ⟨⟨h.1, g.2.1⟩, h.2⟩, fun h => ⟨h.1.1, h.2⟩⟩
+
+theorem orbit_vX_L :
+    MulAction.orbit ↥(K3 ⊓ Ntwo) vX = Set.univ := by
+  rw [Set.eq_univ_iff_forall]
+  intro v
+  rcases vsharp_cases v with rfl | rfl | rfl
+  · exact MulAction.mem_orbit_self _
+  · exact ⟨tauL, (tauL_smul vX).trans tauN_vX⟩
+  · refine ⟨tauL * tauL, ?_⟩
+    show (tauL * tauL) • vX = vZ
+    rw [mul_smul, tauL_smul, tauL_smul, tauN_vX, tauN_vY]
+
+theorem natCard_K3_inf_Ntwo :
+    Nat.card ↥(K3 ⊓ Ntwo) = 98956046499840 := by
+  have h1 := ((H3 ⊓ Ntwo).subgroupOf (K3 ⊓ Ntwo)).card_mul_index
+  have hle : H3 ⊓ Ntwo ≤ K3 ⊓ Ntwo := inf_le_inf_right _ H3_le_K3
+  rw [← stabilizer_vX_L, MulAction.index_stabilizer, orbit_vX_L, Set.ncard_univ,
+    natCard_vsharp, stabilizer_vX_L,
+    Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv, natCard_H3_inf_Ntwo] at h1
+  rw [← h1]
 
 end CFSG.Monster.B.TwoA

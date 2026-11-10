@@ -15,5 +15,8 @@ theorem inner_J : inner J = ⊤ :=
 theorem inner_Th : inner Blueprint.NativeSporadic.Th = ⊤ :=
   @inner_eq_top_of_equiv Blueprint.NativeSporadic.Th J Units.instGroup _ thEquivJ inner_J
 
+theorem AT_Th_Schreier : Group.IsSolvable (Outer Blueprint.NativeSporadic.Th) := by
+  have := subsingleton_outer_of_inner inner_Th
+  infer_instance
 
 end CFSG.Sporadic.ThSchreier

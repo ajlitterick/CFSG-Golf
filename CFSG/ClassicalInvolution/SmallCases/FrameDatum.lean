@@ -386,6 +386,13 @@ theorem additive_add_self (x : Additive ↥A) : x + x = 0 := by
   apply Subtype.ext
   simpa using this
 
+theorem datum_classification_two [Finite ↥A] (hcard : Nat.card A = 4) (hS : S.Nonempty)
+    (hA2 : A2Dichotomy A S) (hfib : FibreLE2 S) (hconn : NonCommConnected S) :
+    Fr.dataFinset.card = 1 ∨ (Fr.dataFinset.card = 3 ∧ ∀ p ∈ Fr.dataFinset, ∀ q ∈ Fr.dataFinset,
+      p ≠ q → p.Adj q) :=
+  rootSet_classification_two Fr.additive_add_self
+    (by rw [Nat.card_congr Additive.toMul]; exact hcard) _ (Fr.dataFinset_nonempty hS)
+    (Fr.dataFinset_isSymm hA2) Fr.dataFinset_isClosed (Fr.dataFinset_isConn hA2 hfib hconn)
 
 theorem datum_classification_three [Finite ↥A] (hcard : Nat.card A = 8) (hS : S.Nonempty)
     (hA2 : A2Dichotomy A S) (hfib : FibreLE2 S) (hconn : NonCommConnected S) :
@@ -396,6 +403,20 @@ theorem datum_classification_three [Finite ↥A] (hcard : Nat.card A = 8) (hS : 
     (by rw [Nat.card_congr Additive.toMul]; exact hcard) _ (Fr.dataFinset_nonempty hS)
     (Fr.dataFinset_isSymm hA2) Fr.dataFinset_isClosed (Fr.dataFinset_isConn hA2 hfib hconn)
 
+theorem datum_classification_four [Finite ↥A] (hcard : Nat.card A = 16) (hS : S.Nonempty)
+    (hA2 : A2Dichotomy A S) (hfib : FibreLE2 S) (hconn : NonCommConnected S) :
+    Fr.dataFinset.card = 1 ∨ (Fr.dataFinset.card = 3 ∧ ∀ p ∈ Fr.dataFinset, ∀ q ∈ Fr.dataFinset,
+      p ≠ q → p.Adj q) ∨ (Fr.dataFinset.card = 6 ∧ ∀ p ∈ Fr.dataFinset,
+        ∃! q, q ∈ Fr.dataFinset ∧ q ≠ p ∧ ¬ p.Adj q) ∨
+      (Fr.dataFinset.card = 10 ∧ ∀ p ∈ Fr.dataFinset,
+        Set.ncard {q | q ∈ Fr.dataFinset ∧ q ≠ p ∧ ¬ p.Adj q} = 3) ∨
+      (Fr.dataFinset.card = 12 ∧ ∀ p ∈ Fr.dataFinset,
+        Set.ncard {q | q ∈ Fr.dataFinset ∧ q ≠ p ∧ ¬ p.Adj q} = 3) ∨
+      (Fr.dataFinset.card = 15 ∧ ∀ p ∈ Fr.dataFinset,
+        Set.ncard {q | q ∈ Fr.dataFinset ∧ q ≠ p ∧ ¬ p.Adj q} = 6) :=
+  rootSet_classification_four Fr.additive_add_self
+    (by rw [Nat.card_congr Additive.toMul]; exact hcard) _ (Fr.dataFinset_nonempty hS)
+    (Fr.dataFinset_isSymm hA2) Fr.dataFinset_isClosed (Fr.dataFinset_isConn hA2 hfib hconn)
 
 end RankFrame
 

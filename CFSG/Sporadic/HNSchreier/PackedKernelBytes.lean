@@ -37,6 +37,11 @@ theorem packed_append_bytes (l r a b : Nat) (ha : a < 256 ^ l) :
     funext j
     exact packed_high a b l j.val ha
 
+theorem packed_appendSized_toByteArray (l r a b : Nat) (ha : a < 256 ^ l) :
+    (appendSized l r (packed l a) (packed r b) rfl rfl).toByteArray =
+      (packed (l + r) (a + b * 256 ^ l)).toByteArray := by
+  unfold toByteArray appendSized
+  rw [packed_append_bytes l r a b ha]
 
 @[expose] def packedFast (width n : Nat) : KernelBytes where
   bytes := (packed width n).bytes
@@ -49,5 +54,7 @@ theorem packed_append_bytes (l r a b : Nat) (ha : a < 256 ^ l) :
     rw [Nat.shiftRight_eq_div_pow, hp]
     exact (packed width n).get_eq i
 
+theorem packedFast_toByteArray (width n : Nat) :
+    (packedFast width n).toByteArray = (packed width n).toByteArray := rfl
 
 end CFSG.Sporadic.HNSchreier.KernelBytes

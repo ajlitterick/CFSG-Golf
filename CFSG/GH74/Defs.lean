@@ -34,6 +34,8 @@ abbrev CentralizerBar {G : Type*} [Group G] (x : G) : Type _ :=
 @[expose] def AllComponentsNonsimple {G : Type*} [Group G] (x : G) : Prop :=
   ∀ K : Subgroup (CentralizerBar x), IsComponent K → ¬ IsSimpleGroup K
 
+@[expose] def HasSimpleComponent {G : Type*} [Group G] (x : G) : Prop :=
+  ∃ K : Subgroup (CentralizerBar x), IsComponent K ∧ IsSimpleGroup K
 
 @[expose] def GHList (X : Type) [Group X] : Prop :=
   (∃ n : ℕ, 7 ≤ n ∧ n ≤ 11 ∧ Nonempty (X ≃* alternatingGroup (Fin n))) ∨
@@ -65,5 +67,9 @@ abbrev CentralizerBar {G : Type*} [Group G] (x : G) : Type _ :=
       ¬ IsTwoConstrained (centralizer ({x} : Set G))) ∧
     ¬ ∃ x : G, orderOf x = 2 ∧ sectionalTwoRank (layerBar x) = 4 ∧ AllComponentsNonsimple x
 
+abbrev QuaternionDihedralCentralProduct : Type :=
+  (QuaternionGroup 2 × DihedralGroup 4) ⧸
+    Subgroup.normalClosure {((QuaternionGroup.a 2 : QuaternionGroup 2), (DihedralGroup.r 2 :
+      DihedralGroup 4))}
 
 end CFSG.GH74

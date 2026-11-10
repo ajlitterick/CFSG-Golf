@@ -31,6 +31,9 @@ namespace PsiDiag
     rw [← h]
     group
 
+theorem mem_scalarAct_iff {G : Type*} [Group G] {k : Type*} [Field k] {y : k → G} {t : G} :
+    t ∈ scalarAct y ↔ ∃ χ : kˣ, ∀ a, t * y a * t⁻¹ = y ((χ : k) * a) :=
+  Iff.rfl
 
 namespace SpinM
 

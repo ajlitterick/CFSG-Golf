@@ -98,6 +98,11 @@ structure E22Families : Prop where
   sporTen : E22SporTenFam
   asc86b : Asc86bSporadic
 
+@[expose] def E22ListStatement : Prop :=
+  ∀ (Γ : Type) [Group Γ] [Finite Γ] (H T M : Subgroup Γ), MinParabolic H T M → SQTKGroup ↥H →
+    ¬ Group.IsSolvable ↥H →
+    ∃ K : Subgroup Γ, K ∈ cComp H ∧ H = K ⊔ T ∧
+      CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) ∧ B69.E22Fam ↥(E2.star M H K)
 
 end E2P
 

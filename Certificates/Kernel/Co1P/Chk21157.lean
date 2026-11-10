@@ -25,6 +25,7 @@ open CFSG.KC.Co1B CFSG.KC.Co1P CFSG.KC.Co1F2 CFSG.KD.Co1P CFSG.KLie.CT
 
 theorem amal_chk : amalK = true := by quickRfl
 
+theorem amal_neg : notB (eqK (ptE 3941) (mulWK AL (repK 1))) = true := by quickRfl
 
 end CertificateChecks.KernelCo1P
 

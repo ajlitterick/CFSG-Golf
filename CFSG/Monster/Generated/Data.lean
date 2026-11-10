@@ -57,5 +57,13 @@ theorem Vmat_le_Gmat : Vmat ≤ Gmat := by
   · exact mul_mem (mul_mem (pow_mem tauB_mem_Gmat 2)
       (Hmat_le_Gmat (Qmat_le_Hmat xmat_mem_Qmat))) (inv_mem (pow_mem tauB_mem_Gmat 2))
 
+theorem generated_rational_group_data :
+    Gmat = Subgroup.closure ((Gvis : Set (SpaceB ≃ₗ[ℚ] SpaceB)) ∪ {tauB}) ∧ Hmat = Gvis ∧
+    Qmat = rhoQ ∧ xmat = rhoEquiv zQ ∧ (zQ : GL SpinIdx ℚ) = -1 ∧
+    xmatTau = tauB * xmat * tauB⁻¹ ∧ xmatTau2 = tauB ^ 2 * xmat * (tauB ^ 2)⁻¹ ∧
+    (∀ g, g ∈ Vmat ↔ g = 1 ∨ g = xmat ∨ g = xmatTau ∨ g = xmatTau2) ∧
+    Hmat ≤ Gmat ∧ tauB ∈ Gmat ∧ Qmat ≤ Hmat ∧ xmat ∈ Qmat ∧ Vmat ≤ Gmat :=
+  ⟨rfl, rfl, rfl, rfl, coe_zQ, rfl, rfl, fun _ => mem_Vmat, Hmat_le_Gmat, tauB_mem_Gmat,
+    Qmat_le_Hmat, xmat_mem_Qmat, Vmat_le_Gmat⟩
 
 end CFSG.Monster.Generated

@@ -141,6 +141,9 @@ theorem orbOK_sound (h : orbOK act ng P w o n D wE root = true) :
   simp only [orbOK, strictB_eq, allN_iff, andB_eq_true, Nat.blt_eq, Nat.beq_eq, Nat.add_eq] at h
   exact ⟨h.1, h.2.1, h.2.2⟩
 
+theorem orbOK_edge (h : orbOK act ng P w o n D wE root = true) {i k : ℕ} (hi : i < n)
+    (hk : k < ng) : act k (fget P (o + i) w) ∈ orbL P w o n :=
+  mem_orbL.2 ⟨_, ((orbOK_sound h).2.1 i hi k hk).1, ((orbOK_sound h).2.1 i hi k hk).2⟩
 
 theorem orbOK_root (h : orbOK act ng P w o n D wE root = true) (hn : 0 < n) :
     root ∈ orbL P w o n :=
@@ -186,6 +189,7 @@ theorem rangeOK_sound {G N M b o : ℕ} (h : rangeOK G N M b o = true) :
   simp only [rangeOK, strictB_eq, allN_iff, andB_eq_true, Nat.blt_eq, Nat.ble_eq, Nat.add_eq] at h
   exact h
 
+theorem gen2_zero (G0 G1 : ℕ) : gen2 G0 G1 0 = G0 := rfl
 
 theorem gen2_ne {G0 G1 c : ℕ} (hc : c ≠ 0) : gen2 G0 G1 c = G1 := by
   have : Nat.beq c 0 = false := by
@@ -194,6 +198,7 @@ theorem gen2_ne {G0 G1 c : ℕ} (hc : c ≠ 0) : gen2 G0 G1 c = G1 := by
     · exact absurd (Nat.eq_of_beq_eq_true e) hc
   simp only [gen2, this]
 
+theorem wordT_nil (G0 G1 i : ℕ) : wordT G0 G1 [] i = i := rfl
 
 theorem wordT_cons (G0 G1 c : ℕ) (w : List ℕ) (i : ℕ) :
     wordT G0 G1 (c :: w) i = fget (gen2 G0 G1 c) (wordT G0 G1 w i) 12 := rfl
@@ -259,6 +264,12 @@ theorem foldl_set_get_of_not_mem :
     rw [List.foldl_cons, foldl_set_get_of_not_mem l _ hx.2]
     simp only [Array.set!_eq_setIfInBounds, getElem!_def, Array.getElem?_setIfInBounds_ne (Ne.symm hx.1)]
 
+theorem foldl_set_size :
+    ∀ (l : List (ℕ × ℕ)) (t : Array ℕ), (l.foldl (fun t p => t.set! p.1 p.2) t).size = t.size
+  | [], _ => rfl
+  | q :: l, t => by
+    rw [List.foldl_cons, foldl_set_size l]
+    simp
 
 theorem foldl_set_get :
     ∀ (l : List (ℕ × ℕ)) (t : Array ℕ), (l.map Prod.fst).Nodup → ∀ p ∈ l, p.1 < t.size →

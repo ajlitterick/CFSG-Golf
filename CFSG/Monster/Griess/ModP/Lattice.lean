@@ -125,6 +125,9 @@ theorem map_mem_LatP {f : SpaceB →ₗ[ℚ] SpaceB} (hf : ∀ i, f (basisB i) �
   rw [pow_zero, div_one] at hi
   exact smul_mem_LatP hi (hf i)
 
+theorem map_mem_LatP_of_BR (hp2 : p ≠ 2) {f : SpaceB →ₗ[ℚ] SpaceB} (hf : ∀ x ∈ BR, f x ∈ BR)
+    {k : ℕ} {v : SpaceB} (hv : v ∈ LatP p k) : f v ∈ LatP p k :=
+  map_mem_LatP (fun i => mem_LatP_zero_of_mem_BR hp2 (hf _ (Submodule.subset_span ⟨i, rfl⟩))) hv
 
 theorem gmul_mem_LatP_of_mem_zero (hp2 : p ≠ 2) {u : SpaceB} (hu : u ∈ LatP p 0) {k : ℕ}
     {v : SpaceB} (hv : v ∈ LatP p k) : gmul u v ∈ LatP p k := by

@@ -28,6 +28,13 @@ theorem ch709441fp : fpK D.pts D.frames.toList DA.FP = true := by
 #kc_each CertificateChecks.KernelD4Q2K.cxSl 0 16
 #kc_each CertificateChecks.KernelD4Q2K.apSl 0 16
 
+theorem cx_neg : (!cxK DA.FP DA.XC (fun k => Nat.xor (DA.CX k) 1) 0 1) = true := by
+  quickRfl
+
+theorem ap_neg :
+    (!apK D.pts D.MF DS.SF DT.TF DA.XC DA.CX (fun j => Bool.rec (motive := fun _ => List Nat) (DA.AP j) [] (Nat.beq j 0)) 4989 0 1) =
+      true := by
+  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

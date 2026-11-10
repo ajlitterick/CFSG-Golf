@@ -26,6 +26,7 @@ theorem decW_inj_valid {a b : ℕ} (ha : validW a = true) (hb : validW b = true)
     (h : decW a = decW b) : a = b :=
   decW_injective (of_decide_eq_true ha) (of_decide_eq_true hb) h
 
+theorem fPerms_size : fPerms.size = 9 := rfl
 
 @[expose] def F9 : Subgroup (Equiv.Perm (Fin 24)) :=
   Subgroup.closure ((fun k => decode fPerms[k]!) '' {k | k < fPerms.size})

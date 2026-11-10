@@ -185,6 +185,10 @@ theorem tw_add (j : ZMod 2) (k m : ZMod (2 ^ n)) : tw j (k + m) = tw j k + tw j 
   · rfl
   · simp only [tw_one, mul_add]
 
+theorem tw_neg (j : ZMod 2) (k : ZMod (2 ^ n)) : tw j (-k) = -tw j k := by
+  rcases zmod_two_eq_zero_or_one j with rfl | rfl
+  · rfl
+  · simp only [tw_one, mul_neg]
 
 @[simp] theorem tw_zero_right (j : ZMod 2) : tw j (0 : ZMod (2 ^ n)) = 0 := by
   rcases zmod_two_eq_zero_or_one j with rfl | rfl
@@ -284,6 +288,12 @@ theorem σ_sq : (σ : SD n) ^ 2 = 1 := by
   · simp only [σ, mul_j, one_j]
     rfl
 
+theorem σ_mul_ω_mul_σ_inv : (σ : SD n) * ω * σ⁻¹ = ω ^ (θ n).val := by
+  rw [ω_pow, ZMod.natCast_zmod_val]
+  ext
+  · simp [σ, ω]
+  · simp only [σ, ω, mul_j, inv_j]
+    rfl
 
 theorem z_mul_self : (z : SD n) * z = 1 := by
   ext
@@ -310,6 +320,8 @@ theorem det_mul (x y : SD n) : (x * y).det = x.det + y.det := by
 @[simp] theorem det_one : (1 : SD n).det = 0 := by
   simp [det]
 
+theorem det_inv (x : SD n) : x⁻¹.det = x.det := by
+  simp only [det, inv_i, inv_j, par_neg, par_tw]
 
 theorem det_z : (z : SD n).det = 0 := by
   simp [det, z, par_hf]
@@ -373,6 +385,16 @@ theorem pow_val_tw (hw : w ^ 2 ^ n = 1) (hsw : s * w * s⁻¹ = w ^ (θ n).val)
 theorem lift_apply (hw : w ^ 2 ^ n = 1) (hs : s ^ 2 = 1) (hsw : s * w * s⁻¹ = w ^ (θ n).val)
     (x : SD n) : lift hw hs hsw x = w ^ x.i.val * s ^ x.j.val := rfl
 
+theorem lift_ω (hn : 1 ≤ n) (hw : w ^ 2 ^ n = 1) (hs : s ^ 2 = 1)
+    (hsw : s * w * s⁻¹ = w ^ (θ n).val) : lift hw hs hsw ω = w := by
+  haveI : Fact (1 < 2 ^ n) := ⟨Nat.one_lt_two_pow (by omega)⟩
+  change w ^ (1 : ZMod (2 ^ n)).val * s ^ (0 : ZMod 2).val = w
+  rw [ZMod.val_one, ZMod.val_zero, pow_one, pow_zero, mul_one]
+
+theorem lift_σ (hw : w ^ 2 ^ n = 1) (hs : s ^ 2 = 1) (hsw : s * w * s⁻¹ = w ^ (θ n).val) :
+    lift hw hs hsw σ = s := by
+  change w ^ (0 : ZMod (2 ^ n)).val * s ^ (1 : ZMod 2).val = s
+  rw [ZMod.val_zero, pow_zero, one_mul, show (1 : ZMod 2).val = 1 from rfl, pow_one]
 
 theorem lift_injective (hw : w ^ 2 ^ n = 1) (hs : s ^ 2 = 1) (hsw : s * w * s⁻¹ = w ^ (θ n).val)
     (hword : orderOf w = 2 ^ n) (hsn : s ∉ Subgroup.zpowers w) :

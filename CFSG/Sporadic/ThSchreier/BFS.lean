@@ -14,6 +14,7 @@ variable {M : Type*} [DecidableEq M]
 @[expose] def appendImages (x : M) (gs : List (M → M)) (L : List M) : List M :=
   gs.foldl (fun L' g => if g x ∈ L' then L' else L' ++ [g x]) L
 
+theorem appendImages_nil (x : M) (L : List M) : appendImages x [] L = L := rfl
 
 theorem appendImages_cons (x : M) (g : M → M) (gs : List (M → M)) (L : List M) :
     appendImages x (g :: gs) L =
@@ -82,6 +83,29 @@ theorem IsPrefix.getElem?_some {α : Type*} {l₁ l₂ : List α} (h : l₁ <+: 
   rw [List.getElem?_append_left hlt]
   exact hi
 
+theorem getElem?_appendImages_of_le (x : M) (gs : List (M → M)) (L : List M) {j : ℕ} {y : M}
+    (hj : (appendImages x gs L)[j]? = some y) (hLj : L.length ≤ j) :
+    ∃ (k : ℕ) (g : M → M), gs[k]? = some g ∧ g x = y := by
+  induction gs generalizing L with
+  | nil =>
+    rw [appendImages_nil, List.getElem?_eq_none (by omega)] at hj
+    exact absurd hj (by simp)
+  | cons g gs ih =>
+    rw [appendImages_cons] at hj
+    by_cases hmem : g x ∈ L
+    · rw [ite_eq_left hmem] at hj
+      obtain ⟨k, g', hk, he⟩ := ih L hj hLj
+      exact ⟨k + 1, g', by rw [List.getElem?_cons_succ]; exact hk, he⟩
+    · rw [ite_eq_right hmem] at hj
+      by_cases hj' : (L ++ [g x]).length ≤ j
+      · obtain ⟨k, g', hk, he⟩ := ih (L ++ [g x]) hj hj'
+        exact ⟨k + 1, g', by rw [List.getElem?_cons_succ]; exact hk, he⟩
+      · have hjL : j = L.length := by simp at hj'; omega
+        refine ⟨0, g, rfl, ?_⟩
+        have hpre := appendImages_isPrefix x gs (L ++ [g x])
+        have h1 : (L ++ [g x])[j]? = some (g x) := by simp [hjL]
+        rw [IsPrefix.getElem?_some hpre h1] at hj
+        exact Option.some_injective _ hj
 
 variable (gs : List (M → M)) (root : M)
 
@@ -122,10 +146,42 @@ theorem bfsList_nodup (N : ℕ) : (bfsList gs root N).Nodup := by
 theorem bfsList_getElem?_zero (N : ℕ) : (bfsList gs root N)[0]? = some root :=
   IsPrefix.getElem?_some (bfsList_isPrefix gs root (Nat.zero_le N)) (by simp [bfsList_zero])
 
+theorem bfsList_length_pos (N : ℕ) : 0 < (bfsList gs root N).length := by
+  have h := bfsList_getElem?_zero gs root N
+  by_contra hc
+  rw [List.getElem?_eq_none (by omega)] at h
+  exact absurd h (by simp)
 
 theorem root_mem_bfsList (N : ℕ) : root ∈ bfsList gs root N :=
   List.mem_of_getElem? (bfsList_getElem?_zero gs root N)
 
+theorem bfsList_exists_disc (N : ℕ) {j : ℕ} {y : M} (hj : (bfsList gs root N)[j]? = some y)
+    (h1 : 1 ≤ j) : ∃ p < j, ∃ (k : ℕ) (g : M → M) (z : M), gs[k]? = some g ∧
+      (bfsList gs root N)[p]? = some z ∧ g z = y := by
+  induction N generalizing j y with
+  | zero =>
+    rw [bfsList_zero] at hj
+    rcases j with _ | j
+    · omega
+    · simp at hj
+  | succ N ih =>
+    have hpre := bfsList_isPrefix_succ gs root N
+    by_cases hjN : j < (bfsList gs root N).length
+    · obtain ⟨y', hy'⟩ : ∃ y', (bfsList gs root N)[j]? = some y' :=
+        ⟨_, List.getElem?_eq_getElem hjN⟩
+      have hyy : y' = y := Option.some_injective _ ((IsPrefix.getElem?_some hpre hy').symm.trans hj)
+      subst hyy
+      obtain ⟨p, hp, k, g, z, hk, hz, he⟩ := ih hy' h1
+      exact ⟨p, hp, k, g, z, hk, IsPrefix.getElem?_some hpre hz, he⟩
+    · have hvis : N < (bfsList gs root N).length := by
+        by_contra hc
+        rw [bfsList_succ, bfsVisit_eq_of_le gs (by omega)] at hj
+        rw [List.getElem?_eq_none (by omega)] at hj
+        exact absurd hj (by simp)
+      rw [bfsList_succ, bfsVisit_eq_of_lt gs hvis] at hj
+      obtain ⟨k, g, hk, he⟩ := getElem?_appendImages_of_le _ gs _ hj (by omega)
+      refine ⟨N, by omega, k, g, (bfsList gs root N)[N], hk, ?_, he⟩
+      exact IsPrefix.getElem?_some hpre (List.getElem?_eq_getElem hvis)
 
 theorem bfsList_mem_of_closed {S : Set M} (hroot : root ∈ S) (hS : ∀ g ∈ gs, ∀ x ∈ S, g x ∈ S)
     (N : ℕ) : ∀ y ∈ bfsList gs root N, y ∈ S := by
@@ -180,6 +236,12 @@ theorem bfsList_closed {N : ℕ} (hN : (bfsList gs root N).length ≤ N) {g : M 
   obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hy
   exact bfsList_images_mem gs root N (by omega) (List.getElem?_eq_getElem hi) hg
 
+theorem bfsList_stable {N : ℕ} (hN : (bfsList gs root N).length ≤ N) {N' : ℕ} (h : N ≤ N') :
+    bfsList gs root N' = bfsList gs root N := by
+  induction N', h using Nat.le_induction with
+  | base => rfl
+  | succ N' hle ih =>
+    rw [bfsList_succ, ih, bfsVisit_eq_of_le gs (by omega)]
 
 omit [DecidableEq M] in
 theorem length_le_ncard_of_subset {L : List M} (hL : L.Nodup) {S : Set M} (hS : S.Finite)
@@ -225,8 +287,75 @@ end Orbit
 
 section Disc
 
+variable (L : List M)
+
+@[expose] def IsDisc (j d : ℕ) : Prop :=
+  ∃ (p k : ℕ) (g : M → M) (z : M), d = p * gs.length + k ∧ k < gs.length ∧ gs[k]? = some g ∧
+    L[p]? = some z ∧ L[j]? = some (g z)
+
+open Classical in
+@[expose] noncomputable def firstDisc (j : ℕ) : ℕ :=
+  if h : ∃ d, IsDisc gs L j d then Nat.find h else 0
+
+omit [DecidableEq M] in
+theorem firstDisc_spec {j : ℕ} (h : ∃ d, IsDisc gs L j d) : IsDisc gs L j (firstDisc gs L j) := by
+  classical
+  rw [firstDisc, dite_eq_left h]
+  exact Nat.find_spec h
+
+omit [DecidableEq M] in
+theorem firstDisc_le {j d : ℕ} (h : IsDisc gs L j d) : firstDisc gs L j ≤ d := by
+  classical
+  rw [firstDisc, dite_eq_left ⟨d, h⟩]
+  exact Nat.find_min' _ h
+
+@[expose] noncomputable def discParent (j : ℕ) : ℕ := firstDisc gs L j / gs.length
+
+@[expose] noncomputable def discGen (j : ℕ) : ℕ := firstDisc gs L j % gs.length
+
+omit [DecidableEq M] in
+theorem isDisc_div_mod {j d : ℕ} (h : IsDisc gs L j d) :
+    ∃ (g : M → M) (z : M), gs[d % gs.length]? = some g ∧ L[d / gs.length]? = some z ∧
+      L[j]? = some (g z) := by
+  obtain ⟨p, k, g, z, hd, hk, hg, hz, hj⟩ := h
+  have hK : 0 < gs.length := by omega
+  have h1 : d / gs.length = p := by
+    rw [hd, Nat.add_comm, Nat.add_mul_div_right _ _ hK, Nat.div_eq_of_lt hk, zero_add]
+  have h2 : d % gs.length = k := by
+    rw [hd, Nat.add_comm, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt hk]
+  rw [h1, h2]
+  exact ⟨g, z, hg, hz, hj⟩
+
+omit [DecidableEq M] in
+theorem discParent_spec {j : ℕ} (h : ∃ d, IsDisc gs L j d) :
+    ∃ (g : M → M) (z : M), gs[discGen gs L j]? = some g ∧ L[discParent gs L j]? = some z ∧
+      L[j]? = some (g z) :=
+  isDisc_div_mod gs L (firstDisc_spec gs L h)
+
+omit [DecidableEq M] in
+theorem discGen_lt {j : ℕ} (h : ∃ d, IsDisc gs L j d) : discGen gs L j < gs.length := by
+  obtain ⟨g, -, hg, -⟩ := discParent_spec gs L h
+  exact (List.getElem?_eq_some_iff.1 hg).1
 
 end Disc
 
+theorem bfsList_exists_isDisc (N : ℕ) {j : ℕ} {y : M} (hj : (bfsList gs root N)[j]? = some y)
+    (h1 : 1 ≤ j) : ∃ d, IsDisc gs (bfsList gs root N) j d := by
+  obtain ⟨p, hp, k, g, z, hk, hz, he⟩ := bfsList_exists_disc gs root N hj h1
+  exact ⟨p * gs.length + k, p, k, g, z, rfl, (List.getElem?_eq_some_iff.1 hk).1, hk, hz,
+    he ▸ hj⟩
+
+theorem bfsList_discParent_lt (N : ℕ) {j : ℕ} {y : M} (hj : (bfsList gs root N)[j]? = some y)
+    (h1 : 1 ≤ j) : discParent gs (bfsList gs root N) j < j := by
+  obtain ⟨p, hp, k, g, z, hk, hz, he⟩ := bfsList_exists_disc gs root N hj h1
+  have hk' : k < gs.length := (List.getElem?_eq_some_iff.1 hk).1
+  have hle := firstDisc_le gs (bfsList gs root N) (d := p * gs.length + k)
+    ⟨p, k, g, z, rfl, hk', hk, hz, he ▸ hj⟩
+  have hK : 0 < gs.length := by omega
+  unfold discParent
+  calc firstDisc gs (bfsList gs root N) j / gs.length ≤ (p * gs.length + k) / gs.length :=
+        Nat.div_le_div_right hle
+    _ = p := by rw [Nat.add_comm, Nat.add_mul_div_right _ _ hK, Nat.div_eq_of_lt hk', zero_add]
+    _ < j := hp
 
 end CFSG.Sporadic.ThSchreier

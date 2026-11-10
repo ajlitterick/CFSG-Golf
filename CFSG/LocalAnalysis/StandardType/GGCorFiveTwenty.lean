@@ -21,6 +21,13 @@ variable {G : Type} [Group G] [Finite G]
 end Defs
 
 
+@[expose] def GGPseudoReflStabInput : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
+    GGCorFiveTwentyHyp p B Bs x L D J →
+      ∀ φ ∈ ggAutomizer (Subgroup.centralizer ({x} : Set G)) Bs, GGIsPseudoReflection p φ →
+        φ ∈ ggAutomizer (ggG0 p B x L D J) Bs
+
+
 section Proof
 
 

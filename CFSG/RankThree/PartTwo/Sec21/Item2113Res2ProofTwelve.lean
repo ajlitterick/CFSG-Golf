@@ -13,6 +13,11 @@ namespace CFSG.RankThree.PartTwo.Sec21
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.Blueprint
 
+@[expose] def Item2112TwoGroup : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
+    Sec21Pair G A E U c L → IsList218 L → ∀ d ∈ A, d ≠ 1 → IsCentral218 L d →
+      ∀ x ∈ Subgroup.normalizer (Subgroup.closure ({c, d} : Set G) : Set G),
+        x * d * x⁻¹ = d → x * c * x⁻¹ ≠ c * d
 
 @[expose] def KF2112HJReal : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), Nonempty (lBar L ≃* NativeSporadic.J2) →
@@ -310,9 +315,64 @@ theorem exists_dData [Finite G] (h211 : Item211) (h45 : Sec4.Item4_5) (hReal : K
     rw [mem_centralizer_singleton_iff.mp (hLc hℓL), mul_inv_cancel_right]
   exact ⟨ℓ, hℓL, ⟨hc3, hd3, hcd, hc1, hdc, hcd', hℓc, hℓd⟩⟩
 
+theorem item2112Unique_of (h211 : Item211) (h45 : Sec4.Item4_5) (hTG : Item2112TwoGroup)
+    (hReal : KF2112HJReal) : Item2112Unique := by
+  intro G _ _ A E U c L hpair hL d hdA hd1 hdcen Y hYD hY3
+  obtain ⟨ℓ, -, hD⟩ := exists_dData h211 h45 hReal hpair hL hdA hd1 hdcen
+  have hTG' := hTG G A E U c L hpair hL d hdA hd1 hdcen
+  constructor
+  · intro hX
+    exact hD.eq_of_normalizes hYD hY3 (hX (mem_normalizer_of_inv hD.ℓc hD.ℓd))
+  · rintro (rfl | rfl)
+    · rintro x ⟨hxD, hxd⟩
+      exact mem_normalizer_zpowers (hD.conj_mem_of_twoGroup hTG' hxD hxd)
+    · exact inf_le_right
+
+theorem item2112ND_of (h211 : Item211) (h45 : Sec4.Item4_5) (hTG : Item2112TwoGroup)
+    (hReal : KF2112HJReal) (hNF : Item2112NoFusion) : Item2112ND := by
+  intro G _ _ A E U c L hpair hL d hdA hd1 hdcen x hxD
+  obtain ⟨ℓ, -, hD⟩ := exists_dData h211 h45 hReal hpair hL hdA hd1 hdcen
+  have hTG' := hTG G A E U c L hpair hL d hdA hd1 hdcen
+  have hdinv : IsCentral218 L d⁻¹ :=
+    Item2113Proof.isCentral218_of_zpowers_eq hdcen zpowers_inv
+  have hNF₀ : ∀ y : G, y * c * y⁻¹ ≠ d := hNF G A E U c L E U c L hpair hL hpair hL d hdA hd1 hdcen
+  have hNF₀' : ∀ y : G, y * c * y⁻¹ ≠ d⁻¹ := hNF G A E U c L E U c L hpair hL hpair hL d⁻¹
+    (inv_mem hdA) (inv_ne_one.mpr hd1) hdinv
+  have hNF₁ : ∀ y : G, y * c * y⁻¹ ∉ zpowers d := by
+    intro y hy
+    rcases mem_zpowers_cube hD.d3 hy with h1 | h1 | h1
+    · apply hD.c1
+      have := congrArg (fun z => y⁻¹ * z * y) h1
+      simpa [mul_assoc] using this
+    · exact hNF₀ y h1
+    · exact hNF₀' y (h1.trans (sq_eq_inv_of_cube hD.d3))
+  have hNF₂ : ∀ y : G, y * d * y⁻¹ ∉ zpowers c := by
+    intro y hy
+    rcases mem_zpowers_cube hD.c3 hy with h1 | h1 | h1
+    · apply hD.d1
+      have := congrArg (fun z => y⁻¹ * z * y) h1
+      simpa [mul_assoc] using this
+    · apply hNF₀ y⁻¹
+      have := congrArg (fun z => y⁻¹ * z * y) h1
+      simp only [inv_inv]
+      simpa [mul_assoc] using this.symm
+    · apply hNF₀' y⁻¹
+      rw [sq_eq_inv_of_cube hD.c3] at h1
+      have h2 : y * d⁻¹ * y⁻¹ = c := by
+        rw [show y * d⁻¹ * y⁻¹ = (y * d * y⁻¹)⁻¹ by group, h1, inv_inv]
+      have := congrArg (fun z => y⁻¹ * z * y) h2
+      simp only [inv_inv]
+      simpa [mul_assoc] using this.symm
+  exact mem_normalizer_zpowers (hD.conj_mem_of_noFusion
+    (fun x hx hxd => hD.conj_mem_of_twoGroup hTG' hx hxd) hNF₁ hNF₂ hxD)
 
 end Pairs
 
+theorem item218FinalD_of (hNF : Item2112NoFusion) : Item218FinalD := by
+  intro G _ _ A E U c L U₀ b K hpair hL _ _ hpair' hK _ _ _ _ _ _ _ hccen _ _
+  have hpairs := mem_lThreeStarPairs_iff.mp hpair.mem_pair
+  exact hNF G A E U c L E U₀ b K hpair hL hpair' hK c (hpair.mem_E.2 hpairs.1.1) hpairs.2.1
+    hccen 1 (by group)
 
 theorem item2112TwoGroup_of_mem_W (h2 : Item2110Two) {G : Type} [Group G] [Finite G]
     {A E U L : Subgroup G} {c : G} (hpair : Sec21Pair G A E U c L) (hL : IsList218 L) {d : G}

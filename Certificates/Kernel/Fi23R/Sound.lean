@@ -14,6 +14,7 @@ namespace CertificateChecks.KernelFi23R
 open CFSG.KC.Enum CFSG.KC.Fi23K CFSG.KC.Fi23R CFSG.KD.Fi23K CFSG.KD.Fi23R CFSG.KS.Raw.Orb
   CFSG.Sporadic.Th.Native CFSG.Sporadic.Fi23.Native CertificateChecks.KernelFi23M
 
+theorem tAf_zero (k m : Nat) : tAf G 0 k m = tb G 43 m := rfl
 
 theorem tAf_succ (f k m : Nat) : tAf G (f + 1) k m = if k = 0 then tb G 43 m else
     if tb G 92 k = 1 then tb G 39 (tAf G f (tb G 91 k) (tb G 39 m))

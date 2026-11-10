@@ -66,6 +66,14 @@ theorem ch14976k_e0 : ∀ c ∈ e7T3Certs, c.comps.map E7T3Comp.kind = [1] →
 
 theorem ch14976k_size : ∀ c ∈ e7T3Certs, c.rootList.length ≤ 30 := by decide +kernel
 
+theorem ch14976k_n1 :
+    goodK s0 s1 s2 s3 roots (e7T3Certs.getD 0 default) (rl.getD 1 []) = false := by
+  decide +kernel
+
+theorem ch14976k_n2 : decide (CFSG.LieType.Chevalley.laplaceDet 7
+    (toMat 7 (lcols 7 e7T3ColsList)) = -1) = false := by decide +kernel
+
+theorem ch14976k_n3 : decide ((e7T3Certs.getD 0 default).cls = [1]) = false := by decide +kernel
 
 end CertificateChecks.KernelE7T3K
 

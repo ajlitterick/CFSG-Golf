@@ -49,10 +49,14 @@ theorem zmod2_eq_zero_or_one (c : ZMod 2) : c = 0 ∨ c = 1 := by
 @[simp] theorem linEquivMulAut_apply (g : GLV V) (q : Multiplicative V) :
     linEquivMulAut g q = Multiplicative.ofAdd (g (Multiplicative.toAdd q)) := rfl
 
+theorem toAdd_linEquivMulAut_apply (g : GLV V) (v : V) :
+    Multiplicative.toAdd (linEquivMulAut g (Multiplicative.ofAdd v)) = g v := rfl
 
 theorem linEquivMulAut_symm_apply (f : MulAut (Multiplicative V)) (v : V) :
     (linEquivMulAut.symm f) v = Multiplicative.toAdd (f (Multiplicative.ofAdd v)) := rfl
 
+theorem linEquivMulAut_injective : Function.Injective (linEquivMulAut (V := V)) :=
+  linEquivMulAut.injective
 
 theorem multiplicative_sq_eq_one (q : Multiplicative V) : q ^ 2 = 1 := by
   apply Multiplicative.toAdd.injective
@@ -82,6 +86,8 @@ theorem linMulAct_smul (g : GLV V) (q : Multiplicative V) :
 @[simp] theorem toAdd_linMulAct_smul (g : GLV V) (q : Multiplicative V) :
     Multiplicative.toAdd (g • q) = g (Multiplicative.toAdd q) := rfl
 
+theorem linEquivMulAut_smul_eq (g : GLV V) (q : Multiplicative V) :
+    (linEquivMulAut g) • q = g • q := rfl
 
 @[expose] def subToSubgroup : Submodule (ZMod 2) V ≃o Subgroup (Multiplicative V) where
   toFun U := AddSubgroup.toSubgroup U.toAddSubgroup
@@ -112,6 +118,14 @@ theorem linMulAct_smul (g : GLV V) (q : Multiplicative V) :
 theorem mem_subToSubgroup {U : Submodule (ZMod 2) V} {q : Multiplicative V} :
     q ∈ subToSubgroup U ↔ Multiplicative.toAdd q ∈ U := Iff.rfl
 
+theorem ofAdd_mem_subToSubgroup {U : Submodule (ZMod 2) V} {v : V} :
+    Multiplicative.ofAdd v ∈ subToSubgroup U ↔ v ∈ U := Iff.rfl
+
+theorem mem_subToSubgroup_symm {S : Subgroup (Multiplicative V)} {v : V} :
+    v ∈ subToSubgroup.symm S ↔ Multiplicative.ofAdd v ∈ S := Iff.rfl
+
+theorem subToSubgroup_injective : Function.Injective (subToSubgroup (V := V)) :=
+  subToSubgroup.injective
 
 theorem subToSubgroup_inj {U U' : Submodule (ZMod 2) V} :
     subToSubgroup U = subToSubgroup U' ↔ U = U' := subToSubgroup.injective.eq_iff
@@ -151,10 +165,25 @@ theorem toMulSub_injective : Function.Injective (toMulSub (V := V)) := fun _ _ h
 @[expose] def toMulSubIso : Subgroup (GLV V) ≃o Subgroup (MulAut (Multiplicative V)) :=
   MulEquiv.mapSubgroup linEquivMulAut
 
+theorem toMulSubIso_apply (K : Subgroup (GLV V)) : toMulSubIso K = toMulSub K := rfl
+
+theorem toMulSub_surjective : Function.Surjective (toMulSub (V := V)) :=
+  toMulSubIso.surjective
 
 theorem toMulSub_sup (K K' : Subgroup (GLV V)) : toMulSub (K ⊔ K') = toMulSub K ⊔ toMulSub K' :=
   toMulSubIso.map_sup K K'
 
+theorem toMulSub_inf (K K' : Subgroup (GLV V)) : toMulSub (K ⊓ K') = toMulSub K ⊓ toMulSub K' :=
+  toMulSubIso.map_inf K K'
+
+theorem toMulSub_iSup {ι : Sort*} (f : ι → Subgroup (GLV V)) :
+    toMulSub (⨆ i, f i) = ⨆ i, toMulSub (f i) :=
+  toMulSubIso.map_iSup f
+
+theorem toMulSub_eq_bot_iff {K : Subgroup (GLV V)} : toMulSub K = ⊥ ↔ K = ⊥ := by
+  have : toMulSub (⊥ : Subgroup (GLV V)) = ⊥ := Subgroup.map_bot _
+  rw [← this]
+  exact toMulSub_injective.eq_iff
 
 @[expose] def toMulSubEquiv (K : Subgroup (GLV V)) : ↥K ≃* ↥(toMulSub K) :=
   linEquivMulAut.subgroupMap K
@@ -186,6 +215,27 @@ theorem isInv_congr_equiv (L : Subgroup Q) : IsInv A' L ↔ IsInv A L := by
     rw [he a l]
     exact h a l hl
 
+theorem fixed_congr_equiv (L : Subgroup Q) : fixed A' L = fixed A L := by
+  ext q
+  constructor
+  · rintro ⟨hq, hfix⟩
+    exact ⟨hq, fun a => by rw [← he a q]; exact hfix (e a)⟩
+  · rintro ⟨hq, hfix⟩
+    refine ⟨hq, fun a' => ?_⟩
+    obtain ⟨a, rfl⟩ := e.surjective a'
+    rw [he a q]
+    exact hfix a
+
+theorem commOf_congr_equiv (L : Subgroup Q) : commOf A' L = commOf A L := by
+  unfold commOf
+  congr 1
+  ext c
+  constructor
+  · rintro ⟨a', l, hl, rfl⟩
+    obtain ⟨a, rfl⟩ := e.surjective a'
+    exact ⟨a, l, hl, by rw [he a l]⟩
+  · rintro ⟨a, l, hl, rfl⟩
+    exact ⟨e a, l, hl, by rw [he a l]⟩
 
 theorem isIrrSec_congr_equiv (C L : Subgroup Q) : IsIrrSec A' C L ↔ IsIrrSec A C L := by
   unfold IsIrrSec
@@ -195,6 +245,10 @@ theorem isIrr_congr_equiv (L : Subgroup Q) : IsIrr A' L ↔ IsIrr A L := by
   unfold IsIrr
   rw [isInv_congr_equiv e he, isIrrSec_congr_equiv e he]
 
+theorem isIrrPlus_congr_equiv (I : Subgroup Q) : IsIrrPlus A' I ↔ IsIrrPlus A I := by
+  unfold IsIrrPlus
+  rw [isInv_congr_equiv e he, commOf_congr_equiv e he, fixed_congr_equiv e he,
+    isIrrSec_congr_equiv e he]
 
 theorem iso_congr_equiv (L L' : Subgroup Q) : Iso A' L L' ↔ Iso A L L' := by
   unfold Iso
@@ -209,6 +263,9 @@ theorem iso_congr_equiv (L L' : Subgroup Q) : Iso A' L L' ↔ Iso A L L' := by
     rw [he a] at h ⊢
     exact hφ a l l' h
 
+theorem isHomComp_congr_equiv (M L : Subgroup Q) : IsHomComp A' M L ↔ IsHomComp A M L := by
+  unfold IsHomComp
+  simp only [isIrr_congr_equiv e he, iso_congr_equiv e he]
 
 end Congr
 
@@ -250,6 +307,10 @@ theorem fixed_eq (U : Submodule (ZMod 2) V) :
   · rintro ⟨hf, hqU⟩
     exact ⟨hqU, fun a => congrArg Multiplicative.ofAdd (hf a a.2)⟩
 
+theorem fixed_top_eq :
+    XMod.fixed ↥K (⊤ : Subgroup (Multiplicative V)) = subToSubgroup (fixedSpace K) := by
+  have := fixed_eq (K := K) ⊤
+  rwa [OrderIso.map_top, inf_top_eq] at this
 
 theorem commOf_eq (U : Submodule (ZMod 2) V) :
     XMod.commOf ↥K (subToSubgroup U) = subToSubgroup (commSpace K U) := by
@@ -264,6 +325,10 @@ theorem commOf_eq (U : Submodule (ZMod 2) V) :
   · rintro ⟨_, ⟨k, hk, u, hu, rfl⟩, rfl⟩
     exact ⟨⟨k, hk⟩, Multiplicative.ofAdd u, hu, (smul_mul_inv_eq k u).symm⟩
 
+theorem commOf_top_eq :
+    XMod.commOf ↥K (⊤ : Subgroup (Multiplicative V)) = subToSubgroup (commSpace K ⊤) := by
+  have := commOf_eq (K := K) ⊤
+  rwa [OrderIso.map_top] at this
 
 theorem irrSec_iff : IrrSec K C L ↔ XMod.IsIrrSec ↥K (subToSubgroup C) (subToSubgroup L) := by
   unfold IrrSec XMod.IsIrrSec
@@ -297,6 +362,93 @@ theorem mem_irrPlus_top_iff :
   rw [irrPlus_iff]
   exact ⟨fun h => h.2, fun h => ⟨le_top, h⟩⟩
 
+theorem hIso_iff : HIso K I J ↔ XMod.Iso ↥K (subToSubgroup I) (subToSubgroup J) := by
+  constructor
+  · rintro ⟨φ, hφ⟩
+    refine ⟨
+      { toFun := fun x => ⟨Multiplicative.ofAdd
+          ((φ ⟨Multiplicative.toAdd (x : Multiplicative V), x.2⟩ : J) : V),
+          (φ ⟨Multiplicative.toAdd (x : Multiplicative V), x.2⟩).2⟩
+        invFun := fun y => ⟨Multiplicative.ofAdd
+          ((φ.symm ⟨Multiplicative.toAdd (y : Multiplicative V), y.2⟩ : I) : V),
+          (φ.symm ⟨Multiplicative.toAdd (y : Multiplicative V), y.2⟩).2⟩
+        left_inv := fun x => by
+          apply Subtype.ext
+          change Multiplicative.ofAdd (((φ.symm (φ ⟨Multiplicative.toAdd (x : Multiplicative V),
+            x.2⟩) : I)) : V) = x
+          rw [LinearEquiv.symm_apply_apply]
+          rfl
+        right_inv := fun y => by
+          apply Subtype.ext
+          change Multiplicative.ofAdd (((φ (φ.symm ⟨Multiplicative.toAdd (y : Multiplicative V),
+            y.2⟩) : J)) : V) = y
+          rw [LinearEquiv.apply_symm_apply]
+          rfl
+        map_mul' := fun x y => by
+          apply Subtype.ext
+          change Multiplicative.ofAdd ((φ (⟨Multiplicative.toAdd (x : Multiplicative V), x.2⟩ +
+            ⟨Multiplicative.toAdd (y : Multiplicative V), y.2⟩) : J) : V) = _
+          rw [map_add]
+          rfl },
+      fun a l l' hl => ?_⟩
+    exact hφ a a.2 ⟨Multiplicative.toAdd (l : Multiplicative V), l.2⟩
+      ⟨Multiplicative.toAdd (l' : Multiplicative V), l'.2⟩ (congrArg Multiplicative.toAdd hl)
+  · rintro ⟨ψ, hψ⟩
+    refine ⟨addEquivToLinear
+      { toFun := fun i => ⟨Multiplicative.toAdd (ψ ⟨Multiplicative.ofAdd (i : V), i.2⟩ :
+          subToSubgroup J).1, (ψ ⟨Multiplicative.ofAdd (i : V), i.2⟩).2⟩
+        invFun := fun j => ⟨Multiplicative.toAdd (ψ.symm ⟨Multiplicative.ofAdd (j : V), j.2⟩ :
+          subToSubgroup I).1, (ψ.symm ⟨Multiplicative.ofAdd (j : V), j.2⟩).2⟩
+        left_inv := fun i => by
+          apply Subtype.ext
+          change Multiplicative.toAdd ((ψ.symm (ψ ⟨Multiplicative.ofAdd (i : V), i.2⟩) :
+            subToSubgroup I).1) = i
+          rw [MulEquiv.symm_apply_apply]
+          rfl
+        right_inv := fun j => by
+          apply Subtype.ext
+          change Multiplicative.toAdd ((ψ (ψ.symm ⟨Multiplicative.ofAdd (j : V), j.2⟩) :
+            subToSubgroup J).1) = j
+          rw [MulEquiv.apply_symm_apply]
+          rfl
+        map_add' := fun i i' => by
+          apply Subtype.ext
+          change Multiplicative.toAdd ((ψ (⟨Multiplicative.ofAdd (i : V), i.2⟩ *
+            ⟨Multiplicative.ofAdd (i' : V), i'.2⟩) : subToSubgroup J).1) = _
+          rw [map_mul]
+          rfl }, fun k hk i j hij => ?_⟩
+    exact congrArg Multiplicative.toAdd (hψ ⟨k, hk⟩ ⟨Multiplicative.ofAdd (i : V), i.2⟩
+      ⟨Multiplicative.ofAdd (j : V), j.2⟩ (congrArg Multiplicative.ofAdd hij))
+
+@[expose] def HomComp (K : Subgroup (GLV V)) (M L : Submodule (ZMod 2) V) : Prop :=
+  IsIrr K L ∧ L ≤ M ∧ ∀ J : Submodule (ZMod 2) V, J ≤ M → IsIrr K J → HIso K J L → J ≤ L
+
+theorem homComp_iff :
+    HomComp K M L ↔ XMod.IsHomComp ↥K (subToSubgroup M) (subToSubgroup L) := by
+  unfold HomComp XMod.IsHomComp
+  rw [isIrr_iff, subToSubgroup.le_iff_le]
+  refine and_congr_right fun _ => and_congr_right fun _ => ?_
+  constructor
+  · intro h J' hJ'M hJ'irr hJ'iso
+    have h1 := h (subToSubgroup.symm J') (subToSubgroup.symm_apply_le.2 hJ'M)
+    rw [isIrr_iff, OrderIso.apply_symm_apply] at h1
+    rw [hIso_iff, OrderIso.apply_symm_apply] at h1
+    have h2 := h1 hJ'irr hJ'iso
+    exact subToSubgroup.symm_apply_le.1 h2
+  · intro h J hJM hJirr hJiso
+    exact subToSubgroup.le_iff_le.1
+      (h (subToSubgroup J) (subToSubgroup.monotone hJM) (isIrr_iff.1 hJirr) (hIso_iff.1 hJiso))
+
+theorem homogeneous_iff :
+    Homogeneous K ↔ ∀ I J : Subgroup (Multiplicative V), XMod.IsIrrPlus ↥K I →
+      XMod.IsIrrPlus ↥K J → XMod.Iso ↥K I J := by
+  constructor
+  · intro h I J hI hJ
+    obtain ⟨I', rfl⟩ := subToSubgroup.surjective I
+    obtain ⟨J', rfl⟩ := subToSubgroup.surjective J
+    exact hIso_iff.1 (h I' J' (irrPlus_iff.2 hI) (irrPlus_iff.2 hJ))
+  · intro h I J hI hJ
+    exact hIso_iff.2 (h _ _ (irrPlus_iff.1 hI) (irrPlus_iff.1 hJ))
 
 end XMod
 
@@ -304,6 +456,67 @@ section ToMulSub
 
 variable {K : Subgroup (GLV V)} {U C L I J M : Submodule (ZMod 2) V}
 
+theorem toMulSubEquiv_compat (K : Subgroup (GLV V)) :
+    ∀ (k : ↥K) (q : Multiplicative V), toMulSubEquiv K k • q = k • q := fun _ _ => rfl
+
+theorem invariant_iff_isInv_toMulSub :
+    Invariant K U ↔ XMod.IsInv ↥(toMulSub K) (subToSubgroup U) :=
+  invariant_iff_isInv.trans
+    (XMod.isInv_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _).symm
+
+theorem fixed_eq_toMulSub (U : Submodule (ZMod 2) V) :
+    XMod.fixed ↥(toMulSub K) (subToSubgroup U) = subToSubgroup (fixedSpace K ⊓ U) :=
+  (XMod.fixed_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _).trans (fixed_eq U)
+
+theorem commOf_eq_toMulSub (U : Submodule (ZMod 2) V) :
+    XMod.commOf ↥(toMulSub K) (subToSubgroup U) = subToSubgroup (commSpace K U) :=
+  (XMod.commOf_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _).trans (commOf_eq U)
+
+theorem irrSec_iff_toMulSub :
+    IrrSec K C L ↔ XMod.IsIrrSec ↥(toMulSub K) (subToSubgroup C) (subToSubgroup L) :=
+  irrSec_iff.trans
+    (XMod.isIrrSec_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _ _).symm
+
+theorem isIrr_iff_toMulSub : IsIrr K U ↔ XMod.IsIrr ↥(toMulSub K) (subToSubgroup U) :=
+  isIrr_iff.trans (XMod.isIrr_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _).symm
+
+theorem irrPlus_iff_toMulSub :
+    IrrPlus K I ↔ XMod.IsIrrPlus ↥(toMulSub K) (subToSubgroup I) :=
+  irrPlus_iff.trans (XMod.isIrrPlus_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _).symm
+
+theorem hIso_iff_toMulSub :
+    HIso K I J ↔ XMod.Iso ↥(toMulSub K) (subToSubgroup I) (subToSubgroup J) :=
+  hIso_iff.trans (XMod.iso_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _ _).symm
+
+theorem fixed_top_eq_toMulSub :
+    XMod.fixed ↥(toMulSub K) (⊤ : Subgroup (Multiplicative V)) = subToSubgroup (fixedSpace K) := by
+  have := fixed_eq_toMulSub (K := K) ⊤
+  rwa [OrderIso.map_top, inf_top_eq] at this
+
+theorem commOf_top_eq_toMulSub :
+    XMod.commOf ↥(toMulSub K) (⊤ : Subgroup (Multiplicative V)) =
+      subToSubgroup (commSpace K ⊤) := by
+  have := commOf_eq_toMulSub (K := K) ⊤
+  rwa [OrderIso.map_top] at this
+
+theorem homComp_iff_toMulSub :
+    HomComp K M L ↔ XMod.IsHomComp ↥(toMulSub K) (subToSubgroup M) (subToSubgroup L) :=
+  homComp_iff.trans
+    (XMod.isHomComp_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) _ _).symm
+
+theorem homogeneous_iff_toMulSub :
+    Homogeneous K ↔ ∀ I J : Subgroup (Multiplicative V), XMod.IsIrrPlus ↥(toMulSub K) I →
+      XMod.IsIrrPlus ↥(toMulSub K) J → XMod.Iso ↥(toMulSub K) I J := by
+  rw [homogeneous_iff]
+  constructor
+  · intro h I J hI hJ
+    exact (XMod.iso_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) I J).2
+      (h I J ((XMod.isIrrPlus_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) I).1 hI)
+        ((XMod.isIrrPlus_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) J).1 hJ))
+  · intro h I J hI hJ
+    exact (XMod.iso_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) I J).1
+      (h I J ((XMod.isIrrPlus_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) I).2 hI)
+        ((XMod.isIrrPlus_congr_equiv (toMulSubEquiv K) (toMulSubEquiv_compat K) J).2 hJ))
 
 end ToMulSub
 
@@ -329,6 +542,43 @@ theorem subToSubgroup_conjSub_toMulSub (g : GLV V) (U : Submodule (ZMod 2) V) :
   · rintro ⟨p, hp, rfl⟩
     simpa using hp
 
+theorem mem_centralizerOn_iff_smul {k : GLV V} :
+    k ∈ centralizerOn K U ↔ k ∈ K ∧ ∀ u ∈ subToSubgroup U, k • u = u := by
+  constructor
+  · rintro ⟨hk, h⟩
+    exact ⟨hk, fun u hu => congrArg Multiplicative.ofAdd (h (Multiplicative.toAdd u) hu)⟩
+  · rintro ⟨hk, h⟩
+    exact ⟨hk, fun u hu => congrArg Multiplicative.toAdd (h (Multiplicative.ofAdd u) hu)⟩
+
+theorem mem_stabilizerOf_iff_smul {k : GLV V} :
+    k ∈ stabilizerOf K U ↔ k ∈ K ∧ k • subToSubgroup U = subToSubgroup U := by
+  rw [← subToSubgroup_conjSub]
+  exact and_congr_right fun _ => subToSubgroup_inj.symm
+
+theorem mem_toMulSub_centralizerOn_iff {f : MulAut (Multiplicative V)} :
+    f ∈ toMulSub (centralizerOn K U) ↔ f ∈ toMulSub K ∧ ∀ u ∈ subToSubgroup U, f u = u := by
+  obtain ⟨g, rfl⟩ := linEquivMulAut.surjective f
+  rw [linEquivMulAut_mem_toMulSub, linEquivMulAut_mem_toMulSub, mem_centralizerOn_iff_smul]
+  exact Iff.rfl
+
+theorem mem_toMulSub_stabilizerOf_iff {f : MulAut (Multiplicative V)} :
+    f ∈ toMulSub (stabilizerOf K U) ↔
+      f ∈ toMulSub K ∧ (subToSubgroup U).map f.toMonoidHom = subToSubgroup U := by
+  obtain ⟨g, rfl⟩ := linEquivMulAut.surjective f
+  rw [linEquivMulAut_mem_toMulSub, linEquivMulAut_mem_toMulSub]
+  have h1 : g ∈ stabilizerOf K U ↔ g ∈ K ∧ conjSub g U = U := Iff.rfl
+  rw [h1]
+  refine and_congr_right fun _ => ?_
+  rw [← subToSubgroup_inj, subToSubgroup_conjSub_toMulSub]
+
+theorem fixV_toMulSub (K : Subgroup (GLV V)) : fixV (toMulSub K) = subToSubgroup (fixedSpace K) := by
+  ext q
+  constructor
+  · intro h k hk
+    exact congrArg Multiplicative.toAdd (h (linEquivMulAut k) (linEquivMulAut_mem_toMulSub.2 hk))
+  · intro h f hf
+    obtain ⟨g, rfl⟩ := linEquivMulAut.surjective f
+    exact congrArg Multiplicative.ofAdd (h g (linEquivMulAut_mem_toMulSub.1 hf))
 
 theorem commV_toMulSub (K : Subgroup (GLV V)) :
     commV (toMulSub K) = subToSubgroup (commSpace K ⊤) := by
@@ -447,6 +697,8 @@ theorem HIso.finrank_eq (h : HIso K I J) :
   obtain ⟨φ, -⟩ := h
   exact φ.finrank_eq
 
+theorem hIso_comm (hI : Invariant K I) (hJ : Invariant K J) : HIso K I J ↔ HIso K J I :=
+  ⟨HIso.symm hI, HIso.symm hJ⟩
 
 end HIsoApi
 

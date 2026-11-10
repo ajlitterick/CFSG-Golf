@@ -309,6 +309,8 @@ section CT
 open CFSG.TwoRankLowerBound.Helpers CFSG.BlockSectionOrthogonality.Helpers
 open scoped Classical
 
+@[expose] noncomputable def invSum {X : Type} [Group X] [Fintype X] (χ : X → ℂ) : ℂ :=
+  (Nat.card X : ℂ)⁻¹ * ∑ t ∈ Finset.univ.filter (fun t : X => t ≠ 1 ∧ t * t = 1), χ t
 
 @[expose] def section2 {X : Type} [Group X] (J : X) : Set X :=
   {x | ∃ y : X, x = J * y ∧ y * J = J * y ∧ Odd (orderOf y)}
@@ -359,12 +361,24 @@ variable (hI : HypI G)
   {l | l ∈ CFSG.BlocksIrr hI.H ∧ l 1 = 1 ∧
     ∀ x : hI.H, (x : G) ∈ Subgroup.zpowers hI.J ⊔ hI.K → l x = 1}
 
+@[expose] def PMIrr (X : Type) [Group X] : Set (X → ℂ) :=
+  {ψ | ψ ∈ CFSG.BlocksIrr X ∨ -ψ ∈ CFSG.BlocksIrr X}
 
 end HypI
 
 @[expose] def blockL (hI : HypI G) (χ : Fin 4 → (hI.H → ℂ)) (l : hI.H → ℂ) : Set (hI.H → ℂ) :=
   {ψ | ∃ i, ψ = l * χ i ∨ ψ = l * hI.δ * χ i}
 
+structure ChiProps (hI : HypI G) (m : Ideal CFSG.BlocksAlgInt) (χ : Fin 4 → (hI.H → ℂ)) :
+    Prop where
+  irr : ∀ i, χ i ∈ CFSG.BlocksIrr hI.H
+  one : χ 0 = 1
+  J_ker : ∀ i, ∀ x : hI.H, χ i ⟨hI.J * x, Subgroup.mul_mem _
+    (Subgroup.mem_centralizer_singleton_iff.mpr rfl) x.2⟩ = χ i x
+  deg : χ 1 1 = ((hI.q : ℂ) - 1) / 2 ∧ χ 2 1 = ((hI.q : ℂ) - 1) / 2 ∧ χ 3 1 = hI.q
+  inv : ∀ t : hI.H, (t : G) ∈ hI.K → orderOf t = 2 →
+    χ 0 t = 1 ∧ χ 1 t = 1 ∧ χ 2 t = 1 ∧ χ 3 t = -1
+  block : ∀ l ∈ hI.Lset, CFSG.BlocksBlockOf m hI.H (l * χ 0) = blockL hI χ l
 
 @[expose] noncomputable def theta (hI : HypI G) (χ : Fin 4 → (hI.H → ℂ)) (l : hI.H → ℂ)
     (j : Fin 4) : hI.H → ℂ :=
@@ -380,11 +394,53 @@ structure AlphaData (hI : HypI G) where
     χεα ⟨hI.J, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ = (hI.q : ℂ) - 1
   inv : ∀ t : hI.H, (t : G) ∈ hI.K → orderOf t = 2 → χα t = -2 ∧ χεα t = 2
 
+@[expose] noncomputable def thetaα (hI : HypI G) (α : AlphaData hI) (l : hI.H → ℂ) : hI.H → ℂ :=
+  l * α.χα - l * hI.δ * α.χα + l * α.χεα - l * hI.δ * α.χεα
+
+structure AlphaOrbit (hII : HypII G) (m : Ideal CFSG.BlocksAlgInt) where
+  α : Fin 3 → AlphaData hII.toHypI
+  block : ∀ i, ∀ l ∈ hII.Lset, CFSG.BlocksBlockOf m hII.H (l * (α i).χα) =
+    {l * (α i).χα, l * (α i).χεα, l * hII.δ * (α i).χα, l * hII.δ * (α i).χεα}
+  distinct : ∀ i j, i ≠ j → (α i).χα ≠ (α j).χα ∧ (α i).χα ≠ (α j).χεα
+  assoc : ∀ l ∈ hII.Lset, ∀ i j, ∀ B : Set (G → ℂ),
+    CFSG.BlocksBrauerCorr m (Subgroup.zpowers hII.J) hII.H
+      (CFSG.BlocksBlockOf m hII.H (l * (α i).χα)) B ↔
+    CFSG.BlocksBrauerCorr m (Subgroup.zpowers hII.J) hII.H
+      (CFSG.BlocksBlockOf m hII.H (l * (α j).χα)) B
 
 @[expose] noncomputable def eta4 (hI : HypI G) (χ : Fin 4 → (hI.H → ℂ)) (α : AlphaData hI)
     (l : hI.H → ℂ) : hI.H → ℂ :=
   l * hI.δ * χ 0 - l * hI.δ * χ 3 + l * hI.δ * α.χα
 
+structure CohData (hII : HypII G) {m : Ideal CFSG.BlocksAlgInt} (χ : Fin 4 → (hII.H → ℂ))
+    (ao : AlphaOrbit hII m) (l : hII.H → ℂ) where
+  ψ : Fin 4 → G → ℂ
+  ψ' : Fin 4 → G → ℂ
+  Φ : Fin 4 → G → ℂ
+  xα : ℤ
+  k : Fin 4
+  ε : ℤ
+  pmIrr : ∀ i, ψ i ∈ HypI.PMIrr G ∧ ψ' i ∈ HypI.PMIrr G ∧ Φ i ∈ HypI.PMIrr G
+  orth : ∀ i j, CFSG.BlocksInnerProduct (ψ i) (ψ j) = (if i = j then 1 else 0) ∧
+    CFSG.BlocksInnerProduct (ψ' i) (ψ' j) = (if i = j then 1 else 0) ∧
+    CFSG.BlocksInnerProduct (Φ i) (Φ j) = (if i = j then 1 else 0) ∧
+    CFSG.BlocksInnerProduct (ψ i) (ψ' j) = 0 ∧ CFSG.BlocksInnerProduct (ψ i) (Φ j) = 0 ∧
+    CFSG.BlocksInnerProduct (ψ' i) (Φ j) = 0
+  ind74 : inducedFunction hII.H (theta hII.toHypI χ l 3) = ψ 0 - ψ' 0 + ψ 3 - ψ' 3 ∧
+    inducedFunction hII.H (theta hII.toHypI χ l 1) = ψ 0 - ψ' 0 - ψ 1 + ψ' 1 ∧
+    inducedFunction hII.H (theta hII.toHypI χ l 2) = ψ 0 - ψ' 0 - ψ 2 + ψ' 2
+  ind76 : inducedFunction hII.H (thetaα hII.toHypI (ao.α 0) l) = Φ 0 - Φ 1 + Φ 2 - Φ 3 ∧
+    inducedFunction hII.H (thetaα hII.toHypI (ao.α 1) l) = Φ 0 + Φ 1 - Φ 2 - Φ 3 ∧
+    inducedFunction hII.H (thetaα hII.toHypI (ao.α 2) l) = Φ 0 - Φ 1 - Φ 2 + Φ 3
+  ind78 : inducedFunction hII.H (eta4 hII.toHypI χ (ao.α 0) l) =
+    ψ' 0 - ψ' 3 + (ε : ℂ) • Φ k
+  ε_sq : ε = 1 ∨ ε = -1
+  valJ : (∀ i, ψ i hII.J = (l * χ i) ⟨hII.J, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ ∧
+      ψ' i hII.J = (l * hII.δ * χ i) ⟨hII.J, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩) ∧
+    Φ 0 hII.J = 3 * ((hII.q : ℂ) - 1) ∧ Φ 1 hII.J = -((hII.q : ℂ) - 1) ∧
+    Φ 2 hII.J = -((hII.q : ℂ) - 1) ∧ Φ 3 hII.J = -((hII.q : ℂ) - 1)
+  degΦ : ∀ k, Φ k 1 = xα
+  principal : l = 1 → ψ 0 = 1
 
 end CT7
 

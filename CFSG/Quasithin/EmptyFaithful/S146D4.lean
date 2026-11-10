@@ -49,6 +49,8 @@ theorem inSln_inv : ∀ g : Γ, inSln g → inSln g⁻¹ := by decide +kernel
   inv_mem' := fun {a} ha => inSln_inv a ha
 
 theorem mem_D0 {g : Γ} : g ∈ D0 ↔ inD0 g := Iff.rfl
+theorem mem_Spt {g : Γ} : g ∈ Spt ↔ inSpt g := Iff.rfl
+theorem mem_Sln {g : Γ} : g ∈ Sln ↔ inSln g := Iff.rfl
 
 theorem card_Γ : Nat.card Γ = 168 := by
   rw [Matrix.card_SL_field]
@@ -69,6 +71,15 @@ theorem card_Sln : Nat.card Sln = 24 := by
   rw [h, Nat.card_eq_fintype_card, Fintype.card_subtype]
   decide +kernel
 
+theorem D0_le_Spt : D0 ≤ Spt := by
+  intro g hg
+  have : ∀ g : Γ, inD0 g → inSpt g := by decide +kernel
+  exact this g hg
+
+theorem D0_le_Sln : D0 ≤ Sln := by
+  intro g hg
+  have : ∀ g : Γ, inD0 g → inSln g := by decide +kernel
+  exact this g hg
 
 theorem dc_pt : ∀ g : Γ, inSpt g → ¬ inD0 g → ∀ h : Γ, inSpt h →
     inD0 h ∨ ∃ d : Γ, inD0 d ∧ inD0 (g⁻¹ * (d⁻¹ * h)) := by decide +kernel
@@ -155,6 +166,14 @@ theorem eq_top_of_Sln_lt {P : Subgroup Γ} (hP : Sln ≤ P) {y : Γ} (hy : y ∈
     have : Sln = P := Subgroup.eq_of_le_of_card_ge hP (by rw [hcard, card_Sln])
     exact hyS (this ▸ hy)
 
+theorem eq_D0_or_top {P : Subgroup Γ} (hD : D0 ≤ P) (α : MulAut Γ) (hα : ∀ x ∈ P, α x ∈ P)
+    (h1 : ∃ x ∈ Spt, α x ∉ Spt) (h2 : ∃ x ∈ Sln, α x ∉ Sln) : P = D0 ∨ P = ⊤ := by
+  rcases overgroup_cases hD with h | h | h
+  · exact Or.inl h
+  · obtain ⟨x, hx, hαx⟩ := h1
+    exact Or.inr (eq_top_of_Spt_lt h (hα x (h hx)) hαx)
+  · obtain ⟨x, hx, hαx⟩ := h2
+    exact Or.inr (eq_top_of_Sln_lt h (hα x (h hx)) hαx)
 
 theorem inD0_of_normalizes : ∀ x : Γ, (∀ d : Γ, inD0 d → inD0 (x * d * x⁻¹)) → inD0 x := by
   decide +kernel

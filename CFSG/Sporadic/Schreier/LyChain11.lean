@@ -39,6 +39,7 @@ theorem pPerm_apply {j : ℕ} (hj : j < 12) (x : Fin 11) : pPerm j x = pStar j x
 
 @[expose] def strongF (j : ℕ) : FreeGroup (Fin 2) := strongList.getD j 1
 
+theorem cDerivations_length : cDerivations.toList.length = 10 := rfl
 
 theorem derivations_idx : ∀ k < cDerivations.toList.length, ∀ l ∈ cDerivations.toList[k]!,
     letterIdx l < 2 + k := by

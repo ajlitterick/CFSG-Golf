@@ -13,6 +13,8 @@ namespace CFSG.Sporadic.Co2Schreier
 
 open CFSG.Monster.B.Co2.Native CFSG.Monster.B.Binary.Native CFSG.Sporadic.Co2Cert
 
+@[expose] def witSha : ℕ :=
+  0x358352375c60559a1677b10a5845b04ef0e353d0420a14c205ee24a49d58007d
 
 @[expose] def rows22OK (l : List ℕ) : Bool := l.length == 22 && l.all (· < 2 ^ 22)
 

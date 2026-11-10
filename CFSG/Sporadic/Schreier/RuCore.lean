@@ -23,6 +23,11 @@ theorem evalSigned_cons {G : Type*} [Group G] (gens : List G) (l : ℤ) (w : Lis
       (if 0 < l then gens.getD (l.natAbs - 1) 1 else (gens.getD (l.natAbs - 1) 1)⁻¹) *
         evalSigned gens w := rfl
 
+theorem evalSigned_append {G : Type*} [Group G] (gens : List G) (v w : List ℤ) :
+    evalSigned gens (v ++ w) = evalSigned gens v * evalSigned gens w := by
+  induction v with
+  | nil => simp [evalSigned]
+  | cons l v ih => rw [List.cons_append, evalSigned_cons, evalSigned_cons, ih, mul_assoc]
 
 theorem evalSigned_mem {G : Type*} [Group G] {H : Subgroup G} {gens : List G}
     (hg : ∀ g ∈ gens, g ∈ H) (w : List ℤ) : evalSigned gens w ∈ H := by
@@ -113,6 +118,37 @@ theorem lookup_cons_ne {β : Type*} {k a : ℕ} (h : k ≠ a) (b : β) (l : List
   let s := rows.foldl slotStep [(1, g₁), (2, g₂)]
   (slotRead s 1, slotRead s 2)
 
+theorem map_slotRun {G H : Type*} [Group G] [Group H] (f : G →* H) (rows : List SlotRow)
+    (g₁ g₂ : G) : (f (slotRun rows g₁ g₂).1, f (slotRun rows g₁ g₂).2) =
+      slotRun rows (f g₁) (f g₂) := by
+  have hread : ∀ (s : List (ℕ × G)) k, f (slotRead s k) =
+      slotRead (s.map fun p => (p.1, f p.2)) k := by
+    intro s k
+    induction s with
+    | nil => simp [slotRead]
+    | cons p s ih =>
+      obtain ⟨a, g⟩ := p
+      by_cases h : k = a
+      · subst h
+        simp only [slotRead, List.map_cons, lookup_cons_self, Option.getD_some]
+      · simp only [slotRead, List.map_cons, lookup_cons_ne h] at ih ⊢
+        exact ih
+  have hstep : ∀ (rows : List SlotRow) (s : List (ℕ × G)),
+      (rows.foldl slotStep s).map (fun p => (p.1, f p.2)) =
+        rows.foldl slotStep (s.map fun p => (p.1, f p.2)) := by
+    intro rows
+    induction rows with
+    | nil => intro s; rfl
+    | cons r rows ih =>
+      intro s
+      rw [List.foldl_cons, List.foldl_cons, ih]
+      congr 1
+      cases r with
+      | mu i j k => simp [slotStep, hread, map_mul]
+      | iv i j => simp [slotStep, hread, map_inv]
+      | pwr e i j => simp [slotStep, hread, map_pow]
+  simp only [slotRun, hread, hstep]
+  rfl
 
 @[expose] def slotReadA (n : ℕ) (s : List (ℕ × Array ℕ)) (k : ℕ) : Array ℕ :=
   (s.lookup k).getD (idA n)

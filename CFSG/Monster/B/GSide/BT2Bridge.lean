@@ -209,6 +209,8 @@ theorem isType1782_codeVert :
   rw [cpsi_codeVertPi, cpsi_codeVertPi, cpsi_codeVertPi, ← decW_xor, ← decW_xor]
   exact Unitary.decW_mem_OmegaW hs
 
+theorem codeHom_apply
+    (c : ℕ) : codeHom c = codeVert c := rfl
 
 theorem codeHom_6144 :
     codeHom 6144 = cv0 := codeVert_6144

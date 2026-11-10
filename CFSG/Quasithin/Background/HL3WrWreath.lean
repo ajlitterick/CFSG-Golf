@@ -251,6 +251,7 @@ theorem mem_stabE_iff {x : MulAut WMod} : x ∈ stabE ↔ x ∈ norm ∧ x (eW 0
       rw [thetaW_apply, tauPow_tq]
       simp
 
+theorem stabE_le_norm : stabE ≤ norm := fun _ hx => (mem_stabE_iff.1 hx).1
 
 theorem Shat_le_img : Shat ≤ img := Subgroup.map_le_range rho _
 

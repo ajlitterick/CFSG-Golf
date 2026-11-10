@@ -19,6 +19,8 @@ namespace CFSG.Sporadic.SuzOddCore
 @[expose] def certChainText : String :=
   include_str "../../../Certificates/Data/CFSGNative/SuzOddCore/suz-cert-chain.txt"
 
+@[expose] def certStabOrbitsText : String :=
+  include_str "../../../Certificates/Data/CFSGNative/SuzOddCore/suz-cert-stab-orbits.txt"
 
 @[expose] def smallChainText : String :=
   include_str "../../../Certificates/Data/CFSGNative/SuzOddCore/suz-small-chain.txt"

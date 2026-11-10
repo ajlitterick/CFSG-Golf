@@ -162,6 +162,10 @@ theorem pmulT_eq (ht : tabChk VT AT QT = true) {m n : ℕ} (hm : m < 729) (hn : 
   rw [e, eA, eV, eQ]
   rfl
 
+theorem pmulT_lt (ht : tabChk VT AT QT = true) {m n : ℕ} (hm : m < 729) (hn : n < 729) :
+    pmulT VT AT QT m n < 729 := by
+  rw [pmulT_eq ht hm hn]
+  exact pmul_lt m n
 
 theorem om_spec (ht : tabChk VT AT QT = true) (ho : omChk VT AT QT OM = true) {v : ℕ}
     (hv : v < 729) (h0 : v ≠ 0) (h3 : pmul (pmul v v) v = 0) : bitB OM v = true := by

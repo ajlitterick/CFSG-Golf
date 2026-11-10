@@ -319,6 +319,11 @@ theorem nfp22_perm
   rw [show c⁻¹ (c (σ (c⁻¹ p))) = σ (c⁻¹ p) from c.symm_apply_apply _] at h
   exact h
 
+theorem nfp22_fin
+    (σ : Equiv.Perm (Fin 3510)) (hσ : σ * σ = 1)
+    (htau : ∀ i j : Fin 3510, σ ((conjPt i.val : J) • j) = (conjPt (σ i).val : J) • σ j) :
+    ∃ i, σ i = i :=
+  nfp22_perm (mem_tauAut_of_apply htau) hσ
 
 theorem mem_D_iff_mem_orbit
     {x : J} : x ∈ D ↔ x ∈ MulAction.orbit (ConjAct J) a := by
@@ -367,6 +372,11 @@ theorem nfp22_tau
   refine ⟨ptD p, ?_⟩
   rw [← hσ, hp]
 
+theorem nfp22
+    (g : Equiv.Perm D) (hg : g * g = 1)
+    (_hadj : ∀ x y : D, (x : J) * y = y * x ↔ (g x : J) * g y = g y * g x)
+    (htau : ∀ x y : D, (g (tauD x y) : J) = g x * g y * g x) : ∃ x, g x = x :=
+  nfp22_tau g hg fun x y => Subtype.ext (htau x y)
 
 theorem nfp22_involutive
     (g : Equiv.Perm D) (hg : ∀ x, g (g x) = x)
@@ -374,5 +384,26 @@ theorem nfp22_involutive
     (htau : ∀ x y : D, g (tauD x y) = tauD (g x) (g y)) : ∃ x, g x = x :=
   nfp22_tau g (Equiv.ext hg) htau
 
+theorem nfp22_map
+    {Y : Type*} [Group Y] (φ : J ≃* Y) (g : Equiv.Perm (φ '' D))
+    (hg : ∀ x, g (g x) = x)
+    (htau : ∀ x y z : φ '' D, (z : Y) = x * y * x → (g z : Y) = g x * g y * g x) :
+    ∃ x, g x = x := by
+  set e : D ≃ φ '' D := Equiv.Set.image φ D φ.injective with he
+  have hev : ∀ x : D, ((e x : φ '' D) : Y) = φ x := fun _ => rfl
+  set g' : Equiv.Perm D := (e.trans g).trans e.symm with hg'def
+  have hg' : ∀ x, e (g' x) = g (e x) := fun _ => e.apply_symm_apply _
+  have h2 : ∀ x, g' (g' x) = x := by
+    intro x
+    apply e.injective
+    rw [hg', hg', hg]
+  have hτ : ∀ x y, g' (tauD x y) = tauD (g' x) (g' y) := by
+    intro x y
+    apply e.injective
+    apply Subtype.ext
+    rw [hg', htau (e x) (e y) (e (tauD x y)) (by rw [hev, hev, hev, tauD_val, map_mul, map_mul]),
+      hev, tauD_val, map_mul, map_mul, ← hev, ← hev, hg', hg']
+  obtain ⟨x, hx⟩ := nfp22_tau g' (Equiv.ext h2) hτ
+  exact ⟨e x, by rw [← hg', hx]⟩
 
 end CFSG.Sporadic.Fi22

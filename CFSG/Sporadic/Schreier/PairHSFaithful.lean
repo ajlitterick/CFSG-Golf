@@ -75,6 +75,11 @@ theorem hsBits_lt {i : ℕ} (hi : i < 3850) : hsBits[i]! < 2 ^ 20 := by
   rw [hsBits_get hi, bitsOfList]
   exact ofBits_lt 20 _
 
+theorem hsVec_ne_zero {i : ℕ} (hi : i < 3850) : hsVec i ≠ 0 := by
+  rw [hsVec_eq hi]
+  intro h
+  rw [← toVecD_zero] at h
+  exact hs_faithful_parts.1 i hi (toVecD_injective (hsBits_lt hi) (by norm_num) h)
 
 theorem hsBits_inj {i j : ℕ} (hi : i < 3850) (hj : j < 3850) (h : hsBits[i]! = hsBits[j]!) :
     i = j := by
@@ -225,6 +230,11 @@ theorem hsC_mul_Q : hsC * hsQ = 1 := by
 @[expose] def hsBasis : Module.Basis (Fin 20) (ZMod 2) (Fin 20 → ZMod 2) :=
   (Pi.basisFun (ZMod 2) (Fin 20)).map hsCEquiv
 
+theorem hsBasis_apply (k : Fin 20) : hsBasis k = hsVec (hsBasisIdx.getD k 0) := by
+  rw [hsBasis, Module.Basis.map_apply, Pi.basisFun_apply, ← hsC_col]
+  show Matrix.toLin' hsC (Pi.single k 1) = _
+  rw [Matrix.toLin'_apply, mulVec_single_one]
+  rfl
 
 @[expose] def hsFam (i : Fin 3850) : Fin 20 → ZMod 2 := hsVec i
 
@@ -296,6 +306,8 @@ theorem hsFamPerm_range :
 @[expose] def hsMatEquiv : Blueprint.NativeSporadic.HS ≃* hsJ :=
   Blueprint.NativeSporadic.matrixSeedEquiv 2 20 (by norm_num) hsA1 hsA2 det_hsA1 det_hsA2
 
+theorem hsMatEquiv_val (u : Blueprint.NativeSporadic.HS) : hsMat (hsMatEquiv u) = u.val.val :=
+  rfl
 
 theorem closure_hsGenPerms : Subgroup.closure (Set.range hsGenPerms) = hsP := by
   rw [range_hsGenPerms, hsP]
@@ -303,5 +315,50 @@ theorem closure_hsGenPerms : Subgroup.closure (Set.range hsGenPerms) = hsP := by
 @[expose] def hsPermEquiv : Blueprint.NativeSporadic.HS ≃* hsP :=
   (hsMatEquiv.trans hsFamEquiv).trans (MulEquiv.subgroupCongr closure_hsGenPerms)
 
+theorem hsPermEquiv_apply (u : Blueprint.NativeSporadic.HS) :
+    (hsPermEquiv u : Equiv.Perm (Fin 3850)) =
+      familyPerm hsFam_injective hs_smul_mem (hsMatEquiv u) :=
+  rfl
+
+theorem hsVec_permEquiv (u : Blueprint.NativeSporadic.HS) (i : Fin 3850) :
+    hsVec ((hsPermEquiv u : Equiv.Perm (Fin 3850)) i) = u.val.val *ᵥ hsVec i := by
+  rw [hsPermEquiv_apply]
+  have := familyPerm_apply hsFam_injective hs_smul_mem (hsMatEquiv u) i
+  rw [hs_smul_def, hsMatEquiv_val] at this
+  exact this
+
+@[expose] def hsSeedA : Blueprint.NativeSporadic.HS := hsMatEquiv.symm hsa
+
+@[expose] def hsSeedB : Blueprint.NativeSporadic.HS := hsMatEquiv.symm hsb
+
+theorem hsSeedA_val : hsSeedA.val.val = hsA1 := by
+  rw [← hsMatEquiv_val, hsSeedA, MulEquiv.apply_symm_apply, hsMat_a]
+
+theorem hsSeedB_val : hsSeedB.val.val = hsA2 := by
+  rw [← hsMatEquiv_val, hsSeedB, MulEquiv.apply_symm_apply, hsMat_b]
+
+theorem hsPermEquiv_seedA : (hsPermEquiv hsSeedA : Equiv.Perm (Fin 3850)) = hsGen 0 := by
+  rw [hsPermEquiv_apply, hsSeedA, MulEquiv.apply_symm_apply]
+  exact familyPerm_gen hsFam_injective hs_smul_mem hsSeedsJ_smul 0
+
+theorem hsPermEquiv_seedB : (hsPermEquiv hsSeedB : Equiv.Perm (Fin 3850)) = hsGen 1 := by
+  rw [hsPermEquiv_apply, hsSeedB, MulEquiv.apply_symm_apply]
+  exact familyPerm_gen hsFam_injective hs_smul_mem hsSeedsJ_smul 1
+
+theorem FAM_HS_faithful_permutation_action :
+    (∀ i < 3850, hsVec i ≠ 0) ∧
+    (∀ i < 3850, ∀ j < 3850, hsVec i = hsVec j → i = j) ∧
+    (∃ bs : Module.Basis (Fin 20) (ZMod 2) (Fin 20 → ZMod 2),
+      ∀ k : Fin 20, bs k = hsVec (hsBasisIdx.getD k 0)) ∧
+    (∀ i : Fin 3850, hsA1 *ᵥ hsVec i = hsVec (hsGen 0 i)) ∧
+    (∀ i : Fin 3850, hsA2 *ᵥ hsVec i = hsVec (hsGen 1 i)) ∧
+    (∀ (u : Blueprint.NativeSporadic.HS) (i : Fin 3850),
+      hsVec ((hsPermEquiv u : Equiv.Perm (Fin 3850)) i) = u.val.val *ᵥ hsVec i) ∧
+    hsSeedA.val.val = hsA1 ∧ hsSeedB.val.val = hsA2 ∧
+    (hsPermEquiv hsSeedA : Equiv.Perm (Fin 3850)) = hsGen 0 ∧
+    (hsPermEquiv hsSeedB : Equiv.Perm (Fin 3850)) = hsGen 1 :=
+  ⟨fun _ hi => hsVec_ne_zero hi, fun _ hi _ hj h => hsVec_inj hi hj h,
+    ⟨hsBasis, hsBasis_apply⟩, fun i => (hs_seed_mulVec i).1, fun i => (hs_seed_mulVec i).2,
+    hsVec_permEquiv, hsSeedA_val, hsSeedB_val, hsPermEquiv_seedA, hsPermEquiv_seedB⟩
 
 end CFSG.Sporadic.Schreier

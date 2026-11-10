@@ -107,6 +107,13 @@ abbrev cx (x : G) : Subgroup G := Subgroup.centralizer ({x} : Set G)
 @[expose] def isL3four : TauCeti.CFSGIndex → Prop :=
   onLie fun | .A 2 q => q.card = 4 | _ => False
 
+@[expose] def isL2odd : TauCeti.CFSGIndex → Prop
+  | .alternating n _ => n = 5 ∨ n = 6
+  | .lie i =>
+    match i.1 with
+    | .A 1 q => Odd q.card ∧ 3 < q.card
+    | _ => False
+  | _ => False
 
 @[expose] def isL2prime : TauCeti.CFSGIndex → Prop
   | .alternating n _ => n = 5

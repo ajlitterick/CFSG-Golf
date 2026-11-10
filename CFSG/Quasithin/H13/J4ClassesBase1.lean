@@ -108,6 +108,9 @@ theorem N_comm'
   obtain ⟨k, -, rfl⟩ := exists_η_eq hb
   rw [← η_xor, ← η_xor, Nat.xor_comm]
 
+theorem conj_mem_N'
+    {h n : J} (hh : h ∈ H) (hn : n ∈ N) : h * n * h⁻¹ ∈ N :=
+  (Subgroup.mem_normalizer_iff.1 (H_le_normalizer hh) n).1 hn
 
 theorem η_mul_self
     (a : ℕ) : η a * η a = 1 := by rw [← η_xor, Nat.xor_self, η_zero]

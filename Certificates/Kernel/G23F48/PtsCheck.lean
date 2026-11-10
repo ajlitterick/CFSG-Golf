@@ -37,6 +37,17 @@ theorem pts_ok : ptsK PtsT.F = true := by
 theorem gens_ok : gensK GP MP PtsT.F = true := by
   quickRfl
 
+theorem frame_bind : allN 15 (fun i => arrBind frameVecs[i]! 14 2 (PtsT.F frameIdx[i]!)) = true := by
+  decide +kernel
+
+example : ptNormK (pmk 14 2 fun c => 2 * pg 2 (mask 2) (PtsT.F 5) c % 3) = false := by
+  decide +kernel
+
+example : ptsK (fun i => if i = 7 then PtsT.F 3 else PtsT.F i) = false := by
+  decide +kernel
+
+example : allN 728 (fun i => genK (GP 0) (MP 1) PtsT.F i) = false := by
+  decide +kernel
 
 end CFSG.KC.G23F48
 

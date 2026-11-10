@@ -18,5 +18,8 @@ theorem mono {first second : ℕ} (hfirst : first ≠ 0) (hsecond : second ≠ 0
   apply Nat.pow_le_pow_right (by omega : 0 < 2)
   exact (Nat.factorization_le_iff_dvd hfirst hsecond).mpr hdivides 2
 
+theorem subgroup_le {G : Type*} [Group G] [Finite G] (subgroup : Subgroup G) :
+    value (Nat.card subgroup) ≤ value (Nat.card G) :=
+  mono (ne_of_gt Nat.card_pos) (ne_of_gt Nat.card_pos) subgroup.card_subgroup_dvd_card
 
 end CFSG.ComponentClassification.GroupTwoPart

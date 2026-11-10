@@ -114,6 +114,7 @@ theorem gU_mem_latticeO (a : C) : gU a ∈ latticeO :=
 
 @[expose] def gO (a : C) : latticeO := ⟨gU a, gU_mem_latticeO a⟩
 
+theorem coe_gO (a : C) : (gO a : GL (Fin 24) ℚ) = gU a := rfl
 
 theorem mat_gO (a : C) : mat (gO a) = gmat a := rfl
 
@@ -408,6 +409,21 @@ theorem mul_comm_of_mem_Esign {f f' : LinearMap.GeneralLinearGroup (ZMod 2) L2} 
   obtain ⟨b, rfl⟩ := hf'
   rw [← map_mul, ← map_mul, mul_comm]
 
+theorem sq_eq_one_of_mem_Esign {f : LinearMap.GeneralLinearGroup (ZMod 2) L2} (hf : f ∈ Esign) :
+    f ^ 2 = 1 := by
+  obtain ⟨a, rfl⟩ := hf
+  rw [← map_pow, multiplicative_sq, map_one]
+
+theorem isElementaryAbelian_Esign : IsElementaryAbelian 2 Esign where
+  is_comm := ⟨fun x y => by
+    obtain ⟨a, ha⟩ := x.2
+    obtain ⟨b, hb⟩ := y.2
+    apply Subtype.ext
+    rw [Subgroup.coe_mul, Subgroup.coe_mul, ← ha, ← hb, ← map_mul, ← map_mul, mul_comm]⟩
+  exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun x => by
+    obtain ⟨a, ha⟩ := x.2
+    apply Subtype.ext
+    rw [Subgroup.coe_pow, ← ha, ← map_pow, multiplicative_sq, map_one, Subgroup.coe_one]
 
 def signFixed : Submodule (ZMod 2) L2 where
   carrier := {v | ∀ a : C, modTwoEnd (gO a) v = v}
@@ -417,6 +433,11 @@ def signFixed : Submodule (ZMod 2) L2 where
 
 theorem mem_signFixed {v : L2} : v ∈ signFixed ↔ ∀ a : C, modTwoEnd (gO a) v = v := Iff.rfl
 
+theorem mem_signFixed_iff_Esign {v : L2} :
+    v ∈ signFixed ↔ ∀ f ∈ Esign, (f : Module.End (ZMod 2) L2) v = v := by
+  refine ⟨fun hv f hf => ?_, fun h a => h _ (mem_Esign.2 ⟨a, rfl⟩)⟩
+  obtain ⟨a, rfl⟩ := mem_Esign.1 hf
+  exact hv a
 
 theorem twoΩCls_mem_signFixed : twoΩCls ∈ signFixed := fun a =>
   (modTwoEnd_gO_cls_eq_iff a twoΩ_mem).2 (maskVec_twoΩ_mem a.2)
@@ -435,5 +456,28 @@ theorem signFixed_eq_span : signFixed = (ZMod 2) ∙ twoΩCls := by
     · rw [h]
       exact Submodule.mem_span_singleton_self _
 
+theorem finrank_signFixed : Module.finrank (ZMod 2) signFixed = 1 := by
+  rw [signFixed_eq_span]
+  exact finrank_span_singleton twoΩCls_ne_zero
+
+theorem code_sign_common_fixed_line :
+    (∀ a : C, gU a ∈ latticeO) ∧
+    (∀ (a : C) (u : Fin 24 → ℤ) (hu : u ∈ codeLattice C),
+      ratVec u ᵥ* gmat a = ratVec (fun i => u i - 2 * (bitLift ((a : Fin 24 → ZMod 2) i) * u i)) ∧
+      modTwoEnd (gO a) (cls u hu) = cls (signVec a u) (signVec_mem a.2 hu)) ∧
+    (∀ f : LinearMap.GeneralLinearGroup (ZMod 2) L2, f ∈ Esign ↔ ∃ a : C, modTwoUnit (gO a) = f) ∧
+    (∀ a : C, ((modTwoUnit (gO a) : LinearMap.GeneralLinearGroup (ZMod 2) L2) :
+      Module.End (ZMod 2) L2) = modTwoEnd (gO a)) ∧
+    (∀ f ∈ Esign, ∀ f' ∈ Esign, f * f' = f' * f) ∧ (∀ f ∈ Esign, f ^ 2 = 1) ∧
+    IsElementaryAbelian 2 Esign ∧
+    (∀ v : L2, v ∈ signFixed ↔ ∀ f ∈ Esign, (f : Module.End (ZMod 2) L2) v = v) ∧
+    (∀ v : L2, v ∈ signFixed ↔ ∀ a : C, modTwoEnd (gO a) v = v) ∧
+    twoΩCls = cls (fun _ => 2) twoΩ_mem ∧
+    signFixed = (ZMod 2) ∙ twoΩCls ∧ twoΩCls ≠ 0 ∧ Module.finrank (ZMod 2) signFixed = 1 :=
+  ⟨gU_mem_latticeO, fun a u hu => ⟨ratVec_vecMul_gmat a u, modTwoEnd_gO_cls a hu⟩,
+    fun _ => mem_Esign, fun _ => rfl, fun _ hf _ hf' => mul_comm_of_mem_Esign hf hf',
+    fun _ hf => sq_eq_one_of_mem_Esign hf, isElementaryAbelian_Esign,
+    fun _ => mem_signFixed_iff_Esign, fun _ => mem_signFixed, rfl, signFixed_eq_span,
+    twoΩCls_ne_zero, finrank_signFixed⟩
 
 end CFSG.Monster.Visible

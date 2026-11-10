@@ -44,6 +44,10 @@ theorem glOf_val (C D : Array ℕ) (h : comp11 C D = idRows 11) :
     ((glOf C D h : GL (Fin 11) (ZMod 2)) : Matrix (Fin 11) (Fin 11) (ZMod 2)) = colsMatrix C :=
   rfl
 
+theorem glOf_inv_val (C D : Array ℕ) (h : comp11 C D = idRows 11) :
+    (((glOf C D h)⁻¹ : GL (Fin 11) (ZMod 2)) : Matrix (Fin 11) (Fin 11) (ZMod 2)) =
+      colsMatrix D :=
+  rfl
 
 theorem vecMulN_lt {d : ℕ} {R : Array ℕ} (hR : ∀ j < d, R[j]?.getD 0 < 2 ^ d) (v : ℕ) :
     vecMulN d R v < 2 ^ d := by

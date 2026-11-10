@@ -26,6 +26,9 @@ theorem mem_Xsub {Xs : Subgroup (MulAut A)} {x : G} :
 theorem Xsub_le_normalizer (Xs : Subgroup (MulAut A)) :
     Xsub A Xs ≤ Subgroup.normalizer (A : Set G) := fun _ hx => (mem_Xsub.1 hx).1
 
+@[expose] noncomputable def rhoX (Xs : Subgroup (MulAut A)) : ↥(Xsub A Xs) →* ↥Xs :=
+  (A.normalizerMonoidHom.comp (Subgroup.inclusion (Xsub_le_normalizer Xs))).codRestrict Xs
+    fun x => (mem_Xsub.1 x.2).2
 
 @[expose] noncomputable def piX (Xs : Subgroup (MulAut A)) : ↥(Xsub A Xs) →* MulAut A :=
   A.normalizerMonoidHom.comp (Subgroup.inclusion (Xsub_le_normalizer Xs))

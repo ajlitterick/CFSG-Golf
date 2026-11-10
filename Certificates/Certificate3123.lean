@@ -32,6 +32,12 @@ theorem orbitRecs_mem10 : ∀ q ∈ [(107, 2048), (66038, 2048)], q ∈ orbitRec
   str_lits orbitStr10
   exact pairs_mem_of (by quickRfl)
 
+theorem orbitRecs_mem6_neg : (!((orbitRecs 6).any fun r => r.1 == 43 && r.2 == 64)) = true := by
+  change (!((orbitRecs.pairs (parseNats orbitStr6)).any fun r => r.1 == 43 && r.2 == 64)) = true
+  str_lits orbitStr6
+  rw [pairs_parse]
+  · quickRfl
+  · quickRfl
 
 end CertificateChecks.Batch3123
 

@@ -90,6 +90,17 @@ structure FaithFacts (qkeys : Array ByteArray) (F Y Cinv : Array (Array ℕ))
   hYN : mulM 5 111 Y (faithN (faithZ qkeys F) ab mu) = faithP v w
   hC : mulM 5 111 (colsMat 111 (cyclicVecs (faithZ qkeys F) v par op)) Cinv = idM 111
 
+theorem faithChecks_facts {qkeys : Array ByteArray} {F Y Cinv : Array (Array ℕ)}
+    {v w par op : Array ℕ} {ab : ℕ × ℕ} {mu : ℕ}
+    (h : faithChecks qkeys F Y Cinv v w par op ab mu = true) :
+    FaithFacts qkeys F Y Cinv v w par op ab mu := by
+  unfold faithChecks at h
+  simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, List.all_eq_true,
+    List.mem_range] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, -⟩, -⟩, -⟩, h8⟩, h9⟩, h10⟩, h11⟩ := h
+  refine ⟨h1, h2, h3, h4, fun t ht => ?_, fun t ht => (h8 t ht).2, h9, h10, h11⟩
+  have := (h8 t ht).1
+  omega
 
 theorem faithZ_get {qkeys : Array ByteArray} {F : Array (Array ℕ)} {h : ℕ} (hh : h < qkeys.size) :
     toMat 5 111 (faithZ qkeys F)[h]! = keyT qkeys[h]! * toMat 5 111 F := by

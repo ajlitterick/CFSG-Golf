@@ -51,5 +51,23 @@ abbrev tiX (V A : Subgroup G) : Subgroup G :=
 
 end TIPairs
 
+@[expose] def AS_I_6_2_two : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (V A : Subgroup G), IsElemAbelian 2 V → IsElemAbelian 2 A →
+    Nat.card V = Nat.card A → IsTISetIn V ⊤ → IsTISetIn A ⊤ →
+    (∀ g : G, V ≠ conjSubgroup A g → conjSubgroup A g ⊓ V = ⊥) →
+    tiU V A ≠ ⊥ → tiU V A < V →
+      (tiU V A ⊓ tiB V A = ⊥ ∧ ⁅tiU V A, tiB V A⁆ = ⊥ ∧
+        tiX V A ≤ Subgroup.normalizer (tiY V A : Set G) ∧
+        ∀ v ∈ V, v ∉ tiU V A →
+          tiU V A = tiY V A ⊓ Subgroup.centralizer ({v} : Set G) ∧
+            tiU V A = ⁅tiY V A, Subgroup.zpowers v⁆) ∧
+      ∃ _ : ((tiY V A).subgroupOf (tiX V A)).Normal,
+        ((∃ m : ℕ, Odd m ∧
+            Nonempty (↥(tiX V A) ⧸ (tiY V A).subgroupOf (tiX V A) ≃* DihedralGroup m)) ∨
+          (∃ n : ℕ, IsPSL 2 2 n (↥(tiX V A) ⧸ (tiY V A).subgroupOf (tiX V A))) ∨
+          ∃ n : ℕ, IsSz n (↥(tiX V A) ⧸ (tiY V A).subgroupOf (tiX V A))) ∧
+        Nat.card ↥((V.subgroupOf (tiX V A)).map
+            (QuotientGroup.mk' ((tiY V A).subgroupOf (tiX V A)))) =
+          2 ^ CFSG.pRank 2 (↥(tiX V A) ⧸ (tiY V A).subgroupOf (tiX V A))
 
 end CFSG.Quasithin.ASInputs

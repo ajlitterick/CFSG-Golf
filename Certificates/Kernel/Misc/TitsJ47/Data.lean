@@ -96,6 +96,8 @@ theorem perms : allN 7 (fun k => permC (X k)) = true ∧ permC TitsZ = true ∧
 theorem sifts : allN 7 (fun k => bAnd(siftD (sx k), permC (sx k))) = true := by
   quickRfl
 
+theorem sift_neg : siftD (X 0) = false := by
+  decide +kernel
 
 @[expose] noncomputable def idK : Nat := pidn 1755 11
 
@@ -166,6 +168,8 @@ theorem checks : letK = true ∧ chainK = true ∧ uChK = true ∧ iK = true ∧
     ballK = true ∧ yK = true := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> quickRfl
 
+theorem ball_neg : ballFixedK uK 0 = false := by
+  decide +kernel
 
 end CertificateChecks.KernelMisc.TitsJ47
 

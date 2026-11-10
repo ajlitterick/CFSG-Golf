@@ -15,6 +15,7 @@ set_option compiler.extract_closed false
 
 @[expose, reducible] def a5Frame (D : Nat) : Pt := mkFrame 3 5 D a5Row 1 [1, 2, 0, 1, 2] 6298560
 
+@[expose] def a5Check (_ : Unit := ()) : Bool := checkFrame (a5Frame 5) && checkFrame (a5Frame 6)
 
 end CFSG.ReflExt
 

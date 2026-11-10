@@ -166,6 +166,11 @@ theorem dist_resProj_snd {c y : C} (hy : y ∈ residue cs δ (insert z I) c) :
     rw [resProj_eq hδ (isProjection_of_res hδ hz hq (hqy ▸ hu))]
     exact hqy ▸ hu
 
+omit hz hcomm in
+theorem dist_eq_mul_resProj_snd {c y : C} :
+    δ c y = δ c (resProj cs δ {z} c y) * δ (resProj cs δ {z} c y) y := by
+  have h := ((isProjection_resProj hδ {z} c y).gate hδ (self_mem_residue _ c)).1
+  rw [dist_inv hδ y c, h, mul_inv_rev, ← dist_inv hδ, ← dist_inv hδ]
 
 theorem mem_residue_of_resProj_snd_eq {c y : C} (hy : y ∈ residue cs δ (insert z I) c)
     (h : resProj cs δ {z} c y = c) : y ∈ residue cs δ I c := by

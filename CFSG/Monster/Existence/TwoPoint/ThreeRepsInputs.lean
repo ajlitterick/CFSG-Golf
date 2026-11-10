@@ -8,6 +8,8 @@ namespace CFSG.Monster.Existence
 
 open CFSG.Monster CFSG.Monster.Griess CFSG.Monster.AxisCount
 
+@[expose, noinline] def visConjCheck (w₁ w₂ : List Native.Gen) : Bool :=
+  (w₁ ++ w₂).all Native.Gen.isVis && checkP2 (HS.pw w₁) (HS.pw w₂)
 
 @[expose] def permMonoA : Array ℕ :=
   #[0, 1, 17, 11, 6, 15, 21, 3, 18, 5, 8, 7, 16, 13, 14, 9, 20, 23, 10, 19, 12, 4, 22, 2]

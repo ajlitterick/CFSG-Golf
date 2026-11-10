@@ -39,6 +39,9 @@ theorem InW.smul {a b x : Vec K} (c : K) (h : InW M a b x) : InW M a b (c • x)
   obtain ⟨h1, h2, h3, h4⟩ := h
   refine ⟨?_, ?_, ?_, ?_⟩ <;> rw [bf_smul_left] <;> simp [*]
 
+theorem InW.sub {a b x y : Vec K} (h : InW M a b x) (h' : InW M a b y) : InW M a b (x - y) := by
+  rw [sub_eq_add_neg, ← neg_one_smul K y]
+  exact h.add (h'.smul _)
 
 theorem coeff_zero {a b y : Vec K} (hD : gram M a b ≠ 0) {g₀ g₁ : K}
     (hy : g₀ • a + g₁ • b + y = 0) (hyA : bf M y (tauV M a) = 0)

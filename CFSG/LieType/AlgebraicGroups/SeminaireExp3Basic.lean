@@ -214,6 +214,8 @@ theorem pt_inv (g : ZariskiGL ι k) :
   rw [pt_apply, map_inv]
   rfl
 
+theorem pt_one : pt (1 : ZariskiGL ι k) = (1 : WithConv (GLCoord k ι →ₐ[k] k)).ofConv := by
+  rw [pt_apply, map_one]
 
 instance : TopologicalSpace (ZariskiGL ι k) :=
   TopologicalSpace.induced (fun g => pointSpec (pt g)) inferInstance

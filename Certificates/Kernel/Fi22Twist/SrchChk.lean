@@ -33,6 +33,16 @@ theorem ch431009kf : kfK KF = true := by quickRfl
 
 theorem ch431009lc : lcK LF = true := by quickRfl
 
+theorem neg431009bo : Bool.not (boK (fun k => nIf(Nat.beq k 7, Nat.xor (BF k) 1, BF k)) OF) = true := by
+  quickRfl
+
+theorem neg431009kf :
+    Bool.not (kfK (fun n => nIf(Nat.beq n 9, Nat.lor (KF n) (Nat.shiftLeft 1023 16), KF n))) = true := by
+  quickRfl
+
+theorem neg431009lc :
+    Bool.not (lcK (fun n => nIf(Nat.beq n 0, Nat.lor (LF n) (Nat.shiftLeft 255 80), LF n))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelFi22Twist
 

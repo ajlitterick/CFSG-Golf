@@ -20,6 +20,9 @@ open CFSG.KC.Census
 @[expose] noncomputable def cNLExc : Array ArrCertP :=
   Array.mk (j2ExcNodes.toList.map fun nd => pmaskCert 315 9 nd.basis)
 
+@[expose] noncomputable def nodeExcF (i : Nat) : Bool :=
+  pnodeExcOK 315 9 [0, 4, 3] inP inP inRP false false false j2ExcCS j2ExcNodes cNLExc j2ExcWCS
+    j2ExcE0P j2ExcExcs i
 
 end CertificateChecks.KernelCensus.J2K
 

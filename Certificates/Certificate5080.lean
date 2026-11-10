@@ -50,5 +50,17 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.GLS in
+open CFSG.GH74.GLS.C3 in
+open CFSG.GH74.GLS.C3.Prop121 in
+open CFSG.GH74.GLS.C3.Prop121.Card7 in
+open CFSG.GH74.GLS.C3.Prop121.Card7.HC in
+open Subgroup Equiv Perm CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model CFSG.GH74.GLS.Layer3 in
+theorem certificate5080 : (decide (HL.length = 1152) = true)
+    ∧ (decide HL.Nodup = true)
+    ∧ ((HL.all fun σ => decide (Hp σ)) = true) := by
+  exact ⟨CertificateChecks.Batch5080.HL_len_true_0, CertificateChecks.Batch5080.HL_nodup_true_1, CertificateChecks.Batch5080.HL_hp_true_2⟩
 
 end Certificates

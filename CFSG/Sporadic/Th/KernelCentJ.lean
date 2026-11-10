@@ -92,6 +92,42 @@ theorem card_centralizer_equiv {G H : Type*} [Group G] [Group H] (e : G ≃* H) 
   rw [← map_mul, ← map_mul]
   exact e.injective.eq_iff.symm
 
+theorem card_centralizer_le_of_sylow {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
+    (hfac : (Nat.card G).factorization p = 1) {y z : G} (hy : orderOf y = p)
+    (hz : orderOf z = p) :
+    Nat.card (Subgroup.centralizer ({z} : Set G)) ≤ Nat.card (Subgroup.centralizer ({y} : Set G)) := by
+  let Sz : Sylow p G := Sylow.ofCard (Subgroup.zpowers z) (by rw [Nat.card_zpowers, hz, hfac, pow_one])
+  let Sy : Sylow p G := Sylow.ofCard (Subgroup.zpowers y) (by rw [Nat.card_zpowers, hy, hfac, pow_one])
+  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq G Sy Sz
+  have hzm : z ∈ ((g • Sy : Sylow p G) : Subgroup G) := by
+    rw [hg]
+    exact Subgroup.mem_zpowers z
+  rw [Sylow.coe_subgroup_smul, Subgroup.mem_smul_pointwise_iff_exists] at hzm
+  obtain ⟨u, hum, hu⟩ := hzm
+  rw [Sylow.coe_ofCard] at hum
+  have hu' : g * u * g⁻¹ = z := by
+    rw [← hu, MulAut.smul_def, MulAut.conj_apply]
+  have hzu : IsConj z u := (isConj_iff.mpr ⟨g, hu'⟩).symm
+  have hou : orderOf u = p := by
+    have e := MulEquiv.orderOf_eq (MulAut.conj g) u
+    rw [MulAut.conj_apply, hu', hz] at e
+    exact e.symm
+  have heq : Subgroup.zpowers u = Subgroup.zpowers y := by
+    refine Subgroup.eq_of_le_of_card_ge ((Subgroup.zpowers_le).2 hum) ?_
+    rw [Nat.card_zpowers, Nat.card_zpowers, hou, hy]
+  have hym : y ∈ Subgroup.zpowers u := by
+    rw [heq]
+    exact Subgroup.mem_zpowers y
+  obtain ⟨m, hm⟩ := Subgroup.mem_zpowers_iff.1 hym
+  have hle : Subgroup.centralizer ({u} : Set G) ≤ Subgroup.centralizer ({y} : Set G) := by
+    intro c hc
+    rw [Subgroup.mem_centralizer_singleton_iff] at hc ⊢
+    rw [← hm]
+    have hcu : Commute c u := hc
+    exact (hcu.zpow_right m).eq
+  calc Nat.card (Subgroup.centralizer ({z} : Set G))
+      = Nat.card (Subgroup.centralizer ({u} : Set G)) := card_centralizer_conj hzu
+    _ ≤ Nat.card (Subgroup.centralizer ({y} : Set G)) := Subgroup.card_le_of_le hle
 
 theorem card_centralizer_mul_le_of_conj [Finite P] (hKc : Nat.card K = 634023936) {r : ℕ}
     (t : Fin r → K) (c : Fin r → ℕ) (hc : ∀ i, Nat.card (Subgroup.centralizer ({t i} : Set K)) ≤ c i)

@@ -182,6 +182,14 @@ theorem h1LiftD_eq_xGen (k : Fin 44)
     :=
   (xGen_lift (k := ⟨k, by omega⟩) k.2).symm
 
+theorem conjImage_H1 :
+    (H1.subgroupOf NA8).map conjHom =
+      Subgroup.closure (Set.range fun k : Fin 44 => xGenL ⟨k, by omega⟩) := by
+  have hf : h1LiftD = fun k : Fin 44 => xGen ⟨k, by omega⟩ := funext h1LiftD_eq_xGen
+  have h : H1 = Subgroup.closure (Set.range fun k : Fin 44 => xGen ⟨k, by omega⟩) := by
+    rw [H1_eq_closure, hf]
+  rw [h]
+  exact map_subgroupOf_closure_range conjHom _ fun k => xGen_mem_NA8 _
 
 theorem conjImage_Ehat :
     (Ehat.subgroupOf NA8).map conjHom =

@@ -78,6 +78,10 @@ theorem annArr_eq {i : Nat} (hi : i < 1395) : annArr[i]! = anm.getD i 0 := by
 
 theorem wtd_length : wtd.length = 1395 := by decide +kernel
 
+theorem rwt_eq {i : Nat} (hi : i < 1395) : rev20 (wtd.getD i 0) = rwt.getD i 0 := by
+  have hl : i < wtd.length := by rw [wtd_length]; exact hi
+  rw [getD_of_lt hl]
+  exact pinMapR_get pin_rev (by omega) (by omega) hl
 
 theorem tvApply_eq (k x : Nat) : tvApply k x = tvA (tvPair k) x := by
   unfold tvApply tvA

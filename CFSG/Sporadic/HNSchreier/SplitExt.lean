@@ -192,6 +192,25 @@ theorem JH_normal_RH
     rw [e]
     exact mul_mem (mul_mem hk (cU_conj_mem ⟨g, hg⟩)) (inv_mem hk)
 
+theorem orderOf_cU : orderOf cU = 2 :=
+  orderOf_eq_prime (by rw [pow_two]; exact cU_mul_self)
+    (fun h => matCx_ne_one (by rw [← matG_cU, h, matG_one]))
+
+theorem JH_inf_zpowers :
+    JH ⊓ Subgroup.zpowers cU = ⊥ := by
+  rw [eq_bot_iff]
+  rintro x ⟨hx, ⟨k, rfl⟩⟩
+  rw [Subgroup.mem_bot]
+  have hk : cU ^ k = cU ^ (k % 2) := by
+    have := zpow_mod_orderOf cU k
+    rw [orderOf_cU] at this
+    exact this.symm
+  have h2 : k % 2 = 0 ∨ k % 2 = 1 := by omega
+  simp only at hx ⊢
+  rcases h2 with h2 | h2
+  · rw [hk, h2, zpow_zero]
+  · rw [hk, h2, zpow_one] at hx
+    exact absurd hx cU_not_mem
 
 theorem index_JH_RH :
     (JH.subgroupOf RH).index = 2 := by
@@ -214,6 +233,32 @@ theorem card_RH :
   rw [← Subgroup.card_mul_index (JH.subgroupOf RH), index_JH_RH,
     Nat.card_congr (Subgroup.subgroupOfEquivOfLe JH_le_RH).toEquiv, card_JH]
 
+theorem commutator_JH :
+    ⁅JH, JH⁆ = JH := by
+  have h := commutator_eq_top_of_simple card_JH_not_prime
+  rw [commutator_def] at h
+  have := congrArg (Subgroup.map JH.subtype) h
+  rw [Subgroup.map_commutator, ← MonoidHom.range_eq_map, Subgroup.range_subtype] at this
+  exact this
+
+theorem commutator_RH :
+    ⁅RH, RH⁆ = JH := by
+  apply le_antisymm
+  · rw [Subgroup.commutator_le]
+    intro x hx y hy
+    rw [commutatorElement_def]
+    rcases (mem_RH_iff y).1 hy with hy' | ⟨h, hh, rfl⟩
+    · exact mul_mem (JH_normal_RH hx hy') (inv_mem hy')
+    · rcases (mem_RH_iff x).1 hx with hx' | ⟨g, hg, rfl⟩
+      · have := JH_normal_RH hy (inv_mem hx')
+        rw [show x * (h * cU) * x⁻¹ * (h * cU)⁻¹ = x * ((h * cU) * x⁻¹ * (h * cU)⁻¹) by group]
+        exact mul_mem hx' this
+      · have e : g * cU * (h * cU) * (g * cU)⁻¹ * (h * cU)⁻¹ =
+            g * (cU * (h * g⁻¹) * cU⁻¹) * h⁻¹ := by group
+        rw [e]
+        exact mul_mem (mul_mem hg (cU_conj_mem ⟨h * g⁻¹, mul_mem hh (inv_mem hg)⟩)) (inv_mem hh)
+  · rw [← commutator_JH]
+    exact Subgroup.commutator_mono JH_le_RH JH_le_RH
 
 theorem eq_one_of_centralizes
     {r : GL (Fin hnsData.d) (ZMod 5)} (hr : r ∈ RH)
@@ -236,6 +281,16 @@ theorem eq_one_of_centralizes
       _ = k⁻¹ * (g * (k * cU)) * cU⁻¹ := by rw [e]
       _ = k⁻¹ * g * k := by group
 
+theorem center_RH :
+    Subgroup.center RH = ⊥ := by
+  rw [eq_bot_iff]
+  intro z hz
+  rw [Subgroup.mem_bot]
+  apply Subtype.ext
+  refine eq_one_of_centralizes z.2 fun g hg => ?_
+  have := congrArg Subtype.val (Subgroup.mem_center_iff.1 hz ⟨g, JH_le_RH hg⟩)
+  rw [Subgroup.coe_mul, Subgroup.coe_mul] at this
+  exact this.symm
 
 @[expose] def conjRAut
     (r : GL (Fin hnsData.d) (ZMod 5)) (hr : r ∈ RH) : MulAut JH where
@@ -288,6 +343,16 @@ theorem conjR_injective :
       (r : GL (Fin hnsData.d) (ZMod 5)) * g * (r : GL (Fin hnsData.d) (ZMod 5))⁻¹ * r := by group
     _ = g * r := by rw [this]
 
+theorem conjR_range_JH :
+    (JH.subgroupOf RH).map conjR = inner JH := by
+  ext φ
+  constructor
+  · rintro ⟨r, hr, rfl⟩
+    have hr' : (r : GL (Fin hnsData.d) (ZMod 5)) ∈ JH := hr
+    refine ⟨⟨r, hr'⟩, ?_⟩
+    rw [← conjR_JH]
+  · rintro ⟨g, rfl⟩
+    exact ⟨⟨g, JH_le_RH g.2⟩, g.2, conjR_JH g⟩
 
 @[expose] def hnAutCongr :
     MulAut JH ≃* MulAut Blueprint.NativeSporadic.HN :=
@@ -311,5 +376,22 @@ theorem orderOf_outer_conjC :
 theorem hnOuterEquiv_mk (φ : MulAut JH) :
     hnOuterEquiv (QuotientGroup.mk φ) = QuotientGroup.mk (hnAutCongr φ) := rfl
 
+theorem orderOf_hnOuterC :
+    orderOf (QuotientGroup.mk hnOuterC : Outer Blueprint.NativeSporadic.HN) = 2 := by
+  rw [hnOuterC, ← hnOuterEquiv_mk, MulEquiv.orderOf_eq, orderOf_outer_conjC]
+
+theorem ctuc_hn_specified_split_outer_extension :
+    RH = Subgroup.closure (insert cU (JH : Set (GL (Fin hnsData.d) (ZMod 5)))) ∧
+    JH ≤ RH ∧ cU ∈ RH ∧ (∀ r ∈ RH, ∀ g ∈ JH, r * g * r⁻¹ ∈ JH) ∧
+    JH ⊓ Subgroup.zpowers cU = ⊥ ∧ orderOf cU = 2 ∧
+    (∀ r, r ∈ RH ↔ r ∈ JH ∨ ∃ g ∈ JH, r = g * cU) ∧
+    Nat.card RH = 546061824000000 ∧ ⁅RH, RH⁆ = JH ∧ Subgroup.center RH = ⊥ ∧
+    Function.Injective conjR ∧ (∀ g : JH, conjR ⟨g, JH_le_RH g.2⟩ = MulAut.conj g) ∧
+    (JH.subgroupOf RH).map conjR = inner JH ∧
+    conjR ⟨cU, cU_mem_RH⟩ = conjC ∧ conjC ∉ inner JH ∧ orderOf conjC = 2 ∧
+    orderOf (QuotientGroup.mk hnOuterC : Outer Blueprint.NativeSporadic.HN) = 2 :=
+  ⟨rfl, JH_le_RH, cU_mem_RH, fun _ hr _ hg => JH_normal_RH hr hg, JH_inf_zpowers, orderOf_cU,
+    mem_RH_iff, card_RH, commutator_RH, center_RH, conjR_injective, conjR_JH, conjR_range_JH,
+    conjR_cU, conjC_not_mem_inner, orderOf_conjC, orderOf_hnOuterC⟩
 
 end CFSG.Sporadic.HNSchreier

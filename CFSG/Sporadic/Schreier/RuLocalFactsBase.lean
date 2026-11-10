@@ -70,6 +70,8 @@ theorem injective_of_card_range {G M : Type*} [Group G] [Group M] [Finite G] (f 
     exact this
   exact (MonoidHom.ker_eq_bot_iff f).1 (Subgroup.card_eq_one.1 h1)
 
+theorem closure_list_eq {G : Type*} [Group G] (l : List G) :
+    Subgroup.closure {g | g ∈ l} = Subgroup.closure {g | g ∈ l} := rfl
 
 theorem setOf_mem_pair {G : Type*} (a b : G) : {g | g ∈ [a, b]} = ({a, b} : Set G) := by
   ext g
@@ -79,5 +81,8 @@ theorem getElem!_ofFn' {α : Type*} [Inhabited α] {m : ℕ} (f : Fin m → α) 
     (Array.ofFn f)[i]! = f ⟨i, hi⟩ := by
   rw [getElem!_pos (Array.ofFn f) i (by simpa using hi), Array.getElem_ofFn]
 
+theorem ruField4060_get {f j : ℕ} (hj : j < (ruLines4060.getD f (0, 0)).2) :
+    (ruField4060 f)[j]! = ruArr4060 ((ruLines4060.getD f (0, 0)).1 + j) := by
+  rw [ruField4060, getElem!_ofFn' _ hj]
 
 end CFSG.Sporadic.RuSchreier

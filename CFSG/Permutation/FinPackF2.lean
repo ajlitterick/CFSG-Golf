@@ -32,6 +32,7 @@ theorem vc_mem : ∀ v : Fin 4 → ZMod 2, vc v ∈ codes16 := by decide +kernel
 
 theorem vc_surj : ∀ x ∈ codes16, ∃ v : Fin 4 → ZMod 2, vc v = x := by decide +kernel
 
+theorem vc_eq_iff {u w : Fin 4 → ZMod 2} : u = w ↔ vc u = vc w := ⟨congrArg vc, vc_inj u w⟩
 
 theorem forall_vc {P : ℕ → Prop} : (∀ v : Fin 4 → ZMod 2, P (vc v)) ↔ ∀ x ∈ codes16, P x := by
   refine ⟨fun h x hx => ?_, fun h v => h _ (vc_mem v)⟩

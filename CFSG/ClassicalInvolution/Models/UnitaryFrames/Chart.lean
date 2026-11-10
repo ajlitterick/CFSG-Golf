@@ -31,6 +31,11 @@ variable (K p f n) in
 @[expose] noncomputable def signGroupU : Subgroup (Su K p f n) :=
   signSubgroup (suMatHom K p f n)
 
+theorem mem_signGroupU {x : Su K p f n} : x ∈ signGroupU K p f n ↔ IsSignDiag (suMat x) :=
+  Iff.rfl
+
+theorem signGroupU_sq {x : Su K p f n} (hx : x ∈ signGroupU K p f n) : x * x = 1 :=
+  signSubgroup_sq suMatHom_injective hx
 
 theorem signGroupU_comm {x y : Su K p f n} (hx : x ∈ signGroupU K p f n)
     (hy : y ∈ signGroupU K p f n) : x * y = y * x :=
@@ -172,10 +177,21 @@ theorem suMat_eq_diagonal {e : Su K p f n} (he : e ∈ signGroupU K p f n) :
     suMat e = Matrix.diagonal (entU e) :=
   mat_eq_diagonal he
 
+theorem entU_mul {e e' : Su K p f n} (he : e ∈ signGroupU K p f n)
+    (he' : e' ∈ signGroupU K p f n) (a : Fin n) : entU (e * e') a = entU e a * entU e' a :=
+  entOf_mul he he' a
+
+theorem entU_ne_neg (h2 : (2 : K) ≠ 0) {e : Su K p f n} (he : e ∈ signGroupU K p f n)
+    (a : Fin n) : entU e a ≠ -entU e a :=
+  entOf_ne_neg h2 he a
 
 theorem inv_eq_self_of_mem_signGroupU {e : Su K p f n} (he : e ∈ signGroupU K p f n) : e⁻¹ = e :=
   inv_eq_self_of_mem_signSubgroup suMatHom_injective he
 
+theorem conj_mem_signGroupU {g : Su K p f n} {τ : Equiv.Perm (Fin n)}
+    (hg : IsMonomialFor (suMat g) τ) {e : Su K p f n} (he : e ∈ signGroupU K p f n) :
+    g⁻¹ * e * g ∈ signGroupU K p f n ∧ ∀ a, entU (g⁻¹ * e * g) a = entU e (τ a) :=
+  conj_mem_signSubgroup (mat := suMatHom K p f n) hg he
 
 theorem zEltU_entU (T : Pair n) (a : Fin n) :
     entU (zEltU K p f T) a = if a ∈ T.1 then -1 else 1 :=
@@ -305,6 +321,24 @@ section ChartU
 variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p] {n : ℕ}
   {ζ μ : K}
 
+@[expose] noncomputable def chartU (hn : 2 ≤ n) (g : Su K p f n)
+    (ψ : SL(2, fixedSubfield K p f) ≃* Su K p f 2) : SL(2, fixedSubfield K p f) →* Su K p f n :=
+  ((MulAut.conj g).toMonoidHom.comp (blockEmb K p f n 2 0 (by omega))).comp ψ.toMonoidHom
+
+theorem chartU_apply (hn : 2 ≤ n) (g : Su K p f n) (ψ : SL(2, fixedSubfield K p f) ≃* Su K p f 2)
+    (s : SL(2, fixedSubfield K p f)) :
+    chartU hn g ψ s = g * blockEmb K p f n 2 0 (by omega) (ψ s) * g⁻¹ := rfl
+
+theorem chartU_injective (hn : 2 ≤ n) (g : Su K p f n)
+    (ψ : SL(2, fixedSubfield K p f) ≃* Su K p f 2) : Function.Injective (chartU hn g ψ) :=
+  ((MulAut.conj g).injective.comp (blockEmb_injective (by omega))).comp ψ.injective
+
+theorem range_chartU (hn : 2 ≤ n) (g : Su K p f n)
+    (ψ : SL(2, fixedSubfield K p f) ≃* Su K p f 2) :
+    (chartU hn g ψ).range = (rootSU2 K p f hn).map (MulAut.conj g).toMonoidHom := by
+  have h1 : ψ.toMonoidHom.range = ⊤ := MonoidHom.range_eq_top.mpr ψ.surjective
+  rw [chartU, MonoidHom.range_comp, h1, ← MonoidHom.range_eq_map, MonoidHom.range_comp]
+  rfl
 
 omit [Finite K] in
 theorem eq_neg_of_ne_of_sign {x y : K} (hx : x = 1 ∨ x = -1) (hy : y = 1 ∨ y = -1) (hne : x ≠ y) :
@@ -315,6 +349,13 @@ theorem eq_neg_of_ne_of_sign {x y : K} (hx : x = 1 ∨ x = -1) (hy : y = 1 ∨ y
   · simp
   · exact absurd rfl hne
 
+omit [Finite K] in
+theorem diagonal_two_neg_conj (a : K) (ha : a * a = 1) (M : Matrix (Fin 2) (Fin 2) K) :
+    Matrix.diagonal ![a, -a] * M * Matrix.diagonal ![a, -a] =
+      Matrix.diagonal ![(1 : K), -1] * M * Matrix.diagonal ![(1 : K), -1] := by
+  ext i j
+  rw [Matrix.mul_diagonal, Matrix.diagonal_mul, Matrix.mul_diagonal, Matrix.diagonal_mul]
+  fin_cases i <;> fin_cases j <;> simp <;> linear_combination (M _ _) * ha
 
 @[expose] noncomputable def gSwapGL (hζ0 : ζ ≠ 0) (h2 : (2 : K) ≠ 0)
     (hζ : unitaryInvolution K p f ζ = -ζ) : GL (Fin 2) (fixedSubfield K p f) :=
@@ -353,11 +394,165 @@ end ChartU
 
 section DiagDataU
 
+variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p] {n : ℕ}
+  {ζ μ : K}
+
+theorem mem_axisSub_chartU_iff (hn : 2 ≤ n) {g : Su K p f n} {τ : Equiv.Perm (Fin n)}
+    (hg : IsMonomialFor (suMat g) τ) {e : Su K p f n} (he : e ∈ signGroupU K p f n) :
+    e ∈ axisSub (signGroupU K p f n) ((rootSU2 K p f hn).map (MulAut.conj g).toMonoidHom) ↔
+      entU e (τ ⟨0, by omega⟩) = entU e (τ ⟨1, by omega⟩) := by
+  obtain ⟨he', hent⟩ := conj_mem_signGroupU hg he
+  have hconj : ∀ A : Su K p f 2,
+      (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹) * e =
+          e * (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹) ↔
+        (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) A * (g⁻¹ * e * g)⁻¹ =
+          blockEmb K p f n 2 0 (by omega) A := by
+    intro A
+    constructor
+    · intro h
+      have : (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) A =
+          blockEmb K p f n 2 0 (by omega) A * (g⁻¹ * e * g) := by
+        calc (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) A
+            = g⁻¹ * (e * (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹)) * g := by group
+          _ = g⁻¹ * ((g * blockEmb K p f n 2 0 (by omega) A * g⁻¹) * e) * g := by rw [h]
+          _ = blockEmb K p f n 2 0 (by omega) A * (g⁻¹ * e * g) := by group
+      rw [this]
+      group
+    · intro h
+      have h' : (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) A =
+          blockEmb K p f n 2 0 (by omega) A * (g⁻¹ * e * g) := by
+        rw [mul_inv_eq_iff_eq_mul] at h
+        exact h
+      calc g * blockEmb K p f n 2 0 (by omega) A * g⁻¹ * e
+          = g * (blockEmb K p f n 2 0 (by omega) A * (g⁻¹ * e * g)) * g⁻¹ := by group
+        _ = g * ((g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) A) * g⁻¹ := by rw [h']
+        _ = e * (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹) := by group
+  rw [mem_axisSub_iff]
+  constructor
+  · rintro ⟨-, hcomm⟩
+    have h1 := (hconj (rotSU _)).mp (hcomm _ ⟨blockEmb K p f n 2 0 (by omega) (rotSU _),
+      ⟨rotSU _, rfl⟩, rfl⟩)
+    have h2 := congrArg suMat h1
+    rw [suMat_conj_blockEmb hn he', suMat_blockEmb] at h2
+    have h3 := blockMat_injective (by omega : 0 + 2 ≤ n) h2
+    have h5 : entU (g⁻¹ * e * g) ⟨0, by omega⟩ * (-1) * entU (g⁻¹ * e * g) ⟨1, by omega⟩ = -1 := by
+      simpa [Matrix.mul_diagonal, Matrix.diagonal_mul, suMat, rotSU, rotMat] using
+        congrFun (congrFun h3 0) 1
+    rw [← hent, ← hent]
+    have hb := entU_mul_self he' ⟨1, by omega⟩
+    have h6 : entU (g⁻¹ * e * g) ⟨0, by omega⟩ * entU (g⁻¹ * e * g) ⟨1, by omega⟩ = 1 := by
+      linear_combination -h5
+    calc entU (g⁻¹ * e * g) ⟨0, by omega⟩
+        = entU (g⁻¹ * e * g) ⟨0, by omega⟩ * (entU (g⁻¹ * e * g) ⟨1, by omega⟩ *
+            entU (g⁻¹ * e * g) ⟨1, by omega⟩) := by rw [hb, mul_one]
+      _ = entU (g⁻¹ * e * g) ⟨1, by omega⟩ := by
+        rw [← mul_assoc, h6, one_mul]
+  · intro h
+    refine ⟨he, fun k hk => ?_⟩
+    obtain ⟨_, ⟨A, rfl⟩, rfl⟩ := hk
+    show (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹) * e =
+      e * (g * blockEmb K p f n 2 0 (by omega) A * g⁻¹)
+    rw [hconj]
+    apply suMat_injective
+    rw [suMat_conj_blockEmb hn he', suMat_blockEmb]
+    have hab : entU (g⁻¹ * e * g) ⟨1, by omega⟩ = entU (g⁻¹ * e * g) ⟨0, by omega⟩ := by
+      rw [hent, hent]
+      exact h.symm
+    rw [hab, diagonal_two_conj_self (entU_mul_self he' _)]
+
+theorem diagData_chartU (hn : 3 ≤ n) (hζ0 : ζ ≠ 0) (hζ : unitaryInvolution K p f ζ = -ζ)
+    (h2 : (2 : K) ≠ 0) (hμ : unitaryInvolution K p f μ * μ = -1) {g : Su K p f n}
+    {τ : Equiv.Perm (Fin n)} (hg : IsMonomialFor (suMat g) τ) :
+    DiagData (chartU (by omega : 2 ≤ n) g (psiEquiv hζ0 hζ h2 hμ)) (signGroupU K p f n) where
+  inj := chartU_injective _ g _
+  comm := fun x hx y hy => signGroupU_comm hx hy
+  sq := fun x hx => signGroupU_sq hx
+  neg_mem := by
+    rw [mem_signGroupU, chartU_apply, psiEquiv_neg_one, suMat_mul, suMat_mul]
+    change IsSignDiag (suMat g * suMat (rootInvSU K p f (by omega : 2 ≤ n)) * suMat g⁻¹)
+    rw [suMat_rootInvSU, suMonomial_conj_negBlock hg (by omega : 0 + 2 ≤ n)]
+    exact isSignDiag_zMat _
+  diag := fun e he => by
+    obtain ⟨he', -⟩ := conj_mem_signGroupU hg he
+    by_cases hab : entU (g⁻¹ * e * g) ⟨0, by omega⟩ = entU (g⁻¹ * e * g) ⟨1, by omega⟩
+    · refine ⟨1, fun s => ?_⟩
+      have key : (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) (psiEquiv hζ0 hζ h2 hμ s) *
+          (g⁻¹ * e * g)⁻¹ = blockEmb K p f n 2 0 (by omega) (psiEquiv hζ0 hζ h2 hμ s) := by
+        apply suMat_injective
+        rw [suMat_conj_blockEmb (by omega) he', suMat_blockEmb, ← hab,
+          diagonal_two_conj_self (entU_mul_self he' _)]
+      rw [chartU_apply, chartU_apply, map_one, MulAut.one_apply]
+      conv_rhs => rw [← key]
+      group
+    · refine ⟨gSwapGL hζ0 h2 hζ, fun s => ?_⟩
+      have hb := eq_neg_of_ne_of_sign (entU_cases he' ⟨0, by omega⟩)
+        (entU_cases he' ⟨1, by omega⟩) hab
+      have key : (g⁻¹ * e * g) * blockEmb K p f n 2 0 (by omega) (psiEquiv hζ0 hζ h2 hμ s) *
+          (g⁻¹ * e * g)⁻¹ = blockEmb K p f n 2 0 (by omega) (psiEquiv hζ0 hζ h2 hμ
+            (slConjugation 2 (fixedSubfield K p f) (gSwapGL hζ0 h2 hζ) s)) := by
+        apply suMat_injective
+        rw [suMat_conj_blockEmb (by omega) he', suMat_blockEmb, hb,
+          diagonal_two_neg_conj _ (entU_mul_self he' _), suMat_psiEquiv_conj hζ0 hζ h2 hμ]
+      rw [chartU_apply, chartU_apply]
+      conv_rhs => rw [← key]
+      group
+  index_two := by
+    have hn2 : 2 ≤ n := by omega
+    have h02 : τ ⟨0, by omega⟩ ≠ τ ⟨2, by omega⟩ := fun h => by
+      have := τ.injective h
+      simp [Fin.ext_iff] at this
+    have h01 : τ ⟨0, by omega⟩ ≠ τ ⟨1, by omega⟩ := fun h => by
+      have := τ.injective h
+      simp [Fin.ext_iff] at this
+    let T : Pair n := ⟨{τ ⟨0, by omega⟩, τ ⟨2, by omega⟩}, Finset.card_pair h02⟩
+    rw [range_chartU, Subgroup.relIndex_eq_two_iff]
+    refine ⟨zEltU K p f T, zEltU_mem_signGroupU T, fun b hb => ?_⟩
+    have hbT : b * zEltU K p f T ∈ signGroupU K p f n :=
+      (signGroupU K p f n).mul_mem hb (zEltU_mem_signGroupU T)
+    rw [xor_iff_iff_not, mem_axisSub_chartU_iff hn2 hg hbT, mem_axisSub_chartU_iff hn2 hg hb,
+      entU_mul hb (zEltU_mem_signGroupU T), entU_mul hb (zEltU_mem_signGroupU T), zEltU_entU,
+      zEltU_entU, ite_eq_left (by simp [T]), ite_eq_right (by simp [T, Ne.symm h01]),
+      mul_neg, mul_one, mul_one]
+    exact neg_eq_iff_not_eq_of_sign h2 (entU_cases hb _) (entU_cases hb _)
 
 end DiagDataU
 
 section SigmaU
 
+variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p] {n : ℕ}
+
+theorem inSigma_LcU (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2) (hn : 3 ≤ n) (T : Pair n) :
+    InSigma (fixedSubfield K p f) (signGroupU K p f n) (LcU K p f T) := by
+  have h2 := two_ne_zero_of_charP_ne_two (K := K) hp
+  obtain ⟨ζ, hζ0, hζ⟩ := exists_unitaryInvolution_eq_neg hK
+  obtain ⟨μ, hμ⟩ := exists_norm_eq_neg_one hK
+  obtain ⟨g, τ, hg, hT⟩ := exists_suMonomial_of_pair (K := K) (p := p) (f := f) (by omega) T
+  refine ⟨chartU (by omega) g (psiEquiv hζ0 hζ h2 hμ), ?_, diagData_chartU hn hζ0 hζ h2 hμ hg⟩
+  rw [range_chartU, LcU_eq_map_conj h2 hg (by omega : 0 + 2 ≤ n) hT]
+  rfl
+
+theorem exists_pair_of_inSigmaU (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2) {hn : 2 ≤ n}
+    {L : Subgroup (Su K p f n)} {i : Su K p f n} (hL : IsLongRootSU2 K p f hn L i)
+    (hS : InSigma (fixedSubfield K p f) (signGroupU K p f n) L) :
+    ∃ T : Pair n, L = LcU K p f T := by
+  have h2 := two_ne_zero_of_charP_ne_two (K := K) hp
+  have h2F : (2 : fixedSubfield K p f) ≠ 0 :=
+    CFSG.Semidihedral.OddFieldSL2.two_ne_zero_of_odd_card _ (odd_natCard_fixedSubfield hK hp)
+  obtain ⟨φ, hφ, hD⟩ := hS
+  have hmem : φ (-1) ∈ L := hφ ▸ ⟨-1, rfl⟩
+  have hord : orderOf (φ (-1)) = 2 := by
+    rw [orderOf_injective φ hD.inj (-1)]
+    exact CFSG.Semidihedral.OddFieldSL2.minusIdentity_orderOf _ h2F
+  have hi : φ (-1) = i := hL.eq_of_orderOf_eq_two hK hp hmem hord
+  have hiE : i ∈ signGroupU K p f n := hi ▸ hD.neg_mem
+  obtain ⟨N, hN⟩ := (mem_signGroupU.mp hiE).exists_zMat
+  have hcard : N.card = 2 := by
+    have := hL.finrank_minusSpaceSU h2
+    rw [minusSpaceSU, hN, finrank_eigSpace_zMat h2] at this
+    exact this
+  refine ⟨⟨N, hcard⟩, ?_⟩
+  rw [hL.eq_longRootGroupSU h2, hN]
+  rfl
 
 end SigmaU
 

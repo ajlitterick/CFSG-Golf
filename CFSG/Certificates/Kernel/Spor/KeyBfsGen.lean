@@ -56,6 +56,18 @@ theorem keyBfsG_eq (κ : α → Nat) (st : Nat → α → α) (k : Nat) (root : 
     Nat.add_sub_cancel, Nat.div_one]
   rfl
 
+omit [Inhabited α] in
+theorem forIn_sim {β γ : Type} (π : β → γ) (l : List Nat) (f : Nat → β → Id (ForInStep β))
+    (g : Nat → γ → Id (ForInStep γ))
+    (h : ∀ x b, ∃ b', f x b = pure (ForInStep.yield b') ∧
+      g x (π b) = pure (ForInStep.yield (π b'))) (b : β) :
+    Id.run (forIn l (π b) g) = π (Id.run (forIn l b f)) := by
+  induction l generalizing b with
+  | nil => rfl
+  | cons x l ih =>
+    obtain ⟨b', hf, hg⟩ := h x b
+    rw [List.forIn_cons, List.forIn_cons, hf, hg]
+    exact ih b'
 
 structure GRec (κ : α → Nat) (st : Nat → α → α) (k : Nat) (root : α) (key0 cnt Ec : Nat)
     (T : Nat → α) (P L POS : Nat → Nat) : Prop where
@@ -451,6 +463,25 @@ section
 
 variable {β : Type} [Inhabited β]
 
+@[expose] def keyBfsT (sk : Nat → α → Nat) (st : Nat → α → α) (stB : Nat → β → β) (k : Nat)
+    (root : α) (rootB : β) (key0 cap : Nat) : Array α × Array Nat × Array Nat × Array β :=
+  Id.run do
+  let mut pts : Array α := #[root]
+  let mut par : Array Nat := #[0]
+  let mut lab : Array Nat := #[0]
+  let mut tr : Array β := #[rootB]
+  let mut idx : Std.HashSet Nat := (∅ : Std.HashSet Nat).insert key0
+  for h in [0:cap] do
+    if h < pts.size then
+      for s in [0:k] do
+        let f := sk s pts[h]!
+        if !idx.contains f then
+          idx := idx.insert f
+          pts := pts.push (st s pts[h]!)
+          par := par.push h
+          lab := lab.push s
+          tr := tr.push (stB s tr[h]!)
+  return (pts, par, lab, tr)
 
 abbrev TSt (α β : Type) := Array α × Array Nat × Array Nat × Array β × Std.HashSet Nat
 
@@ -461,9 +492,62 @@ abbrev TSt (α β : Type) := Array α × Array Nat × Array Nat × Array β × S
       s.2.2.2.1.push (stB j s.2.2.2.1[h]!), s.2.2.2.2.insert (sk j s.1[h]!)))
   else pure (ForInStep.yield (s.1, s.2.1, s.2.2.1, s.2.2.2.1, s.2.2.2.2))
 
+@[expose] def outerT (sk : Nat → α → Nat) (st : Nat → α → α) (stB : Nat → β → β) (k h : Nat)
+    (s : TSt α β) : Id (ForInStep (TSt α β)) :=
+  if h < s.1.size then
+    pure (ForInStep.yield (Id.run (forIn (List.range' 0 k)
+      (s.1, s.2.1, s.2.2.1, s.2.2.2.1, s.2.2.2.2) (innerT sk st stB h))))
+  else pure (ForInStep.yield (s.1, s.2.1, s.2.2.1, s.2.2.2.1, s.2.2.2.2))
+
+@[expose] def initT (root : α) (rootB : β) (key0 : Nat) : TSt α β :=
+  (#[root], #[0], #[0], #[rootB], (∅ : Std.HashSet Nat).insert key0)
 
 @[expose] def projT (s : TSt α β) : GSt α := (s.1, s.2.1, s.2.2.1, s.2.2.2.2)
 
+theorem keyBfsT_eq (sk : Nat → α → Nat) (st : Nat → α → α) (stB : Nat → β → β) (k : Nat)
+    (root : α) (rootB : β) (key0 cap : Nat) :
+    (keyBfsT sk st stB k root rootB key0 cap).1 =
+      (Id.run (forIn (List.range' 0 cap) (initT root rootB key0) (outerT sk st stB k))).1 := by
+  unfold keyBfsT
+  simp only [Std.Legacy.Range.forIn_eq_forIn_range', Std.Legacy.Range.size, Id.run, Nat.sub_zero,
+    Nat.add_sub_cancel, Nat.div_one]
+  rfl
+
+theorem keyBfsT_entries {κ : α → Nat} {sk : Nat → α → Nat} {st : Nat → α → α}
+    {stB : Nat → β → β} {k : Nat} {root : α} {rootB : β} {key0 cap : Nat}
+    (hsk : ∀ j x, sk j x = κ (st j x)) :
+    (keyBfsT sk st stB k root rootB key0 cap).1 = (keyBfsG κ st k root key0 cap).1 := by
+  have hin : ∀ h j (b : TSt α β), ∃ b', innerT sk st stB h j b = pure (ForInStep.yield b') ∧
+      innerG κ st h j (projT b) = pure (ForInStep.yield (projT b')) := by
+    intro h j b
+    by_cases hc : b.2.2.2.2.contains (κ (st j b.1[h]!)) = true
+    · refine ⟨(b.1, b.2.1, b.2.2.1, b.2.2.2.1, b.2.2.2.2), ?_, ?_⟩
+      · simp only [innerT, hsk, hc, Bool.not_true, Bool.false_eq_true, ↓reduceIte]
+      · simp only [innerG, projT, hc, Bool.not_true, Bool.false_eq_true, ↓reduceIte]
+    · have hnc : b.2.2.2.2.contains (κ (st j b.1[h]!)) = false := Bool.eq_false_iff.2 hc
+      refine ⟨(b.1.push (st j b.1[h]!), b.2.1.push h, b.2.2.1.push j,
+        b.2.2.2.1.push (stB j b.2.2.2.1[h]!), b.2.2.2.2.insert (κ (st j b.1[h]!))), ?_, ?_⟩
+      · simp only [innerT, hsk, hnc, Bool.not_false, ↓reduceIte]
+      · simp only [innerG, projT, hnc, Bool.not_false, ↓reduceIte]
+  have hout : ∀ h (b : TSt α β), ∃ b', outerT sk st stB k h b = pure (ForInStep.yield b') ∧
+      outerG κ st k h (projT b) = pure (ForInStep.yield (projT b')) := by
+    intro h b
+    by_cases hh : h < b.1.size
+    · refine ⟨Id.run (forIn (List.range' 0 k) (b.1, b.2.1, b.2.2.1, b.2.2.2.1, b.2.2.2.2)
+        (innerT sk st stB h)), by simp only [outerT, hh, ↓reduceIte], ?_⟩
+      have e := forIn_sim projT (List.range' 0 k) (innerT sk st stB h) (innerG κ st h) (hin h) b
+      simp only [outerG, projT, hh, ↓reduceIte] at e ⊢
+      rw [e]
+    · refine ⟨(b.1, b.2.1, b.2.2.1, b.2.2.2.1, b.2.2.2.2),
+        by simp only [outerT, hh, ↓reduceIte], ?_⟩
+      simp only [outerG, projT, hh, ↓reduceIte]
+  have e := forIn_sim projT (List.range' 0 cap) (outerT sk st stB k) (outerG κ st k) hout
+    (initT root rootB key0)
+  rw [keyBfsT_eq, keyBfsG_eq]
+  change _ = (Id.run (forIn (List.range' 0 cap) (projT (initT root rootB key0))
+    (outerG κ st k))).1
+  rw [e]
+  rfl
 
 end
 

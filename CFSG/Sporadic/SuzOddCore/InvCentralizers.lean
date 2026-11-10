@@ -139,6 +139,9 @@ theorem orderOf_suzInv
     {i : ℕ} (hi : i < 4) : orderOf (suzInv i) = 2 :=
   orderOf_eq_prime (by rw [pow_two]; exact suzInv_sq hi) (suzInv_ne_one hi)
 
+theorem suzInv_inv
+    {i : ℕ} (hi : i < 4) : (suzInv i)⁻¹ = suzInv i := by
+  rw [inv_eq_iff_mul_eq_one, suzInv_sq hi]
 
 theorem fixedCount_eq {t : Array ℕ} {T : Equiv.Perm (Fin 1782)} (ht : Rep 1782 t T) :
     fixedCount t = (Finset.univ.filter fun x : Fin 1782 => T x = x).card := by

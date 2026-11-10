@@ -46,6 +46,7 @@ theorem kFr : Nat.beq fiveC idM = false ∧ Nat.beq (cjA (NH 0) (F5.F 0)) (fiveW
     Nat.beq (cjA (NH 0) (F5.F 1)) (fiveW 1 4 0) = true :=
   ⟨by decide +kernel, by quickRfl, by quickRfl⟩
 
+theorem negF : (!Nat.beq (cjA (NH 0) (F5.F 0)) (fiveW 1 3 0)) = true := by quickRfl
 
 end CertificateChecks.KernelItem434
 

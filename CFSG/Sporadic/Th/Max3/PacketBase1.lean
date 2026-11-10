@@ -26,6 +26,9 @@ namespace Packet
 @[expose] noncomputable def run (p : List Instr) : ℕ → J :=
   p.foldl (fun R ins => ins.exec R) initRegs
 
+theorem program_x : run program 1 = x := rfl
+
+theorem program_y : run program 2 = y := rfl
 
 @[expose] noncomputable def signedLetter (l : ℤ) : J :=
   if l = 1 then x else if l = -1 then x⁻¹ else if l = 2 then y else if l = -2 then y⁻¹ else 1
@@ -68,6 +71,13 @@ theorem EP_eq_nf (k : Fin 512) :
 
 namespace Packet
 
+private theorem z_mul_list_prod :
+    ∀ l : List J, (∀ b ∈ l, z * b = b * z) →
+    z * l.prod = l.prod * z
+  | [], _ => by simp
+  | b :: l, h => by
+    rw [List.prod_cons, ← mul_assoc, h b (List.mem_cons_self ..), mul_assoc,
+      z_mul_list_prod l fun b' hb' => h b' (List.mem_cons_of_mem _ hb'), mul_assoc]
 
 end Packet
 

@@ -36,12 +36,14 @@ abbrev ParGeom : Type := ↥ParObj
 @[expose] def parInc (x y : ParGeom) : Prop :=
   x = y ∨ (parType x ≠ parType y ∧ (x.1.2 ≤ y.1.2 ∨ y.1.2 ≤ x.1.2))
 
+@[expose] def IsParFlag (F : Set ParGeom) : Prop := ∀ x ∈ F, ∀ y ∈ F, parInc x y
 
 @[expose] def stdObj (i : ℕ) (h1 : 1 ≤ i) (h5 : i ≤ 5) : ParGeom :=
   ⟨(i, Echain i), h1, h5, 1, Shat.one_mem, (conjSub_one _).symm⟩
 
 theorem parType_bounds (x : ParGeom) : 1 ≤ parType x ∧ parType x ≤ 5 := ⟨x.2.1, x.2.2.1⟩
 
+theorem parInc_refl (x : ParGeom) : parInc x x := .inl rfl
 
 theorem parInc_symm {x y : ParGeom} (h : parInc x y) : parInc y x := by
   rcases h with rfl | ⟨hne, h | h⟩
@@ -49,6 +51,18 @@ theorem parInc_symm {x y : ParGeom} (h : parInc x y) : parInc y x := by
   · exact .inr ⟨hne.symm, .inr h⟩
   · exact .inr ⟨hne.symm, .inl h⟩
 
+theorem parInc_iff_of_ne {x y : ParGeom} (h : parType x ≠ parType y) :
+    parInc x y ↔ x.1.2 ≤ y.1.2 ∨ y.1.2 ≤ x.1.2 := by
+  constructor
+  · rintro (rfl | ⟨-, h'⟩)
+    · exact .inl le_rfl
+    · exact h'
+  · exact fun h' => .inr ⟨h, h'⟩
+
+theorem eq_of_parInc {x y : ParGeom} (h : parInc x y) (ht : parType x = parType y) : x = y := by
+  rcases h with h | ⟨hne, -⟩
+  · exact h
+  · exact absurd ht hne
 
 instance finite_subgroup_Dfull : Finite (Subgroup Dfull) :=
   Finite.of_injective (fun H : Subgroup Dfull => (H : Set Dfull)) SetLike.coe_injective
@@ -72,6 +86,8 @@ theorem conjSub_mem_ParObj {g : Dfull} (hg : g ∈ Shat) {x : ℕ × Subgroup Df
 
 attribute [local instance] parAction
 
+theorem coe_parAction (g : Shat) (x : ParGeom) :
+    (g • x : ParGeom).1 = (x.1.1, conjSub (g : Dfull) x.1.2) := rfl
 
 theorem parType_smul (g : Shat) (x : ParGeom) : parType (g • x) = parType x := rfl
 
@@ -85,5 +101,24 @@ theorem parInc_smul_iff (g : Shat) (x y : ParGeom) : parInc (g • x) (g • y) 
 
 @[expose] def stdParFlag : Set ParGeom := {x | x.1.2 = Echain x.1.1}
 
+theorem stdObj_mem (i : ℕ) (h1 : 1 ≤ i) (h5 : i ≤ 5) : stdObj i h1 h5 ∈ stdParFlag := rfl
+
+theorem stdParFlag_isParFlag : IsParFlag stdParFlag ∧ parType '' stdParFlag = Set.Icc 1 5 := by
+  refine ⟨fun x hx y hy => ?_, ?_⟩
+  · rcases eq_or_ne (parType x) (parType y) with h | h
+    · refine .inl (Subtype.ext (Prod.ext h ?_))
+      rw [hx, hy]
+      exact congrArg Echain h
+    · refine .inr ⟨h, ?_⟩
+      rw [hx, hy]
+      rcases le_total x.1.1 y.1.1 with h' | h'
+      · exact .inl (Echain_mono x.2.1 h' y.2.2.1)
+      · exact .inr (Echain_mono y.2.1 h' x.2.2.1)
+  · ext i
+    constructor
+    · rintro ⟨x, -, rfl⟩
+      exact ⟨x.2.1, x.2.2.1⟩
+    · rintro ⟨h1, h5⟩
+      exact ⟨stdObj i h1 h5, stdObj_mem i h1 h5, rfl⟩
 
 end CFSG.Monster.B.TwoA

@@ -136,5 +136,24 @@ theorem tauhat_mem_normalizer_A8 :
   rw [e] at h2
   exact h2
 
+theorem short_symplectic_eight_elementary_abelian :
+    CFSG.IsElementaryAbelian 2 A8 ∧ Nat.card A8 = 2 ^ 8 ∧
+    (∀ k : Fin 8, (aEquiv (Multiplicative.ofAdd (Pi.single k 1)) : Dfull) = aT k) ∧
+    A8 ≤ Jhat ∧ A8 ⊓ Ehat = B7 ∧
+    (A8.subgroupOf Jhat).map jhatToKv0 = Subgroup.zpowers rK ∧
+    (∀ x : Dfull, x ∈ B7 ↔ ∃ h : x ∈ Ehat, psiW ⟨x, h⟩ ∈ Zsp) ∧
+    psiW yhatE = decW 31 ∧ psiW (dhatE 2 3) = decW 12288 ∧ psiW (dhatE 2 4) = decW 20480 ∧
+    psiW (dhatE 2 5) = decW 36864 ∧ psiW (dhatE 2 6) = decW 69632 ∧
+    psiW uhatE = decW 30721 ∧
+    LinearIndependent (ZMod 2) bVec ∧ Submodule.span (ZMod 2) (Set.range bVec) = Zsp ∧
+    LinearMap.range (wAct v0 rK - 1) = Zsp ∧
+    tauhat ∈ Subgroup.normalizer (A8 : Set Dfull) ∧
+    (∀ k : Fin 8, tauhat * aT k * tauhat⁻¹ =
+      (aEquiv (Multiplicative.ofAdd (bvec 8 (triRows.getD k 0))) : Dfull)) ∧
+    tauhat * ghat8 * tauhat⁻¹ = uhat * ghat8 :=
+  ⟨isElementaryAbelian_A8, natCard_A8, aEquiv_single, A8_le_Jhat, A8_inf_Ehat, map_A8,
+    mem_B7_iff, psiW_yhat8, psiW_d23, psiW_d24, psiW_d25, psiW_d26, psiW_uhat,
+    linearIndependent_bVec, span_bVec, range_rK_sub_one, tauhat_mem_normalizer_A8,
+    tauhat_conj_aT, tauhat_conj_ghat8⟩
 
 end CFSG.Monster.B.TwoA.Sp8

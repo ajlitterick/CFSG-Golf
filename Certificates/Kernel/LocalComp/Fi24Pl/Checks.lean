@@ -28,6 +28,16 @@ theorem norm : normK Fi24PlT.A.F Fi24BN.G Fi24BN.T Fi24PlD.MK = true := by quick
 
 theorem final : finalK Fi24PlD.BT = true := by quickRfl
 
+open CFSG.KLie.CT (notB) in
+theorem neg : bAnd(notB (basisK (Nat.shiftLeft Fi24PlT.A.F (nat_lit 9))),
+    bAnd(notB (iotaK Fi24PlT.A.F (fun i => Fi24PlD.IK (Nat.succ i)) (nat_lit 0)),
+    bAnd(notB (invK Fi24PlD.IK (fun i => Nat.add (Fi24PlD.V i) (nat_lit 1))),
+    bAnd(notB (normK Fi24PlT.A.F Fi24BN.G Fi24BN.T (fun k => Nat.add (Fi24PlD.MK k) (nat_lit 1))),
+    bAnd(notB (rowK Fi24PlD.IK Fi24PlD.V Fi24BN.T
+      (fun t => Nat.xor (Fi24PlD.BT t) (nat_lit 1)) (nat_lit 5)),
+      notB (finalK (fun t => nIf(Nat.beq t (nat_lit 1), Nat.sub (Nat.shiftLeft (nat_lit 1)
+        (nat_lit 243)) (nat_lit 1), Fi24PlD.BT t)))))))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.Fi24PlK
 

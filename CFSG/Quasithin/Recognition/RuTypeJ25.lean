@@ -220,6 +220,149 @@ theorem card_TB : Nat.card M.TB = 16 := by
     · have h : (x : G) * M.jel = y * M.jel := congrArg Subtype.val hxy
       exact Prod.ext (Subtype.ext (mul_right_cancel h)) rfl
 
+theorem TB_semidihedral : Nonempty (M.TB ≃* CFSG.Open.SemidihedralGroup 4) := by
+  obtain ⟨hjH, hjK, hj2, hjb, -⟩ := M.jel_spec
+  have hji := M.jel_inv
+  have hjj : M.jel * M.jel = 1 := by rw [← pow_two]; exact hj2
+  obtain ⟨t1, ht1, hb1, hχ1⟩ := M.exists_t1
+  obtain ⟨t2, ht2, hb2, hχ2⟩ := M.exists_t2
+  have hB1 : t1 ∈ M.HB := M.mem_HB.mpr ⟨ht1, hb1⟩
+  have hB2 : t2 ∈ M.HB := M.mem_HB.mpr ⟨ht2, hb2⟩
+  have hnotZ : ∀ (x : G) (hx : x ∈ ruS M.L), Multiplicative.toAdd (M.χ ⟨x, hx⟩) ≠ 0 →
+      x ∉ ruZ M.T := by
+    intro x hx h0 hZ
+    apply h0
+    have hk : (⟨x, hx⟩ : ruS M.L) ∈ M.χ.ker := by
+      rw [M.χ_ker, Subgroup.mem_subgroupOf]
+      exact M.toRuData.Z_le_V hZ
+    rw [MonoidHom.mem_ker.mp hk, toAdd_one]
+  have ht1z : t1 ^ 2 = M.z := M.sq_eq_z_of_HB hB1 (hnotZ t1 ht1 (by rw [hχ1]; decide))
+  have hzc : ∀ g ∈ ruH M.T, M.z * g = g * M.z := fun g hg => M.Z_comm_H M.z_mem_Z hg
+  have hzc' : ∀ w ∈ ruZ M.T, ∀ g ∈ ruH M.T, w * g = g * w := fun w hw g hg => M.Z_comm_H hw hg
+  have hz2 : M.z * M.z = 1 := by rw [← pow_two]; exact M.z_sq
+  have hjt1 : (M.jel * t1 * M.jel⁻¹)⁻¹ * t2 ∈ ruZ M.T := by
+    have h1 := M.conj_HC_of_not_mem_K hjH hjK (M.HB_le_HC hB1)
+    have hnt : (M.nel : G) * t1 * (M.nel : G)⁻¹ ∈ ruS M.L :=
+      (Subgroup.mem_normalizer_iff.mp (le_normalizer_pCoreOf 2 M.L M.nel.2) t1).mp ht1
+    have h2 : ((M.nel : G) * t1 * (M.nel : G)⁻¹)⁻¹ * t2 ∈ ruU M.L M.T := by
+      have hk : (⟨_, hnt⟩ : ruS M.L)⁻¹ * ⟨t2, ht2⟩ ∈ M.χ.ker := by
+        rw [MonoidHom.mem_ker]
+        apply Multiplicative.toAdd.injective
+        rw [M.toAdd_χ_mul, M.toAdd_χ_inv, M.χ_conj M.nel ⟨t1, ht1⟩, M.θ_nel, hχ1, hχ2,
+          SL3.n0_b0mat, toAdd_one]
+        ext i j
+        have h : ∀ a : ZMod 2, a + a = 0 := by decide
+        exact h _
+      rw [M.χ_ker, Subgroup.mem_subgroupOf] at hk
+      exact M.V_le_U hk
+    have hU : (M.jel * t1 * M.jel⁻¹)⁻¹ * t2 ∈ ruU M.L M.T := by
+      have e : (M.jel * t1 * M.jel⁻¹)⁻¹ * t2 = (M.jel * t1 * M.jel⁻¹)⁻¹ *
+          ((M.nel : G) * t1 * (M.nel : G)⁻¹) *
+          (((M.nel : G) * t1 * (M.nel : G)⁻¹)⁻¹ * t2) := by group
+      rw [e]
+      exact mul_mem h1 h2
+    exact M.mem_Z_of_HB_U (M.jel_conj_HB hB1) hB2 hU
+  set R := M.jel * t1
+  have hR2 : R ^ 2 = (M.jel * t1 * M.jel⁻¹) * t1 := by
+    simp only [R, pow_two]
+    rw [hji]
+    group
+  have hR2B : R ^ 2 ∈ M.HB := by rw [hR2]; exact mul_mem (M.jel_conj_HB hB1) hB1
+  have hR2Z : R ^ 2 ∉ ruZ M.T := by
+    intro hZ
+    rw [hR2] at hZ
+    set c := M.jel * t1 * M.jel⁻¹
+    have hHt1 : t1 ∈ ruH M.T := M.toRuData.T_le_H (M.toRuData.S_le_T ht1)
+    have hct : c * t1 * t1 = t1 * (c * t1) := hzc' _ hZ t1 hHt1
+    have h1 : c * t1 = t1 * c := by
+      rw [← mul_assoc] at hct
+      exact mul_right_cancel hct
+    have hmem : t1 * t2 ∈ ruZ M.T := by
+      have e : t1 * t2 = (c * t1) * (c⁻¹ * t2) := by
+        calc t1 * t2 = (t1 * c) * (c⁻¹ * t2) := by group
+          _ = (c * t1) * (c⁻¹ * t2) := by rw [h1]
+      rw [e]
+      exact mul_mem hZ hjt1
+    have hk : (⟨t1, ht1⟩ : ruS M.L) * ⟨t2, ht2⟩ ∈ M.χ.ker := by
+      rw [M.χ_ker, Subgroup.mem_subgroupOf]
+      exact M.toRuData.Z_le_V hmem
+    rw [MonoidHom.mem_ker] at hk
+    have := congrArg Multiplicative.toAdd hk
+    rw [M.toAdd_χ_mul, hχ1, hχ2, toAdd_one] at this
+    exact absurd this (by decide)
+  have hR4 : R ^ 4 = M.z := by
+    rw [show 4 = 2 * 2 by rfl, pow_mul]
+    exact M.sq_eq_z_of_HB hR2B hR2Z
+  have hR8 : R ^ 8 = 1 := by
+    rw [show 8 = 4 * 2 by rfl, pow_mul, hR4, pow_two, hz2]
+  have hRTB : R ∈ M.TB := Or.inr (by
+    show M.jel * t1 * M.jel⁻¹ ∈ M.HB
+    exact M.jel_conj_HB hB1)
+  have hSTB : M.jel ∈ M.TB := Or.inr (by rw [mul_inv_cancel]; exact one_mem _)
+  have ht1i : t1⁻¹ = t1 * M.z := by
+    rw [inv_eq_iff_mul_eq_one, ← mul_assoc, ← pow_two, ht1z, hz2]
+  have hc : M.jel * R * M.jel⁻¹ = R ^ 3 := by
+    have hR3 : R ^ 3 = M.z * R⁻¹ := by
+      rw [← hR4]
+      group
+    rw [hR3]
+    simp only [R]
+    rw [mul_inv_rev, ht1i, hji]
+    have hzt : M.z * t1 = t1 * M.z :=
+      hzc t1 (M.toRuData.T_le_H (M.toRuData.S_le_T ht1))
+    calc M.jel * (M.jel * t1) * M.jel = (M.jel * M.jel) * t1 * M.jel := by group
+      _ = t1 * M.jel := by rw [hjj, one_mul]
+      _ = (M.z * M.z) * t1 * M.jel := by rw [hz2, one_mul]
+      _ = M.z * (M.z * t1) * M.jel := by group
+      _ = M.z * (t1 * M.z) * M.jel := by rw [hzt]
+      _ = M.z * (t1 * M.z * M.jel) := by group
+  refine CFSG.RankThree.Asc83Table.nonempty_mulEquiv_semidihedral (H := M.TB)
+    (by rw [M.card_TB]) hRTB hSTB hR8 hj2 hc ?_
+  intro i e hie
+  have hRord : ∀ k : ℕ, k < 8 → R ^ k = 1 → k = 0 := by
+    intro k hk hRk
+    have hdvd : orderOf R ∣ k := orderOf_dvd_of_pow_eq_one hRk
+    have hord : orderOf R = 8 := by
+      refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) hR8 fun p hp hpd => ?_
+      have hp2 : p = 2 := by
+        have : p ∣ 2 ^ 3 := hpd
+        exact (Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).mp (hp.dvd_of_dvd_pow this)
+      subst hp2
+      rw [show 8 / 2 = 4 by rfl, hR4]
+      exact M.z_ne_one
+    rw [hord] at hdvd
+    omega
+  fin_cases e
+  · simp only [pow_zero, mul_one] at hie
+    exact ⟨Fin.ext (hRord i.val i.2 hie), rfl⟩
+  · exfalso
+    simp only [pow_one] at hie
+    have hji' : M.jel = (R ^ i.val)⁻¹ := (eq_inv_of_mul_eq_one_right hie)
+    have h2i : R ^ (2 * i.val) = 1 := by
+      rw [pow_mul', ← inv_inv (R ^ i.val), ← hji', inv_pow, hj2, inv_one]
+    have h4 : 4 ∣ i.val := by
+      have hdvd : orderOf R ∣ 2 * i.val := orderOf_dvd_of_pow_eq_one h2i
+      have hord : orderOf R = 8 := by
+        refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) hR8 fun p hp hpd => ?_
+        have hp2 : p = 2 := by
+          have : p ∣ 2 ^ 3 := hpd
+          exact (Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).mp (hp.dvd_of_dvd_pow this)
+        subst hp2
+        rw [show 8 / 2 = 4 by rfl, hR4]
+        exact M.z_ne_one
+      rw [hord] at hdvd
+      omega
+    have hi : i.val = 0 ∨ i.val = 4 := by
+      have := i.2
+      omega
+    rcases hi with hi | hi
+    · rw [hi, pow_zero, inv_one] at hji'
+      exact M.jel_not_mem_HB (hji' ▸ one_mem _)
+    · rw [hi, hR4] at hji'
+      apply M.jel_not_mem_HB
+      rw [hji']
+      exact inv_mem (Subgroup.mem_inf.mpr ⟨M.U_le_Q (M.V_le_U M.z_mem_V),
+        (M.mem_centralizer_B).mpr (hzc _ M.bel_mem_H).symm⟩)
 
 theorem B_le_CHB : M.B ≤ M.CHB := by
   rw [Subgroup.zpowers_le]
@@ -237,6 +380,37 @@ instance B_normal_CHB : (M.B.subgroupOf M.CHB).Normal :=
     rw [e]
     exact hx⟩
 
+theorem lemma_J25 :
+    Nonempty (↥(ruQ M.T ⊓ Subgroup.centralizer (M.B : Set G)) ≃* QuaternionGroup 2) ∧
+      Nonempty ((↥M.CHB ⧸ M.B.subgroupOf M.CHB) ≃* CFSG.Open.SemidihedralGroup 4) := by
+  refine ⟨M.lemma_J23_7, ?_⟩
+  obtain ⟨e⟩ := M.TB_semidihedral
+  let f : M.TB →* ↥M.CHB ⧸ M.B.subgroupOf M.CHB :=
+    (QuotientGroup.mk' _).comp (Subgroup.inclusion M.TB_le_CHB)
+  have hinj : Function.Injective f := by
+    rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
+    intro x hx
+    rw [MonoidHom.mem_ker] at hx
+    have hxB : ((x : M.TB) : G) ∈ M.B := by
+      have : Subgroup.inclusion M.TB_le_CHB x ∈ M.B.subgroupOf M.CHB :=
+        (QuotientGroup.eq_one_iff _).mp hx
+      exact Subgroup.mem_subgroupOf.mp this
+    have h3 : orderOf ((x : M.TB) : G) ∣ 3 := by
+      rw [← M.card_B]
+      exact Subgroup.orderOf_dvd_natCard _ hxB
+    have h16 : orderOf ((x : M.TB) : G) ∣ 16 := by
+      rw [← M.card_TB]
+      exact Subgroup.orderOf_dvd_natCard _ x.2
+    have h1 : orderOf ((x : M.TB) : G) = 1 := Nat.eq_one_of_dvd_coprimes (by norm_num) h3 h16
+    rw [Subgroup.mem_bot]
+    exact Subtype.ext (orderOf_eq_one_iff.mp h1)
+  have hcard : Nat.card (↥M.CHB ⧸ M.B.subgroupOf M.CHB) = 16 := by
+    have h := Subgroup.card_eq_card_quotient_mul_card_subgroup (M.B.subgroupOf M.CHB)
+    rw [M.card_CHB, card_subgroupOf_of_le M.B_le_CHB, M.card_B] at h
+    omega
+  have hbij : Function.Bijective f :=
+    hinj.bijective_of_nat_card_le (by rw [hcard, M.card_TB])
+  exact ⟨(MulEquiv.ofBijective f hbij).symm.trans e⟩
 
 end RuDataM
 

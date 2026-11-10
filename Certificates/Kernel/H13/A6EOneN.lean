@@ -78,5 +78,9 @@ theorem g4Cls : grp4.chkCls = true := by decide +kernel
 theorem g4WitN : grp4.chkWitN (DofT AP) = true := by decide +kernel
 theorem g4Words : grp4.chkWords = true := by decide +kernel
 
+theorem g4WitN_neg :
+    ({ grp4 with wit := grp4.wit.map fun w => { w with K := w.K.take 2 } } : Grp).chkWitN
+      (DofT AP) = false := by
+  decide +kernel
 
 end CertificateChecks.A6EOneNK

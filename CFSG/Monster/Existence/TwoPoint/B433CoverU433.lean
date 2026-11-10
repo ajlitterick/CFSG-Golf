@@ -11,11 +11,28 @@ open CFSG.Certificates.CosetEnumeration (evalWord)
 
 @[expose] noncomputable def xU : ℕ → U433 := nodeProd (yGen 4 3 3) (yGen 4 3 3 10)
 
+theorem xU_zero : xU 0 = 1 := nodeProd_zero _ _
+
+theorem xU_one : xU 1 = yGen 4 3 3 10 := nodeProd_one _ _
+
+theorem xU_eq {j : ℕ} (hj : 0 < j) (hj' : j < 23) :
+    xU j = xU (nodeParent j) *
+      (evalWord (yGen 4 3 3) (nodeWord j) * yGen 4 3 3 10 *
+        (evalWord (yGen 4 3 3) (nodeWord j))⁻¹) :=
+  nodeProd_eq _ _ hj hj'
+
+theorem xU_eq_evalWord (j : ℕ) : xU j = evalWord (yGen 4 3 3) (nodeLetters j) :=
+  nodeProd_eq_evalWord rfl (fun l _ => yGen_mul_self 4 3 3 l) j
 
 theorem map_xU {G : Type*} [Group G] (f : U433 →* G) (j : ℕ) :
     f (xU j) = nodeProd (fun l => f (yGen 4 3 3 l)) (f (yGen 4 3 3 10)) j :=
   nodeProd_map f _ _ j
 
+theorem map_xU_of_gen {G : Type*} [Group G] (f : U433 →* G) (gen : ℕ → G)
+    (h : ∀ l ≤ 10, f (yGen 4 3 3 l) = gen l) (j : ℕ) :
+    f (xU j) = nodeProd gen (gen 10) j := by
+  rw [map_xU, ← h 10 le_rfl]
+  exact nodeProd_congr (fun l hl => h l hl.le) _ j
 
 theorem qB_xU (j : ℕ) : qB (xU j) = xB j := by
   rw [xU, nodeProd_map, xB]

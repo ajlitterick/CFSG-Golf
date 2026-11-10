@@ -18,6 +18,83 @@ theorem fi22CentSylows_eq :
       (4, 3, 81), (4, 5, 5), (4, 7, 7)] := by
   rfl
 
+theorem fi22SylSeeds_size (s : ℕ) : (fi22SylSeeds s).size = fi22CentSylowField s 4 := by
+  simp [fi22SylSeeds]
+
+theorem fi22SylGens_size (s : ℕ) : (fi22SylGens s).size = 2 * fi22CentSylowField s 4 := by
+  simp [fi22SylGens, fi22SylSeeds_size]
+  omega
+
+theorem fi22SylSeeds_get {s i : ℕ} (hi : i < fi22CentSylowField s 4) :
+    (fi22SylSeeds s)[i]! = fi22CentArr (fi22CentSylowField s 3 + i) := by
+  rw [getElem!_pos _ i (by rw [fi22SylSeeds_size]; exact hi)]
+  simp [fi22SylSeeds]
+
+@[expose] def fi22SylGen (s i : ℕ) : Equiv.Perm (Fin 3510) :=
+  if i < fi22CentSylowField s 4 then fi22CentPerm (fi22CentSylowField s 3 + i)
+  else (fi22CentPerm (fi22CentSylowField s 3 + (i - fi22CentSylowField s 4)))⁻¹
+
+theorem fi22CentSylowField_lines {s : ℕ} (hs : s < 11) :
+    fi22CentSylowField s 3 + fi22CentSylowField s 4 ≤ 108 ∧
+      80 ≤ fi22CentSylowField s 3 := by
+  interval_cases s <;> decide
+
+theorem fi22CentWitField_lines {w : ℕ} (hw : w < 66) :
+    fi22CentWitField w 0 < 306 ∧ fi22CentWitField w 1 < 306 := by
+  interval_cases w <;> decide
+
+theorem fi22CentSylowField_wits {s : ℕ} (hs : s < 11) :
+    fi22CentSylowField s 6 + fi22CentSylowField s 7 ≤ 66 := by
+  interval_cases s <;> decide
+
+theorem rep_fi22SylGens
+    {s : ℕ} (hs : s < 11) {i : ℕ} (hi : i < (fi22SylGens s).size) :
+    Rep 3510 (fi22SylGens s)[i]! (fi22SylGen s i) := by
+  have hl := fi22CentSylowField_lines hs
+  rw [fi22SylGens_size] at hi
+  by_cases h : i < fi22CentSylowField s 4
+  · rw [fi22SylGens, getElem!_pos _ i (by simp [fi22SylSeeds_size]; omega),
+      Array.getElem_append_left (by simpa [fi22SylSeeds_size] using h),
+      ← getElem!_pos _ i (by simpa [fi22SylSeeds_size] using h), fi22SylSeeds_get h, fi22SylGen,
+      ite_eq_left h]
+    exact rep_fi22CentPerm (by omega)
+  · rw [fi22SylGens, getElem!_pos _ i (by simp [fi22SylSeeds_size]; omega),
+      Array.getElem_append_right (by simp [fi22SylSeeds_size]; omega)]
+    simp only [Array.getElem_map, fi22SylSeeds_size]
+    rw [← getElem!_pos _ _ (by simp [fi22SylSeeds_size]; omega),
+      fi22SylSeeds_get (by omega), fi22SylGen, ite_eq_right h]
+    exact rep_fi22CentPerm_inv (by omega)
+
+theorem gensClosure_fi22SylGens {s : ℕ} (_hs : s < 11) :
+    gensClosure (fi22SylGens s) (fi22SylGen s) = fi22CentSylowSub s := by
+  apply le_antisymm
+  · rw [gensClosure, Subgroup.closure_le]
+    rintro _ ⟨i, hi, rfl⟩
+    rw [fi22SylGens_size] at hi
+    by_cases h : i < fi22CentSylowField s 4
+    · rw [fi22SylGen, ite_eq_left h]
+      exact Subgroup.subset_closure ⟨i, h, rfl⟩
+    · rw [fi22SylGen, ite_eq_right h]
+      exact Subgroup.inv_mem _ (Subgroup.subset_closure ⟨i - fi22CentSylowField s 4, by omega, rfl⟩)
+  · rw [fi22CentSylowSub, Subgroup.closure_le]
+    rintro _ ⟨i, hi, rfl⟩
+    refine Subgroup.subset_closure ⟨i, by rw [fi22SylGens_size]; omega, ?_⟩
+    rw [fi22SylGen, ite_eq_left hi]
+
+theorem fi22SylWits_get {s w : ℕ} (hw : w < fi22CentSylowField s 7) :
+    (fi22SylWits s)[w]! = fi22CentArr (fi22CentWitField (fi22CentSylowField s 6 + w) 0) := by
+  rw [getElem!_pos _ w (by simpa [fi22SylWits] using hw)]
+  simp [fi22SylWits]
+
+theorem fi22SylWits_size (s : ℕ) : (fi22SylWits s).size = fi22CentSylowField s 7 := by
+  simp [fi22SylWits]
+
+theorem rep_fi22SylWits
+    {s w : ℕ} (hs : s < 11) (hw : w < fi22CentSylowField s 7) :
+    Rep 3510 (fi22SylWits s)[w]! (fi22SylX s w) := by
+  have hwl := fi22CentSylowField_wits hs
+  rw [fi22SylWits_get hw]
+  exact rep_fi22CentPerm (fi22CentWitField_lines (by omega)).1
 
 theorem factorization_eq_of_mul {N p a m : ℕ} (hp : p.Prime) (hN : N = p ^ a * m) (hm : ¬ p ∣ m) :
     N.factorization p = a := by

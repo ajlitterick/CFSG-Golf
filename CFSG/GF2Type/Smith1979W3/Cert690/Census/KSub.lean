@@ -10,9 +10,6 @@ open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62
 
 variable {minus : Bool} {D : GrpData} {gens elems : Array ℕ} {par : Array (ℕ × ℕ)}
 
-
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent in
-
 end CFSG.GF2Type.Smith1979W3.Cert690
 
 end

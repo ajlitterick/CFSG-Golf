@@ -83,6 +83,9 @@ theorem testBit_packN (f : ℕ → Bool) :
       rw [hj']
       split_ifs <;> simp [Ne.symm hj]
 
+theorem bvec_packN (f : ℕ → Bool) (n : ℕ) (i : Fin n) :
+    bvec n (Model.packN f n) i = boolZ (f i) := by
+  rw [bvec_eq_boolZ, testBit_packN, decide_eq_true i.2, Bool.true_and]
 
 theorem bvec_ite (k : ℕ) (b : Bool) (m : ℕ) :
     bvec k (if b then m else 0) = boolZ b • bvec k m := by
@@ -106,6 +109,7 @@ theorem testBit_combN_two_pow_lt {m : ℕ → ℕ} {n : ℕ} (a i : ℕ) (hm : �
     · exact hm n (Nat.lt_succ_self n)
     · exact Nat.two_pow_pos i
 
+theorem bmaskN_eq : Model.bmaskN = Bmask := rfl
 
 theorem umaskN_eq : Model.umaskN = Umask := rfl
 
@@ -161,6 +165,13 @@ theorem toC_coeffN {w : ℕ} (h : bvec 24 w ∈ C) : toC (Model.coeffN w) = ⟨b
   rw [← coe_dot_Umask, bvec_dotProduct_eq_boolZ, Model.coeffN, testBit_packN,
     decide_eq_true j.2, Bool.true_and, umaskN_eq]
 
+theorem coe_toC_coeffN {w : ℕ} (h : bvec 24 w ∈ C) :
+    (toC (Model.coeffN w) : Fin 24 → ZMod 2) = bvec 24 w := by
+  rw [toC_coeffN h]
+
+theorem bvec_wordN_mem (a : ℕ) : bvec 24 (Model.wordN a) ∈ C := by
+  rw [← coe_toC]
+  exact (toC a).2
 
 @[expose] def toD (d : ℕ) : Cocode := Submodule.Quotient.mk (bvec 24 (Model.repN d))
 
@@ -239,6 +250,15 @@ theorem combN_congr (m : ℕ → ℕ) {a b : ℕ} :
     rw [Model.combN, Model.combN, combN_congr m n fun j hj => h j (Nat.lt_succ_of_lt hj),
       h n (Nat.lt_succ_self n)]
 
+theorem combN_eq_of_testBit (m : ℕ → ℕ) {a n : ℕ} :
+    ∀ k, n ≤ k → (∀ j, n ≤ j → j < k → a.testBit j = false) → Model.combN m k a = Model.combN m n a
+  | 0, hk, _ => by rw [Nat.le_zero.1 hk]
+  | k + 1, hk, h => by
+    rcases Nat.lt_or_ge n (k + 1) with hn | hn
+    · rw [Model.combN, combN_eq_of_testBit m k (Nat.lt_succ_iff.1 hn)
+        fun j hj hjk => h j hj (Nat.lt_succ_of_lt hjk), h k (Nat.lt_succ_iff.1 hn) (Nat.lt_succ_self k)]
+      simp
+    · rw [Nat.le_antisymm hk hn]
 
 theorem thetaRec_congr {a b : ℕ} :
     ∀ n, (∀ j < n, a.testBit j = b.testBit j) → Model.thetaRec n a = Model.thetaRec n b

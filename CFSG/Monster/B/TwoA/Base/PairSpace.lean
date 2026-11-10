@@ -256,5 +256,8 @@ theorem ker_resHomU : (resHomU U).ker = (wFix (U : Set (Wv v0))).subgroupOf (wSe
   · intro h x hx
     exact (fix_inv_iff _ x).2 (mem_wFix.1 h x hx)
 
+theorem wFix_le_wSetStab : wFix (U : Set (Wv v0)) ≤ wSetStab U := fun _ hk x hx => by
+  rw [(mem_wFix.1 hk) x hx]
+  exact hx
 
 end CFSG.Monster.B.TwoA

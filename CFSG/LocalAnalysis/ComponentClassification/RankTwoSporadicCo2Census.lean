@@ -324,6 +324,11 @@ theorem perfOK_spec (hps : ∀ p ∈ ps, p < n)
       have hRP' : R = Pg := eq_of_le_of_card_ge hRP (by rw [hPcard, ← hRsize, hRcard])
       exact hRP' ▸ hRle
 
+theorem allPermsOK_of_rootCertOK [NeZero n]
+    (h : rootCertOK n ps fuel inX inW pw bmode skip r = true) :
+    allPermsOK n r.strong = true := by
+  simp only [rootCertOK, Bool.and_eq_true] at h
+  exact h.1.1.1.1.1.1.1.1.1.2
 
 theorem root_spec [NeZero n] (hps : ∀ p ∈ ps, p < n)
     (hsX : ∀ a g, Rep n a g → inX a = true → g ∈ X)
@@ -530,8 +535,53 @@ end Soundness
 
 section Decode
 
+variable (tk : Array ℕ) (regs : Array (Array ℕ))
+
+@[expose] def rdNat (p : ℕ) : ℕ × ℕ := (tk[p]!, p + 1)
+
+@[expose] def rdPerf (p : ℕ) : PerfCert × ℕ :=
+  let g := rdListC tk (rdPow tk (rdNat tk)) p
+  let c := rdListC tk (rdPair tk) g.2
+  let q := c.2
+  let cj := rdListC tk (rdNat tk) (q + 2)
+  (⟨g.1, c.1, tk[q]!, tk[q + 1]!, cj.1⟩, cj.2)
+
+@[expose] def rdCand (p : ℕ) : RootWit × ℕ :=
+  if tk[p]! = 0 then (.perf tk[p + 1]!, p + 2)
+  else if tk[p]! = 2 then
+    let l := rdListC tk (rdNat tk) (p + 1)
+    (.ord4p l.1 tk[l.2]!, l.2 + 1)
+  else if tk[p]! = 3 then
+    (.ord4c tk[p + 1]! (regs[tk[p + 2]!]!) (regs[tk[p + 3]!]!) tk[p + 4]!, p + 5)
+  else (.ord4 tk[p + 1]! tk[p + 2]!, p + 3)
+
+@[expose] def rdRoot (x : Array ℕ) (p : ℕ) : RootCert × ℕ :=
+  let s := rdListC tk (rdReg tk regs) p
+  let b := rdListC tk (rdNat tk) s.2
+  let c := rdListC tk (rdReg tk regs) b.2
+  let g := rdListC tk (rdPair tk) c.2
+  let f := rdListC tk (rdPerf tk) g.2
+  let d := rdListC tk (rdCand tk regs) f.2
+  (⟨x, s.1.toArray, b.1, c.1.toArray, g.1.toArray, f.1.toArray, d.1⟩, d.2)
+
+@[expose] def rdRoots : List (Array ℕ) → ℕ → List RootCert
+  | [], _ => []
+  | x :: xs, p => (rdRoot tk regs x p).1 :: rdRoots xs (rdRoot tk regs x p).2
+
+theorem rdRoots_x : ∀ (xs : List (Array ℕ)) (p : ℕ), (rdRoots tk regs xs p).map RootCert.x = xs
+  | [], _ => rfl
+  | x :: xs, p => by
+    rw [rdRoots, List.map_cons, rdRoots_x xs]
+    rfl
 
 end Decode
 
+@[expose] def decodeRoots (regs : Array (Array ℕ)) (xs : List (Array ℕ)) (s : String) :
+    List RootCert :=
+  rdRoots (decodeNats s) regs xs 0
+
+theorem decodeRoots_x (regs : Array (Array ℕ)) (xs : List (Array ℕ)) (s : String) :
+    (decodeRoots regs xs s).map RootCert.x = xs :=
+  rdRoots_x _ regs xs 0
 
 end CFSG.ComponentClassification.RankTwoSporadic.RootCensus

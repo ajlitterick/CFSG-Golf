@@ -31,6 +31,10 @@ theorem ggTPNLocal_three {X : Type*} [Group X] {A : Subgroup (MulAut X)} {σ : M
     (J : Subgroup X) : Prop :=
   ∀ a ∈ A, (∀ j ∈ J, a j = j) → a ∈ Subgroup.zpowers σ
 
+theorem ggTPNLocal_of_core_kernel {p : ℕ} {X : Type*} [Group X] {A : Subgroup (MulAut X)}
+    {σ : MulAut X} {J : Subgroup X} (hc : GGTPNLocalCore p A σ J) (hk : GGTPNKernel A σ J) :
+    GGTPNLocal p A σ J :=
+  ⟨hc, hk⟩
 
 @[expose] def GGTPNRank (p : ℕ) (X : Type) [Group X] [Finite X] (A : Subgroup (MulAut X)) : Prop :=
   ∃ m : ℕ, Nat.card A = p ^ m ∧
@@ -110,6 +114,10 @@ theorem ggTPNLocal_three {X : Type*} [Group X] {A : Subgroup (MulAut X)} {σ : M
       LargeEvenInLambda2 labX → R p n labJ labX → GGHasLabel labJ (↥J ⧸ Subgroup.center ↥J) →
       GGHasLabel labX (X ⧸ Subgroup.center X) → GGTPNRow p J
 
+theorem GGTablePKnownR.toRK {R : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → Prop}
+    (h : GGTablePKnownR R) : GGTablePKnownRK R :=
+  fun p hp hp2 X _ _ A Ab σ J n hd _ labJ labX hJ hX hr hhJ hhX =>
+    h p hp hp2 X A Ab σ J n hd labJ labX hJ hX hr hhJ hhX
 
 end Datum
 
@@ -146,6 +154,47 @@ theorem GGTablePKnownOn.union {S₁ S₂ : ℕ → LargeEvenLabel → Prop}
       (fun hm₁ => h₁ p hp hp2 X A σ J ⟨⟨hloc, hcard, hrank, hself, honly, hm₁⟩, hcor⟩)
       (fun hm₂ => h₂ p hp hp2 X A σ J ⟨⟨hloc, hcard, hrank, hself, honly, hm₂⟩, hcor⟩)
 
+@[expose] def GGTPNTypeAGen (p : ℕ) (lab : LargeEvenLabel) : Prop :=
+  (lab.tag = .A ∨ lab.tag = .twA) ∧ ¬ (p = 7 ∧ lab = ⟨.A, 8, 1⟩)
+
+@[expose] def GGTPNA8Seven (p : ℕ) (lab : LargeEvenLabel) : Prop :=
+  p = 7 ∧ lab = ⟨.A, 8, 1⟩
+
+@[expose] def GGTPNTypeBC (_ : ℕ) (lab : LargeEvenLabel) : Prop :=
+  lab.tag = .B ∨ lab.tag = .C
+
+@[expose] def GGTPNTypeD (_ : ℕ) (lab : LargeEvenLabel) : Prop :=
+  lab.tag = .D ∨ lab.tag = .twD
+
+@[expose] def GGTPNE6Three (p : ℕ) (lab : LargeEvenLabel) : Prop :=
+  (lab.tag = .E6 ∨ lab.tag = .twE6) ∧ p = 3
+
+@[expose] def GGTPNE6Seven (p : ℕ) (lab : LargeEvenLabel) : Prop :=
+  lab.tag = .E6 ∧ lab.n = 1 ∧ p = 7
+
+@[expose] def GGTPNExcGen (p : ℕ) (lab : LargeEvenLabel) : Prop :=
+  (lab.tag = .F4 ∨ lab.tag = .E6 ∨ lab.tag = .twE6 ∨ lab.tag = .E7 ∨ lab.tag = .E8) ∧
+    ¬ GGTPNE6Three p lab ∧ ¬ GGTPNE6Seven p lab
+
+@[expose] def GGTPNSmall (_ : ℕ) (lab : LargeEvenLabel) : Prop :=
+  lab.tag = .G2 ∨ lab.tag = .G2der ∨ lab.tag = .triD4 ∨ lab.tag = .twB2 ∨ lab.tag = .twF4 ∨
+    lab.tag = .twF4der ∨ lab.tag = .B2der
+
+theorem ggTPN_regimes_cover (p : ℕ) (lab : LargeEvenLabel) :
+    GGTPNTypeAGen p lab ∨ GGTPNA8Seven p lab ∨ GGTPNE6Three p lab ∨ GGTPNE6Seven p lab ∨
+      GGTPNExcGen p lab ∨ GGTPNTypeBC p lab ∨ GGTPNTypeD p lab ∨ GGTPNSmall p lab := by
+  obtain ⟨t, r, n⟩ := lab
+  simp only [GGTPNTypeAGen, GGTPNA8Seven, GGTPNE6Three, GGTPNE6Seven, GGTPNExcGen, GGTPNTypeBC,
+    GGTPNTypeD, GGTPNSmall]
+  cases t <;> simp <;> tauto
+
+theorem ggTablePKnown_of_pieces (hA : GGTablePKnownOn GGTPNTypeAGen)
+    (hA8 : GGTablePKnownOn GGTPNA8Seven) (hE3 : GGTablePKnownOn GGTPNE6Three)
+    (hE7 : GGTablePKnownOn GGTPNE6Seven) (hEx : GGTablePKnownOn GGTPNExcGen)
+    (hBC : GGTablePKnownOn GGTPNTypeBC) (hD : GGTablePKnownOn GGTPNTypeD)
+    (hS : GGTablePKnownOn GGTPNSmall) : GGTablePKnownOn fun _ _ => True :=
+  GGTablePKnownOn.mono (fun q lab _ => ggTPN_regimes_cover q lab)
+    (hA.union (hA8.union (hE3.union (hE7.union (hEx.union (hBC.union (hD.union hS)))))))
 
 end Regimes
 
@@ -157,6 +206,23 @@ theorem ggInnerDiagOn_le_normalizer {G : Type} [Group G] {Bs K : Subgroup G}
   obtain ⟨R, _, I, F, -, -, θ, hN, -⟩ := largeEvenRawDatum_exists hraw
   exact hN
 
+@[expose] def GGTPNTransferB : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G) (hc : GGConfig p B Bs x L D J), GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K →
+    ∃ (hJK : J ≤ K) (hN : Bs ≤ Subgroup.normalizer (K : Set G))
+      (hx : x ∈ Subgroup.normalizer (K : Set G)),
+      GGTPNDatumB p (Nat.card Bs) (fun _ _ => True) (ggAutsOf K Bs hN)
+        (ggAutsOf K B (hc.2.1.1.trans hN)) (K.normalizerMonoidHom ⟨x, hx⟩) (J.subgroupOf K)
+
+@[expose] def GGTPNTransferI1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K → Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D →
+    ∃ (hJK : J ≤ K) (hN : Bs ≤ Subgroup.normalizer (K : Set G))
+      (hx : x ∈ Subgroup.normalizer (K : Set G)),
+      GGTPNDatum p (fun _ _ => True) (ggAutsOf K Bs hN)
+        (K.normalizerMonoidHom ⟨x, hx⟩) (J.subgroupOf K)
 
 @[expose] def GGTPNTrLocal : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -184,6 +250,17 @@ theorem ggInnerDiagOn_le_normalizer {G : Type} [Group G] {Bs K : Subgroup G}
       GGTPNFlat p (ggAutsOf K Bs hN) (ggAutsOf K B (hc.2.1.1.trans hN))
         (K.normalizerMonoidHom ⟨x, hx⟩) (J.subgroupOf K)
 
+@[expose] def GGTPNTrCard : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K →
+    ∀ (hN : Bs ≤ Subgroup.normalizer (K : Set G)), p ^ 3 ≤ Nat.card (ggAutsOf K Bs hN)
+
+@[expose] def GGTPNTrRank : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K →
+    ∀ (hN : Bs ≤ Subgroup.normalizer (K : Set G)), GGTPNRank p K (ggAutsOf K Bs hN)
 
 @[expose] def GGTPNTrCardB : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -226,6 +303,47 @@ theorem ggInnerDiagOn_le_normalizer {G : Type} [Group G] {Bs K : Subgroup G}
     ∀ (hN : Bs ≤ Subgroup.normalizer (K : Set G)),
       GGTPNMarked p (fun _ _ => True) (ggAutsOf K Bs hN)
 
+@[expose] def GGTPNTrHalfJ : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K → ∀ (_ : J ≤ K), p = 7 →
+      GGHasLabel ⟨.E6, 0, 1⟩ (K ⧸ Subgroup.center K) → GGTPNHalfJ p (J.subgroupOf K)
+
+@[expose] def GGTPNTrRankJ : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K → ∀ (_ : J ≤ K), p = 3 → ∀ n : ℕ,
+      GGHasLabel ⟨.twA, 5, n⟩ (K ⧸ Subgroup.center K) → GGTPNRankJ (J.subgroupOf K)
+
+theorem ggTPNTransferB_of_clauses (hSub : GGNbrSubcomponentInput)
+    (hLocCore : GGTPNTrLocalCore) (hFlat : GGTPNTrFlat) (hCardB : GGTPNTrCardB)
+    (hRankB : GGTPNTrRankB) (hNum : GGTPNTrNum) (hSelf : GGTPNTrSelfCent) (hOnly : GGTPNTrOnly)
+    (hMark : GGTPNTrMarked) (hHalf : GGTPNTrHalfJ) (hRk : GGTPNTrRankJ) : GGTPNTransferB := by
+  intro G _ _ p B Bs x L D J y K hc hL hK hn
+  have hJK : J ≤ K := hSub G p B x L D J hc.1 hc.2.2 y K hn
+  have hN : Bs ≤ Subgroup.normalizer (K : Set G) := ggInnerDiagOn_le_normalizer hK
+  have hx : x ∈ Subgroup.normalizer (K : Set G) := hN (hc.2.1.1 hc.1.2.2.2.2.2.2.1.2.1)
+  exact ⟨hJK, hN, hx, ⟨⟨hLocCore G p B Bs x L D J y K hc hL hK hn hJK hN hx,
+      hFlat G p B Bs x L D J y K hc hL hK hn hJK hN hx,
+      hCardB G p B Bs x L D J y K hc hL hK hn hN, hRankB G p B Bs x L D J y K hc hL hK hn hN,
+      hNum G p B Bs x L D J y K hc hL hK hn hN, hSelf G p B Bs x L D J y K hc hL hK hn hN,
+      hOnly G p B Bs x L D J y K hc hL hK hn hJK hx, hMark G p B Bs x L D J y K hc hL hK hn hN⟩,
+    fun h7 hl => hHalf G p B Bs x L D J y K hc hL hK hn hJK h7 hl,
+    fun h3 n hl => hRk G p B Bs x L D J y K hc hL hK hn hJK h3 n hl⟩⟩
+
+theorem ggTPNTransferI1_of_clauses (hSub : GGNbrSubcomponentInput) (hLoc : GGTPNTrLocal)
+    (hCard : GGTPNTrCard) (hRank : GGTPNTrRank) (hSelf : GGTPNTrSelfCent) (hOnly : GGTPNTrOnly)
+    (hMark : GGTPNTrMarked) (hHalf : GGTPNTrHalfJ) (hRk : GGTPNTrRankJ) : GGTPNTransferI1 := by
+  intro G _ _ p B Bs x L D J y K hc hL hK hn hI1
+  have hJK : J ≤ K := hSub G p B x L D J hc.1 hc.2.2 y K hn
+  have hN : Bs ≤ Subgroup.normalizer (K : Set G) := ggInnerDiagOn_le_normalizer hK
+  have hx : x ∈ Subgroup.normalizer (K : Set G) := hN (hc.2.1.1 hc.1.2.2.2.2.2.2.1.2.1)
+  exact ⟨hJK, hN, hx, ⟨⟨hLoc G p B Bs x L D J y K hc hL hK hn hJK hN hx hI1,
+    hCard G p B Bs x L D J y K hc hL hK hn hN, hRank G p B Bs x L D J y K hc hL hK hn hN,
+    hSelf G p B Bs x L D J y K hc hL hK hn hN, hOnly G p B Bs x L D J y K hc hL hK hn hJK hx,
+    hMark G p B Bs x L D J y K hc hL hK hn hN⟩,
+    fun h7 hl => hHalf G p B Bs x L D J y K hc hL hK hn hJK h7 hl,
+    fun h3 n hl => hRk G p B Bs x L D J y K hc hL hK hn hJK h3 n hl⟩⟩
 
 theorem ggHasLabel_quotCenter_of_mulEquiv {A B : Type} [Group A] [Group B] (e : A ≃* B)
     {lab : LargeEvenLabel} (h : GGHasLabel lab (A ⧸ Subgroup.center A)) :
@@ -239,6 +357,40 @@ theorem ggHasLabel_quotCenter_of_mulEquiv {A B : Type} [Group A] [Group B] (e : 
       · intro hb
         exact ⟨e.symm b, (mem_center_iff_of_mulEquiv e _).1 (by simpa using hb), by simp⟩)) h
 
+theorem ggNbrTablePNbrInputI1_of_known (hT : GGTPNTransferI1)
+    (hK : GGTablePKnownOn fun _ _ => True) : GGNbrTablePNbrInputI1 := by
+  intro G _ _ p B Bs x L D J y K hc hL hKi hn hI1 labJ labK _ _ _ _
+  obtain ⟨hJK, hN, hx, hD⟩ := hT G p B Bs x L D J y K hc hL hKi hn hI1
+  have hβ := hc.1.2.2.2.2.2.1
+  obtain ⟨labJ', labX', hΛJ, hΛX, hrow, hJ', hX'⟩ :=
+    hK p hβ.1 hβ.2.1 ↥K (ggAutsOf K Bs hN) _ (J.subgroupOf K) hD
+  exact ⟨labJ', labX', hΛJ, hΛX, hrow,
+    ggHasLabel_quotCenter_of_mulEquiv (Subgroup.subgroupOfEquivOfLe hJK) hJ', hX'⟩
+
+theorem ggNbrTablePNbrInputI1_of_clauses_and_pieces (hSub : GGNbrSubcomponentInput)
+    (hLoc : GGTPNTrLocal) (hCard : GGTPNTrCard)
+    (hRank : GGTPNTrRank) (hSelf : GGTPNTrSelfCent)
+    (hOnly : GGTPNTrOnly) (hMark : GGTPNTrMarked) (hHalf : GGTPNTrHalfJ) (hRk : GGTPNTrRankJ)
+    (hA : GGTablePKnownOn GGTPNTypeAGen) (hA8 : GGTablePKnownOn GGTPNA8Seven)
+    (hE3 : GGTablePKnownOn GGTPNE6Three) (hE7 : GGTablePKnownOn GGTPNE6Seven)
+    (hEx : GGTablePKnownOn GGTPNExcGen) (hBC : GGTablePKnownOn GGTPNTypeBC)
+    (hD : GGTablePKnownOn GGTPNTypeD) (hS : GGTablePKnownOn GGTPNSmall) :
+    GGNbrTablePNbrInputI1 :=
+  ggNbrTablePNbrInputI1_of_known
+    (ggTPNTransferI1_of_clauses hSub hLoc hCard hRank hSelf hOnly hMark hHalf hRk)
+    (ggTablePKnown_of_pieces hA hA8 hE3 hE7 hEx hBC hD hS)
+
+theorem ggNbrTablePNbrInputOn_of_knownR {R : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → Prop}
+    (hT : GGTPNTransferB) (hK : GGTablePKnownR R) : GGNbrTablePNbrInputOn R := by
+  intro G _ _ p B Bs x L D J y K hc hL hKi hn labJ labK hΛJ hΛK hr hhJ hhK
+  obtain ⟨hJK, hN, hx, hD⟩ := hT G p B Bs x L D J y K hc hL hKi hn
+  have hβ := hc.1.2.2.2.2.2.1
+  obtain ⟨labJ', labX', hΛJ', hΛX', hrow, hJ', hX'⟩ :=
+    hK p hβ.1 hβ.2.1 ↥K (ggAutsOf K Bs hN) (ggAutsOf K B (hc.2.1.1.trans hN)) _ (J.subgroupOf K)
+      (Nat.card Bs) hD labJ labK hΛJ hΛK hr
+      (ggHasLabel_quotCenter_of_mulEquiv (Subgroup.subgroupOfEquivOfLe hJK).symm hhJ) hhK
+  exact ⟨labJ', labX', hΛJ', hΛX', hrow,
+    ggHasLabel_quotCenter_of_mulEquiv (Subgroup.subgroupOfEquivOfLe hJK) hJ', hX'⟩
 
 end Transfer
 

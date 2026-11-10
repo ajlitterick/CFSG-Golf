@@ -16,6 +16,13 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (S
 
 section SimplyLaced
 
+omit [Finite G] in
+theorem FrameGenerationModO.centralizerGenerationModO (hS : S ⊆ Ω)
+    (hrank : ∀ K ∈ S, ∃ E₀ ∈ signalizerFunctorEk 2 3 A, K ≤ Subgroup.centralizer (E₀ : Set G))
+    {a : G} (h : FrameGenerationModO Ω S a) : CentralizerGenerationModO Ω A a := by
+  refine h.trans (sup_le_sup_left (iSup₂_le fun K hK => iSup_le fun hKa => ?_) _)
+  obtain ⟨E₀, hE₀, hKE⟩ := hrank K hK
+  exact le_iSup₂_of_le E₀ hE₀ (le_inf hKE (le_centralizingLayer ⟨hS hK, hKa⟩))
 
 theorem FrameGenerationModO.cover (hΩ : InClass p f Ω) (hS : S ⊆ Ω) {a : G}
     (h : FrameGenerationModO Ω S a) : FrameCoversModO Ω S a := by
@@ -63,6 +70,15 @@ theorem FrameGenerationModO.cover (hΩ : InClass p f Ω) (hS : S ⊆ Ω) {a : G}
   rw [hz1, orderOf_one] at this
   exact absurd this (by norm_num)
 
+theorem FrameSide.of_frameGeneration (hL : LocalHypotheses p f Ω A) (hA : IsElemAbelian 2 A)
+    (h16 : 16 ≤ Nat.card A) (hS : S ⊆ Ω) (hne : S.Nonempty)
+    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
+    (hrank : ∀ K ∈ S, ∃ E₀ ∈ signalizerFunctorEk 2 3 A, K ≤ Subgroup.centralizer (E₀ : Set G))
+    (hgen : ∀ a ∈ A, IsFrameInvolution p f S a → FrameGenerationModO Ω S a) :
+    FrameSide p f Ω A S :=
+  FrameSide.of_cover hL hA h16 hS hne hinv
+    (fun a ha hfa => (hgen a ha hfa).centralizerGenerationModO hS hrank)
+    (fun a ha hfa => (hgen a ha hfa).cover hL.inClass hS)
 
 end SimplyLaced
 
@@ -81,6 +97,85 @@ private theorem comm_of_sq_eq_one {x y : G} (hE : ∀ z ∈ E, z * z = 1) (hx : 
     _ = y⁻¹ * x⁻¹ := mul_inv_rev x y
     _ = y * x := by rw [hxi, hyi]
 
+omit [Finite G] in
+theorem isElemAbelian_two_of_sq_eq_one (hE : ∀ x ∈ E, x * x = 1) : IsElemAbelian 2 E :=
+  ⟨⟨⟨fun x y => Subtype.ext (comm_of_sq_eq_one hE x.2 y.2)⟩⟩, fun x hx => by
+    rw [pow_two]
+    exact hE x hx⟩
+
+theorem exists_subgroup_card_eight_le {X : Subgroup G} (hE : IsElemAbelian 2 E) (hXE : X ≤ E)
+    (h8 : 8 ≤ Nat.card X) : ∃ E₀ ∈ signalizerFunctorEk 2 3 E, E₀ ≤ X := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  have hp : IsPGroup 2 X := by
+    refine IsPGroup.iff_orderOf.mpr fun g => ?_
+    have hg : orderOf g ∣ 2 := orderOf_dvd_of_pow_eq_one (Subtype.ext (hE.2 g (hXE g.2)))
+    rcases (Nat.dvd_prime Nat.prime_two).mp hg with h | h
+    · exact ⟨0, by simpa using h⟩
+    · exact ⟨1, by simpa using h⟩
+  obtain ⟨n, hn⟩ := hp.exists_card_eq
+  have h3 : 3 ≤ n := by
+    by_contra hlt
+    have : 2 ^ n ≤ 2 ^ 2 := Nat.pow_le_pow_right (by norm_num) (by omega)
+    omega
+  obtain ⟨K, hK⟩ := Sylow.exists_subgroup_card_pow_prime (G := X) 2 (n := 3)
+    (by rw [hn]; exact pow_dvd_pow 2 h3)
+  refine ⟨K.map X.subtype, ⟨(Subgroup.map_subtype_le K).trans hXE, ?_⟩, Subgroup.map_subtype_le K⟩
+  rw [Subgroup.card_map_of_injective X.subtype_injective, hK]
+
+theorem exists_rank3_of_relIndex_two (hE : IsElemAbelian 2 E) (h16 : 16 ≤ Nat.card E)
+    {K : Subgroup G} (h2 : (axisSub E K).relIndex E = 2) :
+    ∃ E₀ ∈ signalizerFunctorEk 2 3 E, K ≤ Subgroup.centralizer (E₀ : Set G) := by
+  have hXE : axisSub E K ≤ E := inf_le_left
+  have hmul := Subgroup.card_mul_index ((axisSub E K).subgroupOf E)
+  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hXE).toEquiv] at hmul
+  have hidx : ((axisSub E K).subgroupOf E).index = 2 := h2
+  rw [hidx] at hmul
+  obtain ⟨E₀, hE₀, hE₀X⟩ := exists_subgroup_card_eight_le hE hXE (by omega)
+  exact ⟨E₀, hE₀, Subgroup.le_centralizer_iff.mp (hE₀X.trans inf_le_right)⟩
+
+theorem exists_rank3_of_toralFrame {S : Set (Subgroup G)} (Fr : ToralFrame F Ω E S)
+    (h16 : 16 ≤ Nat.card E) {K : Subgroup G} (hK : K ∈ S) :
+    ∃ E₀ ∈ signalizerFunctorEk 2 3 E, K ≤ Subgroup.centralizer (E₀ : Set G) := by
+  obtain ⟨φ, rfl, hD⟩ := Fr.inSigma hK
+  exact exists_rank3_of_relIndex_two (isElemAbelian_two_of_sq_eq_one Fr.elem) h16 hD.index_two
+
+omit [Finite G] in
+theorem exists_involution_mem_of_toralFrame {S : Set (Subgroup G)} (Fr : ToralFrame F Ω E S)
+    (hΩ : InClass p f Ω) {K : Subgroup G} (hK : K ∈ S) :
+    ∃ z ∈ E, IsClassicalMember p f K z := by
+  obtain ⟨z₀, hz₀⟩ := hΩ.classical K (Fr.subset hK)
+  obtain ⟨z, hz⟩ := Fr.exists_isUniqueInvolution hK
+  have hne : z₀ ≠ 1 := by
+    intro h1
+    have := hz₀.orderOf_eq_two
+    rw [h1, orderOf_one] at this
+    exact absurd this (by norm_num)
+  have hzz : z₀ = z := (hz.unique z₀ hz₀.mem (sq_eq_one hz₀)).resolve_left hne
+  exact ⟨z₀, hzz ▸ Fr.mem_of_isUniqueInvolution hK hz, hz₀⟩
+
+theorem FrameSide.of_toralFrame {S : Set (Subgroup G)} (Fr : ToralFrame F Ω E S)
+    (hL : LocalHypotheses p f Ω E) (h16 : 16 ≤ Nat.card E)
+    (hgen : ∀ a ∈ E, IsFrameInvolution p f S a → FrameGenerationModO Ω S a) :
+    FrameSide p f Ω E S :=
+  FrameSide.of_frameGeneration hL (isElemAbelian_two_of_sq_eq_one Fr.elem) h16 Fr.subset
+    (let ⟨K, hK, _⟩ := Fr.exists_ne; ⟨K, hK⟩)
+    (fun _ hK => exists_involution_mem_of_toralFrame Fr hL.inClass hK)
+    (fun _ hK => exists_rank3_of_toralFrame Fr h16 hK) hgen
+
+theorem fusionGenerated_of_toralFrame {S : Set (Subgroup G)} (Fr : ToralFrame F Ω E S)
+    (hL : LocalHypotheses p f Ω E) (h16 : 16 ≤ Nat.card E)
+    (hgen : ∀ a ∈ E, IsFrameInvolution p f S a → FrameGenerationModO Ω S a)
+    (hconn : OmegaConnected Ω) : CFSG.ClassicalInvolution.Balance.FusionGenerated E :=
+  fusionGenerated_of_deltaClosure hL.inClass (FrameSide.of_toralFrame Fr hL h16 hgen) hconn
+
+theorem fusionGenerated_of_toralFrame_of_cover {S : Set (Subgroup G)} (Fr : ToralFrame F Ω E S)
+    (hL : LocalHypotheses p f Ω E) (h16 : 16 ≤ Nat.card E)
+    (hgen : ∀ a ∈ E, IsFrameInvolution p f S a → CentralizerGenerationModO Ω E a)
+    (hcover : ∀ a ∈ E, IsFrameInvolution p f S a → FrameCoversModO Ω S a)
+    (hconn : OmegaConnected Ω) : CFSG.ClassicalInvolution.Balance.FusionGenerated E :=
+  fusionGenerated_of_lie hL (isElemAbelian_two_of_sq_eq_one Fr.elem) h16 Fr.subset
+    (let ⟨K, hK, _⟩ := Fr.exists_ne; ⟨K, hK⟩)
+    (fun _ hK => exists_involution_mem_of_toralFrame Fr hL.inClass hK) hgen hcover hconn
 
 end Toral
 

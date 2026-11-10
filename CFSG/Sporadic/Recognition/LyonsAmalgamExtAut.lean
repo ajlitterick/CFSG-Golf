@@ -46,6 +46,26 @@ theorem conjNormal_bijective_of_card_le [Finite (MulAut Y)] (hC : centralizer (Y
   MulEquiv.ofBijective (MulAut.conjNormal : E →* MulAut Y)
     (conjNormal_bijective_of_card_le Y hC hcard)
 
+theorem conjNormalEquiv_apply [Finite (MulAut Y)] (hC : centralizer (Y : Set E) = ⊥)
+    (hcard : Nat.card (MulAut Y) ≤ Nat.card E) (e : E) (y : Y) :
+    (((conjNormalEquiv Y hC hcard e : MulAut Y) y : Y) : E) = e * y * e⁻¹ :=
+  MulAut.conjNormal_apply e y
+
+theorem card_mulAut_eq_card [Finite (MulAut Y)] (hC : centralizer (Y : Set E) = ⊥)
+    (hcard : Nat.card (MulAut Y) ≤ Nat.card E) : Nat.card (MulAut Y) = Nat.card E :=
+  (Nat.card_congr (conjNormalEquiv Y hC hcard).toEquiv).symm
+
+theorem existsUnique_conj_eq [Finite (MulAut Y)] (hC : centralizer (Y : Set E) = ⊥)
+    (hcard : Nat.card (MulAut Y) ≤ Nat.card E) (φ : MulAut Y) :
+    ∃! e : E, ∀ y : Y, ((φ y : Y) : E) = e * y * e⁻¹ := by
+  obtain ⟨e, he⟩ := (conjNormal_bijective_of_card_le Y hC hcard).2 φ
+  refine ⟨e, fun y => ?_, fun e' he' => ?_⟩
+  · rw [← he, MulAut.conjNormal_apply]
+  · apply conjNormal_injective_of_centralizer_eq_bot Y hC
+    rw [he]
+    ext y
+    rw [MulAut.conjNormal_apply]
+    exact (he' y).symm
 
 end Aut
 

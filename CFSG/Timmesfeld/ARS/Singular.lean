@@ -20,6 +20,33 @@ variable {G : Type*} [Group G] {R : Set (Subgroup G)}
 
 namespace Singular
 
+theorem card_pts_mul [Finite G] (hR : IsRootClass R) (hiso : NoIsolated R) {U : Subgroup G}
+    (hU : CoveredBy R U) {A : Subgroup G} (hA : A ∈ R) :
+    Nat.card (pts R U) * (Nat.card A - 1) = Nat.card U - 1 := by
+  classical
+  let f : (Σ D : pts R U, {x : G // x ∈ D.1 ∧ x ≠ 1}) → {x : G // x ∈ U ∧ x ≠ 1} :=
+    fun p => ⟨p.2.1, p.1.2.2 p.2.2.1, p.2.2.2⟩
+  have hf : Function.Bijective f := by
+    constructor
+    · rintro ⟨D, x, hx, hx1⟩ ⟨D', x', hx', hx'1⟩ h
+      have hxx : x = x' := congrArg Subtype.val h
+      subst hxx
+      have hDD : D = D' :=
+        Subtype.ext (Sec3.eq_of_mem_of_mem hR hiso D.2.1 D'.2.1 hx hx' hx1)
+      subst hDD
+      rfl
+    · rintro ⟨x, hx, hx1⟩
+      obtain ⟨T, hT, hTU, hxT⟩ := hU x hx hx1
+      exact ⟨⟨⟨T, hT, hTU⟩, x, hxT, hx1⟩, rfl⟩
+  have hcard := Nat.card_congr (Equiv.ofBijective f hf)
+  have : Fintype (pts R U) := Fintype.ofFinite _
+  rw [Nat.card_sigma, Plane.card_subtype_mem_ne_one] at hcard
+  rw [← hcard]
+  calc Nat.card (pts R U) * (Nat.card A - 1) = ∑ _D : pts R U, (Nat.card A - 1) := by
+        rw [Finset.sum_const, Finset.card_univ, smul_eq_mul, ← Nat.card_eq_fintype_card]
+    _ = ∑ D : pts R U, Nat.card {x : G // x ∈ D.1 ∧ x ≠ 1} :=
+        Finset.sum_congr rfl fun D _ => by
+          rw [Plane.card_subtype_mem_ne_one, hR.card_eq D.2.1 hA]
 
 variable (h : Hyp G R) {S : Set (Subgroup G)} (hS : S ⊆ R)
   (hcol : ∀ P ∈ S, ∀ Q ∈ S, P ≠ Q → Q ∈ lambdaSet R P)

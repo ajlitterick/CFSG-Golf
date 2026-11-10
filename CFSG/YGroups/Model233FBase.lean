@@ -102,5 +102,29 @@ theorem card_map_ctil_rho233F :
   rw [map_ctil_rho233F]
   exact y233C_check.2
 
+theorem ker_rho233F_le_ctil_of_index
+    (hidx : Ctil.index = 694980) : rho233F.ker ≤ Ctil := by
+  set D := Ctil ⊔ rho233F.ker with hD
+  have h1 := (Ctil.map rho233F).card_mul_index
+  have h2 := rho233F.range.card_mul_index
+  have h3 := Ctil.index_map rho233F
+  rw [card_map_ctil_rho233F] at h1
+  rw [card_range_rho233F] at h2
+  have hR : rho233F.range.index ≠ 0 := Subgroup.index_ne_zero_of_finite
+  have hDidx : D.index = 694980 := by
+    have h4 : (92897280 * D.index) * rho233F.range.index =
+        64561751654400 * rho233F.range.index := by
+      calc (92897280 * D.index) * rho233F.range.index
+          = 92897280 * (D.index * rho233F.range.index) := by ring
+        _ = 92897280 * (Ctil.map rho233F).index := by rw [h3]
+        _ = Nat.card (Equiv.Perm (Fin 3510)) := h1
+        _ = 64561751654400 * rho233F.range.index := h2.symm
+    have h5 := Nat.eq_of_mul_eq_mul_right (Nat.pos_of_ne_zero hR) h4
+    omega
+  have hle : Ctil ≤ D := le_sup_left
+  have h6 := Subgroup.relIndex_mul_index hle
+  rw [hidx, hDidx] at h6
+  have h7 : Ctil.relIndex D = 1 := by omega
+  exact le_sup_right.trans (Subgroup.relIndex_eq_one.1 h7)
 
 end CFSG.YGroups

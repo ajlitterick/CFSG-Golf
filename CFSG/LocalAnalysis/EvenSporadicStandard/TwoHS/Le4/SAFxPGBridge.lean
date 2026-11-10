@@ -83,6 +83,7 @@ theorem PGCore.ts (h : PGCore) : pgTau1 * pgS1 = pgS1 * pgTau1 :=
 theorem PGChi.fix0 (h : PGChi) : fixCount (pgRefl 0) = 0 := h.2.1
 theorem PGChi.fix1 (h : PGChi) : fixCount (pgRefl 1) = 2 := h.2.2.1
 theorem PGChi.fix2 (h : PGChi) : fixCount (pgRefl 2) = 0 := h.2.2.2.1
+theorem PGChi.fix3 (h : PGChi) : fixCount (pgRefl 3) = 2 := h.2.2.2.2.1
 theorem PGChi.fixS1 (h : PGChi) : fixCount pgS1 = 30 := h.2.2.2.2.2.1
 theorem PGChi.fixT1 (h : PGChi) : fixCount pgTau1 = 20 := h.2.2.2.2.2.2
 

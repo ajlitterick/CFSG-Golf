@@ -18,6 +18,7 @@ local notation "MatB" => Matrix (Fin 4370) (Fin 4370) (ZMod 2)
 
 @[expose] noncomputable def xBar : Cbar := xbar
 
+theorem xBar_eq : xBar = kappa xC := rfl
 
 theorem xBar_mul_self : xBar * xBar = 1 := xbar_mul_self
 

@@ -22,6 +22,10 @@ theorem letterOK_rho (s : Bool) {a : Nat} (d : Nat) (h : a < 4096) :
   rw [Nat.blt_eq]
   exact h
 
+theorem letterOK_perm {arr : Array Nat} (h : arr.size = 24) : letterOK (.perm arr) = true := by
+  change Nat.beq arr.size 24 = true
+  rw [h]
+  rfl
 
 theorem pairsLetterOK_getD {p : List (List Native.Gen × List Native.Gen)}
     (h : pairsLetterOK p = true) (k : Nat) :

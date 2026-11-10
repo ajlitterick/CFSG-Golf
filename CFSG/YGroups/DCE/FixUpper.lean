@@ -29,6 +29,14 @@ theorem cosetOf_mem_fixSet_iff {y : G} {e d : E} :
     group
   rw [h, inv_mem_iff]
 
+theorem smul_mem_fixLabels {y : G} {d : E} {ω₀ ω : X} (hω : ω ∈ S.fixLabels y d ω₀)
+    {s : E} (hs : s ∈ B.stabSub S y) : s • ω ∈ S.fixLabels y d ω₀ := by
+  obtain ⟨e, rfl, he⟩ := hω
+  refine ⟨e * s⁻¹, ?_, ?_⟩
+  · rw [mul_inv_rev, inv_inv, mul_smul]
+  · have : (e * s⁻¹)⁻¹ * d * (e * s⁻¹) = s * (e⁻¹ * d * e) * s⁻¹ := by group
+    rw [this]
+    exact mul_mem (mul_mem hs he) (inv_mem hs)
 
 theorem card_fix_node_le [Finite E] [Finite X] {y : G} {d : E} {ω₀ : X} {s : ℕ}
     (hs : (B.stabSub S y).index ≤ s) (Xc : Finset X)
@@ -120,6 +128,25 @@ theorem card_fix_node_le [Finite E] [Finite X] {y : G} {d : E} {ω₀ : X} {s : 
       _ = Xc.card * s * Nat.card (MulAction.stabilizer E ω₀) := by ring
   exact Nat.le_of_mul_le_mul_right h2 hpos
 
+theorem cover_of_points (r : ℕ) (x : ℕ → G) (hx0 : x 0 ∈ S.H)
+    (P : ℕ → Subgroup E) (hP : ∀ j < r, ∀ e ∈ P j, x j * S.ψ e * (x j)⁻¹ ∈ S.H)
+    (R : ℕ → Finset Ω) (hR : ∀ j < r, ∀ p : Ω, ∃ q ∈ R j, ∃ e ∈ P j, e • q = p)
+    (tgt : ℕ → Ω → ℕ) (u : ℕ → Ω → E)
+    (htgt : ∀ j < r, ∀ q ∈ R j, tgt j q < r ∧ S.RCoset (x j * S.T q) (x (tgt j q) * S.ψ (u j q)))
+    (hgen : Subgroup.closure ((S.H : Set G) ∪ {S.t}) = ⊤) (hr : 0 < r) :
+    ∀ c : G ⧸ S.H, ∃ i < r, ∃ e : E, c = S.cosetOf (x i) e := by
+  have hCH : (MulAction.stabilizer E S.o).map S.ψ ≤ S.H := Subgroup.map_le_range _ _
+  have htC : ∀ c ∈ (MulAction.stabilizer E S.o).map S.ψ, S.t * c = c * S.t := by
+    rintro _ ⟨e, he, rfl⟩
+    exact (S.stab_comm e he).symm
+  obtain ⟨D, hDx, -, -⟩ := S.exists_pointsData r x hx0 P hP R hR tgt u htgt hr
+  intro c
+  obtain ⟨⟨i, q⟩, hq⟩ := D.cosetMap_surjective hCH S.t_mul_t htC hgen c
+  induction q using QuotientGroup.induction_on with
+  | H k =>
+    obtain ⟨e, he⟩ := k.2
+    refine ⟨i, i.2, e, ?_⟩
+    rw [← hq, DoubleCosetData.cosetMap_mk, hDx, cosetOf, he]
 
 theorem card_centralizer_le [Finite G] [Finite E] [Finite X] {d : E} {ω₀ : X} (x : ℕ → G)
     (I : Finset ℕ) (hcover : ∀ c : G ⧸ S.H, ∃ i ∈ I, ∃ e : E, c = S.cosetOf (x i) e)

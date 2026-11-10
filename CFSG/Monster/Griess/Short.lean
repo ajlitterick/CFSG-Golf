@@ -50,6 +50,8 @@ theorem card_shortIdx : Nat.card ShortIdx = 98280 := by
 
 @[expose] noncomputable def rep (p : C × Cocode) : Q := spinEquiv ⟨0, p.1, p.2⟩
 
+theorem coe_rep (p : C × Cocode) : ((rep p : Q) : GL SpinIdx ℚ) = TU p.1 * DU p.2 := by
+  rw [rep, coe_spinEquiv, toGL_mk, ZMod.val_zero, pow_zero, one_mul]
 
 theorem coordOf_rep (p : C × Cocode) : coordOf (rep p) = p := by
   rw [coordOf, rep, MulEquiv.symm_apply_apply]
@@ -118,5 +120,19 @@ theorem uvec_mem (c : ShortIdx) : uvec c ∈ minVecs := (uvec_spec c).1
 
 theorem classOf_uvec (c : ShortIdx) : classOf (uvec c) = phi0 c.1 := (uvec_spec c).2.1
 
+theorem eq_uvec {c : ShortIdx} {v : Fin 24 → ℤ} (hv : v ∈ minVecs)
+    (hcl : classOf v = phi0 c.1) (hle : LexLE v (-v)) : v = uvec c := by
+  obtain ⟨hu, hclu, hleu⟩ := uvec_spec c
+  rcases (classOf_eq_iff hu hv).1 (hclu.trans hcl.symm) with h | h
+  · exact h
+  · exfalso
+    subst h
+    have h0 : uvec c ≠ 0 := minVecs_ne_zero hu
+    have hne : -uvec c ≠ uvec c := fun h => h0 (by
+      have h2 : uvec c + uvec c = 0 := by nth_rw 1 [← h]; exact neg_add_cancel _
+      have : (2 : ℤ) • uvec c = 0 := by rw [two_smul]; exact h2
+      exact (smul_eq_zero.1 this).resolve_left (by norm_num))
+    rw [neg_neg] at hle
+    exact hne (toLex.injective (le_antisymm hle hleu))
 
 end CFSG.Monster.Griess

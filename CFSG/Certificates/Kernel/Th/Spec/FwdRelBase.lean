@@ -95,6 +95,8 @@ end Letters
 
 section Words
 
+variable (hk : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE = true)
+include hk
 
 end Words
 

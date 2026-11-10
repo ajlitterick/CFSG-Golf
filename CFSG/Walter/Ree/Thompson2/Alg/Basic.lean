@@ -17,6 +17,18 @@ theorem pow_three_eq_self_iff {x : k} : x ^ 3 = x ↔ x = 0 ∨ x = 1 ∨ x = -1
   have e : x ^ 3 - x = x * ((x - 1) * (x + 1)) := by ring
   rw [← sub_eq_zero, e, mul_eq_zero, mul_eq_zero, sub_eq_zero, add_eq_zero_iff_eq_neg]
 
+theorem sigmaTwo_of_ree {σ : k ≃+* k} (hσ : ∀ x : k, σ (σ x) = x ^ 3) (x : k)
+    (h : σ x * x ^ 2 = 1) : x = 1 := by
+  have h' : x ^ 3 * σ x ^ 2 = 1 := by
+    have := congrArg σ h
+    rwa [map_mul, map_pow, hσ, map_one] at this
+  have hx : x ≠ 0 := by rintro rfl; simp at h
+  have e : x ^ 3 * (x - 1) = 0 := by
+    linear_combination x ^ 3 * (σ x * x ^ 2 + 1) * h - x ^ 4 * h'
+  rcases mul_eq_zero.1 e with e | e
+  · exact absurd (pow_eq_zero_iff (by norm_num) |>.1 e) hx
+  · linear_combination e
+
 
 section Exponent
 

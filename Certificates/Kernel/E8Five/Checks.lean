@@ -26,5 +26,12 @@ theorem ch14975kF1 : fixOK (rowsOfK mFix1 Tag.E8.artifactRoots) = true := by dec
 
 theorem ch14975kF2 : fixOK (rowsOfK mFix2 Tag.E8.artifactRoots) = true := by decide +kernel
 
+theorem ch14974k_negMask : maskOK (rowsOfK mEig2 Tag.E8.artifactRoots) mask3 = false := by
+  decide +kernel
+
+theorem ch14974k_negHyp : hypOKFrom 0 0 125 = false := by decide +kernel
+
+theorem ch14975k_negFix : fixOK (rowsOfK mEig2 Tag.E8.artifactRoots) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelE8Five

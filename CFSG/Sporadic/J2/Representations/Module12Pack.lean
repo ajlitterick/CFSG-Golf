@@ -39,6 +39,7 @@ theorem wordK_cons (d : ℕ) (P Q : ℕ → ℕ) (i : ℕ) (b : Bool) (w : List 
   List.rec (motive := fun _ => ℕ → ℕ) (fun _ => nat_lit 0)
     (fun a _ ih j => Nat.rec (motive := fun _ => ℕ) a (fun k _ => ih k) j) L
 
+theorem selN_cons_zero (a : ℕ) (L : List ℕ) : selN (a :: L) 0 = a := rfl
 
 theorem selN_cons_succ (a : ℕ) (L : List ℕ) (n : ℕ) : selN (a :: L) (n + 1) = selN L n := rfl
 

@@ -38,6 +38,9 @@ theorem isTotallyIsotropic_map_isometryEquiv {B : BilinForm K V} {B' : BilinForm
     show (W.1.map (φ.toLinearEquiv.symm : V' →ₗ[K] V)).map (φ.toLinearEquiv : V →ₗ[K] V') = W.1
     rw [← Submodule.map_comp, LinearEquiv.comp_symm, Submodule.map_id])
 
+theorem coe_isoSubEquivOf {B : BilinForm K V} {B' : BilinForm K V'} (φ : B.IsometryEquiv B')
+    (P : ℕ → Prop) (W : {W : Submodule K V // IsTotallyIsotropic B W ∧ P (finrank K W)}) :
+    (isoSubEquivOf φ P W : Submodule K V') = W.1.map (φ.toLinearEquiv : V →ₗ[K] V') := rfl
 
 end Transport
 

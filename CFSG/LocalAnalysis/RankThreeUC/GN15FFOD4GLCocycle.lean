@@ -30,6 +30,11 @@ theorem glDualAct_one (f : (Fin 4 → K) →+ Z) :
   simp only [inv_one, Units.val_one, Matrix.mulVecLin_one]
   exact AddMonoidHom.comp_id f
 
+theorem glTransAct_one (f : (Fin 4 → K) →+ Z) :
+    glTransAct (1 : GL (Fin 4) K) f = f := by
+  unfold glTransAct
+  simp only [Units.val_one, Matrix.transpose_one, Matrix.mulVecLin_one]
+  exact AddMonoidHom.comp_id f
 
 theorem glDualAct_mul (A B : GL (Fin 4) K) (f : (Fin 4 → K) →+ Z) :
     glDualAct (A * B) f = glDualAct A (glDualAct B f) := by
@@ -37,11 +42,27 @@ theorem glDualAct_mul (A B : GL (Fin 4) K) (f : (Fin 4 → K) →+ Z) :
   rw [_root_.mul_inv_rev, Units.val_mul, Matrix.mulVecLin_mul]
   rfl
 
+theorem glTransAct_mul (A B : GL (Fin 4) K) (f : (Fin 4 → K) →+ Z) :
+    glTransAct (A * B) f = glTransAct A (glTransAct B f) := by
+  unfold glTransAct
+  rw [Units.val_mul, Matrix.transpose_mul, Matrix.mulVecLin_mul]
+  rfl
+
+theorem glDualAct_add (A : GL (Fin 4) K) (f g : (Fin 4 → K) →+ Z) :
+    glDualAct A (f + g) = glDualAct A f + glDualAct A g := by
+  simp only [glDualAct, AddMonoidHom.add_comp]
+
+theorem glTransAct_add (A : GL (Fin 4) K) (f g : (Fin 4 → K) →+ Z) :
+    glTransAct A (f + g) = glTransAct A f + glTransAct A g := by
+  simp only [glTransAct, AddMonoidHom.add_comp]
 
 theorem glDualAct_sub (A : GL (Fin 4) K) (f g : (Fin 4 → K) →+ Z) :
     glDualAct A (f - g) = glDualAct A f - glDualAct A g := by
   simp only [glDualAct, AddMonoidHom.sub_comp]
 
+theorem glTransAct_sub (A : GL (Fin 4) K) (f g : (Fin 4 → K) →+ Z) :
+    glTransAct A (f - g) = glTransAct A f - glTransAct A g := by
+  simp only [glTransAct, AddMonoidHom.sub_comp]
 
 private noncomputable def smulEnd (μ : K) : (Fin 4 → K) →+ (Fin 4 → K) :=
   (Matrix.mulVecLin (Matrix.scalar (Fin 4) μ)).toAddMonoidHom

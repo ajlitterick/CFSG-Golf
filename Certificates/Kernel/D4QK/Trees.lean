@@ -33,6 +33,9 @@ theorem kHead : gtHeadK KT.P KT.PAR KT.LAB KT.N 42 1 = true := by quickRfl
 
 theorem kSeg : gtSegK GK 3 43 KT.N KT.P KT.PAR KT.LAB KT.W KT.S 42 0 = true := by quickRfl
 
+theorem zHead : gtHeadK ZT.P ZT.PAR ZT.LAB ZT.N 7 1 = true := by quickRfl
+
+theorem zSeg : gtSegK GZ 1 8 ZT.N ZT.P ZT.PAR ZT.LAB ZT.W ZT.S 7 0 = true := by quickRfl
 
 theorem sHead : gtHeadK ST.P ST.PAR ST.LAB ST.N 1024 2 = true := by quickRfl
 

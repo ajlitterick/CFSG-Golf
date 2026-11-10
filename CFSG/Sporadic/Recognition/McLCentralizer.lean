@@ -111,5 +111,30 @@ theorem mcl_involution_centralizer_alt8
   exact centralizer_alt8_of_cover8
     (cover8_centralizer_of_equiv_mclP hM hL (e.trans mclPermEquiv) ht)
 
+theorem mcl_involution_centralizer_alt8_of_isSporadic
+    (hM : mooreCheck = true)
+    (hL : liftCheck = true) {T : Type} [Group T]
+    (hT : CFSG.Blueprint.NativeSporadic.IsSporadic T .McL) {t : T} (ht : orderOf t = 2) :
+    Group.IsPerfect (centralizer ({t} : Set T)) ∧
+    center (centralizer ({t} : Set T)) =
+      zpowers (⟨t, self_mem_centralizer t⟩ : centralizer ({t} : Set T)) ∧
+    Nonempty (centralizer ({t} : Set T) ⧸
+      zpowers (⟨t, self_mem_centralizer t⟩ : centralizer ({t} : Set T)) ≃*
+        alternatingGroup (Fin 8)) :=
+  mcl_involution_centralizer_alt8 hM hL hT ht
+
+theorem mcl_involution_centralizer_alt8_pinned
+    (hM : mooreCheck = true)
+    (hL : liftCheck = true) {t : CFSG.Blueprint.NativeSporadic.McL} (ht : orderOf t = 2) :
+    Group.IsPerfect (centralizer ({t} : Set CFSG.Blueprint.NativeSporadic.McL)) ∧
+    center (centralizer ({t} : Set CFSG.Blueprint.NativeSporadic.McL)) =
+      zpowers (⟨t, self_mem_centralizer t⟩ :
+        centralizer ({t} : Set CFSG.Blueprint.NativeSporadic.McL)) ∧
+    Nonempty (centralizer ({t} : Set CFSG.Blueprint.NativeSporadic.McL) ⧸
+      zpowers (⟨t, self_mem_centralizer t⟩ :
+        centralizer ({t} : Set CFSG.Blueprint.NativeSporadic.McL)) ≃* alternatingGroup (Fin 8)) :=
+  @centralizer_alt8_of_cover8 CFSG.Blueprint.NativeSporadic.McL inferInstance t
+    (@cover8_centralizer_of_equiv_mclP hM hL CFSG.Blueprint.NativeSporadic.McL inferInstance
+      mclPermEquiv t ht)
 
 end CFSG.Sporadic.Recognition.McLCentralizer

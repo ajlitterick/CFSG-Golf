@@ -152,6 +152,12 @@ theorem k_facts : bAnd(Nat.beq (pc rK rK) idK, bAnd(Nat.beq (pc (pc rK tK) rK) t
       J2Cn.atK S16J3C.cnt S16J3C.T S16J3CP 1 xK)))))))))))))))))))))))) = true := by
   quickRfl
 
+theorem k_sifts_neg : j3W vW xK = false := by
+  decide +kernel
+
+theorem k_facts_neg : Nat.beq (cntBelowK S16J3R.cnt (fun i => commK (S16J3R.T i) rK) 1) 32 =
+    false := by
+  decide +kernel
 
 theorem rE : penumSlK 6156 13 (mask 13) (6156 * 13) true S16J3R.G S16J3R.GI 4 S16J3R.cnt S16J3R.T
     S16J3R.PL S16J3R.POS S16J3R.SRT S16J3R.SRI 0 S16J3R.cnt = true := by quickRfl
@@ -185,6 +191,9 @@ theorem cCl : slK (Nat.mul S16J3C.cnt 8)
     (findPtK S16J3C.cnt S16J3C.T (prodQK 6156 13 (mask 13) 8 S16J3C.T (bothK 4 S16J3C.GI S16J3CI))
       S16J3CCl) 0 (Nat.mul S16J3C.cnt 8) = true := by quickRfl
 
+theorem rHF_neg : hsortPtKF 6156 13 (mask 13) S16J3R.cnt (fun _ => 0) S16J3R.HS S16J3R.HSI 0 =
+    false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.S16J3
 

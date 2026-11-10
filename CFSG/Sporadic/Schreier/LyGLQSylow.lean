@@ -289,6 +289,20 @@ theorem autOfT_autTriple (β : MulAut lyS) :
   left_inv β := autOfT_autTriple β
   right_inv y := Subtype.ext (autTriple_autOfT y.2)
 
+theorem card_subtype_mem_list {α : Type*} [DecidableEq α] {l : List α} (hl : l.Nodup) :
+    Nat.card {x // x ∈ l} = l.length := by
+  rw [← List.toFinset_card_of_nodup hl, ← Nat.card_eq_finsetCard]
+  exact Nat.card_congr (Equiv.subtypeEquivRight fun x => List.mem_toFinset.symm)
+
+theorem gA_nodup : gA.Nodup := by
+  rw [gA, glqAuts, glqCands]
+  apply List.Nodup.filter
+  apply List.Nodup.filter
+  have hl : ∀ k, (glqLevel sTab k).Nodup := fun k => (List.nodup_range).filter _
+  exact List.Nodup.product (hl 0) (List.Nodup.product (hl 1) (hl 2))
+
+theorem card_mulAut_lyS : Nat.card (MulAut lyS) = 512 := by
+  rw [Nat.card_congr autEquiv, card_subtype_mem_list gA_nodup, glq_parts.2.2.2.2.2.2.1]
 
 theorem sq_eq_one_iff_isInvoT (β : MulAut lyS) :
     β ^ 2 = 1 ↔ isInvoT (fmapY sTab gW (autTriple β)) = true := by
@@ -309,6 +323,17 @@ theorem sq_eq_one_iff_isInvoT (β : MulAut lyS) :
       sE_sIdx] at hx
     rw [← sE_sIdx (β (β g)), hx, sE_sIdx]
 
+theorem card_involutory : Nat.card {β : MulAut lyS // β ^ 2 = 1} = 176 := by
+  have e : {β : MulAut lyS // β ^ 2 = 1} ≃
+      {y // y ∈ gA.filter fun y => isInvoT (fmapY sTab gW y)} :=
+    { toFun := fun β => ⟨autTriple β.1, List.mem_filter.2 ⟨autTriple_mem β.1,
+        (sq_eq_one_iff_isInvoT β.1).1 β.2⟩⟩
+      invFun := fun y => ⟨autOfT (fmapY sTab gW y.1) (gA_isHom (List.mem_filter.1 y.2).1), by
+        rw [sq_eq_one_iff_isInvoT, autTriple_autOfT (List.mem_filter.1 y.2).1]
+        exact (List.mem_filter.1 y.2).2⟩
+      left_inv := fun β => Subtype.ext (autOfT_autTriple β.1)
+      right_inv := fun y => Subtype.ext (autTriple_autOfT (List.mem_filter.1 y.2).1) }
+  rw [Nat.card_congr e, card_subtype_mem_list (gA_nodup.filter _), glq_parts.2.2.2.2.2.2.2.1]
 
 @[expose] def fourSub {G : Type*} [Group G] (u v : G) (hu : u * u = 1) (hv : v * v = 1)
     (huv : u * v = v * u) : Subgroup G where
@@ -362,5 +387,130 @@ theorem fixed_pair (β : MulAut lyS) (hβ : β ^ 2 = 1) :
   · rw [fmapY_autTriple β hblt] at hb
     rw [← sE_sIdx (β (sE p.2)), hb]
 
+theorem fixed_four_group (β : MulAut lyS) (hβ : β ^ 2 = 1) :
+    ∃ E : Subgroup lyS, (∀ x ∈ E, β x = x) ∧ CFSG.IsElementaryAbelian 2 E ∧
+      Nat.card E = 4 := by
+  classical
+  obtain ⟨p, hp, ha, hb⟩ := glq_parts.2.2.2.2.2.2.2.2.2 _ (autTriple_mem β)
+    ((sq_eq_one_iff_isInvoT β).1 hβ)
+  obtain ⟨hia, hib, hne, hcomm⟩ := glq_parts.2.2.2.2.2.2.2.2.1 p hp
+  obtain ⟨halt, hblt⟩ := gP_lt hp
+  simp only [isInv, Bool.and_eq_true, bne_iff_ne, ne_eq, beq_iff_eq, tm_sTab] at hia hib
+  rw [tm_sTab, tm_sTab] at hcomm
+  have hu : sE p.1 * sE p.1 = 1 := by rw [sE_mul halt halt, hia.2, sE_zero]
+  have hv : sE p.2 * sE p.2 = 1 := by rw [sE_mul hblt hblt, hib.2, sE_zero]
+  have huv : sE p.1 * sE p.2 = sE p.2 * sE p.1 := by
+    rw [sE_mul halt hblt, sE_mul hblt halt, hcomm]
+  have hu1 : sE p.1 ≠ 1 := fun h => hia.1 ((sE_eq_one_iff halt).1 h)
+  have hv1 : sE p.2 ≠ 1 := fun h => hib.1 ((sE_eq_one_iff hblt).1 h)
+  have hne' : sE p.1 ≠ sE p.2 := fun h => hne (sE_inj halt hblt h)
+  have hfa : β (sE p.1) = sE p.1 := by
+    rw [fmapY_autTriple β halt] at ha
+    rw [← sE_sIdx (β (sE p.1)), ha]
+  have hfb : β (sE p.2) = sE p.2 := by
+    rw [fmapY_autTriple β hblt] at hb
+    rw [← sE_sIdx (β (sE p.2)), hb]
+  obtain ⟨E, hE⟩ : ∃ E : Subgroup lyS, ∀ x, x ∈ E ↔
+      x = 1 ∨ x = sE p.1 ∨ x = sE p.2 ∨ x = sE p.1 * sE p.2 :=
+    ⟨fourSub (sE p.1) (sE p.2) (by exact hu) (by exact hv) (by exact huv), fun _ => Iff.rfl⟩
+  have e5 : sE p.1 * sE p.2 * (sE p.1 * sE p.2) = 1 := by
+    calc sE p.1 * sE p.2 * (sE p.1 * sE p.2) = sE p.1 * (sE p.2 * sE p.1) * sE p.2 := by group
+      _ = sE p.1 * (sE p.1 * sE p.2) * sE p.2 := by rw [← huv]
+      _ = (sE p.1 * sE p.1) * (sE p.2 * sE p.2) := by group
+      _ = 1 := by rw [hu, hv, one_mul]
+  have hcu : ∀ x ∈ E, x * sE p.1 = sE p.1 * x := by
+    intro x hx
+    rcases (hE x).1 hx with rfl | rfl | rfl | rfl
+    · rw [one_mul, mul_one]
+    · rfl
+    · exact huv.symm
+    · rw [mul_assoc, ← huv]
+  have hcv : ∀ x ∈ E, x * sE p.2 = sE p.2 * x := by
+    intro x hx
+    rcases (hE x).1 hx with rfl | rfl | rfl | rfl
+    · rw [one_mul, mul_one]
+    · exact huv
+    · rfl
+    · calc sE p.1 * sE p.2 * sE p.2 = sE p.2 * sE p.1 * sE p.2 := by rw [huv]
+        _ = sE p.2 * (sE p.1 * sE p.2) := by group
+  have hea : CFSG.IsElementaryAbelian 2 E := by
+    apply mk_ea
+    · intro x hx y hy
+      rcases (hE y).1 hy with rfl | rfl | rfl | rfl
+      · rw [one_mul, mul_one]
+      · exact hcu x hx
+      · exact hcv x hx
+      · calc x * (sE p.1 * sE p.2) = (x * sE p.1) * sE p.2 := (mul_assoc _ _ _).symm
+          _ = (sE p.1 * x) * sE p.2 := by rw [hcu x hx]
+          _ = sE p.1 * (x * sE p.2) := mul_assoc _ _ _
+          _ = sE p.1 * (sE p.2 * x) := by rw [hcv x hx]
+          _ = sE p.1 * sE p.2 * x := (mul_assoc _ _ _).symm
+    · intro x hx
+      rcases (hE x).1 hx with rfl | rfl | rfl | rfl
+      · exact one_mul 1
+      · exact hu
+      · exact hv
+      · exact e5
+  have h1 : sE p.1 * sE p.2 ≠ 1 := by
+    intro h
+    apply hne'
+    calc sE p.1 = sE p.1 * (sE p.2 * sE p.2) := by rw [hv, mul_one]
+      _ = (sE p.1 * sE p.2) * sE p.2 := by rw [mul_assoc]
+      _ = sE p.2 := by rw [h, one_mul]
+  have h2 : sE p.1 * sE p.2 ≠ sE p.1 := fun h => hv1 (by
+    calc sE p.2 = (sE p.1)⁻¹ * (sE p.1 * sE p.2) := by group
+      _ = 1 := by rw [h, inv_mul_cancel])
+  have h3 : sE p.1 * sE p.2 ≠ sE p.2 := fun h => hu1 (by
+    calc sE p.1 = (sE p.1 * sE p.2) * (sE p.2)⁻¹ := by group
+      _ = 1 := by rw [h, mul_inv_cancel])
+  have hcard : Nat.card E = 4 := by
+    have e : (E : Set lyS) = (({1, sE p.1, sE p.2, sE p.1 * sE p.2} : Finset lyS) : Set lyS) := by
+      ext x
+      rw [SetLike.mem_coe, hE x]
+      simp
+    rw [← SetLike.coe_sort_coe, e, Nat.card_coe_set_eq, Set.ncard_coe_finset]
+    rw [Finset.card_insert_of_notMem, Finset.card_insert_of_notMem, Finset.card_pair h3.symm]
+    · simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
+      exact ⟨hne', h2.symm⟩
+    · simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
+      exact ⟨Ne.symm hu1, Ne.symm hv1, Ne.symm h1⟩
+  refine ⟨E, fun x hx => ?_, hea, hcard⟩
+  rcases (hE x).1 hx with rfl | rfl | rfl | rfl
+  · exact map_one β
+  · exact hfa
+  · exact hfb
+  · rw [map_mul, hfa, hfb]
+
+theorem closure_e135 : Subgroup.closure ({sylowElt 1, sylowElt 3, sylowElt 5} : Set J) = lyS := by
+  apply le_antisymm
+  · rw [Subgroup.closure_le]
+    rintro _ (rfl | rfl | rfl)
+    · rw [sylowElt_eq (by norm_num)]; exact sTree_mem 1 (by norm_num)
+    · rw [sylowElt_eq (by norm_num)]; exact sTree_mem 3 (by norm_num)
+    · rw [sylowElt_eq (by norm_num)]; exact sTree_mem 5 (by norm_num)
+  · intro g hg
+    obtain ⟨x, hx, hxg⟩ := exists_sE ⟨g, hg⟩
+    have hw := glq_parts.2.1 x hx
+    obtain ⟨-, h2⟩ := sE_evalY (fun k hk => glqGens_pick hk) gW[x]! hw
+    rw [glq_parts.2.2.1 x hx] at h2
+    have hg' : g = ((sE x : lyS) : J) := by rw [hxg]
+    rw [hg', h2, ← Subgroup.coe_subtype, map_list_prod]
+    apply Subgroup.list_prod_mem
+    intro z hz
+    simp only [List.map_map, List.mem_map, Function.comp_apply] at hz
+    obtain ⟨k, hk, rfl⟩ := hz
+    have hk3 := hw k hk
+    apply Subgroup.subset_closure
+    interval_cases k
+    · left; rw [sylowElt_eq (by norm_num), ← sE_val (by norm_num)]; rfl
+    · right; left; rw [sylowElt_eq (by norm_num), ← sE_val (by norm_num)]; rfl
+    · right; right; rw [sylowElt_eq (by norm_num), ← sE_val (by norm_num)]; rfl
+
+theorem sylow_involutory_automorphisms_fixed_four_group :
+    Nat.card (MulAut lyS) = 512 ∧ Nat.card {β : MulAut lyS // β ^ 2 = 1} = 176 ∧
+    (∀ β : MulAut lyS, β ^ 2 = 1 → ∃ E : Subgroup lyS, (∀ x ∈ E, β x = x) ∧
+      CFSG.IsElementaryAbelian 2 E ∧ Nat.card E = 4) ∧
+    Subgroup.closure ({sylowElt 1, sylowElt 3, sylowElt 5} : Set J) = lyS :=
+  ⟨card_mulAut_lyS, card_involutory, fixed_four_group, closure_e135⟩
 
 end CFSG.Sporadic.LySchreier

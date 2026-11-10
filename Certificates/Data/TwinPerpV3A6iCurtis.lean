@@ -53,14 +53,20 @@ open CFSG.CosetTable CFSG.ClassicalInvolution.Phan.Q3G
 
 @[expose] def curtisPG : List (List (Fin 8 × Bool)) := curtisRels.map (decodeWord 8)
 
+@[expose] def curtisIndexCheck (_ : Unit := ()) : Bool :=
+  subsetCheckCC curtisPG [2, 3, 4, 5, 6, 7] 30000 8640
 
 @[expose] def curtisSub : List (List (Fin (subsetOf 8 [2, 3, 4, 5, 6, 7]).length × Bool)) :=
   restrictWords (subsetOf 8 [2, 3, 4, 5, 6, 7]) curtisPG
 
+@[expose] def curtisSubIndexCheck (_ : Unit := ()) : Bool :=
+  subsetCheckCC curtisSub [2, 3, 4, 5] 20000 560
 
 @[expose] def curtisSubSub :
     List (List (Fin (subsetOf (subsetOf 8 [2, 3, 4, 5, 6, 7]).length [2, 3, 4, 5]).length × Bool)) :=
   restrictWords (subsetOf (subsetOf 8 [2, 3, 4, 5, 6, 7]).length [2, 3, 4, 5]) curtisSub
 
+@[expose] def curtisSubSubCheck (_ : Unit := ()) : Bool :=
+  subsetCheckCC curtisSubSub [] 2000 36
 
 end CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3.A6

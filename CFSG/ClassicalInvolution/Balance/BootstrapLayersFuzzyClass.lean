@@ -52,6 +52,10 @@ theorem fuzzyFrameOn_canonClass_of_indepTripleOn {K : Subgroup G} {A : Subgroup 
   exact mem_trivialOnQuot_canonMember_of_centralizes (hM i).2 fun x hx =>
     Subgroup.mem_centralizer_iff.mp (hMA hx) a ha
 
+theorem fuzzyAxisExact_canonClass (p f : ℕ) [Fact p.Prime] :
+    FuzzyAxisExact p f (canonClass p f) := by
+  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn A hA
+  exact fuzzyFrameOn_canonClass_of_indepTripleOn hA
 
 end Class
 

@@ -36,6 +36,11 @@ theorem not_isComponent_of_self_centralizing [Finite G] {R : Subgroup G} (hRn : 
   not_isComponent_of_normal_solvable hRn hR
     (Group.isSolvable_of_isSolvable_injective (Subgroup.inclusion_injective hC)) K
 
+theorem not_isComponent_of_pGroup_self_centralizing [Finite G] {p : ℕ} [Fact p.Prime]
+    {R : Subgroup G} (hRn : R.Normal) (hR : IsPGroup p R) (hC : centralizer (R : Set G) ≤ R)
+    (K : Subgroup G) : ¬ IsComponent K := by
+  have : Group.IsNilpotent R := hR.isNilpotent
+  exact not_isComponent_of_self_centralizing hRn inferInstance hC K
 
 theorem not_isComponent_le_of_self_centralizing [Finite G] {L R : Subgroup G} (hRL : R ≤ L)
     (hRn : ∀ l ∈ L, ∀ r ∈ R, l * r * l⁻¹ ∈ R) (hR : Group.IsSolvable R)

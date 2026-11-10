@@ -257,6 +257,8 @@ end Normalizer
       Matrix.one_mulVec]
   map_add' a b := Matrix.mulVec_add _ _ _
 
+theorem glEquiv_apply (n : GL (Fin 8) (ZMod 2)) (v : Fin 8 → ZMod 2) :
+    glEquiv n v = (n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ v := rfl
 
 section Coord
 
@@ -377,6 +379,23 @@ theorem pow_two_pow_four (x : F) : x ^ 2 ^ 4 = x := by
   have := FiniteField.pow_card x
   rwa [hq] at this
 
+theorem IsSemilinear.of_modEq {j j' : ℕ} {f : (Fin 2 → F) → (Fin 2 → F)} (hf : IsSemilinear j f)
+    (h : j ≡ j' [MOD 4]) : IsSemilinear j' f := by
+  have key : ∀ (k i : ℕ) (a : F), a ^ 2 ^ (i + 4 * k) = a ^ 2 ^ i := by
+    intro k i a
+    induction k with
+    | zero => simp
+    | succ k ih =>
+      rw [show i + 4 * (k + 1) = (i + 4 * k) + 4 by ring, pow_add, pow_mul, pow_two_pow_four hF]
+      exact ih
+  have hmod : ∀ (j j' : ℕ), j ≡ j' [MOD 4] → ∀ a : F, a ^ 2 ^ j = a ^ 2 ^ j' := by
+    intro j j' h a
+    have h4 : j % 4 = j' % 4 := h
+    have e1 : j = j % 4 + 4 * (j / 4) := (Nat.mod_add_div j 4).symm
+    have e2 : j' = j' % 4 + 4 * (j' / 4) := (Nat.mod_add_div j' 4).symm
+    rw [e1, e2, key, key, h4]
+  intro a w
+  rw [hf a w, hmod j j' h a]
 
 theorem IsSemilinear.unique {j j' : ℕ} (hj : j < 4) (hj' : j' < 4)
     {f : (Fin 2 → F) → (Fin 2 → F)} (hf : IsSemilinear j f) (hf' : IsSemilinear j' f)
@@ -399,6 +418,42 @@ theorem IsSemilinear.unique {j j' : ℕ} (hj : j < 4) (hj' : j' < 4)
   have h3 : 2 ^ j % 15 = 2 ^ j' % 15 := h2
   interval_cases j <;> interval_cases j' <;> simp_all
 
+
+omit hF in
+theorem semilin_mul (Φ : (Fin 8 → ZMod 2) ≃+ (Fin 2 → F)) (n n' : GL (Fin 8) (ZMod 2)) :
+    (fun w => Φ (((n * n' : GL (Fin 8) (ZMod 2)) : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ
+      Φ.symm w)) =
+      (fun w => Φ ((n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ Φ.symm w)) ∘
+        (fun w => Φ ((n' : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ Φ.symm w)) := by
+  funext w
+  simp [Matrix.mulVec_mulVec, Units.val_mul]
+
+omit hF in
+theorem semilin_exists_ne_zero (Φ : (Fin 8 → ZMod 2) ≃+ (Fin 2 → F)) (n : GL (Fin 8) (ZMod 2)) :
+    ∃ w, Φ ((n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ Φ.symm w) ≠ 0 := by
+  let v : Fin 8 → ZMod 2 := Pi.single 0 1
+  have hv : v ≠ 0 := by
+    intro h
+    have := congrFun h 0
+    simp [v] at this
+  refine ⟨Φ v, ?_⟩
+  rw [AddEquiv.symm_apply_apply]
+  intro h
+  have h1 : (n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ v = 0 := by
+    have := Φ.injective (h.trans (map_zero Φ).symm)
+    exact this
+  apply hv
+  calc v = ((n⁻¹ : GL (Fin 8) (ZMod 2)) : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ
+        ((n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ v) := by
+        simp [Matrix.mulVec_mulVec]
+    _ = 0 := by rw [h1, Matrix.mulVec_zero]
+
+theorem semilinear_unique (Φ : (Fin 8 → ZMod 2) ≃+ (Fin 2 → F)) (n : GL (Fin 8) (ZMod 2))
+    {j j' : ℕ} (hj : j < 4) (hj' : j' < 4)
+    (h : IsSemilinear j (fun w => Φ ((n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ Φ.symm w)))
+    (h' : IsSemilinear j' (fun w => Φ ((n : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ Φ.symm w))) :
+    j = j' :=
+  IsSemilinear.unique hF hj hj' h h' (semilin_exists_ne_zero Φ n)
 
 end SemilinearAPI
 

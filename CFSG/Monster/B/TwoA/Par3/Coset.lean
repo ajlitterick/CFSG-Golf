@@ -121,6 +121,15 @@ theorem exists_R3_translate
     _ = (g * (cQ * t₁) * g⁻¹) * (g * xhat * g⁻¹) := by rw [hxt]; group
     _ = cQ * t := by rw [h₁, hgt]; group
 
+theorem K3_class_eq :
+    {d : Dfull | ∃ k ∈ K3, k * cQ * k⁻¹ = d} = cE3 := by
+  ext d
+  constructor
+  · rintro ⟨k, hk, rfl⟩
+    exact conj_cQ_mem_cE3 hk
+  · rintro ⟨t, ht, rfl⟩
+    obtain ⟨r, hr, hrc⟩ := exists_R3_translate ht
+    exact ⟨r, R3_le_K3 hr, hrc⟩
 
 theorem cE3_R3_transitive
     {x y : Dfull} (hx : x ∈ cE3) (hy : y ∈ cE3) :

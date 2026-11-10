@@ -138,9 +138,48 @@ theorem card_eq : Nat.card (Ext2 M d) = 2 * Nat.card M := by
 
 @[simp] theorem inl_apply (m : M) : (inl m : Ext2 M d) = ⟨m, false⟩ := rfl
 
+theorem inl_injective : Function.Injective (inl : M →* Ext2 M d) := fun _ _ h =>
+  congrArg Ext2.base h
 
 @[expose] def n : Ext2 M d := ⟨1, true⟩
 
+theorem inl_mul_n (m : M) : (inl m : Ext2 M d) * n = ⟨m, true⟩ := by
+  simp [n]
+
+theorem n_mul_inl (m : M) : (n : Ext2 M d) * inl m = ⟨d.α m, true⟩ := by
+  simp [n]
+
+theorem n_mul_inl_mul_inv_n (m : M) : (n : Ext2 M d) * inl m * n⁻¹ = inl (d.α m) := by
+  have h : (n : Ext2 M d) * inl m = inl (d.α m) * n := by
+    rw [n_mul_inl, inl_mul_n]
+  rw [h, mul_inv_cancel_right]
+
+theorem n_mul_n : (n : Ext2 M d) * n = inl d.w := by
+  simp [n]
+
+theorem eq_inl_or_eq_inl_mul_n (x : Ext2 M d) :
+    (∃ m : M, x = inl m) ∨ ∃ m : M, x = inl m * n := by
+  obtain ⟨m, b⟩ := x
+  cases b
+  · exact Or.inl ⟨m, rfl⟩
+  · exact Or.inr ⟨m, by rw [inl_mul_n]⟩
+
+theorem mem_range_inl_iff (x : Ext2 M d) : x ∈ (inl : M →* Ext2 M d).range ↔ x.bit = false := by
+  constructor
+  · rintro ⟨m, rfl⟩
+    rfl
+  · intro h
+    exact ⟨x.base, Ext2.ext rfl h.symm⟩
+
+theorem bit_mul_n (x : Ext2 M d) : (x * n).bit = !x.bit := by
+  obtain ⟨m, b⟩ := x
+  cases b <;> rfl
+
+theorem index_range_inl : (inl : M →* Ext2 M d).range.index = 2 := by
+  rw [Subgroup.index_eq_two_iff]
+  refine ⟨n, fun x => ?_⟩
+  rw [mem_range_inl_iff, mem_range_inl_iff, bit_mul_n]
+  cases x.bit <;> simp
 
 end Ext2
 

@@ -32,6 +32,11 @@ theorem burnsideF48s_ev_map (f : G →* H) (h : Fin m → G) (w : List (Fin m ×
     congr 1
     cases l.2 <;> simp
 
+theorem burnsideF48s_ev_replicate (h : Fin m → G) (u : List (Fin m × Bool)) (k : ℕ) :
+    burnsideF48s_ev h (List.replicate k u).flatten = burnsideF48s_ev h u ^ k := by
+  induction k with
+  | zero => rw [List.replicate_zero, List.flatten_nil, pow_zero]; rfl
+  | succ k ih => rw [List.replicate_succ, List.flatten_cons, burnsideF48s_ev_append, ih, pow_succ']
 
 theorem burnsideF48s_ev_mem {K : Subgroup G} (h : Fin m → G) (w : List (Fin m × Bool))
     (hw : ∀ l ∈ w, h l.1 ∈ K) : burnsideF48s_ev h w ∈ K := by

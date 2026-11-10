@@ -319,6 +319,7 @@ variable (ρ) in
   one_mem' := fun g _ => map_one _
   inv_mem' := fun {a} ha g hg => by rw [map_inv, ha g hg]
 
+theorem mem_Cfix {m : A} : m ∈ Cfix ρ ↔ ∀ g : Γ, Odd (orderOf g) → ρ g m = m := Iff.rfl
 
 theorem Cfix_ginv : GInv ρ (Cfix ρ) := by
   intro h m hm g hg

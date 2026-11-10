@@ -593,6 +593,12 @@ theorem tau_mem
 @[expose] noncomputable def tauL
     (z : Z1232T) : Z1232T := ⟨decZn (tauFun (idxZ z)), tau_mem z⟩
 
+theorem tauL_decZn
+    {n : ℕ} (hn : n ∈ (zCert 1).pts.toList) (hnlt : n < 2464) (h) :
+    tauL ⟨decZn n, h⟩ = ⟨decZn (tauFun n), mem_orbitZ (by simp) (tau_check.2 n hn).1⟩ := by
+  apply Subtype.ext
+  change decZn (tauFun (idxZ (decZn n))) = _
+  rw [idxZ_decZn hnlt]
 
 theorem tauL_tauL
     (z : Z1232T) : tauL (tauL z) = z := by
@@ -702,9 +708,23 @@ theorem centralizer_Z1232
 theorem tauPerm_ne_one :
     tauPerm ≠ 1 := fun h => tauL_ne z1 (congrArg (· z1) h)
 
+theorem natCard_centralizer_Z1232 :
+    Nat.card {c : Equiv.Perm Z1232T // ∀ k z, c (kZ12 k z) = kZ12 k (c z)} = 2 := by
+  have hset : {c : Equiv.Perm Z1232T | ∀ k z, c (kZ12 k z) = kZ12 k (c z)} =
+      {1, tauPerm} := by
+    ext c
+    simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
+    refine ⟨centralizer_Z1232, ?_⟩
+    rintro (rfl | rfl)
+    · exact fun _ _ => rfl
+    · exact fun k z => tauL_equivariant k z
+  calc Nat.card {c : Equiv.Perm Z1232T // ∀ k z, c (kZ12 k z) = kZ12 k (c z)}
+      = Nat.card ↥({1, tauPerm} : Set (Equiv.Perm Z1232T)) := by rw [← hset]; rfl
+    _ = 2 := by rw [Nat.card_coe_set_eq, Set.ncard_pair tauPerm_ne_one.symm]
 
 @[expose] def wCoord : Fin 10 → Fin 24 := ![2, 3, 4, 5, 6, 8, 9, 10, 12, 16]
 
+theorem wCoord_mem : ∀ t, wCoord t ∈ X₀ := by decide
 
 @[expose] noncomputable def bW' (t : Fin 10) : W₀ := wv (2 ^ (t : ℕ))
 
@@ -734,6 +754,19 @@ theorem span_bW' : Submodule.span (ZMod 2) (Set.range bW') = ⊤ := by
 theorem bW_eq (t : Fin 10) : bW t = bW' t := by
   rw [bW, coe_basisOfTopLeSpanOfCardEqFinrank]
 
+theorem bW_apply
+    (t : Fin 10) : bW t = K₀.mkQ (e ⟨wCoord t, wCoord_mem t⟩) := by
+  rw [bW_eq, bW', wv, spreadW_two_pow t t.2, vecOf_two_pow ⟨freeW t, freeW_lt t⟩]
+  congr 2
+  apply Subtype.ext
+  apply Fin.ext
+  revert t
+  decide
+
+theorem wv_eq_sum_bW
+    (u : ℕ) : wv u = ∑ t : Fin 10, if u.testBit t then bW t else 0 := by
+  simp only [bW_eq]
+  exact wv_eq_sum u
 
 theorem L1_eq :
     Lw 1 = orbitW (wv 1) := Lw_eq_orbitW (s := 1) (by simp)
@@ -755,6 +788,24 @@ theorem orbitZ_eq_of_mem
 
 end Orb
 
+theorem orbitW_cases
+    (w : W₀) :
+    orbitW w = {0} ∨ orbitW w = Lw 1 ∨ orbitW w = Lw 2 ∨ orbitW w = Lw 3 := by
+  rcases W₀_cover w with rfl | h | h | h
+  · exact Or.inl orbitW_zero
+  · rw [L1_eq] at h ⊢
+    exact Or.inr (Or.inl (orbitW_eq_of_mem h))
+  · rw [L2_eq] at h ⊢
+    exact Or.inr (Or.inr (Or.inl (orbitW_eq_of_mem h)))
+  · rw [L3_eq] at h ⊢
+    exact Or.inr (Or.inr (Or.inr (orbitW_eq_of_mem h)))
+
+theorem orbitZ_cases
+    (z : Z) : orbitZ z = Z462 ∨ orbitZ z = Z770 ∨ orbitZ z = Z1232 := by
+  rcases Z_cover z with h | h | h
+  · exact Or.inl (orbitZ_eq_of_mem h)
+  · exact Or.inr (Or.inl (orbitZ_eq_of_mem h))
+  · exact Or.inr (Or.inr (orbitZ_eq_of_mem h))
 
 theorem ι_decZn
     {n : ℕ} (hn : n < 2464) : (ι (.inr (.inr (decZn n))) : ℕ) = 1046 + n := by
@@ -771,5 +822,117 @@ theorem wCert7_lt
   obtain ⟨i, hi, rfl⟩ := exists_idx hu
   exact of_decide_eq_true (natCertOK_valid (wCert_ok 7 (by simp)) hi)
 
+theorem zCert1_lt
+    {n : ℕ} (hn : n ∈ (zCert 1).pts.toList) : n < 2464 := by
+  obtain ⟨i, hi, rfl⟩ := exists_idx hn
+  exact of_decide_eq_true (natCertOK_valid (zCert_ok 1 (by simp)) hi)
+
+theorem ι_sigma
+    (w : L3) : ∃ u ∈ (wCert 7).pts.toList, (ι (.inr (.inl (w : W₀))) : ℕ) = 22 + u ∧
+    (ι (.inr (.inr (sigmaEquiv w : Z))) : ℕ) = 1046 + sigmaFun u := by
+  obtain ⟨u, hu, hult, e⟩ := L3_mem w
+  refine ⟨u, hu, by rw [← e, ι_wv hult], ?_⟩
+  change (ι (.inr (.inr (sigmaL w : Z))) : ℕ) = _
+  rw [sigmaL_val, ← e, idxW_wv hult, ι_decZn (sigma_lt hu)]
+
+theorem ι_tau
+    (z : Z1232T) : ∃ n ∈ (zCert 1).pts.toList, (ι (.inr (.inr (z : Z))) : ℕ) = 1046 + n ∧
+    (ι (.inr (.inr (tauPerm z : Z))) : ℕ) = 1046 + tauFun n := by
+  obtain ⟨n, hn, hnlt, e⟩ := Z1232_mem z
+  refine ⟨n, hn, by rw [← e, ι_decZn hnlt], ?_⟩
+  rw [tauPerm_apply, tauL_val, ← e, idxZ_decZn hnlt, ι_decZn (tau_lt hn)]
+
+theorem Fischer_induced_Mathieu_orbits_and_centralizers :
+    (∀ (k : CFSG.Blueprint.NativeSporadic.M22) (w : W₀),
+      kF k • (.inr (.inl w) : Y) = .inr (.inl (rhoW k w))) ∧
+    (∀ (k : CFSG.Blueprint.NativeSporadic.M22) (z : Z),
+      kF k • (.inr (.inr z) : Y) = .inr (.inr (zK k z))) ∧
+    orbitW 0 = {0} ∧ orbitW (wv 1) = Lw 1 ∧ orbitW (wv 3) = Lw 2 ∧ orbitW (wv 7) = Lw 3 ∧
+    (∀ w : W₀, orbitW w = {0} ∨ orbitW w = Lw 1 ∨ orbitW w = Lw 2 ∨ orbitW w = Lw 3) ∧
+    (Lw 1).ncard = 22 ∧ (Lw 2).ncard = 231 ∧ (Lw 3).ncard = 770 ∧
+    (∀ z : Z, orbitZ z = Z462 ∨ orbitZ z = Z770 ∨ orbitZ z = Z1232) ∧
+    Z462.ncard = 462 ∧ Z770.ncard = 770 ∧ Z1232.ncard = 1232 ∧
+    (∃! σ : L3 ≃ Z770T, ∀ k w, σ (kL k w) = kZ7 k (σ w)) ∧
+    (∀ k w, sigmaEquiv (kL k w) = kZ7 k (sigmaEquiv w)) ∧
+    (∀ c : Equiv.Perm L3, (∀ k w, c (kL k w) = kL k (c w)) → c = 1) ∧
+    Nat.card {c : Equiv.Perm Z1232T // ∀ k z, c (kZ12 k z) = kZ12 k (c z)} = 2 ∧
+    (∀ k z, tauPerm (kZ12 k z) = kZ12 k (tauPerm z)) ∧ tauPerm ≠ 1 ∧
+    (∀ c : Equiv.Perm Z1232T, (∀ k z, c (kZ12 k z) = kZ12 k (c z)) → c ≠ 1 → c = tauPerm) ∧
+    tauPerm * tauPerm = 1 ∧ (∀ z, tauPerm z ≠ z) ∧
+    Function.Bijective ι ∧
+    (∀ x : X₀, (ι (.inl x) : ℕ) = ((x : Fin 24) : ℕ) - 2) ∧
+    (∀ u < 1024,
+      (ι (.inr (.inl (∑ t : Fin 10, if u.testBit t then bW t else 0))) : ℕ) = 22 + u) ∧
+    (∀ i < 77, ∀ q < 32,
+      (ι (.inr (.inr (zMk (hRep i) (∑ t : Fin 5, if q.testBit t then bQ t else 0)))) : ℕ) =
+        1046 + 32 * i + q) ∧
+    (∀ k : CFSG.Blueprint.NativeSporadic.M22, ∃ i < 77,
+      B₀.map (psiHom (hRep i)).toEmbedding = B₀.map (psiHom k).toEmbedding) ∧
+    (∀ i < 76, hexMask (B₀.map (psiHom (hRep i)).toEmbedding) <
+      hexMask (B₀.map (psiHom (hRep (i + 1))).toEmbedding)) ∧
+    (∀ y : Y, (ι (kF m22a • y) : ℕ) = (indM22Gen 0)[(ι y : ℕ)]!) ∧
+    (∀ y : Y, (ι (kF m22b • y) : ℕ) = (indM22Gen 1)[(ι y : ℕ)]!) ∧
+    (∀ (t : Fin 10) (y : Y), (ι (wF (bW t) • y) : ℕ) = (indTransGen t)[(ι y : ℕ)]!) ∧
+    (∀ w : L3, ((ι (.inr (.inl (w : W₀))) : ℕ) - 22,
+      (ι (.inr (.inr (sigmaEquiv w : Z))) : ℕ) - 1046) ∈ indSigma) ∧
+    (∀ p ∈ indSigma, ∃ w : L3, (ι (.inr (.inl (w : W₀))) : ℕ) = 22 + p.1 ∧
+      (ι (.inr (.inr (sigmaEquiv w : Z))) : ℕ) = 1046 + p.2) ∧
+    (∀ z : Z1232T, ((ι (.inr (.inr (z : Z))) : ℕ) - 1046,
+      (ι (.inr (.inr (tauPerm z : Z))) : ℕ) - 1046) ∈ indTau) ∧
+    (∀ p ∈ indTau, ∃ z : Z1232T, (ι (.inr (.inr (z : Z))) : ℕ) = 1046 + p.1 ∧
+      (ι (.inr (.inr (tauPerm z : Z))) : ℕ) = 1046 + p.2) := by
+  refine ⟨kF_smul_W, kF_smul_Z, orbitW_zero, L1_eq.symm, L2_eq.symm, L3_eq.symm, orbitW_cases,
+    ?_, ?_, ?_, orbitZ_cases, ?_, ?_, ?_, ?_, sigmaL_equivariant, fun c hc => centralizer_L3 hc,
+    natCard_centralizer_Z1232, tauL_equivariant, tauPerm_ne_one,
+    fun c hc h1 => (centralizer_Z1232 hc).resolve_left h1, Equiv.ext tauL_tauL, tauL_ne,
+    ι_bijective, fun x => rfl, ?_, ?_, exists_hRep, ?_, repArr_a.ι_smul, repArr_b.ι_smul, ?_, ?_,
+    ?_, ?_, ?_⟩
+  · rw [L1_eq, ncard_orbitW (by simp), wCert_size.2.1]
+  · rw [L2_eq, ncard_orbitW (by simp), wCert_size.2.2.1]
+  · rw [L3_eq, ncard_orbitW (by simp), wCert_size.2.2.2]
+  · rw [Z462, ncard_orbitZ (by simp), zCert_size.1]
+  · rw [Z770, ncard_orbitZ (by simp), zCert_size.2.1]
+  · rw [Z1232, ncard_orbitZ (by simp), zCert_size.2.2]
+  · exact ⟨sigmaEquiv, sigmaL_equivariant, fun σ hσ => Equiv.coe_fn_injective (eq_sigmaL hσ)⟩
+  · intro u hu
+    rw [← wv_eq_sum_bW, ι_wv hu]
+  · intro i hi q hq
+    rw [← qv_eq_sum_bQ, ι_zMk hi hq]
+  · intro i hi
+    rw [hexad_hRep, hexad_hRep]
+    exact hexMask_lt i hi
+  · intro t y
+    rw [bW_eq]
+    exact (repArr_trans t.2).ι_smul y
+  · intro w
+    obtain ⟨u, hu, e1, e2⟩ := ι_sigma w
+    rw [e1, e2, Nat.add_sub_cancel_left, Nat.add_sub_cancel_left]
+    exact indSigma_graph u hu
+  · intro p hp
+    obtain ⟨hp1, hp2⟩ := indSigma_spec p hp
+    have hlt := wCert7_lt hp1
+    let w : L3 := ⟨wv p.1, L3_eq ▸ mem_orbitW (s := 7) (by simp) hp1⟩
+    obtain ⟨u, hu, e1, e2⟩ := ι_sigma w
+    have hu' : u = p.1 := by
+      have := e1
+      rw [show (w : W₀) = wv p.1 from rfl, ι_wv hlt] at this
+      omega
+    subst hu'
+    exact ⟨w, e1, by rw [e2, hp2]⟩
+  · intro z
+    obtain ⟨n, hn, e1, e2⟩ := ι_tau z
+    rw [e1, e2, Nat.add_sub_cancel_left, Nat.add_sub_cancel_left]
+    exact indTau_graph n hn
+  · intro p hp
+    obtain ⟨hp1, hp2⟩ := indTau_spec p hp
+    have hlt := zCert1_lt hp1
+    let z : Z1232T := ⟨decZn p.1, mem_orbitZ (by simp) hp1⟩
+    obtain ⟨n, hn, e1, e2⟩ := ι_tau z
+    have hn' : n = p.1 := by
+      have := e1
+      rw [show (z : Z) = decZn p.1 from rfl, ι_decZn hlt] at this
+      omega
+    subst hn'
+    exact ⟨z, e1, by rw [e2, hp2]⟩
 
 end CFSG.Monster.B.Fischer

@@ -20,6 +20,13 @@ structure GLStanding (G : Type) [Group G] [Finite G] (m p : ℕ) : Prop where
   rank_eq : GLATwoLocalRank p G = m
   not_deltaZero : ¬ GLADeltaZero G p
 
+@[expose] def Lemma91 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (m p : ℕ), GLStanding G m p →
+    ∀ B M : Subgroup G, IsBOneMax p B → IsPreUniquenessTwoLocal p B M →
+      ∀ b ∈ B, b ≠ 1 →
+        GLAPPrimeCoreOf p (Subgroup.centralizer ({b} : Set G)) ≤ M ∧
+          pCoreOf 2 (M ⊓ Subgroup.centralizer ({b} : Set G)) ≤
+            pCoreOf 2 (Subgroup.centralizer ({b} : Set G))
 
 @[expose] def Lemma91ii : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (m p : ℕ), GLStanding G m p →

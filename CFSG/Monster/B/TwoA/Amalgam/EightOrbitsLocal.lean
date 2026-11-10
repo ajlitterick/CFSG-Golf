@@ -19,6 +19,21 @@ open CFSG.Monster CFSG.Monster.B CFSG.Monster.B.TwoA CFSG.Monster.B.TwoA.Sp8
 @[expose] def cvOrbit
     (H : Subgroup Shat) (u : CVert) : Set CVert := {x | ∃ y ∈ H, cvMul u y = x}
 
+theorem mem_cvOrbit_self
+    (H : Subgroup Shat) (u : CVert) : u ∈ cvOrbit H u :=
+  ⟨1, H.one_mem, cvMul_one u⟩
+
+theorem cvOrbit_eq_of_mem
+    {H : Subgroup Shat} {u x : CVert} (hx : x ∈ cvOrbit H u) :
+    cvOrbit H x = cvOrbit H u := by
+  obtain ⟨y, hy, rfl⟩ := hx
+  ext z
+  constructor
+  · rintro ⟨y', hy', rfl⟩
+    exact ⟨y * y', H.mul_mem hy hy', cvMul_mul u y y'⟩
+  · rintro ⟨y', hy', rfl⟩
+    refine ⟨y⁻¹ * y', H.mul_mem (H.inv_mem hy) hy', ?_⟩
+    rw [← cvMul_mul, mul_inv_cancel_left]
 
 @[expose] def nbrPull
     {v : CVert} (iv : cgraph.neighborSet v ≃ rootClass) (A : Set GStar) :
@@ -76,6 +91,9 @@ theorem ncard_nbrPull {A : Set GStar} (hA : A ⊆ SemidirectProduct.inl '' rootC
     Set.ncard_preimage_of_injective_subset_range (injective_inl_iv iv)
       (by rw [range_inl_iv]; exact hA)]
 
+theorem mem_nbrPull_of {A : Set GStar} (u : cgraph.neighborSet v)
+    (hu : SemidirectProduct.inl (iv u : stdGroup) ∈ A) : (u : CVert) ∈ nbrPull iv A :=
+  ⟨u.2, hu⟩
 
 theorem nbrPull_singleton {u : cgraph.neighborSet v} :
     nbrPull iv {SemidirectProduct.inl (iv u : stdGroup)} = {(u : CVert)} := by

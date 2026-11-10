@@ -197,6 +197,11 @@ theorem commute_theta' {γ : Fin Tag.E8.rank → ℤ} (hγ : γ ∈ rootFinset .
   exact (commute_pinnedX_of_commPairs_nil .E8 F (mem_rootFinset.1 theta_mem)
     (mem_rootFinset.1 hγ) hne hne' hnil c t).symm
 
+theorem actFun_zero' (a : (Fin Tag.E8.rank → ℤ) → (Fin Tag.E8.rank → ℤ) → ℤ)
+    (γ : Fin Tag.E8.rank → ℤ) (t : F) :
+    actFun a γ t (0 : (Fin Tag.E8.rank → ℤ) → F) = 0 := by
+  funext ν
+  simp [actFun]
 
 theorem actsBy_pinnedX {γ : Fin Tag.E8.rank → ℤ} (hγ : γ ∈ rootFinset Tag.E8) (hγ0 : γ 7 = 0)
     (t : F) : ActsBy (pinnedX Tag.E8 F γ t) (actOp aE8 γ t) := by
@@ -223,11 +228,124 @@ theorem actsBy_pinnedX {γ : Fin Tag.E8.rank → ℤ} (hγ : γ ∈ rootFinset T
 
 end Action
 
+@[expose] def diagOp (b : Fin Tag.E8.rank → Fˣ) : Fn F →ₗ[F] Fn F where
+  toFun c := fun ν => ((rootChar b ν : Fˣ) : F) * c ν
+  map_add' c c' := by
+    funext ν
+    simp only [Pi.add_apply]
+    ring
+  map_smul' t c := by
+    funext ν
+    simp only [Pi.smul_apply, smul_eq_mul, RingHom.id_apply]
+    ring
+
+theorem diagOp_apply (b : Fin Tag.E8.rank → Fˣ) (c : Fn F) (ν : Fin Tag.E8.rank → ℤ) :
+    diagOp b c ν = ((rootChar b ν : Fˣ) : F) * c ν := rfl
+
+theorem actsBy_torus (b : Fin Tag.E8.rank → Fˣ) : ActsBy (rootDiagUnit Tag.E8 b) (diagOp b) := by
+  rw [actsBy_iff_le]
+  refine Qθ_le_of_gen (fun β hβ c => ?_) (fun c => ?_)
+  · have hc := rootDiagUnit_conj_pinnedX b hβ.1 c
+    refine ⟨pinnedX_mem_Qθ_of_mem_Deg1 hβ c, ?_, ?_⟩
+    · rw [hc]
+      exact pinnedX_mem_Qθ_of_mem_Deg1 hβ _
+    · rw [hc, (heisCoord_spec _ F).pinnedX_deg1 β hβ, (heisCoord_spec _ F).pinnedX_deg1 β hβ]
+      funext ν
+      by_cases h : ν = β
+      · subst h
+        simp [diagOp_apply]
+      · simp [diagOp_apply, Pi.single_apply, h]
+  · have hθ : pinnedX Tag.E8 F (highRoot .E8) c ∈ Qθ Tag.E8 F := pinnedX_mem_rootSpan
+      (by
+        rw [mem_parabolicRadicalRoots_iff]
+        refine ⟨isRoot_highRoot _, height_highRoot_pos _, iθ _, fun h => h rfl, ?_⟩
+        rw [CoordAux.highRoot_degree]
+        omega) c
+    have hc := rootDiagUnit_conj_pinnedX b (isRoot_highRoot Tag.E8) c
+    refine ⟨hθ, ?_, ?_⟩
+    · rw [hc]
+      exact pinnedX_mem_rootSpan
+        (by
+          rw [mem_parabolicRadicalRoots_iff]
+          refine ⟨isRoot_highRoot _, height_highRoot_pos _, iθ _, fun h => h rfl, ?_⟩
+          rw [CoordAux.highRoot_degree]
+          omega) _
+    · rw [hc, (heisCoord_spec _ F).pinnedX_highRoot, (heisCoord_spec _ F).pinnedX_highRoot,
+        map_zero]
 
 theorem rootDiagUnit_inv (b : Fin Tag.E8.rank → Fˣ) :
     (rootDiagUnit Tag.E8 b : ModGL Tag.E8 F)⁻¹ = rootDiagUnit Tag.E8 b⁻¹ :=
   Units.ext rfl
 
+@[expose] def actSub : Subgroup (ModGL Tag.E8 F) where
+  carrier := {g | (∃ M, ActsBy g M) ∧ ∃ M', ActsBy g⁻¹ M'}
+  mul_mem' := by
+    rintro g₁ g₂ ⟨⟨M₁, h₁⟩, ⟨M₁', h₁'⟩⟩ ⟨⟨M₂, h₂⟩, ⟨M₂', h₂'⟩⟩
+    refine ⟨⟨M₁ ∘ₗ M₂, ?_⟩, ⟨M₂' ∘ₗ M₁', ?_⟩⟩
+    · intro q hq
+      obtain ⟨hq2, hc2⟩ := h₂ q hq
+      obtain ⟨hq1, hc1⟩ := h₁ _ hq2
+      have e : g₁ * g₂ * q * (g₁ * g₂)⁻¹ = g₁ * (g₂ * q * g₂⁻¹) * g₁⁻¹ := by group
+      rw [e]
+      exact ⟨hq1, by rw [hc1, hc2]; rfl⟩
+    · intro q hq
+      obtain ⟨hq2, hc2⟩ := h₁' q hq
+      obtain ⟨hq1, hc1⟩ := h₂' _ hq2
+      have e : (g₁ * g₂)⁻¹ * q * ((g₁ * g₂)⁻¹)⁻¹ = g₂⁻¹ * (g₁⁻¹ * q * g₁⁻¹⁻¹) * g₂⁻¹⁻¹ := by group
+      rw [e]
+      exact ⟨hq1, by rw [hc1, hc2]; rfl⟩
+  one_mem' := by
+    have h : ActsBy (1 : ModGL Tag.E8 F) LinearMap.id := fun q hq => by simpa using hq
+    exact ⟨⟨_, h⟩, ⟨_, by simpa using h⟩⟩
+  inv_mem' := by
+    rintro g ⟨⟨M, h⟩, ⟨M', h'⟩⟩
+    exact ⟨⟨M', h'⟩, ⟨M, by simpa using h⟩⟩
+
+theorem mem_actSub {g : ModGL Tag.E8 F} :
+    g ∈ actSub ↔ (∃ M, ActsBy g M) ∧ ∃ M', ActsBy g⁻¹ M' := Iff.rfl
+
+theorem pinnedX_mem_actSub {γ : Fin Tag.E8.rank → ℤ} (hγ : γ ∈ rootFinset Tag.E8) (hγ0 : γ 7 = 0)
+    (t : F) : pinnedX Tag.E8 F γ t ∈ actSub := by
+  refine ⟨⟨_, actsBy_pinnedX hγ hγ0 t⟩, ⟨actOp aE8 γ (-t), ?_⟩⟩
+  rw [pinnedX_neg]
+  exact actsBy_pinnedX hγ hγ0 (-t)
+
+theorem Lθ_le_actSub : Lθ Tag.E8 F ≤ actSub := by
+  show parabolicLevi Tag.E8 F (Jθ Tag.E8) ≤ actSub
+  unfold parabolicLevi
+  refine sup_le ?_ ?_
+  · intro t ht
+    obtain ⟨b, rfl⟩ := exists_rootDiagUnit_eq_of_mem_torusGroup ht
+    refine ⟨⟨_, actsBy_torus b⟩, ⟨diagOp b⁻¹, ?_⟩⟩
+    rw [rootDiagUnit_inv]
+    exact actsBy_torus b⁻¹
+  · refine (Subgroup.closure_le _).2 ?_
+    rintro _ ⟨j, hj, c, rfl | rfl⟩
+    · rw [← pinnedX_single]
+      refine pinnedX_mem_actSub (mem_rootFinset.2 (isRoot_single _ j)) ?_ c
+      exact Pi.single_eq_of_ne (Ne.symm hj) _
+    · rw [← pinnedX_neg_single]
+      refine pinnedX_mem_actSub (mem_rootFinset.2 (isRoot_neg_single _ j)) ?_ c
+      have h7 : (Pi.single j (1 : ℤ) : Fin Tag.E8.rank → ℤ) 7 = 0 :=
+        Pi.single_eq_of_ne (Ne.symm hj) _
+      rw [Pi.neg_apply, h7, neg_zero]
+
+theorem exists_actsBy {g : ModGL Tag.E8 F} (hg : g ∈ Lθ Tag.E8 F) : ∃ M, ActsBy g M :=
+  (Lθ_le_actSub hg).1
+
+open Classical in
+@[expose] def linAct (g : ModGL Tag.E8 F) : Fn F →ₗ[F] Fn F :=
+  if h : ∃ M, ActsBy g M then h.choose else 0
+
+theorem actsBy_linAct {g : ModGL Tag.E8 F} (hg : g ∈ Lθ Tag.E8 F) : ActsBy g (linAct g) := by
+  have h := exists_actsBy hg
+  rw [linAct, dif_pos h]
+  exact h.choose_spec
+
+theorem actsBy_unique {g : ModGL Tag.E8 F} {M M' : Fn F →ₗ[F] Fn F} (h : ActsBy g M)
+    (h' : ActsBy g M') {v : Fn F} (hv : v ∈ HeisSpace Tag.E8 F) : M v = M' v := by
+  obtain ⟨q, hq, rfl⟩ := (heisCoord_spec Tag.E8 F).surj v hv
+  rw [← (h q hq).2, ← (h' q hq).2]
 
 theorem ActsBy.mul {g₁ g₂ : ModGL Tag.E8 F} {M₁ M₂ : Fn F →ₗ[F] Fn F} (h₁ : ActsBy g₁ M₁)
     (h₂ : ActsBy g₂ M₂) : ActsBy (g₁ * g₂) (M₁ ∘ₗ M₂) := by
@@ -238,6 +356,31 @@ theorem ActsBy.mul {g₁ g₂ : ModGL Tag.E8 F} {M₁ M₂ : Fn F →ₗ[F] Fn F
   rw [e]
   exact ⟨hq1, by rw [hc1, hc2]; rfl⟩
 
+theorem actsBy_one : ActsBy (1 : ModGL Tag.E8 F) LinearMap.id := fun q hq => by simpa using hq
+
+theorem linAct_mul {g₁ g₂ : ModGL Tag.E8 F} (h₁ : g₁ ∈ Lθ Tag.E8 F) (h₂ : g₂ ∈ Lθ Tag.E8 F)
+    {v : Fn F} (hv : v ∈ HeisSpace Tag.E8 F) :
+    linAct (g₁ * g₂) v = linAct g₁ (linAct g₂ v) :=
+  actsBy_unique (actsBy_linAct (mul_mem h₁ h₂)) ((actsBy_linAct h₁).mul (actsBy_linAct h₂)) hv
+
+theorem linAct_one {v : Fn F} (hv : v ∈ HeisSpace Tag.E8 F) :
+    linAct (1 : ModGL Tag.E8 F) v = v :=
+  actsBy_unique (actsBy_linAct (one_mem _)) actsBy_one hv
+
+theorem linAct_mem {g : ModGL Tag.E8 F} (hg : g ∈ Lθ Tag.E8 F) {v : Fn F}
+    (hv : v ∈ HeisSpace Tag.E8 F) : linAct g v ∈ HeisSpace Tag.E8 F := by
+  obtain ⟨q, hq, rfl⟩ := (heisCoord_spec Tag.E8 F).surj v hv
+  obtain ⟨h1, h2⟩ := actsBy_linAct hg q hq
+  rw [← h2]
+  exact fun β hβ => (heisCoord_spec Tag.E8 F).support _ h1 β hβ
+
+theorem linAct_inv_linAct {g : ModGL Tag.E8 F} (hg : g ∈ Lθ Tag.E8 F) {v : Fn F}
+    (hv : v ∈ HeisSpace Tag.E8 F) : linAct g⁻¹ (linAct g v) = v := by
+  rw [← linAct_mul (inv_mem hg) hg hv, inv_mul_cancel, linAct_one hv]
+
+theorem linAct_linAct_inv {g : ModGL Tag.E8 F} (hg : g ∈ Lθ Tag.E8 F) {v : Fn F}
+    (hv : v ∈ HeisSpace Tag.E8 F) : linAct g (linAct g⁻¹ v) = v := by
+  rw [← linAct_mul hg (inv_mem hg) hv, mul_inv_cancel, linAct_one hv]
 
 theorem adm_aE8 : Adm aE8 := by
   intro γ hγ hγ0 μ hμ

@@ -105,6 +105,29 @@ theorem discPos_strictMono {j j' : ℕ} (hj : 1 ≤ j) (hjj' : j < j') (hj' : j'
   | base => exact hmono j hj hj'
   | succ j' hle ih => exact (ih (by omega)).trans (hmono j' (by omega) hj')
 
+omit [DecidableEq M] in
+include hmono in
+theorem exists_isCut (hn : 1 ≤ n) (s : ℕ) : ∃ c, IsCut gs n par lab s c := by
+  classical
+  have hex : ∃ c, 1 ≤ c ∧ (c = n ∨ (c < n ∧ s ≤ discPos gs par lab c)) := ⟨n, hn, Or.inl rfl⟩
+  have hc := Nat.find_spec hex
+  have hmin : ∀ j < Nat.find hex, ¬(1 ≤ j ∧ (j = n ∨ (j < n ∧ s ≤ discPos gs par lab j))) :=
+    fun j hj => Nat.find_min hex hj
+  have hcn : Nat.find hex ≤ n := Nat.find_min' hex ⟨hn, Or.inl rfl⟩
+  refine ⟨Nat.find hex, hc.1, hcn, fun j hj1 hjn => ⟨fun hjs => ?_, fun hjc => ?_⟩⟩
+  · by_contra hjc
+    push Not at hjc
+    rcases hc.2 with hcn' | ⟨hcn', hsc⟩
+    · omega
+    · rcases Nat.lt_or_ge (Nat.find hex) j with hlt | hge
+      · exact absurd (lt_of_le_of_lt (hsc.trans
+          (discPos_strictMono hmono hc.1 hlt hjn).le) hjs) (lt_irrefl _)
+      · have : Nat.find hex = j := le_antisymm hjc hge
+        rw [this] at hsc
+        omega
+  · by_contra hjs
+    push Not at hjs
+    exact hmin j hjc ⟨hj1, Or.inr ⟨hjn, hjs⟩⟩
 
 variable
   (hinj : ∀ i < n, ∀ j < n, x i = x j → i = j)

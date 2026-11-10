@@ -39,6 +39,7 @@ theorem add_ofV (a b : V) : (ofV a).add (ofV b) = ofV (a.add b) := by
 
 theorem neg_ofV (a : V) : (ofV a).neg = ofV a.neg := rfl
 
+theorem zero_ofV : W.zero = ofV V.zero := rfl
 
 private theorem u64_bit (x : UInt64) {r : Nat} (hr : r < 64) :
     (x >>> r.toUInt64 &&& 1 != 0) = x.toNat.testBit r := by

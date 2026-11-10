@@ -217,6 +217,16 @@ theorem path_cons {x : ℕ} (hx0 : x ≠ 0) (hx : x < 128) : path x = x :: path 
   have hp := par_lt hx0
   rw [path, path, pathAux_stable 127 (par x) (by omega), pathAux_succ hx0]
 
+theorem mem_pathAux : ∀ {n x z : ℕ}, z ∈ pathAux n x → z ≠ 0 ∧ z ≤ x
+  | 0, _, _, h => by simp [pathAux] at h
+  | n + 1, x, z, h => by
+    by_cases hx : x = 0
+    · simp [pathAux, hx] at h
+    · rw [pathAux_succ hx, List.mem_cons] at h
+      rcases h with rfl | h
+      · exact ⟨hx, le_rfl⟩
+      · obtain ⟨h1, h2⟩ := mem_pathAux h
+        exact ⟨h1, h2.trans (par_lt hx).le⟩
 
 @[expose, irreducible] noncomputable def elt (x : ℕ) : S := ((path x).map fun z => yS (gen z)).prod
 
@@ -502,6 +512,15 @@ theorem cosetAct_letter (i : Fin 4725) {j : ℕ} (hj : j < 2) :
   have := decomp_unique (i := i) (g := letterP j) (k := ⟨actT j i, h1⟩) h3
   exact ⟨congrArg Fin.val this.2, this.1⟩
 
+theorem actT_bijective {j : ℕ} (hj : j < 2) :
+    Function.Bijective fun i : Fin 4725 =>
+      (⟨actT j i, (rep_mul_letter i.isLt hj).1⟩ : Fin 4725) := by
+  have he : (fun i : Fin 4725 => (⟨actT j i, (rep_mul_letter i.isLt hj).1⟩ : Fin 4725)) =
+      cosetPerm (letterP j) := by
+    funext i
+    exact Fin.ext (cosetAct_letter i hj).1.symm
+  rw [he]
+  exact (cosetPerm (letterP j)).bijective
 
 @[expose] noncomputable def incl : S →* P := Subgroup.inclusion S_le_P
 
@@ -552,5 +571,28 @@ theorem coe_sylowS : (sylowS : Subgroup P) = S.subgroupOf P := Sylow.coe_ofCard 
 theorem exists_sylow_eq_S : ∃ Q : Sylow 2 P, (Q : Subgroup P) = S.subgroupOf P :=
   ⟨sylowS, coe_sylowS⟩
 
+@[expose] noncomputable def cosetMk (i : Fin 4725) :
+    Quotient (QuotientGroup.rightRel (S.subgroupOf P)) :=
+  Quotient.mk'' (repP i)
+
+theorem cosetMk_bijective : Function.Bijective cosetMk := by
+  refine ⟨fun i i' h => ?_, fun q => ?_⟩
+  · have h' := Quotient.exact' h
+    rw [QuotientGroup.rightRel_apply, Subgroup.mem_subgroupOf] at h'
+    obtain ⟨k, hk, hke⟩ := exists_elt h'
+    have : (elt (⟨k, hk⟩ : Fin 128) : Perm315) * rep i =
+        (elt (0 : Fin 128) : Perm315) * rep i' := by
+      simp only [Fin.val_zero, elt_zero, Subgroup.coe_one, one_mul]
+      rw [show ((elt ((⟨k, hk⟩ : Fin 128) : ℕ)) : Perm315) = _ from hke]
+      simp [repP]
+    exact (tv_injective this).2
+  · induction q using Quotient.inductionOn' with
+    | h g =>
+      refine ⟨(decomp g).2, Quotient.sound' ?_⟩
+      rw [QuotientGroup.rightRel_apply, Subgroup.mem_subgroupOf]
+      have hg := congrArg Subtype.val (tv_decomp g)
+      rw [tv_coe] at hg
+      rw [Subgroup.coe_mul, Subgroup.coe_inv, ← hg]
+      simp [repP]
 
 end CFSG.ComponentClassification.J2Cover.Models

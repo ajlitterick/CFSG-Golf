@@ -48,6 +48,8 @@ private lemma B_self_S (hd : GGCZDual e φ) (i : Fin 4) :
 private noncomputable def ggCZHvec (e : Fin 4 → V) (w : Fin 4 → ZMod p) : V :=
   ∑ k, w k • e k
 
+private noncomputable def ggCZHform (φ : Fin 4 → Module.Dual (ZMod p) V) (w : Fin 4 → ZMod p) :
+    Module.Dual (ZMod p) V := (2 : ZMod p)⁻¹ • ∑ k, w k • φ k
 
 private lemma B_H (hd : GGCZDual e φ) {w : Fin 4 → ZMod p} (v : V) :
     ggCZForm φ v (ggCZHvec e w) = ∑ k, w k * φ k v := by

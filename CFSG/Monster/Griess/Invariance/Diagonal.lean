@@ -412,6 +412,9 @@ theorem tauB_inA_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
   have e : inA (basisA s(k, k)) = tbasis (.inl k) := (tbasis_diag k).symm
   rw [map_smul, e, tauB_diag]
 
+theorem tauB_symm_inA_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
+    (hA : (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a) : tauB.symm (inA A) = inA A := by
+  rw [LinearEquiv.symm_apply_eq, tauB_inA_of_diagonal hA]
 
 theorem T_inA_tauB_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
     (hA : (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a) (u v : SpaceB) :
@@ -421,6 +424,12 @@ theorem T_inA_tauB_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
     _ = bform (gmul (inA A) u) v := bform_tauB _ _
     _ = T (inA A) u v := rfl
 
+theorem T_inA_tauB_symm_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
+    (hA : (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a) (u v : SpaceB) :
+    T (inA A) (tauB.symm u) (tauB.symm v) = T (inA A) u v := by
+  have h := T_inA_tauB_of_diagonal hA (tauB.symm u) (tauB.symm v)
+  rw [LinearEquiv.apply_symm_apply, LinearEquiv.apply_symm_apply] at h
+  exact h.symm
 
 theorem T_tauB_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
     (hA : (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a) (u v : SpaceB) :
@@ -436,5 +445,48 @@ theorem T_tauB_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
       _ = T (inA A) u v := T_inA_tauB_of_diagonal hA u v
       _ = T u v (inA A) := (T_cycle2 _ _ _).symm
 
+theorem T_tauB_symm_of_diagonal {a : Fin 24 → ℚ} {A : symMat}
+    (hA : (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a) (u v : SpaceB) :
+    T (tauB.symm (inA A)) (tauB.symm u) (tauB.symm v) = T (inA A) u v ∧
+      T (tauB.symm u) (tauB.symm (inA A)) (tauB.symm v) = T u (inA A) v ∧
+      T (tauB.symm u) (tauB.symm v) (tauB.symm (inA A)) = T u v (inA A) := by
+  rw [tauB_symm_inA_of_diagonal hA]
+  refine ⟨T_inA_tauB_symm_of_diagonal hA u v, ?_, ?_⟩
+  · calc T (tauB.symm u) (inA A) (tauB.symm v) = T (inA A) (tauB.symm u) (tauB.symm v) :=
+          T_swap12 _ _ _
+      _ = T (inA A) u v := T_inA_tauB_symm_of_diagonal hA u v
+      _ = T u (inA A) v := T_swap12 _ _ _
+  · calc T (tauB.symm u) (tauB.symm v) (inA A) = T (inA A) (tauB.symm u) (tauB.symm v) :=
+          T_cycle2 _ _ _
+      _ = T (inA A) u v := T_inA_tauB_symm_of_diagonal hA u v
+      _ = T u v (inA A) := (T_cycle2 _ _ _).symm
+
+theorem triality_Griess_diagonal_invariance :
+    (∀ (a : Fin 24 → ℚ) (A : symMat), (A : Matrix (Fin 24) (Fin 24) ℚ) = diagonal a →
+      tauB (inA A) = inA A ∧ tauB.symm (inA A) = inA A ∧
+      (∀ u v : SpaceB, T (inA A) (tauB u) (tauB v) = T (inA A) u v) ∧
+      (∀ u v : SpaceB, T (inA A) (tauB.symm u) (tauB.symm v) = T (inA A) u v) ∧
+      (∀ u v : SpaceB, T (tauB (inA A)) (tauB u) (tauB v) = T (inA A) u v ∧
+        T (tauB u) (tauB (inA A)) (tauB v) = T u (inA A) v ∧
+        T (tauB u) (tauB v) (tauB (inA A)) = T u v (inA A)) ∧
+      (∀ u v : SpaceB, T (tauB.symm (inA A)) (tauB.symm u) (tauB.symm v) = T (inA A) u v ∧
+        T (tauB.symm u) (tauB.symm (inA A)) (tauB.symm v) = T u (inA A) v ∧
+        T (tauB.symm u) (tauB.symm v) (tauB.symm (inA A)) = T u v (inA A))) ∧
+    (∀ k i : Fin 24, gmul (inA (basisA s(k, k))) (tbasis (.inl i)) =
+      (if i = k then (4 : ℚ) else 0) • tbasis (.inl i)) ∧
+    (∀ (k : Fin 24) (p : LtPair) (m : Fin 3),
+      gmul (inA (basisA s(k, k))) (tbasis (.inr (.inl (p, m)))) =
+        (2 * ((if p.1.1 = k then (1 : ℚ) else 0) + (if p.1.2 = k then 1 else 0))) •
+          tbasis (.inr (.inl (p, m)))) ∧
+    (∀ (k : Fin 24) (c : C₀) (i : Fin 24) (m : Fin 3),
+      gmul (inA (basisA s(k, k))) (tbasis (.inr (.inr (.inl (c, i, m))))) =
+        ((8 : ℚ)⁻¹ + if i = k then 1 else 0) • tbasis (.inr (.inr (.inl (c, i, m))))) ∧
+    (∀ (k : Fin 24) (o : OctIdx),
+      gmul (inA (basisA s(k, k))) (tbasis (.inr (.inr (.inr o)))) =
+        (if k ∈ octSupp o.1 then (2 : ℚ)⁻¹ else 0) • tbasis (.inr (.inr (.inr o)))) :=
+  ⟨fun _ _ hA => ⟨tauB_inA_of_diagonal hA, tauB_symm_inA_of_diagonal hA,
+      T_inA_tauB_of_diagonal hA, T_inA_tauB_symm_of_diagonal hA, T_tauB_of_diagonal hA,
+      T_tauB_symm_of_diagonal hA⟩,
+    gmul_Ekk_tbasis_diag, gmul_Ekk_tbasis_pair, gmul_Ekk_tbasis_odd, gmul_Ekk_tbasis_oct⟩
 
 end CFSG.Monster.Griess

@@ -123,6 +123,22 @@ theorem cntZK_proved (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH
       Finset.mem_filter.2 ⟨Finset.mem_range.2 hk', (hT x hxc pk).2 hcond⟩
     exact ⟨k', hk'', Subtype.ext (MOC.prep_unique (Classical.choose_spec (hE k' hk')).2 pk)⟩
 
+theorem cntZK_sound (_hsz : szOK n w = true) {tA tB : List Nat} (hA : imageList gA = tA)
+    (hB : imageList gB = tB) (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (htA : tA = (unpack n w (PS 0)).toList) (htB : tB = (unpack n w (PS 1)).toList)
+    (hnd : base.toList.Nodup) {mx my cap : Nat} {d : ClsD} (hcls : ClsOK n w tA tB mx cap [d])
+    (r : gen2 gA gB) (hR : imageList (r : Equiv.Perm (Fin n)) = (unpack n w d.R).toList)
+    (z : gen2 gA gB) {Z : Nat} (hZ : imageList (z : Equiv.Perm (Fin n)) = (unpack n w Z).toList)
+    (_hZc : canonK n w (mask w) (n * w) Z = true) (hmx : 0 < mx) (hmy : 0 < my)
+    {ws : List (List Nat × Nat)} {row : List Nat} (hL : d.c ≤ row.length * 256)
+    (hrow : ∀ b < row.length,
+      cntZK n w (mask w) (pidn n w) mx my ws Z d (b * 256) 256 = row.getD b 0) :
+    row.sum = #(univ.filter fun x : gen2 gA gB => IsConj r x ∧
+      orderOf (x ^ (mx - 1) * z) = my ∧ ∀ p ∈ ws, p.2 = 0 ∨
+        orderOf (xyWordP x (x ^ (mx - 1) * z) (x ^ (mx - 1)) ((x ^ (mx - 1) * z) ^ (my - 1))
+          p.1) = p.2) := by
+  subst htA htB
+  exact cntZK_proved hQ hA hB hnd hcls r hR z hZ hmx hmy hL hrow
 
 end CFSG.KS.SporSch.MBT
 

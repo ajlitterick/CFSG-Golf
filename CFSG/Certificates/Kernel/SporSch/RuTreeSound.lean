@@ -20,6 +20,9 @@ theorem bnat (c : Bool) (t e : Nat) :
     Bool.rec (motive := fun _ => Nat) e t c = if c = true then t else e := by
   cases c <;> rfl
 
+theorem bbool (c t e : Bool) :
+    Bool.rec (motive := fun _ => Bool) e t c = if c = true then t else e := by
+  cases c <;> rfl
 
 theorem rngK_spec {a n : Nat} {f : Nat → Bool} (h : rngK a n f = true) :
     ∀ c, a ≤ c → c < a + n → f c = true := by

@@ -253,6 +253,7 @@ private def repMat59 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 3; 3, 0], by decide⟩
 
 
+
 /-- The lookup table: to each permutation of `Fin 5` it associates the
 representative of its image in `PSL₂(ZMod 5)` (arbitrary on non-even
 permutations). -/
@@ -319,6 +320,7 @@ private def repPerm : Equiv.Perm (Fin 5) → A5SL2 := fun σ =>
   | 3, 2, 1, 0 => repMat58
   | 2, 3, 0, 1 => repMat59
   | _, _, _, _ => 1
+
 
 
 /-- The two generators of `A₅`: `a5x = (0 1)(2 3)` and `a5y = (0 2 4)`. -/
@@ -848,9 +850,37 @@ public theorem hasDihedralSylowTwo_alternatingGroupFive :
   simpa using (IsKleinFour.nonempty_mulEquiv
     (G₁ := ↥(S : Subgroup (alternatingGroup (Fin 5)))) (G₂ := DihedralGroup 2))
 
+/-- `A₅` has cyclic or dihedral Sylow `2`-subgroups (in fact they are all
+`DihedralGroup 2`, the Klein four group). -/
+public theorem hasCyclicOrDihedralSylowTwo_alternatingGroupFive :
+    HasCyclicOrDihedralSylowTwo (alternatingGroup (Fin 5)) := by
+  intro S
+  exact Or.inr (hasDihedralSylowTwo_alternatingGroupFive S)
 
 /-! ## `A₅` is a D-group -/
 
+/-- The alternating group on five points is a D-group, realized through
+`A₅ ≅ PSL₂(ZMod 5)` with `q = 5` an odd prime power. -/
+public theorem alternatingGroupFive_isDGroup : IsDGroup (alternatingGroup (Fin 5)) := by
+  have : Fact (Nat.Prime 5) := ⟨by decide⟩
+  refine IsDGroup.quotientHasLinearNormalSubgroup (G := alternatingGroup (Fin 5))
+    (K := ZMod 5) hasCyclicOrDihedralSylowTwo_alternatingGroupFive ?_ ⊤ ?_ ?_ ?_
+  · -- `IsOddPrimePower (Nat.card (ZMod 5))`
+    rw [show Nat.card (ZMod 5) = 5 by
+      rw [Nat.card_eq_fintype_card]
+      simp [ZMod.card]]
+    exact ⟨5, 1, by decide, by decide, by norm_num, rfl⟩
+  · -- `(⊤ : Subgroup _).Normal`
+    infer_instance
+  · -- `Odd (⊤ : Subgroup _).index`
+    simp
+  · -- the model: `⊤ ≃* PSL₂(ZMod 5)`
+    left
+    rcases alternatingGroupFive_equiv_PSL2 with ⟨eA5⟩
+    exact ⟨Subgroup.topEquiv.trans (by
+      exact (QuotientGroup.quotientMulEquivOfEq (M := pPrimeCore 2 (alternatingGroup (Fin 5)))
+        (N := ⊥) pPrimeCore_two_alternatingGroupFive).trans
+        ((QuotientGroup.quotientBot (G := alternatingGroup (Fin 5))).trans eA5))⟩
 
 /-! ## Universe-polymorphic transport -/
 

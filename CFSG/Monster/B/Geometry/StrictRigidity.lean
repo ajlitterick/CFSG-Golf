@@ -353,5 +353,28 @@ end ChamberSystem
 
 open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley ChamberSystem
 
+theorem F4_local_three_strict_gallery_rigidity
+    {C : Type*} (X : ChamberSystem (Fin Tag.F4.rank) C)
+    (hres2 : ∀ J : Set (Fin Tag.F4.rank), J.ncard = 2 → ∀ x,
+      X.IsResidueBuilding (coxeterSystem .F4) J x)
+    (hres3 : ∀ J : Set (Fin Tag.F4.rank), J.ncard = 3 → ∀ x,
+      X.IsResidueBuilding (coxeterSystem .F4) J x)
+    {x : C} {γ γ' : List (Fin Tag.F4.rank × C)}
+    (hγ : X.IsReducedOrdinary (coxeterSystem .F4) x γ)
+    (h : X.StrictHomotopic (coxeterSystem .F4) x γ γ') (htype : galleryType γ = galleryType γ') :
+    γ = γ' := by
+  refine eq_of_strictHomotopic (fun s t hst y => hres2 {s, t} (Set.ncard_pair hst) y)
+    (fun T hT y => ?_) hγ h htype
+  have huniv : (Set.univ : Set (Fin Tag.F4.rank)).encard = 4 := by
+    rw [Set.encard_univ, ENat.card_eq_coe_fintype_card, Fintype.card_fin]
+    rfl
+  have hTc : (T : Set (Fin Tag.F4.rank)).encard ≤ 3 := by
+    rw [Set.encard_coe_eq_coe_finsetCard]
+    exact_mod_cast hT
+  obtain ⟨T', hTT', -, hT'⟩ := Set.exists_superset_subset_encard_eq (k := 3)
+    (Set.subset_univ (T : Set (Fin Tag.F4.rank))) hTc (by rw [huniv]; norm_num)
+  refine ⟨T', hTT', hres3 T' ?_ y⟩
+  rw [Set.ncard, hT']
+  rfl
 
 end CFSG.Monster.B.Geometry

@@ -62,6 +62,8 @@ theorem decodeN_inj {a b : Array ℕ} (ha : PermArrN n a = true) (hb : PermArrN 
 
 @[expose] def amulN (s x : Array ℕ) : Array ℕ := x.map fun i => s[i]!
 
+@[expose] def ainvN (n : ℕ) (s : Array ℕ) : Array ℕ :=
+  ((List.range n).map fun j => (List.range n).findIdx fun i => s[i]! == j).toArray
 
 @[expose] def idArrN (n : ℕ) : Array ℕ := (List.range n).toArray
 

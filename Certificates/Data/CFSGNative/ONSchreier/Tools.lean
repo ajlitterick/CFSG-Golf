@@ -35,6 +35,13 @@ set_option compiler.extract_closed false
 @[expose] def blockTab (g : Array Nat) (B : Array (Array Nat)) (bpos : Array Nat) : Array Nat :=
   B.map fun b => bpos[g[b[0]!]!]!
 
+@[expose] def blocksMapOK (g : Array Nat) (B : Array (Array Nat)) (bpos : Array Nat) : Bool :=
+  allBelowN B.size fun i => decide (bpos[g[B[i]![0]!]!]! < B.size) &&
+    bpos[g[B[i]![1]!]!]! == bpos[g[B[i]![0]!]!]!
+
+@[expose] def dedupTabs (n : Nat) (ts : List (Array Nat)) : List (Array Nat) :=
+  ts.foldl (fun acc t => if peq n t (pid n) || acc.any (fun u => peq n u t) then acc
+    else acc ++ [t]) []
 
 @[expose] def fixCount (n : Nat) (g : Array Nat) : Nat :=
   ((List.range n).filter fun i => g[i]! == i).length
@@ -49,5 +56,9 @@ set_option compiler.extract_closed false
 @[expose] def sortedImage (g : Array Nat) (b : Array Nat) : List Nat :=
   b.toList.foldl (fun acc p => insertSorted g[p]! acc) []
 
+@[expose] def setTab (g : Array Nat) (B : Array (Array Nat)) : Array Nat :=
+  let index : Std.HashMap (List Nat) Nat :=
+    (List.range B.size).foldl (fun m i => m.insert B[i]!.toList i) ∅
+  B.map fun b => index.getD (sortedImage g b) B.size
 
 end CFSG.ONSchreier.Native

@@ -26,6 +26,7 @@ theorem hws : ∀ c < 16,
     TrivK.ws7, TrivK.ws8, TrivK.ws9, TrivK.ws10, TrivK.ws11, TrivK.ws12, TrivK.ws13, TrivK.ws14,
     TrivK.ws15]
 
+theorem cw_eq {x : Nat} (hx : IsCw x) : ∃ m < 4096, cwK m = x := exists_cwK TrivAutK.code hx
 
 theorem triv_case {x₁ : Nat} (hx₁ : IsCw x₁) :
     x₁ = 0 ∨ x₁ = omK ∨

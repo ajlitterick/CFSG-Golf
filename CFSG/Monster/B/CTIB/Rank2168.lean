@@ -48,6 +48,9 @@ theorem ordProj_le_of_mulEquiv (e : A ≃* B) {n : ℕ} (h : ordProj[2] (Nat.car
     ordProj[2] (Nat.card B) ≤ n :=
   (congrArg (fun m => ordProj[2] m) (Nat.card_congr e.toEquiv)).symm.trans_le h
 
+theorem not_isComponent_of_mulEquiv (e : A ≃* B) (h : ∀ K : Subgroup A, ¬ CFSG.IsComponent K) :
+    ∀ K : Subgroup B, ¬ CFSG.IsComponent K := fun K hK =>
+  h (K.map e.symm.toMonoidHom) (CFSG.LocalCores.isComponent_map_mulEquiv e.symm hK)
 
 theorem exists_selfCent_of_le {D : Type*} [Group D] {T R : Subgroup D} (e : A ≃* T)
     (hRT : R ≤ T) (hRn : (R.subgroupOf T).Normal) (hR2 : IsPGroup 2 R)

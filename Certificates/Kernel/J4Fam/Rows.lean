@@ -22,5 +22,7 @@ open CFSG.KC (notB)
 
 #kc_forall_chunks rows_ok (fun k => rowF k = true) 191 CertificateChecks.KernelJ4Fam.rowF 1
 
+theorem neg_row : notB (rowOK INV (CML.set 5 (CML.getD 5 0 ^^^ 1)) PTL PTP PP TT WALL 5) = true := by
+  quickRfl
 
 end CertificateChecks.KernelJ4Fam

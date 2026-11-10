@@ -29,6 +29,10 @@ theorem commOn_le_iff : commOn ρ A U ≤ W ↔ ∀ a ∈ A, ∀ u ∈ U, ρ a u
 theorem commOn_le (hU : IsInvariant ρ A U) : commOn ρ A U ≤ U :=
   commOn_le_iff.mpr fun a ha u hu => U.sub_mem (hU a ha u hu) hu
 
+theorem commOn_bot : commOn ρ A ⊥ = ⊥ := by
+  refine le_bot_iff.mp (commOn_le_iff.mpr fun a ha u hu => ?_)
+  rw [Submodule.mem_bot] at hu
+  simp [hu]
 
 theorem isInvariant_of_comm_le (hU : W ≤ U) (hc : commOn ρ A U ≤ W) : IsInvariant ρ A W := by
   intro a ha w hw
@@ -192,6 +196,7 @@ theorem eq_of_le_of_card_le (h : W ≤ U) (hc : Nat.card U ≤ Nat.card W) : W =
   have : w = u := congrArg Subtype.val hwu
   exact this ▸ hw
 
+theorem card_pos' (W : Submodule (ZMod 2) V) : 0 < Nat.card W := Nat.card_pos
 
 def Best (ρ : Representation (ZMod 2) G V) (A : Subgroup G) (U : Submodule (ZMod 2) V) : Prop :=
   ∀ B : Subgroup G, B ≤ A → Nat.card B * Nat.card (fixOn ρ B U) ≤
@@ -705,6 +710,8 @@ theorem main_aux {U₀ : Submodule (ZMod 2) V} (hE : IsElemAbelianOn ρ A U₀) 
     exact concl_of_star hU hB (star_of_two hB hH1U hH2U hXH1 hXH2 hyp1 hyp2 ⟨x1, hx1, hx1'⟩
       hX1 hX2 hconcl1 hconcl2)
 
+theorem concl_top (hE : IsElemAbelianOn ρ A ⊤) (hB : Best ρ A ⊤) : Concl ρ A ⊤ :=
+  main_aux hE _ ⊤ rfl le_rfl (fun _ _ _ _ => Submodule.mem_top) hB
 
 theorem concl_on (hE : IsElemAbelianOn ρ A U) (hU : IsInvariant ρ A U) (hB : Best ρ A U) :
     Concl ρ A U :=

@@ -143,9 +143,45 @@ theorem R5_injective : Function.Injective R5 := by
   revert d d'
   decide +kernel
 
+@[expose] def tetLab : Fin 10 → Finset ℕ :=
+  ![{4, 5}, {2, 3}, {3, 5}, {2, 4}, {3, 4}, {2, 5}, {1, 3}, {1, 5}, {1, 4}, {1, 2}]
 
 @[expose] def ev4 : Fin 15 → Fin 2 → Fin 10 := ![![0, 1], ![2, 3], ![4, 5], ![0, 6], ![4, 7],
     ![2, 8], ![0, 9], ![5, 8], ![3, 7], ![1, 7], ![5, 6], ![2, 9], ![1, 8], ![4, 9], ![3, 6]]
 
+theorem R4_subset_R5_iff :
+    ∀ (c : Fin 15) (d : Fin 10), R4 c ⊆ R5 d ↔ d = ev4 c 0 ∨ d = ev4 c 1 := by
+  decide +kernel
+
+theorem mem_tetLab_iff (d : Fin 10) (k : Fin 5) :
+    (k : ℕ) + 1 ∈ tetLab d ↔ ∀ D ∈ R5 d, ¬ ((D : Finset (Fin 24)) ⊆ tetrad k) := by
+  have h : ∀ (d : Fin 10) (k : Fin 5), (k : ℕ) + 1 ∈ tetLab d ↔
+      (R5 d).filter (fun D : Set.powersetCard (Fin 24) 2 =>
+        (D : Finset (Fin 24)) ⊆ tetrad k) = ∅ := by
+    decide +kernel
+  rw [h, Finset.filter_eq_empty_iff]
+
+abbrev twoSubsets : Finset (Finset ℕ) := (Finset.Icc 1 5).powersetCard 2
+
+theorem tetLab_mem : ∀ d, tetLab d ∈ twoSubsets := by decide
+
+theorem tetLab_injective : Function.Injective tetLab := by
+  intro d d' h
+  revert d d'
+  decide
+
+theorem exists_tetLab : ∀ s ∈ twoSubsets, ∃ d, tetLab d = s := by decide
+
+theorem ev4_disjoint :
+    ∀ c, ev4 c 0 ≠ ev4 c 1 ∧ Disjoint (tetLab (ev4 c 0)) (tetLab (ev4 c 1)) := by
+  decide
+
+theorem ev4_injective : ∀ c c', ({ev4 c 0, ev4 c 1} : Finset (Fin 10)) = {ev4 c' 0, ev4 c' 1} →
+    c = c' := by
+  decide
+
+theorem exists_ev4 : ∀ d d' : Fin 10, d ≠ d' → Disjoint (tetLab d) (tetLab d') →
+    ∃ c, (ev4 c 0 = d ∧ ev4 c 1 = d') ∨ (ev4 c 0 = d' ∧ ev4 c 1 = d) := by
+  decide
 
 end CFSG.Monster.B.TwoA

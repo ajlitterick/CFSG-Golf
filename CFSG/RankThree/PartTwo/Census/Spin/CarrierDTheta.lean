@@ -365,6 +365,11 @@ theorem intMap_commute_of {c d : Cl n} {X Y : Matrix (Fin (dimension n)) (Fin (d
   show intMap K X * intMap K Y = intMap K Y * intMap K X
   rw [← intMap_mul, ← intMap_mul, (hc.mul hd).eq ((hd.mul hc).congr h.symm)]
 
+theorem intMap_commute_of_zero {c d : Cl n}
+    {X Y : Matrix (Fin (dimension n)) (Fin (dimension n)) ℤ}
+    (hc : IsIntOp n c X) (hd : IsIntOp n d Y) (h1 : c * d = 0) (h2 : d * c = 0) :
+    Commute (intMap K X) (intMap K Y) :=
+  intMap_commute_of hc hd (h1.trans h2.symm)
 
 theorem theta_sqZeroPair {X Y : Matrix (Fin (dimension n)) (Fin (dimension n)) ℤ}
     (hX : IsIntOp n (crD n ⟨0, by omega⟩ * crD n ⟨1, by omega⟩) X)

@@ -158,6 +158,25 @@ theorem closure_permsA (htabs : tabsCheck = true) (hg : c.GensOK) :
     show permOfArr 693 c.O[i]! = _
     rw [O_getElem _ hi, permOfArr_wA htabs (hg _ hw)]
 
+theorem forall_of_enum (htabs : tabsCheck = true) (hg : c.GensOK) {e : ArrCert}
+    (he : enumOK 693 c.O c.base e = true) (hbase : ∀ p ∈ c.base, p < 693)
+    {P : Equiv.Perm (Fin 693) → Prop}
+    (h : ∀ i < e.pts.size, P (permOfArr 693 e.pts[i]!)) : ∀ x ∈ c.grp, P x := by
+  intro x hx
+  rw [← closure_permsA htabs hg] at hx
+  obtain ⟨i, hi, rfl⟩ := ((enumOK_spec hbase he).1 x).1 hx
+  exact h i hi
+
+theorem valid_of_enum {e : ArrCert} (he : enumOK 693 c.O c.base e = true)
+    (hbase : ∀ p ∈ c.base, p < 693) {i : ℕ} (hi : i < e.pts.size) :
+    Rep 693 e.pts[i]! (permOfArr 693 e.pts[i]!) ∧ validA 693 e.pts[i]! = true :=
+  ⟨rep_of_validA ((enumOK_spec hbase he).2.2 i hi), (enumOK_spec hbase he).2.2 i hi⟩
+
+theorem card_of_enum (htabs : tabsCheck = true) (hg : c.GensOK) {e : ArrCert}
+    (he : enumOK 693 c.O c.base e = true) (hbase : ∀ p ∈ c.base, p < 693) :
+    Nat.card c.grp = e.pts.size := by
+  rw [← closure_permsA htabs hg]
+  exact (enumOK_spec hbase he).2.1
 
 end ChainData
 

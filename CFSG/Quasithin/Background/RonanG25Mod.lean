@@ -97,6 +97,13 @@ theorem ModChain.trans {act : Γ → E →+ E} {M₁ M₂ M₃ : AddSubgroup E} 
     simpa [Nat.add_right_comm] using this
   | central hs hn rest ih => exact ModChain.central hs hn (ih h')
 
+theorem ModChain.le {act : Γ → E →+ E} {M₁ M₂ : AddSubgroup E} {a b : ℕ}
+    (h : ModChain F act M₁ M₂ a b) : M₁ ≤ M₂ := by
+  induction h with
+  | refl M hM => exact le_rfl
+  | natural hs hn rest ih => exact hs.lt.le.trans ih
+  | additional hs hn rest ih => exact hs.lt.le.trans ih
+  | central hs hn rest ih => exact hs.lt.le.trans ih
 
 end Mod
 

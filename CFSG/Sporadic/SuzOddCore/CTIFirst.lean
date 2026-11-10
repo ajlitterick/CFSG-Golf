@@ -31,6 +31,11 @@ theorem card_ker_rho0 : Nat.card rho0.ker = 4 := by
 
 theorem kperm_mem (k : ℕ) : kperm k ∈ rho0.range := ⟨_, rfl⟩
 
+theorem tabRep_kperm {k : ℕ} (hk : k < 22) : TabRep (kGens 0)[k]! (kperm k) :=
+  tabRep_kpermOf hm0 hk
+
+theorem tabRep_kperm_inv {k : ℕ} (hk : k < 22) : TabRep (kInvs 0)[k]! (kperm k)⁻¹ :=
+  tabRep_kpermOf_inv hm0 hk
 
 @[expose] def dperm (j : ℕ) : Equiv.Perm (Fin 42) := ⁅kperm 1, kperm (j + 2)⁆
 
@@ -41,10 +46,20 @@ theorem tabRep_dperm {j : ℕ} (hj : j < 5) : TabRep dGens[j]! (dperm j) :=
 
 @[expose] def suzD : Subgroup (Equiv.Perm (Fin 42)) := Subgroup.closure dGenSet
 
+theorem d_hA : ∀ a ∈ dGenSet, ∃ j < dGens.size, TabRep dGens[j]! a := by
+  rintro _ ⟨j, hj, rfl⟩
+  exact ⟨j, by rw [dGens_size]; exact hj, tabRep_dperm hj⟩
+
+theorem d_hgens : ∀ j < dGens.size, ∃ a ∈ dGenSet, TabRep dGens[j]! a := by
+  intro j hj
+  rw [dGens_size] at hj
+  exact ⟨_, ⟨j, hj, rfl⟩, tabRep_dperm hj⟩
 
 theorem card_suzD : Nat.card suzD = 20160 :=
   card_suzDOf hm0
 
+theorem suzD_enumerates : Enumerates suzD (enumOf 42 dGens 20160).tabs.toList :=
+  enumerates_suzDOf hm0
 
 theorem suzD_le : suzD ≤ rho0.range := by
   rw [suzD, Subgroup.closure_le]

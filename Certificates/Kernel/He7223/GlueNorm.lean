@@ -134,6 +134,9 @@ theorem lsGen_mem_eNorm :
   · exact mem_eNorm_E (LG_letters 1 (by norm_num)) ch7223mL1
   · exact mem_eNorm_E (LG_letters 2 (by norm_num)) ch7223mL2
 
+theorem y5_mem_eNorm :
+    elt y5W ∈ eNorm ebasis_E :=
+  lsGen_mem_eNorm _ (by rw [lsGenW]; exact List.mem_cons_self)
 
 end CertificateChecks.KernelHe7223
 

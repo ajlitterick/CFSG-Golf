@@ -67,6 +67,17 @@ theorem psiB_single_smul
   · rw [Pi.single_zero, psiB_zero, zero_smul]
   · rw [psiB_single, one_smul]
 
+theorem psiB_mem
+    (v : Fin 8 → ZMod 2) : psiB v ∈ Zsp := by
+  have hv : v = ∑ k : Fin 8, Pi.single k (v k) := (Finset.univ_sum_single v).symm
+  rw [hv]
+  refine Finset.sum_induction _ (fun w => psiB w ∈ Zsp) (fun a b ha hb => ?_) ?_ fun k _ => ?_
+  · rw [psiB_add]
+    exact Zsp.add_mem ha hb
+  · rw [psiB_zero]
+    exact Zsp.zero_mem
+  · rw [psiB_single_smul]
+    exact Zsp.smul_mem _ (psiGen_mem k)
 
 theorem exists_psiB
     {x : Wv v0} (hx : x ∈ Zsp) : ∃ v : Fin 8 → ZMod
@@ -79,6 +90,29 @@ theorem exists_psiB
   simp only [psiB_add, psiB_single_smul, Fin.sum_univ_six]
   rfl
 
+theorem mem_B7_iff
+    (x : Dfull) : x ∈ B7 ↔ ∃ h : x ∈ Ehat, psiW ⟨x, h⟩
+    ∈ Zsp := by
+  constructor
+  · intro hx
+    refine ⟨B7_le_Ehat hx, ?_⟩
+    rw [B7_eq_range] at hx
+    obtain ⟨v, rfl⟩ := hx
+    exact psiB_mem v.toAdd
+  · rintro ⟨h, hz⟩
+    obtain ⟨v, hv⟩ := exists_psiB hz
+    have hP := B7_le_Ehat (PhiD_mem_B7 v)
+    have h0 : psiW (⟨x, h⟩ * (⟨PhiD v, hP⟩ : Ehat)⁻¹) = 0 := by
+      rw [psiW_mul, psiW_inv]
+      change psiW ⟨x, h⟩ + -psiB v = 0
+      rw [hv, add_neg_cancel]
+    rcases (psiW_eq_zero_iff _).1 h0 with h1 | h1
+    · have h2 : x * (PhiD v)⁻¹ = 1 := congrArg Subtype.val h1
+      rw [mul_inv_eq_one.1 h2]
+      exact PhiD_mem_B7 v
+    · have h2 : x * (PhiD v)⁻¹ = xhat := congrArg Subtype.val h1
+      rw [mul_inv_eq_iff_eq_mul.1 h2, ← PhiD_single_zero]
+      exact B7.mul_mem (PhiD_mem_B7 _) (PhiD_mem_B7 v)
 
 theorem cGen_nine :
     cGen ⟨9, by norm_num⟩ = rK := by

@@ -209,6 +209,21 @@ variable {G : Type*} [Group G]
   Subgroup.closure {g : G | ∃ A₀ ∈ signalizerFunctorEk 2 3 A,
     A₀.map (MulAut.conj g).toMonoidHom ≤ A} = ⊤
 
+theorem fusionGenerated_of_centralizer_generated {A : Subgroup G}
+    (h : (⨆ E₀ ∈ signalizerFunctorEk 2 3 A, Subgroup.centralizer (E₀ : Set G)) = ⊤) :
+    FusionGenerated A := by
+  refine top_unique ?_
+  rw [← h]
+  refine iSup₂_le fun E₀ hE₀ g hg => ?_
+  refine Subgroup.subset_closure ⟨E₀, hE₀, ?_⟩
+  rintro _ ⟨x, hx, rfl⟩
+  have hcomm := Subgroup.mem_centralizer_iff.mp hg x hx
+  have : (MulAut.conj g).toMonoidHom x = x := by
+    change g * x * g⁻¹ = x
+    rw [← hcomm]
+    group
+  rw [this]
+  exact hE₀.1 hx
 
 end DeltaTriviality
 

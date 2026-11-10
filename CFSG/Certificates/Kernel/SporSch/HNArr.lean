@@ -34,6 +34,8 @@ theorem gi_one {x : ℕ} (hx : x < nPts) : gi 1 x = x := by
 theorem gi_inv (g : JH) {x : ℕ} (hx : x < nPts) : gi g⁻¹ (gi g x) = x := by
   rw [← gi_mul _ _ hx, inv_mul_cancel, gi_one hx]
 
+theorem gi_inv' (g : JH) {x : ℕ} (hx : x < nPts) : gi g (gi g⁻¹ x) = x := by
+  rw [← gi_mul _ _ hx, mul_inv_cancel, gi_one hx]
 
 theorem arrJ_size (g : JH) : (arrJ g).size = nPts := by simp [arrJ]
 
@@ -49,6 +51,9 @@ theorem PK_gi (g : JH) {x : ℕ} (hx : x < nPts) :
   rw [gi_of_lt g hx]
   exact PK_smul g ⟨x, hx⟩
 
+theorem gi_eq_of_PK {x y : ℕ} (hx : x < nPts) (hy : y < nPts)
+    (h : PK x = PK y) : x = y :=
+  PK_injective x hx y hy h
 
 theorem pcomp_arrJ (g h : JH) : pcomp nPts (arrJ g) (arrJ h) = arrJ (g * h) := by
   refine arrJ_ext (by simp [pcomp]) fun x hx => ?_

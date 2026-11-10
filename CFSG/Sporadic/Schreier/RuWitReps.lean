@@ -57,6 +57,8 @@ theorem rep_ruLGens :
 theorem ruLGensA_size : ruLGensA.size = 3 := by
   simp [ruLGensA, ruLMWords]
 
+theorem ruLGens_length : ruLGens.length = 3 := by
+  simp [ruLGens, ruLMWords]
 
 theorem rep_ruLGensInv :
     ∀ i < 3, Rep 4060 (ruLGensA.map ruInv)[i]! (ruLGens.getD i 1)⁻¹ := by

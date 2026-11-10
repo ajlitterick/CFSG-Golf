@@ -122,6 +122,12 @@ theorem finrank_lam0 : Module.finrank (ZMod 2) lam0 = 4 := by
   rw [show lam0 = Submodule.span (ZMod 2) {bvec 8 1, bvec 8 2, bvec 8 12, bvec 8 48} from rfl]
   exact h
 
+theorem e0_mem_lam0 : e0 ∈ lam0 := by
+  have h : e0 = bvec 8 1 := by
+    funext i
+    fin_cases i <;> simp [e0, bvec] <;> decide
+  rw [h]
+  exact Submodule.subset_span (by simp)
 
 section
 

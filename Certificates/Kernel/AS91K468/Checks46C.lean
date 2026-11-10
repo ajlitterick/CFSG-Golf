@@ -60,6 +60,11 @@ theorem ch89406_e4 :
     chunksEnd 20 1 (fk 4) (fk 4 ++ (fk 3 ++ (fk 2 ++ (fk 1 ++ fk 0)))) [] (dk 4) = true := by
   quickRfl
 
+theorem ch89406_q_neg :
+    (!chunkW pfL 20 (fk 0) (fk 0) (fk 1) ((ck 0).map (List.map Nat.succ)) (dk 0) 0) = true := by
+  quickRfl
+
+theorem ch89406_e_neg : (!chunksEnd 20 1 (fk 0) (fk 0) (fk 0) [1, 0]) = true := by quickRfl
 
 end CertificateChecks.KernelAS91K468
 

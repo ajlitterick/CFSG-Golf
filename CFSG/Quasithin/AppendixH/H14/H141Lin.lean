@@ -128,6 +128,8 @@ theorem linAct_xor (M n m : ℕ) : linAct M (n ^^^ m) = linAct M n ^^^ linAct M 
   simp only [linAct, Nat.testBit_xor, if_bool_xor]
   ac_rfl
 
+theorem linAct_zero (M : ℕ) : linAct M 0 = 0 := by
+  simp [linAct]
 
 theorem linAct_if (M x : ℕ) (b : Bool) :
     linAct M (if b then x else 0) = if b then linAct M x else 0 := by

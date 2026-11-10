@@ -31,10 +31,28 @@ theorem normal₁ : (G₁.subgroupOf G).Normal :=
   normal_of_commute (G₁ := G₂) (G₂ := G₁) (by rw [sup_comm]; exact h.sup)
     (fun a ha b hb => (h.comm b hb a ha).symm)
 
+include h in
+theorem conj_mem_G₁ : ∀ g ∈ G, ∀ x ∈ G₁, g * x * g⁻¹ ∈ G₁ := by
+  intro g hg x hx
+  have := h.normal₁.conj_mem ⟨x, h.G₁_le hx⟩ (by rwa [Subgroup.mem_subgroupOf]) ⟨g, hg⟩
+  simpa [Subgroup.mem_subgroupOf] using this
+
+include h in
+theorem res_mem : ∀ g ∈ G, ∃ b ∈ G₂, ∀ v ∈ fixV G₁, g v = b v :=
+  ProdSplit.res_mem h.sup h.comm
 
 include h in
 theorem stab_G : G ≤ stabSub (fixV G₁) :=
   ProdSplit.stab_G h.sup h.comm
+
+include h in
+theorem autSub_sup_eq : autSub G (fixV G₁) = autSub G₂ (fixV G₁) :=
+  ProdSplit.autSub_sup_eq h.sup h.comm
+
+include h in
+theorem ffJ_autSub [Finite V] (hJ : G = ffJ G) :
+    autSub G₂ (fixV G₁) ≤ ffJ (autSub G₂ (fixV G₁)) :=
+  ProdSplit.ffJ_autSub h.sup h.comm hJ
 
 
 end B510Data
@@ -58,6 +76,10 @@ theorem card_lt [Finite V] (hG₁ : G₁ ≠ ⊥) : Nat.card ↥(autSub G₂ (fi
 include h in
 theorem autSub_ne_bot (hne : G₂ ≠ ⊥) : autSub G₂ (fixV G₁) ≠ ⊥ :=
   ProdSplit.autSub_ne_bot h.comm h.faithful hne
+
+
+
+
 
 
 section Main5

@@ -18,6 +18,9 @@ theorem cbComm_ok : gensCommK classb.centGens wordB = true := by quickRfl
 
 theorem cazComm_ok : gensCommK classaz.centGens wordZ = true := by quickRfl
 
+theorem cbComm_neg : (!gensCommK classb.centGens wordZ) = true := by quickRfl
+
+theorem cazComm_neg : (!gensCommK classaz.centGens wordB) = true := by quickRfl
 
 end CFSG.KD.HN1408.CzInv
 

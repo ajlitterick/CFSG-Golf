@@ -79,6 +79,8 @@ private theorem ngetL_eq : ∀ (l : List (List Nat)) (i : Nat), ngetL l i = l.ge
 
 private theorem beqD (x y : Nat) : Nat.beq x y = (x == y) := rfl
 
+private theorem bNot_eq (c : Bool) : Bool.rec (motive := fun _ => Bool) true false c = !c := by
+  cases c <;> rfl
 
 private theorem foldN12_eq (f : Nat → Nat → Nat) (s : Nat) :
     foldN 12 f s = (List.range 12).foldr f s := by

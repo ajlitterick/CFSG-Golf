@@ -35,5 +35,16 @@ theorem fM_terminal_order
 theorem fM_injOn_H
     : Set.InjOn fM y443H := injOn_H fM fM_terminal_order
 
+theorem fM_edge_intersection
+    :
+    fM y443X ∉ y443H.map fM ∧
+      ∀ h ∈ y443H.map fM, fM y443X * h * fM y443X ∈ y443H.map fM →
+        ∃ k ∈ y443H, y443X * k * y443X ∈ y443H ∧ fM k = h :=
+  edge_intersection fM fM_terminal_order fM_C_X_noncomm
+
+theorem fM_inf_conj_eq
+    :
+    y443H.map fM ⊓ (y443H.map fM).map (MulAut.conj (fM y443X)).toMonoidHom = y443K.map fM :=
+  inf_conj_eq fM fM_terminal_order fM_C_X_noncomm
 
 end CFSG.YGroups.Y443

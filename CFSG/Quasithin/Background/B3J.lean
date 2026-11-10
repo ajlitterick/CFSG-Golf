@@ -112,5 +112,10 @@ theorem exists_pullback_T (k : Mod) {T : Subgroup (Gp n)} {A' : Subgroup (MulAut
 
 @[expose] def Jc (n : ℕ) (k : Mod) : List Tab := closeT n (Jgens n k)
 
+@[expose] def chkJ (n : ℕ) (k : Mod) : Bool :=
+  let Jg := Jgens n k
+  let S := Jc n k
+  subOK n S && Jg.all (fun g => S.contains g) && chainOK Jg (idT n) [] S
+
 
 end CFSG.Quasithin.B3

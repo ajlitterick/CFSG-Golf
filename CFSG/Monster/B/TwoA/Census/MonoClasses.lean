@@ -151,6 +151,10 @@ theorem mem_pts_iff {c : NatCert} {n : ℕ} :
   · rintro ⟨t, ht, rfl⟩
     exact ⟨t, ht, (getElem!_pos c.pts t ht).symm⟩
 
+theorem monoSign_mem
+    {i : ℕ} (hi : i < 7) : monoSign.getD i 0 ∈ (monoCert i).pts.toList := by
+  have h := monoCert_ok i hi
+  exact mem_pts_iff.2 ⟨0, natCertOK_pos h, natCertOK_root h⟩
 
 theorem monoPt_mem_fibre
     {i : ℕ} (hi : i < 7) :

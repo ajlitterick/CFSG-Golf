@@ -73,6 +73,11 @@ theorem ofTab_lineTab :
 
 theorem coe_lineE (i : Fin 4) : ((lineE i : G22) : Perm (Fin 22)) = line i := rfl
 
+theorem coe_vAE
+    (i : Fin 4) : ((vAE i : G22) : Perm (Fin 22)) = vA i := rfl
+
+theorem coe_vBE
+    (i : Fin 4) : ((vBE i : G22) : Perm (Fin 22)) = vB i := rfl
 
 theorem vAE_sq
     (i : Fin 4) : vAE i * vAE i = 1 := Subtype.ext (perm_facts i).1
@@ -98,6 +103,8 @@ theorem lineE_cube (i : Fin 4) : lineE i ^ 3 = 1 :=
 theorem lineE_ne_one (i : Fin 4) : lineE i ≠ 1 := fun h =>
   (perm_facts i).2.2.2.2.2.2.2.2.2 (congrArg Subtype.val h)
 
+theorem orderOf_lineE (i : Fin 4) : orderOf (lineE i) = 3 :=
+  orderOf_eq_prime (lineE_cube i) (lineE_ne_one i)
 
 noncomputable abbrev P0 : Subgroup G22 := E.sub
 

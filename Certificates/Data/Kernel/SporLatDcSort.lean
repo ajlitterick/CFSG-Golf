@@ -8,6 +8,22 @@ namespace CFSG.KC.SLDc
 
 open CFSG.QuasithinUnique.Ch1.SporLat
 
+@[expose] def omOKGnd {Lab : Type} [DecidableEq Lab] [Inhabited Lab] (actF : Nat → Lab → Lab)
+    (x0 : Lab) (nl : Nat) (O : OmegaData Lab) : Bool :=
+  decide (O.lbl[0]! = x0) && decide (0 < O.lbl.size) &&
+    (List.range nl).all (fun l => (List.range O.lbl.size).all fun i =>
+      decide ((O.pn[l]!)[i]! < O.lbl.size) &&
+        decide (O.lbl[(O.pn[l]!)[i]!]! = actF l O.lbl[i]!)) &&
+    (List.range O.lbl.size).all (fun i => i == 0 ||
+      (decide (O.par[i]! < i) && decide (O.via[i]! < nl) && (O.pn[O.via[i]!]!)[O.par[i]!]! == i))
+
+@[expose] def ordOK (O : OmegaData (List Nat)) (ord : List Nat) : Bool :=
+  Nat.beq ord.length O.lbl.size && ord.all (fun i => Nat.blt i O.lbl.size) &&
+    sortedLt (ord.map fun i => O.lbl[i]!)
+
+@[expose] def omCodeOKS (n : Nat) (ts : Array (Array Nat)) (x0 : List Nat)
+    (O : OmegaData (List Nat)) (ord : List Nat) : Bool :=
+  omOKGnd (fun l x => codeSetT n (ts.getD l #[]) x) x0 ts.size O && ordOK O ord
 
 @[expose] def lookC (B : Nat) (C : List (List (List Nat))) (k : Nat) : List Nat :=
   (C.getD (Nat.div k B) []).getD (Nat.mod k B) []

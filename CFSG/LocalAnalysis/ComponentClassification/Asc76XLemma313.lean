@@ -72,6 +72,9 @@ theorem reach_symm (hΩ : Sec3Setting Ω) (h22 : Lemma22Four) {K J : Subgroup G}
   | @tail b c hb hbc ih =>
     exact Relation.ReflTransGen.head (hΩ.adj_symm h22 (reach_mem hK hb) hbc) ih
 
+theorem reach_trans' (hΩ : Sec3Setting Ω) (h22 : Lemma22Four) {K J L : Subgroup G}
+    (hK : K ∈ Ω) (h₁ : reach Ω K J) (h₂ : reach Ω K L) : reach Ω J L :=
+  (hΩ.reach_symm h22 hK h₁).trans h₂
 
 @[expose] def compStab (hΩ : Sec3Setting Ω) (h22 : Lemma22Four) {K : Subgroup G} (hK : K ∈ Ω) :
     Subgroup G where

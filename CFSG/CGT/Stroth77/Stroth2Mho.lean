@@ -124,4 +124,69 @@ theorem A_le_omegaIn_two (Z : StrothDatum X) : X.A ≤ omegaIn 2 Z.D := by
   exact mem_omegaIn_of_pow_eq_one (Z.hAD hx) (pow_four_eq_one_of_dataA hx)
 
 
+theorem omegaIn_two_le_mhoOne_of_three_le_k (Z : StrothDatum X)
+    (hk : ∀ i, 3 ≤ Z.τ.k i) : omegaIn 2 Z.D ≤ mhoOne Z.D := by
+  have hcomm : ∀ a ∈ Z.D, ∀ b ∈ Z.D, a * b = b * a :=
+    fun a ha b hb => congrArg Subtype.val
+      (Z.dataD.isMulCommutative.is_comm.comm ⟨a, ha⟩ ⟨b, hb⟩)
+  intro x hx
+  obtain ⟨hxD, hx4⟩ := (mem_omegaIn_iff_of_comm hcomm).mp hx
+  set v : Torus Z.τ.k := Z.dataD.e (Additive.ofMul ⟨x, hxD⟩) with hv
+  have hv4 : (4 : ℤ) • v = 0 := by
+    calc (4 : ℤ) • v
+        = Z.dataD.e ((4 : ℤ) • Additive.ofMul (⟨x, hxD⟩ : Z.D)) := by
+          rw [hv, map_zsmul]
+      _ = Z.dataD.e (Additive.ofMul ((⟨x, hxD⟩ : Z.D) ^ 4)) := by
+          rw [ofMul_pow]
+          norm_num
+      _ = Z.dataD.e (Additive.ofMul (1 : Z.D)) := by
+          rw [show (⟨x, hxD⟩ : Z.D) ^ 4 = 1 from Subtype.ext hx4]
+      _ = 0 := by simp
+  obtain ⟨V, hV⟩ : ∃ V : Fin 3 → ℤ, v = Torus.ofInt Z.τ.k V := by
+    choose V hV using fun i => ZMod.intCast_surjective (v i)
+    exact ⟨V, funext fun i => by simpa [Torus.ofInt_apply] using (hV i).symm⟩
+  have hdiv : ∀ i, ((2 ^ Z.τ.k i : ℕ) : ℤ) ∣ 4 * V i := by
+    intro i
+    have hi : ((4 * V i : ℤ) : ZMod (2 ^ Z.τ.k i)) = 0 := by
+      have h := congrFun (hV ▸ hv4) i
+      simpa only [Torus.ofInt_apply, Pi.smul_apply, Pi.zero_apply, zsmul_eq_mul,
+        Int.cast_ofNat, Int.cast_mul, Int.cast_natCast] using h
+    exact (ZMod.intCast_zmod_eq_zero_iff_dvd (4 * V i) (2 ^ Z.τ.k i)).mp hi
+  have hEven : ∀ i, Even (V i) := by
+    intro i
+    have h8 : (8 : ℤ) ∣ ((2 ^ Z.τ.k i : ℕ) : ℤ) := by
+      have h := pow_dvd_pow (2 : ℕ) (hk i)
+      exact_mod_cast h
+    have h8dvd : (8 : ℤ) ∣ 4 * V i := h8.trans (hdiv i)
+    obtain ⟨t, ht⟩ := h8dvd
+    refine ⟨t, ?_⟩
+    have h4 : 4 * V i = 4 * (2 * t) := by rw [ht]; ring
+    linarith
+  obtain ⟨w, hw⟩ := (Torus.exists_two_zsmul_eq_iff
+    (fun i => le_trans (by norm_num : 1 ≤ 3) (hk i)) V).mpr hEven
+  have hwv : (2 : ℤ) • w = v := by rw [hV]; exact hw
+  set y : Z.D := Additive.toMul (Z.dataD.e.symm w) with hy
+  have hy2 : (y : G) * (y : G) = x := by
+    have hy2' : y * y = ⟨x, hxD⟩ := by
+      apply Additive.ofMul.injective
+      apply Z.dataD.e.injective
+      have hyw : Additive.ofMul y = Z.dataD.e.symm w := by
+        rw [hy]
+        simp
+      have h1 : Z.dataD.e (Additive.ofMul (y * y)) = w + w := by
+        rw [ofMul_mul, map_add, hyw]
+        simp
+      rw [h1]
+      show w + w = v
+      rw [← hwv, show (2 : ℤ) = ((2 : ℕ) : ℤ) by norm_num, natCast_zsmul, two_nsmul]
+    exact congrArg Subtype.val hy2'
+  rw [← hy2]
+  simpa [pow_two] using
+    CFSG.GroupTheory.HuppertProduct.pow_mem_mho (S := Z.D) (n := 2) y.2
+
+theorem A_le_mhoOne_of_three_le_k (Z : StrothDatum X) (hk : ∀ i, 3 ≤ Z.τ.k i) :
+    X.A ≤ mhoOne Z.D :=
+  (A_le_omegaIn_two Z).trans (omegaIn_two_le_mhoOne_of_three_le_k Z hk)
+
+
 end CFSG.CGT.Stroth77

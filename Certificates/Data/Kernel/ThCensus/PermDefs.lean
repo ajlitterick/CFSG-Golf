@@ -55,6 +55,12 @@ open CFSG.KC.Th.BigS CFSG.KC.Loop
 @[expose] noncomputable def permBlockOK (TT R : Nat) (reps : List (List Nat)) (nr o0 o1 o2 b : Nat) : Bool :=
   allBelow (nat_lit 729) (nat_lit 12) (fun i => permElemOK TT R reps nr o0 o1 o2 b i)
 
+@[expose] noncomputable def permNfListOK (L : List (List Nat)) : Bool :=
+  List.rec (motive := fun _ => Bool) true
+    (fun l _ ih => bAnd(Nat.beq (List.rec (motive := fun _ => Nat) (nat_lit 0)
+        (fun _ _ acc => Nat.succ acc) l) (nat_lit 10),
+      bAnd(List.rec (motive := fun _ => Bool) true (fun d _ ih2 => bAnd(Nat.blt d (nat_lit 3), ih2)) l,
+        ih))) L
 
 end CFSG.KC.ThCensus
 

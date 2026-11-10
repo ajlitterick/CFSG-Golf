@@ -122,6 +122,18 @@ theorem pb_normalizer (X : Subgroup A) :
   conv_lhs => rw [← img_pb e X]
   rw [normalizer_img e (pb_le e X), pb_img e inf_le_left]
 
+theorem pb_inf (X Y : Subgroup A) : pb e (X ⊓ Y) = pb e X ⊓ pb e Y := by
+  ext g
+  simp only [Subgroup.mem_inf, mem_pb]
+  constructor
+  · rintro ⟨hg, h1, h2⟩
+    exact ⟨⟨hg, h1⟩, ⟨hg, h2⟩⟩
+  · rintro ⟨⟨hg, h1⟩, ⟨hg', h2⟩⟩
+    exact ⟨hg, h1, h2⟩
+
+theorem card_pb (X : Subgroup A) : Nat.card (pb e X) = Nat.card X := by
+  conv_rhs => rw [← img_pb e X]
+  rw [card_img e (pb_le e X)]
 
 theorem pb_commutator (X Y : Subgroup A) : pb e ⁅X, Y⁆ = ⁅pb e X, pb e Y⁆ := by
   have hφ : ∀ Z : Subgroup A, pb e Z = (Z.map e.symm.toMonoidHom).map ruP.subtype := by
@@ -137,6 +149,12 @@ theorem pb_ne_bot {X : Subgroup A} (h : X ≠ ⊥) : pb e X ≠ ⊥ := by
   apply h
   rw [← img_pb e X, h', img, Subgroup.bot_subgroupOf, Subgroup.map_bot]
 
+theorem isPGroup_pb {X : Subgroup A} (h : IsPGroup 2 ↥X) : IsPGroup 2 ↥(pb e X) := by
+  have hm := h.map e.symm.toMonoidHom
+  have hm2 := hm.map ruP.subtype
+  rw [Subgroup.map_map] at hm2
+  rw [pb, Subgroup.comap_equiv_eq_map_symm', Subgroup.map_map]
+  exact hm2
 
 theorem isPGroup_of_pb {X : Subgroup A} (h : IsPGroup 2 ↥(pb e X)) : IsPGroup 2 ↥X := by
   rw [← img_pb e X, img]

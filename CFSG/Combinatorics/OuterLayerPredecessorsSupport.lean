@@ -28,6 +28,10 @@ theorem exists_path_three_of_edist {a b : W} (h : H'.edist a b = 3) :
     simp only [SimpleGraph.Walk.length_cons, SimpleGraph.Walk.length_nil] at hp <;> try omega
   exact ⟨_, _, h₁, h₂, h₃⟩
 
+@[expose] def copies (ι : Type*) {X : Type*} (H : SimpleGraph X) : SimpleGraph (ι × X) where
+  Adj a b := a.1 = b.1 ∧ H.Adj a.2 b.2
+  symm := ⟨fun _ _ h => ⟨h.1.symm, h.2.symm⟩⟩
+  loopless := ⟨fun _ h => H.loopless.irrefl _ h.2⟩
 
 end General
 

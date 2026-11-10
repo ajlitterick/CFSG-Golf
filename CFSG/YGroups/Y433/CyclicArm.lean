@@ -91,6 +91,7 @@ theorem cyc343Equiv_D {i : ℕ} (hi : i = 1 ∨ i = 2 ∨ i = 3) :
     cyc343Equiv (Y343.D i) = U433.D (armPerm i) := by
   rcases hi with rfl | rfl | rfl <;> exact (cyc343Equiv_yGen (by decide)).trans rfl
 
+theorem cyc343Equiv_E₂ : cyc343Equiv Y343.E₂ = U433.E₁ := cyc343Equiv_yGen (by decide)
 
 theorem cyc343Equiv_F {i j k : ℕ} (hi : i = 1 ∨ i = 2 ∨ i = 3) (hj : j = 1 ∨ j = 2 ∨ j = 3)
     (hk : k = 1 ∨ k = 2 ∨ k = 3) :
@@ -101,6 +102,10 @@ theorem cyc343Equiv_F {i j k : ℕ} (hi : i = 1 ∨ i = 2 ∨ i = 3) (hj : j = 1
 theorem cyc343Equiv_Q343Extra : cyc343Equiv Q343Extra = F433 2 3 1 :=
   cyc343Equiv_F (Or.inr (Or.inr rfl)) (Or.inl rfl) (Or.inr (Or.inl rfl))
 
+theorem Q343ExtraWord_map_cyc343Letter : Q343ExtraWord.map cyc343Letter =
+    (List.replicate 9 [0, U433.armStart 2, U433.armStart 2 + 1, U433.armStart 2 + 2,
+      U433.armStart 3, U433.armStart 3 + 1, U433.armStart 1]).flatten := by
+  decide
 
 theorem cyc343Equiv_F123 : cyc343Equiv (Y343.F 1 2 3) = F433 3 1 2 :=
   cyc343Equiv_F (Or.inl rfl) (Or.inr (Or.inl rfl)) (Or.inr (Or.inr rfl))
@@ -118,5 +123,38 @@ theorem Q343EquivR433_π
     (x : Y343) : Q343EquivR433 (Q343.π x) = R433.π (cyc343Equiv x) :=
   QuotientGroup.congr_mk _ _ _ _ x
 
+theorem Q343_exists_mulEquiv_R433 :
+    ∃ e : Q343 ≃* R433,
+      e Q343.vA = R433.A ∧
+      (e (Q343.vB 2) = R433.B 1 ∧ e (Q343.vC 2) = R433.C 1 ∧ e (Q343.vD 2) = R433.D 1 ∧
+        e Q343.vE₂ = R433.E₁) ∧
+      (e (Q343.vB 3) = R433.B 2 ∧ e (Q343.vC 3) = R433.C 2 ∧ e (Q343.vD 3) = R433.D 2) ∧
+      (e (Q343.vB 1) = R433.B 3 ∧ e (Q343.vC 1) = R433.C 3 ∧ e (Q343.vD 1) = R433.D 3) :=
+  ⟨Q343EquivR433, by
+    refine ⟨?_, ⟨?_, ?_, ?_, ?_⟩, ⟨?_, ?_, ?_⟩, ⟨?_, ?_, ?_⟩⟩
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π cyc343Equiv_A)
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_B (Or.inr (Or.inl rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_C (Or.inr (Or.inl rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_D (Or.inr (Or.inl rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π cyc343Equiv_E₂)
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_B (Or.inr (Or.inr rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_C (Or.inr (Or.inr rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_D (Or.inr (Or.inr rfl))))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_B (Or.inl rfl)))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_C (Or.inl rfl)))
+    · exact (Q343EquivR433_π _).trans (congrArg R433.π (cyc343Equiv_D (Or.inl rfl)))⟩
+
+theorem Q343_cyclic_arm_identification :
+    (∃ e : Q343 ≃* R433,
+      e Q343.vA = R433.A ∧
+      (e (Q343.vB 2) = R433.B 1 ∧ e (Q343.vC 2) = R433.C 1 ∧ e (Q343.vD 2) = R433.D 1 ∧
+        e Q343.vE₂ = R433.E₁) ∧
+      (e (Q343.vB 3) = R433.B 2 ∧ e (Q343.vC 3) = R433.C 2 ∧ e (Q343.vD 3) = R433.D 2) ∧
+      (e (Q343.vB 1) = R433.B 3 ∧ e (Q343.vC 1) = R433.C 3 ∧ e (Q343.vD 1) = R433.D 3)) ∧
+    Q343ExtraWord.map cyc343Letter =
+      (List.replicate 9 [0, U433.armStart 2, U433.armStart 2 + 1, U433.armStart 2 + 2,
+        U433.armStart 3, U433.armStart 3 + 1, U433.armStart 1]).flatten ∧
+    F433 2 3 1 = F433 2 1 3 :=
+  ⟨Q343_exists_mulEquiv_R433, Q343ExtraWord_map_cyc343Letter, F433_231_eq_213⟩
 
 end CFSG.YGroups

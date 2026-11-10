@@ -90,6 +90,11 @@ private theorem vecOfCode_repCode
     (k : ℕ) : vecOfCode (repCode k) = repVec k :=
   vecOfCode_codeOf (repVec k)
 
+theorem repVec_one : repVec 1 = w1 := by simp [repVec]
+
+theorem repVec_two : repVec 2 = wB := by simp [repVec]
+
+theorem repVec_three : repVec 3 = wC := by simp [repVec]
 
 theorem orbitClassR_repw :
     ∀ k : Fin 12, orbitClassR (repw k) = 1 :=
@@ -99,11 +104,34 @@ theorem orbitClassR_w1 :
     orbitClassR w1 = 1 :=
   Certificates.certificate10034.2.2.2.2.2.2.2.1
 
+theorem orbitClassR_wB :
+    orbitClassR wB = 2 :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.1
+
+theorem orbitClassR_wC :
+    orbitClassR wC = 3 :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.2.1
 
 theorem orbitClassR_neg :
     ∀ w : Fin 6 → ZMod 3, orbitClassR (-w) = orbitClassR w :=
   Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.1
 
+theorem orbitClassR_one_spec :
+    ∀ w : Fin 6 → ZMod 3, w ≠ 0 → orbitClassR w = 1 →
+    ∃ k : Fin 12, ∃ c : ZMod 3, c ≠ 0 ∧ w = c • repw k :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem card_orbitClassR_one :
+    ((Finset.univ.erase (0 : Fin 6 → ZMod 3)).filter fun w => orbitClassR w = 1).card = 24 :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem card_orbitClassR_two :
+    ((Finset.univ.erase (0 : Fin 6 → ZMod 3)).filter fun w => orbitClassR w = 2).card = 264 :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem card_orbitClassR_three :
+    ((Finset.univ.erase (0 : Fin 6 → ZMod 3)).filter fun w => orbitClassR w = 3).card = 440 :=
+  Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem orbitClassR_mem
     {w : Fin 6 → ZMod 3} (hw : w ≠ 0) :
@@ -176,5 +204,54 @@ theorem eqvGen_to_rep
   have : f w = 0 := by simp [hfdef, hn]
   omega
 
+theorem orbits_of_invariant
+    (f : (Fin 6 → ZMod 3) → ℕ)
+    (hf : ∀ s : Fin 2, ∀ w, w ≠ 0 → f (actN s *ᵥ w) = f w) :
+    (∀ k : Fin 12, f (repw k) = f w1) ∧
+    (∀ w : Fin 6 → ZMod 3, w ≠ 0 →
+      ((∃ k : Fin 12, ∃ c : ZMod 3, c ≠ 0 ∧ w = c • repw k) ∧ f w = f w1) ∨
+        f w = f wB ∨ f w = f wC) ∧
+    ∑ w ∈ Finset.univ.erase (0 : Fin 6 → ZMod 3), f w =
+      24 * f w1 + 264 * f wB + 440 * f wC := by
+  have e1 : f (repVec 1) = f w1 := by rw [repVec_one]
+  have e2 : f (repVec 2) = f wB := by rw [repVec_two]
+  have e3 : f (repVec 3) = f wC := by rw [repVec_three]
+  have hne : ∀ k : Fin 12, repw k ≠ 0 :=
+    Certificates.certificate10034.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
+  refine ⟨fun k => ?_, fun w hw => ?_, ?_⟩
+  · rw [invariant_eq_rep f hf (hne k), orbitClassR_repw, e1]
+  · rcases orbitClassR_mem hw with h | h | h
+    · left
+      exact ⟨orbitClassR_one_spec w hw h, by rw [invariant_eq_rep f hf hw, h, e1]⟩
+    · right; left
+      rw [invariant_eq_rep f hf hw, h, e2]
+    · right; right
+      rw [invariant_eq_rep f hf hw, h, e3]
+  · classical
+    set F : ℕ → ℕ := fun k => f (repVec k) with hF
+    have h1 : ∀ w ∈ Finset.univ.erase (0 : Fin 6 → ZMod 3), f w = F (orbitClassR w) := by
+      intro w hw
+      exact invariant_eq_rep f hf (Finset.ne_of_mem_erase hw)
+    rw [Finset.sum_congr rfl h1,
+      ← Finset.sum_fiberwise_of_maps_to (g := orbitClassR) (t := ({1, 2, 3} : Finset ℕ))
+        (fun w hw => by
+          have := orbitClassR_mem (Finset.ne_of_mem_erase hw)
+          simp only [Finset.mem_insert, Finset.mem_singleton]
+          exact this)]
+    have key : ∀ k ∈ ({1, 2, 3} : Finset ℕ),
+        ∑ w ∈ (Finset.univ.erase (0 : Fin 6 → ZMod 3)).filter (fun w => orbitClassR w = k),
+          F (orbitClassR w) =
+        ((Finset.univ.erase (0 : Fin 6 → ZMod 3)).filter
+          (fun w => orbitClassR w = k)).card * F k := by
+      intro k _
+      rw [Finset.sum_congr rfl (fun w hw => by rw [(Finset.mem_filter.1 hw).2])]
+      simp
+    rw [Finset.sum_congr rfl key]
+    simp only [Finset.sum_insert, Finset.mem_insert, Finset.mem_singleton, Finset.sum_singleton,
+      show (1 : ℕ) ≠ 2 from by decide, show (1 : ℕ) ≠ 3 from by decide,
+      show (2 : ℕ) ≠ 3 from by decide, or_self, not_false_eq_true]
+    rw [card_orbitClassR_one, card_orbitClassR_two, card_orbitClassR_three]
+    simp only [hF, e1, e2, e3]
+    ring
 
 end CFSG.Monster.GMS.Griess13.Co1Data

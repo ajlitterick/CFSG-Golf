@@ -58,5 +58,14 @@ theorem co3M_allInner :
     co3M ?_⟩
   rw [hq, CFSG.ComponentClassification.PerfectAutomorphisms.centerQuotientHom_conj]
 
+theorem inner_co3M :
+    inner co3M = ⊤ := by
+  refine eq_top_iff.2 fun α _ => ?_
+  obtain ⟨m, rfl⟩ := co3M_allInner α
+  exact ⟨m, rfl⟩
+
+theorem CTUC_Co3_first_centralizer_all_automorphisms_inner :
+    (∀ α : MulAut co3M, ∃ m : co3M, α = MulAut.conj m) ∧ inner co3M = ⊤ :=
+  ⟨co3M_allInner, inner_co3M⟩
 
 end CFSG.Sporadic.Schreier.Co3

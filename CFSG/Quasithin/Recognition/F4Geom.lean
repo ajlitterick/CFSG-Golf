@@ -33,6 +33,9 @@ theorem exists_smul_eq_baseVert (u : c.Γ) :
 
 variable {c}
 
+theorem nbPaths_smul {u : c.Γ} {n : ℕ} {q : GPath c.graph n} (hq : q ∈ GPath.nbPaths c.graph u n)
+    (g : c.G0) : g • q ∈ GPath.nbPaths c.graph (g • u) n :=
+  ⟨by show g • q 0 = g • u; rw [hq.1], GPath.smul_noBack hq.2⟩
 
 theorem PathTrans.smul {u : c.Γ} {n : ℕ} (h : c.PathTrans u n) (g : c.G0) :
     c.PathTrans (g • u) n := by

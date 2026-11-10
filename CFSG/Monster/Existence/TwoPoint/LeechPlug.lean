@@ -36,5 +36,15 @@ theorem leech_longTriangle_shape_coW2 :
         Nonempty (↥(pointStab ({α, β, γ} : Set MGriess)) ⧸ N ≃* ↥(Kstab Co2.v0 ⊓ Kstab coW2)) :=
   leech_longTriangle_shape coW2 coW2_mem_shortSet v0_add_coW2_mem_shortSet
 
+theorem leech_longTriangle_pCore_coW2
+    (hX : ∀ P : Subgroup ↥(Kstab Co2.v0 ⊓ Kstab coW2), P.Normal → IsPGroup 2 P → P = ⊥) :
+    ∃ α β γ : MGriess, IsLongTriangle tGriess {α, β, γ} ∧ α * β * γ = xGriess ∧
+      ∃ (N : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N.Normal)
+        (N₀ : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N₀.Normal), N₀ ≤ N ∧
+        IsElementaryAbelian 2 N₀ ∧ Nat.card N₀ = 2 ^ 3 ∧
+        IsElementaryAbelian 2 (N ⧸ N₀.subgroupOf N) ∧ Nat.card N = 2 ^ (3 + 20) ∧
+        Nonempty (↥(pointStab ({α, β, γ} : Set MGriess)) ⧸ N ≃* ↥(Kstab Co2.v0 ⊓ Kstab coW2)) ∧
+        pCore 2 ↥(pointStab ({α, β, γ} : Set MGriess)) = N :=
+  leech_longTriangle_pCore coW2 coW2_mem_shortSet v0_add_coW2_mem_shortSet hX
 
 end CFSG.Monster.Existence

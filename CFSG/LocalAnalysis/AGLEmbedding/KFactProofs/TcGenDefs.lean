@@ -89,5 +89,15 @@ deriving Inhabited
   O.eq (O.regsOf sA sB nregs prog)[D.rA]! (O.decode sA) &&
   O.eq (O.regsOf sA sB nregs prog)[D.rB]! (O.decode sB) && D.wf
 
+@[expose] def tcCheckHead {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String) (nregs : Nat)
+    (prog : List Op) (D : TSpec) (m : Nat) : Bool :=
+  mcertCheck O sA sB ⟨nregs, prog, D.facts.take m⟩ &&
+  decide (D.rA < nregs) && decide (D.rB < nregs) &&
+  O.eq (O.regsOf sA sB nregs prog)[D.rA]! (O.decode sA) &&
+  O.eq (O.regsOf sA sB nregs prog)[D.rB]! (O.decode sB) && D.wf
+
+@[expose] def tcCheckTail {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String) (nregs : Nat)
+    (prog : List Op) (D : TSpec) (m : Nat) : Bool :=
+  mcertCheck O sA sB ⟨nregs, prog, D.facts.drop m⟩
 
 end CFSG.AGLEmbedding.R3

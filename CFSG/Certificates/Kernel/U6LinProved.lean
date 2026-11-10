@@ -649,6 +649,67 @@ theorem injCheckWith_of_idRowsK_proved {n p : ℕ} {Fb : ℕ → ℕ} {Qcols : A
   rw [e2, hr]
   simp [eq_comm]
 
+theorem packN_eq (n k : ℕ) (f : ℕ → Array ℕ) :
+    packN n k f = orN k fun s => Nat.shiftLeft (packM n (f s)) (Nat.mul s (n * n)) :=
+  by apply packN_eq_proved <;> assumption
+
+theorem packM_unpackN (n v s : ℕ) : packM n (unpackN n v s) = fget v s (n * n) :=
+  by apply packM_unpackN_proved <;> assumption
+
+theorem packM_bmul (d : ℕ) (A B : Array ℕ) :
+    packM d (bmul d d A B) = mulF d (packM d A) (packM d B) :=
+  by apply packM_bmul_proved <;> assumption
+
+theorem packM_bxor (d : ℕ) (A B : Array ℕ) :
+    packM d (bxor d A B) = Nat.xor (packM d A) (packM d B) :=
+  by apply packM_bxor_proved <;> assumption
+
+theorem packM_lt (d : ℕ) (A : Array ℕ) : packM d A < 2 ^ (d * d) :=
+  by apply packM_lt_proved <;> assumption
+
+theorem packM_msum (k mask : ℕ) (f : ℕ → Array ℕ) :
+    packM 8 (CFSG.EvenSmallLie.UnitarySix.YamadaPar.msum k mask f) =
+      msumK k mask fun m => packM 8 (f m) :=
+  by apply packM_msum_proved <;> assumption
+
+theorem packM_btr (d : ℕ) (A : Array ℕ) :
+    packM d (CFSG.EvenSmallLie.UnitarySix.YamadaPar.btr d d A) = trK d (packM d A) :=
+  by apply packM_btr_proved <;> assumption
+
+theorem packM_diag16 (B : Array ℕ) :
+    packM 16 (CFSG.EvenSmallLie.UnitarySix.YamadaPar.diag16 B) =
+      Nat.land (packM 16 B) (packM 16 CFSG.EvenSmallLie.UnitarySix.YamadaPar.id16) :=
+  by apply packM_diag16_proved <;> assumption
+
+theorem getD_unpackN {n r : ℕ} (v s : ℕ) (hr : r < n) :
+    (unpackN n v s).getD r 0 = fget (fget v s (n * n)) r n :=
+  by apply getD_unpackN_proved <;> assumption
+
+theorem urPairK_eq {d : ℕ} {I Z : Array ℕ} {gen C : ℕ → Array ℕ} {G CL : List ℕ} {w : List ℕ}
+    (hG : ∀ s ∈ w, getLD 0 G s = packM d (gen s)) (hC : ∀ s ∈ w, getLD 0 CL s = packM d (C s))
+    (hI : packM d I = idF d) (hZ : packM d Z = 0) :
+    urPairK d G CL w = Nat.lor (packM d (urPairG d I Z gen C w).1)
+      (Nat.shiftLeft (packM d (urPairG d I Z gen C w).2) (Nat.mul d d)) :=
+  by apply urPairK_eq_proved <;> assumption
+
+theorem idRowsK_of_segs {n c k : ℕ} (f : ℕ → ℕ) {E B Q : List ℕ} (hn : n = c * k)
+    (h : ∀ i < k, idRowsSeg n B Q ((List.range' (c * i) c).map f) ((E.drop (c * i)).take c)
+      (c * i) = true) (hE : E.length = n) :
+    idRowsK n ((List.range n).map f) E B Q = true :=
+  by apply idRowsK_of_segs_proved <;> assumption
+
+theorem certCheckWith_of_idRowsK {n m p : ℕ} {Fb : ℕ → ℕ} {Bcols Ecols Qcols : Array ℕ}
+    {F B : List ℕ} (hF : ∀ l < n, Fb (2 ^ l) = getLD 0 F l) (hB : Bcols.toList = B)
+    (hm : B.length = m) (hp : Qcols.size = p)
+    (h : idRowsK n F Ecols.toList B Qcols.toList = true) :
+    certCheckWith n m p (linBits n p Fb) Bcols Ecols Qcols = true :=
+  by apply certCheckWith_of_idRowsK_proved <;> assumption
+
+theorem injCheckWith_of_idRowsK {n p : ℕ} {Fb : ℕ → ℕ} {Qcols : Array ℕ} {F : List ℕ}
+    (hF : ∀ l < n, Fb (2 ^ l) = getLD 0 F l) (hp : Qcols.size = p)
+    (h : idRowsK n F (List.replicate n 0) [] Qcols.toList = true) :
+    injCheckWith n p (linBits n p Fb) Qcols = true :=
+  by apply injCheckWith_of_idRowsK_proved <;> assumption
 
 end CFSG.KC.U6F2
 

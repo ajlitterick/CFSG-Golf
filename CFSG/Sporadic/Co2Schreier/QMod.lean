@@ -93,6 +93,16 @@ theorem qcCoord_bijective :
   rw [card_QV, Nat.card_fun, Nat.card_zmod, Nat.card_eq_fintype_card, Fintype.card_fin]
   norm_num
 
+@[expose] def qcEquiv :
+    (Fin 8 → ZMod 2) ≃ₗ[ZMod 2] QV :=
+  LinearEquiv.ofBijective qcCoord qcCoord_bijective
+
+theorem qcEquiv_apply
+    (f : Fin 8 → ZMod 2) : qcEquiv f = qcCoord f := rfl
+
+theorem finrank_QV :
+    Module.finrank (ZMod 2) QV = 8 := by
+  rw [← qcEquiv.finrank_eq, Module.finrank_fin_fun]
 
 theorem exists_toVecD (f : Fin 8 → ZMod 2) : ∃ a < 256, toVecD 8 a = f := by
   refine ⟨ofBits 8 fun k => if h : k < 8 then decide (f ⟨k, h⟩ = 1) else false,
@@ -378,5 +388,36 @@ theorem qmod_commutant
       (by rw [LinearMap.sub_apply, h, Module.End.one_apply, sub_self])
     exact sub_eq_zero.1 hY
 
+theorem qπ_qcGen_zero : qπ (qcGen 0) = qcCoord (toVecD 8 1) := by
+  rw [qcCoord_toVecD, show bits8 1 = [0] by decide]
+  simp
+
+theorem conjEnd_conj (g c : locC) (v : QV) :
+    conjEnd (Q := locQ.subgroupOf locC) g (conjEnd (Q := locQ.subgroupOf locC) c v) =
+      conjEnd (Q := locQ.subgroupOf locC) (g * c * g⁻¹)
+        (conjEnd (Q := locQ.subgroupOf locC) g v) := by
+  rw [← Module.End.mul_apply, ← Module.End.mul_apply, ← map_mul, ← map_mul, inv_mul_cancel_right]
+
+theorem qmod_commutator_span :
+    Submodule.span (ZMod 2) {w : QV | ∃ (c : locC) (v : QV),
+      w = conjEnd (Q := locQ.subgroupOf locC) c v - v} = ⊤ := by
+  set U := Submodule.span (ZMod 2) {w : QV | ∃ (c : locC) (v : QV),
+      w = conjEnd (Q := locQ.subgroupOf locC) c v - v} with hU
+  have hinv : ∀ g : locC, ∀ w ∈ U, conjEnd (Q := locQ.subgroupOf locC) g w ∈ U := by
+    intro g w hw
+    have hle : U ≤ U.comap (conjEnd (Q := locQ.subgroupOf locC) g) := by
+      rw [hU, Submodule.span_le]
+      rintro _ ⟨c, v, rfl⟩
+      rw [SetLike.mem_coe, Submodule.mem_comap, map_sub, conjEnd_conj]
+      exact Submodule.subset_span ⟨_, _, rfl⟩
+    exact hle hw
+  rcases qmod_irreducible U (hinv _) (hinv _) with h | h
+  · exfalso
+    have hmem : conjEnd (Q := locQ.subgroupOf locC) (cGen 0) (qπ (qcGen 0)) - qπ (qcGen 0) ∈ U :=
+      Submodule.subset_span ⟨_, _, rfl⟩
+    rw [h, Submodule.mem_bot, sub_eq_zero, conjEnd_qVec (i := 0) (l := 0) (by norm_num)
+      (by norm_num), qmod_col00, qπ_qcGen_zero] at hmem
+    exact absurd (qcCoord_toVecD_injective (by norm_num) (by norm_num) hmem) (by norm_num)
+  · exact h
 
 end CFSG.Sporadic.Co2Schreier

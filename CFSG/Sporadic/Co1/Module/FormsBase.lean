@@ -336,6 +336,34 @@ theorem matrix_ext_mulVec {X Y : Matrix (Fin 24) (Fin 24) (ZMod 2)}
   have := congrFun (h (Pi.single j 1)) i
   simpa using this
 
+theorem toQuadraticForm'_apply (M : Matrix (Fin 24) (Fin 24) (ZMod 2)) (x : Vec24) :
+    Matrix.toQuadraticForm' M x = x ⬝ᵥ (M *ᵥ x) := by
+  unfold Matrix.toQuadraticForm'
+  simp [LinearMap.BilinMap.toQuadraticMap_apply, Matrix.toLinearMap₂'_apply', dotProduct,
+    Matrix.mulVec, Finset.mul_sum]
+
+noncomputable def q₀Form : QuadraticForm (ZMod 2) (Fin 24 → ZMod 2) := Matrix.toQuadraticForm' Qm
+
+theorem q₀Form_apply (v : Vec24) : q₀Form v = q₀ v := toQuadraticForm'_apply Qm v
+
+theorem polar_add_left_form (Q : QuadraticForm (ZMod 2) (Fin 24 → ZMod 2)) (u u' v : Vec24) :
+    polar (fun x => Q x) (u + u') v = polar (fun x => Q x) u v + polar (fun x => Q x) u' v := by
+  obtain ⟨B, hB⟩ := Q.exists_companion
+  have hp : ∀ x y, polar (fun x => Q x) x y = B x y := by
+    intro x y
+    simp only [polar]
+    rw [hB]
+    ring
+  rw [hp, hp, hp, map_add, LinearMap.add_apply]
+
+theorem invariant_gen_of_Jmat {X : Type*} {f : Vec24 → X}
+    (hinv : ∀ (g : Jmat) (v : Vec24), f (g • v) = f v) :
+    (∀ v, f (matA *ᵥ v) = f v) ∧ (∀ v, f (matB *ᵥ v) = f v) := by
+  refine ⟨fun v => ?_, fun v => ?_⟩
+  · have := hinv genA v
+    rwa [smul_eq_mulVec, genA_val] at this
+  · have := hinv genB v
+    rwa [smul_eq_mulVec, genB_val] at this
 
 theorem invariant_gen_of_Co1 {X : Type*} {f : Vec24 → X}
     (hinv : ∀ (g : NativeSporadic.Co1) (v : Vec24), f (co1Act g v) = f v) :
@@ -352,6 +380,10 @@ theorem F₀_transpose : F₀ᵀ = F₀ := by
   unfold F₀
   rw [Matrix.transpose_add, Matrix.transpose_transpose, add_comm]
 
+theorem F₀_diag (i : Fin 24) : F₀ i i = 0 := by
+  unfold F₀
+  rw [Matrix.add_apply, Matrix.transpose_apply]
+  exact CharTwo.add_self_eq_zero _
 
 theorem bil₀_comm (u v : Vec24) : bil₀ u v = bil₀ v u := by
   unfold bil₀
@@ -368,5 +400,10 @@ theorem polar_q₀ (u v : Vec24) : polar q₀ u v = bil₀ u v := by
   rw [q₀_add]
   ring
 
+theorem q₀_polar_add_left (u u' v : Vec24) :
+    polar q₀ (u + u') v = polar q₀ u v + polar q₀ u' v := by
+  rw [polar_q₀, polar_q₀, polar_q₀]
+  unfold bil₀
+  rw [add_dotProduct]
 
 end CFSG.Sporadic.Co1.Module

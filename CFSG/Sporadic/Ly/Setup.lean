@@ -35,6 +35,9 @@ theorem toMat_matB : toMat 5 111 matB = mB := by
 noncomputable abbrev mX : Matrix (Fin 111) (Fin 111) (ZMod 5) :=
   mA * ((mB * mA) * (mB * mA)) * mB * ((mA * mB ^ 4) * (mA * mB ^ 4))
 
+theorem toMat_matX : toMat 5 111 matX = mX := by
+  unfold matX matG matGi
+  simp only [toMat_mulM, toMat_powM, toMat_matA, toMat_matB]
 
 end CFSG.Sporadic.Ly
 

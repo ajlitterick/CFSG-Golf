@@ -100,6 +100,10 @@ theorem T_le_normalizer_L1 {T L V : Subgroup G} (hTL : T ≤ Subgroup.normalizer
     rw [e]
     exact Subgroup.inv_mem _ (hau _ hu')
 
+omit [Finite G] in
+theorem mem_cTil {H U : Subgroup G} {z : G} {hHz : H ≤ Subgroup.centralizer ({z} : Set G)}
+    {hHU : H ≤ Subgroup.normalizer (U : Set G)} {h : G} :
+    h ∈ cTil hHz hHU ↔ h ∈ H ∧ ∀ u ∈ U, h * u * h⁻¹ * u⁻¹ ∈ Subgroup.zpowers z := Iff.rfl
 
 omit [Finite G] in
 theorem le_normalizer_cTil {H U : Subgroup G} {z : G}
@@ -250,6 +254,10 @@ theorem almostSpecialHyp
           · exact Or.inl (Subgroup.eq_of_le_of_card_ge h1 (by rw [hW, hz2])).symm
           · exact Or.inr (Subgroup.eq_of_le_of_card_ge h2 (by rw [hW, hV14])) }
 
+theorem frattiniOf_le
+    (h1222 : Stmt12_2_2) : frattiniOf (U714 T L V z) ≤ Subgroup.zpowers z := by
+  rw [← s.conjClosure_eq h1222]
+  exact (s.almostSpecialHyp h1222).G22_two
 
 theorem U_le_T
     (h1222 : Stmt12_2_2) : U714 T L V z ≤ T ∧ T ≤ Subgroup.normalizer (U714 T L V z : Set G) := by

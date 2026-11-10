@@ -196,5 +196,6 @@ namespace CFSG.OddStandard.HigherRank.YamadaG23.Y63Chk
     (311, 0, 7, 50), (450, 0, 43, 54), (454, 1, 13, 28), (462, 1, 13, 33), (469, 0, 7, 70),
     (473, 1, 13, 33), (477, 1, 13, 28), (482, 0, 43, 72)]]
 
+@[expose] def zData : Nat := 165
 
 end CFSG.OddStandard.HigherRank.YamadaG23.Y63Chk

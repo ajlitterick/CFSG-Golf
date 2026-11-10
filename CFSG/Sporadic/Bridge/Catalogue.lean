@@ -31,6 +31,8 @@ public section
 
 namespace CFSG.Sporadic.Bridge
 
+theorem sporadicRep_iff_tauCeti (G : Type) [Group G] :
+    Models.SporadicRep G ↔ ∃ s : TauCeti.SporadicName, Nonempty (G ≃* s.Group) := Iff.rfl
 
 theorem nonempty_carrier_mulEquiv_group
     (s : TauCeti.SporadicName) :

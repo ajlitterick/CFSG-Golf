@@ -161,6 +161,72 @@ theorem card_fix_z_suborbit {l : ℕ} (hl : l < 7) :
 
 end Class
 
+theorem card_fix_z_of (hcov : ∀ w ∈ orbit J v, ∃ l < 7, w ∈ orbit H (qv l))
+    (hsz : ∀ l < 7, (orbit H (qv l)).ncard = SZ.getD l 0) :
+    Nat.card {w : Row // w ∈ orbit J v ∧ z • w = w} = 52349 := by
+  classical
+  have : Finite J := CertificateChecks.KernelJ4Hub.finite_J
+  have hfinO : (orbit J v).Finite := Set.finite_range _
+  set F : Set Row := {w | w ∈ orbit J v ∧ z • w = w}
+  set Fl : ℕ → Set Row := fun l => {w | w ∈ orbit H (qv l) ∧ z • w = w}
+  have hFl_sub : ∀ l < 7, Fl l ⊆ F := fun l hl w hw => ⟨orbit_H_subset hl hw.1, hw.2⟩
+  have hfinF : F.Finite := hfinO.subset fun w hw => hw.1
+  have hfinFl : ∀ l < 7, (Fl l).Finite := fun l hl => hfinF.subset (hFl_sub l hl)
+  have hU : hfinF.toFinset = (Finset.range 7).biUnion fun l =>
+      if hl : l < 7 then (hfinFl l hl).toFinset else ∅ := by
+    ext w
+    simp only [Set.Finite.mem_toFinset, Finset.mem_biUnion, Finset.mem_range]
+    constructor
+    · intro hw
+      obtain ⟨l, hl, hwl⟩ := hcov w hw.1
+      exact ⟨l, hl, by rw [dif_pos hl, Set.Finite.mem_toFinset]; exact ⟨hwl, hw.2⟩⟩
+    · rintro ⟨l, hl, hw⟩
+      rw [dif_pos hl, Set.Finite.mem_toFinset] at hw
+      exact hFl_sub l hl hw
+  have hdisj : (↑(Finset.range 7) : Set ℕ).PairwiseDisjoint fun l =>
+      if hl : l < 7 then (hfinFl l hl).toFinset else ∅ := by
+    intro l hl l' hl' hne
+    have hl7 : l < 7 := Finset.mem_range.1 hl
+    have hl7' : l' < 7 := Finset.mem_range.1 hl'
+    simp only [Function.onFun, dif_pos hl7, dif_pos hl7']
+    rw [Finset.disjoint_left]
+    intro w hw hw'
+    rw [Set.Finite.mem_toFinset] at hw hw'
+    have e1 : orbit H (qv l) = orbit H w := (orbit_eq_iff.2 hw.1).symm
+    have e2 : orbit H (qv l') = orbit H w := (orbit_eq_iff.2 hw'.1).symm
+    have e : SZ.getD l 0 = SZ.getD l' 0 := by rw [← hsz l hl7, ← hsz l' hl7', e1, e2]
+    exact hne (SZ_inj l hl7 l' hl7' e)
+  have hcard : ∀ l (hl : l < 7), (hfinFl l hl).toFinset.card * 1771 =
+      SZ.getD l 0 * CZ.getD l 0 := by
+    intro l hl
+    rw [← hsz l hl, ← card_fix_z_suborbit hl, ← Set.ncard_eq_toFinset_card _ (hfinFl l hl),
+      ← Nat.card_coe_set_eq]
+    rfl
+  rw [show Nat.card {w : Row // w ∈ orbit J v ∧ z • w = w} = hfinF.toFinset.card by
+    rw [← Set.ncard_eq_toFinset_card _ hfinF, ← Nat.card_coe_set_eq]; rfl, hU,
+    Finset.card_biUnion hdisj]
+  simp only [Finset.sum_range_succ, Finset.sum_range_zero, Nat.zero_add]
+  have c0 := hcard 0 (by norm_num)
+  have c1 := hcard 1 (by norm_num)
+  have c2 := hcard 2 (by norm_num)
+  have c3 := hcard 3 (by norm_num)
+  have c4 := hcard 4 (by norm_num)
+  have c5 := hcard 5 (by norm_num)
+  have c6 := hcard 6 (by norm_num)
+  simp only [SZ, CZ, List.getD_cons_zero, List.getD_cons_succ] at c0 c1 c2 c3 c4 c5 c6
+  simp only [show (0 : ℕ) < 7 by norm_num, show (1 : ℕ) < 7 by norm_num,
+    show (2 : ℕ) < 7 by norm_num, show (3 : ℕ) < 7 by norm_num, show (4 : ℕ) < 7 by norm_num,
+    show (5 : ℕ) < 7 by norm_num, show (6 : ℕ) < 7 by norm_num, dif_pos]
+  omega
+
+theorem card_fix_tJ_of
+    (hcov : ∀ w ∈ orbit J v, ∃ l < 7, w ∈ orbit H (qv l))
+    (hsz : ∀ l < 7, (orbit H (qv l)).ncard = SZ.getD l 0) :
+    Nat.card {w : Row // w ∈ orbit J v ∧ CFSG.Quasithin.H13.J4.tJ • w = w} = 52349 := by
+  rw [CFSG.Sporadic.J4.Struct.card_fix_conj (orbit J v)
+    (fun g x hx => by obtain ⟨k, rfl⟩ := hx; exact ⟨g * k, mul_smul g k v⟩)
+    CFSG.Quasithin.H13.J4.isConj_tJ_e1]
+  exact card_fix_z_of hcov hsz
 
 end CertificateChecks.KernelJ4Count
 

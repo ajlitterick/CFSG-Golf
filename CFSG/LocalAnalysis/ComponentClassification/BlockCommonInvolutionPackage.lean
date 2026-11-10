@@ -97,6 +97,23 @@ theorem Common.rank {G : Type*} [Group G] [Finite G]
   · exact TwoRankTransport.rank_le (factor ⊓ opposite) elementary (properties.contained factor hfactor)
       properties.isElementary rank properties.card
 
+theorem Common.omega_subgroup {G : Type*} [Group G] [Finite G]
+    {component opposite elementary : Subgroup G} {rank : ℕ}
+    (properties : Common component opposite rank elementary)
+    (heven : Even (Nat.card component)) (huniversal : UniversalComponentBlock.Universal component)
+    (hcard : 3 ≤ Nat.card ↥(UniversalOrbitBlock.block component))
+    (factor : Subgroup G) (hfactor : factor ∈ UniversalOrbitBlock.block component)
+    (subgroup : Subgroup G) (hcontained : elementary ≤ subgroup) (hsubgroup : subgroup ≤ factor ⊓ opposite)
+    (sylow : Sylow 2 subgroup) :
+    InvolutionGeneratedSubgroup.omega ((sylow : Subgroup subgroup).map subgroup.subtype) = elementary := by
+  have hfactorContained : ∀ factor ∈ UniversalOrbitBlock.block component, elementary ≤ factor :=
+    fun factor hfactor => (properties.contained factor hfactor).trans inf_le_left
+  have hcentralizes := BlockCommonInvolutionStructure.centralizes_factors component heven huniversal hcard
+    elementary hfactorContained factor hfactor
+  exact BlockCommonInvolutionStructure.omega_sylow subgroup elementary properties.isElementary hcontained
+    (hcentralizes.trans (Subgroup.centralizer_le (hsubgroup.trans inf_le_left)))
+      (fun member hmember horder => ((properties.involutions factor hfactor member).mp
+        ⟨hsubgroup hmember, horder⟩).1) sylow
 
 theorem exists_pair {G : Type*} [Group G] [Finite G]
     (component : Subgroup G) (heven : Even (Nat.card component))

@@ -27,6 +27,15 @@ namespace RawSchreierDatum
     (i : ℕ) : Bool :=
   schreierPointSiftSucceeds (Q.siftLevels Q.orbitTables i) h
 
+theorem pointSift_terminal {n : ℕ} (Q : RawSchreierDatum n) (h : Equiv.Perm (Fin n)) :
+    Q.pointSift h Q.baseCount = true := by
+  have hdrop : (List.finRange Q.baseCount).drop Q.baseCount = [] :=
+    List.drop_eq_nil_iff.2 (by simp)
+  simp [pointSift, siftLevels, hdrop, schreierPointSiftSucceeds, schreierSiftResidual]
+
+theorem pointSift_of_sift {n : ℕ} (Q : RawSchreierDatum n) {h : Equiv.Perm (Fin n)} {i : ℕ}
+    (hs : Q.sift h i = true) : Q.pointSift h i = true :=
+  schreierPointSiftSucceeds_of_siftSucceeds hs
 
 @[expose] def pointCheck {n : ℕ} (Q : RawSchreierDatum n) : Bool :=
   let initialOK := (List.finRange Q.originalCount).all fun j =>
@@ -125,5 +134,35 @@ structure CompactTransversalCode (n k : ℕ) where
     | none => []
     | some (p, a) => a :: c.word fuel p
 
+@[expose] def signedWordApply {n r : ℕ} (S : Fin r → Equiv.Perm (Fin n)) (j : ℕ) (hj : j ≤ r)
+    (w : List (SchreierLetter j)) (x : Fin n) : Fin n :=
+  w.foldr (fun a y => if a.2 then S ⟨a.1.val, a.1.isLt.trans_le hj⟩ y
+    else (S ⟨a.1.val, a.1.isLt.trans_le hj⟩)⁻¹ y) x
+
+theorem signedWordApply_eq_schreierWordValue {n r : ℕ} (S : Fin r → Equiv.Perm (Fin n))
+    (j : ℕ) (hj : j ≤ r) (w : List (SchreierLetter j)) (x : Fin n) :
+    signedWordApply S j hj w x = schreierWordValue S j hj w x := by
+  induction w with
+  | nil => rfl
+  | cons a w ih =>
+    rcases a with ⟨a, _ | _⟩
+    · simp only [signedWordApply, List.foldr_cons] at ih ⊢
+      rw [ih, schreierWordValue_cons_negative, Equiv.Perm.mul_apply]
+      rfl
+    · simp only [signedWordApply, List.foldr_cons] at ih ⊢
+      rw [ih, schreierWordValue_cons_positive, Equiv.Perm.mul_apply]
+      rfl
+
+theorem schreierWordValue_word_succ {n k r : ℕ} (S : Fin r → Equiv.Perm (Fin n)) (hk : k ≤ r)
+    (c : CompactTransversalCode n k) (fuel : ℕ) {x p : Fin n} {a : SchreierLetter k}
+    (hx : c.parent x = some (p, a)) :
+    schreierWordValue S k hk (c.word (fuel + 1) x) =
+      schreierWordValue S k hk [a] * schreierWordValue S k hk (c.word fuel p) := by
+  rw [CompactTransversalCode.word, hx]
+  rcases a with ⟨a, _ | _⟩
+  · rw [schreierWordValue_cons_negative, schreierWordValue_cons_negative,
+      schreierWordValue_nil, mul_one]
+  · rw [schreierWordValue_cons_positive, schreierWordValue_cons_positive,
+      schreierWordValue_nil, mul_one]
 
 end CFSG.Certificates

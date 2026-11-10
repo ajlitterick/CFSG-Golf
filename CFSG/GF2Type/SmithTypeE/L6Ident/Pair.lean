@@ -57,6 +57,11 @@ theorem fin_val_zero : ((0 : Fin 1953) : ℕ) = 0 := rfl
 
 theorem fin_val_31 : ((31 : Fin 1953) : ℕ) = 31 := rfl
 
+theorem pow_three_eq_one_of_apply {α : Type*} (p q : Equiv.Perm α)
+    (h : ∀ x, p (q (p (q (p (q x))))) = x) : (p * q) ^ 3 = 1 := by
+  refine Equiv.ext fun x => ?_
+  simp only [pow_succ, pow_zero, one_mul, Equiv.Perm.mul_apply, Equiv.Perm.coe_one, id]
+  exact h x
 
 theorem pow_four_eq_one_of_apply {α : Type*} (p q : Equiv.Perm α)
     (h : ∀ x, p (q (p (q (p (q (p (q x))))))) = x) : (p * q) ^ 4 = 1 := by
@@ -81,6 +86,11 @@ theorem commute_tvP_of_conj {g : Equiv.Perm (Fin 1953)} (hg : g ∈ T6) {a b : F
   have e : ∀ x : Equiv.Perm (Fin 1953), g⁻¹ * (g * x * g⁻¹) * g = x := fun x => by group
   rwa [e, e] at h2
 
+theorem commute_tvP_conj {g : Equiv.Perm (Fin 1953)} (hg : g ∈ T6) {a b : Fin 1953}
+    (h : Commute (tvP a) (tvP b)) : Commute (tvP (g a)) (tvP (g b)) := by
+  rw [← mul_tvP_mul_inv hg a, ← mul_tvP_mul_inv hg b]
+  have h2 := commute_conj_inv g⁻¹ h
+  simpa only [inv_inv] using h2
 
 end Commuting
 
@@ -102,6 +112,18 @@ theorem orderOf_ne_three_of_stabCls_ne {a : Fin 1953} (ha : stabCls a ≠ 6) :
   rw [h3] at this
   omega
 
+theorem orderOf_std : orderOf (tvP 0 * tvP 31) = 3 := by
+  obtain ⟨-, -, -, h⟩ := stdPair_parts
+  simp only [prOrd3, List.all_eq_true, List.mem_range, beq_iff_eq] at h
+  have h3 : (tvP 0 * tvP 31) ^ 3 = 1 := by
+    refine pow_three_eq_one_of_apply _ _ fun x => Fin.ext ?_
+    simp only [tvP_apply, fin_val_zero, fin_val_31]
+    exact h x x.2
+  have hne : tvP 0 * tvP 31 ≠ 1 := fun h1 => by
+    have h2 : tvP 31 = tvP 0 := by
+      rw [eq_inv_of_mul_eq_one_right h1, tvP_inv]
+    exact absurd (tvP_injective h2) (by decide)
+  exact orderOf_eq_prime h3 hne
 
 end Ord4
 
@@ -545,6 +567,45 @@ end StdPair
 
 section Gen
 
+
+theorem exists_map_closure_stdComm {kt ku : Fin 1953} (hord : orderOf (tvP kt * tvP ku) = 3) :
+    ∃ g : Equiv.Perm (Fin 1953), (closure (tvP '' stdComm)).map (MulAut.conj g).toMonoidHom =
+      closure (tvP '' {k : Fin 1953 | Commute (tvP k) (tvP kt) ∧ Commute (tvP k) (tvP ku)}) := by
+  obtain ⟨g, hg, hg0, hg31⟩ := exists_mem_T6_pair hord
+  refine ⟨g, ?_⟩
+  rw [MonoidHom.map_closure]
+  congr 1
+  ext x
+  constructor
+  · rintro ⟨_, ⟨k', hk', rfl⟩, rfl⟩
+    refine ⟨g k', ⟨?_, ?_⟩, ?_⟩
+    · rw [← hg0]
+      exact commute_tvP_conj hg hk'.1
+    · rw [← hg31]
+      exact commute_tvP_conj hg hk'.2
+    · exact (mul_tvP_mul_inv hg k').symm
+  · rintro ⟨k, ⟨hk1, hk2⟩, rfl⟩
+    have hkk : g (g⁻¹ k) = k := by simp
+    refine ⟨tvP (g⁻¹ k), ⟨g⁻¹ k, ⟨?_, ?_⟩, rfl⟩, ?_⟩
+    · exact commute_tvP_of_conj hg (by rw [hkk, hg0]; exact hk1)
+    · exact commute_tvP_of_conj hg (by rw [hkk, hg31]; exact hk2)
+    · show g * tvP (g⁻¹ k) * g⁻¹ = tvP k
+      rw [mul_tvP_mul_inv hg, hkk]
+
+theorem nonempty_mulEquiv_closure_pair {kt ku : Fin 1953}
+    (hord : orderOf (tvP kt * tvP ku) = 3) :
+    Nonempty (closure (tvP '' stdComm) ≃* closure (tvP '' {k : Fin 1953 |
+      Commute (tvP k) (tvP kt) ∧ Commute (tvP k) (tvP ku)})) := by
+  obtain ⟨g, hmap⟩ := exists_map_closure_stdComm hord
+  exact ⟨(Subgroup.equivMapOfInjective _ (MulAut.conj g).toMonoidHom
+    (MulAut.conj g).injective).trans (MulEquiv.subgroupCongr hmap)⟩
+
+theorem isSimpleGroup_closure_pair {kt ku : Fin 1953} (hord : orderOf (tvP kt * tvP ku) = 3) :
+    IsSimpleGroup (closure (tvP '' {k : Fin 1953 |
+      Commute (tvP k) (tvP kt) ∧ Commute (tvP k) (tvP ku)})) := by
+  obtain ⟨e⟩ := nonempty_mulEquiv_closure_pair hord
+  haveI := isSimpleGroup_closure_stdComm
+  exact e.symm.isSimpleGroup
 
 end Gen
 

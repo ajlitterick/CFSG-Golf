@@ -20,6 +20,7 @@ open CertificateChecks.KernelAE6F (RG)
 
 theorem kToks : toksOKw CW.chars = true := by decide +kernel
 
+theorem kToksNeg : (!toksOKw ('x' :: CW.chars)) = true := by decide +kernel
 
 theorem kLen : Nat.beq (cwN CW.chars).length 4 = true := by decide +kernel
 
@@ -29,6 +30,11 @@ theorem kComm : commAllN RG zWord (cwN CW.chars) = true := by decide +kernel
 
 theorem kPL : plOK RG (cwN CW.chars) PL.S = true := by decide +kernel
 
+theorem kCommNeg : (!commAllN RG (kWords.getD 0 []) [(cwN CW.chars).getD 1 []]) = true := by
+  decide +kernel
+
+theorem kPLNeg : (!plOK RG [[], ((cwN CW.chars).getD 1 []).tail] PL.S) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelAE6Core
 

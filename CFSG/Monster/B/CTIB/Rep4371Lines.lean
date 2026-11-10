@@ -389,10 +389,112 @@ theorem aW_mem_OmegaW
       obtain ⟨t, ht⟩ : (a : Wv v0) ∈ Set.range aW := by rw [range_aW]; exact a.2
       exact ⟨t, Subtype.ext ht⟩⟩
 
+theorem coe_omegaEquiv
+    (t : Fin 2300) : (omegaEquiv t : Wv v0) = aW t := rfl
 
 @[expose] noncomputable def lineB
     (a : Unitary.OmegaPt) : Submodule ℚ SpaceB :=
   Submodule.span ℚ {(Rt (omegaEquiv.symm a) : SpaceB)}
 
+theorem aW_omegaEquiv_symm
+    (a : Unitary.OmegaPt) : aW (omegaEquiv.symm a) = a := by
+  rw [← coe_omegaEquiv, Equiv.apply_symm_apply]
+
+theorem coe_Rt (t : Fin 2300) : (Rt t : SpaceB) = Rraw (23 + t) := by
+  rw [Rt, coe_Rbasis]
+
+theorem RrawX_ne_zero (t : Fin 2300) : Rraw (23 + t) ≠ 0 :=
+  (xdiff_Rraw octDataOK_true).1.ne_zero t
+
+theorem finrank_lineB
+    (a : Unitary.OmegaPt) : Module.finrank ℚ (lineB a) = 1 := by
+  rw [lineB, coe_Rt]
+  exact finrank_span_singleton (RrawX_ne_zero _)
+
+theorem iSupIndep_lineB :
+    iSupIndep lineB := by
+  have h :=
+    ((xdiff_Rraw octDataOK_true).1.comp _ omegaEquiv.symm.injective).iSupIndep_span_singleton
+  convert h using 2 with a
+  rw [lineB, coe_Rt]
+  rfl
+
+theorem iSup_lineB :
+    ⨆ a, lineB a = Xdiff isShortCoord_rStar := by
+  rw [← (xdiff_Rraw octDataOK_true).2.1, Submodule.span_range_eq_iSup]
+  have e : (fun a => lineB a) =
+      fun a => Submodule.span ℚ {Rraw (23 + ((omegaEquiv.symm a : Fin 2300) : ℕ))} := by
+    funext a
+    rw [lineB, coe_Rt]
+  rw [e]
+  exact omegaEquiv.symm.iSup_comp
+    (g := fun t : Fin 2300 => Submodule.span ℚ {Rraw (23 + (t : ℕ))})
+
+theorem lineB_le_Xdiff
+    (a : Unitary.OmegaPt) : lineB a ≤ Xdiff isShortCoord_rStar := by
+  rw [← iSup_lineB]
+  exact le_iSup lineB a
+
+theorem mem_lineB_iff
+    {a : Unitary.OmegaPt} {v : Vst} :
+    (v : SpaceB) ∈ lineB a ↔ v ∈ Submodule.span ℚ {Rt (omegaEquiv.symm a)} := by
+  rw [lineB, Submodule.mem_span_singleton, Submodule.mem_span_singleton]
+  constructor
+  · rintro ⟨c, hc⟩
+    exact ⟨c, Subtype.ext (by rw [Submodule.coe_smul, hc])⟩
+  · rintro ⟨c, rfl⟩
+    exact ⟨c, rfl⟩
+
+theorem rhoV_lineB
+    {e : Ehat} {a : Unitary.OmegaPt} {v : Vst} (hv : (v : SpaceB) ∈ lineB a) :
+    rhoV ⟨e, Ehat_le_Shat' e.2⟩ v = sgn (bV (psiW e) a) • v := by
+  obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.1 (mem_lineB_iff.1 hv)
+  rw [map_smul, Rt, rhoV_Ehat_R e.2, ← Rt, aW_omegaEquiv_symm, smul_comm]
+
+theorem rhoV_mem_lineB
+    {h : Shat} (hh : (h : Dfull) ∈ Jhat) {a : Unitary.OmegaPt} {v : Vst}
+    (hv : (v : SpaceB) ∈ lineB a) : (rhoV h v : SpaceB) ∈ lineB (jhatToKv0 ⟨h, hh⟩ • a) := by
+  obtain ⟨t', ht', hmem⟩ := rhoV_Jhat_Rt hh (omegaEquiv.symm a)
+  have ht'' : omegaEquiv.symm (jhatToKv0 ⟨h, hh⟩ • a) = t' := by
+    apply omegaEquiv.injective
+    rw [Equiv.apply_symm_apply]
+    apply Subtype.ext
+    rw [coe_omegaEquiv, ht', aW_omegaEquiv_symm, Unitary.coe_smul_OmegaPt]
+  obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.1 (mem_lineB_iff.1 hv)
+  rw [mem_lineB_iff, ht'', map_smul]
+  exact Submodule.smul_mem _ _ hmem
+
+theorem exists_char_ne
+    {a a' : Unitary.OmegaPt} (h : a ≠ a') :
+    ∃ e : Ehat, bV (psiW e) a ≠ bV (psiW e) a' := by
+  by_contra hall
+  push Not at hall
+  exact h (Subtype.ext (eq_of_char hall))
+
+@[expose] noncomputable def lineV
+    (a : Unitary.OmegaPt) : Submodule ℚ Vst :=
+  (lineB a).comap Vst.subtype
+
+theorem mem_lineV
+    {a : Unitary.OmegaPt} {v : Vst} : v ∈ lineV a ↔ (v : SpaceB) ∈ lineB a :=
+  Iff.rfl
+
+theorem lineB_le_Vst
+    (a : Unitary.OmegaPt) : lineB a ≤ Vst :=
+  (lineB_le_Xdiff a).trans Xdiff_le_Vst
+
+theorem finrank_lineV
+    (a : Unitary.OmegaPt) : Module.finrank ℚ (lineV a) = 1 :=
+  (Submodule.comapSubtypeEquivOfLe (lineB_le_Vst a)).finrank_eq.trans (finrank_lineB a)
+
+theorem iSupIndep_lineV :
+    iSupIndep lineV := iSupIndep_comap_subtype Vst iSupIndep_lineB
+
+theorem iSup_lineV :
+    ⨆ a, lineV a = V2300 := by
+  apply Submodule.map_injective_of_injective Vst.injective_subtype
+  rw [Submodule.map_iSup]
+  simp_rw [lineV, Submodule.map_comap_subtype, inf_eq_right.2 (lineB_le_Vst _)]
+  rw [iSup_lineB, V2300, Submodule.map_comap_subtype, inf_eq_right.2 Xdiff_le_Vst]
 
 end CFSG.Monster.B.CTIB

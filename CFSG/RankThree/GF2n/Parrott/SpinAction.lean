@@ -169,6 +169,8 @@ theorem rho_yElt : rho yElt = MyUnit := by
 @[expose] noncomputable def act (a : PSp43) (v : V) : V :=
   ((rho a : Matrix.GeneralLinearGroup (Fin 8) (ZMod 2)) : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ v
 
+theorem act_one (v : V) : act 1 v = v := by
+  simp [act]
 
 theorem act_mul (a b : PSp43) (v : V) : act (a * b) v = act a (act b v) := by
   rw [act, act, act, map_mul, Units.val_mul, Matrix.mulVec_mulVec]
@@ -180,6 +182,8 @@ theorem act_neg (a : PSp43) (v : V) : act a (-v) = -act a v := by
   exact Matrix.mulVec_neg v ((rho a : Matrix.GeneralLinearGroup (Fin 8) (ZMod 2)) :
     Matrix (Fin 8) (Fin 8) (ZMod 2))
 
+theorem act_zero (a : PSp43) : act a 0 = 0 := by
+  simp [act]
 
 @[ext]
 structure SpinExt where
@@ -232,9 +236,14 @@ noncomputable instance : Group SpinExt where
 
 theorem mul_apply (p q : SpinExt) : p * q = ⟨p.v + act p.a q.v, p.a * q.a⟩ := rfl
 
+theorem inv_apply (p : SpinExt) : p⁻¹ = ⟨act p.a⁻¹ (-p.v), p.a⁻¹⟩ := rfl
 
 theorem one_apply : (1 : SpinExt) = ⟨0, 1⟩ := rfl
 
+def proj : SpinExt →* PSp43 where
+  toFun p := p.a
+  map_one' := rfl
+  map_mul' p q := rfl
 
 def inl : Multiplicative V →* SpinExt where
   toFun v := ⟨v.toAdd, 1⟩
@@ -249,6 +258,46 @@ def inl : Multiplicative V →* SpinExt where
     · change (1 : PSp43) = 1 * 1
       simp
 
+theorem inl_apply (v : V) : inl (Multiplicative.ofAdd v) = ⟨v, 1⟩ := by
+  apply SpinExt.ext
+  · rfl
+  · rfl
+
+theorem inl_injective : Function.Injective inl := by
+  intro v w h
+  simpa [inl] using congrArg SpinExt.v h
+
+theorem range_inl_eq_ker_proj : inl.range = proj.ker := by
+  ext p
+  constructor
+  · rintro ⟨v, rfl⟩
+    change (inl v).a = 1
+    rfl
+  · intro hp
+    have ha : p.a = 1 := hp
+    refine ⟨Multiplicative.ofAdd p.v, ?_⟩
+    apply SpinExt.ext
+    · rfl
+    · change 1 = p.a
+      rw [ha]
+
+theorem proj_surjective : Function.Surjective proj := fun a => ⟨⟨0, a⟩, rfl⟩
+
+def kerEquivV : proj.ker ≃ V where
+  toFun p := p.1.v
+  invFun v := ⟨⟨v, 1⟩, by change (⟨v, 1⟩ : SpinExt).a = 1; rfl⟩
+  left_inv p := by
+    apply Subtype.ext
+    apply SpinExt.ext
+    · rfl
+    · change 1 = p.1.a
+      have hp : p.1.a = 1 := p.2
+      rw [hp]
+  right_inv v := rfl
+
+theorem card_ker : Nat.card proj.ker = 2 ^ 8 := by
+  rw [Nat.card_congr kerEquivV, Nat.card_fun, Nat.card_zmod]
+  norm_num
 
 def equivProd : SpinExt ≃ V × PSp43 where
   toFun p := (p.v, p.a)

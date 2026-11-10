@@ -111,12 +111,15 @@ private theorem b_pow_three_act {i : Nat} (hi : i < 10) :
   rfl
 
 
+private theorem g1_ord_words : ∀ k ∈ g1w ++ g1w ++ g1w, k < 3 := by decide
+
 private theorem qWord_g1_pow_three : qWord (g1w ++ g1w ++ g1w) = 1 := by
   apply qWord_eq_qWord (w' := []) (by decide) (by simp)
   intro i hi
   rw [g1_pow_three_act hi]
   rfl
 
+private theorem g2_ord_words : ∀ k ∈ g2w ++ g2w ++ g2w ++ g2w, k < 3 := by decide
 
 private theorem qWord_g2_pow_four : qWord (g2w ++ g2w ++ g2w ++ g2w) = 1 := by
   apply qWord_eq_qWord (w' := []) (by decide) (by simp)
@@ -124,6 +127,7 @@ private theorem qWord_g2_pow_four : qWord (g2w ++ g2w ++ g2w ++ g2w) = 1 := by
   rw [g2_pow_four_act hi]
   rfl
 
+private theorem a_ord_words : ∀ k ∈ List.replicate 12 0, k < 3 := by decide
 
 private theorem qWord_replicate (k n : Nat) : qWord (List.replicate n k) = (qA k) ^ n := by
   rw [qWord, List.map_replicate, List.prod_replicate]
@@ -136,6 +140,7 @@ private theorem qWord_a_pow_twelve : (qA 0) ^ 12 = 1 := by
     rfl
   rwa [qWord_replicate] at h
 
+private theorem b_ord_words : ∀ k ∈ List.replicate 3 1, k < 3 := by decide
 
 private theorem qWord_b_pow_three : (qA 1) ^ 3 = 1 := by
   have h : qWord (List.replicate 3 1) = 1 := by
@@ -159,6 +164,21 @@ private theorem g2_pow_four : qWord g2w ^ 4 = 1 := by
   rw [show (4:ℕ) = 3+1 by norm_num, pow_succ, pow_three, ← mul_assoc]
   exact h
 
+private theorem inv_g1 : (qWord g1w)⁻¹ = (qWord g1w) ^ 2 := by
+  have h : (qWord g1w) ^ 2 * qWord g1w = 1 := by
+    have h' : (qWord g1w) ^ 2 * qWord g1w = qWord g1w ^ 3 := by
+      calc (qWord g1w) ^ 2 * qWord g1w = qWord g1w ^ (2 + 1) := (pow_succ _ 2).symm
+        _ = qWord g1w ^ 3 := by norm_num
+    rw [h']; exact g1_pow_three
+  exact (eq_inv_of_mul_eq_one_left h).symm
+
+private theorem inv_g2 : (qWord g2w)⁻¹ = (qWord g2w) ^ 3 := by
+  have h : (qWord g2w) ^ 3 * qWord g2w = 1 := by
+    have h' : (qWord g2w) ^ 3 * qWord g2w = qWord g2w ^ 4 := by
+      calc (qWord g2w) ^ 3 * qWord g2w = qWord g2w ^ (3 + 1) := (pow_succ _ 3).symm
+        _ = qWord g2w ^ 4 := by norm_num
+    rw [h']; exact g2_pow_four
+  exact (eq_inv_of_mul_eq_one_left h).symm
 
 private theorem inv_a : (qA 0)⁻¹ = (qA 0) ^ 11 := by
   have h : (qA 0) ^ 11 * qA 0 = 1 := by
@@ -211,6 +231,12 @@ private theorem qWord_dWord_pow_pred_inv (l : Nat) (hl : l < 2) :
     (qWord (dWord [l])) ^ (ordD l - 1) = (qWord (dWord [l]))⁻¹ :=
   pow_pred_eq_inv _ _ (by interval_cases l <;> simp [ordD]) (qWord_dWord_single_pow l hl)
 
+private theorem qWord_dWord_single_inv (l : Nat) (hl : l < 2) :
+    qWord (dWord (invD [l])) = (qWord (dWord [l]))⁻¹ := by
+  have h : qWord (dWord (List.replicate (ordD l - 1) l)) =
+      qWord (dWord [l]) ^ (ordD l - 1) := qWord_dWord_replicate l (ordD l - 1)
+  rw [show invD [l] = List.replicate (ordD l - 1) l by simp [invD], h]
+  exact qWord_dWord_pow_pred_inv l hl
 
 private theorem qWord_dWord_inv (w : List Nat) (hw : ∀ l ∈ w, l < 2) :
     qWord (dWord (invD w)) = (qWord (dWord w))⁻¹ := by
@@ -278,6 +304,10 @@ private theorem perfW_length : perfW.length = 2 := by
   simp only [Native.perfOK, Bool.and_eq_true, beq_iff_eq] at h
   exact h.1.1.1.2
 
+private theorem perfX_length : perfX.length = 2 := by
+  have h := perfOK
+  simp only [Native.perfOK, Bool.and_eq_true, beq_iff_eq] at h
+  exact h.1.1.1.1
 
 private theorem perfW_lt2 {j : Nat} (hj : j < 2) : ∀ l ∈ perfW[j]!, l < 2 := by
   have h := perfOK
@@ -288,6 +318,17 @@ private theorem perfW_lt2 {j : Nat} (hj : j < 2) : ∀ l ∈ perfW[j]!, l < 2 :=
   rw [getElem!_pos perfW j hlen]
   simpa using List.all_eq_true.1 h1
 
+private theorem perfX_lt2 {j : Nat} (hj : j < 2) :
+    (∀ l ∈ (perfX[j]!).1, l < 2) ∧ ∀ l ∈ (perfX[j]!).2, l < 2 := by
+  have h := perfOK
+  simp only [Native.perfOK, Bool.and_eq_true] at h
+  have hlen : j < perfX.length := by rw [perfX_length]; omega
+  have hp : ((perfX[j]).1.all (fun x => x < 2) &&
+      (perfX[j]).2.all (fun x => x < 2)) = true :=
+    (List.all_eq_true.1 h.1.1.2) (perfX[j]) (List.getElem_mem hlen)
+  simp only [Bool.and_eq_true] at hp
+  rw [getElem!_pos perfX j hlen]
+  exact ⟨by simpa using List.all_eq_true.1 hp.1, by simpa using List.all_eq_true.1 hp.2⟩
 
 private theorem fix_b (m : Nat) (h : m = 1) : wordAct [1] m = 1 := by
   subst h
@@ -300,6 +341,7 @@ private theorem fix_a2 (m : Nat) (h : m = 1) : wordAct [0, 0] m = 1 := by
   have h' := fixOK
   simp only [Native.fixOK, Bool.and_eq_true, beq_iff_eq] at h'
   exact h'.2
+
 
 
 private noncomputable def g1G : ↥⁅Qj, Qj⁆ :=
@@ -487,6 +529,9 @@ private theorem closure_g1g2_top :
   exact key (g : MulAut ↥Jc) hg
 
 
+
+
+
 private theorem hOrb60_length : hOrb60.length = 60 := by
   have h := hOK
   simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
@@ -498,6 +543,12 @@ private theorem hOrb60_valid :
   simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
   tauto
 
+private theorem hOrb60_closed :
+    (hOrb60.all fun m =>
+      hOrb60.contains (wordAct [1] m) && hOrb60.contains (wordAct [0, 0] m)) = true := by
+  have h := hOK
+  simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  tauto
 
 private theorem hOrb60_actions :
     ((List.range 60).all fun k =>
@@ -517,6 +568,15 @@ private theorem hOrb16_length : hOrb16.length = 16 := by
   simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
   tauto
 
+private theorem hWords60_length : hWords60.length = 60 := by
+  have h := hOK
+  simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  tauto
+
+private theorem hWords16_length : hWords16.length = 16 := by
+  have h := hOK
+  simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  tauto
 
 private theorem hOrb16_nodup : hOrb16.Nodup := by
   have h := hOK
@@ -540,6 +600,12 @@ private theorem hOrb16_ne_one : (hOrb16.all fun m => m != 1) = true := by
   simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
   tauto
 
+private theorem hOrb16_closed :
+    (hOrb16.all fun m =>
+      hOrb16.contains (wordAct [1] m) && hOrb16.contains (wordAct [0, 0] m)) = true := by
+  have h := hOK
+  simp only [Native.hOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  tauto
 
 private theorem hOrb16_actions :
     ((List.range 16).all fun k =>
@@ -595,6 +661,25 @@ private theorem hOrb16_ne_one' {m : Nat} (hm : m ∈ hOrb16) : m ≠ 1 := by
   have h := (List.all_eq_true.1 hOrb16_ne_one) m hm
   simpa [bne_iff_ne] using h
 
+private theorem hOrb60_closed_b {m : Nat} (hm : m ∈ hOrb60) : wordAct [1] m ∈ hOrb60 := by
+  have h := (List.all_eq_true.1 hOrb60_closed) m hm
+  simp only [Bool.and_eq_true] at h
+  exact (List.contains_iff_mem).1 h.1
+
+private theorem hOrb60_closed_a2 {m : Nat} (hm : m ∈ hOrb60) : wordAct [0, 0] m ∈ hOrb60 := by
+  have h := (List.all_eq_true.1 hOrb60_closed) m hm
+  simp only [Bool.and_eq_true] at h
+  exact (List.contains_iff_mem).1 h.2
+
+private theorem hOrb16_closed_b {m : Nat} (hm : m ∈ hOrb16) : wordAct [1] m ∈ hOrb16 := by
+  have h := (List.all_eq_true.1 hOrb16_closed) m hm
+  simp only [Bool.and_eq_true] at h
+  exact (List.contains_iff_mem).1 h.1
+
+private theorem hOrb16_closed_a2 {m : Nat} (hm : m ∈ hOrb16) : wordAct [0, 0] m ∈ hOrb16 := by
+  have h := (List.all_eq_true.1 hOrb16_closed) m hm
+  simp only [Bool.and_eq_true] at h
+  exact (List.contains_iff_mem).1 h.2
 
 private theorem hOrb60_word {k : Nat} (hk : k < 60) :
     wordAct (hExpand (hWords60[k]!)) hRep60 = hOrb60[k]! := by
@@ -880,6 +965,7 @@ private theorem ncard_union_O16_Oa : (Set.range point16 ∪ Oa).ncard = 17 := by
   rw [Set.ncard_union_eq disjoint_O16_Oa, ncard_O16, ncard_Oa]
 
 
+
 private theorem uD_length : uD.length = 4 := by
   have h := uOK
   simp only [Native.uOK, Bool.and_eq_true, beq_iff_eq] at h
@@ -1114,6 +1200,8 @@ private theorem aGinv_norm_gen (hD) (i : Fin 4) :
   · norm_num
 
 
+
+
 private theorem bG_norm_gen (hD) (i : Fin 4) :
     qA 1 * (uG hD i : MulAut ↥Jc) * (qA 1)⁻¹ ∈ V hD := by
   have hq1 : qA 1 = qWord [1] := by rw [qWord_cons, qWord_nil, mul_one]
@@ -1194,6 +1282,85 @@ private theorem bG_norm_V (hD) : ∀ v ∈ V hD, qA 1 * v * (qA 1)⁻¹ ∈ V hD
 
 private theorem bGinv_norm_V (hD) : ∀ v ∈ V hD, (qA 1)⁻¹ * v * qA 1 ∈ V hD :=
   normalizes_V_of_generators hD (bGinv_norm_gen hD)
+
+
+private theorem a2G_norm_U (hD) (ha : qA 0 * qA 0 ∈ ⁅Qj, Qj⁆) :
+    ∀ u ∈ U hD, a2G ha * u * (a2G ha)⁻¹ ∈ U hD := by
+  intro u hu
+  have hv : (u : MulAut ↥Jc) ∈ V hD := (mem_V_iff (hD := hD)).2 hu
+  have h1 : qA 0 * (u : MulAut ↥Jc) * (qA 0)⁻¹ ∈ V hD := aG_norm_V hD _ hv
+  have h2 : qA 0 * (qA 0 * (u : MulAut ↥Jc) * (qA 0)⁻¹) * (qA 0)⁻¹ ∈ V hD :=
+    aG_norm_V hD _ h1
+  refine (mem_V_iff (hD := hD)).1 ?_
+  have hval : ((a2G ha * u * (a2G ha)⁻¹ : ↥⁅Qj, Qj⁆) : MulAut ↥Jc) =
+      qA 0 * (qA 0 * (u : MulAut ↥Jc) * (qA 0)⁻¹) * (qA 0)⁻¹ := by
+    change (qA 0 * qA 0) * (u : MulAut ↥Jc) * (qA 0 * qA 0)⁻¹ = _
+    group
+  rw [hval]
+  exact h2
+
+private theorem a2Ginv_norm_U (hD) (ha : qA 0 * qA 0 ∈ ⁅Qj, Qj⁆) :
+    ∀ u ∈ U hD, (a2G ha)⁻¹ * u * a2G ha ∈ U hD := by
+  intro u hu
+  have hv : (u : MulAut ↥Jc) ∈ V hD := (mem_V_iff (hD := hD)).2 hu
+  have h1 : (qA 0)⁻¹ * (u : MulAut ↥Jc) * qA 0 ∈ V hD := aGinv_norm_V hD _ hv
+  have h2 : (qA 0)⁻¹ * ((qA 0)⁻¹ * (u : MulAut ↥Jc) * qA 0) * qA 0 ∈ V hD :=
+    aGinv_norm_V hD _ h1
+  refine (mem_V_iff (hD := hD)).1 ?_
+  have hval : (((a2G ha)⁻¹ * u * a2G ha : ↥⁅Qj, Qj⁆) : MulAut ↥Jc) =
+      (qA 0)⁻¹ * ((qA 0)⁻¹ * (u : MulAut ↥Jc) * qA 0) * qA 0 := by
+    change (qA 0 * qA 0)⁻¹ * (u : MulAut ↥Jc) * (qA 0 * qA 0) = _
+    group
+  rw [hval]
+  exact h2
+
+private theorem bG_norm_U (hD) (hb : qA 1 ∈ ⁅Qj, Qj⁆) :
+    ∀ u ∈ U hD, bG hb * u * (bG hb)⁻¹ ∈ U hD := by
+  intro u hu
+  have hv : (u : MulAut ↥Jc) ∈ V hD := (mem_V_iff (hD := hD)).2 hu
+  have h1 : qA 1 * (u : MulAut ↥Jc) * (qA 1)⁻¹ ∈ V hD := bG_norm_V hD _ hv
+  refine (mem_V_iff (hD := hD)).1 ?_
+  have hval : ((bG hb * u * (bG hb)⁻¹ : ↥⁅Qj, Qj⁆) : MulAut ↥Jc) =
+      qA 1 * (u : MulAut ↥Jc) * (qA 1)⁻¹ := rfl
+  rw [hval]
+  exact h1
+
+private theorem bGinv_norm_U (hD) (hb : qA 1 ∈ ⁅Qj, Qj⁆) :
+    ∀ u ∈ U hD, (bG hb)⁻¹ * u * bG hb ∈ U hD := by
+  intro u hu
+  have hv : (u : MulAut ↥Jc) ∈ V hD := (mem_V_iff (hD := hD)).2 hu
+  have h1 : (qA 1)⁻¹ * (u : MulAut ↥Jc) * qA 1 ∈ V hD := bGinv_norm_V hD _ hv
+  refine (mem_V_iff (hD := hD)).1 ?_
+  have hval : (((bG hb)⁻¹ * u * bG hb : ↥⁅Qj, Qj⁆) : MulAut ↥Jc) =
+      (qA 1)⁻¹ * (u : MulAut ↥Jc) * qA 1 := rfl
+  rw [hval]
+  exact h1
+
+
+private theorem HH_normalizes (hD) (hb : qA 1 ∈ ⁅Qj, Qj⁆) (ha : qA 0 * qA 0 ∈ ⁅Qj, Qj⁆) :
+    ∀ h ∈ HH hb ha, ∀ u ∈ U hD, h * u * h⁻¹ ∈ U hD := by
+  intro h hh
+  refine Subgroup.closure_induction_left (s := {bG hb, a2G ha}) ?one ?mul ?inv hh
+  · intro u hu
+    simpa using hu
+  · intro x hx y _ ih u hu
+    rw [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
+    have hxn : ∀ w ∈ U hD, x * w * x⁻¹ ∈ U hD := by
+      rcases hx with rfl | rfl
+      · exact bG_norm_U hD hb
+      · exact a2G_norm_U hD ha
+    have hstep : x * (y * u * y⁻¹) * x⁻¹ ∈ U hD := hxn _ (ih u hu)
+    convert hstep using 1
+    group
+  · intro x hx y _ ih u hu
+    rw [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
+    have hxin : ∀ w ∈ U hD, x⁻¹ * w * x ∈ U hD := by
+      rcases hx with rfl | rfl
+      · exact bGinv_norm_U hD hb
+      · exact a2Ginv_norm_U hD ha
+    have hstep : x⁻¹ * (y * u * y⁻¹) * x ∈ U hD := hxin _ (ih u hu)
+    convert hstep using 1
+    group
 
 
 private theorem ncList_length : ncList.length = 10 := by

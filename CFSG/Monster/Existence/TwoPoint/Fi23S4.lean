@@ -107,5 +107,15 @@ theorem fiE_eight_not_commute_gammaZero :
     rw [pow_succ, sq, h2, one_mul]
   exact fiE_eight_mul_gammaZero_ne_one (by rw [← h3]; exact fiE_eight_mul_gammaZero_pow_three)
 
+theorem exists_s4_gamma :
+    ∃ γ₀ : MGriess, γ₀ * γ₀ = 1 ∧ IsConj tGriess γ₀ ∧
+      (∀ i, i < 10 → i ≠ 8 → fiE i * γ₀ = γ₀ * fiE i) ∧
+      (fiE 8 * γ₀) ^ 3 = 1 ∧ fiE 8 * γ₀ ≠ 1 ∧ fiE 8 * γ₀ ≠ γ₀ * fiE 8 ∧
+      (fiAlpha * γ₀) ^ 3 = 1 ∧ fiAlpha * γ₀ ≠ 1 ∧
+      fiBeta * γ₀ = γ₀ * fiBeta ∧ IsConj tGriess (fiBeta * γ₀) :=
+  ⟨gammaZero, gammaZero_mul_self, isConj_gammaZero, fun _ hi hi8 => fiE_commute_gammaZero hi hi8,
+    fiE_eight_mul_gammaZero_pow_three, fiE_eight_mul_gammaZero_ne_one,
+    fiE_eight_not_commute_gammaZero, fiAlpha_mul_gammaZero_pow_three,
+    fiAlpha_mul_gammaZero_ne_one, fiBeta_commute_gammaZero, isConj_fiBeta_mul_gammaZero⟩
 
 end CFSG.Monster.Existence

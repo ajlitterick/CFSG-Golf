@@ -134,6 +134,9 @@ open CFSG.KC.Enum
   bAnd(Nat.blt A2 (nat_lit 1365),
     Nat.beq (wv X Y Xi Yi U0 (wv X Y Xi Yi U1 A2)) (ap F (nat_lit 2))))))
 
+@[expose] noncomputable def tree1K (X Y Xi Yi : Nat) (H1 : List (List Nat)) (T1R : Nat) : Bool :=
+  bAnd(fixK X Y Xi Yi H1 [nat_lit 0], bAnd(trOK X Y Xi Yi H1 T1R (nat_lit 1024) (nat_lit 1),
+    bIf(Nat.beq (trMask T1R (nat_lit 1024)) (nat_lit 0), false, true)))
 
 @[expose] noncomputable def tree2K (X Y Xi Yi F : Nat) (H2 : List (List Nat)) (T2R : Nat)
     (U0 U1 : List Nat) (A2 : Nat) : Bool :=
@@ -141,6 +144,20 @@ open CFSG.KC.Enum
     bAnd(witK X Y Xi Yi F U0 U1 A2, strictB (trMask T2R (nat_lit 180)) fun m =>
       bAnd(bIf(Nat.beq m (nat_lit 0), false, true), Nat.beq (bitN m A2) (nat_lit 0)))))
 
+@[expose] noncomputable def encI (c : Int) : Nat :=
+  Int.rec (motive := fun _ => Nat) (fun n => n) (fun n => Nat.add n (nat_lit 3)) c
+
+@[expose] noncomputable def eqWI (w : List Int) (v : List Nat) : Bool :=
+  List.rec (motive := fun _ => List Nat → Bool)
+    (fun v => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) v)
+    (fun c _ ih v => List.rec (motive := fun _ => Bool) false
+      (fun d t _ => bAnd(Nat.beq (encI c) d, ih t)) v) w v
+
+@[expose] noncomputable def eqWLI (L : List (List Int)) (V : List (List Nat)) : Bool :=
+  List.rec (motive := fun _ => List (List Nat) → Bool)
+    (fun V => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) V)
+    (fun w _ ih V => List.rec (motive := fun _ => Bool) false
+      (fun v t _ => bAnd(eqWI w v, ih t)) V) L V
 
 end CFSG.KS.Co1Row26683
 

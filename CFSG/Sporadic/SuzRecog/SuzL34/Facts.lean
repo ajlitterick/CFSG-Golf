@@ -134,6 +134,15 @@ open CFSG.PSL3Four.Native CFSG.Sporadic.SuzRecog CFSG.Sporadic.SuzRecog.C1Model
     a ∈ V0 ∧ a * a = 1 ∧ a ≠ 1 ∧ a ≠ W ∧ fixedCard a = 42 ∧ fixedCard (a * W) = 42 ∧
     lam0 ∈ V0 ∧ lam0 * lam0 = W
 
+@[expose] def zPTabs : Array Tab :=
+  #[#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+      24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41],
+    #[17, 15, 6, 3, 12, 14, 2, 11, 8, 16, 10, 7, 4, 13, 5, 1, 9, 0, 20, 19, 18, 38, 36, 27, 24,
+      33, 35, 23, 32, 29, 37, 31, 28, 25, 34, 26, 22, 30, 21, 41, 40, 39],
+    #[18, 11, 16, 3, 5, 4, 9, 15, 8, 6, 10, 1, 14, 13, 12, 7, 2, 20, 0, 19, 17, 39, 32, 37, 24,
+      26, 25, 30, 36, 29, 27, 31, 22, 35, 34, 33, 28, 23, 41, 21, 40, 38],
+    #[20, 7, 9, 3, 14, 12, 16, 1, 8, 2, 10, 15, 5, 13, 4, 11, 6, 18, 17, 19, 0, 41, 28, 30, 24,
+      35, 33, 37, 22, 29, 23, 31, 36, 26, 34, 25, 32, 27, 39, 38, 40, 21]]
 
 @[expose] noncomputable def tabPerm16 (t : Tab) : Equiv.Perm (Fin 16) := permC 16 t
 
@@ -173,6 +182,7 @@ open CFSG.PSL3Four.Native CFSG.Sporadic.SuzRecog CFSG.Sporadic.SuzRecog.C1Model
 @[expose] noncomputable def PG : Subgroup (Equiv.Perm (Fin 42)) :=
   Subgroup.closure ({pgPerm 0, pgPerm 1, pgPerm 2, pgPerm 3} : Set (Equiv.Perm (Fin 42)))
 
+@[expose] noncomputable def zPPerm (i : Nat) : Equiv.Perm (Fin 42) := permC 42 zPTabs[i]!
 
 @[expose] noncomputable def V4Sub (X : Subgroup (Equiv.Perm (Fin 16)))
     (u : Equiv.Perm (Fin 16)) : Subgroup (Equiv.Perm (Fin 16)) :=

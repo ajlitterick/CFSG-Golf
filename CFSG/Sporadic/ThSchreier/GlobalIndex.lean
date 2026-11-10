@@ -50,6 +50,15 @@ theorem alphaPerm_val
   have h3 : colPlane (alphaPerm i) = colPlane (αIdx i) := h1.trans h2
   exact colPlane_inj hF _ (nPlanes_eq_nX hF hS ▸ (alphaPerm i).isLt) _ (hF.αlt i hi) h3
 
+theorem betaPerm_val
+    (i : Fin nPlanes) : (betaPerm i : ℕ) = βIdx i := by
+  have hi : i.val < nX := nPlanes_eq_nX hF hS ▸ i.isLt
+  have h1 : iota (betaPerm i) = b • iota i := iota_phi b i
+  rw [iota_eq_colPlane hF hS, iota_eq_colPlane hF hS] at h1
+  have h2 := (colPlane_img hF i hi 1 (by show 1 < 2; decide)).2
+  rw [colImg_one] at h2
+  have h3 : colPlane (betaPerm i) = colPlane (βIdx i) := h1.trans h2
+  exact colPlane_inj hF _ (nPlanes_eq_nX hF hS ▸ (betaPerm i).isLt) _ (hF.βlt i hi) h3
 
 end Facts
 

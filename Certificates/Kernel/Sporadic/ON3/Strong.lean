@@ -232,6 +232,9 @@ theorem tStrong_get : TStrong.size = 8 ∧
       exact foldr_congr (m := 7) (fun i hi => by rw [tF_lo hi]) (fun i hi => by rw [tFI_lo hi]) _
         strong_lets.2.1 x
 
+theorem nIf_lo {c : Bool} (hc : c = true) (t e : Nat) : nIf(c, t, e) = t := by
+  subst hc
+  rfl
 
 theorem tab_pair {k : Nat} (hk : k < 17) {T : Nat → Nat} (hT : ∀ y < 245520, T y = trW k y)
     {y : Nat} (hy : y < 245520) : T y < 245520 ∧ trW (k + 23) y < 245520 ∧

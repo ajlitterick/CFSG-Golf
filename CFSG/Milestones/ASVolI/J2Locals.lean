@@ -30,46 +30,29 @@ namespace CFSG.ASVolI
 
 open CFSG.Open
 
-
 section Cert17
-
-
-end Cert17
-
-
-section Cert17
-
 
 end Cert17
 
 section Cert17
 
+end Cert17
+
+section Cert17
 
 end Cert17
 
 section Cert15
 
-
 section Cert110
-
 
 end Cert110
 
-
 end Cert15
-
 
 section Lines
 
 variable {R : Type} [Group R] [Finite R]
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
 
 end Lines
 
@@ -77,150 +60,90 @@ section Main
 
 variable {R : Type} [Group R] [Finite R]
 
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
 end Main
 
 section GT2
 
 variable {G : Type} [Group G] [Finite G]
 
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
-open scoped Pointwise in
-attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent instCommGroupOfIsSimpleGroupOfIsNilpotent in
-
 end GT2
 
-
 section Phi
-
 
 end Phi
 
 section Main
 
-
 end Main
 
 section N
-
 
 end N
 
 section N18
 
-
 end N18
-
 
 section Class
 
-
 end Class
-
 
 section Pic
 
-
 end Pic
 
-
 section Diag
-
 
 end Diag
 
 section Part7
 
-
 end Part7
 
 section BurnsideJ27J28
 
-
 section BurnsideJ28Cnt
-
 
 end BurnsideJ28Cnt
 
 section BurnsideJ28Hside
-
 
 end BurnsideJ28Hside
 end BurnsideJ27J28
 
 section BurnsideJ27J28Cert
 
-
 end BurnsideJ27J28Cert
-
 
 section Zeta
 
-
 end Zeta
 
-
 section TransX
-
 
 end TransX
 
 section TransX2
 
-
 end TransX2
 
-
 section TransX3
-
 
 end TransX3
 
 section TransX4
 
-
 end TransX4
 
 section TransX5
-
 
 end TransX5
 
 section Part8
 
-
 end Part8
 
 section
-
 
 end
 

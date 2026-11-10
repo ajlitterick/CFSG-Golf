@@ -121,6 +121,8 @@ theorem tbl_pow (σ : Equiv.Perm (Fin 12)) (n : ℕ) : tbl (σ ^ n) = tpow (tbl 
   | zero => rw [pow_zero, tbl_one]; rfl
   | succ n ih => rw [pow_succ', tbl_mul, ih]; rfl
 
+theorem tbl_eq_iff {σ τ : Equiv.Perm (Fin 12)} : tbl σ = tbl τ ↔ σ = τ :=
+  tbl_injective.eq_iff
 
 theorem tbl_take_five {σ τ : Equiv.Perm (Fin 12)} (h : (tbl σ).take 5 = (tbl τ).take 5) :
     ∀ i : Fin 12, i.val < 5 → σ i = τ i := by

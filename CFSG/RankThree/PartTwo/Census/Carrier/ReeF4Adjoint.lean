@@ -56,6 +56,13 @@ theorem sum_coord_bMatR_smul (s : Fin 52) :
     rw [coord_bMatR u.2 s.2, ite_eq_right (fun h => hu (Fin.ext h)), zero_smul]
   · exact fun h => absurd (Finset.mem_univ _) h
 
+theorem coord_combR (v : List (ℕ × ℤ)) (u : Fin 52) :
+    coord u (combR A v) = (v.map fun x => (x.2 : A) * coord u (bMatR A x.1)).sum := by
+  rw [combR]
+  induction v with
+  | nil => simp [coord_zero]
+  | cons x v ih => rw [List.map_cons, List.sum_cons, coord_add, coord_smul, ih, List.map_cons,
+      List.sum_cons]
 
 theorem sum_coord_combR_smul {v : List (ℕ × ℤ)} (hv : ValidVec .F4 v) :
     ∑ u : Fin 52, coord u (combR A v) • posVec .F4 A u = vecOf .F4 A v := by
@@ -146,6 +153,11 @@ theorem mem_spanW_of_basis {g h : Matrix (Fin 26) (Fin 26) A}
     simp only [Set.mem_ofPred_eq, inv_inv] at hg ⊢
     exact ⟨(hg u).2, (hg u).1⟩
 
+theorem conj_mem_spanW {g : Matrix.GeneralLinearGroup (Fin 26) A} (hg : g ∈ normGroup A)
+    {Y : Matrix (Fin 26) (Fin 26) A} (hY : Y ∈ spanW A) :
+    (g : Matrix (Fin 26) (Fin 26) A) * Y *
+      ((g⁻¹ : Matrix.GeneralLinearGroup (Fin 26) A) : Matrix (Fin 26) (Fin 26) A) ∈ spanW A :=
+  mem_spanW_of_basis (fun u => (hg u).1) hY
 
 abbrev adConj (g : Matrix.GeneralLinearGroup (Fin 26) A) : Module.End A (RootModule .F4 A) :=
   adOp (g : Matrix (Fin 26) (Fin 26) A)
@@ -193,6 +205,9 @@ theorem adConj_mul (g : Matrix.GeneralLinearGroup (Fin 26) A)
   map_one' := adConj_one
   map_mul' g h := adConj_mul (g : Matrix.GeneralLinearGroup (Fin 26) A) h.2
 
+theorem adHom_apply (g : normGroup A) :
+    adHom A g = adConj (g : Matrix.GeneralLinearGroup (Fin 26) A) :=
+  rfl
 
 @[expose] def adUnits (K : Type*) [Field K] : normGroup K →* ModGL .F4 K :=
   (adHom K).toHomUnits

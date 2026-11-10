@@ -18,6 +18,22 @@ theorem length_filter_range (p : ℕ → Bool) (n : ℕ) :
   refine Nat.card_congr (Equiv.subtypeEquivRight fun c => ?_)
   simp [List.mem_filter, List.mem_range]
 
+theorem length_filter_range_comp {n : ℕ} {φ : ℕ → ℕ} (hφ : ∀ c < n, φ c < n)
+    (hinj : ∀ a < n, ∀ b < n, φ a = φ b → a = b) (p : ℕ → Bool) :
+    ((List.range n).filter fun c => p (φ c)).length = ((List.range n).filter p).length := by
+  rw [length_filter_range, length_filter_range]
+  refine Nat.card_eq_of_bijective (fun c => ⟨φ c.1, hφ c.1 c.2.1, c.2.2⟩) ⟨?_, ?_⟩
+  · intro x y hxy
+    exact Subtype.ext (hinj x.1 x.2.1 y.1 y.2.1 (congrArg Subtype.val hxy))
+  · rintro ⟨b, hb, hpb⟩
+    have hsurj : ∀ b < n, ∃ a < n, φ a = b := by
+      have hinj' : Function.Injective fun a : Fin n => (⟨φ a.1, hφ a.1 a.2⟩ : Fin n) :=
+        fun a a' h => Fin.ext (hinj a.1 a.2 a'.1 a'.2 (congrArg Fin.val h))
+      intro b hb
+      obtain ⟨a, ha⟩ := (Finite.injective_iff_surjective.1 hinj') ⟨b, hb⟩
+      exact ⟨a.1, a.2, congrArg Fin.val ha⟩
+    obtain ⟨a, ha, rfl⟩ := hsurj b hb
+    exact ⟨⟨a, ha, hpb⟩, rfl⟩
 
 variable {G : Type*} [Group G]
 
@@ -84,6 +100,23 @@ theorem dec_conj {d u i : ℕ} (hd : d < n) (hu : u < n) (hi : i < n) (h : mul d
 theorem conj_lt {d u i : ℕ} (hd : d < n) (hu : u < n) (hi : i < n) : mul (mul d u) i < n :=
   M.mul_lt _ (M.mul_lt d hd u hu) i hi
 
+theorem pw_lt {c : ℕ} (hc : c < n) (k : ℕ) : pw mul c k < n := by
+  induction k with
+  | zero => exact M.zero_lt
+  | succ k ih => exact M.mul_lt c hc _ ih
+
+theorem dec_pw {c : ℕ} (hc : c < n) (k : ℕ) : dec (pw mul c k) = dec c ^ k := by
+  induction k with
+  | zero =>
+    show dec 0 = dec c ^ 0
+    rw [pow_zero]
+    exact M.dec_zero
+  | succ k ih =>
+    show dec (mul c (pw mul c k)) = dec c ^ (k + 1)
+    rw [M.dec_mul c hc _ (M.pw_lt hc k), ih, pow_succ']
+
+theorem pw_eq_zero_iff {c : ℕ} (hc : c < n) (k : ℕ) : pw mul c k = 0 ↔ dec c ^ k = 1 := by
+  rw [← M.dec_pw hc, M.dec_eq_one_iff (M.pw_lt hc k)]
 
 theorem count_eq (P : G → Prop) [DecidablePred P] :
     ((List.range n).filter fun c => decide (P (dec c))).length =
@@ -118,6 +151,8 @@ theorem dec_sq_iff {c : ℕ} (hc : c < n) : dec c ^ 2 = 1 ∧ dec c ≠ 1 ↔ c 
     M.dec_eq_one_iff hc]
   exact ⟨fun h => ⟨h.2, h.1⟩, fun h => ⟨h.2, h.1⟩⟩
 
+theorem mem_invols {c : ℕ} : c ∈ invols n mul ↔ c < n ∧ c ≠ 0 ∧ mul c c = 0 := by
+  simp [invols, List.mem_filter, List.mem_range]
 
 theorem ninv_cent_eq {r : ℕ} (hr : r < n) :
     Nat.card {x : (K ⊓ centralizer {dec r} : Subgroup G) // x ^ 2 = 1 ∧ x ≠ 1} =
@@ -156,5 +191,23 @@ theorem ninv_cent_eq {r : ℕ} (hr : r < n) :
 
 end IsModel
 
+theorem ordLoop_congr {mul mul' : ℕ → ℕ → ℕ} {c c' : ℕ}
+    (h : ∀ k, pw mul c k = 0 ↔ pw mul' c' k = 0) :
+    ∀ (f k : ℕ), ordLoop mul c f (pw mul c k) k = ordLoop mul' c' f (pw mul' c' k) k := by
+  intro f
+  induction f with
+  | zero => intro k; rfl
+  | succ f ih =>
+    intro k
+    simp only [ordLoop]
+    have hk := h k
+    by_cases h0 : pw mul c k = 0
+    · rw [if_pos (by simpa using h0), if_pos (by simpa using hk.1 h0)]
+    · rw [if_neg (by simpa using h0), if_neg (by simpa using fun h' => h0 (hk.2 h'))]
+      exact ih (k + 1)
+
+theorem ordc_eq_of_iff {mul mul' : ℕ → ℕ → ℕ} {c c' : ℕ}
+    (h : ∀ k, pw mul c k = 0 ↔ pw mul' c' k = 0) : ordc mul c = ordc mul' c' :=
+  ordLoop_congr h 64 1
 
 end CFSG.OddStandard.AltStdSmall4.Tower

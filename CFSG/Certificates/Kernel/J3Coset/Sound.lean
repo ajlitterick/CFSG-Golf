@@ -11,11 +11,17 @@ namespace CFSG.KC.J3C
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw.Orb
 
+theorem wv_nil (T : Nat → Nat → Nat) (y : Nat) : wv T [] y = y := rfl
 
 theorem wv_cons (T : Nat → Nat → Nat) (c : Nat) (w : List Nat) (y : Nat) :
     wv T (c :: w) y = T c (wv T w y) :=
   strictN_eq _ _
 
+theorem wv_append (T : Nat → Nat → Nat) (u v : List Nat) (y : Nat) :
+    wv T (u ++ v) y = wv T u (wv T v y) := by
+  induction u with
+  | nil => rfl
+  | cons c u ih => rw [List.cons_append, wv_cons, wv_cons, ih]
 
 @[expose] def ev {G : Type*} [Group G] (g : ℕ → G) (w : List ℕ) : G := (w.map g).prod
 

@@ -127,6 +127,9 @@ theorem adj_x : H.adj (x : Module.End K V) =
     ((x⁻¹ : LinearMap.GeneralLinearGroup K V) : Module.End K V) :=
   H.adj_unique fun v w => bilin_apply_left_eq (Units.mul_inv x) H.isom_apply v w
 
+theorem adj_aeval (f : K[X]) : H.adj (aeval (x : Module.End K V) f) =
+    aeval ((x⁻¹ : LinearMap.GeneralLinearGroup K V) : Module.End K V) f :=
+  H.adj_unique fun v w => bilin_aeval_left (Units.mul_inv x) H.isom_apply f v w
 
 theorem adj_commute {r : Module.End K V} (hr : Commute r (x : Module.End K V)) :
     Commute (H.adj r) (x : Module.End K V) := by

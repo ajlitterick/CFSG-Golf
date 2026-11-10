@@ -360,5 +360,9 @@ structure Sec2Q (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G)
       ∀ c ∈ centralizer ({z} : Set G), rightConjugate Q c ≤ normalizer (Q : Set G) →
         rightConjugate Q c = Q
 
+@[expose] def SuzRecognition : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (S : LargeExtraspecial.Setting G),
+    S.width = 3 → (¬ ∃ U : Subgroup G, U ≤ S.QG ∧ IsElemAbelian 2 U ∧ Nat.card U = 16) →
+    S.Mbar.map S.O.subtype = timmesfeldOmega S.q → IsSporadic G .Suz
 
 end CFSG.ComponentClassification.AS81

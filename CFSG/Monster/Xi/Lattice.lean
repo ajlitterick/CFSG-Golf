@@ -55,6 +55,12 @@ theorem colBlock_pow (A : Matrix (Fin 4) (Fin 4) ℚ) (n : ℕ) : colBlock A ^ n
   | zero => rw [pow_zero, pow_zero, colBlock_one]
   | succ n ih => rw [pow_succ, ih, colBlock_mul, ← pow_succ]
 
+theorem trace_colBlock (A : Matrix (Fin 4) (Fin 4) ℚ) : trace (colBlock A) = 6 * trace A := by
+  simp only [trace, diag_apply]
+  rw [sum_fin24]
+  simp only [colBlock, of_apply, row_coord, col_coord, ite_true, Finset.sum_const,
+    Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+  norm_num
 
 theorem C4_transpose_mul_self : C4ᵀ * C4 = 1 := by
   rw [C4_eq]
@@ -71,6 +77,10 @@ theorem C4_pow_three : C4 ^ 3 = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [mul_apply, Fin.sum_univ_four, one_apply] <;> norm_num
 
+theorem trace_C4 : trace C4 = 1 := by
+  rw [C4_eq]
+  simp [trace, Fin.sum_univ_four]
+  norm_num
 
 theorem gXi_transpose_mul_self : gXiᵀ * gXi = 1 := by
   rw [gXi_eq_colBlock, colBlock_transpose, colBlock_mul, C4_transpose_mul_self, colBlock_one]
@@ -81,6 +91,17 @@ theorem gXi_mul_transpose_self : gXi * gXiᵀ = 1 := by
 theorem gXi_pow_three : gXi ^ 3 = 1 := by
   rw [gXi_eq_colBlock, colBlock_pow, C4_pow_three, colBlock_one]
 
+theorem trace_gXi : trace gXi = 6 := by
+  rw [gXi_eq_colBlock, trace_colBlock, trace_C4, mul_one]
+
+theorem gXi_ne_one : gXi ≠ 1 := fun h => by
+  have := trace_gXi
+  rw [h, trace_one, Fintype.card_fin] at this
+  norm_num at this
+
+theorem orderOf_gXi : orderOf gXi = 3 := by
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  exact orderOf_eq_prime gXi_pow_three gXi_ne_one
 
 theorem vecMul_gXi_coord (v : Fin 24 → ℚ) (r' : Fin 4) (j : Fin 6) :
     (v ᵥ* gXi) (coord r' j) = ∑ r, v (coord r j) * C4 r r' := by
@@ -110,6 +131,8 @@ theorem vecMul_gXi_coord' (v : Fin 24 → ℚ) (r' : Fin 4) (j : Fin 6) :
 
 @[expose] def toQ (u : Fin 24 → ℤ) : Fin 24 → ℚ := fun i => (u i : ℚ)
 
+theorem toQ_add (u w : Fin 24 → ℤ) : toQ (u + w) = toQ u + toQ w := by
+  funext i; simp [toQ]
 
 theorem toQ_sub (u w : Fin 24 → ℤ) : toQ (u - w) = toQ u - toQ w := by
   funext i; simp [toQ]
@@ -311,6 +334,7 @@ theorem image_latticeQ : (fun x => x ᵥ* gXi) '' latticeQ = latticeQ := by
 
 @[expose] def lamGamma (j : Fin 6) : Fin 24 → ℤ := fun i => 1 - 4 * eℤ (coord 0 j) i
 
+theorem lamGamma_zero : lamGamma 0 = lam0 := by decide +kernel
 
 private theorem colSum_two_g : ∀ j k : Fin 6, colSum ((2 : ℤ) • liftℤ (g j)) k % 2 = 0 := by
   decide +kernel
@@ -345,5 +369,17 @@ theorem lowerDiff_vecMul_gXi (j : Fin 6) {r s : Fin 4} (hr : r ≠ 0) (hs : s �
     toQ (eℤ (coord r j) - eℤ (coord s j)) ᵥ* gXi = toQ (eℤ (coord r j) - eℤ (coord s j)) := by
   rw [← toQ_xiInt (colSum_lowerDiff j · r s), xiInt_lowerDiff j r s hr hs hrs]
 
+theorem xi_coordinate_lattice_preservation :
+    gXiᵀ * gXi = 1 ∧ gXi * gXiᵀ = 1 ∧ gXi ^ 3 = 1 ∧ orderOf gXi = 3 ∧ trace gXi = 6 ∧
+    (fun x => x ᵥ* gXi) '' ((fun u : Fin 24 → ℤ => fun i => (u i : ℚ)) '' codeLattice C) =
+      (fun u : Fin 24 → ℤ => fun i => (u i : ℚ)) '' codeLattice C ∧
+    (∀ j : Fin 6, lamGamma j = (fun i => 1 - 4 * eℤ (coord 0 j) i) ∧
+      toQ ((2 : ℤ) • liftℤ (g j)) ᵥ* gXi = -toQ (lamGamma j) ∧
+      toQ (lamGamma j) ᵥ* gXi = toQ ((2 : ℤ) • liftℤ (g j)) - toQ (lamGamma j)) ∧
+    (∀ (j : Fin 6) (r s : Fin 4), r ≠ 0 → s ≠ 0 → r ≠ s →
+      toQ (eℤ (coord r j) - eℤ (coord s j)) ᵥ* gXi = toQ (eℤ (coord r j) - eℤ (coord s j))) :=
+  ⟨gXi_transpose_mul_self, gXi_mul_transpose_self, gXi_pow_three, orderOf_gXi, trace_gXi,
+    image_latticeQ, fun j => ⟨rfl, two_g_vecMul_gXi j, lamGamma_vecMul_gXi j⟩,
+    fun j _ _ hr hs hrs => lowerDiff_vecMul_gXi j hr hs hrs⟩
 
 end CFSG.Monster.Xi

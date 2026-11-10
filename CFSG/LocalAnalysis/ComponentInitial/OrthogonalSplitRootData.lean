@@ -185,6 +185,10 @@ variable (r)
 
 variable {r}
 
+theorem mem_weylGroup {w : (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)} :
+    w ∈ weylGroup r ↔ ∃ (σ : Equiv.Perm (Fin r)) (δ : Fin r → ℤˣ), ∏ i, δ i = 1 ∧
+      w = signedPermAut r σ δ :=
+  Iff.rfl
 
 end Weyl
 

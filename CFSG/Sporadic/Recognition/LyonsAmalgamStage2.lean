@@ -409,6 +409,39 @@ theorem LyData.exists_swapElement (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x�
   · rw [hkeq]
     exact Subgroup.mul_mem _ (KN_le_TrN _ _ _ hκK) (swap_mem_TrN h1 h2 h3)
 
+theorem LyData.exists_mulEquiv_mulAut (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
+    {Y0 : Type*} [Group Y0] (M : Stage2Model Y0) (φY : ↥(NN (x₁ : G) (x₂ : G)) ≃* Y0)
+    (hE : Nat.card ↥(EN (x₁ : G) (x₂ : G)) = 699840) :
+    ∃ Φ : ↥(EN (x₁ : G) (x₂ : G)) ≃* MulAut ↥(NN (x₁ : G) (x₂ : G)),
+      ∀ (e : ↥(EN (x₁ : G) (x₂ : G))) (y : ↥(NN (x₁ : G) (x₂ : G))),
+        ((Φ e y : ↥(NN (x₁ : G) (x₂ : G))) : G) = (e : G) * (y : G) * (e : G)⁻¹ := by
+  have hNY : ((NN (x₁ : G) (x₂ : G)).subgroupOf (EN (x₁ : G) (x₂ : G))).Normal :=
+    Subgroup.normal_of_index_eq_two (D.relIndex_NN_normalizer_EE S)
+  have hZ' : ∀ z ∈ NN (x₁ : G) (x₂ : G), (∀ y ∈ NN (x₁ : G) (x₂ : G), z * y = y * z) → z = 1 := by
+    intro z hz hcomm
+    have hmem : φY ⟨z, hz⟩ ∈ center Y0 := by
+      rw [Subgroup.mem_center_iff]
+      intro g
+      obtain ⟨y, rfl⟩ := φY.surjective g
+      rw [← map_mul, ← map_mul]
+      congr 1
+      exact Subtype.ext (hcomm y y.2).symm
+    rw [M.center_eq_bot, Subgroup.mem_bot] at hmem
+    have := φY.injective (hmem.trans (map_one φY).symm)
+    exact congrArg Subtype.val this
+  have hC := D.centralizer_eq_bot S hZ'
+  let ψ : ↥((NN (x₁ : G) (x₂ : G)).subgroupOf (EN (x₁ : G) (x₂ : G))) ≃*
+      ↥(NN (x₁ : G) (x₂ : G)) := Subgroup.subgroupOfEquivOfLe (NN_le_normalizer_EE _ _)
+  have hcard : Nat.card (MulAut ↥(NN (x₁ : G) (x₂ : G))) ≤ Nat.card ↥(EN (x₁ : G) (x₂ : G)) := by
+    rw [hE, Nat.card_congr (MulAut.congr φY).toEquiv]
+    exact M.card_aut_le
+  obtain ⟨Φ, hΦ⟩ := exists_conjEquiv_transport
+    ((NN (x₁ : G) (x₂ : G)).subgroupOf (EN (x₁ : G) (x₂ : G))) ψ hC hcard
+  refine ⟨Φ, fun e y => ?_⟩
+  have h := hΦ e (ψ.symm y)
+  rw [ψ.apply_symm_apply] at h
+  rw [h]
+  rfl
 
 end Main2
 

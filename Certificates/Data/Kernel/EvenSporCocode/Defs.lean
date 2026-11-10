@@ -36,6 +36,8 @@ open CFSG.EvenSporadicStandard.Induction.Balance.Cocode24
 @[expose] def rowsAt (EP : ℕ) (RB : List ℕ) (L : List (List ℕ)) (K : List ℕ) (i : ℕ) : Bool :=
   if isInv (L.getD i []) then rowGo EP RB i (K.getD i 0) K 0 else zeroSeg RB i
 
+@[expose] def rowsBlk (EP : ℕ) (RB : List ℕ) (L : List (List ℕ)) (K : List ℕ) (b : ℕ) : Bool :=
+  (List.range' (32 * b) 32).all (rowsAt EP RB L K)
 
 @[expose] def fldC (CB p : ℕ) : ℕ := (CB >>> (10 * p)) % 1024
 

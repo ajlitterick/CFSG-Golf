@@ -92,6 +92,39 @@ theorem card_presentedCover_le_chain {m : ℕ} (R : List (List (Fin m × Bool)))
   rw [coverRelators_wordSet]
   exact card_PG_le_chain_short h₂ h₁
 
+theorem card_PG_le_chain₃ {m : ℕ} {ws : List (List (Fin m × Bool))} {S₁ S₂ : List ℕ}
+    {c₃ c₂ c₁ n₃ n₂ n₁ : ℕ} (h₃ : subsetCheckCC ws S₁ c₃ n₃ = true)
+    (h₂ : subsetCheckCC (restrictWords (subsetOf m S₁) ws) S₂ c₂ n₂ = true)
+    (h₁ : subsetCheckCC (restrictWords (subsetOf (subsetOf m S₁).length S₂)
+      (restrictWords (subsetOf m S₁) ws)) [] c₁ n₁ = true) :
+    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n₃ * (n₂ * n₁) := by
+  obtain ⟨f1, c1⟩ := card_PG_le_chain h₂ h₁
+  obtain ⟨f2, c2⟩ := card_le_of_subsetCheckCC ws S₁ h₃
+  exact ⟨f2, c2.trans (Nat.mul_le_mul_left _ c1)⟩
+
+theorem card_PG_le_chain₃_short {m : ℕ} {ws : List (List (Fin m × Bool))} {S₁ S₂ : List ℕ}
+    {k c₃ c₂ c₁ n₃ n₂ n₁ : ℕ} (h₃ : subsetCheckShortCC ws S₁ k c₃ n₃ = true)
+    (h₂ : subsetCheckShortCC (restrictWords (subsetOf m S₁) ws) S₂ k c₂ n₂ = true)
+    (h₁ : subsetCheckShortCC (restrictWords (subsetOf (subsetOf m S₁).length S₂)
+      (restrictWords (subsetOf m S₁) ws)) [] k c₁ n₁ = true) :
+    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n₃ * (n₂ * n₁) := by
+  obtain ⟨f1, c1⟩ := card_PG_le_chain_short h₂ h₁
+  obtain ⟨f2, c2⟩ := card_le_of_subsetCheckShortCC ws S₁ h₃
+  exact ⟨f2, c2.trans (Nat.mul_le_mul_left _ c1)⟩
+
+theorem card_presentedCover_le_chain₃ {m : ℕ} (R : List (List (Fin m × Bool)))
+    (cw : Fin m → List (Fin m × Bool)) {S₁ S₂ : List ℕ} {k c₃ c₂ c₁ n₃ n₂ n₁ : ℕ}
+    (h₃ : subsetCheckShortCC (coverWords R cw) S₁ k c₃ n₃ = true)
+    (h₂ : subsetCheckShortCC (restrictWords (subsetOf m S₁) (coverWords R cw)) S₂ k c₂ n₂ = true)
+    (h₁ : subsetCheckShortCC (restrictWords (subsetOf (subsetOf m S₁).length S₂)
+      (restrictWords (subsetOf m S₁) (coverWords R cw))) [] k c₁ n₁ = true) :
+    Finite (PresentedCover (wordSet R) fun i => FreeGroup.mk (cw i)) ∧
+      Nat.card (PresentedCover (wordSet R) fun i => FreeGroup.mk (cw i)) ≤ n₃ * (n₂ * n₁) := by
+  change Finite (PresentedGroup (coverRelators (wordSet R) fun i => FreeGroup.mk (cw i))) ∧
+    Nat.card (PresentedGroup (coverRelators (wordSet R) fun i => FreeGroup.mk (cw i))) ≤
+      n₃ * (n₂ * n₁)
+  rw [coverRelators_wordSet]
+  exact card_PG_le_chain₃_short h₃ h₂ h₁
 
 section Multiplier
 
@@ -144,6 +177,13 @@ theorem card_ker_dvd_of_cover (hP : IsPresentation g (wordSet R))
   rw [h3, ← hmap] at hdvd
   exact hdvd
 
+
+theorem card_ker_dvd_multiplier (hP : IsPresentation g (wordSet R))
+    (hw : ∀ i, FreeGroup.mk (cw i) ∈ commutator (FreeGroup (Fin m)))
+    (hwg : ∀ i, FreeGroup.lift g (FreeGroup.mk (cw i)) = g i) {E : Type} [Group E]
+    [Group.IsPerfect E] (q : E →* X) (hq : Function.Surjective q) (hker : q.ker ≤ center E) :
+    Nat.card q.ker ∣ Nat.card (griessHopfMultiplier X) :=
+  card_ker_dvd_of_cover hP hw hwg rfl q hq hker
 
 theorem isPresentation_of_chain (hrels : ∀ r ∈ wordSet R, FreeGroup.lift g r = 1)
     (hgen : Subgroup.closure (Set.range g) = ⊤) {S : List ℕ} {c₂ c₁ n₂ n₁ : ℕ}

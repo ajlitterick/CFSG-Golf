@@ -16,5 +16,17 @@ theorem allInKernel_eq_true {lo hi : Nat} {p : Nat → Bool} :
   · rintro h ⟨k, hk⟩ _
     exact h (lo + k) (by omega) (by omega)
 
+theorem allInKernel_split (lo mid hi : Nat) (p : Nat → Bool)
+    (hlo : lo ≤ mid) (hhi : mid ≤ hi) :
+    allInKernel lo hi p = true ↔
+      allInKernel lo mid p = true ∧ allInKernel mid hi p = true := by
+  simp only [allInKernel_eq_true]
+  constructor
+  · intro h
+    exact ⟨fun i hl hm => h i hl (by omega), fun i hm hh => h i (by omega) hh⟩
+  · rintro ⟨hl, hr⟩ i hi1 hi2
+    by_cases hm : i < mid
+    · exact hl i hi1 hm
+    · exact hr i (by omega) hi2
 
 end CFSG.Sporadic.HNSchreier.Native.Kernel

@@ -495,6 +495,14 @@ section Unitary
 
 open CFSG.LieType.BorelTits
 
+variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p]
+
+theorem exists_mul_unitaryInvolution_eq_of_fixed (hK : Nat.card K = (p ^ f) ^ 2) {d : K}
+    (hd : unitaryInvolution K p f d = d) (hd0 : d ≠ 0) :
+    ∃ x : K, x * unitaryInvolution K p f x = d := by
+  obtain ⟨x, hx⟩ := CFSG.ClassicalGroups.Unitary.exists_norm_eq_of_fixed hK hd hd0
+  exact ⟨x, by simpa [mul_comm] using hx⟩
+
 
 end Unitary
 

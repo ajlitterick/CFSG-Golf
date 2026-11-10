@@ -185,6 +185,8 @@ theorem sum_odd_weights (j k : Fin 24) :
   · simp [hjk, Ne.symm hjk]
     norm_num
 
+theorem sum_single_zmod_apply (x : Fin 24 → ZMod 2) (a : C) :
+    (a : Fin 24 → ZMod 2) ⬝ᵥ x = ∑ i, (a : Fin 24 → ZMod 2) i * x i := rfl
 
 theorem not_forall_pair_C₀ {x : Fin 24 → ZMod 2} (hx0 : x ≠ 0) (hw : hammingNorm x < 8)
     (hΩ : pair ΩC (Submodule.Quotient.mk x) = 0) :

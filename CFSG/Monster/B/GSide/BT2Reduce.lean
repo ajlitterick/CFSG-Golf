@@ -156,6 +156,22 @@ theorem hloc_of_bt2
   obtain ⟨s, hs⟩ := cvMul_transitive cv0 x
   exact LocConst.map (cvIso s) (isType1782_cvIso_iff s) hv hs
 
+theorem bt2_nil_or_triLoop
+    (h1 : BT2C1) (h2 : BT2C2) {x a₁ a₂ : CVert} (ha₁ : cgraph.Adj x a₁)
+    (ha₂ : cgraph.Adj a₁ a₂) (ha₃ : cgraph.Adj a₂ x) (ha : ¬ IsType1782 x a₁ a₂)
+    (W : cgraph.Walk x x) :
+    HomotopicT IsType1782 W .nil ∨ HomotopicT IsType1782 W (triLoop ha₁ ha₂ ha₃) :=
+  homotopicT_nil_or_triLoop triSymm_isType1782 (fun _ _ h => exists_not_isType1782 h)
+    (fun h₁ h₂ h₃ h₁' h₂' h₃' hb hb' => hloc_of_bt2 h1 h2 _ _ _ _ _ h₁ h₂ h₃ h₁' h₂' h₃' hb hb')
+    native_cgraph_triangulable ha₁ ha₂ ha₃ ha W
+
+theorem bt2_exists_fiber_subset_pair
+    (h1 : BT2C1) (h2 : BT2C2) {W : Type*} {H : SimpleGraph W}
+    {f : H →g cgraph} (hf : IsCovering f) (ht : LiftsTrianglesT IsType1782 f) (a : W) :
+    ∃ a', ∀ b, H.Reachable a b → f b = f a → b = a ∨ b = a' :=
+  exists_fiber_subset_pair triSymm_isType1782 (fun _ _ h => exists_not_isType1782 h)
+    (fun h₁ h₂ h₃ h₁' h₂' h₃' hb hb' => hloc_of_bt2 h1 h2 _ _ _ _ _ h₁ h₂ h₃ h₁' h₂' h₃' hb hb')
+    native_cgraph_triangulable hf ht a
 
 theorem bt2_completion_ker_le_two
     (h1 : BT2C1) (h2 : BT2C2) {Y : Type*} [Group Y]

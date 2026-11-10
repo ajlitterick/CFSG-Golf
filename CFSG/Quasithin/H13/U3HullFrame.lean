@@ -379,6 +379,7 @@ theorem l₁_spec : linConj S.Φ (u3ConjLin V (normalizer (V : Set G)) le_rfl �
     glLin xGL := (S.exists_lift xGL_mem).choose_spec.2.choose_spec
 
 noncomputable def l₂ : G := (S.exists_lift g2GL_mem).choose
+theorem l₂_mem : S.l₂ ∈ L := (S.exists_lift g2GL_mem).choose_spec.1
 theorem l₂_N : S.l₂ ∈ normalizer (V : Set G) := (S.exists_lift g2GL_mem).choose_spec.2.choose
 theorem l₂_spec : linConj S.Φ (u3ConjLin V (normalizer (V : Set G)) le_rfl ⟨S.l₂, S.l₂_N⟩) =
     glLin g2GL := (S.exists_lift g2GL_mem).choose_spec.2.choose_spec

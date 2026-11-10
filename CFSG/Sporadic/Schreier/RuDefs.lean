@@ -171,6 +171,7 @@ open scoped Pointwise
     (by rw [ruField80, Array.size_ofFn]; decide) (ruFinList 80 (by decide) ruCQuotient80Base)
     (by decide) (ruWordsArr ruCQuotient80GenCount 8 ruCQuotient80Derivations)
 
+@[expose] def ruTreeCount : ℕ := 593775
 
 @[expose] def ruTreeParent (j : ℕ) : ℕ := ruHexAt ruBytesTree (6 * (j - 1)) 5
 
@@ -178,5 +179,11 @@ open scoped Pointwise
 
 @[expose] def ruGen (g : ℕ) : Equiv.Perm (Fin 4060) := if g = 0 then ruA0 else ruA1
 
+@[expose] def ruTreeSet : ℕ → Set (Fin 4060)
+  | 0 => {x | ruZ x = x}
+  | j + 1 => if _h : ruTreeParent (j + 1) < j + 1 then
+      ruGen (ruTreeGen (j + 1)) • ruTreeSet (ruTreeParent (j + 1)) else ∅
+termination_by j => j
+decreasing_by assumption
 
 end CFSG.Sporadic.RuSchreier

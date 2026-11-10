@@ -256,6 +256,32 @@ end BurnsideC1d
     IsCentralProductOfBlocks H K → IsSylowTwoOf S H → (H : Set G) = (K : Set G) * (S : Set G) →
     H ⊓ Subgroup.centralizer ((⁅pCoreOf 2 K, K⁆ : Subgroup G) : Set G) = pCoreOf 2 H
 
+open scoped Pointwise in
+theorem as_C_1_11 : C_1_11 := by
+  intro G _ _ H K S hKc hS hprod
+  obtain ⟨B, hB, hcomm, hKB⟩ := hKc
+  have hKH : K ≤ H := by
+    intro k hk
+    have hmem : k ∈ (H : Set G) := by
+      rw [hprod]
+      exact Set.mem_mul.2 ⟨k, hk, 1, S.one_mem, mul_one k⟩
+    exact hmem
+  have hK : K = ⨆ i : ↥B, (i : Subgroup G) := by
+    rw [hKB]
+    exact iSup_subtype'
+  have hcov : ∀ h ∈ H, ∃ k ∈ K, ∃ s ∈ S, h = k * s := by
+    intro h hh
+    have hmem : h ∈ (K : Set G) * (S : Set G) := by
+      rw [← hprod]
+      exact hh
+    obtain ⟨k, hk, s, hs, hks⟩ := Set.mem_mul.1 hmem
+    exact ⟨k, hk, s, hs, hks.symm⟩
+  have hdisj : ∀ i j : ↥B, i ≠ j → ⁅(i : Subgroup G), (j : Subgroup G)⁆ = ⊥ := by
+    intro i j hij
+    exact Subgroup.commutator_eq_bot_iff_le_centralizer.2
+      (hcomm i.1 i.2 j.1 j.2 fun h => hij (Subtype.ext h))
+  exact CFSG.Quasithin.asc111Statement_holds G H K S ↥B (fun i => (i : Subgroup G))
+    inferInstance (fun i => hB i.1 i.2) hdisj hK hKH hS hcov
 
 @[expose] def C_1_13 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L T : Subgroup G),
@@ -303,6 +329,12 @@ end BurnsideC1d
 
 section as_C_1_16
 
+theorem as_C_1_16
+    : C_1_16 :=
+  fun _ _ _ _ _ _ h => CFSG.Quasithin.C116Bridge.c116_of CFSG.Quasithin.C116Two.theoremC116Two
+    (CFSG.Quasithin.C116Three.theoremC116Three CFSG.Quasithin.asB56_holds
+      (CFSG.Quasithin.A3Facts.a3_inputs_of_a134_schreier CFSG.Quasithin.A3Facts.a134ForSQTK
+        CFSG.Quasithin.A3Facts.schreierSQTK).2.1) h.charTwo h.reduced h.sylow
 
 end as_C_1_16
 

@@ -16,6 +16,8 @@ open Std
 
 @[expose] def idCols (d : Nat) : List Nat := (List.range d).map fun i => 2 ^ i
 
+@[expose] def okPre (φ : Nat → Nat) (cols : List Nat) : Bool :=
+  (List.range (2 ^ cols.length)).all fun x => φ (applyCols cols x) == φ x
 
 @[expose] def okInc (φ : Nat → Nat) (p : List Nat) (c : Nat) : Bool :=
   (List.range (2 ^ p.length)).all fun y => φ (c ^^^ applyCols p y) == φ (2 ^ p.length + y)

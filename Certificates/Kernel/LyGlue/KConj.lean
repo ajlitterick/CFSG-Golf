@@ -14,6 +14,9 @@ namespace CertificateChecks.KernelLy
 
 open CFSG.KC.Enum CFSG.KS
 
+theorem cj_neg : allN 66825 (fun a => Nat.beq (tl (tIdx 11) (tl (tIdx 3) a))
+    (tl (tIdx 3) (tl (tIdx 11) a))) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelLy
 

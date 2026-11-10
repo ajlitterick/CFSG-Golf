@@ -148,6 +148,9 @@ noncomputable instance finsetAction233 :
     MulAction (YGroup 2 3 3) (Finset (Fin 3510)) :=
   MulAction.compHom _ rho233F
 
+theorem smul_finset233
+    (e : YGroup 2 3 3) (s : Finset (Fin 3510)) :
+    e • s = rho233F e • s := rfl
 
 structure Good (D : XData) (X0 : Array ℕ) : Prop where
   xt : xtOK D letters233 X0 fix233 = true
@@ -155,6 +158,7 @@ structure Good (D : XData) (X0 : Array ℕ) : Prop where
   N_eq : D.N = 694980
   sizes : lettersSizeOK = true
 
+theorem letters233_eq : letters233 = CFSG.YGroups.y233FArrays := rfl
 
 theorem letters233_size {D : XData} {X0 : Array ℕ} (hG : Good D X0) :
     letters233.size = 9 ∧ ∀ l < 9, letters233[l]!.size = 3510 := by
@@ -302,6 +306,31 @@ theorem smul_pt
   rw [pt_coe hG hp]
   exact h2.symm
 
+theorem pt_injOn
+    (hG : Good D X0) {p q : ℕ} (hp : p < D.N) (hq : q < D.N)
+    (h : pt hG p = pt hG q) : p = q := by
+  have h1 := congrArg Subtype.val h
+  rw [pt_coe hG hp, pt_coe hG hq] at h1
+  exact rowFinset_injOn rho233F.range gperm (gperm_spec hG) hG.xt hG.n_eq p hp q hq h1
+
+theorem pt_surj
+    (hG : Good D X0) (p : Pts X0) : ∃ q < D.N, pt hG q = p := by
+  have hT : (↑((Finset.range D.N).image (rowFinset 3510 D)) : Set (Finset (Fin 3510))) =
+      MulAction.orbit rho233F.range (listFinset 3510 X0) :=
+    Set.eq_of_subset_of_ncard_le
+      (rows_subset_orbit rho233F.range gperm (gperm_spec hG) hG.xt hG.n_eq)
+      (by
+        rw [Set.ncard_coe_finset,
+          rows_card rho233F.range gperm (gperm_spec hG) hG.xt hG.n_eq]
+        exact ncard_orbit_le hG)
+      (Set.toFinite _)
+  have hp : p.1 ∈ MulAction.orbit rho233F.range (listFinset 3510 X0) := by
+    rw [← orbit_eq]
+    exact p.2
+  rw [← hT] at hp
+  obtain ⟨q, hq, hqp⟩ := Finset.mem_image.1 (Finset.mem_coe.1 hp)
+  have hqN := Finset.mem_range.1 hq
+  exact ⟨q, hqN, Subtype.ext (by rw [pt_coe hG hqN]; exact hqp)⟩
 
 @[expose] noncomputable def xNode
     (hG : Good D X0) (nodes : Array (ℕ × ℕ)) (j : ℕ) :
@@ -643,5 +672,10 @@ theorem rules
   r4 := fun _ _ _ _ _ _ hg hginv h1 h2 => rule_r4 hG nodes hg hginv h1 h2
   r5 := fun _ _ _ _ _ _ hg hginv hainv h1 h3 => rule_r5 hG nodes hg hginv hainv h1 h3
 
+theorem rules_ctx233
+    {X0 : Array ℕ} (hG : Good (xdata233 ()) X0) (nodes : Array (ℕ × ℕ))
+    (hnodes : ∀ j, 0 < j → j < nodes.size → (nodes[j]!).1 < j) :
+    Rules (ctx233 nodes false) PE (W hG nodes) (V hG nodes) :=
+  rules hG nodes hnodes
 
 end CFSG.YGroups.DCE.Y333

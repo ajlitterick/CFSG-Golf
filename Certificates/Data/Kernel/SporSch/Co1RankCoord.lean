@@ -125,6 +125,10 @@ structure Dat where
   List.rec (motive := fun _ => Nat → Bool) (fun j => Nat.beq j 128)
     (fun e _ ih j => bAnd(entryOK D gs El nE j e, ih (Nat.succ j))) es 0
 
+@[expose] noncomputable def chk (D : Dat) : Bool :=
+  List.rec (motive := fun _ => Bool) true (fun p _ ih =>
+    Prod.rec (motive := fun _ => Bool) (fun gs es =>
+      bAnd((fun El => entriesOK D gs El (lenL El) es) (spanL D gs), ih)) p) D.reps
 
 end CFSG.KC.Co1RankCoord
 

@@ -253,6 +253,8 @@ section Elements
 
 variable {α : Fin d4.rank → ℤ} (hα : IsRoot d4 α)
 
+theorem xS_val (hne : rho α ≠ α) (c : K) : (xS hσ hα hne c : adjointGroup d4 K) = xOrbit σ α c :=
+  rfl
 
 theorem xL_val (hfix : rho α = α) (c : fixedField σ) :
     (xL hσ hα hfix c : adjointGroup d4 K) = 𝕩 α (c : K) :=

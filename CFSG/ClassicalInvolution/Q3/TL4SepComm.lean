@@ -60,5 +60,6 @@ theorem T4Hyp.le_centralizer_of_not_mem (h : T4Hyp r G Δ) {J : Subgroup G} (hJ 
   rw [hOX, le_bot_iff, Subgroup.commutator_eq_bot_iff_le_centralizer] at hc
   exact hc (hxT (Subgroup.mem_zpowers x))
 
+variable {J L : Subgroup G}
 
 end CFSG.ClassicalInvolution.Q3.TL4

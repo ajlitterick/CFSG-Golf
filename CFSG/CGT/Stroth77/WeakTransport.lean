@@ -27,6 +27,8 @@ theorem conjAutOfMemNormalizer_eq_one {g : S} (hg : g ∈ Subgroup.normalizer C)
   rw [← this]
   group
 
+theorem conjAutOfMemNormalizer_symm_apply {g : S} (hg : g ∈ Subgroup.normalizer C) (x : C) :
+    (((conjAutOfMemNormalizer g hg).symm x : C) : S) = g⁻¹ * x * g := rfl
 
 end Conj
 
@@ -236,6 +238,15 @@ theorem auxSubEquiv_conjBy {X : Subgroup S} (hXC : X ≤ C) {g : S}
     exact D.ρ_conj x
 
 
+theorem toAux_uv (hBC : B ≤ C) (hρ : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S)) :
+    (D.toAux hL hBC hρ).uv = D.auxUV hL := rfl
+theorem toAux_t (hBC : B ≤ C) (hρ : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S)) :
+    (D.toAux hL hBC hρ).t = D.auxT hL := rfl
+theorem toAux_u (hBC : B ≤ C) (hρ : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S)) :
+    (D.toAux hL hBC hρ).u = D.auxU hL := rfl
+theorem toAux_ρ (hBC : B ≤ C) (hρ : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S)) :
+    (D.toAux hL hBC hρ).ρ = D.auxRho hL := rfl
+
 theorem toAux_L_le (hBC : B ≤ C) (hρ : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S)) :
     (D.toAux hL hBC hρ).L ≤ Subgroup.normalizer (D.auxSub hL C) := by
   rw [StrothTypeData.L, Subgroup.closure_le]
@@ -336,6 +347,27 @@ theorem mem_normalizer_of_auxGen {X : Subgroup S} (hXC : X ≤ C) {g : S}
       rw [← h, MulEquiv.symm_apply_apply]
       exact D'.ρ_conj _ }
 
+theorem ofAux_uv {X : Subgroup S} (hXC : X ≤ C) {τ' : StrothTypeIndex}
+    (D' : StrothTypeData (D.auxSub hL X) τ') (huv : D'.uv = D.auxUV hL) (ht : D'.t = D.auxT hL)
+    (hu : D'.u = D.auxU hL) (hρ : D'.ρ = D.auxRho hL) :
+    (D.ofAux hL hXC D' huv ht hu hρ).uv = D.uv := rfl
+theorem ofAux_t {X : Subgroup S} (hXC : X ≤ C) {τ' : StrothTypeIndex}
+    (D' : StrothTypeData (D.auxSub hL X) τ') (huv : D'.uv = D.auxUV hL) (ht : D'.t = D.auxT hL)
+    (hu : D'.u = D.auxU hL) (hρ : D'.ρ = D.auxRho hL) :
+    (D.ofAux hL hXC D' huv ht hu hρ).t = D.t := rfl
+theorem ofAux_u {X : Subgroup S} (hXC : X ≤ C) {τ' : StrothTypeIndex}
+    (D' : StrothTypeData (D.auxSub hL X) τ') (huv : D'.uv = D.auxUV hL) (ht : D'.t = D.auxT hL)
+    (hu : D'.u = D.auxU hL) (hρ : D'.ρ = D.auxRho hL) :
+    (D.ofAux hL hXC D' huv ht hu hρ).u = D.u := rfl
+theorem ofAux_ρ {X : Subgroup S} (hXC : X ≤ C) {τ' : StrothTypeIndex}
+    (D' : StrothTypeData (D.auxSub hL X) τ') (huv : D'.uv = D.auxUV hL) (ht : D'.t = D.auxT hL)
+    (hu : D'.u = D.auxU hL) (hρ : D'.ρ = D.auxRho hL) :
+    (D.ofAux hL hXC D' huv ht hu hρ).ρ = D.ρ := rfl
+
+theorem ofAux_L {X : Subgroup S} (hXC : X ≤ C) {τ' : StrothTypeIndex}
+    (D' : StrothTypeData (D.auxSub hL X) τ') (huv : D'.uv = D.auxUV hL) (ht : D'.t = D.auxT hL)
+    (hu : D'.u = D.auxU hL) (hρ : D'.ρ = D.auxRho hL) :
+    (D.ofAux hL hXC D' huv ht hu hρ).L = D.L := rfl
 
 theorem noInvolutionsCentralizing_auxSub {S' : Subgroup S} (hBC : B ≤ C)
     (h : NoInvolutionsCentralizing S' B) (hCS' : C ≤ S') :
@@ -493,6 +525,13 @@ theorem cube_mem_centralizer_of_index_le_four {B C : Subgroup S} {g : S} [Finite
 
 namespace StrothWeakTypeData
 
+variable (D : StrothWeakTypeData B τ)
+
+theorem rho_cube_mem_of_card_le (hL : D.L ≤ Subgroup.normalizer C) [Finite C] (hBC : B ≤ C)
+    (hp : IsPGroup 2 C)
+    (hcard : Nat.card C ≤ 4 * Nat.card B) : D.ρ ^ 3 ∈ Subgroup.centralizer (C : Set S) :=
+  cube_mem_centralizer_of_index_le_four hBC hp hcard D.ρ_mem (hL D.ρ_mem_L) D.rho_odd
+    D.rho_cube_mem
 
 end StrothWeakTypeData
 

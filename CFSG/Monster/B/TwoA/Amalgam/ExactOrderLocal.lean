@@ -31,6 +31,9 @@ open CFSG.Monster.B.Classical.UnitarySix (IsoPt ProjSU tPt projAct LBeta extAct)
     show cvMul (x : CVert) ((a * b : K) : Shat)⁻¹ = cvMul (cvMul x (b : Shat)⁻¹) (a : Shat)⁻¹
     rw [Subgroup.coe_mul, mul_inv_rev, cvMul_mul])
 
+theorem coe_vxPerm
+    (K : Subgroup Shat) (X : Set CVert) (hK : ∀ k ∈ K, ∀ x ∈ X, cvMul x k ∈ X)
+    (k : K) (x : X) : ((vxPerm K X hK k x : X) : CVert) = cvMul x (k : Shat)⁻¹ := rfl
 
 namespace LocalHom
 

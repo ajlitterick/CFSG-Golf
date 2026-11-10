@@ -112,10 +112,26 @@ theorem IsTitsIndex.not_classical {d : TauCeti.LieTypeIndex} (h : IsTitsIndex d)
 @[expose] def SeitzExcOuterNarrowFor (P : TauCeti.LieTypeIndex → Prop) : Prop :=
   SeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ NarrowScope p E ∧ P d.1
 
+theorem seitzExcParabolic_eq :
+    SeitzExcParabolic = SeitzExcParabolicFor fun d => ¬ IsClassicalIndex d := rfl
+
+theorem seitzExcAnisotropic_eq :
+    SeitzExcAnisotropic = SeitzExcAnisotropicFor fun d => ¬ IsClassicalIndex d := rfl
 
 @[expose] def SeitzExcOuterNarrow : Prop :=
   SeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ NarrowScope p E ∧ ¬ IsClassicalIndex d.1
 
+theorem seitzExcOuterNarrow_eq :
+    SeitzExcOuterNarrow = SeitzExcOuterNarrowFor fun d => ¬ IsClassicalIndex d := rfl
+
+theorem SeitzExcParabolic.toFor (h : SeitzExcParabolic) :
+    SeitzExcParabolicFor fun d => ¬ IsClassicalIndex d := h
+
+theorem SeitzExcAnisotropic.toFor (h : SeitzExcAnisotropic) :
+    SeitzExcAnisotropicFor fun d => ¬ IsClassicalIndex d := h
+
+theorem SeitzExcOuterNarrow.toFor (h : SeitzExcOuterNarrow) :
+    SeitzExcOuterNarrowFor fun d => ¬ IsClassicalIndex d := h
 
 theorem SeitzExcParabolic.ofFor (h : SeitzExcParabolicFor fun d => ¬ IsClassicalIndex d) :
     SeitzExcParabolic := h
@@ -181,6 +197,10 @@ theorem seitzExcParabolic_of_parts (hC : SeitzExcParabolicChev) (hR : SeitzExcPa
   SeitzExcParabolic.ofFor
     ((SeitzExcParabolicFor.union hC hR).mono fun d hd => (not_isClassicalIndex_iff d).mp hd)
 
+theorem seitzExcParabolic_iff :
+    SeitzExcParabolic ↔ SeitzExcParabolicChev ∧ SeitzExcParabolicRee :=
+  ⟨fun h => ⟨h.toFor.mono fun _ hd => hd.not_classical, h.toFor.mono fun _ hd => hd.not_classical⟩,
+    fun h => seitzExcParabolic_of_parts h.1 h.2⟩
 
 @[expose] def SeitzExcAnisotropicG2 : Prop := SeitzExcAnisotropicFor IsG2Index
 
@@ -196,11 +216,59 @@ theorem seitzExcParabolic_of_parts (hC : SeitzExcParabolicChev) (hR : SeitzExcPa
 
 @[expose] def SeitzExcAnisotropicE8 : Prop := SeitzExcAnisotropicFor IsE8Index
 
+@[expose] def SeitzExcAnisotropicSuzuki : Prop := SeitzExcAnisotropicFor IsSuzukiIndex
 
 @[expose] def SeitzExcAnisotropicReeG2 : Prop := SeitzExcAnisotropicFor IsReeG2Index
 
 @[expose] def SeitzExcAnisotropicReeF4 : Prop := SeitzExcAnisotropicFor IsReeF4Index
 
+@[expose] def SeitzExcAnisotropicTits : Prop := SeitzExcAnisotropicFor IsTitsIndex
+
+structure SeitzExcAnisotropicFamilies : Prop where
+  g2 : SeitzExcAnisotropicG2
+  triality : SeitzExcAnisotropicTriality
+  f4 : SeitzExcAnisotropicF4
+  e6 : SeitzExcAnisotropicE6
+  twistedE6 : SeitzExcAnisotropicTwistedE6
+  e7 : SeitzExcAnisotropicE7
+  e8 : SeitzExcAnisotropicE8
+  suzuki : SeitzExcAnisotropicSuzuki
+  reeG2 : SeitzExcAnisotropicReeG2
+  reeF4 : SeitzExcAnisotropicReeF4
+  tits : SeitzExcAnisotropicTits
+
+theorem SeitzExcAnisotropicFamilies.toAnisotropic (h : SeitzExcAnisotropicFamilies) :
+    SeitzExcAnisotropic := by
+  intro d p hp hp2 hpd hex E hE hc ⟨hi, hnc, hr, hn⟩
+  rcases (not_isClassicalIndex_iff d.1).mp hnc with
+    ((hd | hd | hd | hd | hd) | (hd | hd)) | (hd | hd | hd | hd)
+  · exact h.g2 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.f4 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.e6 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.e7 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.e8 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.triality d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.twistedE6 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.suzuki d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.reeG2 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.reeF4 d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+  · exact h.tits d p hp hp2 hpd hex E hE hc ⟨hi, hd, hr, hn⟩
+
+theorem SeitzExcAnisotropic.families (h : SeitzExcAnisotropic) : SeitzExcAnisotropicFamilies where
+  g2 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  triality := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  f4 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e6 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  twistedE6 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e7 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e8 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  suzuki := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  reeG2 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  reeF4 := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+  tits := SeitzExcAnisotropicFor.mono (fun _ hd => hd.not_classical) h.toFor
+
+theorem seitzExcAnisotropic_iff : SeitzExcAnisotropic ↔ SeitzExcAnisotropicFamilies :=
+  ⟨SeitzExcAnisotropic.families, SeitzExcAnisotropicFamilies.toAnisotropic⟩
 
 @[expose] def SeitzExcOuterNarrowG2 : Prop := SeitzExcOuterNarrowFor IsG2Index
 
@@ -254,5 +322,20 @@ theorem SeitzExcOuterNarrowFamilies.toOuterNarrow (h : SeitzExcOuterNarrowFamili
   · exact h.reeF4 d p hp hp2 hpd hex E hE hc ⟨hi, hs, hd⟩
   · exact h.tits d p hp hp2 hpd hex E hE hc ⟨hi, hs, hd⟩
 
+theorem SeitzExcOuterNarrow.families (h : SeitzExcOuterNarrow) : SeitzExcOuterNarrowFamilies where
+  g2 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  triality := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  f4 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e6 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  twistedE6 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e7 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  e8 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  suzuki := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  reeG2 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  reeF4 := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+  tits := SeitzExcOuterNarrowFor.mono (fun _ hd => hd.not_classical) h.toFor
+
+theorem seitzExcOuterNarrow_iff : SeitzExcOuterNarrow ↔ SeitzExcOuterNarrowFamilies :=
+  ⟨SeitzExcOuterNarrow.families, SeitzExcOuterNarrowFamilies.toOuterNarrow⟩
 
 end CFSG.LieType.SeitzGeneration

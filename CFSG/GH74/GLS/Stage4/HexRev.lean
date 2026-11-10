@@ -294,6 +294,24 @@ section Orders
 
 open CFSG.GH74.GLS.Stage4
 
+theorem exists_system_firstOrders {G : Type} [Group G] (D : RankTwoSystem G 6) {q : ℕ}
+    (h : RootOrdersD4 D.root q) :
+    ∃ D' : RankTwoSystem G 6, (D' = D ∨ D' = D.rev) ∧
+      ∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card (D'.root i) = if i % 2 = 1 then q ^ 3 else q := by
+  rcases h with h | h
+  · exact ⟨D, Or.inl rfl, h⟩
+  · refine ⟨D.rev, Or.inr rfl, fun i h1 h6 => ?_⟩
+    rw [rev_root, revIdx_pos (by omega)]
+    have := h ((6 : ℤ) + 1 - i) (by omega) (by omega)
+    rw [show ((6 : ℕ) : ℤ) + 1 - i = (6 : ℤ) + 1 - i by norm_num] 
+    rw [this]
+    by_cases hi : i % 2 = 1
+    · rw [ite_eq_left hi]
+      have : ¬ ((6 : ℤ) + 1 - i) % 2 = 1 := by omega
+      rw [ite_eq_right this]
+    · rw [ite_eq_right hi]
+      have : ((6 : ℤ) + 1 - i) % 2 = 1 := by omega
+      rw [ite_eq_left this]
 
 end Orders
 

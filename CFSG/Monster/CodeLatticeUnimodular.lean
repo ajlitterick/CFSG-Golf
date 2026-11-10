@@ -253,6 +253,36 @@ theorem nonempty_basis_codeLattice (hΩ : allOnes ∈ C) (hC4 : ∀ d ∈ C, wei
   subst hn
   exact ⟨b⟩
 
+theorem det_gram_codeLattice (hΩ : allOnes ∈ C) (hC4 : ∀ d ∈ C, weight d % 4 = 0)
+    (hdual : ∀ x, x ∈ C ↔ ∀ y ∈ C, x ⬝ᵥ y = 0) (b : Basis (Fin 24) ℤ (codeLatticeSubgroup hΩ)) :
+    (Matrix.of fun i j => codeForm (fun k => ((b i : Fin 24 → ℤ) k : ℚ))
+      (fun k => ((b j : Fin 24 → ℤ) k : ℚ))).det = 1 := by
+  classical
+  have hidx := AddSubgroup.index_eq_natAbs_det (Pi.basisFun ℤ (Fin 24)) (codeLatticeSubgroup hΩ) b
+  rw [index_codeLattice hΩ hC4 hdual, Basis.det_apply] at hidx
+  set A : Matrix (Fin 24) (Fin 24) ℤ := (Pi.basisFun ℤ (Fin 24)).toMatrix fun i => (b i : _)
+    with hA
+  have hAij : ∀ i j, A i j = (b j : Fin 24 → ℤ) i := by
+    intro i j
+    rw [hA, Basis.toMatrix_apply, Pi.basisFun_repr]
+  have hgram : (Matrix.of fun i j => codeForm (fun k => ((b i : Fin 24 → ℤ) k : ℚ))
+      (fun k => ((b j : Fin 24 → ℤ) k : ℚ))) =
+      (8 : ℚ)⁻¹ • (Matrix.transpose (A.map (Int.castRingHom ℚ)) * A.map (Int.castRingHom ℚ)) := by
+    ext i j
+    simp only [Matrix.of_apply, codeForm, Matrix.smul_apply, Matrix.mul_apply,
+      Matrix.transpose_apply, Matrix.map_apply, hAij, eq_intCast, smul_eq_mul]
+    ring
+  have hdet : (A.map (Int.castRingHom ℚ)).det = (A.det : ℚ) := by
+    simpa using (RingHom.map_det (Int.castRingHom ℚ) A).symm
+  rw [hgram, Matrix.det_smul, Matrix.det_mul, Matrix.det_transpose, hdet, Fintype.card_fin]
+  have hsq : (A.det : ℚ) * (A.det : ℚ) = (2 : ℚ) ^ 72 := by
+    have h : (A.det.natAbs : ℤ) = 2 ^ 36 := by rw [← hidx]; norm_num
+    have h2 : A.det * A.det = 2 ^ 72 := by
+      rw [← Int.natAbs_mul_self' A.det, h]
+      norm_num
+    exact_mod_cast h2
+  rw [hsq]
+  norm_num
 
 @[expose] def hInt (u v : Fin 24 → ℤ) : ℤ := (∑ i, u i * v i) / 8
 
@@ -567,5 +597,33 @@ theorem polarBilin_codeQuadForm_nondegenerate (hΩ : allOnes ∈ C)
     have := hx (Submodule.Quotient.mk v)
     rwa [polarBilin_codeQuadForm_mk, hInt_comm] at this
 
+theorem code_coordinate_even_unimodular_lattice (hΩ : allOnes ∈ C)
+    (hC4 : ∀ d ∈ C, weight d % 4 = 0) (hdual : ∀ x, x ∈ C ↔ ∀ y ∈ C, x ⬝ᵥ y = 0) :
+    (∀ x : Fin 24 → ℤ, (8 : ℤ) • x ∈ codeLatticeSubgroup hΩ) ∧
+    Nonempty (Basis (Fin 24) ℤ (codeLatticeSubgroup hΩ)) ∧
+    (codeLatticeSubgroup hΩ).index = 2 ^ 36 ∧
+    (∀ u ∈ codeLattice C, ∀ v ∈ codeLattice C,
+      (∃ n : ℤ, codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 2 * n) ∧
+        ∃ n : ℤ, codeForm (fun i => (u i : ℚ)) (fun i => (v i : ℚ)) = n) ∧
+    (∀ b : Basis (Fin 24) ℤ (codeLatticeSubgroup hΩ),
+      (Matrix.of fun i j => codeForm (fun k => ((b i : Fin 24 → ℤ) k : ℚ))
+        (fun k => ((b j : Fin 24 → ℤ) k : ℚ))).det = 1) ∧
+    finrank (ZMod 2) (codeLatticeModTwo C hΩ) = 24 ∧
+    (∀ u : codeLatticeSubgroup hΩ, codeQuadForm C hΩ hC4 (Submodule.Quotient.mk u) =
+      ((hInt u u / 2 : ℤ) : ZMod 2) ∧
+      ((hInt u u : ℤ) : ℚ) = codeForm (fun i => ((u : Fin 24 → ℤ) i : ℚ))
+        (fun i => ((u : Fin 24 → ℤ) i : ℚ))) ∧
+    (∀ u v : codeLatticeSubgroup hΩ,
+      QuadraticMap.polarBilin (codeQuadForm C hΩ hC4) (Submodule.Quotient.mk u)
+        (Submodule.Quotient.mk v) = ((hInt u v : ℤ) : ZMod 2) ∧
+      ((hInt u v : ℤ) : ℚ) = codeForm (fun i => ((u : Fin 24 → ℤ) i : ℚ))
+        (fun i => ((v : Fin 24 → ℤ) i : ℚ))) ∧
+    (QuadraticMap.polarBilin (codeQuadForm C hΩ hC4)).Nondegenerate :=
+  ⟨fun x => smul_eight_mem_codeLattice x, nonempty_basis_codeLattice hΩ hC4 hdual,
+    index_codeLattice hΩ hC4 hdual, fun _ hu _ hv => codeForm_even_integral hΩ hC4 hu hv,
+    det_gram_codeLattice hΩ hC4 hdual, finrank_codeLatticeModTwo hΩ hC4 hdual,
+    fun u => ⟨codeQuadForm_mk hΩ hC4 u, hInt_eq_codeForm hΩ hC4 u.2 u.2⟩,
+    fun u v => ⟨polarBilin_codeQuadForm_mk hΩ hC4 u v, hInt_eq_codeForm hΩ hC4 u.2 v.2⟩,
+    polarBilin_codeQuadForm_nondegenerate hΩ hC4 hdual⟩
 
 end CFSG.Monster

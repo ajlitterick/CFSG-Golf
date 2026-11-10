@@ -98,6 +98,11 @@ theorem suzT_semidirect :
 instance suzM_normal_T_inst :
     (suzM.subgroupOf suzT).Normal := suzM_normal_T
 
+theorem suzT_quot :
+    Nonempty (suzT ⧸ suzM.subgroupOf suzT ≃* Multiplicative (ZMod 2)) := by
+  have h : Nat.card (suzT ⧸ suzM.subgroupOf suzT) = 2 := by
+    rw [← Subgroup.index_eq_card, suzM_index_T]
+  exact ⟨mulEquivOfPrimeCardEq h (by simp)⟩
 
 @[expose] def suzEquivM' :
     @MulEquiv Blueprint.NativeSporadic.Suz suzM (@MulOneClass.toMul _
@@ -114,5 +119,33 @@ theorem suzConjTSuz_bijective :
   let _ : Group Blueprint.NativeSporadic.Suz := suzGroupStr
   exact (MulAut.congr suzEquivM'.symm).bijective.comp suzConjT_bijective
 
+theorem CTUC_Suz_small_full_automorphism_model :
+    ValidSchreier smallChain ∧ smallChain.originalSubgroup = suzM ∧
+    smallChain.base.toList = [0, 1, 2, 3, 4, 8] ∧
+    CFSG.Certificates.Native.rawOrbitSizes 1782 smallStrongArrs smallBaseNat.toArray =
+      [1782, 416, 100, 63, 32, 3] ∧
+    (∀ d : Fin 1782, ∃ m ∈ suzM, m 0 = d) ∧
+    Subgroup.centralizer (suzM : Set (Equiv.Perm (Fin 1782))) = ⊥ ∧
+    suzV * suzV = 1 ∧ suzV ≠ 1 ∧ suzV ∉ suzM ∧
+    suzM.map (MulAut.conj suzV).toMonoidHom = suzM ∧
+    Function.Bijective suzConjT ∧
+    (∀ (t : suzT) (m : suzM),
+      ((suzConjT t m : suzM) : Equiv.Perm (Fin 1782)) = t * m * (t : Equiv.Perm (Fin 1782))⁻¹) ∧
+    (suzM.subgroupOf suzT).map suzConjT = (MulAut.conj : suzM →* MulAut suzM).range ∧
+    suzM ≤ suzT ∧ (suzM.subgroupOf suzT).Normal ∧
+    Subgroup.zpowers suzV ⊓ suzM = ⊥ ∧ suzM ⊔ Subgroup.zpowers suzV = suzT ∧
+    Nat.card suzT = 896690995200 ∧
+    Nonempty (suzT ⧸ suzM.subgroupOf suzT ≃* Multiplicative (ZMod 2)) ∧
+    Function.Bijective suzConjTSuz ∧
+    (∀ (t : suzT) (s : Blueprint.NativeSporadic.Suz),
+      suzEquivM (suzConjTSuz t s) = suzConjT t (suzEquivM s)) := by
+  refine ⟨smallChain_valid, smallChain_originalSubgroup, smallChain_base_toList,
+    smallChain_orbitSizes, suzM_transitive, suzM_centralizer, suzV_sq, suzV_ne_one,
+    suzV_not_mem, suzV_conj_eq, suzConjT_bijective, suzConjT_apply, suzConjT_map_suzM,
+    suzM_le_suzT, suzM_normal_T, suzT_semidirect.1, suzT_semidirect.2, suzT_card, suzT_quot,
+    suzConjTSuz_bijective, fun t s => ?_⟩
+  change suzEquivM' (suzEquivM'.symm (suzConjT t (suzEquivM' s))) = _
+  rw [MulEquiv.apply_symm_apply]
+  rfl
 
 end CFSG.Sporadic.SuzOddCore

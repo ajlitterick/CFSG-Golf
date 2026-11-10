@@ -477,6 +477,8 @@ theorem okPlus_of_mem : ∀ σ ∈ mog22plus, ∀ a b, HasArr σ a → HasArr σ
   · simp [h0, h1]
   · simp [h0, h1]
 
+theorem pg_lt_of_vpK {g : Nat} (hg : vpK g = true) {i : Nat} (hi : i < 24) :
+    pg 5 (mask 5) g i < 24 := (vpK_spec hg).2 i hi
 
 theorem mem_of_inAutKL {g : Nat} (h : inAutKL ((List.range 24).map (pg 5 (mask 5) g)) = true) :
     ∃ σ ∈ AutPerm, HasArr σ (unpk g) := by

@@ -402,6 +402,15 @@ theorem sThree_pow_ne (e : ℕ) (h : rowsMat 3 8 (lpow sRows e) ≠ 1) : sThree 
   apply h
   rw [← coe_sThree_pow, h', Units.val_one]
 
+theorem orderOf_sThree : orderOf sThree = 12 := by
+  refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) sThree_pow_twelve fun r hr hr12 => ?_
+  have hr' : r ∈ ({2, 3} : Finset ℕ) := by
+    have hle : r ≤ 12 := Nat.le_of_dvd (by norm_num) hr12
+    interval_cases r <;> simp_all <;> norm_num at hr
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hr'
+  rcases hr' with rfl | rfl
+  · exact sThree_pow_ne 6 sRows_facts.2.2.1
+  · exact sThree_pow_ne 4 sRows_facts.2.2.2
 
 theorem vThree_sThree : vThree ᵥ* (sThree : Matrix (Fin 8) (Fin 8) (ZMod 3)) = vThree := by
   rw [coe_sThree, vThree_eq, ← rowsVec_lvecMul, sRows_facts.2.1]
@@ -486,5 +495,20 @@ theorem card_KThree_dvd : 4320 ∣ Nat.card KThree := by
   rw [← hcard, show (4320 : ℕ) = 3 * 1440 by norm_num]
   exact Nat.mul_dvd_mul_right hd 1440
 
+theorem pinned_B_three_primary_action_image_divisor :
+    IsUnit XThree ∧ IsUnit YThree ∧
+      (XThreeU : Matrix (Fin 8) (Fin 8) (ZMod 3)) = XThree ∧
+      (YThreeU : Matrix (Fin 8) (Fin 8) (ZMod 3)) = YThree ∧
+      KThree = Subgroup.closure {XThreeU, YThreeU} ∧ vThree = ![1, 0, 1, 0, 0, 0, 0, 0] ∧
+      Set.ncard {w : Fin 8 → ZMod 3 |
+        ∃ g ∈ KThree, w = vThree ᵥ* (g : Matrix (Fin 8) (Fin 8) (ZMod 3))} = 1440 ∧
+      sThree = XThreeU⁻¹ * YThreeU * XThreeU⁻¹ * YThreeU * XThreeU * YThreeU⁻¹ ∧
+      sThree ∈ KThree ∧ vThree ᵥ* (sThree : Matrix (Fin 8) (Fin 8) (ZMod 3)) = vThree ∧
+      orderOf sThree = 12 ∧ sThree ^ 4 ∈ KThree ∧
+      vThree ᵥ* ((sThree ^ 4 : GL (Fin 8) (ZMod 3)) : Matrix (Fin 8) (Fin 8) (ZMod 3)) = vThree ∧
+      orderOf (sThree ^ 4) = 3 ∧ 4320 ∣ Nat.card KThree ∧ 3 ^ 3 ∣ Nat.card KThree := by
+  refine ⟨XThreeU.isUnit, YThreeU.isUnit, rfl, rfl, rfl, rfl, by rw [orbit_eq, ncard_orbitSet3],
+    rfl, sThree_mem, vThree_sThree, orderOf_sThree, pow_mem sThree_mem 4, vThree_sThree_pow 4,
+    orderOf_sThree_pow_four, card_KThree_dvd, (show 3 ^ 3 ∣ 4320 by norm_num).trans card_KThree_dvd⟩
 
 end CFSG.Monster.B.Pinned

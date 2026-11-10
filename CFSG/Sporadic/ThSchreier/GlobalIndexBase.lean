@@ -26,6 +26,10 @@ theorem colImg_one (i : ℕ) : colImg 1 i = βIdx i := if_neg one_ne_zero
 
 section Facts
 
+variable (hF : OrbitFacts) (hS : ThScanFacts)
+include hF
+
+include hS
 
 end Facts
 

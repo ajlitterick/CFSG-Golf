@@ -37,11 +37,20 @@ theorem mem_lThreeStarPairs_iff {A E U L : Subgroup G} {c : G} :
         ⁅L, U⁆ = L ∧ ⁅L, lThreeV E U c⁆ = L :=
   Iff.rfl
 
+theorem mem_lThreeStar_iff {A L : Subgroup G} :
+    L ∈ lThreeStar A ↔ L ∈ lZeroStar A ∧ ∃ E ∈ collectionIn (partTwoE G) A,
+      ∃ U ∈ fourGroups E, ∃ c : G, (c, L) ∈ lThreeStarPairs A E U :=
+  Iff.rfl
 
 theorem mem_lZeroStar_of_mem_lThreeStarPairs {A E U L : Subgroup G} {c : G}
     (h : (c, L) ∈ lThreeStarPairs A E U) : L ∈ lZeroStar A :=
   lZeroStarAt_subset_lZeroStar A c h.2.2.1
 
+theorem lThreeStar_subset_lZeroStar (A : Subgroup G) : lThreeStar A ⊆ lZeroStar A :=
+  fun _ hL => hL.1
+
+theorem lThreeStarAt_subset (A : Subgroup G) (b : G) : lThreeStarAt A b ⊆ lThreeStar A :=
+  Set.inter_subset_left
 
 @[expose] def wStar (A : Subgroup G) : Subgroup (MulAut A) :=
   A.normalizerMonoidHom.range

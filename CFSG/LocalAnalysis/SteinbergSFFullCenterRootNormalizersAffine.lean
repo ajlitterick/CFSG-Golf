@@ -231,6 +231,22 @@ end ActHyp
 
 end Act
 
+theorem pCore_quotient_eq {p : ℕ} {H : Type*} [Group H] (N : Subgroup H) [N.Normal]
+    (hNp : IsPGroup p N) :
+    CFSG.pCore p (H ⧸ N) = (CFSG.pCore p H).map (QuotientGroup.mk' N) := by
+  have hcomap : (CFSG.pCore p (H ⧸ N)).comap (QuotientGroup.mk' N) = CFSG.pCore p H := by
+    apply le_antisymm
+    · refine le_sSup ⟨(CFSG.pCore_normal (G := H ⧸ N) (p := p)).comap (QuotientGroup.mk' N), ?_⟩
+      refine (CFSG.pCore_isPGroup (G := H ⧸ N) (p := p)).comap_of_ker_isPGroup _ ?_
+      rwa [QuotientGroup.ker_mk']
+    · rw [← map_le_iff_le_comap]
+      exact le_sSup ⟨(CFSG.pCore_normal (G := H) (p := p)).map _ (QuotientGroup.mk'_surjective N),
+        (CFSG.pCore_isPGroup (G := H) (p := p)).map _⟩
+  rw [← hcomap, map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective N)]
+
+theorem pCore_map_subgroupOf {G : Type*} [Group G] {p : ℕ} (H : Subgroup G) :
+    ((CFSG.pCore p H).map H.subtype).subgroupOf H = CFSG.pCore p H :=
+  comap_map_eq_self_of_injective H.subtype_injective _
 
 section Vec
 
@@ -567,6 +583,31 @@ theorem aff_eq_one_iff_mem_D (h : FCHyp L K n φ t) (i : Axis) (g : 𝐍[i]) :
   rw [← hdc]
   exact mul_mem hd (h.B_le_D i hcB)
 
+theorem kernel_B (h : FCHyp L K n φ t) (i : Axis) {g : G} (hg : g ∈ 𝐍[i]) :
+    (∀ b ∈ 𝐁[i], b⁻¹ * (g * b * g⁻¹) ∈ 𝐔[i]) ↔ g ∈ 𝐃[i] := by
+  have hA := h.actHyp i
+  rw [← h.aff_eq_one_iff_mem_D i ⟨g, hg⟩, hA.aff_eq_one_iff]
+  constructor
+  · intro hB a ha
+    have htaB : t * a ∈ 𝐁[i] := mul_mem (mem_sup_left (mem_zpowers t)) (mem_sup_right ha)
+    have h1 := hB _ htaB
+    refine ((hA.psi_eq_iff ha (hA.mem_A_aff hg ha)).mpr ?_).symm
+    rwa [show a⁻¹ * (t⁻¹ * (g * (t * a) * g⁻¹)) = (t * a)⁻¹ * (g * (t * a) * g⁻¹) by group]
+  · intro hA' b hb
+    rcases (mem_zpowers_sup_iff h.setup.t_mul_t (TwoCoreSetup.comm_pull φ h.twoCore)).mp hb with
+      hbA | hbA
+    · have h1 := hA' b hbA
+      have h0 := hA' 1 (one_mem _)
+      rw [mul_one, hA.psi_one] at h0
+      rw [show t⁻¹ * (g * (t * b) * g⁻¹) = (t⁻¹ * (g * t * g⁻¹)) * (g * b * g⁻¹) by group,
+        hA.add _ (hA.conj_t g hg) _ (hA.conj_A g hg b hbA), h0, zero_add] at h1
+      exact (hA.psi_eq_iff hbA (hA.conj_A g hg b hbA)).mp h1.symm
+    · obtain ⟨a, ha, rfl⟩ : ∃ a ∈ 𝐀[i], b = t * a :=
+        ⟨t * b, hbA, by rw [← mul_assoc, h.setup.t_mul_t, one_mul]⟩
+      have h1 := hA' a ha
+      have h2 := (hA.psi_eq_iff ha (hA.mem_A_aff hg ha)).mp h1.symm
+      rwa [show a⁻¹ * (t⁻¹ * (g * (t * a) * g⁻¹)) = (t * a)⁻¹ * (g * (t * a) * g⁻¹) by group]
+        at h2
 
 theorem conj_mem_D (h : FCHyp L K n φ t) (i : Axis) {g : G} (hg : g ∈ 𝐍[i]) {d : G}
     (hd : d ∈ 𝐃[i]) : g * d * g⁻¹ ∈ 𝐃[i] := by
@@ -641,6 +682,67 @@ theorem aff_linear (h : FCHyp L K n φ t) (i : Axis) (A₀ : GL (Fin 2) K) :
   rw [← mul_assoc g t a, hct]
   group
 
+theorem quotient_stab (h : FCHyp L K n φ t) (i : Axis) :
+    ∃ _ : ((𝐁[i]).subgroupOf (𝐂 ⊓ 𝐍[i])).Normal, ∃ _ : ((𝐃[i]).subgroupOf 𝐌[i]).Normal,
+      ∃ e : (↥(𝐂 ⊓ 𝐍[i]) ⧸ (𝐁[i]).subgroupOf (𝐂 ⊓ 𝐍[i])) ≃* (↥𝐌[i] ⧸ (𝐃[i]).subgroupOf 𝐌[i]),
+        ∀ (x : ↥(𝐂 ⊓ 𝐍[i])) (m : ↥𝐌[i]), (x : G) = m →
+          e (QuotientGroup.mk x) = QuotientGroup.mk m := by
+  have hBn : ((𝐁[i]).subgroupOf (𝐂 ⊓ 𝐍[i])).Normal := ⟨fun b hb c => mem_subgroupOf.mpr
+    ((mem_normalizer_iff.mp (mem_inf.mp c.2).2 b).mp (mem_subgroupOf.mp hb))⟩
+  have hDn : ((𝐃[i]).subgroupOf 𝐌[i]).Normal :=
+    ⟨fun d hd m => mem_subgroupOf.mpr (conj_mem_pCore_map m.2 (mem_subgroupOf.mp hd))⟩
+  have hCN : 𝐂 ⊓ 𝐍[i] ≤ 𝐌[i] := by
+    rw [← h.twoCore.inf_normalizer_eq φ i]
+    exact inf_le_right
+  set f : ↥(𝐂 ⊓ 𝐍[i]) →* ↥𝐌[i] ⧸ (𝐃[i]).subgroupOf 𝐌[i] :=
+    (QuotientGroup.mk' _).comp (inclusion hCN) with hf
+  have hker : (𝐁[i]).subgroupOf (𝐂 ⊓ 𝐍[i]) = f.ker := by
+    ext x
+    rw [MonoidHom.mem_ker, hf, MonoidHom.comp_apply, QuotientGroup.mk'_apply,
+      QuotientGroup.eq_one_iff, mem_subgroupOf, mem_subgroupOf]
+    show (x : G) ∈ 𝐁[i] ↔ (x : G) ∈ 𝐃[i]
+    constructor
+    · intro hx
+      exact h.B_le_D i hx
+    · intro hx
+      have h1 : (x : G) ∈ 𝐃[i] ⊓ 𝐂 := mem_inf.mpr ⟨hx, (mem_inf.mp x.2).1⟩
+      rwa [h.D_inf_C i] at h1
+  have hsurj : Function.Surjective f := by
+    intro q
+    obtain ⟨m, rfl⟩ := QuotientGroup.mk_surjective q
+    obtain ⟨h₁, -, -, -⟩ := h.twoCore.cond φ i (h.M_not_le_C i)
+    obtain ⟨d, hd, c, hc, hdc⟩ := h₁ m m.2
+    have hc' : c ∈ 𝐂 ⊓ 𝐍[i] := by
+      rw [← h.twoCore.inf_normalizer_eq φ i]
+      exact hc
+    refine ⟨⟨c, hc'⟩, ?_⟩
+    rw [hf, MonoidHom.comp_apply, QuotientGroup.mk'_apply, QuotientGroup.eq]
+    rw [mem_subgroupOf]
+    show c⁻¹ * (m : G) ∈ 𝐃[i]
+    rw [← hdc, show c⁻¹ * (d * c) = c⁻¹ * d * c⁻¹⁻¹ by group]
+    exact conj_mem_pCore_map (inv_mem (mem_inf.mp hc).2) hd
+  refine ⟨hBn, hDn, (QuotientGroup.quotientMulEquivOfEq hker).trans
+    (QuotientGroup.quotientKerEquivOfSurjective f hsurj), fun x m hxm => ?_⟩
+  change f x = QuotientGroup.mk m
+  rw [hf, MonoidHom.comp_apply, QuotientGroup.mk'_apply]
+  congr 1
+  exact Subtype.ext hxm
+
+theorem quotient_aff (h : FCHyp L K n φ t) (i : Axis) :
+    ∃ _ : ((𝐃[i]).subgroupOf 𝐍[i]).Normal,
+      ∃ ρ : (↥𝐍[i] ⧸ (𝐃[i]).subgroupOf 𝐍[i]) →* Equiv.Perm (Fin 2 → K),
+        Function.Injective ρ ∧ ∀ g : 𝐍[i], ρ (QuotientGroup.mk g) = (h.actHyp i).aff g := by
+  have hker : (𝐃[i]).subgroupOf 𝐍[i] = (h.actHyp i).aff.ker := by
+    ext g
+    rw [MonoidHom.mem_ker, mem_subgroupOf, h.aff_eq_one_iff_mem_D]
+  have hn : ((𝐃[i]).subgroupOf 𝐍[i]).Normal :=
+    ⟨fun d hd g => mem_subgroupOf.mpr (h.conj_mem_D i g.2 (mem_subgroupOf.mp hd))⟩
+  refine ⟨hn, QuotientGroup.lift _ (h.actHyp i).aff (fun g hg => hker ▸ hg), ?_,
+    fun g => QuotientGroup.lift_mk _ _ _⟩
+  refine (injective_iff_map_eq_one _).mpr fun q hq => ?_
+  obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective q
+  rw [QuotientGroup.lift_mk, ← MonoidHom.mem_ker, ← hker] at hq
+  exact (QuotientGroup.eq_one_iff g).mpr hq
 
 theorem aff_E (h : FCHyp L K n φ t) (i : Axis) (e : 𝐍[i]) (he : (e : G) ∈ 𝐄[i])
     (v : Fin 2 → K) : (h.actHyp i).aff e v = v + (h.actHyp i).aff e 0 := by
@@ -649,6 +751,53 @@ theorem aff_E (h : FCHyp L K n φ t) (i : Axis) (e : 𝐍[i]) (he : (e : G) ∈ 
   rw [(h.actHyp i).aff_eq, hlin, (h.actHyp i).aff_zero]
   rfl
 
+theorem E_alternative (h : FCHyp L K n φ t) (i : Axis) :
+    𝐄[i] = 𝐃[i] ∨ ∀ b : Fin 2 → K, ∃ e : 𝐍[i], (e : G) ∈ 𝐄[i] ∧
+      ∀ x, (h.actHyp i).aff e x = x + b := by
+  by_cases hall : ∀ e : 𝐍[i], (e : G) ∈ 𝐄[i] → (h.actHyp i).aff e 0 = 0
+  · left
+    refine le_antisymm (fun e he => ?_) (h.D_le_E i)
+    have heN : e ∈ 𝐍[i] := map_subtype_le _ he
+    refine (h.aff_eq_one_iff_mem_D i ⟨e, heN⟩).mp (Equiv.ext fun v => ?_)
+    rw [h.aff_E i ⟨e, heN⟩ he, hall ⟨e, heN⟩ he, add_zero]
+    rfl
+  · right
+    push Not at hall
+    obtain ⟨e₀, he₀, hb₀⟩ := hall
+    intro b
+    by_cases hb : b = 0
+    · refine ⟨1, one_mem _, fun x => ?_⟩
+      rw [map_one, hb, add_zero]
+      rfl
+    obtain ⟨M, hM⟩ := exists_sl2_mulVec_eq hb₀ hb
+    obtain ⟨hcC, -, -, hcN⟩ := h.symm_s_mem i M
+    set c : G := ((φ.symm (sHom K i M) : L) : G) with hc
+    have hcN' : c ∈ 𝐍[i] := hcN
+    have he₁ : c * e₀ * c⁻¹ ∈ 𝐄[i] := conj_mem_pCore_map hcN' he₀
+    have he₁N : c * e₀ * c⁻¹ ∈ 𝐍[i] := map_subtype_le _ he₁
+    refine ⟨⟨_, he₁N⟩, he₁, fun x => ?_⟩
+    rw [h.aff_E i ⟨_, he₁N⟩ he₁, (h.actHyp i).aff_zero]
+    congr 1
+    have hct : c * t = t * c := mem_centralizer_singleton_iff.mp hcC
+    have hw := (h.actHyp i).conj_t _ e₀.2
+    have e : t⁻¹ * ((⟨_, he₁N⟩ : 𝐍[i]) * t * ((⟨_, he₁N⟩ : 𝐍[i]) : G)⁻¹) =
+        c * (t⁻¹ * ((e₀ : G) * t * (e₀ : G)⁻¹)) * c⁻¹ := by
+      show t⁻¹ * (c * e₀ * c⁻¹ * t * (c * e₀ * c⁻¹)⁻¹) = _
+      have hct' : c⁻¹ * t = t * c⁻¹ := by
+        calc c⁻¹ * t = c⁻¹ * (t * c) * c⁻¹ := by group
+          _ = c⁻¹ * (c * t) * c⁻¹ := by rw [hct]
+          _ = t * c⁻¹ := by group
+      have hct'' : t⁻¹ * c = c * t⁻¹ := by
+        calc t⁻¹ * c = t⁻¹ * (c * t) * t⁻¹ := by group
+          _ = t⁻¹ * (t * c) * t⁻¹ := by rw [hct]
+          _ = c * t⁻¹ := by group
+      have hctc : c⁻¹ * t * c = t := by
+        rw [hct', mul_assoc, inv_mul_cancel, mul_one]
+      calc t⁻¹ * (c * e₀ * c⁻¹ * t * (c * e₀ * c⁻¹)⁻¹)
+          = (t⁻¹ * c) * e₀ * (c⁻¹ * t * c) * (e₀ : G)⁻¹ * c⁻¹ := by group
+        _ = (c * t⁻¹) * e₀ * t * (e₀ : G)⁻¹ * c⁻¹ := by rw [hct'', hctc]
+        _ = c * (t⁻¹ * ((e₀ : G) * t * (e₀ : G)⁻¹)) * c⁻¹ := by group
+    rw [e, (psiG_conj_s h.twoCore φ i M hw).2, ← (h.actHyp i).aff_zero, hM]
 
 theorem E_mul_M (h : FCHyp L K n φ t) (i : Axis)
     (htr : ∀ b : Fin 2 → K, ∃ e : 𝐍[i], (e : G) ∈ 𝐄[i] ∧ ∀ x, (h.actHyp i).aff e x = x + b) :
@@ -785,6 +934,16 @@ theorem quotient_E (h : FCHyp L K n φ t) (i : Axis)
     exact congrArg _ hxa
   · rw [Nat.card_congr e.toEquiv, hcardA]
 
+theorem pCore_quotient_N (h : FCHyp L K n φ t) (i : Axis) :
+    ∃ _ : ((𝐃[i]).subgroupOf 𝐍[i]).Normal,
+      CFSG.pCore 2 (↥𝐍[i] ⧸ (𝐃[i]).subgroupOf 𝐍[i]) =
+        ((𝐄[i]).subgroupOf 𝐍[i]).map (QuotientGroup.mk' _) := by
+  have hDN : 𝐃[i] ≤ 𝐍[i] := (map_subtype_le _).trans (h.twoCore.M_le_normalizer_B φ i)
+  have hn : ((𝐃[i]).subgroupOf 𝐍[i]).Normal :=
+    ⟨fun d hd g => mem_subgroupOf.mpr (h.conj_mem_D i g.2 (mem_subgroupOf.mp hd))⟩
+  refine ⟨hn, ?_⟩
+  rw [pCore_map_subgroupOf]
+  exact pCore_quotient_eq _ ((CFSG.pCore_isPGroup.map _).of_equiv (subgroupOfEquivOfLe hDN).symm)
 
 end Kernel
 

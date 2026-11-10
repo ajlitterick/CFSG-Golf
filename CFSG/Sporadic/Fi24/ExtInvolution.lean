@@ -52,6 +52,8 @@ theorem det_mT : mT.det = -1 := by
   rw [mT, mE, Matrix.det_one_add_mul_comm, h, ← two_smul (ZMod 3), Matrix.det_smul,
     Matrix.det_one, mul_one, Fintype.card_fin, two_pow_253]
 
+theorem det_tT :
+    (tT : Matrix (Fin 781) (Fin 781) (ZMod 3)).det = -1 := det_mT
 
 theorem tT_not_mem : tT ∉ J := by
   intro h
@@ -157,6 +159,10 @@ theorem mem_stabilizer_iff_commute
     g ∈ MulAction.stabilizer J root ↔ (g : GL (Fin 781) (ZMod 3)) * tT = tT * g := by
   rw [MulAction.mem_stabilizer_iff, commute_tT_iff]
 
+theorem commute_tT_of_mem_lvl_one
+    {g : J} (hg : g ∈ lvl 1) :
+    (g : GL (Fin 781) (ZMod 3)) * tT = tT * g :=
+  (mem_stabilizer_iff_commute g).1 (by rw [stabilizer_root]; exact hg)
 
 structure NormFacts : Prop where
   size : normWords.size = 2

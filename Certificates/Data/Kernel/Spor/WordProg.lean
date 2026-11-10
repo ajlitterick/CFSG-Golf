@@ -45,6 +45,15 @@ namespace CFSG.KC.Ord
     (mul : Nat → Nat → Nat) (ONE : Nat) (P : List Nat) (T : Nat) : Bool :=
   Nat.beq (progTop RB L RS mul ONE P) T
 
+@[expose] noncomputable def relProgsRangeOK (RB : Nat → Nat) (L : Nat) (RS : Nat → Nat)
+    (mul : Nat → Nat → Nat) (ONE : Nat) (PR : Nat → List Nat) (lo n : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true
+    (fun i ih => andB ih (progOK RB L RS mul ONE (PR (Nat.add lo i)) ONE)) n
+
+@[expose] noncomputable def stateProgsRangeOK (RB : Nat → Nat) (L : Nat) (RS : Nat → Nat)
+    (mul : Nat → Nat → Nat) (ONE : Nat) (PS : Nat → List Nat) (lo n : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true
+    (fun i ih => andB ih (progOK RB L RS mul ONE (PS (Nat.add lo i)) (RS (Nat.add lo i)))) n
 
 end CFSG.KC.Ord
 

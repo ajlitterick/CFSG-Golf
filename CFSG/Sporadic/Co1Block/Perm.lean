@@ -56,6 +56,11 @@ theorem perm_facts :
 theorem certVecs_lt
     {i : ℕ} (hi : i < 98280) : certVecs[i]! < 2 ^ 24 := (perm_facts.2.2.1 i hi).1
 
+theorem certVec_ne_zero
+    {i : ℕ} (hi : i < 98280) : certVec i ≠ 0 := by
+  intro h
+  rw [certVec, ← toVecD_zero 24] at h
+  exact (perm_facts.2.2.1 i hi).2.1 (toVecD_injective (certVecs_lt hi) (by norm_num) h)
 
 theorem certVec_injective {i j : ℕ} (hi : i < 98280) (hj : j < 98280)
     (h : certVec i = certVec j) : i = j := by
@@ -66,6 +71,24 @@ theorem certVec_zero : certVec 0 = stabVecOf 0 := by
   rw [certVec, perm_facts.1]
   rfl
 
+theorem certBasis_isUnit :
+    IsUnit (rowsMatrix 24 (certBasisRows certVecs)) := by
+  have h := congrArg (rowsMatrix 24) perm_facts.2.1
+  rw [rowsMatrix_mulRows, rowsMatrix_idRows] at h
+  exact IsUnit.of_mul_eq_one_right _ h
+
+theorem certBasis_linearIndependent :
+    LinearIndependent (ZMod 2) fun t : Fin 24 => certVec (certBasisIdx.getD t 0) := by
+  have h := Matrix.linearIndependent_rows_iff_isUnit.2 certBasis_isUnit
+  have e : (rowsMatrix 24 (certBasisRows certVecs)).row =
+      fun t : Fin 24 => certVec (certBasisIdx.getD t 0) :=
+    funext rowsMatrix_certBasisRows_row
+  rwa [e] at h
+
+theorem certBasis_span :
+    Submodule.span (ZMod 2) (Set.range fun t : Fin 24 => certVec (certBasisIdx.getD t 0)) = ⊤ :=
+  certBasis_linearIndependent.span_eq_top_of_card_eq_finrank
+    (by rw [Fintype.card_fin, Module.finrank_fin_fun])
 
 theorem rep_certGen
     {k : ℕ} (hk : k < 2) : Rep 98280 (certAct k) (certGen k) := by
@@ -181,8 +204,51 @@ theorem certRhoHom_range :
     GA ≃* certP :=
   (MonoidHom.ofInjective certRhoHom_injective).trans (MulEquiv.subgroupCongr certRhoHom_range)
 
+theorem certRho_apply
+    (g : GA) : (certRho g : Equiv.Perm (Fin 98280)) = certRhoHom g := rfl
 
 end Restriction
 
+@[expose] noncomputable def certCo1Equiv :
+    CFSG.Blueprint.NativeSporadic.Co1 ≃* certP :=
+  co1MatEquiv.trans certRho
+
+theorem fam_co1_faithful_permutation_action :
+    (∀ i < 98280, certVec i ≠ 0) ∧
+    (∀ i < 98280, ∀ j < 98280, certVec i = certVec j → i = j) ∧
+    certBasisIdx =
+      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 26] ∧
+    LinearIndependent (ZMod 2) (fun t : Fin 24 => certVec (certBasisIdx.getD t 0)) ∧
+    Submodule.span (ZMod 2) (Set.range fun t : Fin 24 => certVec (certBasisIdx.getD t 0)) = ⊤ ∧
+    (∀ i : Fin 98280,
+      CFSG.Blueprint.NativeSporadic.decode 2 24 1 CFSG.Blueprint.NativeSporadic.Co1Seed1 *ᵥ
+        certVec i = certVec (certGen 0 i)) ∧
+    (∀ i : Fin 98280,
+      CFSG.Blueprint.NativeSporadic.decode 2 24 1 CFSG.Blueprint.NativeSporadic.Co1Seed2 *ᵥ
+        certVec i = certVec (certGen 1 i)) ∧
+    GA = Subgroup.closure {A₁, A₂} ∧
+    ((A₁ : GL24) : Matrix (Fin 24) (Fin 24) (ZMod 2)) =
+      CFSG.Blueprint.NativeSporadic.decode 2 24 1 CFSG.Blueprint.NativeSporadic.Co1Seed1 ∧
+    ((A₂ : GL24) : Matrix (Fin 24) (Fin 24) (ZMod 2)) =
+      CFSG.Blueprint.NativeSporadic.decode 2 24 1 CFSG.Blueprint.NativeSporadic.Co1Seed2 ∧
+    (∀ (g : GA) (i : Fin 98280), certVec ((certRho g : Equiv.Perm (Fin 98280)) i) =
+      ((g : GL24) : Matrix (Fin 24) (Fin 24) (ZMod 2)) *ᵥ certVec i) ∧
+    (certRho ⟨A₁, A₁_mem⟩ : Equiv.Perm (Fin 98280)) = certGen 0 ∧
+    (certRho ⟨A₂, A₂_mem⟩ : Equiv.Perm (Fin 98280)) = certGen 1 ∧
+    (∀ u : CFSG.Blueprint.NativeSporadic.Co1,
+      (((co1MatEquiv u : GA) : GL24) : Matrix (Fin 24) (Fin 24) (ZMod 2)) = u.val.val ∧
+      certCo1Equiv u = certRho (co1MatEquiv u) ∧
+      ∀ i : Fin 98280,
+        certVec ((certCo1Equiv u : Equiv.Perm (Fin 98280)) i) = u.val.val *ᵥ certVec i) := by
+  refine ⟨fun _ hi => certVec_ne_zero hi, fun _ hi _ hj h => certVec_injective hi hj h, rfl,
+    certBasis_linearIndependent, certBasis_span, fun i => ?_, fun i => ?_, GA_eq, val_A₁_eq,
+    val_A₂_eq, certVec_rho, certRhoHom_A₁, certRhoHom_A₂, fun u => ⟨co1MatEquiv_val u, rfl,
+    fun i => ?_⟩⟩
+  · rw [← val_A₁_eq]
+    exact A₁_mulVec i
+  · rw [← val_A₂_eq]
+    exact A₂_mulVec i
+  · show certVec (certRhoHom (co1MatEquiv u) i) = _
+    rw [certVec_rho, co1MatEquiv_val]
 
 end CFSG.Sporadic.Co1Block

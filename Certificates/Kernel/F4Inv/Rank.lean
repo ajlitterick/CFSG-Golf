@@ -19,6 +19,13 @@ open CFSG.KC.F4Rank CFSG.KC.F4Syl3 CFSG.LieType.Simplicity.TitsBits CFSG.RankThr
 @[expose] def zBits : Nat :=
   mul (mul (mul (sBits 0) (sBits 0)) (mul (sBits 1) (sBits 1))) (mul (sBits 2) (sBits 2))
 
+theorem kT_ok : fixChk (invT 0) kT = true := by decide +kernel
+
+theorem kU_ok : fixChk (invT 1) kU = true := by decide +kernel
+
+theorem kTU_ok : fixChk (invT 2) kTU = true := by decide +kernel
+
+theorem iV_ok : rankChk (invT 3) iV = true := by decide +kernel
 
 theorem kRA_ok : fixChk (sBits 3) kRA = true := by decide +kernel
 
@@ -32,6 +39,16 @@ theorem iRBU_ok : rankSubChk u26 rBBits iRBU = true := by decide +kernel
 
 theorem stab_ok : allN 8 (fun c => stabChk u26 (letterOfCode c).bits) = true := by decide +kernel
 
+theorem kT_neg : fixChk (invT 0) (kT ++ [kT.getD 0 0]) = false := by decide +kernel
+
+theorem kTU_neg : fixChk (invT 2) kT = false := by decide +kernel
+
+theorem iV_neg : rankChk (invT 3) (iV ++ [iV.getD 0 0]) = false := by decide +kernel
+
+theorem iRBU_neg : rankSubChk u26 rBBits iV = false := by decide +kernel
+
+theorem stab_neg : allN 8 (fun c => stabChk (u26 ^^^ 4) (letterOfCode c).bits) = false := by
+  decide +kernel
 
 end CFSG.KD.F4Inv
 

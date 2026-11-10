@@ -37,6 +37,7 @@ abbrev V6 : Type := Fin Tag.E6.rank → ℤ
 @[expose] def hw1 : V6 := ![1, 1, 1, 1, 1, 1]
 @[expose] def hw2 : V6 := ![1, 1, 2, 2, 2, 1]
 
+theorem highRoot_E6 : highRoot Tag.E6 = ![1, 2, 2, 3, 2, 1] := rfl
 
 theorem iθ_E6 : iθ Tag.E6 = 1 := rfl
 
@@ -68,6 +69,8 @@ theorem mem_Mlist_of {ν : V6} (h : ν ∈ rootFinset Tag.E6) (h1 : ν 1 = 1) (h
     decide +kernel
   exact key ν h h1 ha hb
 
+theorem Mlist_mem_Deg1 {ν : V6} (h : ν ∈ Mlist) : ν ∈ Deg1 Tag.E6 :=
+  mem_Deg1_E6.2 ⟨(Mlist_facts ν h).1, (Mlist_facts ν h).2.1⟩
 
 theorem not_mem_Mlist {ν : V6} (h : ν ∉ Mlist) : ν ∉ Deg1 Tag.E6 ∨ ν = a2 ∨ ν = b2 := by
   by_cases hD : ν ∈ Deg1 Tag.E6
@@ -103,6 +106,8 @@ theorem wE_b2 : wE • b2 = a2 := by rw [← wE_a2, wE_invol]
 
 theorem wE_e0 : wE • e0 = e4 := by rw [wE_smul]; decide +kernel
 theorem wE_e2 : wE • e2 = e5 := by rw [wE_smul]; decide +kernel
+theorem wE_e4 : wE • e4 = e0 := by rw [← wE_e0, wE_invol]
+theorem wE_e5 : wE • e5 = e2 := by rw [← wE_e2, wE_invol]
 
 theorem wE_Mlist : ∀ ν ∈ Mlist, wE • ν ∈ Mlist ∧ (wE • ν) 3 ≠ ν 3 := by
   have key : ∀ ν ∈ Mlist, CFSG.RankThree.Lattice.wordMat Tag.E6 TwClass.wordE6 *ᵥ ν ∈ Mlist ∧

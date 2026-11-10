@@ -234,5 +234,15 @@ theorem beta_nondeg_V0 {v : V K} (hv : ∀ b, b ∉ idx0 → v b = 0)
       exact absurd (Finset.mem_univ b) hb'
   · exact hv b hb
 
+theorem beta_V0_orth {x y : V K} (hx : ∀ b, b ∉ idx0 → x b = 0) (hy : ∀ b, b ∈ idx0 → y b = 0) :
+    beta x y = 0 := by
+  unfold beta
+  apply Finset.sum_eq_zero
+  intro a _
+  by_cases ha : a ∈ idx0
+  · have hoa : opp a ∈ idx0 := by
+      rw [mem_idx0, pr_opp, mem_idx0.1 ha, neg_zero]
+    rw [hy (opp a) hoa, mul_zero]
+  · rw [hx a ha, zero_mul]
 
 end CFSG.RankThree.GF2n.Smith81.E7Model

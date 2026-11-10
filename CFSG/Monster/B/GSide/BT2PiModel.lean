@@ -239,5 +239,22 @@ theorem cpsi_piSec
     (a : Unitary.OmegaPt) : cpsi (piSec a) = a :=
   (cpsi_surjective a).choose_spec
 
+theorem adj_piSec_iff
+    {a b : Unitary.OmegaPt} (hab : a ≠ b) :
+    cgraph.Adj (piSec a : CVert) (piSec b) ↔ Unitary.omegaGraph.Adj a b := by
+  have hne : piSec a ≠ piSec b := fun e => hab (by rw [← cpsi_piSec a, e, cpsi_piSec])
+  have h := cgraphPi_adj_iff hne
+  rw [cpsi_piSec, cpsi_piSec] at h
+  refine h.trans ⟨fun h' => h'.resolve_left hab, Or.inr⟩
+
+theorem isType1782_piSec
+    {a b c : Unitary.OmegaPt} (hab : Unitary.omegaGraph.Adj a b)
+    (hac : Unitary.omegaGraph.Adj a c) (hbc : Unitary.omegaGraph.Adj b c)
+    (hsum : ((a : Wv v0) + b + c) ∈ Unitary.OmegaW) :
+    IsType1782 (piSec a : CVert) (piSec b) (piSec c) := by
+  refine isType1782_of_cPi0 ((adj_piSec_iff hab.ne).2 hab) ((adj_piSec_iff hac.ne).2 hac)
+    ((adj_piSec_iff hbc.ne).2 hbc) ?_
+  rw [cpsi_piSec, cpsi_piSec, cpsi_piSec]
+  exact hsum
 
 end CFSG.Monster.B.GSide

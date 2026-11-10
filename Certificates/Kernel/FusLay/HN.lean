@@ -20,6 +20,11 @@ theorem fus9480_K : fusL lay A B betaHNP3N betaHNP3Prog betaHNP3 = true := by de
 
 theorem fus9481_K : fusL lay A B betaHNP5N betaHNP5Prog betaHNP5 = true := by decide +kernel
 
+theorem fus9480_neg : (!fusL lay B A betaHNP3N betaHNP3Prog betaHNP3) = true := by
+  decide +kernel
+
+theorem fus9481_neg : (!fusL lay B A betaHNP5N betaHNP5Prog betaHNP5) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelFusLay.HN
 

@@ -86,6 +86,8 @@ theorem mulVec_eq_mv5 (A : Matrix (Fin 5) (Fin 5) F4) (v : V) : A *ᵥ v = mv5 A
 @[expose] def tabN (k : ℕ) : Array ℕ :=
   Array.ofFn (n := 341) fun i => ptIndex (mv5 (matN k) (decode i.val))
 
+@[expose] def frobTab : Array ℕ :=
+  Array.ofFn (n := 341) fun i => ptIndex fun j => decode i.val j * decode i.val j
 
 theorem tabN_getElem! (k : ℕ) (i : Fin 341) :
     (tabN k)[(i : ℕ)]! = ptIndex (matN k *ᵥ decode i) := by

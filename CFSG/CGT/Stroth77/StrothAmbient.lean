@@ -36,6 +36,8 @@ variable (X : StrothAmbient G)
 
 @[expose] def L : Subgroup G := X.dataA.L
 
+theorem L_le_normalizer_A : X.L ≤ Subgroup.normalizer (X.A : Set G) :=
+  X.dataA.L_le_normalizer
 
 theorem card_A : Nat.card X.A = 32 := by
   have h := X.dataA.card

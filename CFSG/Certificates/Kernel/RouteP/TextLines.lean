@@ -104,6 +104,7 @@ theorem toArr_cons (a : Nat) (l : List Nat) : toArr (a :: l) = (toArr l).push (U
 theorem toArr_isEmpty (l : List Nat) : (toArr l).isEmpty = decide (l = []) := by
   cases l <;> simp [toArr]
 
+theorem toArr_eq (l : List Nat) : toArr l = (l.reverse.map UInt32.ofNat).toArray := rfl
 
 theorem u8_beq {n m : Nat} (hn : n < 256) (hm : m < 256) :
     (UInt8.ofNat n == UInt8.ofNat m) = decide (n = m) := by
@@ -226,6 +227,14 @@ theorem nlChk_cons (n : Nat) (ns : List Nat) (L P num iN cm sa : Nat)
                   (nlChk E lens ns L P num 0 cm 0 fin))))))
         false := rfl
 
+theorem rows_succ (L : Nat) :
+    (List.range (L + 1)).reverse.map (rowL E lens) =
+      rowL E lens L :: (List.range L).reverse.map (rowL E lens) := by
+  simp [List.range_succ]
+
+theorem cur_succ (L P : Nat) :
+    ((List.range (P + 1)).map (E L)).reverse = E L P :: ((List.range P).map (E L)).reverse := by
+  simp [List.range_succ]
 
 theorem nlChk_sound : ∀ (ns : List Nat) (L P num iN cm sa : Nat)
     (fin : Nat → Nat → Nat → Nat → Nat → Nat → Bool),

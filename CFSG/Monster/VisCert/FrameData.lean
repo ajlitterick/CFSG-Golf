@@ -108,6 +108,7 @@ abbrev GLV : Type := LinearMap.GeneralLinearGroup (ZMod 2) L2
 
 @[expose] def frameSeedVec : ℕ := 63
 
+@[expose] def fusionDeltaCount : ℕ := 8292375
 
 @[expose] def fusionOrbitReps : Array ℕ := #[63, 61440, 13135901, 267519, 798985, 14989736]
 
@@ -183,6 +184,7 @@ theorem Evis_le_Nvis : Evis ≤ Nvis :=
 
 theorem Nvis_le_Hvis : Nvis ≤ Hvis := Nvis_le_Kvis.trans Kvis_le_Hvis
 
+theorem Evis_le_Hvis : Evis ≤ Hvis := Evis_le_Nvis.trans Nvis_le_Hvis
 
 theorem kGen_smul (j : Fin 15) (x : L2) : kGen j • x = modTwoEnd (frameGen j) x := rfl
 

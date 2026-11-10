@@ -43,6 +43,17 @@ theorem fin_K : w4FinL lay ((SL.getD cs.length []).take fi23W4.base.outs.length)
     (getR lay (SL.getD cs.length []) fi23W4.base.outs.length) fi23W4.base.tests = true := by
   decide +kernel
 
+theorem ren_neg : (!renOK ([1836, 1835, 1841, 1846] ++ [fi23W4.inv]) fi23W4.base.prog cs) =
+    true := by decide +kernel
+
+theorem ch_neg : (!chunkV lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
+  decide +kernel
+
+theorem fin_neg : (!w4FinL lay ((SL.getD 8 []).take 1 ++ (SL.getD 8 []).take 3)
+    (getR lay (SL.getD 8 []) 4) fi23W4.base.tests) = true := by decide +kernel
+
+theorem fin_neg_inv : (!w4FinL lay ((SL.getD 8 []).take 4) (getR lay (SL.getD 8 []) 0)
+    fi23W4.base.tests) = true := by decide +kernel
 
 end CFSG.KD.W4Fi23
 

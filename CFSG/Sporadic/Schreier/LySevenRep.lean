@@ -160,6 +160,12 @@ theorem toVec7_mv7 (R v : Array ℕ) : toVec7 (mv7 R v) = mat7 R *ᵥ toVec7 v :
     ← Fin.sum_univ_eq_sum_range (fun c => ((R[7 * r.val + c]! * v[c]! : ℕ) : ZMod 5))]
   simp only [Nat.cast_mul]
 
+theorem toVec7_stdVec (i : Fin 7) : toVec7 (stdVec i) = Pi.single i 1 := by
+  funext r
+  simp only [toVec7, stdVec, ofFn_get!' _ r.isLt]
+  by_cases h : r = i
+  · subst h; simp
+  · rw [ite_eq_right (fun e => h (Fin.ext e)), Pi.single_eq_of_ne h]; rfl
 
 theorem toVec7_inj {v w : Array ℕ} (hv : v.size = 7 ∧ ∀ x ∈ v, x < 5)
     (hw : w.size = 7 ∧ ∀ x ∈ w, x < 5) (h : toVec7 v = toVec7 w) : v = w := by

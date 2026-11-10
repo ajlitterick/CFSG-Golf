@@ -404,6 +404,10 @@ theorem of_psl_isPGroup {f : ℕ} (hf : f ≠ 0) (h : Nonempty (X ≃* PSL(2, Ga
     (hS : IsPGroup 2 S) (hidx : ¬ 2 ∣ S.index) : IsL2Pair X S (2 ^ f) :=
   of_psl_sylow hf h (IsPGroup.toSylow hS hidx)
 
+theorem of_psl_exists_sylow {f : ℕ} (hf : f ≠ 0) (h : Nonempty (X ≃* PSL(2, GaloisField 2 f)))
+    (hS : ∃ P : Sylow 2 X, (P : Subgroup X) = S) : IsL2Pair X S (2 ^ f) := by
+  obtain ⟨P, rfl⟩ := hS
+  exact of_psl_sylow hf h P
 
 end IsL2Pair
 

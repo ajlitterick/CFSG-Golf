@@ -291,6 +291,11 @@ theorem wJ_eq : wJ = CFSG.Sporadic.Bridge.Fi23.img 1 * CFSG.Sporadic.Bridge.Fi23
     CFSG.Sporadic.Bridge.Fi23.img 7 * CFSG.Sporadic.Bridge.Fi23.img 8 := by
   simp [wJ, wW, letJ, genJ, mul_assoc]
 
+theorem vJ_eq : vJ = CFSG.Sporadic.Bridge.Fi23.img 2 * CFSG.Sporadic.Bridge.Fi23.img 9 * CFSG.Sporadic.Fi23.b⁻¹ *
+    CFSG.Sporadic.Bridge.Fi23.img 1 * CFSG.Sporadic.Fi23.a * CFSG.Sporadic.Fi23.b * CFSG.Sporadic.Bridge.Fi23.img 6 *
+    CFSG.Sporadic.Bridge.Fi23.img 4 * CFSG.Sporadic.Bridge.Fi23.img 5 *
+    CFSG.Sporadic.Bridge.Fi23.img 1 := by
+  simp [vJ, vW, letJ, genJ, mul_assoc]
 
 theorem uInvW_eq : uInvW = invW (wW ++ wW ++ wW ++ wW) := by decide
 

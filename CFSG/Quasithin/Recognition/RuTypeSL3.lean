@@ -245,6 +245,10 @@ theorem card_R0 : Nat.card R0 = 4 := by
   rw [Nat.card_eq_fintype_card]
   decide +kernel
 
+theorem R0_le_Stab0 : R0 ≤ Stab0 := by
+  intro g hg
+  revert g
+  decide +kernel
 
 theorem R0_le_P0 : R0 ≤ P0 := by
   intro g hg
@@ -258,6 +262,9 @@ theorem conj_R0_transitive : ∀ x ∈ R0, x ≠ 1 → ∀ y ∈ R0, y ≠ 1 →
     ∃ g ∈ Stab0, g * x * g⁻¹ = y := by
   decide +kernel
 
+theorem natAct3_R0 : ∀ g ∈ R0, ∀ v : Fin 3 → ZMod 2,
+    natAct3 g v + v = 0 ∨ natAct3 g v + v = e0 := by
+  decide +kernel
 
 theorem exists_R0_move : ∃ g ∈ R0, natAct3 g ![0, 1, 0] ≠ ![0, 1, 0] := by
   decide +kernel

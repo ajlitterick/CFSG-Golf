@@ -127,6 +127,23 @@ theorem heJEquivP_apply
     Blueprint.NativeSporadic.He ≃* heP :=
   CFSG.Sporadic.He.heEquivJ.trans heJEquivP
 
+theorem heEquivP_seed1
+    (x : Blueprint.NativeSporadic.He)
+    (hx : x.val.val = Blueprint.NativeSporadic.decode 7 50 1 Blueprint.NativeSporadic.HeSeed1) :
+    (heEquivP x : Equiv.Perm (Fin 8330)) = heGenPerm 0 := by
+  have h : CFSG.Sporadic.He.heEquivJ x = CFSG.Sporadic.He.a := by
+    apply CFSG.Sporadic.He.mat_injective
+    rw [CFSG.Sporadic.He.mat_heEquivJ, hx, CFSG.Sporadic.He.mat_a]
+  rw [heEquivP, MulEquiv.trans_apply, h, heJEquivP_apply, heJToP_a]
+
+theorem heEquivP_seed2
+    (x : Blueprint.NativeSporadic.He)
+    (hx : x.val.val = Blueprint.NativeSporadic.decode 7 50 1 Blueprint.NativeSporadic.HeSeed2) :
+    (heEquivP x : Equiv.Perm (Fin 8330)) = heGenPerm 1 := by
+  have h : CFSG.Sporadic.He.heEquivJ x = CFSG.Sporadic.He.b := by
+    apply CFSG.Sporadic.He.mat_injective
+    rw [CFSG.Sporadic.He.mat_heEquivJ, hx, CFSG.Sporadic.He.mat_b]
+  rw [heEquivP, MulEquiv.trans_apply, h, heJEquivP_apply, heJToP_b]
 
 theorem heP_simple :
     IsSimpleGroup heP :=

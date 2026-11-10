@@ -50,6 +50,7 @@ theorem mul12_UP : mul12 UP UP = ident12 := by decide +kernel
 
 theorem mul12_VP : mul12 VP (mul12 VP VP) = ident12 := by decide +kernel
 
+theorem mul12_VP_sq_ne : (mul12 VP VP == ident12) = false := by decide +kernel
 
 open CFSG.Sporadic.SmallF2 (rowsMatrix) in
 open CFSG.Quasithin.H13.J4.Native (uRows12 vRows12) in

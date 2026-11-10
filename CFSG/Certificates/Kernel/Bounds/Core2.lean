@@ -62,6 +62,10 @@ namespace CFSG.Certificates.KB
     (Nat.rec (motive := fun _ => Nat × Nat) (Prod.mk (Nat.shiftRight E (nat_lit 8)) f)
       (fun _ st => vFactStep F Wd RW RM nCos st) (Nat.land E (nat_lit 255)))
 
+@[expose] noncomputable def vWalkList (F Wd : Nat → Nat) (RW RM nCos : Nat) (l : List Nat)
+    (f : Nat) : Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun f => f)
+    (fun E _ ih f => ih (vElem F Wd RW RM nCos E f)) l f
 
 @[expose] noncomputable def vCovFact (N x c r e : Nat) : Bool :=
   Bool.rec
@@ -75,6 +79,27 @@ namespace CFSG.Certificates.KB
       (Nat.beq (Nat.shiftRight e (nat_lit 36)) x))
     (Nat.beq (Nat.land r (nat_lit 1)) (nat_lit 1))
 
+@[expose] noncomputable def vCovEntry (F : Nat → Nat) (N x c r : Nat) : Bool :=
+  vCovFact N x c r (F (Nat.shiftRight r (nat_lit 1)))
+
+@[expose] noncomputable def vCovStep (F : Nat → Nat) (RW RM N L : Nat) (st : Nat × Nat) :
+    Nat × Nat :=
+  Prod.rec (motive := fun _ => Nat × Nat) (fun rest x =>
+    Bool.rec (Prod.mk (nat_lit 0) bad)
+      (Prod.mk (Nat.shiftRight rest (Nat.mul RW L)) (Nat.succ x))
+      (Nat.rec (motive := fun _ => Bool) true
+        (fun c acc => Bool.rec false acc
+          (vCovEntry F N x c (Nat.land (Nat.shiftRight rest (Nat.mul RW c)) RM))) L)) st
+
+@[expose] noncomputable def vCovElem (F : Nat → Nat) (RW RM N L E x : Nat) : Nat :=
+  Prod.rec (motive := fun _ => Nat) (fun _ x' => x')
+    (Nat.rec (motive := fun _ => Nat × Nat) (Prod.mk (Nat.shiftRight E (nat_lit 8)) x)
+      (fun _ st => vCovStep F RW RM N L st) (Nat.land E (nat_lit 255)))
+
+@[expose] noncomputable def vCovList (F : Nat → Nat) (RW RM N L : Nat) (l : List Nat) (x : Nat) :
+    Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun x => x)
+    (fun E _ ih x => ih (vCovElem F RW RM N L E x)) l x
 
 @[expose] noncomputable def pairs (inv w : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (Nat.land w (nat_lit 16777215))

@@ -18,6 +18,10 @@ open CFSG.Open CFSG.QuasithinUnique
     IsGNChoice C₁ C₂ → C126Statement C₁ C₂
 
 
+@[expose] def TheoremC116Two : Prop :=
+  ∀ (G : Type) [Group G] [Finite G], BaumNormalizesChiBlocksStatement (G := G)
+
+
 section Members
 
 variable {G : Type} [Group G] [Finite G]

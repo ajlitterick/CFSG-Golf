@@ -47,6 +47,23 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.SuzRecog.L
     m := m.insert (fp L[i]!) i
   return m
 
+@[expose] def aSearch : Array (Array Nat) × Array Nat × Array Nat × Array (Array Nat) := Id.run do
+  let mut pts : Array (Array Nat) := #[t1Arr]
+  let mut par : Array Nat := #[0]
+  let mut lab : Array Nat := #[0]
+  let mut tr : Array (Array Nat) := #[idA 1782]
+  let mut idx : Std.HashSet Nat := (∅ : Std.HashSet Nat).insert (fp t1Arr)
+  for h in [0:2835] do
+    if h < pts.size then
+      for s in [0:2] do
+        let f := fpConj gens[s]! gensInv[s]! pts[h]!
+        if !idx.contains f then
+          idx := idx.insert f
+          pts := pts.push (conjA gens[s]! gensInv[s]! pts[h]!)
+          par := par.push h
+          lab := lab.push s
+          tr := tr.push (compA 1782 gens[s]! tr[h]!)
+  return (pts, par, lab, tr)
 
 @[expose] def aPar : Array Nat := hexTable 3 2835 0 LevelTwoPins.aTreeHex
 
@@ -115,6 +132,8 @@ decreasing_by exact _h.2
 @[expose] def o8Base : Array Nat :=
   ((List.range 2835).filter fun i => i != 0 && q1Fp.contains (fp aPts[i]!)).toArray
 
+@[expose] def vBase : Array Nat :=
+  ((List.range 162).filter fun j => commA t1Arr wPts[j]!).toArray.map (2835 + ·)
 
 @[expose] def nbrA : Array (Array Nat) :=
   let e := hexTable 3 102060 0 LevelTwoPins.nbrHex
@@ -155,6 +174,47 @@ decreasing_by exact _h.2
             ids := ids.push (eid x y, eid x z, eid y z)
   return (out, ids)
 
+@[expose] def elimCore (cs ids : Array (Nat × Nat × Nat)) (par tids : Array Nat) :
+    Array (Array Nat) × Array Nat := Id.run do
+  let ne := 2835 * 36
+  let mut steps : Array (Array Nat) := #[]
+  let mut stepOf : Array Nat := Array.replicate ne 0
+  let mut done : Array Bool := Array.replicate ne false
+  for z in [1:2997] do
+    let e := tids[z]!
+    stepOf := stepOf.set! e steps.size
+    done := done.set! e true
+    steps := steps.push #[par[z]!, z]
+  let mut ecells : Array (Array Nat) := Array.replicate ne #[]
+  for c in [0:cs.size] do
+    let (e₁, e₂, e₃) := ids[c]!
+    ecells := ecells.modify e₁ (·.push c)
+    ecells := ecells.modify e₂ (·.push c)
+    ecells := ecells.modify e₃ (·.push c)
+  let mut queue : Array Nat := #[]
+  for c in [0:cs.size] do
+    let (e₁, e₂, e₃) := ids[c]!
+    if (if done[e₁]! then 0 else 1) + (if done[e₂]! then 0 else 1) +
+        (if done[e₃]! then 0 else 1) == 1 then
+      queue := queue.push c
+  for h in [0:4 * cs.size] do
+    if h < queue.size then
+      let c := queue[h]!
+      let (e₁, e₂, e₃) := ids[c]!
+      if (if done[e₁]! then 0 else 1) + (if done[e₂]! then 0 else 1) +
+          (if done[e₃]! then 0 else 1) == 1 then
+        let (a, b, v) := cs[c]!
+        let (x, z, y, e, f₁, f₂) := if !done[e₁]! then (a, b, v, e₁, e₂, e₃)
+          else if !done[e₂]! then (a, v, b, e₂, e₁, e₃) else (b, v, a, e₃, e₁, e₂)
+        stepOf := stepOf.set! e steps.size
+        done := done.set! e true
+        steps := steps.push #[x, z, y, stepOf[f₁]!, stepOf[f₂]!]
+        for c' in ecells[e]! do
+          let (d₁, d₂, d₃) := ids[c']!
+          if (if done[d₁]! then 0 else 1) + (if done[d₂]! then 0 else 1) +
+              (if done[d₃]! then 0 else 1) == 1 then
+            queue := queue.push c'
+  return (steps, stepOf)
 
 @[expose] def elimSteps : Array (Array Nat) :=
   let v := hexTable 3 220647 0 LevelTwoPins.stepVHex

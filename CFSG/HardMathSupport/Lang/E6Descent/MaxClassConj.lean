@@ -69,6 +69,11 @@ theorem toP_conjEnd_sub (g : P) (u : NMod N hN) :
     ((conjEnd g - 1 : Module.End ℤ (NMod N hN)) u).toP = ⁅g, u.toP⁆ := by
   rw [LinearMap.sub_apply, Module.End.one_apply, NMod.toP_sub, toP_conjEnd, commutatorElement_def]
 
+theorem conjEnd_mul (g h : P) : (conjEnd g * conjEnd h : Module.End ℤ (NMod N hN)) =
+    conjEnd (g * h) := by
+  ext u
+  apply NMod.toP_injective
+  simp [conjEnd, mul_assoc]
 
 @[simp] theorem conjEnd_one : (conjEnd 1 : Module.End ℤ (NMod N hN)) = 1 := by
   ext u

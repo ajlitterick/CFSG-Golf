@@ -259,6 +259,15 @@ theorem coreLeaf_sound {T : Nat → Nat} {n MS CM3 M GA GB b c : Nat} (hc : c �
       Nat.div_eq_of_lt (core_Q_lt T _), Nat.zero_add]
     rfl
 
+theorem coreLeaf_sound' {T : Nat → Nat} {n MS CM3 M GA GB b c : Nat} (hc : c ≤ 64)
+    (h : coreLeaf T 464 n MS CM3 M GA GB b c < 1048576) :
+    (∀ r < c, CoreRec T n MS (mulC CM3 (leafA (T b) 464 c M) GA)
+        (mulC CM3 (leafA (T b) 464 c M) GB) (64 * b + r) r) ∧
+      coreLeaf T 464 n MS CM3 M GA GB b c =
+        ∑ r ∈ Finset.range c,
+          ((if pp T (qv T 0 (64 * b + r)) = 2 * (64 * b + r) + 1 then 1 else 0) +
+            (if pp T (qv T 1 (64 * b + r)) = 2 * (64 * b + r) + 2 then 1 else 0)) :=
+  coreLeaf_sound hc h
 
 end CFSG.KS.SporSch.HNXP
 

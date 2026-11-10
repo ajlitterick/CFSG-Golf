@@ -101,6 +101,17 @@ namespace CFSG.OddStandard.SmallF3.HarrisU33.S4B.ZJFin
 
 @[expose] def Mlist : List Nat := [33825, 38689, 42273, 46625]
 
+theorem Plist_length : Plist.length = 576 := by
+  have hP : Plist = ZJFinK.plistK := ZJFinK.plist_eq
+  rw [hP]
+  decide +kernel
+
+theorem Clist_eq : Clist = Plist.filter fun x => mmul x R == mmul R x := by
+  have hP : Plist = ZJFinK.plistK := ZJFinK.plist_eq
+  rw [hP]
+  exact beq_iff_eq.1 (by decide +kernel)
+
+theorem R_cube : mmul R (mmul R R) = one ∧ mmul R R = R2 := by decide +kernel
 
 theorem R2_sq : mmul R2 R2 = R ∧ mmul R2 R = one := by decide +kernel
 
@@ -117,6 +128,14 @@ theorem H0_card : H0.length = 12 ∧ H0.Nodup := by decide +kernel
 
 theorem S48_card : S48.length = 48 ∧ S48.Nodup := by decide +kernel
 
+theorem S48_sub_P : ∀ x ∈ S48, x ∈ Plist := by
+  have hP : Plist = ZJFinK.plistK := ZJFinK.plist_eq
+  have hb : ZJFinK.allF S48 (fun x => ZJFinK.elemF x ZJFinK.plistK) = true := by decide +kernel
+  intro x hx
+  rw [hP, ← ZJFinK.elemF_iff]
+  exact (ZJFinK.allF_iff _ _).1 hb x hx
+
+theorem gens_mem_H0 : T ∈ H0 ∧ L ∈ H0 ∧ R ∈ H0 ∧ one ∈ H0 := by decide +kernel
 
 theorem coset_ok : ∀ g ∈ Plist, g ∈ H0 ∨ ∃ h ∈ H0, mmul g h ∈ repsNT := by
   have hP : Plist = ZJFinK.plistK := ZJFinK.plist_eq
@@ -201,12 +220,15 @@ theorem M_sub : ∀ m ∈ Mlist, m ∈ S48 := by decide +kernel
 
 theorem M_mul : ∀ a ∈ Mlist, ∀ b ∈ Mlist, mmul a b ∈ Mlist := by decide +kernel
 
+theorem M_elem : (∀ a ∈ Mlist, ∀ b ∈ Mlist, mmul a b = mmul b a) ∧
+    ∀ a ∈ Mlist, mmul a a = one := by decide +kernel
 
 theorem M_card : Mlist.length = 4 ∧ Mlist.Nodup := by decide +kernel
 
 theorem M_normal : ∀ s ∈ S48, ∀ m ∈ Mlist, ∃ m' ∈ Mlist, mmul s m = mmul m' s := by
   decide +kernel
 
+theorem M_triv_V : ∀ m ∈ Mlist, app m 1 = 1 ∧ app m 2 = 2 := by decide +kernel
 
 theorem M_triv_YV : ∀ m ∈ Mlist, ∀ n ∈ List.range 16, app m n ^^^ n < 4 := by decide +kernel
 
@@ -219,5 +241,7 @@ theorem T_central : ∀ s ∈ S48, mmul T s = mmul s T := by decide +kernel
 
 theorem M_fpf : ∀ m ∈ Mlist, mmul m R = mmul R m → m = one := by decide +kernel
 
+theorem cent_V : ∀ s ∈ S48, app s 1 = 1 → app s 2 = 2 → s ∈ Mlist ∨ mmul T s ∈ Mlist := by
+  decide +kernel
 
 end CFSG.OddStandard.SmallF3.HarrisU33.S4B.ZJFin

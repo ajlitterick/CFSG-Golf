@@ -135,6 +135,7 @@ theorem stabFacts : StabFacts := by
         obtain ⟨⟨⟨⟨a1, a2⟩, a3⟩, a4⟩, a5⟩ := hif
         exact ⟨of_decide_eq_true a1, a2, a3, of_decide_eq_true a4, a5⟩
 
+theorem chainStabIdx_size : chainStabIdx.size = 18 := rfl
 
 theorem stabGens_size : stabGens.size = chainStabIdx.size := by
   simp [stabGens]
@@ -477,5 +478,49 @@ theorem stabOrbit_zero : stabOrbit 0 = [0] := by
   simp only [List.getElem!_cons_zero] at h0
   rw [h0]
 
+theorem native_short_stabilizer_order_and_suborbits :
+    ValidSchreier chainQ ∧
+    chainQ.base.toList.map Fin.val = [0, 1, 2, 4, 5, 3, 6, 7, 9, 8] ∧
+    (List.finRange chainQ.baseCount).map (fun i => Nat.card (chainQ.orbitPoints i)) =
+      [2300, 891, 336, 160, 6, 4, 2, 2, 2, 2] ∧
+    chainQ.originalSubgroup = Pgrp ∧
+    Nat.card Pgrp = 42305421312000 ∧ MulAction.IsPretransitive Pgrp Ω ∧
+    Nat.card (MulAction.stabilizer Pgrp (0 : Ω)) = 18393661440 ∧
+    (∀ j ∈ stabIdx, j < chainQ.strongCount) ∧
+    (∀ j : Fin chainQ.strongCount, (j : ℕ) ∈ stabIdx ↔ chainQ.strong.get j 0 = 0) ∧
+    Subgroup.closure {g | ∃ j : Fin chainQ.strongCount, (j : ℕ) ∈ stabIdx ∧ chainQ.strong.get j = g} =
+      (MulAction.stabilizer Pgrp (0 : Ω)).map Pgrp.subtype ∧
+    stabOrbit 0 = [0] ∧ (List.range 3).map (fun t => (stabOrbit t).length) = [1, 891, 1408] ∧
+    (∀ t < 3, (stabOrbit t).Pairwise (· < ·)) ∧
+    (∀ x : Ω, ∃ t < 3, (x : ℕ) ∈ stabOrbit t) ∧
+    (∀ t < 3, MulAction.orbit (MulAction.stabilizer Pgrp (0 : Ω)) (stabOrbitRoot t) =
+      {x : Ω | (x : ℕ) ∈ stabOrbit t}) ∧
+    (List.range 3).map (fun t =>
+      (MulAction.orbit (MulAction.stabilizer Pgrp (0 : Ω)) (stabOrbitRoot t)).ncard) =
+      [1, 891, 1408] := by
+  have hlen : (List.range 3).map (fun t => (stabOrbit t).length) = [1, 891, 1408] := by
+    rw [List.map_congr_left (fun t ht => stabOrbit_length (List.mem_range.1 ht))]
+    decide +kernel
+  refine ⟨validSchreier_chainQ, by decide +kernel, ?_, chainQ_originalSubgroup, natCard_Pgrp,
+    isPretransitive_Pgrp, natCard_stabilizer_Pgrp, fun j hj => lt_of_mem_stabIdx hj,
+    fun j => ?_, ?_, stabOrbit_zero, hlen, fun t ht => stabOrbit_nodup ht,
+    fun x => stabOrbit_cover x x.2, fun t ht => orbit_stabilizer_eq ht, ?_⟩
+  · rw [List.map_congr_left (fun i _ => card_orbitPoints i.2)]
+    decide +kernel
+  · have e : chainQ.strong.get j = strongPerm j := chainQ_strong_get j
+    rw [e]
+    exact mem_stabIdx_iff_fix j.2
+  · rw [← closure_stabGenSet]
+    congr 1
+    ext g
+    constructor
+    · rintro ⟨j, hj, rfl⟩
+      exact ⟨j, hj, (chainQ_strong_get j).symm⟩
+    · rintro ⟨j, hj, rfl⟩
+      exact ⟨⟨j, lt_of_mem_stabIdx hj⟩, hj, chainQ_strong_get _⟩
+  · rw [← hlen]
+    apply List.map_congr_left
+    intro t ht
+    rw [orbit_stabilizer_eq (List.mem_range.1 ht), ncard_stabOrbitSet (List.mem_range.1 ht)]
 
 end CFSG.Monster.B.Co2

@@ -93,5 +93,15 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.GLS in
+open CFSG.GH74.GLS.C3 in
+open CFSG.GH74.GLS.C3.Layer2 in
+open CFSG.GH74.GLS.C3.Layer2.L5 in
+open CFSG.GH74.GLS.C3.Layer2.L5.Fus in
+open Equiv Perm Subgroup CFSG.GH74.GLS.C3.Prop121 CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model in
+theorem certificate5142 :     chk0 = true := by
+  exact CertificateChecks.Batch5142.chk0_true
 
 end Certificates

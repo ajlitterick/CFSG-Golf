@@ -21,6 +21,7 @@ theorem ch17305L :
       true := by
   quickRfl
 
+theorem ch17305S : seedsOK RB CFSG.KD.ThSeed.SA CFSG.KD.ThSeed.SB = true := by quickRfl
 
 @[expose] noncomputable def ch17305R (i : Nat) : Bool :=
   slpChunkOK RB CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.ONE slp i

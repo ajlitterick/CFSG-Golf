@@ -117,6 +117,11 @@ deriving Inhabited
     allLt cs.size (fun f => validA n cs[f]!) && ps.all (fun p => decide (p < n)) &&
     enumOK n gs ps cP && cP.pts.size == N && wits.size == N && aLoop n N cs cP.pts wits
 
+@[expose] def psA : List ℕ := [0, 997, 1994, 2991, 3988, 4985, 5982, 6979, 7976]
+
+@[expose] def hnACheck (prog : List (ℕ × ℕ)) (pregs : List ℕ) (pool : Array (ℕ × ℕ))
+    (wits : Array AWit) : Bool :=
+  aCheck InvData.f6Arr.size InvData.s6Perms prog pregs pool psA 1024 wits
 
 @[expose] def parseNatsHN (s : String) : Array ℕ :=
   ((s.splitOn " ").filterMap String.toNat?).toArray
@@ -154,5 +159,26 @@ deriving Inhabited
         out := out.push (.noInv a[i + 1]!); i := i + 2
   return out
 
+@[expose] def decodePairs (s : String) : List (ℕ × ℕ) := Id.run do
+  let a := parseNatsHN s
+  let mut out : Array (ℕ × ℕ) := #[]
+  for j in [0:a.size / 2] do
+    out := out.push (a[2 * j]!, a[2 * j + 1]!)
+  return out.toList
+
+@[expose] def decodeA (s : String) : Array AWit := Id.run do
+  let a := parseNatsHN s
+  let mut out : Array AWit := #[]
+  let mut i := 0
+  for _ in [0:a.size] do
+    if i < a.size then
+      let c := a[i]!
+      if c == 0 then
+        out := out.push .skip; i := i + 1
+      else
+        let l := a[i + 1]!
+        out := out.push (.ord4 (a.extract (i + 2) (i + 2 + l)).toList a[i + 2 + l]!)
+        i := i + 3 + l
+  return out
 
 end CFSG.ComponentClassification.RankTwoSporadic.HN

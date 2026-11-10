@@ -33,6 +33,11 @@ theorem mulCl_inv (gens : List Nat) (P : Nat → Prop) (hone : P (oneN T)) (hgen
     · exact hone
     · exact hgens x hx
 
+theorem one_mem_mulCl (gens : List Nat) : oneN T ∈ mulCl T gens :=
+  mem_bfs_of_mem _ List.mem_cons_self _
+
+theorem mem_mulCl_of_mem {gens : List Nat} {g : Nat} (hg : g ∈ gens) : g ∈ mulCl T gens :=
+  mem_bfs_of_mem _ (List.mem_cons_of_mem _ hg) _
 
 theorem conjOrbit_inv (kgens gens0 : List Nat) (P : Nat → Prop)
     (hconj : ∀ g ∈ kgens, ∀ x, P x → P (mulN T (mulN T g x) (invN T g)))

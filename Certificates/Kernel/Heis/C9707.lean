@@ -21,5 +21,13 @@ theorem heis11_k :
     (fkP 11).heisN 11 11 rawGens11 words1_11 (decodeL W11.chars) = true := by
   decide +kernel
 
+theorem heis11_neg_gen :
+    (fkP 11).heisN 11 11 ([1, 0, 0, 0, 11, 0, 0, 0, 11] :: rawGens11.tail) words1_11
+      (decodeL W11.chars) = false := by
+  decide +kernel
+
+theorem heis5_neg_cover :
+    (fkP 5).heisN 5 5 rawGens5 words1_5 (decodeL W5.chars).dropLast = false := by
+  decide +kernel
 
 end CertificateChecks.KernelHeis

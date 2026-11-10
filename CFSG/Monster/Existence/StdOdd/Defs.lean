@@ -17,6 +17,10 @@ abbrev Rgrp : Type := ↥stdGroup
   (∀ M : Subgroup R, Odd (Nat.card M) → Nat.card M ∣ 3 ^ 6 * 5 ^ 2 * 7 * 11 * 19 →
     Nat.card M ≤ 9477)
 
+@[expose] def BabyLineOddOrderWeak : Prop :=
+  ∀ r : B, BabyInv 0 r → ∀ M : Subgroup B, M ≤ Subgroup.centralizer ({r} : Set B) →
+    Odd (Nat.card M) → Nat.card M ≤ 54463 ∧
+      (Nat.card M ∣ 3 ^ 6 * 5 ^ 2 * 7 * 11 * 19 → Nat.card M ≤ 9477)
 
 structure CentralizerFacts (R : Type*) [Group R] : Prop where
   c5 : ∀ x : R, orderOf x = 5 →

@@ -48,6 +48,10 @@ theorem bitS_one_shl {a k : Nat} (h : bitS (Nat.shiftLeft 1 a) k = true) : a = k
   rw [Nat.one_shiftLeft, Nat.testBit_two_pow] at h
   exact of_decide_eq_true h
 
+theorem bitS_one_shl_self (a : Nat) : bitS (Nat.shiftLeft 1 a) a = true := by
+  rw [bitS_true_iff]
+  change (1 <<< a).testBit a = true
+  rw [Nat.one_shiftLeft, Nat.testBit_two_pow_self]
 
 variable {IL HD : Nat}
 
@@ -67,6 +71,17 @@ theorem oMask_mem {a k : Nat} : ∀ n, bitS (oMask IL a n) k = true → ∃ q < 
     · obtain ⟨q, hq, e⟩ := ih h
       exact ⟨q, by omega, e⟩
 
+theorem oMask_bit {a : Nat} : ∀ n, ∀ q < n, bitS (oMask IL a n) (l16 IL (a + q)) = true := by
+  intro n
+  induction n with
+  | zero => exact fun q hq => absurd hq (Nat.not_lt_zero q)
+  | succ n ih =>
+    intro q hq
+    have e : oMask IL a (n + 1) = Nat.lor (Nat.shiftLeft 1 (l16 IL (a + n))) (oMask IL a n) := rfl
+    rw [e, bitS_lor]
+    rcases Nat.lt_succ_iff_lt_or_eq.1 hq with hq | rfl
+    · exact Or.inr (ih q hq)
+    · exact Or.inl (bitS_one_shl_self _)
 
 theorem oMaskAll_mem {k : Nat} : ∀ nl, bitS (oMaskAll HD IL nl) k = true →
     ∃ l < nl, ∃ q < oLen HD l, l16 IL (oSt HD l + q) = k := by
@@ -86,6 +101,19 @@ theorem oMaskAll_mem {k : Nat} : ∀ nl, bitS (oMaskAll HD IL nl) k = true →
     · obtain ⟨l, hl, e⟩ := ih h
       exact ⟨l, by omega, e⟩
 
+theorem oMaskAll_bit : ∀ nl, ∀ l < nl, ∀ q < oLen HD l,
+    bitS (oMaskAll HD IL nl) (l16 IL (oSt HD l + q)) = true := by
+  intro nl
+  induction nl with
+  | zero => exact fun l hl => absurd hl (Nat.not_lt_zero l)
+  | succ n ih =>
+    intro l hl q hq
+    have e : oMaskAll HD IL (n + 1) =
+        Nat.lor (oMask IL (oSt HD n) (oLen HD n)) (oMaskAll HD IL n) := rfl
+    rw [e, bitS_lor]
+    rcases Nat.lt_succ_iff_lt_or_eq.1 hl with hl | rfl
+    · exact Or.inr (ih l hl q hq)
+    · exact Or.inl (oMask_bit _ q hq)
 
 variable {mul2 : Nat → Nat → Nat} {bc : Nat → Nat} {G U S LB : Nat} {HL : Nat → Nat}
 

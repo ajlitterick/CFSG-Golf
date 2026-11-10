@@ -39,6 +39,10 @@ open CFSG.KC.Enum CFSG.KC.SBCen CFSG.KC.SBCenL
   Nat.rec (motive := fun _ => Nat) 0
     (fun j ih => Nat.add (grpU mul AR MR F z Q U nQ (Nat.add (Nat.mul 64 t) j)) ih) 64
 
+@[expose] noncomputable def conjB (mul : Nat → Nat → Nat) (F : Nat → Nat) (z a n : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true (fun i ih => bAnd(
+    strictB (Nat.add a i) fun y => strictB (F y) fun u => strictB (F u) fun v =>
+      Nat.beq (mul z y) (mul v z), ih)) n
 
 end CFSG.KC.SBCenU
 

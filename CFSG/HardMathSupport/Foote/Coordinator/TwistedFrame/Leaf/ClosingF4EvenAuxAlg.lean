@@ -115,6 +115,7 @@ macro "char2" : tactic =>
 
 variable {L : Type} [Field L] [CharP L 2] {Fr : L →+* L} {P : Set (T7 L)}
 
+theorem two_eq : (2 : L) = 0 := CharTwo.two_eq_zero
 
 @[expose] def InE (Fr : L →+* L) (l : L) : Prop := Fr (Fr l) = l
 

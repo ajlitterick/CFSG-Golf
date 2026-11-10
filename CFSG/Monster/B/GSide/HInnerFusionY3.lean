@@ -215,5 +215,11 @@ theorem hY3_native_all :
       rkH (cV0 * cEdgeFixToH a) = 2168 → cEdgeFixToH a ∉ dH ψ :=
   fun _ _ _ _ _ _ ψ hψ _ => hY3_native ψ hψ
 
+theorem hN1D_native
+    {G : Type*} [Group G] {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0)
+    (hψ : ψ ⟨d, mem_centralizer_singleton_self d⟩ = cV0) {a : cEdgeFix}
+    (haQ : cEdgeIncl a ∈ edgeQ) (ha2 : orderOf a = 2) (haD : cEdgeFixToH a ∈ dH ψ) :
+    a = lamV0 ∨ a = lamW0 ∨ a ∈ edgeL :=
+  hN1D_of_Y3 ψ hψ (hY3_native ψ hψ) haQ ha2 haD
 
 end CFSG.Monster.B.GSide

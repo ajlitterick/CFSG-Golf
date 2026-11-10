@@ -43,6 +43,13 @@ theorem cz_ok : eqOn (fun p => ev cc (ev cz p)) (fun p => ev cz (ev cc p)) = tru
 
 theorem ct_ok : ctOK = true := by decide +kernel
 
+theorem cx_neg : (!eqOn (fun p => ev cc (ev cx p)) (fun p => ev cx (ev cc p))) = true := by
+  decide +kernel
+
+theorem ct_neg : (!(List.range 3).any fun q =>
+    eqOn (fun r => ev cc (ev (ct 0) r)) (fun r => ev (ct q) (ev cc r))) = true := by
+  decide +kernel
+
 
 @[expose] noncomputable def cE : GJ := eltOf cArr okc
 

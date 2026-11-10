@@ -230,6 +230,12 @@ def main() -> None:
                          "(nothing they use is reported dead)")
     ap.add_argument("--extra-roots", nargs="*", default=[],
                     help="further root modules; files only they reach are root files")
+    ap.add_argument("--root-dirs", nargs="*", default=[],
+                    help="path prefixes whose files are root files in the saved graph (trees whose "
+                         "macros build constant names that a text scan cannot follow)")
+    ap.add_argument("--root-names-file", default=None,
+                    help="file with one name per line; declarations with these last components "
+                         "are roots in the saved graph (names found in non-Lean data files)")
     ap.add_argument("--out", default="text_reach.tsv")
     ap.add_argument("--jobs", type=int, default=3)
     ap.add_argument("--tmp", default=None)
@@ -308,6 +314,17 @@ def main() -> None:
         keep[is_decl] = short_name[c_name_a[is_decl]] & cert_file[c_file_a[is_decl]]
         print(f"short indexed certificate declarations kept as roots: {int(keep.sum())}", flush=True)
         root0 = root0 | keep
+        if a.root_dirs:
+            in_dir = np.array([any(p.startswith(d) for d in a.root_dirs) for p in paths], dtype=bool)
+            root0 = root0 | in_dir[c_file_a]
+            print(f"root files by --root-dirs: {int(in_dir.sum())}", flush=True)
+        if a.root_names_file:
+            with open(a.root_names_file, encoding="utf-8") as f:
+                rn = {name_id[x] for x in f.read().split() if x in name_id}
+            hit = np.zeros(n, dtype=bool)
+            hit[is_decl] = np.isin(c_name_a[is_decl], np.array(sorted(rn), dtype=np.int64))
+            root0 = root0 | hit
+            print(f"root declarations by --root-names-file: {int(hit.sum())}", flush=True)
         for nm, arr in (("indptr.i64", indptr), ("toks.u32", toks),
                         ("kind.i8", c_kind_a), ("name.i64", c_name_a),
                         ("bytes.i64", c_bytes_a), ("file.i64", c_file_a),

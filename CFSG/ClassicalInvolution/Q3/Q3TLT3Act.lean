@@ -76,11 +76,44 @@ theorem tl3_aut_transitive (e : M ≃* QuaternionGroup 2) {φ : MulAut M} {k : �
   · exact Or.inl (e.injective (by rw [← key]; exact h0))
   · exact Or.inr (e.injective (by rw [← key, h0, map_inv]))
 
+theorem tl3_aut_three (e : M ≃* QuaternionGroup 2) {φ₁ φ₂ : MulAut M}
+    (h₁ : φ₁ (e.symm (a 1)) = e.symm (xa 0) ∨ φ₁ (e.symm (a 1)) = (e.symm (xa 0))⁻¹)
+    (h₂ : φ₂ (e.symm (a 1)) = e.symm (xa 1) ∨ φ₂ (e.symm (a 1)) = (e.symm (xa 1))⁻¹) :
+    (φ₁ ≠ 1 ∧ φ₁ ^ 3 = 1) ∨ (φ₂ ≠ 1 ∧ φ₂ ^ 3 = 1) ∨ (φ₁ * φ₂ ≠ 1 ∧ (φ₁ * φ₂) ^ 3 = 1) := by
+  have back : ∀ φ : MulAut M, (MulAut.congr e φ ≠ 1 ∧ MulAut.congr e φ ^ 3 = 1) →
+      (φ ≠ 1 ∧ φ ^ 3 = 1) := fun φ ⟨hn, h3⟩ =>
+    ⟨fun h => hn (by rw [h, map_one]),
+      (MulAut.congr e).injective (by rw [map_pow, map_one]; exact h3)⟩
+  have conv : ∀ (φ : MulAut M) (x y : QuaternionGroup 2),
+      (φ (e.symm x) = e.symm y ∨ φ (e.symm x) = (e.symm y)⁻¹) →
+      (MulAut.congr e φ x = y ∨ MulAut.congr e φ x = y⁻¹) := fun φ x y h => by
+    rcases h with h | h
+    · left
+      simp [MulAut.congr_apply, h]
+    · right
+      simp [MulAut.congr_apply, h]
+  rcases q8_aut_three (conv φ₁ _ _ h₁) (conv φ₂ _ _ h₂) with h | h | h
+  · exact Or.inl (back φ₁ h)
+  · exact Or.inr (Or.inl (back φ₂ h))
+  · refine Or.inr (Or.inr (back (φ₁ * φ₂) ?_))
+    rwa [map_mul]
 
 end Aut
 
 section Extract
 
+theorem exists_pow_three_pow_of_ne_one {C A : Type*} [Group C] [Finite C] [Group A] (ρ : C →* A)
+    {c : C} (h1 : ρ c ≠ 1) (h3 : ρ c ^ 3 = 1) :
+    ∃ (x : C) (k : ℕ), x ^ 3 ^ k = 1 ∧ ρ x ≠ 1 := by
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  have hn : orderOf c ≠ 0 := (orderOf_pos c).ne'
+  obtain ⟨a, b, hb, hab⟩ := Nat.exists_eq_pow_mul_and_not_dvd hn 3 (by norm_num)
+  refine ⟨c ^ b, a, ?_, ?_⟩
+  · rw [← pow_mul, mul_comm, ← hab, pow_orderOf_eq_one]
+  · intro hx
+    rw [map_pow] at hx
+    have hord : orderOf (ρ c) = 3 := orderOf_eq_prime h3 h1
+    exact hb (hord ▸ orderOf_dvd_of_pow_eq_one hx)
 
 end Extract
 

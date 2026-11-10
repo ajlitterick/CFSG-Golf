@@ -37,5 +37,15 @@ theorem weakCT_recognition_of_pairs (K : Type) [Field K] [Finite K] (p f : ℕ) 
   obtain ⟨ψ, -, hsurj, hker, hqs, -, hmodel⟩ := exists_recognition hn hp hf hK F hgen' hnt
   exact ⟨ψ, hsurj, hker, hqs, hmodel⟩
 
+theorem weakCT_recognition (K : Type) [Field K] [Finite K] (p f : ℕ) (hp : p.Prime)
+    (hK : Nat.card K = p ^ f) (hq : 4 ≤ p ^ f) {n : ℕ} (hn : 3 ≤ n) {X : Type} [Group X]
+    {U : Fin n → Subgroup X} {W : Fin n → Fin n → Subgroup X} (hW : WeakCTSystem K n U W) :
+    ∃ ψ : SL(n + 1, K) →* X, Function.Surjective ψ ∧
+      ψ.ker ≤ Subgroup.center SL(n + 1, K) ∧ CFSG.IsQuasisimple X ∧
+      CFSG.Blueprint.LieModel (X ⧸ Subgroup.center X)
+        CFSG.Assembly.LowTwoRank.StatedLieTag.PSL (n + 1) p f :=
+  weakCT_recognition_of_pairs K p f hp hK hq hn hW.comm (fun i j hj => ⟨_, hW.pair i j hj⟩)
+    hW.gen
+
 
 end CFSG.ClassicalInvolution.WeakCT

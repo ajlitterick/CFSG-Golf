@@ -61,5 +61,11 @@ theorem bfsB_checks : bfsOK 195 bfsB = true ∧ (bfsB.map Prod.fst).Nodup ∧
     (∀ e ∈ bfsB, e.1 < 2 ^ 24) ∧ bfsB.length = 231 := by
   decide +kernel
 
+theorem card_stab_B_le :
+    Nat.card (MulAction.stabilizer ↥mog22 (maskSet 195)) ≤ 1920 := by
+  obtain ⟨h1, h2, h3, h4⟩ := bfsB_checks
+  have := card_stab_mul_le h1 h2 h3
+  rw [h4] at this
+  omega
 
 end CFSG.Quasithin.RonanH143

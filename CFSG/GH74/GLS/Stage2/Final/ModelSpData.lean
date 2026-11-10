@@ -125,6 +125,11 @@ variable {F}
 
 theorem sp_U2 : (ModelData.sp F).U2 = isoGL (J2m F) := rfl
 
+theorem sp_U4 : (ModelData.sp F).U4 = isoGL (blk4 (J2m F) (J2m F)) := rfl
+
+theorem sp_K4 : (ModelData.sp F).K4 = isoGL (blk4 (J2m F) (J2m F)) ⊓ detOne F 4 := rfl
+
+theorem sp_H2 : (ModelData.sp F).H2 = isoGL (J2m F) ⊓ detOne F 2 := rfl
 
 theorem mem_U2_sp {a : GL (Fin 2) F} :
     a ∈ (ModelData.sp F).U2 ↔ (a : Matrix (Fin 2) (Fin 2) F).det = 1 :=
@@ -261,6 +266,8 @@ theorem spEquiv_mk (g : StatedSp 2 F) :
     spEquiv F (QuotientGroup.mk g) = QuotientGroup.mk (spMulEquiv g) :=
   rfl
 
+theorem natCard_K4_sp : Nat.card ↥(ModelData.sp F).K4 = Nat.card (StatedSp 2 F) :=
+  (Nat.card_congr (spMulEquiv (F := F)).toEquiv).symm
 
 end Reindex
 

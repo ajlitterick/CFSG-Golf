@@ -74,5 +74,24 @@ theorem fiMkW_gxProdWord (L : List ℕ) : fiMkW (gxProdWord L) = (L.map gxElem).
   | cons k L ih =>
     rw [gxProdWord_cons, fiMkW_append, fiMkW_gxElemWord, ih, List.map_cons, List.prod_cons]
 
+@[expose] def gxElemP (k : ℕ) : List Native.PGen := if k < 10 then fiPU[k]! else s4PGamma
+
+@[expose] def gxProdP (L : List ℕ) : List Native.PGen := (L.reverse.map gxElemP).flatten
+
+theorem gxElemP_eq {k : ℕ} (hk : k < 11) : gxElemP k = HS.pw (gxElemWord k) := by
+  unfold gxElemP gxElemWord
+  by_cases h1 : k < 10
+  · rw [ite_eq_left h1, ite_eq_left h1, fiPU_get h1]
+  · have h2 : k = 10 := by omega
+    rw [ite_eq_right h1, ite_eq_right h1, ite_eq_left h2]
+    rfl
+
+theorem gxProdP_eq {L : List ℕ} (hL : ∀ k ∈ L, k < 11) : gxProdP L = HS.pw (gxProdWord L) := by
+  unfold gxProdP gxProdWord
+  rw [fi_pw_flatten, List.map_map]
+  congr 1
+  apply List.map_congr_left
+  intro k hk
+  exact gxElemP_eq (hL k (List.mem_reverse.1 hk))
 
 end CFSG.Monster.Existence

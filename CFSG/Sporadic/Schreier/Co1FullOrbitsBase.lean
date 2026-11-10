@@ -25,6 +25,8 @@ theorem fullOrb_two :
 theorem co1X_eq_enumSet : co1X = enumSet (Native.fullOrb 2) 98280 := by
   rw [enumSet, fullOrb_two, co1X]
 
+theorem fullSize_pos {k : ℕ} (hk : k < 4) : 0 < Native.fullSize k := by
+  rcases (show k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 by omega) with rfl | rfl | rfl | rfl <;> decide
 
 theorem actsBy_A₁ :
     ActsBy A₁ CFSG.Sporadic.Co1.Native.co1Data.colsA := MRep.actsBy rep_A₁
@@ -32,6 +34,15 @@ theorem actsBy_A₁ :
 theorem actsBy_A₂ :
     ActsBy A₂ CFSG.Sporadic.Co1.Native.co1Data.colsB := MRep.actsBy rep_A₂
 
+theorem exists_eq_toVecD (v : Vec24) : ∃ n < 2 ^ 24, v = toVecD 24 n := by
+  refine ⟨CFSG.Sporadic.SmallF2.Native.ofBits 24 fun j =>
+    if h : j < 24 then v ⟨j, h⟩ = 1 else false, CFSG.Sporadic.SmallF2.ofBits_lt 24 _,
+    funext fun j => ?_⟩
+  rw [CFSG.Sporadic.SmallF2.toVecD_ofBits]
+  simp only [j.isLt, ↓reduceDIte, decide_eq_true_eq]
+  generalize v j = z
+  revert z
+  decide
 
 theorem fullSize_inj {j k : ℕ} (hj : j < 4) (hk : k < 4) (h : Native.fullSize j = Native.fullSize k) :
     j = k := by

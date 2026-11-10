@@ -858,6 +858,9 @@ theorem ggSixRootFusionSLRepNonsplitInput_of_frame (hF : GGSLNonsplitFrameInput)
     exact hc.ggRootFusionWitnessAlt (D := D) (E := E) (t := .PSL) (f := f) (r₀ := r) hle
       {i₀, i₁} (Finset.mem_insert_self _ _) hT2 he1 hS σ hσ
 
+theorem ggSixRootFusionSLRepInput_of_nonsplitFrame (hF : GGSLNonsplitFrameInput)
+    (h2 : GGNSTwoBlockPermInput) : GGSixRootFusionSLRepInput :=
+  ggSixRootFusionSLRepInput_of_nonsplit (ggSixRootFusionSLRepNonsplitInput_of_frame hF h2)
 
 end Inputs
 

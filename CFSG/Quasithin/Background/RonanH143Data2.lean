@@ -86,10 +86,21 @@ theorem card_NQ2 : Nat.card NQ2 = 32 := by
   rw [← SetLike.coe_sort_coe, h, Nat.card_range_of_injective nq2Perm_injective,
     Nat.card_eq_fintype_card, Fintype.card_fin]
 
+theorem isPGroup_NQ2 : IsPGroup 2 NQ2 := by
+  intro ⟨g, hg⟩
+  obtain ⟨t, rfl⟩ := hg
+  exact ⟨1, Subtype.ext (by simpa [pow_two] using nq2Perm_sq t)⟩
 
 theorem nq2_smul_Zq : ∀ (u : Fin 32) (i : Fin 5), nq2Perm u • Zq i = Zq i := by
   decide +kernel
 
+theorem NQ_le_NQ2 : NQ ≤ NQ2 := by
+  rintro _ ⟨t, rfl⟩
+  refine ⟨⟨t, by omega⟩, ?_⟩
+  have h : (t : ℕ) < 16 := t.2
+  simp only [nq2Perm, h, ↓reduceIte]
+  congr 1
+  exact Fin.ext (by simp [Nat.mod_eq_of_lt h])
 
 @[expose] def P2 : Subgroup P24 where
   carrier := {x | ∃ y ∈ PO, x = y ∨ x = y * ePerm}
@@ -113,5 +124,32 @@ theorem nq2_smul_Zq : ∀ (u : Fin 32) (i : Fin 5), nq2Perm u • Zq i = Zq i :=
         _ = ePerm * y⁻¹ := by rw [ePerm_inv]
         _ = ePerm * y⁻¹ * ePerm⁻¹ * ePerm := by group
 
+theorem mem_P2_iff {x : P24} : x ∈ P2 ↔ ∃ y ∈ PO, x = y ∨ x = y * ePerm := Iff.rfl
+
+theorem PO_le_P2 : PO ≤ P2 := fun y hy => ⟨y, hy, Or.inl rfl⟩
+
+theorem ePerm_mem_P2 : ePerm ∈ P2 := ⟨1, PO.one_mem, Or.inr (by rw [one_mul])⟩
+
+theorem NQ2_le_P2 : NQ2 ≤ P2 := by
+  rintro _ ⟨u, rfl⟩
+  by_cases hu : (u : ℕ) < 16
+  · refine ⟨nqPerm ⟨u % 16, by omega⟩, nqPerm_mem_PO _, Or.inl ?_⟩
+    simp [nq2Perm, hu]
+  · refine ⟨nqPerm ⟨u % 16, by omega⟩, nqPerm_mem_PO _, Or.inr ?_⟩
+    simp [nq2Perm, hu]
+
+theorem card_fixO' : Nat.card fixO = 16 := by
+  have h : (fixO : Set (Equiv.Perm (Fin 24))) = Set.range koPerm := by
+    ext σ
+    simp only [SetLike.mem_coe, mem_fixO_iff, Set.mem_range]
+    exact ⟨fun ⟨t, ht⟩ => ⟨t, ht.symm⟩, fun ⟨t, ht⟩ => ⟨t, ht.symm⟩⟩
+  have hinj : Function.Injective koPerm := by
+    intro s t h
+    have h1 := koPerm_eight s
+    have h2 := koPerm_eight t
+    rw [h] at h1
+    exact Fin.ext (by omega)
+  rw [← SetLike.coe_sort_coe, h, Nat.card_range_of_injective hinj, Nat.card_eq_fintype_card,
+    Fintype.card_fin]
 
 end CFSG.Quasithin.RonanH143

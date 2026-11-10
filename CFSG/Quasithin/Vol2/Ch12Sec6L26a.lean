@@ -225,6 +225,10 @@ theorem vec_e (j : Fin 4) : c.vec (c.e j) = Pi.single j 1 := by
 theorem vec_eq_zero (a : ↥A) : c.vec a = 0 ↔ (a : G) ∈ Z := by
   rw [← c.ker, vec, ← toAdd_one, Multiplicative.toAdd.injective.eq_iff]
 
+theorem vec_pow (a : ↥A) (n : ℕ) : c.vec (a ^ n) = n • c.vec a := by
+  simp [vec]
+
+theorem natCast_val (x : ZMod 2) : ((x.val : ℕ) : ZMod 2) = x := ZMod.natCast_zmod_val x
 
 theorem sel_sum : ∀ w : Fin 4 → ZMod 2,
     ((if w 0 = 1 then Pi.single 0 1 else 0) + (if w 1 = 1 then Pi.single 1 1 else 0) +
@@ -439,6 +443,8 @@ theorem pair_xb_self (b : ↥B) : pair (h.xb b : G) b = 0 := by
   calc (h.xb b : G) * b * (h.xb b) * b = (h.xb b : G) * b * ((h.xb b : G) * b) := by group
     _ = 1 := hvb
 
+theorem pair_Z_mem {c : ↥A} (hc : (c : G) ∈ Z) {b : G} (hb : b ∈ B) : pair (c : G) b = 0 :=
+  h.pair_Z_left hc hb
 
 theorem pair_xb_symm (b b' : ↥B) : pair (h.xb b : G) b' = pair (h.xb b' : G) b := by
   obtain ⟨c, hc, hce⟩ : ∃ c ∈ Z, (h.xb (b * b') : G) = (h.xb b : G) * h.xb b' * c :=

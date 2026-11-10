@@ -21,6 +21,9 @@ theorem wAct_alpha
     (i : Fin 24) : wAct v0 ⟨alpha i, alpha_mem_Kv i⟩ = rowsEnd (genQuotMatrix i) :=
   eq_rowsEnd_of (wAct_alpha_qbW i)
 
+theorem supp_dC :
+    supp ((dC : C) : Fin 24 → ZMod 2) = Finset.univ.filter fun i : Fin 24 => (i : ℕ) < 8 :=
+  Certificates.certificate16022.1
 
 theorem kind_twelve : (genRecord 12).kind = .codeSign :=
   Certificates.certificate16022.2.1
@@ -28,6 +31,11 @@ theorem kind_twelve : (genRecord 12).kind = .codeSign :=
 theorem word_twelve : (genRecord 12).word = [4, 3] :=
   Certificates.certificate16022.2.2.1
 
+theorem kind_twentythree : (genRecord 23).kind = .xiSign :=
+  Certificates.certificate16022.2.2.2.1
+
+theorem word_twentythree : (genRecord 23).word = [0, 3] :=
+  Certificates.certificate16022.2.2.2.2.1
 
 theorem alpha12_eq : alpha 12 = QuotientGroup.mk (gO dC) := by
   unfold alpha
@@ -40,6 +48,17 @@ theorem alpha12_eq : alpha 12 = QuotientGroup.mk (gO dC) := by
     ← QuotientGroup.mk_mul, ← gO_add, dC, add_comm]
   rfl
 
+theorem alpha23_eq :
+    alpha 23 = QuotientGroup.mk (xiO * gO (bC 0)) := by
+  unfold alpha
+  rw [kind_twentythree]
+  change frameWordQ (genRecord 23).word = _
+  rw [word_twentythree]
+  change frameQ (0 : ℤ).toNat * (frameQ (3 : ℤ).toNat * 1) = _
+  rw [show (0 : ℤ).toNat = 0 from rfl, show (3 : ℤ).toNat = 3 from rfl, mul_one,
+    frameQ_eq (by norm_num : 0 < 15), frameGen_of_eq_zero (g := ⟨0, by norm_num⟩) rfl,
+    frameQ_sign (by norm_num) (by norm_num), ← QuotientGroup.mk_mul]
+  rfl
 
 @[expose] def rK :
     Kstab v0 := ⟨alpha 12, alpha_mem_Kv 12⟩

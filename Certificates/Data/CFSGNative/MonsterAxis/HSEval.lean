@@ -21,5 +21,12 @@ structure PGen where
     List PGen :=
   w.map fun g => ⟨g, prepGD c xiD p0 p0D g⟩
 
+@[expose] def applyP (c : Ctx) (p : PGen) (v : DVec) : DVec :=
+  match p.g with
+  | .tau => applyTau c v
+  | _ => applyGD c p.d v
+
+@[expose, noinline] def evalPrep (c : Ctx) (w : List PGen) (v : DVec) : DVec :=
+  w.foldl (fun v p => (applyP c p v).reduce) v
 
 end CFSG.Monster.AxisCount.Native

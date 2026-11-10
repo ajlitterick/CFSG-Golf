@@ -13,6 +13,29 @@ namespace CFSG.Sporadic.J4Schreier
 open CFSG.Sporadic.J4 CFSG.Sporadic.GLQ CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 open scoped Matrix
 
+theorem fam_J4_local_subgroup_order :
+    Nat.card K = 244823040 ∧ (∀ k ∈ K, (∀ n ∈ N, k * n * k⁻¹ = n) → k = 1) ∧
+      N ≤ H ∧ K ≤ H ∧ (N.subgroupOf H).Normal ∧ N ⊓ K = ⊥ ∧ N ⊔ K = H ∧
+      Nat.card H = 501397585920 ∧ CFSG.IsElementaryAbelian 2 N ∧ Nat.card N = 2048 := by
+  refine ⟨card_K, fun k hk hc => ?_, N_le_H, K_le_H, N_normal_in_H, by rw [inf_comm, K_inf_N],
+    N_sup_K, card_H, N_isElementaryAbelian, by rw [card_N]; norm_num⟩
+  have h1 : ρK ⟨k, hk⟩ = 1 := by
+    refine MulEquiv.ext fun n => Subtype.ext ?_
+    rw [ρK_apply, MulAut.one_apply]
+    exact hc n n.2
+  have := ρK_injective (h1.trans (map_one ρK).symm)
+  rwa [Subgroup.mk_eq_one] at this
+
+theorem R3E_J4_exact_local_eleven_dimensional_binary_action :
+    (∀ a < 2048, η (app11 xColumns a) = x * η a * x⁻¹ ∧ η (app11 yColumns a) = y * η a * y⁻¹) ∧
+      ∃ ρ : K →* GL (Fin 11) (ZMod 2),
+        (∀ (k : K) (a : Fin 11 → ZMod 2),
+          etaV ((ρ k : Matrix (Fin 11) (Fin 11) (ZMod 2)) *ᵥ a) = k * etaV a * (k : J)⁻¹) ∧
+        (ρ ⟨x, x_mem_K⟩ : Matrix (Fin 11) (Fin 11) (ZMod 2)) = colsMatrix xColumns ∧
+        (ρ ⟨y, y_mem_K⟩ : Matrix (Fin 11) (Fin 11) (ZMod 2)) = colsMatrix yColumns ∧
+        Function.Injective ρ :=
+  ⟨fun a _ => ⟨(x_conj_η a).symm, (y_conj_η a).symm⟩, ρGL, etaV_ρGL, ρGL_x, ρGL_y,
+    ρGL_injective⟩
 
 theorem QT_unique_J4_local_normal_module_irreducible :
     (∀ n ∈ N, n = 1 ∨ n ∈ conjOrbit K (η 1) ∨ n ∈ conjOrbit K (η 14)) ∧

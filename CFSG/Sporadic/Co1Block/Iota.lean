@@ -73,6 +73,10 @@ theorem stabPermEquiv_iotaC :
     rw [stabPermEquiv_apply]
     exact eq_of_eqA (cls_iotaH (k := 51) (by norm_num)) rep_u iota_facts.2.2.2.2.1)
 
+theorem clsHom_iotaQ
+    {k : ℕ} (hk : k < 8) : clsHom (iotaQ k) = qTuple.getD k 1 :=
+  eq_of_eqA (cls_iotaH (k := 36 + k) (by omega)) (repTuple_q.2 k (by rw [qTuple_length']; exact hk))
+    (iota_facts.2.2.2.2.2 k hk)
 
 theorem iotaA_eq :
     iotaA = stabPermEquiv.symm zP := by

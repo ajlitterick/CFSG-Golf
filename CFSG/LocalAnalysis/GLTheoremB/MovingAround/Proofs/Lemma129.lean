@@ -488,6 +488,15 @@ section Input1916
     ∀ B' : Subgroup (MulAut K), IsElemAbelian p B' → p ^ 2 ≤ Nat.card B' →
       IsWeaklyLocallyOTwoBalanced p 2 B'
 
+@[expose] def Input19_16 : Prop :=
+  ∀ (p k : ℕ), p.Prime → p ≠ 2 → 2 ≤ k →
+    ∀ (K : Type) [Group K] [Finite K], CFSG.Open.IsKGroup K → CFSG.Open.IsQuasisimple K →
+      GLAPPrimeCore p K = ⊥ →
+      ∀ B : Subgroup (MulAut K), IsElemAbelian p B → Nat.card B = p ^ k →
+        (IsLocallyOTwoBalanced p k B ∨ Alt1916 p k B ∨ Spor1916 p k B ∨ Lie1916 p k B) ∧
+        (¬ IsWeaklyLocallyOTwoBalanced p 2 B →
+          p = 3 ∧ ∃ m : ℕ, 0 < m ∧ Nonempty (K ≃* alternatingGroup (Fin (m * 3 ^ k + 4))))
+
 
 @[expose] def Input19_16Main : Prop :=
   ∀ (p k : ℕ), p.Prime → p ≠ 2 → 2 ≤ k →

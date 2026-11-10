@@ -72,6 +72,17 @@ theorem isRoot_toVec_iff {u : List ℤ} (hu : u.length = τ.rank) :
 
 theorem length_vadd (n : ℕ) (u v : List ℤ) : (vadd n u v).length = n := by simp [vadd, vofFn]
 
+theorem length_vsmul (n : ℕ) (c : ℤ) (v : List ℤ) : (vsmul n c v).length = n := by
+  simp [vsmul, vofFn]
+
+theorem length_lmulVec (n : ℕ) (A : List (List ℤ)) (v : List ℤ) : (lmulVec n A v).length = n := by
+  simp [lmulVec, vofFn]
+
+theorem length_orbL {n : ℕ} (M : List (List ℤ)) {b : List ℤ} (hb : b.length = n) (k : ℕ) :
+    (orbL n M b k).length = n := by
+  cases k with
+  | zero => exact hb
+  | succ k => exact length_lmulVec n M _
 
 theorem iform_toVec_eq_lform (hτ : SimplyLacedTag τ) {C : List (List ℤ)}
     (hC : toMat τ.rank C = τ.cartan) (u v : List ℤ) :

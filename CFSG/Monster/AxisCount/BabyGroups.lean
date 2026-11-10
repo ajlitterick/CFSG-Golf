@@ -26,6 +26,9 @@ theorem Jstar_inf_Nfr_le_Jstar : Jstar ⊓ Nfr ≤ Jstar := inf_le_left
 
 theorem Jstar_inf_Nfr'_le : Jstar ⊓ Nfr' ≤ Jstar ⊓ Nfr := inf_le_inf_left _ Nfr'_le_Nfr
 
+theorem Jstar_inf_Nfr'_le_Jstar : Jstar ⊓ Nfr' ≤ Jstar := inf_le_left
+
+theorem Jstar_inf_Nfr_le_Gvis : Jstar ⊓ Nfr ≤ Gvis := inf_le_left.trans Jstar_le_Gvis
 
 theorem hE0_mem_Jstar_inf_Nfr : hE0 ∈ Jstar ⊓ Nfr := ⟨hE0_mem_Jstar, hE0_mem_Nfr⟩
 

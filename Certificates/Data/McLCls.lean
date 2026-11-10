@@ -98,6 +98,7 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.SmallOd
 
 @[expose] def gT : Table := clsTbl 3
 
+@[expose] def rT : Table := compT 275 gT mclOuterTbl
 
 @[expose] def mGens : List Table := [clsTbl 4, clsTbl 5]
 
@@ -109,6 +110,50 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.SmallOd
 
 @[expose] def allTbls : List Table := eB ++ [gT] ++ mGens ++ sGens ++ cGens
 
+@[expose] def tblsOK : Bool := allTbls.all fun T => permOK 275 T && mclSift T
+
+@[expose] def normPred (bs : List Table) : Table → Bool :=
+  let sp := spanTabs 275 bs
+  fun T => bs.all fun b => sp.any (tblEq 275 (conjT 275 T (invT 275 T) b))
+
+@[expose] def commCount (bs : List Table) (L : Array Table) : Nat :=
+  (L.filter fun y => bs.all (commTT 275 y)).size
+
+@[expose] def centCnt : Nat := commCount eB (mulClosureH 275 cGens.toArray 50000).1
+
+@[expose] def normCnt : Nat := ((mulClosureH 275 cGens.toArray 50000).1.filter (normPred eB)).size
+
+@[expose] def stabOK (pts : List Nat) (T : Table) : Bool :=
+  (List.range 275).all fun i => pts.contains i == pts.contains (ap T i)
+
+@[expose] def kerCnt : Nat :=
+  ((mulClosureH 275 mGens.toArray 50000).1.filter fun T => fixesAll T oPts).size
+
+@[expose] def invComm (x y : Table) : Bool :=
+  tblEq 275 (compT 275 y y) (idT 275) && commTT 275 y x
+
+@[expose] def inConj (sp : List Table) (s x : Table) : Bool :=
+  sp.any fun w => tblEq 275 (compT 275 s w) (compT 275 x s)
+
+@[expose] def clsCheck (sp : List Table) (s : Table) (L : Array Table) : Bool :=
+  L.all fun x => !(tblEq 275 (compT 275 x x) (idT 275)) || sp.any (tblEq 275 x) ||
+    inConj sp s x || decide (L.toList.countP (invComm x) < 16)
+
+@[expose] def clsOK : Bool := clsCheck (spanTabs 275 eB) rT (mulClosureH 275 sGens.toArray 200).1
+
+@[expose] def invsBut (t : Table) (L : Array Table) : Array Table :=
+  L.filter fun y => tblEq 275 (compT 275 y y) (idT 275) && !(tblEq 275 y (idT 275)) &&
+    !(tblEq 275 y t)
+
+@[expose] def e8Check (t : Table) (L I : Array Table) : Bool :=
+  L.all fun x => !(selOK 275 [3, 5, 7] x) || I.all fun a => !(commTT 275 x a) ||
+    I.all fun b => !(commTT 275 x b) || !(commTT 275 a b) || tblEq 275 b a ||
+      tblEq 275 b (compT 275 a t)
+
+@[expose] def e8OK : Bool :=
+  let L := (mulClosureH 275 cGens.toArray 50000).1
+  let t := mclCentTbl 4
+  e8Check t L (invsBut t L)
 
 end CFSG.SectionRank.QTK.Insp443.McLCls
 

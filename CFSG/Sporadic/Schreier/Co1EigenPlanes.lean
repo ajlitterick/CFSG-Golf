@@ -234,6 +234,8 @@ theorem span_q :
 theorem q_mem_plane (j : Fin 12) : q j ∈ plane j :=
   Submodule.subset_span (Set.mem_insert _ _)
 
+theorem zq_mem_plane (j : Fin 12) : zM *ᵥ q j ∈ plane j :=
+  Submodule.subset_span (Set.mem_insert_of_mem _ rfl)
 
 theorem zM_mulVec_mem_plane
     {j : Fin 12} {v : Vec24} (hv : v ∈ plane j) :

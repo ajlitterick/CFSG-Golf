@@ -18,6 +18,7 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 
 @[expose] def s0BaseFin : List (Fin 3850) := [0]
 
+@[expose] def s0BaseArr : Array ℕ := (s0BaseFin.map Fin.val).toArray
 
 @[expose] def s0Words : Array (List ℤ) := #[[], [], [], []]
 

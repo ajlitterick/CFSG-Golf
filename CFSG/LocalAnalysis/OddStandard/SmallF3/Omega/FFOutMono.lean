@@ -221,6 +221,9 @@ theorem ffM_mem_ffBS_iff (hQ : Q.Nondegenerate) (fr : NFrame Q (Fin 6) 1)
   · rintro ⟨rfl, hJ⟩
     exact (mem_ffBS_iff hQ fr).mpr ⟨J, hJ, rfl⟩
 
+theorem ffBS_le_ffPS (hQ : Q.Nondegenerate) (fr : NFrame Q (Fin 6) 1) :
+    ffBS hQ fr ≤ ffPS hQ fr :=
+  Subgroup.map_mono (ffB1_le_ffP1 hQ fr)
 
 private theorem ffOutMono_conj_mem_ffBS (hQ : Q.Nondegenerate) (fr : NFrame Q (Fin 6) 1)
     (σ : Equiv.Perm (Fin 6)) (K : Finset (Fin 6)) {g : ProjSim Q} (hg : g ∈ ffBS hQ fr) :

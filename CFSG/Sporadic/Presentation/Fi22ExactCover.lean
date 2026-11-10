@@ -82,6 +82,18 @@ theorem evalWord_gW (n : ℕ) (c : List (Fin 6)) :
     rw [List.flatMap_cons, evalWord_append', evalWord_xW, ih]
     simp [cprod]
 
+theorem letters_xW (k : ℕ) : ∀ y ∈ xW k, y < 2 * gc := by
+  intro y hy
+  simp only [xW, List.mem_append, List.mem_replicate, List.mem_cons] at hy
+  rw [gc_eq]
+  omega
+
+theorem letters_gW (n : ℕ) (c : List (Fin 6)) : ∀ y ∈ gW n c, y < 2 * gc := by
+  intro y hy
+  simp only [gW, List.mem_append, List.mem_replicate, List.mem_flatMap] at hy
+  rcases hy with ⟨-, rfl⟩ | ⟨l, -, hl⟩
+  · rw [gc_eq]; norm_num
+  · exact letters_xW _ y hl
 
 theorem conjEq_of_walk {pp : Conj × Conj} (hpp : pp ∈ allPairs) :
     (gG pp.1.1 pp.1.2)⁻¹ * aG * gG pp.1.1 pp.1.2 =
@@ -336,11 +348,95 @@ theorem lift_Pw :
   rw [← FreeGroup.mul_mk, map_mul, lift_Qw, lift_xhat (k := 0) (by norm_num), Pn_eleven]
   simp only [mul_assoc]
 
+theorem Qprod_eq :
+    xG 12 * xG 11 * xG 10 * xG 9 * xG 8 * xG 7 * xG 6 * xG 5 * xG 4 * xG 3 =
+    aG * bG ^ 2 := by
+  have h := Pn_eleven
+  have hb2 : (bG ^ 11)⁻¹ = bG ^ 2 := by
+    apply inv_eq_of_mul_eq_one_right
+    rw [← pow_add]; exact rel_b13
+  rw [Pn_eleven_eq, hb2, xG_zero] at h
+  calc xG 12 * xG 11 * xG 10 * xG 9 * xG 8 * xG 7 * xG 6 * xG 5 * xG 4 * xG 3
+      = (aG * aG) * (xG 12 * xG 11 * xG 10 * xG 9 * xG 8 * xG 7 * xG 6 * xG 5 * xG 4 * xG 3) := by
+        rw [rel_a2, one_mul]
+    _ = aG * (aG * xG 12 * xG 11 * xG 10 * xG 9 * xG 8 * xG 7 * xG 6 * xG 5 * xG 4 * xG 3) := by
+        simp only [mul_assoc]
+    _ = aG * bG ^ 2 := by rw [← h]
 
 theorem thetaHom_g1 :
     thetaHom (PresentedGroup.mk _ (FreeGroup.mk g1w)) = 1 := by
   rw [thetaHom_mk, g1w, mk_flatten_replicate, map_pow, lift_Pw, Pn_eleven_eq, inv_pow, ← pow_mul,
     show 11 * 91 = 13 * 77 by norm_num, pow_mul, rel_b13, one_pow, inv_one]
 
+theorem thetaHom_g2 :
+    thetaHom (PresentedGroup.mk _ (FreeGroup.mk g2w)) = 1 := by
+  rw [thetaHom_mk, g2w, mk_flatten_replicate, map_pow, lift_Qw, Qprod_eq]
+  exact rel_ab2_21
+
+theorem lift_sign_mk {m : ℕ} (u : List (Fin m × Bool)) :
+    FreeGroup.lift (fun _ : Fin m => Multiplicative.ofAdd (1 : ZMod 2)) (FreeGroup.mk u) =
+      Multiplicative.ofAdd (u.length : ZMod 2) := by
+  induction u with
+  | nil => rfl
+  | cons x u ih =>
+    obtain ⟨i, b⟩ := x
+    have h : FreeGroup.mk ((i, b) :: u) = FreeGroup.mk [(i, b)] * FreeGroup.mk u := rfl
+    rw [h, map_mul, ih]
+    cases b
+    · have h1 : FreeGroup.mk [(i, false)] = (FreeGroup.of i)⁻¹ := rfl
+      rw [h1, map_inv, FreeGroup.lift_apply_of, List.length_cons, ← ofAdd_neg, ← ofAdd_add]
+      congr 1
+      push_cast
+      have : (-1 : ZMod 2) = 1 := by decide
+      rw [this, add_comm]
+    · have h1 : FreeGroup.mk [(i, true)] = FreeGroup.of i := rfl
+      rw [h1, FreeGroup.lift_apply_of, List.length_cons, ← ofAdd_add]
+      congr 1
+      push_cast
+      rw [add_comm]
+
+theorem evenRels : wsF.all (fun w => w.length % 2 == 0) = true := by
+  exact Certificates.certificate9108.2.2.2.2.1
+
+noncomputable def signHom : PG 6 wsF →* Multiplicative (ZMod 2) :=
+  PresentedGroup.toGroup (f := fun _ : Fin 6 => Multiplicative.ofAdd (1 : ZMod 2)) (by
+    intro r hr
+    simp only [Set.mem_ofPred_eq, List.mem_map] at hr
+    obtain ⟨w, hw, rfl⟩ := hr
+    rw [lift_sign_mk]
+    have h := (List.all_eq_true.mp evenRels) w hw
+    simp only [beq_iff_eq] at h
+    have : (w.length : ZMod 2) = 0 := by
+      rw [ZMod.natCast_eq_zero_iff]; omega
+    rw [this]; rfl)
+
+theorem signHom_mk (u : List (Fin 6 × Bool)) :
+    signHom (PresentedGroup.mk _ (FreeGroup.mk u)) = Multiplicative.ofAdd (u.length : ZMod 2) := by
+  unfold signHom
+  rw [toGroup_mk, lift_sign_mk]
+
+theorem len_g1w : g1w.length = 11011 := by
+  exact Certificates.certificate9108.2.2.2.2.2.1
+theorem len_g2w : g2w.length = 2520 := by
+  exact Certificates.certificate9108.2.2.2.2.2.2
+
+theorem signHom_g1 :
+    signHom (PresentedGroup.mk _ (FreeGroup.mk g1w)) ≠ 1 := by
+  rw [signHom_mk, len_g1w]; decide
+
+theorem signHom_g2 :
+    signHom (PresentedGroup.mk _ (FreeGroup.mk g2w)) = 1 := by
+  rw [signHom_mk, len_g2w]; decide
+
+theorem twelve_mul_card_le
+    [Finite (PG 6 wsF)]
+    (h6 : 6 ∣ orderOf (PresentedGroup.mk {r : FreeGroup (Fin 6) | r ∈ wsF.map FreeGroup.mk}
+      (FreeGroup.mk g1w)))
+    (h2 : 2 ∣ orderOf (PresentedGroup.mk {r : FreeGroup (Fin 6) | r ∈ wsF.map FreeGroup.mk}
+      (FreeGroup.mk g2w))) :
+    Finite GG ∧ 12 * Nat.card GG ≤ Nat.card (PG 6 wsF) := by
+  have hk := twelve_le_card_ker thetaHom signHom thetaHom_g1 thetaHom_g2 signHom_g1 signHom_g2 h6 h2
+  exact ⟨Finite.of_surjective _ thetaHom_surjective,
+    mul_card_le_of_surjective thetaHom thetaHom_surjective hk⟩
 
 end CFSG.Sporadic.Presentation.Fi22Exact

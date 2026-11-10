@@ -29,6 +29,9 @@ theorem coe_genK_letter (l : ℕ × Bool) (h : l.1 < 2) :
   have : i = 0 ∨ i = 1 := by omega
   rcases this with rfl | rfl <;> cases b <;> rfl
 
+theorem genRows_length (i : ℕ) (b : Bool) : (genRows i b).length = 8 := by
+  unfold genRows
+  split_ifs <;> rfl
 
 theorem wordRows_length_aux (w : List (ℕ × Bool)) (acc : List (List ℕ)) (h : acc.length = 8) :
     (w.foldl (fun acc l => lmul acc (genRows l.1 l.2)) acc).length = 8 := by
@@ -156,6 +159,43 @@ theorem three_four_dvd_card_KThree : 3 ^ 4 ∣ Nat.card KThree := by
   rw [← hcard, show (3 : ℕ) ^ 4 = 3 ^ 2 * 3 ^ 2 by norm_num]
   exact Nat.mul_dvd_mul h9 (by norm_num)
 
+theorem three_pow_thirteen_dvd :
+    3 ^ 13 ∣ Nat.card NativeSporadic.B := by
+  have := finite_B
+  have h1 : Nat.card rhoThree.ker * Nat.card rhoThree.range = Nat.card LThree := by
+    rw [← Subgroup.index_ker, Subgroup.card_mul_index]
+  have h2 : 3 ^ 9 ∣ Nat.card rhoThree.ker := by
+    have := Subgroup.card_dvd_of_le QThree_le_ker
+    rwa [Nat.card_congr (Subgroup.subgroupOfEquivOfLe QThree_le_LThree).toEquiv,
+      card_QThree] at this
+  have h3 : 3 ^ 4 ∣ Nat.card rhoThree.range := by
+    rw [range_rhoThree]
+    exact three_four_dvd_card_KThree
+  have hL : 3 ^ 13 ∣ Nat.card LThree := by
+    rw [← h1, show (3 : ℕ) ^ 13 = 3 ^ 9 * 3 ^ 4 by norm_num]
+    exact Nat.mul_dvd_mul h2 h3
+  exact hL.trans (Subgroup.card_subgroup_dvd_card LThree)
+
+theorem exists_explicitBinary :
+    ∃ β : Cbar →* GL (Fin 4370) (ZMod 2), IsExplicitBinary β :=
+  ⟨_, betaS_explicit⟩
+
+theorem two_pow_41_dvd :
+    2 ^ 41 ∣ Nat.card NativeSporadic.B := by
+  obtain ⟨β, hβ⟩ := exists_explicitBinary
+  obtain ⟨ι, -, hιβ, -⟩ := iota_facts hβ
+  exact (pinned_B_max2_full_native_centralizer_and_two_part hβ ι hιβ).2.2.1
+
+theorem small_primes_dvd :
+    2 * 3 * 5 * 11 * 23 ∣ Nat.card NativeSporadic.B := by
+  obtain ⟨β, hβ⟩ := exists_explicitBinary
+  obtain ⟨-, -, -, -, -, -, -, -, h⟩ := pinned_B_explicit_embedding hβ
+  exact h
+
+theorem five_pow_6_dvd :
+    5 ^ 6 ∣ Nat.card NativeSporadic.B := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, h⟩ := pinned_B_five_power_six_subgroup
+  exact h
 
 theorem six_primes_dvd :
     7 * 13 * 17 * 19 * 31 * 47 ∣ Nat.card NativeSporadic.B := by

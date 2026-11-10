@@ -132,6 +132,17 @@ theorem phiP3_snd
     (g : Pc 2) : (phiP3 g).2 = rho5 (Subgroup.inclusion Pc2_le_K3 g) := by
   rw [phiP3_apply, psiK3_apply]
 
+theorem phiP3_fst_apply
+    (g : Pc 2) (e : E3) :
+    ((Additive.toMul ((phiP3 g).1 (Additive.ofMul e)) : E3) : Dfull) =
+      (g : Dfull) * e * (g : Dfull)⁻¹ := by
+  rw [phiP3_fst, linConj_apply, Subgroup.coe_inclusion]
+
+theorem phiP3_snd_apply
+    (g : Pc 2) (C' : Five) :
+    (((phiP3 g).2 C' : Five) : Set ParGeom) =
+      (k3S (Subgroup.inclusion Pc2_le_K3 g) • ·) '' (C' : Set ParGeom) := by
+  rw [phiP3_snd, coe_rho5, k3_smul_set]
 
 theorem exists_Pc2_of_K3
     (k : K3) :
@@ -158,6 +169,44 @@ theorem phiP3_surjective :
     _ = psiK3 r * psiK3 k := (congrArg psiK3 hp).trans (map_mul psiK3 r k)
     _ = psiK3 k := (congrArg (· * psiK3 k) (MonoidHom.mem_ker.1 hrK)).trans (one_mul _)
 
+theorem mem_ker_phiP3_iff
+    (g : Pc 2) : g ∈ phiP3.ker ↔ (g : Dfull) ∈ R3 := by
+  rw [MonoidHom.mem_ker, phiP3_apply, ← MonoidHom.mem_ker, ker_psiK3, Subgroup.mem_subgroupOf,
+    Subgroup.coe_inclusion]
+
+theorem Nc_two_subgroupOf :
+    (Nc 2).subgroupOf (Pc 2) = CFSG.pCore 2 (Pc 2) :=
+  Subgroup.comap_map_eq_self_of_injective Subtype.coe_injective _
+
+theorem ker_phiP3_eq :
+    phiP3.ker = (Nc 2).subgroupOf (Pc 2) := by
+  ext g
+  rw [mem_ker_phiP3_iff, Subgroup.mem_subgroupOf, Nc_two, Subgroup.mem_inf]
+  exact ⟨fun h => ⟨h, mem_centralizer_of_Pc2 g⟩, fun h => h.1⟩
+
+theorem ker_phiP3 :
+    phiP3.ker = CFSG.pCore 2 (Pc 2) := ker_phiP3_eq.trans Nc_two_subgroupOf
+
+@[expose] def p3QuotProd :
+    Pc 2 ⧸ CFSG.pCore 2 (Pc 2) ≃* (Additive E3 ≃ₗ[ZMod 2] Additive E3) × Equiv.Perm Five :=
+  (QuotientGroup.quotientMulEquivOfEq ker_phiP3.symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective phiP3 phiP3_surjective)
+
+theorem p3QuotProd_mk
+    (g : Pc 2) : p3QuotProd (g : Pc 2 ⧸ CFSG.pCore 2 (Pc 2)) = phiP3 g := rfl
+
+theorem comap_mk_comap_p3QuotProd
+    (H : Subgroup ((Additive E3 ≃ₗ[ZMod 2] Additive E3) × Equiv.Perm Five)) :
+    (H.comap p3QuotProd.toMonoidHom).comap (QuotientGroup.mk' (CFSG.pCore 2 (Pc 2))) =
+      H.comap phiP3 := by
+  have h : p3QuotProd.toMonoidHom.comp (QuotientGroup.mk' (CFSG.pCore 2 (Pc 2))) = phiP3 :=
+    MonoidHom.ext fun g => p3QuotProd_mk g
+  rw [Subgroup.comap_comap, h]
+
+theorem nonempty_prod_equiv :
+    Nonempty ((Additive E3 ≃ₗ[ZMod 2] Additive E3) × Equiv.Perm Five ≃*
+      GL (Fin 3) (ZMod 2) × Equiv.Perm (Fin 5)) :=
+  ⟨glE3Equiv.prodCongr (Equiv.permCongrHom (Finite.equivFinOfCardEq natCard_orbit_subgeom))⟩
 
 theorem zpowers_xhat_le_E3 : Subgroup.zpowers xhat ≤ E3 := Subgroup.zpowers_le.2 xhat_mem_E3
 
@@ -197,5 +246,30 @@ theorem mem_Pc3_iff
     Subgroup.coe_inclusion, Pc_three, Subgroup.mem_inf]
   exact ⟨fun h => h.1, fun h => ⟨h, mem_centralizer_of_Pc2 g⟩⟩
 
+theorem Pc0_subgroupOf :
+    (Pc 0).subgroupOf (Pc 2) =
+    ((stabilizer (Additive E3 ≃ₗ[ZMod 2] Additive E3) ptE1).prod ⊤).comap phiP3 := by
+  ext g
+  refine Subgroup.mem_subgroupOf.trans ((mem_Pc0_iff g).trans ?_)
+  refine Iff.trans ?_ (Subgroup.mem_comap.trans Subgroup.mem_prod).symm
+  exact ⟨fun h => ⟨mem_stabilizer_iff.2 h, Subgroup.mem_top _⟩, fun h => mem_stabilizer_iff.1 h.1⟩
+
+theorem Pc1_subgroupOf :
+    (Pc 1).subgroupOf (Pc 2) =
+    ((stabilizer (Additive E3 ≃ₗ[ZMod 2] Additive E3) lnE2).prod ⊤).comap phiP3 := by
+  ext g
+  refine Subgroup.mem_subgroupOf.trans ((mem_Pc1_iff g).trans ?_)
+  refine Iff.trans ?_ (Subgroup.mem_comap.trans Subgroup.mem_prod).symm
+  exact ⟨fun h => ⟨mem_stabilizer_iff.2 h, Subgroup.mem_top _⟩, fun h => mem_stabilizer_iff.1 h.1⟩
+
+theorem Pc3_subgroupOf :
+    (Pc 3).subgroupOf (Pc 2) =
+    ((⊤ : Subgroup (Additive E3 ≃ₗ[ZMod 2] Additive E3)).prod
+      (stabilizer (Equiv.Perm Five) fiveC)).comap phiP3 := by
+  ext g
+  refine Subgroup.mem_subgroupOf.trans ((mem_Pc3_iff g).trans ?_)
+  refine Iff.trans ?_ (Subgroup.mem_comap.trans Subgroup.mem_prod).symm
+  exact ⟨fun h => ⟨Subgroup.mem_top _, mem_stabilizer_iff.2 h⟩,
+    fun h => mem_stabilizer_iff.1 h.2⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

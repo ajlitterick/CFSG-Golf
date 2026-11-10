@@ -11,6 +11,8 @@ namespace CertificateChecks.KernelD43
 
 open CFSG.KC.D43
 
+theorem conj_all : (List.range 8).all (fun k => conjOK RL k (conjW.getD k [])) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelD43
 

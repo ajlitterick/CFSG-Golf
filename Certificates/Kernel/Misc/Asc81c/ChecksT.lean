@@ -21,6 +21,9 @@ theorem candL3_ok : candL3 = true := by decide +kernel
 
 #kc_each rowL3 0 24
 
+theorem negT : (!pre1L 4 (x0c 4) [1, 2, 4, 8] &&
+    !pairTL 4 (x0c 4) (decC 4 (WT 0)) (decC 4 (WT 1)) 1477) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelAsc81c
 

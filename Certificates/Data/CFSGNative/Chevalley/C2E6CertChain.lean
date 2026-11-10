@@ -30,6 +30,26 @@ structure Forest where
 
 instance : Inhabited Forest := ⟨⟨#[], #[], #[], fun _ => 0⟩⟩
 
+def bfs (T : Array (Array Vec)) (root : Vec) : Forest := Id.run do
+  let mut pts : Array Vec := #[root]
+  let mut par : Array Nat := #[0]
+  let mut lab : Array Nat := #[0]
+  let mut tbl : Std.HashMap Vec Nat := (∅ : Std.HashMap Vec Nat).insert root 0
+  let mut h := 0
+  while h < pts.size do
+    let u := pts[h]!
+    for l in [0:T.size] do
+      let w := applyT T[l]! u
+      if !tbl.contains w then
+        tbl := tbl.insert w pts.size
+        pts := pts.push w
+        par := par.push h
+        lab := lab.push l
+    h := h + 1
+  return ⟨pts, par, lab, fun v => tbl.getD v 0⟩
+
+@[expose] def forestOfOrbit (c : OrbitCert) : Forest :=
+  ⟨c.pts, c.par, c.gen.map fun g => if g then 1 else 0, c.idx⟩
 
 @[expose] def forestAt (T : Array (Array Vec)) (f : Forest) (root : Vec) (k : Nat) : Bool :=
   let u := f.pts.getD k (0, 0)
@@ -57,6 +77,9 @@ structure LevelData where
 
 instance : Inhabited LevelData := ⟨⟨default, #[], #[], #[], (0, 0)⟩⟩
 
+@[expose] def iterVec (T : Array Vec) : Nat → Vec → List Vec
+  | 0, _ => []
+  | n + 1, u => u :: iterVec T n (applyT T u)
 
 structure Prep where
   vals : Array Mat
@@ -65,6 +88,11 @@ structure Prep where
   b : Vec
   xOrb : Array Vec
 
+@[expose] def prepare (A B : Mat) (d : ChainData) : Prep :=
+  let Mx := wordMat A B d.xw
+  let TMx := mkTbl Mx
+  let b := applyT (mkTbl (wordMat A B d.d0)) e7
+  ⟨slpRun #[A, B] d.prog, Mx, TMx, b, (iterVec TMx d.p b).toArray⟩
 
 @[expose] def betaN (prep : Prep) (d : ChainData) (i : Nat) : Vec :=
   prep.xOrb.getD (d.e.getD i 0) (0, 0)
@@ -81,6 +109,9 @@ structure Prep where
 @[expose] def invTbls (vals : Array Mat) (regs : List (Nat × Nat)) : Array (Array Vec) :=
   (regs.map fun r => mkTbl (vals.getD r.2 one)).toArray
 
+def buildLevels (c : OrbitCert) (prep : Prep) (d : ChainData) : Array Forest :=
+  (List.range d.p).toArray.map fun i =>
+    if i == 0 then forestOfOrbit c else bfs (fwdTbls prep.vals (d.regs.getD i [])) (betaN prep d i)
 
 @[expose] def levelAt (A B : Mat) (prep : Prep) (d : ChainData) (lv : Array Forest) (i : Nat) :
     LevelData :=
@@ -125,10 +156,43 @@ structure Prep where
     d.e.all (fun j => j < d.p) && d.ks.all (fun k => 0 < k && k < d.p) &&
     d.regs.getD 0 [] == [(0, 0), (1, 2)]
 
+@[expose] def profList (rho : Vec → Vec → Nat) (Mx : Mat) (b : Vec) (ks : List Nat) :
+    List (Array Vec × Nat) :=
+  ks.map fun k => let T := mkTbl (pow Mx k); (T, rho b (applyT T b))
+
+@[expose] def profMatch (rho : Vec → Vec → Nat) (prof : List (Array Vec × Nat)) (u : Vec) : Bool :=
+  prof.all fun q => rho u (applyT q.1 u) == q.2
 
 @[expose] def tinv (L : LevelData) (k : Nat) (u : Vec) : Vec :=
   applyT L.dT (walkUp L.forest.par L.forest.lab L.inv k u)
 
+@[expose] def siftGo (ld : List LevelData) : Nat → List Vec → Bool
+  | _, [] => true
+  | i, y :: rest =>
+    let L := ld.getD i default
+    let k := L.forest.idx y
+    k < L.forest.pts.size && L.forest.pts.getD k (0, 0) == y &&
+      siftGo ld (i + 1) (rest.map (tinv L k))
+termination_by _ l => l.length
+decreasing_by simp
+
+@[expose] def siftOK (TMx : Array Vec) (ld : List LevelData) (e : List Nat) (p : Nat) (u : Vec) :
+    Bool :=
+  let xs := (iterVec TMx p u).toArray
+  siftGo ld 0 (e.map fun j => xs.getD j (0, 0))
+
+@[expose] def scanCounts (q1 q2 : Nat → Bool) : Nat → Nat × Nat → Nat × Nat
+  | 0, acc => acc
+  | j + 1, acc =>
+    scanCounts q1 q2 j
+      (if q1 j then (acc.1 + 1, if q2 j then acc.2 + 1 else acc.2) else acc)
+
+@[expose] def scanRun (codes bits : Nat) (c : OrbitCert) (prep : Prep) (ld : List LevelData)
+    (d : ChainData) : Nat × Nat :=
+  let rho := rhoT (mkTbl (formMat bits)) (brOut codes) c.mem
+  let prof := profList rho prep.Mx prep.b d.ks
+  scanCounts (fun i => profMatch rho prof (c.pts.getD i (0, 0)))
+    (fun i => siftOK prep.TMx ld d.e d.p (c.pts.getD i (0, 0))) c.pts.size (0, 0)
 
 @[expose] def chainCheck (A B : Mat) (chunks : Nat) (prep : Prep) (lv : Array Forest)
     (d : ChainData) : Bool :=
@@ -137,5 +201,28 @@ structure Prep where
      (List.range d.p).all (fun i => levelOK chunks prep d (ld.getD i default) i) &&
        prodOK ld d && LOK prep d)
 
+@[expose] def scanCount (codes bits : Nat) (c : OrbitCert) (prep : Prep) (ld : List LevelData)
+    (d : ChainData) : Nat :=
+  (scanRun codes bits c prep ld d).1
+
+@[expose] def siftCount (codes bits : Nat) (c : OrbitCert) (prep : Prep) (ld : List LevelData)
+    (d : ChainData) : Nat :=
+  (scanRun codes bits c prep ld d).2
+
+@[expose] def chainScan (codes bits : Nat) (A B : Mat) (chunks : Nat) (c : OrbitCert) (prep : Prep)
+    (lv : Array Forest) (d : ChainData) : Bool :=
+  chainCheck A B chunks prep lv d &&
+    (let r := scanRun codes bits c prep (mkLevelData A B prep d lv) d
+     r.1 == d.sizeS && r.2 * d.Lvals.length == d.N)
+
+@[expose] def certCheck (codes bits : Nat) (A B : Mat) (chunks : Nat) (d : ChainData) : Bool :=
+  withOrbit A B chunks fun c =>
+    let prep := prepare A B d
+    chainScan codes bits A B chunks c prep (buildLevels c prep d) d
+
+@[expose] def certCheckAB (codes bits : Nat) (fwd : List (List Nat)) (iA iB chunks : Nat)
+    (d : ChainData) : Bool :=
+  let AB := genAB codes bits fwd iA iB
+  certCheck codes bits AB.1 AB.2 chunks d
 
 end CFSG.Monster.Existence.StdOdd.CertNative

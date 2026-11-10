@@ -79,6 +79,9 @@ theorem trace_resV2048_ne_zero_of_label
   norm_num at hsum
   linarith
 
+theorem coe_resV2048_apply
+    {h : Shat} (hh : (h : Dfull) ∈ Jhat) (v : V2048) :
+    ((resV2048 hh v : V2048) : Vst) = rhoV h v := rfl
 
 theorem resE_mul_resE_inv (e : Ehat) : resE e * resE e⁻¹ = 1 := by
   refine LinearMap.ext fun v => Subtype.ext ?_

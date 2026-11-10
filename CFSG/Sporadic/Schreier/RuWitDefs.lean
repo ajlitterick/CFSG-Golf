@@ -42,5 +42,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
 
 @[expose] def ruYp (p : ℕ) : Equiv.Perm (Fin 4060) := evalSigned ruLGens (ruObsRec p).1
 
+@[expose] def ruObsConj (p : ℕ) : ℕ := (ruObsRec p).2
 
 end CFSG.Sporadic.RuSchreier

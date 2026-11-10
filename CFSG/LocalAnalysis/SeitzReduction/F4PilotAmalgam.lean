@@ -106,6 +106,17 @@ theorem eq_pair_zero_three {J : Finset (Fin (Tag.rank .F4))} (hJ : J.card ≤ 2)
     exact hJ
   exact (Finset.eq_of_subset_of_card_le hsub hcard).symm
 
+theorem amalgamRoots_subset_c3LeviRoots_or_b3LeviRoots_iff {J : Finset (Fin (Tag.rank .F4))}
+    (hJ : J.card ≤ 2) :
+    amalgamRoots J ⊆ c3LeviRoots ∨ amalgamRoots J ⊆ b3LeviRoots ↔ J ≠ {0, 3} := by
+  rw [amalgamRoots_subset_c3LeviRoots_iff, amalgamRoots_subset_b3LeviRoots_iff]
+  constructor
+  · rintro (h | h) rfl
+    · exact h (by decide)
+    · exact h (by decide)
+  · intro hne
+    by_contra! h
+    exact hne (eq_pair_zero_three hJ h.1 h.2)
 
 noncomputable abbrev w1242 : WeylGroup .F4 := simple .F4 1 * simple .F4 0
 
@@ -116,9 +127,27 @@ theorem w1242_smul_rootR : w1242 • rootR = root1242 := by
 theorem wordProd_eq_w1242 : (coxeterSystem .F4).wordProd [1, 0] = w1242 := by
   simp only [CoxeterSystem.wordProd_cons, CoxeterSystem.wordProd_nil, mul_one]
 
+theorem rootCertificate_root_val_eq_single :
+    ∀ i : Fin (Tag.rank .F4), ∀ j : Fin (Tag.rank .F4),
+      Tag.F4.rootCertificate.root (i : ℕ) j = (Pi.single i 1 : Fin (Tag.rank .F4) → ℤ) j := by
+  decide +kernel
+
+theorem wordPos_zero_one_check : ∀ i : Fin (Tag.rank .F4), ∀ j : Fin (Tag.rank .F4),
+    Tag.F4.rootCertificate.root (wordPos Tag.F4.rootCertificate [0, 1] (i : ℕ)) j =
+      reflect .F4 1 (reflect .F4 0 (Pi.single i 1)) j := by
+  decide +kernel
 
 section Weyl
 
+
+theorem weylOfWord_eq_w1242 : weylOfWord .F4 [0, 1] = w1242 := by
+  refine ext_single fun i => ?_
+  have hi : (Pi.single i 1 : Fin (Tag.rank .F4) → ℤ) = Tag.F4.rootCertificate.root (i : ℕ) :=
+    funext fun j => (rootCertificate_root_val_eq_single i j).symm
+  have hlt : (i : ℕ) < 48 := lt_of_lt_of_le i.isLt (by decide)
+  rw [hi, weylOfWord_smul_root_of_wordPos hlt rfl, ← hi, mul_smul, simple_smul,
+    simple_smul]
+  exact funext (wordPos_zero_one_check i)
 
 theorem image_smul_orthRoots (w : WeylGroup .F4) (θ : Fin (Tag.rank .F4) → ℤ) :
     (fun α => w • α) '' orthRoots θ = orthRoots (w • θ) := by
@@ -193,6 +222,24 @@ theorem map_conj_n1242_C3Levi :
     image_w1242_c3LeviRoots]
   rfl
 
+theorem map_conj_n1242_rootSubgroup_sup :
+    (rootSubgroup .F4 K rootR ⊔ rootSubgroup .F4 K (-rootR)).map
+        (MulAut.conj (n1242 K : ModGL .F4 K)).toMonoidHom =
+      rootSubgroup .F4 K root1242 ⊔ rootSubgroup .F4 K (-root1242) := by
+  rw [Subgroup.map_sup, map_conj_n1242_rootSubgroup isRoot_rootR,
+    map_conj_n1242_rootSubgroup (IsRoot.neg isRoot_rootR), smul_neg, w1242_smul_rootR]
+
+theorem map_conj_n1242_rootSL2 :
+    ((rootSubgroup .F4 K rootR ⊔ rootSubgroup .F4 K (-rootR)).subgroupOf
+        (adjointGroup .F4 K)).map (MulAut.conj (n1242 K)).toMonoidHom =
+      (rootSubgroup .F4 K root1242 ⊔ rootSubgroup .F4 K (-root1242)).subgroupOf
+        (adjointGroup .F4 K) := by
+  have hle : ∀ γ : Fin (Tag.rank .F4) → ℤ,
+      rootSubgroup .F4 K γ ⊔ rootSubgroup .F4 K (-γ) ≤ adjointGroup .F4 K :=
+    fun γ => sup_le (rootSubgroup_le_adjointGroup γ) (rootSubgroup_le_adjointGroup (-γ))
+  apply Subgroup.map_injective (adjointGroup .F4 K).subtype_injective
+  rw [map_conj_n1242_map_subtype, subgroupOf_map_subtype, subgroupOf_map_subtype,
+    inf_of_le_left (hle _), inf_of_le_left (hle _), map_conj_n1242_rootSubgroup_sup]
 
 end Rep
 
@@ -278,6 +325,53 @@ theorem levi_le_C3Levi1242 {J : Finset (Fin (Tag.rank .F4))} (h : J ⊆ {0, 3}) 
   rw [levi_f4Datum_eq]
   exact Subgroup.subgroupOf_mono _ (rootSpan_amalgamRoots_le_orthRoots_root1242 h)
 
+theorem levi_le_map_conj_n1242_C3Levi {J : Finset (Fin (Tag.rank .F4))} (h : J ⊆ {0, 3}) :
+    CFSG.LieType.CurtisTits.levi (f4Datum K).rootGroup J ≤
+      (C3Levi K).map (MulAut.conj (n1242 K)).toMonoidHom := by
+  rw [map_conj_n1242_C3Levi]
+  exact levi_le_C3Levi1242 h
+
+theorem map_conj_n1242_rootGroup {γ : Fin (Tag.rank .F4) → ℤ} (hγ : IsRoot .F4 γ) :
+    ((f4Datum K).rootGroup γ).map (MulAut.conj (n1242 K)).toMonoidHom =
+      (f4Datum K).rootGroup (w1242 • γ) := by
+  apply Subgroup.map_injective (adjointGroup .F4 K).subtype_injective
+  rw [map_conj_n1242_map_subtype, map_subtype_rootGroup hγ,
+    map_subtype_rootGroup (IsRoot.smul hγ w1242), map_conj_n1242_rootSubgroup hγ]
+
+theorem map_conj_n1242_levi (J : Finset (Fin (Tag.rank .F4))) :
+    (CFSG.LieType.CurtisTits.levi (f4Datum K).rootGroup J).map
+        (MulAut.conj (n1242 K)).toMonoidHom =
+      (rootSpan .F4 K ((fun α => w1242 • α) '' amalgamRoots J)).subgroupOf (adjointGroup .F4 K) := by
+  rw [levi_f4Datum_eq, map_conj_n1242_subgroupOf_rootSpan fun γ hγ => isRoot_of_mem_amalgamRoots hγ]
+
+theorem image_w1242_amalgamRoots_one_three :
+    (fun α => w1242 • α) '' amalgamRoots {1, 3} = amalgamRoots {0, 3} := by
+  have h1 : w1242 • (Pi.single 1 1 : Fin (Tag.rank .F4) → ℤ) = Pi.single 0 1 := by
+    rw [mul_smul, simple_smul, simple_smul]
+    exact List.ofFn_injective (by decide +kernel)
+  have h3 : w1242 • (Pi.single 3 1 : Fin (Tag.rank .F4) → ℤ) = Pi.single 3 1 := by
+    rw [mul_smul, simple_smul, simple_smul]
+    exact List.ofFn_injective (by decide +kernel)
+  ext γ
+  simp only [Set.mem_image, amalgamRoots, Set.mem_ofPred_eq, Finset.mem_insert,
+    Finset.mem_singleton]
+  constructor
+  · rintro ⟨α, ⟨j, hj, rfl | rfl⟩, rfl⟩ <;> rcases hj with rfl | rfl
+    · exact ⟨0, Or.inl rfl, Or.inl h1⟩
+    · exact ⟨3, Or.inr rfl, Or.inl h3⟩
+    · exact ⟨0, Or.inl rfl, Or.inr (by rw [smul_neg, h1])⟩
+    · exact ⟨3, Or.inr rfl, Or.inr (by rw [smul_neg, h3])⟩
+  · rintro ⟨j, hj, rfl | rfl⟩ <;> rcases hj with rfl | rfl
+    · exact ⟨Pi.single 1 1, ⟨1, Or.inl rfl, Or.inl rfl⟩, h1⟩
+    · exact ⟨Pi.single 3 1, ⟨3, Or.inr rfl, Or.inl rfl⟩, h3⟩
+    · exact ⟨-Pi.single 1 1, ⟨1, Or.inl rfl, Or.inr rfl⟩, by rw [smul_neg, h1]⟩
+    · exact ⟨-Pi.single 3 1, ⟨3, Or.inr rfl, Or.inr rfl⟩, by rw [smul_neg, h3]⟩
+
+theorem map_conj_n1242_levi_one_three :
+    (CFSG.LieType.CurtisTits.levi (f4Datum K).rootGroup {1, 3}).map
+        (MulAut.conj (n1242 K)).toMonoidHom =
+      CFSG.LieType.CurtisTits.levi (f4Datum K).rootGroup {0, 3} := by
+  rw [map_conj_n1242_levi, image_w1242_amalgamRoots_one_three, levi_f4Datum_eq]
 
 end Placement
 
@@ -358,6 +452,10 @@ theorem subset_nodes_amalgamPlacement {J : Finset (Fin (Tag.rank .F4))} (hJ : J.
   · rw [amalgamPlacement_of_zero_not_mem h0]
     exact fun j hj => mem_nodes_X_of_ne fun h => h0 (h ▸ hj)
 
+theorem amalgamRoots_subset_orthRoots_placement {J : Finset (Fin (Tag.rank .F4))}
+    (hJ : J.card ≤ 2) : amalgamRoots J ⊆ orthRoots (amalgamPlacement J).root :=
+  amalgamRoots_subset_orthRoots_iff.2 fun j hj =>
+    ((amalgamPlacement J).iform_root_single_eq_zero_iff j).2 (subset_nodes_amalgamPlacement hJ hj)
 
 section PlacementLevi
 
@@ -374,11 +472,37 @@ theorem leviAmalgam_le_placementLevi (J : {J : Finset (Fin (f4Datum K).rank) // 
     (f4Datum K).leviAmalgam J ≤ (amalgamPlacement J.1).levi K :=
   levi_le_neighbourLevi (subset_nodes_amalgamPlacement J.2)
 
+theorem leviAmalgam_le_C3Levi_or_B3Levi_or_conj
+    (J : {J : Finset (Fin (f4Datum K).rank) // J.card ≤ 2}) :
+    ((0 : Fin (Tag.rank .F4)) ∉ J.1 → (f4Datum K).leviAmalgam J ≤ C3Levi K) ∧
+    ((3 : Fin (Tag.rank .F4)) ∉ J.1 → (f4Datum K).leviAmalgam J ≤ B3Levi K) ∧
+    (J.1 = {0, 3} →
+      (f4Datum K).leviAmalgam J ≤ (C3Levi K).map (MulAut.conj (n1242 K)).toMonoidHom) ∧
+    ((f4Datum K).leviAmalgam J ≤ C3Levi K ∨ (f4Datum K).leviAmalgam J ≤ B3Levi K ∨
+      (f4Datum K).leviAmalgam J ≤ (C3Levi K).map (MulAut.conj (n1242 K)).toMonoidHom) := by
+  refine ⟨levi_le_C3Levi, levi_le_B3Levi, fun h => levi_le_map_conj_n1242_C3Levi h.le, ?_⟩
+  have h := leviAmalgam_le_placementLevi J
+  by_cases h0 : (0 : Fin (Tag.rank .F4)) ∈ J.1
+  · by_cases h3 : (3 : Fin (Tag.rank .F4)) ∈ J.1
+    · rw [amalgamPlacement_of_mem h0 h3] at h
+      rw [map_conj_n1242_C3Levi]
+      exact Or.inr (Or.inr h)
+    · rw [amalgamPlacement_of_three_not_mem h0 h3] at h
+      exact Or.inr (Or.inl h)
+  · rw [amalgamPlacement_of_zero_not_mem h0] at h
+    exact Or.inl h
 
 end PlacementLevi
 
 section Universal
 
+
+theorem lieUniversal_leviAmalgam_le_placementLevi (n p f : ℕ) (hp : p.Prime) [Fact p.Prime]
+    (J : {J : Finset (Fin (CFSG.LieType.Universal.lieUniversal .F4 n p f hp).D.rank) //
+      J.card ≤ 2}) :
+    (CFSG.LieType.Universal.lieUniversal .F4 n p f hp).D.leviAmalgam J ≤
+      (amalgamPlacement J.1).levi (GaloisField p f) :=
+  leviAmalgam_le_placementLevi (K := GaloisField p f) J
 
 end Universal
 

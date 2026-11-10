@@ -51,6 +51,9 @@ theorem prep_conjK {G Gi X : Nat} {g x : Equiv.Perm (Fin n)} (hn : n < 2 ^ 32)
   rw [mul_assoc]
   exact prep_pcomp hn hG (prep_pcomp hn hX hGi)
 
+theorem conjK_shr {G Gi X : Nat} (hn : n < 2 ^ 32) (hw : 0 < w) :
+    conjK n w (mask w) G Gi X >>> (n * w) = 0 :=
+  PF.pcomp_shr _ _ hn hw
 
 @[expose] noncomputable def cycF (w : Nat) (Z i : Nat) : Nat → Nat → Nat → Nat :=
   Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ c => c)

@@ -433,6 +433,22 @@ theorem commutator_rank_bound (ρ : Representation (ZMod 2) SL(3, F) U)
     _ = 2 * Module.finrank (ZMod 2) (LinearMap.range (b.toLinearMap - 1)) := by
         rw [hYconj, finrank_range_conj, finrank_range_symm_sub_one, two_mul]
 
+theorem outer_involutions_have_transvection_commutators {f : ℕ} (hf : 2 ≤ f)
+    (hF : Nat.card F = 2 ^ f) (α : MulAut (projectiveSL 3 F)) (hα : α * α = 1)
+    (hout : α ∉ (MulAut.conj : projectiveSL 3 F →* MulAut (projectiveSL 3 F)).range) :
+    ∃ (ψ : MulAut SL(3, F)) (g t : SL(3, F)), ψ ∈ standardAutSL F ∧ descendAut 3 F ψ = α ∧
+      IsTransvection t ∧ ψ g * g⁻¹ = t ∧
+      ∀ (W : Type) [AddCommGroup W] [Module (ZMod 2) W] [Finite W]
+        (ρ : Representation (ZMod 2) SL(3, F) W) (b : W ≃ₗ[ZMod 2] W),
+        (∀ x : SL(3, F), ρ x = 1 → x ∈ scalars 3 F) →
+        (∀ x : SL(3, F), ∃ y : SL(3, F), Intertwines ρ b x y ∧ proj 3 F y = α (proj 3 F x)) →
+        (∀ w, b (ρ g (b.symm (ρ g⁻¹ w))) = ρ t w) ∧
+          Module.finrank (ZMod 2) (LinearMap.range (ρ t - 1)) ≤
+            2 * Module.finrank (ZMod 2) (LinearMap.range (b.toLinearMap - 1)) := by
+  obtain ⟨ψ, g, t, hψ, hψα, ht, hgt⟩ := outer_involution_transvection_commutator hf hF α hα hout
+  refine ⟨ψ, g, t, hψ, hψα, ht, hgt, fun W _ _ _ ρ b _ hb => ?_⟩
+  obtain ⟨-, hcomm, hrank⟩ := commutator_rank_bound ρ α ψ hψα b hb g t hgt
+  exact ⟨hcomm, hrank⟩
 
 end Rep
 

@@ -104,6 +104,12 @@ theorem chain_of_K {n w BP NS CH : Nat} {PS PSI LR TR TRI : Nat → Nat} {c : Ch
   exact ⟨check_of_rawK hn hdeg hlen hgen hb hnd hK,
     rawOrbitSizesK_sound hb (Orb.head_facts hK.1).1 hK.2.1⟩
 
+theorem orbitSizes_of_rawK {n w nb BP NS CH : Nat} {PS PSI LR TR TRI : Nat → Nat}
+    {c : ChainRecord} {kO : Nat} {D : List (List Int)}
+    (hb : Binds n w PS c.strongGenerators.length nb BP c.strongArrs c.baseArr)
+    (hK : RawK n w PS PSI LR TR TRI c.strongGenerators.length kO D nb BP NS CH) :
+    c.orbitSizes n = (List.range nb).map fun i => rcnt (LR i) :=
+  rawOrbitSizesK_sound hb (Orb.head_facts hK.1).1 hK.2.1
 
 end CFSG.KC.MathieuK
 

@@ -232,6 +232,21 @@ theorem orderOf_b (D : StrothTypeData B τ) : orderOf D.b = 2 ^ τ.n := by
   rw [b, ← addOrderOf_ofMul_eq_orderOf, ofMul_toMul, AddEquiv.addOrderOf_eq, addOrderOf_b,
     StrothTypeIndex.k_two]
 
+theorem generator_orders (D : StrothTypeData B τ) :
+    orderOf D.c = 2 ^ τ.m ∧ orderOf D.a = 2 ^ τ.n ∧ orderOf D.b = 2 ^ τ.n :=
+  ⟨D.orderOf_c, D.orderOf_a, D.orderOf_b⟩
+
+theorem orderOf_uv_dvd_two (D : StrothTypeData B τ) : orderOf D.uv ∣ 2 := by
+  rw [orderOf_dvd_iff_pow_eq_one, pow_two]
+  exact D.uv_sq
+
+theorem orderOf_t_dvd_two (D : StrothTypeData B τ) : orderOf D.t ∣ 2 := by
+  rw [orderOf_dvd_iff_pow_eq_one, pow_two]
+  exact D.t_sq
+
+theorem orderOf_u_dvd_two (D : StrothTypeData B τ) : orderOf D.u ∣ 2 := by
+  rw [orderOf_dvd_iff_pow_eq_one, pow_two]
+  exact D.u_sq
 
 theorem orderOf_ρ_dvd_three (D : StrothTypeData B τ) : orderOf D.ρ ∣ 3 := by
   rw [orderOf_dvd_iff_pow_eq_one, pow_three, ← mul_assoc]
@@ -244,6 +259,23 @@ theorem conj_apply (D : StrothTypeData B τ) {g : S} (hg : g ∈ Subgroup.normal
     D.e (Additive.ofMul (conjBy hg (Additive.toMul (D.e.symm y)))) = φ y := by
   rw [hconj, ofMul_toMul, AddEquiv.apply_symm_apply]
 
+theorem t100_uv_c {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.uv_mem D.c)) =
+      (-3 : ℤ) • Torus.c + (-2 : ℤ) • Torus.a + (-2 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.uv_mem D.uv_conj Torus.c).trans (Type100.uv_c m)
+  exact h
+
+theorem t100_uv_a {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.uv_mem D.a)) =
+      (2 : ℤ) • Torus.c + (1 : ℤ) • Torus.a + (2 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.uv_mem D.uv_conj Torus.a).trans (Type100.uv_a m)
+  exact h
+
+theorem t100_uv_b {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.uv_mem D.b)) =
+      (2 : ℤ) • Torus.c + (2 : ℤ) • Torus.a + (1 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.uv_mem D.uv_conj Torus.b).trans (Type100.uv_b m)
+  exact h
 
 theorem t100_t_c {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
     D.e (Additive.ofMul (conjBy D.t_mem D.c)) =
@@ -251,18 +283,47 @@ theorem t100_t_c {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
   have h := (D.conj_apply D.t_mem D.t_conj Torus.c).trans (Type100.t_c m)
   exact h
 
+theorem t100_t_a {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.t_mem D.a)) = (-1 : ℤ) • Torus.a := by
+  have h := (D.conj_apply D.t_mem D.t_conj Torus.a).trans (Type100.t_a m)
+  exact h
+
+theorem t100_t_b {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.t_mem D.b)) =
+      (-2 : ℤ) • Torus.c + (-2 : ℤ) • Torus.a + (-1 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.t_mem D.t_conj Torus.b).trans (Type100.t_b m)
+  exact h
 
 theorem t100_u_c {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
     D.e (Additive.ofMul (conjBy D.u_mem D.c)) = (1 : ℤ) • Torus.c := by
   have h := (D.conj_apply D.u_mem D.u_conj Torus.c).trans (Type100.u_c m)
   exact h
 
+theorem t100_u_a {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.u_mem D.a)) = (1 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.u_mem D.u_conj Torus.a).trans (Type100.u_a m)
+  exact h
+
+theorem t100_u_b {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.u_mem D.b)) = (1 : ℤ) • Torus.a := by
+  have h := (D.conj_apply D.u_mem D.u_conj Torus.b).trans (Type100.u_b m)
+  exact h
 
 theorem t100_rho_c {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
     D.e (Additive.ofMul (conjBy D.ρ_mem D.c)) = (1 : ℤ) • Torus.c := by
   have h := (D.conj_apply D.ρ_mem D.ρ_conj Torus.c).trans (Type100.rho_c m)
   exact h
 
+theorem t100_rho_a {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.ρ_mem D.a)) = (1 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.ρ_mem D.ρ_conj Torus.a).trans (Type100.rho_a m)
+  exact h
+
+theorem t100_rho_b {m : ℕ} (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
+    D.e (Additive.ofMul (conjBy D.ρ_mem D.b)) =
+      (-2 : ℤ) • Torus.c + (-1 : ℤ) • Torus.a + (-1 : ℤ) • Torus.b := by
+  have h := (D.conj_apply D.ρ_mem D.ρ_conj Torus.b).trans (Type100.rho_b m)
+  exact h
 
 end StrothTypeData
 
@@ -340,6 +401,18 @@ theorem card (h : HasStrothType B τ) :
 theorem card_eq (h : HasStrothType B τ) : Nat.card B = 2 ^ (τ.m + τ.n + τ.n) :=
   h.data.card_eq
 
+theorem generator_orders (h : HasStrothType B τ) :
+    orderOf h.c = 2 ^ τ.m ∧ orderOf h.a = 2 ^ τ.n ∧ orderOf h.b = 2 ^ τ.n :=
+  h.data.generator_orders
+
+theorem orderOf_uv_dvd_two (h : HasStrothType B τ) : orderOf h.uv ∣ 2 :=
+  h.data.orderOf_uv_dvd_two
+
+theorem orderOf_t_dvd_two (h : HasStrothType B τ) : orderOf h.t ∣ 2 :=
+  h.data.orderOf_t_dvd_two
+
+theorem orderOf_u_dvd_two (h : HasStrothType B τ) : orderOf h.u ∣ 2 :=
+  h.data.orderOf_u_dvd_two
 
 theorem orderOf_ρ_dvd_three (h : HasStrothType B τ) : orderOf h.ρ ∣ 3 :=
   h.data.orderOf_ρ_dvd_three

@@ -213,5 +213,8 @@ theorem rhoMat_eq_one_iff
       _ = v := congrArg Multiplicative.toAdd hg
       _ = (1 : Matrix (Fin 8) (Fin 8) (ZMod 2)).mulVec v := (Matrix.one_mulVec v).symm
 
+theorem rhoMat_posWord
+    (w : List ℕ) : rhoMat (posWord xM yM w) = posWord B1 B2 w := by
+  rw [← rhoHom_apply, map_posWord, rhoHom_apply, rhoHom_apply, rhoMat_xM, rhoMat_yM]
 
 end CFSG.Sporadic.ThSchreier

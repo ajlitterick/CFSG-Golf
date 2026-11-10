@@ -47,6 +47,31 @@ theorem lt_of_mem_shift {J : Finset ℕ} (hJ : ∀ i ∈ J, i < n) : ∀ i ∈ s
 theorem isLabel_shiftL {J : Fin 3 → Finset ℕ} (hJ : IsLabel n J) : IsLabel n (shiftL n J) :=
   fun s => lt_of_mem_shift (hJ s)
 
+theorem shift_mem_slLabels {J : Finset ℕ} (hJ : J ∈ slLabels n) : shift n J ∈ slLabels n :=
+  mem_slLabels.mpr (lt_of_mem_shift (mem_slLabels.mp hJ))
+
+theorem shiftL_mem_labels {J : Fin 3 → Finset ℕ} (hJ : J ∈ labels n) : shiftL n J ∈ labels n :=
+  mem_labels.mpr (isLabel_shiftL (mem_labels.mp hJ))
+
+theorem add_one_mod_mem_shift_iff {J : Finset ℕ} (hJ : ∀ i ∈ J, i < n) {i : ℕ} (hi : i < n) :
+    (i + 1) % n ∈ shift n J ↔ i ∈ J := by
+  refine ⟨fun h => ?_, fun h => mem_shift.mpr ⟨i, h, rfl⟩⟩
+  obtain ⟨j, hj, hji⟩ := mem_shift.mp h
+  rwa [← shiftMod_injOn (hJ j hj) hi hji]
+
+theorem card_shift {J : Finset ℕ} (hJ : ∀ i ∈ J, i < n) : (shift n J).card = J.card :=
+  Finset.card_image_of_injOn fun i hi j hj h => shiftMod_injOn (hJ i hi) (hJ j hj) h
+
+theorem shift_inj {J J' : Finset ℕ} (hJ : ∀ i ∈ J, i < n) (hJ' : ∀ i ∈ J', i < n) :
+    shift n J = shift n J' ↔ J = J' := by
+  refine ⟨fun h => Finset.ext fun i => ?_, congrArg _⟩
+  by_cases hi : i < n
+  · rw [← add_one_mod_mem_shift_iff hJ hi, ← add_one_mod_mem_shift_iff hJ' hi, h]
+  · exact iff_of_false (fun h' => hi (hJ i h')) fun h' => hi (hJ' i h')
+
+theorem shiftL_inj {J J' : Fin 3 → Finset ℕ} (hJ : IsLabel n J) (hJ' : IsLabel n J') :
+    shiftL n J = shiftL n J' ↔ J = J' :=
+  ⟨fun h => funext fun s => (shift_inj (hJ s) (hJ' s)).mp (congrFun h s), congrArg _⟩
 
 theorem shift_iterate {J : Finset ℕ} (hJ : ∀ i ∈ J, i < n) (m : ℕ) :
     (shift n)^[m] J = J.image fun i => (i + m) % n := by
@@ -255,6 +280,10 @@ theorem pat_twist (hK : Fintype.card K = 2 ^ n) {ρ : Representation K (Cube K) 
     (hJ : IsLabel n J) : pat ρ' (shiftL n J) = pat ρ J :=
   repMultiplicity_twist T (cubeRepTwist hK hJ)
 
+theorem slPat_twist (hK : Fintype.card K = 2 ^ n) {σ : Representation K SL(2, K) V}
+    {σ' : Representation K SL(2, K) V'} (T : TwistEquiv (frob K) σ σ') {J : Finset ℕ}
+    (hJ : ∀ i ∈ J, i < n) : slPat σ' (shift n J) = slPat σ J :=
+  repMultiplicity_twist T (frobTensorTwist hK hJ)
 
 end Pattern
 

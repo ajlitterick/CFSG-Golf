@@ -31,6 +31,13 @@ open CFSG.LieType.Steinberg.Adjoint
 theorem lxPos_data : ∀ γ ∈ lxPos, γ ∈ rootFinset .E8 ∧ γ 7 = 0 ∧ γ 4 % 5 = 0 ∧ 0 < height γ :=
   fun _ hγ => Finset.mem_filter.1 hγ
 
+theorem card_lxPos : lxPos.card = 13 := by
+  simp only [lxPos, rootFinset_E8_eq]
+  decide +kernel
+
+theorem card_lxRoots : lxRoots.card = 26 := by
+  simp only [lxRoots, rootFinset_E8_eq]
+  decide +kernel
 
 theorem lxRoots_data : ∀ γ ∈ lxRoots, γ ∈ rootFinset .E8 ∧ γ 7 = 0 ∧ γ 4 % 5 = 0 :=
   fun _ hγ => Finset.mem_filter.1 hγ

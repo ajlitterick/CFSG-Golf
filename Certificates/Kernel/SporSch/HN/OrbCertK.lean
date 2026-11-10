@@ -27,6 +27,10 @@ theorem ordA : Nat.beq (CFSG.KC.LL.HN.mm (RW 1) (RW 1)) ONE = true := by quickRf
 theorem ordB : Nat.beq (CFSG.KC.LL.HN.mm (CFSG.KC.LL.HN.mm (RW 2) (RW 2)) (RW 2)) ONE = true := by
   quickRfl
 
+theorem neg_seed : Bool.not (seedRK (RW 2) HNSA.chars) = true := by quickRfl
+theorem neg_ordA : Bool.not (Nat.beq (CFSG.KC.LL.HN.mm (RW 2) (RW 2)) ONE) = true := by quickRfl
+theorem neg_ordB : Bool.not (Nat.beq (CFSG.KC.LL.HN.mm (RW 2) (RW 2)) (RW 2)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.HNXCert
 

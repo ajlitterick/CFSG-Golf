@@ -25,6 +25,16 @@ noncomputable abbrev setting {X : Type} [Group X] [Finite X] {t : X}
 @[expose] noncomputable def qOf {X : Type} [Group X] (w : X) : Subgroup X :=
   (timmesfeldFStar (centralizer ({w} : Set X))).map (centralizer ({w} : Set X)).subtype
 
+@[expose] def qGraph {X : Type} [Group X] (t : X) : SimpleGraph (ConjVert t) where
+  Adj x y := x ≠ y ∧ ((y : X) ∈ qOf (x : X) ∨ (x : X) ∈ qOf (y : X))
+  symm := ⟨fun _ _ h => ⟨h.1.symm, h.2.symm⟩⟩
+  loopless := ⟨fun _ h => h.1 rfl⟩
+
+@[expose] def commonQGraph {X : Type} [Group X] (t : X) : SimpleGraph (ConjVert t) where
+  Adj x y := x ≠ y ∧ (x : X) * y = y * x ∧
+    ∃ w : ConjVert t, (x : X) ∈ qOf (w : X) ∧ (y : X) ∈ qOf (w : X)
+  symm := ⟨fun _ _ h => ⟨h.1.symm, h.2.1.symm, let ⟨w, h1, h2⟩ := h.2.2; ⟨w, h2, h1⟩⟩⟩
+  loopless := ⟨fun _ h => h.1 rfl⟩
 
 @[expose] noncomputable def q₀ : QuadraticForm (ZMod 2) (Fin 8 → ZMod 2) :=
   ∑ i : Fin 4, QuadraticMap.linMulLin (LinearMap.proj (Fin.castAdd 4 i))

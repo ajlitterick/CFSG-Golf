@@ -372,6 +372,9 @@ theorem m12ConjStab_eq : m12ConjStab = m12Stab.map (MulAut.conj coordBij).toMono
     change (coordBij * n * coordBij⁻¹) 0 = 0
     rw [Equiv.Perm.mul_apply, Equiv.Perm.mul_apply, hinv, hn0, coordBij_zero]
 
+theorem card_m12ConjStab : Nat.card m12ConjStab = 7920 := by
+  rw [m12ConjStab_eq, Subgroup.card_map_of_injective (MulAut.conj coordBij).injective,
+    card_m12Stab]
 
 theorem m11_commutator_eq_top :
     commutator NativeSporadic.M11 = ⊤ := by
@@ -391,6 +394,14 @@ theorem m12ConjStab_commutator :
     ← Subgroup.map_subtype_commutator, m11_commutator_eq_top, ← MonoidHom.range_eq_map,
     Subgroup.range_subtype]
 
+theorem card_wStab :
+    Nat.card wStab = 7920 := by
+  rw [← card_m12ConjStab, ← wPerm_range]
+  refine Nat.card_eq_of_bijective (fun x => (⟨wPerm x, x, rfl⟩ : wPerm.range)) ⟨?_, ?_⟩
+  · intro x y h
+    exact wPerm_injective (congrArg Subtype.val h)
+  · rintro ⟨_, x, rfl⟩
+    exact ⟨x, rfl⟩
 
 theorem commutator_wStab :
     commutator wStab = ⊤ := by
@@ -398,5 +409,14 @@ theorem commutator_wStab :
   rw [commutator_def, Subgroup.map_commutator, ← MonoidHom.range_eq_map, wPerm_range,
     m12ConjStab_commutator]
 
+theorem wStab_hom_eq_one
+    {K : Type*} [Field K] (φ : wStab →* Kˣ) : φ = 1 := by
+  have h := Abelianization.commutator_subset_ker φ
+  rw [commutator_wStab] at h
+  ext x
+  have := h (Subgroup.mem_top x)
+  rw [MonoidHom.mem_ker] at this
+  rw [this]
+  rfl
 
 end CFSG.Sporadic.Co1Schreier

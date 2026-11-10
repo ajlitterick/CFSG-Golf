@@ -12,6 +12,16 @@ set_option maxRecDepth 4000
 @[expose] def thSevenRot : SqData :=
   { thMultData7 with rh := 20, oh := 4, a := 6, b := 5, c := 1, d := 1 }
 
+@[expose] def bSevenRot : SqData :=
+  { bMultSeven () with
+    nregs := 9
+    prog := (bMultSeven ()).prog.take 56 ++ [Op.pow 1 4 8] ++ (bMultSeven ()).prog.drop 56
+    rh := 8
+    oh := 4
+    a := 6
+    b := 5
+    c := 1
+    d := 1 }
 
 @[expose] def suzFiveWordX : String :=
   "2010201020101011010202010101010202010202011020101020101020201010201010102201020101010201\

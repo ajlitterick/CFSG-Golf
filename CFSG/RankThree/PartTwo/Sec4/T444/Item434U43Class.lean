@@ -39,6 +39,9 @@ theorem toMat_sAt (hsyl : uSylCheck = true) {t : ℕ} (ht : t < 729) :
 theorem sAt_mem (hsyl : uSylCheck = true) {t : ℕ} (ht : t < 729) : sAt t ∈ sylS :=
   (sAt_spec hsyl ht).1
 
+theorem sAt_eq_of_code (hsyl : uSylCheck = true) {s t : ℕ} (hs : s < 729) (ht : t < 729)
+    (h : uAt s = uAt t) : sAt s = sAt t :=
+  toMat_injective (by rw [toMat_sAt hsyl hs, toMat_sAt hsyl ht, h])
 
 theorem sAt_injective (hsyl : uSylCheck = true) {s t : ℕ} (hs : s < 729) (ht : t < 729)
     (h : sAt s = sAt t) : s = t := by
@@ -46,6 +49,10 @@ theorem sAt_injective (hsyl : uSylCheck = true) {s t : ℕ} (hs : s < 729) (ht :
     rw [← toMat_sAt hsyl hs, ← toMat_sAt hsyl ht, h]
   exact uAt_inj hsyl hs ht (dec4_injective (canon4_uAt hsyl hs) (canon4_uAt hsyl ht) h1)
 
+theorem sAt_mul (hsyl : uSylCheck = true) {p q r : ℕ} (hp : p < 729) (hq : q < 729)
+    (hr : r < 729) (h : mul4 (uAt p) (uAt q) = uAt r) : sAt p * sAt q = sAt r := by
+  apply toMat_injective
+  rw [map_mul, toMat_sAt hsyl hp, toMat_sAt hsyl hq, toMat_sAt hsyl hr, ← dec4_mul4, h]
 
 theorem posOf_spec {c : List ℕ} (h : posOf c < 729) : uAt (posOf c) = c := by
   unfold posOf at h ⊢
@@ -59,6 +66,11 @@ theorem posOf_spec {c : List ℕ} (h : posOf c < 729) : uAt (posOf c) = c := by
     · exact absurd hf Bool.false_ne_true
   · omega
 
+noncomputable def gOf (c : List ℕ) : SUg := sAt (posOf c)
+
+theorem toMat_gOf (hsyl : uSylCheck = true) {c : List ℕ} (h : posOf c < 729) :
+    toMat (gOf c) = dec4 c := by
+  rw [gOf, toMat_sAt hsyl h, posOf_spec h]
 
 theorem toMat_pow4 {g : SUg} {c : List ℕ} (h : toMat g = dec4 c) {k : ℕ} (hk : k < 3) :
     toMat (g ^ k) = dec4 (pow4 c k) := by
@@ -83,6 +95,16 @@ theorem pow_three_of_cube4 (hsyl : uSylCheck = true) {p : ℕ} (hp : p < 729)
   rw [map_pow, map_one]
   simpa [pow_succ, mul_assoc] using this.symm
 
+theorem conj_pos_spec (hsyl : uSylCheck = true) {w : List ℕ} (hw : ∀ l ∈ w, l < 4) {p : ℕ}
+    (hp : p < 729) (hq : posOf (conjStep (wordPair w) (uAt p)) < 729) :
+    wordElem w * sAt p * (wordElem w)⁻¹ = sAt (posOf (conjStep (wordPair w) (uAt p))) := by
+  apply toMat_injective
+  have h1 := dec4_conjStep w hw (uAt p)
+  have h2 : dec4 (conjStep (wordPair w) (uAt p)) =
+      toMat (sAt (posOf (conjStep (wordPair w) (uAt p)))) := by
+    rw [toMat_sAt hsyl hq, posOf_spec hq]
+  rw [map_mul, map_mul, toMat_sAt hsyl hp, ← h2, h1]
+  rfl
 
 theorem uRtCheck_parts (h : uRtCheck = true) :
     uLiftBasis.length = 4 ∧ (∀ p ∈ uLiftBasis, p < 729) ∧

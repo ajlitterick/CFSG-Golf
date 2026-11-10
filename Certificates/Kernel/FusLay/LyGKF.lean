@@ -22,6 +22,10 @@ theorem fus5104_seedB : lyFus.seedB = String.ofList LB := LB_eq
 
 theorem fus5104_K : gkfFusKT lay A B lyFus = true := by decide +kernel
 
+theorem fus5104_neg_seeds : (!gkfFusKT lay B A lyFus) = true := by decide +kernel
+
+theorem fus5104_neg_exp : (!gkfFusKT lay A B { lyFus with n1s := 5 :: lyFus.n1s.tail }) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelFusLay.Ly
 

@@ -397,6 +397,16 @@ theorem two_le_of_t300 {n : ℕ} {dD : StrothWeakTypeData D (StrothTypeIndex.t30
   have := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp hle
   omega
 
+theorem stroth_3_5 {n : ℕ} {dD : StrothWeakTypeData D (StrothTypeIndex.t300 n)} (h : F.IsD D dD)
+    (hns : IsSylowIn 2 (Subgroup.normalizer (D : Set G))
+      ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G))) :
+    (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
+        Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D ∨
+      ∃ X : Subgroup G, IsMulCommutative X ∧ F.A ≤ X ∧ X ≤ (F.S : Subgroup G) ∧
+        F.dA.L ≤ Subgroup.normalizer
+          ((X ⊔ Subgroup.centralizer (D : Set G) : Subgroup G) : Set G) ∧
+        Nat.card D < Nat.card X :=
+  h.stroth_form_ii (Type300.vFacts h.two_le_of_t300) Type300.killFact hns
 
 end StrothFrame.IsD
 

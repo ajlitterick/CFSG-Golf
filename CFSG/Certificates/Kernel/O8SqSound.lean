@@ -137,6 +137,15 @@ theorem forestK_card [DecidableEq (Equiv.Perm (Fin n))] {G GI RT : Nat → Nat} 
     obtain ⟨r, hr', rfl⟩ := List.mem_map.1 hx
     exact (hr r hr').2
 
+theorem forestK_pp {G GI RT : Nat → Nat} {ngen nr : Nat} {R : List Rec}
+    (hG : ∀ k < ngen, PP n w (G k)) (hRT : ∀ j < nr, PP n w (RT j))
+    (h : forestK n w G GI ngen RT nr R = true) : ∀ r ∈ R, PP n w r.1 :=
+  fun r hr => ((forestK_sound hG hRT h).2 r hr).1
+
+theorem forestK_nodup {G GI RT : Nat → Nat} {ngen nr : Nat} {R : List Rec}
+    (hG : ∀ k < ngen, PP n w (G k)) (hRT : ∀ j < nr, PP n w (RT j))
+    (h : forestK n w G GI ngen RT nr R = true) : (R.map Prod.fst).Nodup :=
+  (forestK_sound hG hRT h).1.imp (fun h => Nat.ne_of_lt h)
 
 theorem cpathK_sound {G : Nat → Nat} {ngen : Nat} (hG : ∀ k < ngen, PP n w (G k))
     (hinv : ∀ k < ngen, G k = pinvS n w (mask w) (G k)) :

@@ -54,6 +54,32 @@ theorem conj_tv (g : StatedSp 2 F) (v : Fin 2 ⊕ Fin 2 → F) (c : F) :
     ← Matrix.vecMul_vecMul, Matrix.vecMul_transpose]
 
 
+theorem tvMat_add (v : Fin 2 ⊕ Fin 2 → F) (c c' : F) :
+    tvMat v c * tvMat v c' = tvMat v (c + c') := by
+  ext i j
+  rcases i with i | i <;> rcases j with j | j <;> fin_cases i <;> fin_cases j <;>
+    simp [tvMat, gram, Matrix.mul_apply, Matrix.vecMulVec, Matrix.vecMul, dotProduct,
+      Fintype.sum_sum_type, Matrix.fromBlocks, Matrix.one_apply,
+      Matrix.sub_apply, Fin.sum_univ_two]
+  all_goals ring
+
+theorem tv_add (v : Fin 2 ⊕ Fin 2 → F) (c c' : F) : tv v c * tv v c' = tv v (c + c') := by
+  apply mat_injective
+  rw [map_mul, mat_tv, mat_tv, mat_tv]
+  exact tvMat_add v c c'
+
+theorem tvMat_zero (v : Fin 2 ⊕ Fin 2 → F) : tvMat v 0 = 1 := by
+  simp [tvMat]
+
+theorem tv_zero (v : Fin 2 ⊕ Fin 2 → F) : tv v 0 = 1 := by
+  apply mat_injective
+  rw [mat_tv, map_one]
+  exact tvMat_zero v
+
+theorem tv_inv (v : Fin 2 ⊕ Fin 2 → F) (c : F) : (tv v c)⁻¹ = tv v (-c) := by
+  refine inv_eq_of_mul_eq_one_right ?_
+  rw [tv_add, add_neg_cancel, tv_zero]
+
 @[expose] def omega (x y : Fin 2 ⊕ Fin 2 → F) : F := x ⬝ᵥ (gram F 2 *ᵥ y)
 
 theorem act_tv (u v : Fin 2 ⊕ Fin 2 → F) (a : F) :
@@ -73,6 +99,7 @@ theorem InSig.add_smul {H : Subgroup (StatedSp 2 F)} {u v : Fin 2 ⊕ Fin 2 → 
     H.mul_mem (H.mul_mem (hu _) (hv b)) (H.inv_mem (hu _))
   rw [conj_tv, act_tv, div_mul_cancel₀ _ hω] at h1
   exact h1
+
 
 
 @[expose] def vec (X : Matrix (Fin 2) (Fin 2) F) : Fin 2 ⊕ Fin 2 → F :=
@@ -120,6 +147,7 @@ theorem act_Pel_pv (h2 : (2 : F) ≠ 0) (α β : F) :
     simp [act, mat_Pel, Pmat, pv, vec, Matrix.mulVec, dotProduct, Fintype.sum_sum_type,
       Fin.sum_univ_two, Matrix.fromBlocks]
   all_goals linear_combination β * h22
+
 
 
 theorem elt_diff01 (c : F) :

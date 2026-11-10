@@ -26,5 +26,7 @@ namespace CFSG.ClassicalInvolution.O8Data
     [[1, 13, 6, 3, 13], [5, 1, 3, 1, 4, 8, 6, 3, 9, 13, 12, 5], [12, 2, 12, 14, 10, 7, 15, 16]],
     [[3, 1, 3, 4, 9, 5]]]
 
+@[expose] def closeGens : List (List Int) :=
+  [[12, 2, 16, 8, 9, 5, 10, 11], [1, 4, 9, 5, 10, 7, 11]]
 
 end CFSG.ClassicalInvolution.O8Data

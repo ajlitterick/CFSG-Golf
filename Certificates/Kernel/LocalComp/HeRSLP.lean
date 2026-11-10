@@ -59,7 +59,13 @@ set_option Elab.async false
 namespace CertificateChecks.KernelLC.HeR
 
 open CFSG.KC.PermSLP CertificateChecks.KernelLC.HeFix
+open CFSG.KLie.CT (notB)
 
+theorem ruN_val : notB (ruleK 8330 14 4 L2 L2I (fun k => HSV (Nat.succ k)) HSG 0) = true := by
+  quickRfl
+theorem ruN_fwd : notB (ruleK 8330 14 4 L2 L2I HSV (fun _ => 262144) 0) = true := by quickRfl
+theorem toN_word : notB (topK 4 181 185 HSG (HST 6) (WR 7)) = true := by quickRfl
+theorem toN_sym : notB (topK 4 181 185 HSG 185 (WR 0)) = true := by quickRfl
 
 end CertificateChecks.KernelLC.HeR
 

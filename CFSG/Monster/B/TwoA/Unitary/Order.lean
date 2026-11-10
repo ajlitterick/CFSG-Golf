@@ -356,6 +356,7 @@ theorem tauI_mul_self : tauI * tauI = 1 := by
 @[expose] noncomputable def thetaN : SUh ⧸ Zh →* PSU62 :=
   SemidirectProduct.inl.comp psiQ.toMonoidHom
 
+theorem Bunit_inv_val : ((Bunit⁻¹ : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) = Bminv := rfl
 
 theorem psiSU_frobSU (g : SUh) :
     psiSU (frobSU g) = PiSU * frobSUI (psiSU g) * PiSU := by

@@ -144,6 +144,12 @@ theorem comm_nf (c : ZMod 3) (e : Fin 4 → ZMod 3) (j : Fin 4) :
   congr 1
   ring
 
+theorem comm_nf_eq_one_iff (c : ZMod 3) (e : Fin 4 → ZMod 3) (j : Fin 4) :
+    ⁅threeNF x v c e, v j⁆ = 1 ↔ ∑ i, e i * ω i j = 0 := by
+  rw [h.comm_nf, h.x_pow_eq_one_iff, Fin.sum_univ_four]
+  push_cast
+  simp only [ZMod.natCast_val, ZMod.cast_id', id]
+  constructor <;> intro hs <;> linear_combination hs
 
 theorem coord_eq_of_comm {c c' : ZMod 3} {e e' : Fin 4 → ZMod 3}
     (hcomm : ∀ j, ⁅threeNF x v c e, v j⁆ = ⁅threeNF x v c' e', v j⁆) : e = e' := by
@@ -336,6 +342,8 @@ theorem nf_injective :
       obtain ⟨c, e, he⟩ := h.mem_range_nf g.2
       exact ⟨(c, e), Subtype.ext he.symm⟩⟩
 
+theorem nfEquiv_apply (p : ZMod 3 × (Fin 4 → ZMod 3)) :
+    (h.nfEquiv p : G) = threeNF x v p.1 p.2 := rfl
 
 theorem card_threeQ : Nat.card (threeQ x v) = 243 := by
   rw [← Nat.card_congr h.nfEquiv, Nat.card_eq_fintype_card, Fintype.card_prod,
@@ -455,6 +463,17 @@ theorem coordHom_surjective : Function.Surjective h.coordHom := fun e =>
     change Multiplicative.ofAdd _ = e
     rw [h.coord_nf]; rfl⟩
 
+theorem zpowers_normal : ((zpowers x).subgroupOf (threeQ x v)).Normal := by
+  rw [← h.coordHom_ker]; infer_instance
+
+@[expose] def quotEquiv [((zpowers x).subgroupOf (threeQ x v)).Normal] :
+    threeQ x v ⧸ (zpowers x).subgroupOf (threeQ x v) ≃* Multiplicative (Fin 4 → ZMod 3) :=
+  (QuotientGroup.quotientMulEquivOfEq h.coordHom_ker.symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective _ h.coordHom_surjective)
+
+theorem quotEquiv_mk [((zpowers x).subgroupOf (threeQ x v)).Normal] (g : threeQ x v) :
+    h.quotEquiv (g : threeQ x v ⧸ (zpowers x).subgroupOf (threeQ x v)) =
+      Multiplicative.ofAdd (h.coord g) := rfl
 
 theorem mem_center_iff (g : threeQ x v) : g ∈ center (threeQ x v) ↔ (g : G) ∈ zpowers x := by
   constructor
@@ -499,6 +518,35 @@ theorem exists_comm_ne_one : ∃ i j, ⁅v i, v j⁆ ≠ 1 := by
   have := congrFun this 0
   simp only [Pi.single_eq_same, Pi.zero_apply] at this
   exact absurd this (by decide)
+
+theorem commutator_eq_center : commutator (threeQ x v) = center (threeQ x v) := by
+  have hle : commutator (threeQ x v) ≤ center (threeQ x v) := by
+    rw [_root_.commutator_def, Subgroup.commutator_le]
+    intro g _ k _
+    rw [h.mem_center_iff]
+    exact h.comm_mem g.2 k.2
+  have : Fact (Nat.card (center (threeQ x v))).Prime := ⟨by rw [h.card_center]; norm_num⟩
+  rcases Subgroup.eq_bot_or_eq_top_of_prime_card
+    ((commutator (threeQ x v)).subgroupOf (center (threeQ x v))) with hb | ht
+  · exfalso
+    obtain ⟨i, j, hij⟩ := h.exists_comm_ne_one
+    have hmem : ⁅(⟨v i, v_mem i⟩ : threeQ x v), ⟨v j, v_mem j⟩⁆ ∈ commutator (threeQ x v) := by
+      rw [_root_.commutator_def]
+      exact Subgroup.commutator_mem_commutator (mem_top _) (mem_top _)
+    have hc : ⁅(⟨v i, v_mem i⟩ : threeQ x v), ⟨v j, v_mem j⟩⁆ ∈ center (threeQ x v) := hle hmem
+    have : (⟨_, hc⟩ : center (threeQ x v)) ∈ (commutator (threeQ x v)).subgroupOf
+        (center (threeQ x v)) := hmem
+    rw [hb, mem_bot] at this
+    apply hij
+    have h2 := congrArg (fun z : center (threeQ x v) => ((z : threeQ x v) : G)) this
+    simp only [Subgroup.coe_one, commutatorElement_def, Subgroup.coe_mul, Subgroup.coe_inv] at h2
+    rw [commutatorElement_def]
+    exact h2
+  · apply le_antisymm hle
+    intro g hg
+    have : (⟨g, hg⟩ : center (threeQ x v)) ∈ (commutator (threeQ x v)).subgroupOf
+        (center (threeQ x v)) := by rw [ht]; trivial
+    exact this
 
 
 @[expose] def threePair (ω : Fin 4 → Fin 4 → ZMod 3) (e e' : Fin 4 → ZMod 3) : ZMod 3 :=
@@ -722,6 +770,12 @@ theorem center_le_of_abelian (B : Subgroup (threeQ x v)) (hab : ∀ a ∈ B, ∀
 theorem isPGroup : IsPGroup 3 (threeQ x v) :=
   IsPGroup.of_card (n := 5) (by rw [h.card_threeQ_type]; norm_num)
 
+theorem isExtraspecial : CFSG.IsExtraspecialPGroup 3 (threeQ x v) := by
+  have := h.finite
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  have hexp : ∀ g : threeQ x v, g ^ 3 = 1 := fun g => Subtype.ext (h.pow_three_of_mem g.2)
+  refine ⟨h.isPGroup, h.commutator_eq_center, ?_, h.card_center⟩
+  rw [CFSG.RankThree.PartTwo.frattini_eq_commutator h.isPGroup hexp, h.commutator_eq_center]
 
 end ThreeQRel
 

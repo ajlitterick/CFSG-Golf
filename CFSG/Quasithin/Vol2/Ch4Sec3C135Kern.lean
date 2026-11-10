@@ -36,6 +36,9 @@ theorem commutator_mem_Q {G₀ L : Subgroup G} {t g : G} (ht : t ∈ pCoreOf 2 G
 theorem coe_cm {G₀ L : Subgroup G} {x : G} (hx : x ∈ pCoreOf 2 G₀) (y : ↥L) :
     ((cm hx y : ↥(c134Q G₀ L)) : G) = x⁻¹ * y * x * (y : G)⁻¹ := rfl
 
+theorem mul_comm_U {G₀ L : Subgroup G} {u v : G} (hu : u ∈ centerOf (c134Q G₀ L))
+    (hv : v ∈ centerOf (c134Q G₀ L)) : u * v = v * u :=
+  (Subgroup.mem_centralizer_iff.mp hv.2 u hu.1)
 
 theorem eq_zero_of_fixed {k : ℕ} {x : Fin k → Fin 3 → F}
     (hx : ∀ γ : Matrix.SpecialLinearGroup (Fin 3) F,

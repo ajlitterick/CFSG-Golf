@@ -103,6 +103,9 @@ theorem Qs_le_fuseGroup
     (k : ℕ) : Qs ≤ fuseGroup k := fun _ hy =>
   Subgroup.subset_closure (Or.inl hy)
 
+theorem liftImgsK_size
+    {k : ℕ} (hk : IsRank k) : ((liftImgsK k).toArray).size = 22 := by
+  rw [List.size_toArray, ← lift_len hk, ← lift_rows hk, List.length_map]
 
 theorem es_inv (m : ℕ) : (es m)⁻¹ = es m := inv_eq_of_mul_eq_one_right (es_mul_self m)
 

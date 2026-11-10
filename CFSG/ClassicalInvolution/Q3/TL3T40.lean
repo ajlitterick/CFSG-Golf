@@ -142,6 +142,42 @@ theorem z_eq_of_label {n : ℕ} (hn : 5 ≤ n) (hn8 : n ≠ 8)
     subst this
     rw [hz'.eq hzM, hzz]
 
+theorem z_comm {n : ℕ} (hn : 5 ≤ n) (hn8 : n ≠ 8) (I : AEIdent (orbOf (TC.nbrAdj Ω) K J) n)
+    {L L' : Subgroup G} (hL : L ∈ orbOf (TC.nbrAdj Ω) K J) (hL' : L' ∈ orbOf (TC.nbrAdj Ω) K J)
+    {z z' : G} (hz : IsUniqueInvolution L z) (hz' : IsUniqueInvolution L' z') :
+    z * z' = z' * z := by
+  have hPΩ := hS.orb_subset_omega
+  have h8 : ∀ L ∈ Ω, Nat.card L = 8 := fun L hL => by rw [hS.card L hL]; norm_num
+  have hK : K ∈ Ω := hS.adj.1
+  have hzX : z ∈ pSpan (orbOf (TC.nbrAdj Ω) K J) := le_pSpan hL hz.mem
+  have hz'X : z' ∈ pSpan (orbOf (TC.nbrAdj Ω) K J) := le_pSpan hL' hz'.mem
+  set M := conjSub z L' with hM
+  have hMπ : M ∈ orbOf (TC.nbrAdj Ω) K J :=
+    CSetting.conjSub_mem_orb hK (hS.pSpan_orb_le hzX) hL'
+  have hzM : IsUniqueInvolution M (z * z' * z⁻¹) := hz'.conj z
+  obtain ⟨δ, hδ, d, hlab⟩ := I.label L hL
+  obtain ⟨δ', hδ', d', hlab'⟩ := I.label L' hL'
+  obtain ⟨ε, hε, e, hlabM⟩ := I.label M hMπ
+  have e1 := I.map_eq_zBar hn hL (h8 L (hPΩ hL)) hlab hz
+  have e2 := I.map_eq_zBar hn hL' (h8 L' (hPΩ hL')) hlab' hz'
+  have e3 := I.map_eq_zBar hn hMπ (h8 M (hPΩ hMπ)) hlabM hzM
+  have hεδ : ε = δ' := by
+    apply AE.eq_of_zBar_eq hn8
+    rw [← e3, ← e2]
+    have h1 : (⟨z * z' * z⁻¹, le_pSpan hMπ hzM.mem⟩ : ↥(pSpan (orbOf (TC.nbrAdj Ω) K J))) =
+        ⟨z, hzX⟩ * ⟨z', hz'X⟩ * ⟨z, hzX⟩⁻¹ := rfl
+    rw [h1, map_mul, map_mul, map_inv]
+    have hc : I.φ ⟨z, hzX⟩ * I.φ ⟨z', hz'X⟩ = I.φ ⟨z', hz'X⟩ * I.φ ⟨z, hzX⟩ := by
+      have h2 : I.φ ⟨z, le_pSpan hL hz.mem⟩ = AE.zBar δ hδ := e1
+      have h3 : I.φ ⟨z', le_pSpan hL' hz'.mem⟩ = AE.zBar δ' hδ' := e2
+      rw [h2, h3]
+      exact comm_of_mem_ker_permQ (by rw [AE.zBar, permQ_mkQ, AE.zOf_perm])
+        (by rw [AE.zBar, permQ_mkQ, AE.zOf_perm])
+    rw [hc, mul_inv_cancel_right]
+  subst hεδ
+  have := hS.z_eq_of_label hn hn8 I hMπ hL' hlabM hlab' _ _ hzM hz'
+  calc z * z' = z * z' * z⁻¹ * z := by group
+    _ = z' * z := by rw [← this]
 
 end CHyp
 

@@ -58,6 +58,8 @@ theorem invPair_genK {gs : Array (ℕ × ℕ)} (h : gensOK gs = true) (j : ℕ) 
 theorem rep_genG {gs : Array (ℕ × ℕ)} (h : gensOK gs = true) (j : ℕ) :
     Rep (genK gs j).1 (genG gs j) := rep_glOf (invPair_genK h j)
 
+theorem rep_genG_inv {gs : Array (ℕ × ℕ)} (h : gensOK gs = true) (j : ℕ) :
+    Rep (genK gs j).2 (genG gs j)⁻¹ := rep_glOf_inv (invPair_genK h j)
 
 theorem genG_mem {gs : Array (ℕ × ℕ)} (h : gensOK gs = true) (j : ℕ) : genG gs j ∈ grpOf gs := by
   by_cases hj : j < gs.size
@@ -226,5 +228,26 @@ theorem not_mem (h : enumOK gs E = true) {k : ℕ} (hk : k < 2 ^ 144) {x : GL12}
 
 end Enum
 
+@[expose] def mkEnum (gs : Array (ℕ × ℕ)) (fuel : ℕ := 1000) : Enum := Id.run do
+  let mut seen : Std.HashMap ℕ (ℕ × ℕ × ℕ) := (∅ : Std.HashMap ℕ (ℕ × ℕ × ℕ)).insert idK (idK, 0, 0)
+  let mut front : Array ℕ := #[idK]
+  let T := tabs gs
+  let mut d := 0
+  for _ in [0:fuel] do
+    if front.isEmpty then break
+    d := d + 1
+    let mut nf : Array ℕ := #[]
+    for x in front do
+      for j in [0:gs.size] do
+        let z := mulT (T.getD j #[]) x
+        if !seen.contains z then
+          seen := seen.insert z (x, j, d)
+          nf := nf.push z
+    front := nf
+  let keys := (seen.toArray.map (·.1)).qsort (· < ·)
+  let idx : Std.HashMap ℕ ℕ := (keys.zipIdx).foldl (fun m p => m.insert p.1 p.2) ∅
+  let info := fun k => seen.getD k (0, 0, 0)
+  return ⟨keys, keys.map fun k => idx.getD (info k).1 0, keys.map fun k => (info k).2.1,
+    keys.map fun k => (info k).2.2⟩
 
 end CFSG.EvenSmallLie.OmegaEight.Stage2

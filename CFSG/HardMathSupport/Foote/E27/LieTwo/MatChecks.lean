@@ -14,6 +14,49 @@ open Matrix Subgroup CFSG.Sporadic.He.Native
 @[expose] instance {d : ℕ} (M : M2 d) : Decidable (FpfM M) := by
   unfold FpfM; infer_instance
 
+@[expose] def fpfB {d : ℕ} (M : M2 d) : Bool := decide (FpfM M)
+
+@[expose] def tabPw (par : Array (ℕ × ℕ)) (L : Array (Array ℕ)) (x i : ℕ) : ℕ :=
+  if i = 0 then 0 else if i = 1 then x else tabMul par L x x
+
+@[expose] def fpfA (d : ℕ) (X : AM) : Bool := fpfB (toMat 2 d X)
+
+@[expose] def centralTOK (d : ℕ) (T : RawTab) : Bool :=
+  let n := T.elts.size
+  let fp := T.elts.map (fpfA d)
+  (List.range n).all (fun a => (a == 0) ||
+    !((List.range n).all fun b => tabMul T.par T.L a b == tabMul T.par T.L b a) ||
+    fp[a]!) &&
+  (List.range n).all (fun α =>
+    (α == 0) || !(tabMul T.par T.L α (tabMul T.par T.L α α) == 0) ||
+    (List.range n).all fun β =>
+      (β == 0) || (β == α) || (β == tabMul T.par T.L α α) ||
+      !(tabMul T.par T.L β (tabMul T.par T.L β β) == 0) ||
+      !(tabMul T.par T.L α β == tabMul T.par T.L β α) ||
+      (List.range 3).any fun i => (List.range 3).any fun j =>
+        let γ := tabMul T.par T.L (tabPw T.par T.L α i) (tabPw T.par T.L β j)
+        (γ != 0) && !(fp[γ]!))
+
+@[expose] def tabAbelianOK (B : RawTab) : Bool :=
+  (List.range B.elts.size).all fun a => (List.range B.elts.size).all fun b =>
+    tabMul B.par B.L a b == tabMul B.par B.L b a
+
+@[expose] def coverOK (d : ℕ) (adm : AM → Bool) (S B : RawTab) (wits : Array (AM × AM)) :
+    Bool :=
+  (List.range S.elts.size).all fun a =>
+    (a == 0) || !(tabMul S.par S.L a (tabMul S.par S.L a a) == 0) ||
+    wits.any fun w => matEqB 2 d w.1 S.elts[a]! && adm w.2 &&
+      (List.range B.elts.size).any fun b =>
+        matEqB 2 d (mulM 2 d w.2 S.elts[a]!) (mulM 2 d B.elts[b]! w.2)
+
+@[expose] def coverOK3 (d : ℕ) (adm : AM → AM → Bool) (S B : RawTab)
+    (wits : Array (AM × AM × AM)) : Bool :=
+  (List.range S.elts.size).all fun a =>
+    (a == 0) || !(tabMul S.par S.L a (tabMul S.par S.L a a) == 0) ||
+    wits.any fun w => matEqB 2 d w.1 S.elts[a]! && adm w.2.1 w.2.2 &&
+      (List.range B.elts.size).any fun b =>
+        matEqB 2 d (mulM 2 d w.2.1 S.elts[a]!) (mulM 2 d B.elts[b]! w.2.1)
+
 
 theorem factorization_three_of_eq {n k m : ℕ} (h : n = 3 ^ k * m) (hm : ¬ 3 ∣ m) :
     n.factorization 3 = k := by

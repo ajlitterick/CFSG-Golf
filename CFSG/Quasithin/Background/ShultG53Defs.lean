@@ -148,5 +148,54 @@ variable {X A : Type} [AddCommGroup A] (act : X → A → A)
 
 end Rad
 
+@[expose] def Part1 (V₁ : Md ↥(alternatingGroup (Fin 6))) : Prop :=
+  InvSub (permAct V₁) (permCore V₁) ∧ InvSub (permAct V₁) (permOnes V₁) ∧
+    permCore V₁ ⊓ permOnes V₁ = ⊥ ∧ permCore V₁ ⊔ permOnes V₁ = permSpace V₁
+
+@[expose] def Part2 (V₁ : Md ↥(alternatingGroup (Fin 6))) : Prop :=
+  jradPow (permAct V₁) 5 (permCore V₁) = ⊥ ∧
+    ∀ n < 5, IsMaxInvSub (permAct V₁) (jradPow (permAct V₁) n (permCore V₁))
+      (jradPow (permAct V₁) (n + 1) (permCore V₁))
+
+@[expose] def Part3 (V₁ : Md ↥(alternatingGroup (Fin 6)))
+    (B : LinearMap.BilinForm (ZMod 2) V₁.carrier) : Prop :=
+  jradPow (permAct V₁) 2 (permCore V₁) =
+      AddSubgroup.closure {u | ∃ l ∈ singLines V₁ B, u = lineCompl V₁ l} ∧
+    ∃ (C : Md ↥(alternatingGroup (Fin 6)))
+      (π : ↥(jradPow (permAct V₁) 0 (permCore V₁)) →+ C.carrier),
+      Function.Surjective π ∧
+      (∀ u, π u = 0 ↔ (u : V₁.carrier → ZMod 2) ∈ jradPow (permAct V₁) 2 (permCore V₁)) ∧
+      (∀ (g : ↥(alternatingGroup (Fin 6))) (u u' : ↥(jradPow (permAct V₁) 0 (permCore V₁))),
+        permAct V₁ g (u : V₁.carrier → ZMod 2) = (u' : V₁.carrier → ZMod 2) →
+          π u' = C.ρ g (π u)) ∧
+      C.IsFiveDimCover V₁
+
+@[expose] def Part4 (V₁ : Md ↥(alternatingGroup (Fin 6)))
+    (B : LinearMap.BilinForm (ZMod 2) V₁.carrier) : Prop :=
+  (jradPow (permAct V₁) 4 (permCore V₁) : Set (V₁.carrier → ZMod 2)) =
+      {u | ∃ x : V₁.carrier, x ≠ 0 ∧ u = perpCompl V₁ B x} ∪ {0} ∧
+    ∃ f : ↥(jradPow (permAct V₁) 4 (permCore V₁)) ≃+ V₁.carrier,
+      ∀ (g : ↥(alternatingGroup (Fin 6))) (u u' : ↥(jradPow (permAct V₁) 4 (permCore V₁))),
+        permAct V₁ g (u : V₁.carrier → ZMod 2) = (u' : V₁.carrier → ZMod 2) →
+          f u' = V₁.ρ g (f u)
+
+@[expose] def Part5 (V₁ V₂ : Md ↥(alternatingGroup (Fin 6))) : Prop :=
+  ∃ (C : Md ↥(alternatingGroup (Fin 6)))
+    (π : ↥(jradPow (permAct V₁) 2 (permCore V₁)) →+ C.carrier),
+    Function.Surjective π ∧
+    (∀ u, π u = 0 ↔ (u : V₁.carrier → ZMod 2) ∈ jradPow (permAct V₁) 4 (permCore V₁)) ∧
+    (∀ (g : ↥(alternatingGroup (Fin 6))) (u u' : ↥(jradPow (permAct V₁) 2 (permCore V₁))),
+      permAct V₁ g (u : V₁.carrier → ZMod 2) = (u' : V₁.carrier → ZMod 2) →
+        π u' = C.ρ g (π u)) ∧
+    C.IsFiveDimCover V₂
+
+@[expose] def Part6 (G₁ G₂ : Subgroup (Equiv.Perm (Fin 6))) (V₁ : Md ↥(alternatingGroup (Fin 6))) :
+    Prop :=
+  ∀ W : Md ↥(alternatingGroup (Fin 6)),
+    (∃ w : W.carrier, w ≠ 0 ∧ (∀ g ∈ inG G₁, W.ρ g w = w) ∧
+      AddSubgroup.closure (Set.range fun g : ↥(alternatingGroup (Fin 6)) => W.ρ g w) = ⊤ ∧
+      Nat.card ↥(AddSubgroup.closure
+        (Set.range fun g : ↥(inG G₂) => W.ρ (g : ↥(alternatingGroup (Fin 6))) w)) = 4) →
+    W.Iso V₁ ∨ W.IsFiveDimCover V₁
 
 end CFSG.Quasithin.ShultG53

@@ -31,6 +31,8 @@ namespace PP
 
 @[expose] def act (u : PP) (e : Bool) (g : PP) : PP := mul u (gamE e g)
 
+theorem valid_of_eq {p : PP} (h : bmul p.m p.m' = idN) : p.Valid := by
+  rw [Valid, ← toM_bmul, h, toM_idN]
 
 theorem Valid.symm {p : PP} (h : p.Valid) : toM p.m' * toM p.m = 1 := by
   rw [← Matrix.inv_eq_right_inv h]

@@ -30,6 +30,10 @@ theorem beq_false' {m n : ℕ} (h : m ≠ n) : Nat.beq m n = false :=
 @[expose] def slpG {G : Type*} [Group G] (g h : G) (prog : List Op) : ℕ → G :=
   prog.foldl opG (initG g h)
 
+variable {c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE : ℕ}
+  {J : Subgroup (GL (Fin 248) (ZMod 2))}
+  (hk : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE = true)
+include hk
 
 end CFSG.KC.ThCent
 

@@ -136,12 +136,32 @@ theorem codeOf_formOf : ∀ j : Fin 31, codeOf (formOf j) - 1 = j.1 := by decide
 
 instance : MulAction G (Fin 31) := Equiv.mulAction G idxEquiv
 
+theorem formOf_smul (g : G) (j : Fin 31) :
+    formOf (g • j) = formOf j ᵥ* ((g⁻¹ : G) : Matrix (Fin 5) (Fin 5) (ZMod 2)) := by
+  change (idxEquiv (idxEquiv.symm (g • idxEquiv j))).1 = _
+  rw [Equiv.apply_symm_apply]
+  rfl
+
+
+@[expose] def symIdx (i j : Fin 5) : ℕ := i.1 * 4 + (if j.1 < i.1 then j.1 else j.1 - 1)
 
 theorem zmod2_cases : ∀ c : ZMod 2, c = 0 ∨ c = 1 := by decide
 
 
+@[expose] def permArr (g : G) : Array (Fin 31) := Array.ofFn (g • ·)
+
 @[expose] def compA (a b : Array (Fin 31)) : Array (Fin 31) :=
   Array.ofFn fun j : Fin 31 => a.getD (b.getD j.1 0).1 0
+
+theorem getD_permArr (g : G) (j : Fin 31) : (permArr g).getD j.1 0 = g • j := by
+  simp [permArr]
+
+theorem compA_permArr (g h : G) : compA (permArr g) (permArr h) = permArr (g * h) := by
+  have hf : (fun j : Fin 31 => (permArr g).getD ((permArr h).getD j.1 0).1 0) =
+      fun j => (g * h) • j := by
+    funext j
+    rw [getD_permArr, getD_permArr, mul_smul]
+  exact congrArg Array.ofFn hf
 
 
 end CFSG.LocalAnalysis.DempwolffFive

@@ -56,6 +56,133 @@ namespace CFSG.GH74.GLS.IVK.Proofs2.Sp48
 
 namespace O2Plane
 
+theorem exists_dihedral_bijective {H : Type*} [Group H] {n : ℕ} [NeZero n] (γ σ : H)
+    (hγ : orderOf γ = n) (hσ : σ * σ = 1) (hσγ : σ * γ * σ = γ⁻¹)
+    (hnot : ∀ i : ℤ, σ ≠ γ ^ i) (hcov : ∀ h : H, ∃ i : ℤ, h = γ ^ i ∨ h = σ * γ ^ i) :
+    ∃ φ : DihedralGroup n →* H, Function.Bijective φ := by
+  have hσinv : σ⁻¹ = σ := inv_eq_of_mul_eq_one_right hσ
+  have hconj : ∀ m : ℤ, σ * γ ^ m * σ = γ ^ (-m) := by
+    intro m
+    have h := conj_zpow (a := σ) (b := γ) (i := m)
+    rw [hσinv] at h
+    rw [← h, hσγ, inv_zpow', zpow_neg]
+  have hcomm : ∀ m : ℤ, γ ^ m * σ = σ * γ ^ (-m) := by
+    intro m
+    rw [← hconj m, ← mul_assoc, ← mul_assoc, hσ, one_mul]
+  set pw : ZMod n → H := fun i => γ ^ (i.val : ℤ) with hpw
+  have pw_cast : ∀ m : ℤ, pw (m : ZMod n) = γ ^ m := by
+    intro m
+    simp only [hpw]
+    rw [ZMod.val_intCast, ← hγ, zpow_mod_orderOf]
+  let φ : DihedralGroup n →* H :=
+    { toFun := fun x => match x with
+        | DihedralGroup.r i => pw i
+        | DihedralGroup.sr i => σ * pw i
+      map_one' := by
+        rw [DihedralGroup.one_def]
+        show pw 0 = 1
+        simp [hpw]
+      map_mul' := by
+        rintro (i | i) (j | j)
+        · obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+          obtain ⟨b, rfl⟩ := ZMod.intCast_surjective j
+          simp only [DihedralGroup.r_mul_r]
+          rw [← Int.cast_add, pw_cast, pw_cast, pw_cast, zpow_add]
+        · obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+          obtain ⟨b, rfl⟩ := ZMod.intCast_surjective j
+          simp only [DihedralGroup.r_mul_sr]
+          rw [← Int.cast_sub, pw_cast, pw_cast, pw_cast, ← mul_assoc, hcomm, mul_assoc,
+            ← zpow_add]
+          congr 2
+          ring
+        · obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+          obtain ⟨b, rfl⟩ := ZMod.intCast_surjective j
+          simp only [DihedralGroup.sr_mul_r]
+          rw [← Int.cast_add, pw_cast, pw_cast, pw_cast, zpow_add, mul_assoc]
+        · obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+          obtain ⟨b, rfl⟩ := ZMod.intCast_surjective j
+          simp only [DihedralGroup.sr_mul_sr]
+          rw [← Int.cast_sub, pw_cast, pw_cast, pw_cast, ← mul_assoc, hconj, ← zpow_add]
+          congr 1
+          ring }
+  refine ⟨φ, ?_, ?_⟩
+  · rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
+    intro x hx
+    rw [MonoidHom.mem_ker] at hx
+    rcases x with i | i
+    · obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+      have h1 : γ ^ a = 1 := by
+        have := hx
+        simpa [φ, pw_cast] using this
+      have h2 : ((n : ℕ) : ℤ) ∣ a := by
+        rw [← hγ]; exact orderOf_dvd_iff_zpow_eq_one.2 h1
+      have h3 : (a : ZMod n) = 0 := (ZMod.intCast_zmod_eq_zero_iff_dvd a n).2 h2
+      rw [h3, DihedralGroup.r_zero]
+      exact Subgroup.one_mem _
+    · exfalso
+      obtain ⟨a, rfl⟩ := ZMod.intCast_surjective i
+      have h1 : σ * γ ^ a = 1 := by
+        have := hx
+        simpa [φ, pw_cast] using this
+      apply hnot (-a)
+      rw [zpow_neg]
+      exact eq_inv_of_mul_eq_one_left h1
+  · intro h
+    obtain ⟨i, hi | hi⟩ := hcov h
+    · exact ⟨DihedralGroup.r (i : ZMod n), by simp [φ, pw_cast, hi]⟩
+    · exact ⟨DihedralGroup.sr (i : ZMod n), by simp [φ, pw_cast, hi]⟩
+
+theorem exists_dihedral_quotient {G : Type*} [Group G] (Z : Subgroup G)
+    (hZ : ∀ z ∈ Z, ∀ g : G, g * z = z * g) {n : ℕ} [NeZero n] (γ σ : G)
+    (hγ : ∀ j : ℤ, γ ^ j ∈ Z ↔ (n : ℤ) ∣ j)
+    (hσ : σ * σ ∈ Z) (hσγ : σ * γ * σ * γ ∈ Z)
+    (hnot : ∀ (i : ℤ), ∀ z ∈ Z, σ ≠ γ ^ i * z)
+    (hcov : ∀ g : G, ∃ i : ℤ, ∃ z ∈ Z, g = γ ^ i * z ∨ g = σ * γ ^ i * z) :
+    ∃ ψ : G →* DihedralGroup n, Function.Surjective ψ ∧ ∀ g : G, ψ g = 1 ↔ g ∈ Z := by
+  have : Z.Normal := ⟨fun z hz g => by
+    rw [hZ z hz g, mul_assoc, mul_inv_cancel, mul_one]
+    exact hz⟩
+  have hγ' : orderOf (γ : G ⧸ Z) = n := by
+    apply Nat.dvd_antisymm
+    · apply orderOf_dvd_of_pow_eq_one
+      rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
+      have := (hγ n).2 (dvd_refl _)
+      simpa using this
+    · have h1 : (γ : G ⧸ Z) ^ orderOf (γ : G ⧸ Z) = 1 := pow_orderOf_eq_one _
+      rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff] at h1
+      have := (hγ (orderOf (γ : G ⧸ Z) : ℤ)).1 (by simpa using h1)
+      exact_mod_cast this
+  have hσ' : (σ : G ⧸ Z) * (σ : G ⧸ Z) = 1 := by
+    rw [← QuotientGroup.mk_mul, QuotientGroup.eq_one_iff]
+    exact hσ
+  have hσγ' : (σ : G ⧸ Z) * (γ : G ⧸ Z) * (σ : G ⧸ Z) = (γ : G ⧸ Z)⁻¹ := by
+    apply eq_inv_of_mul_eq_one_left
+    rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul,
+      QuotientGroup.eq_one_iff]
+    exact hσγ
+  have hnot' : ∀ i : ℤ, (σ : G ⧸ Z) ≠ (γ : G ⧸ Z) ^ i := by
+    intro i h
+    rw [← QuotientGroup.mk_zpow, QuotientGroup.eq] at h
+    apply hnot i _ (Z.inv_mem h)
+    simp
+  have hcov' : ∀ h : G ⧸ Z, ∃ i : ℤ,
+      h = (γ : G ⧸ Z) ^ i ∨ h = (σ : G ⧸ Z) * (γ : G ⧸ Z) ^ i := by
+    intro h
+    obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective h
+    obtain ⟨i, z, hz, hg | hg⟩ := hcov g
+    · refine ⟨i, Or.inl ?_⟩
+      rw [hg, QuotientGroup.mk_mul, QuotientGroup.mk_zpow,
+        (QuotientGroup.eq_one_iff z).2 hz, mul_one]
+    · refine ⟨i, Or.inr ?_⟩
+      rw [hg, QuotientGroup.mk_mul, QuotientGroup.mk_mul, QuotientGroup.mk_zpow,
+        (QuotientGroup.eq_one_iff z).2 hz, mul_one]
+  obtain ⟨φ, hφ⟩ := exists_dihedral_bijective (γ : G ⧸ Z) (σ : G ⧸ Z) hγ' hσ' hσγ' hnot' hcov'
+  let e : DihedralGroup n ≃* (G ⧸ Z) := MulEquiv.ofBijective φ hφ
+  refine ⟨e.symm.toMonoidHom.comp (QuotientGroup.mk' Z), ?_, ?_⟩
+  · exact e.symm.surjective.comp (QuotientGroup.mk'_surjective Z)
+  · intro g
+    change e.symm (g : G ⧸ Z) = 1 ↔ g ∈ Z
+    rw [MulEquiv.map_eq_one_iff, QuotientGroup.eq_one_iff]
 
 section Entries
 
@@ -464,6 +591,7 @@ theorem neg_one_mem_SO2 : (-1 : GL (Fin 2) F) ∈ SO2 F := by
   rw [mem_SO2_iff]
   simp
 
+theorem neg_one_mem_Rx : (-1 : GL (Fin 2) F) ∈ Rx F := SO2_le_Rx neg_one_mem_SO2
 
 theorem neg_ne_one_GL (h2 : (2 : F) ≠ 0) : (-1 : GL (Fin 2) F) ≠ 1 := by
   intro h
@@ -544,6 +672,12 @@ theorem Rx_comm {r s : GL (Fin 2) F} (hr : r ∈ Rx F) (hs : s ∈ Rx F) : r * s
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two] <;> ring
 
+theorem scalar_mem_Rx (c : Fˣ) : Matrix.GeneralLinearGroup.scalar (Fin 2) c ∈ Rx F := by
+  rw [Rx, Subgroup.mem_centralizer_iff]
+  intro h hh
+  rw [Set.mem_singleton_iff] at hh
+  subst hh
+  exact (Matrix.GeneralLinearGroup.scalar_commute c _).symm
 
 theorem jm_mem_Rx : jm F ∈ Rx F := by
   rw [Rx, Subgroup.mem_centralizer_iff]
@@ -593,6 +727,16 @@ theorem norm_ne_zero_of_mem_Rx {r : GL (Fin 2) F} {a b : F}
   apply this
   linear_combination h
 
+theorem theta_mem_SO2 (r : ↥(Rx F)) : theta F r ∈ SO2 F := by
+  obtain ⟨a, b, hab⟩ := exists_eq_of_mem_Rx r.2
+  have hN := norm_ne_zero_of_mem_Rx hab
+  rw [mem_SO2_iff]
+  simp only [coe_theta r hab]
+  refine ⟨by simp, by simp, ?_⟩
+  simp only [Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.empty_val', Matrix.cons_val_fin_one]
+  field_simp
+  ring
 
 theorem theta_eq_one_iff (h2 : (2 : F) ≠ 0) (r : ↥(Rx F)) :
     theta F r = 1 ↔ ∃ c : Fˣ, (r : GL (Fin 2) F) = Matrix.GeneralLinearGroup.scalar (Fin 2) c := by
@@ -671,10 +815,190 @@ theorem theta_surjective (h2 : (2 : F) ≠ 0) {s : GL (Fin 2) F} (hs : s ∈ SO2
       field_simp
     rw [e1, e2]
 
+theorem Rx_le_GO2 : Rx F ≤ GO2 F := by
+  intro r hr
+  obtain ⟨a, b, hab⟩ := exists_eq_of_mem_Rx hr
+  refine ⟨a ^ 2 + b ^ 2, norm_ne_zero_of_mem_Rx hab, ?_⟩
+  rw [hab]
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two] <;> ring
+
+def Zsc (F : Type) [Field F] : Subgroup (GL (Fin 2) F) :=
+  (Matrix.GeneralLinearGroup.scalar (Fin 2) : Fˣ →* GL (Fin 2) F).range
+
+theorem mem_Zsc_iff (x : GL (Fin 2) F) :
+    x ∈ Zsc F ↔ ∃ c : Fˣ, x = Matrix.GeneralLinearGroup.scalar (Fin 2) c := by
+  rw [Zsc, MonoidHom.mem_range]
+  exact exists_congr fun c => eq_comm
+
+theorem Zsc_le_Rx : Zsc F ≤ Rx F := by
+  intro x hx
+  obtain ⟨c, rfl⟩ := (mem_Zsc_iff x).1 hx
+  exact scalar_mem_Rx c
 
 end Hilbert
 
 end O2Plane
 
+theorem o2_dihedral {F : Type} [Field F] [Finite F] (h2 : (2 : F) ≠ 0) (ε : ℤ)
+    (hε : ε = 1 ∨ ε = -1) (hq : (Nat.card F : ℤ) ≡ ε [ZMOD 4]) (h5 : 5 ≤ Nat.card F) (k : ℕ)
+    (hk : (2 * k : ℤ) = Nat.card F - ε) :
+    ∃ ψ : ↥(O2 F) →* DihedralGroup k, Function.Surjective ψ ∧
+      ∀ m : ↥(O2 F), ψ m = 1 ↔ ((m : GL (Fin 2) F) = 1 ∨ (m : GL (Fin 2) F) = -1) := by
+  have hkpos : k ≠ 0 := by omega
+  have : NeZero k := ⟨hkpos⟩
+  obtain ⟨g, hgS, hord, hall⟩ :=
+    O2Plane.exists_generator_SO2 h2 ε hε hq (2 * k) (by push_cast; exact hk)
+  have hgk : g ^ k = -1 :=
+    O2Plane.pow_eq_neg_one_of_generator h2 hord (hall _ O2Plane.neg_one_mem_SO2)
+  let Z : Subgroup ↥(O2 F) := (Subgroup.zpowers (-1 : GL (Fin 2) F)).subgroupOf (O2 F)
+  have hmemZ : ∀ x : ↥(O2 F), x ∈ Z ↔
+      ((x : GL (Fin 2) F) = 1 ∨ (x : GL (Fin 2) F) = -1) := fun x =>
+    Subgroup.mem_subgroupOf.trans (O2Plane.mem_zpowers_neg_one_iff _)
+  let γ : ↥(O2 F) := ⟨g, O2Plane.SO2_le_O2 hgS⟩
+  let σ : ↥(O2 F) := ⟨O2Plane.sig F, O2Plane.sig_mem_O2⟩
+  have hZ : ∀ z ∈ Z, ∀ x : ↥(O2 F), x * z = z * x := by
+    intro z hz x
+    apply Subtype.ext
+    show (x : GL (Fin 2) F) * (z : GL (Fin 2) F) = (z : GL (Fin 2) F) * (x : GL (Fin 2) F)
+    rcases (hmemZ z).1 hz with h | h
+    · rw [h, mul_one, one_mul]
+    · rw [h]
+      exact (Commute.neg_one_right _).eq
+  have hpow : ∀ j : ℤ, ((γ ^ j : ↥(O2 F)) : GL (Fin 2) F) = g ^ j := fun j => by
+    simp [γ]
+  have h1 : ∀ j : ℤ, g ^ j = 1 ↔ (2 * (k : ℤ)) ∣ j := by
+    intro j
+    rw [← orderOf_dvd_iff_zpow_eq_one, hord]
+    push_cast
+    rfl
+  have hγ : ∀ j : ℤ, γ ^ j ∈ Z ↔ (k : ℤ) ∣ j := by
+    intro j
+    rw [hmemZ, hpow]
+    constructor
+    · rintro (h | h)
+      · exact (dvd_mul_left (k : ℤ) 2).trans ((h1 j).1 h)
+      · have h3 : g ^ (j - k) = 1 := by
+          rw [_root_.zpow_sub, h, zpow_natCast, hgk]
+          simp
+        have hk' : (k : ℤ) ∣ j - k := (dvd_mul_left (k : ℤ) 2).trans ((h1 _).1 h3)
+        simpa using dvd_add hk' (dvd_refl (k : ℤ))
+    · rintro ⟨t, rfl⟩
+      rcases Int.even_or_odd' t with ⟨s, rfl | rfl⟩
+      · left
+        rw [h1]
+        exact ⟨s, by ring⟩
+      · right
+        rw [mul_add, mul_one, _root_.zpow_add, (h1 _).2 ⟨s, by ring⟩, one_mul, zpow_natCast, hgk]
+  have hσ : σ * σ ∈ Z := by
+    have : σ * σ = 1 := Subtype.ext O2Plane.sig_mul_self
+    rw [this]
+    exact Z.one_mem
+  have hσγ : σ * γ * σ * γ ∈ Z := by
+    have : σ * γ * σ * γ = 1 := Subtype.ext (O2Plane.sig_mul_mul_sig_mul_SO2 hgS)
+    rw [this]
+    exact Z.one_mem
+  have hnot : ∀ (i : ℤ), ∀ z ∈ Z, σ ≠ γ ^ i * z := by
+    intro i z hz h
+    have h' : O2Plane.sig F = g ^ i * (z : GL (Fin 2) F) := by
+      have := congrArg Subtype.val h
+      rwa [Subgroup.coe_mul, hpow] at this
+    apply O2Plane.sig_not_mem_Rx h2
+    rw [h']
+    refine (O2Plane.Rx F).mul_mem ((O2Plane.Rx F).zpow_mem (O2Plane.SO2_le_Rx hgS) i) ?_
+    rcases (hmemZ z).1 hz with h | h
+    · rw [h]; exact (O2Plane.Rx F).one_mem
+    · rw [h]; exact O2Plane.neg_one_mem_Rx
+  have hcov : ∀ x : ↥(O2 F), ∃ i : ℤ, ∃ z ∈ Z, x = γ ^ i * z ∨ x = σ * γ ^ i * z := by
+    intro x
+    rcases O2Plane.O2_cases x.2 with h | h
+    · obtain ⟨i, hi⟩ := hall _ h
+      refine ⟨i, 1, Z.one_mem, Or.inl (Subtype.ext ?_)⟩
+      rw [Subgroup.coe_mul, hpow, ← hi]
+      simp
+    · obtain ⟨i, hi⟩ := hall _ h
+      refine ⟨i, 1, Z.one_mem, Or.inr (Subtype.ext ?_)⟩
+      rw [Subgroup.coe_mul, Subgroup.coe_mul, hpow, ← hi]
+      show (x : GL (Fin 2) F) = O2Plane.sig F * (O2Plane.sig F * x) * 1
+      rw [← mul_assoc, O2Plane.sig_mul_self, one_mul, mul_one]
+  obtain ⟨ψ, hψs, hψk⟩ :=
+    O2Plane.exists_dihedral_quotient (n := k) Z hZ γ σ hγ hσ hσγ hnot hcov
+  exact ⟨ψ, hψs, fun m => (hψk m).trans (hmemZ m)⟩
+
+theorem go2_dihedral {F : Type} [Field F] [Finite F] (h2 : (2 : F) ≠ 0) (ε : ℤ)
+    (hε : ε = 1 ∨ ε = -1) (hq : (Nat.card F : ℤ) ≡ ε [ZMOD 4]) (h5 : 5 ≤ Nat.card F) (n : ℕ)
+    (hn : (n : ℤ) = Nat.card F - ε) :
+    ∃ ψ : ↥(GO2 F) →* DihedralGroup n, Function.Surjective ψ ∧
+      ∀ m : ↥(GO2 F), ψ m = 1 ↔
+        ∃ c : Fˣ, (m : GL (Fin 2) F) = Matrix.GeneralLinearGroup.scalar (Fin 2) c := by
+  have hnpos : n ≠ 0 := by omega
+  have : NeZero n := ⟨hnpos⟩
+  obtain ⟨g, hgS, hord, hall⟩ := O2Plane.exists_generator_SO2 h2 ε hε hq n hn
+  obtain ⟨ρ, hρ⟩ := O2Plane.theta_surjective h2 hgS
+  let Z : Subgroup ↥(GO2 F) := (O2Plane.Zsc F).subgroupOf (GO2 F)
+  have hmemZ : ∀ x : ↥(GO2 F), x ∈ Z ↔
+      ∃ c : Fˣ, (x : GL (Fin 2) F) = Matrix.GeneralLinearGroup.scalar (Fin 2) c := fun x =>
+    Subgroup.mem_subgroupOf.trans (O2Plane.mem_Zsc_iff _)
+  let γ : ↥(GO2 F) := ⟨(ρ : GL (Fin 2) F), O2Plane.Rx_le_GO2 ρ.2⟩
+  let σ : ↥(GO2 F) := ⟨O2Plane.sig F, O2Plane.O2_le_GO2 O2Plane.sig_mem_O2⟩
+  have hσσ : σ * σ = 1 := Subtype.ext O2Plane.sig_mul_self
+  have hZ : ∀ z ∈ Z, ∀ x : ↥(GO2 F), x * z = z * x := by
+    intro z hz x
+    obtain ⟨c, hc⟩ := (hmemZ z).1 hz
+    apply Subtype.ext
+    show (x : GL (Fin 2) F) * (z : GL (Fin 2) F) = (z : GL (Fin 2) F) * (x : GL (Fin 2) F)
+    rw [hc]
+    exact (Matrix.GeneralLinearGroup.scalar_commute c _).symm
+  have hpowγ : ∀ j : ℤ, ((γ ^ j : ↥(GO2 F)) : GL (Fin 2) F) = (ρ : GL (Fin 2) F) ^ j :=
+    fun j => by simp [γ]
+  have hpowρ : ∀ j : ℤ, ((ρ ^ j : ↥(O2Plane.Rx F)) : GL (Fin 2) F) = (ρ : GL (Fin 2) F) ^ j :=
+    fun j => by simp
+  have hθ : ∀ j : ℤ, O2Plane.theta F (ρ ^ j) = g ^ j := fun j => by
+    rw [map_zpow, hρ]
+  have hγ : ∀ j : ℤ, γ ^ j ∈ Z ↔ (n : ℤ) ∣ j := by
+    intro j
+    rw [hmemZ, hpowγ, ← hpowρ, ← O2Plane.theta_eq_one_iff h2, hθ,
+      ← orderOf_dvd_iff_zpow_eq_one, hord]
+  have hσ : σ * σ ∈ Z := by
+    rw [hσσ]
+    exact Z.one_mem
+  have hσγ : σ * γ * σ * γ ∈ Z :=
+    (hmemZ _).2 ⟨Matrix.GeneralLinearGroup.det (ρ : GL (Fin 2) F),
+      O2Plane.sig_mul_mul_sig_mul ρ.2⟩
+  have hnot : ∀ (i : ℤ), ∀ z ∈ Z, σ ≠ γ ^ i * z := by
+    intro i z hz h
+    have h' : O2Plane.sig F = (ρ : GL (Fin 2) F) ^ i * (z : GL (Fin 2) F) := by
+      have := congrArg Subtype.val h
+      rwa [Subgroup.coe_mul, hpowγ] at this
+    apply O2Plane.sig_not_mem_Rx h2
+    rw [h']
+    exact (O2Plane.Rx F).mul_mem ((O2Plane.Rx F).zpow_mem ρ.2 i)
+      (O2Plane.Zsc_le_Rx (Subgroup.mem_subgroupOf.1 hz))
+  have hcovRx : ∀ y : ↥(GO2 F), (y : GL (Fin 2) F) ∈ O2Plane.Rx F →
+      ∃ i : ℤ, ∃ z ∈ Z, y = γ ^ i * z := by
+    intro y hy
+    obtain ⟨i, hi⟩ := hall (O2Plane.theta F ⟨y, hy⟩) (O2Plane.theta_mem_SO2 _)
+    have h1 : O2Plane.theta F (ρ ^ (-i) * ⟨y, hy⟩) = 1 := by
+      rw [map_mul, hθ, hi, ← zpow_add, neg_add_cancel, zpow_zero]
+    obtain ⟨c, hc⟩ := (O2Plane.theta_eq_one_iff h2 _).1 h1
+    refine ⟨i, γ ^ (-i) * y, (hmemZ _).2 ⟨c, ?_⟩, ?_⟩
+    · have := hc
+      simp only [Subgroup.coe_mul, hpowρ] at this
+      simp only [Subgroup.coe_mul, hpowγ]
+      exact this
+    · rw [← mul_assoc, ← zpow_add, add_neg_cancel, zpow_zero, one_mul]
+  have hcov : ∀ x : ↥(GO2 F), ∃ i : ℤ, ∃ z ∈ Z, x = γ ^ i * z ∨ x = σ * γ ^ i * z := by
+    intro x
+    rcases O2Plane.GO2_cases x.2 with h | h
+    · obtain ⟨i, z, hz, hx⟩ := hcovRx x h
+      exact ⟨i, z, hz, Or.inl hx⟩
+    · obtain ⟨i, z, hz, hx⟩ := hcovRx (σ * x) h
+      refine ⟨i, z, hz, Or.inr ?_⟩
+      calc x = σ * (σ * x) := by rw [← mul_assoc, hσσ, one_mul]
+        _ = σ * (γ ^ i * z) := by rw [hx]
+        _ = σ * γ ^ i * z := by rw [mul_assoc]
+  obtain ⟨ψ, hψs, hψk⟩ :=
+    O2Plane.exists_dihedral_quotient (n := n) Z hZ γ σ hγ hσ hσγ hnot hcov
+  exact ⟨ψ, hψs, fun m => (hψk m).trans (hmemZ m)⟩
 
 end CFSG.GH74.GLS.IVK.Proofs2.Sp48

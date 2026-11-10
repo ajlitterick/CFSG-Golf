@@ -28,6 +28,9 @@ theorem bAnd_eq' (a b : Bool) : Bool.rec (motive := fun _ => Bool) false b a = (
 theorem bIf_eq' (c t e : Bool) : Bool.rec (motive := fun _ => Bool) e t c = (if c then t else e) := by
   cases c <;> rfl
 
+theorem nIf_eq' (c : Bool) (t e : Nat) :
+    Bool.rec (motive := fun _ => Nat) e t c = (if c then t else e) := by
+  cases c <;> rfl
 
 theorem anyK_iff {n : Nat} {f : Nat → Bool} : anyK n f = true ↔ ∃ j < n, f j = true := by
   induction n with

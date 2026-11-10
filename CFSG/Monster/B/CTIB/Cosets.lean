@@ -29,6 +29,7 @@ theorem cosetOK_of {k : ℕ} (hk : IsRank k) : cosetOK k (cosetCount k)
 
 theorem liftImgsN_eq (k : ℕ) : liftImgsN k = liftImgsK k := rfl
 
+theorem liftRowsN_eq (k : ℕ) : liftRowsN k = liftRowsK k := rfl
 
 @[expose] def centAuts (k : ℕ) : Array (Array ℕ) :=
   ((List.range 15).map fun j => wordAut (genInvImgs ()) (centWordN k j)).toArray
@@ -292,6 +293,8 @@ theorem cover_qClass
 
 theorem mem_qClass_self (t : Sbp) : t ∈ qClass t := ⟨1, Qs.one_mem, by group⟩
 
+theorem mem_fClass_self
+    (k : ℕ) (t : Sbp) : t ∈ fClass k t := ⟨1, (fuseGroup k).one_mem, by group⟩
 
 theorem nodup_of_disjoint {α : Type*} {L : List (Set α)} (hd : L.Pairwise Disjoint)
     (hne : ∀ o ∈ L, o.Nonempty) : L.Nodup := by

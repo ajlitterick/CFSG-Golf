@@ -382,6 +382,28 @@ theorem χ_conj (l : N.L) (s : ruS N.L) :
       stAct (N.θ l) (Multiplicative.toAdd (N.χ s)) := by
   rw [N.χ_equiv l s _ rfl, toAdd_ofAdd]
 
+theorem U_inf_conjU {l : G} (hl : l ∈ N.L) (hne : N.conjU l ≠ ruU N.L N.T) :
+    ruU N.L N.T ⊓ N.conjU l = ruV N.L := by
+  refine le_antisymm (fun s hs => ?_) (le_inf N.V_le_U (N.V_le_conjU hl))
+  obtain ⟨hsU, hsl⟩ := Subgroup.mem_inf.mp hs
+  have hsS := N.U_le_S hsU
+  have h1 := (N.mem_U_iff hsS).mp hsU
+  have hl' : l⁻¹ * s * l ∈ ruU N.L N.T := N.mem_conjU.mp hsl
+  have hl'S := N.U_le_S hl'
+  have h2 := (N.mem_U_iff hl'S).mp hl'
+  have e := N.χ_conj ⟨l⁻¹, inv_mem hl⟩ ⟨s, hsS⟩
+  simp only [inv_inv] at e
+  rw [e, show N.θ ⟨l⁻¹, inv_mem hl⟩ = (N.θ ⟨l, hl⟩)⁻¹ from by
+    rw [← map_inv]; rfl] at h2
+  have hnot : N.θ ⟨l, hl⟩ ∉ SL3.Stab0 := by
+    intro hst
+    exact hne ((N.conjU_eq_U_iff hl).mpr (mem_pullL.mpr ⟨hl, hst⟩))
+  have h0 := SL3.row0_conj_inter _ hnot _ h1 h2
+  have hk : (⟨s, hsS⟩ : ruS N.L) ∈ N.χ.ker := by
+    rw [MonoidHom.mem_ker]
+    exact Multiplicative.toAdd.injective (by rw [h0, toAdd_one])
+  rw [N.χ_ker, Subgroup.mem_subgroupOf] at hk
+  exact hk
 
 end RuDataN
 
@@ -410,6 +432,11 @@ variable (M : RuDataM G) [Finite G]
 theorem θ_mem_P0 {t : G} (ht : t ∈ (M.T : Subgroup G)) : M.θ ⟨t, M.toRuData.T_le_L ht⟩ ∈ SL3.P0 :=
   M.toRuDataN.θ_mem_P0 ht _
 
+omit [Finite G] in
+theorem φ_mem_SP0 {t : G} (ht : t ∈ (M.T : Subgroup G)) :
+    M.φ ⟨t, M.toRuData.T_le_H ht⟩ ∈ Sigma.SP0 := by
+  rw [← M.hSP0]
+  exact ⟨⟨t, _⟩, Subgroup.mem_subgroupOf.mpr ht, rfl⟩
 
 omit [Finite G] in
 theorem exists_T_of_SP0 {g : SigmaL2F4} (hg : g ∈ Sigma.SP0) :

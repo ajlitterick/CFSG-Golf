@@ -24,6 +24,7 @@ theorem tabRep_m11TabB : TabRep m11TabB Mathieu.m11gB := by
   refine ⟨rfl, fun i => ?_⟩
   fin_cases i <;> decide
 
+theorem pointsList_m11Pts : PointsList 275 11 m11Pts := ⟨rfl, by decide, by decide⟩
 
 theorem perm_fix_of_comm {α : Type*} {g s : Equiv.Perm α} {x : α} (h : g * s = s * g)
     (hx : s x = x) : s (g x) = g x := by
@@ -350,5 +351,93 @@ theorem card_mcl_eq :
   rw [CFSG.Sporadic.McL.card_McL]
   norm_num
 
+theorem mclP_involution_product_order
+    (h : invProdCheck = true) :
+    ∀ u ∈ mclP, ∀ v ∈ mclP, orderOf u = 2 → orderOf v = 2 →
+      ∃ m ∈ ({1, 2, 3, 4, 5, 6} : Finset ℕ), orderOf (u * v) = m := by
+  have hD : GroupData 275 mclP mclPGTbls mclGen mclSift := mcl_groupData
+  simp only [invProdCheck, Bool.and_eq_true, beq_iff_eq] at h
+  obtain ⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩, h7⟩ := h
+  have hpgi : ∀ l < mclPGTbls.size, Rep 275 mclPGInvTbls[l]! (mclGen l)⁻¹ := fun l hl =>
+    Rep.inv_of_invOK (hD.rep l hl) (allIn_eq_true.1 h3 l (Nat.zero_le _) hl)
+  have hT : Rep 275 invTab0 (tp 275 invTab0) := rep_tp h1
+  obtain ⟨-, -, -, hrows, -⟩ := mcl_involution_centralizers
+  obtain ⟨-, -, -, -, -, hcls⟩ := hrows _ List.mem_cons_self
+  dsimp only at hcls
+  have hsize : (conjClass mclP (tp 275 invTab0)).ncard ≤
+      (conjClosureH 275 mclPGTbls mclPGInvTbls invTab0 30000).1.size := by
+    rw [h6]
+    exact hcls.le
+  obtain ⟨-, hcover⟩ := conjClosure_cover hD hpgi hT h4 h5 hsize
+  have h7' := (Array.all_eq_true'.1 h7)
+  intro u hu v hv hu2 hv2
+  obtain ⟨g₁, hg₁, rfl⟩ := mclT0_facts.2.2.2.2 u hu hu2
+  obtain ⟨g₂, hg₂, rfl⟩ := mclT0_facts.2.2.2.2 v hv hv2
+  have hc : g₁⁻¹ * g₂ ∈ mclP := mclP.mul_mem (mclP.inv_mem hg₁) hg₂
+  obtain ⟨k, hk, hkrep⟩ := hcover (g₁⁻¹ * g₂ * tp 275 invTab0 * (g₁⁻¹ * g₂)⁻¹) ⟨_, hc, rfl⟩
+  have hent := h7' _ (getElem!_mem_array hk)
+  rw [List.any_eq_true] at hent
+  obtain ⟨i, hi, hio⟩ := hent
+  rw [List.mem_range] at hi
+  have hrepc := Rep.compT hT hkrep
+  have hord := (ordTest_iff_perm hrepc (by omega : 0 < i + 1)).1 hio
+  refine ⟨i + 1, by simp only [Finset.mem_insert, Finset.mem_singleton]; omega, ?_⟩
+  have e : g₁ * mclT0 * g₁⁻¹ * (g₂ * mclT0 * g₂⁻¹) = g₁ * (tp 275 invTab0 *
+      (g₁⁻¹ * g₂ * tp 275 invTab0 * (g₁⁻¹ * g₂)⁻¹)) * g₁⁻¹ := by
+    show _ = g₁ * (mclT0 * (g₁⁻¹ * g₂ * mclT0 * (g₁⁻¹ * g₂)⁻¹)) * g₁⁻¹
+    group
+  rw [e, ← MulAut.conj_apply, MulEquiv.orderOf_eq, hord]
+
+theorem mcl_involution_product_order_le
+    (h : invProdCheck = true) (u v : NativeSporadic.McL) (hu : orderOf u = 2) (hv : orderOf v = 2) :
+    orderOf (u * v) ≤ 6 := by
+  have hu' : orderOf ((mclPermEquiv u : mclP) : Equiv.Perm (Fin 275)) = 2 := by
+    rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq, hu]
+  have hv' : orderOf ((mclPermEquiv v : mclP) : Equiv.Perm (Fin 275)) = 2 := by
+    rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq, hv]
+  obtain ⟨m, hm, hord⟩ := mclP_involution_product_order h _ (mclPermEquiv u).2 _
+    (mclPermEquiv v).2 hu' hv'
+  have hprod : orderOf (u * v) = orderOf (((mclPermEquiv u : mclP) : Equiv.Perm (Fin 275)) *
+      ((mclPermEquiv v : mclP) : Equiv.Perm (Fin 275))) := by
+    rw [← Subgroup.coe_mul, ← map_mul, Subgroup.orderOf_coe, MulEquiv.orderOf_eq]
+  rw [hprod, hord]
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+  omega
+
+theorem orderOf_le_of_inverted {G : Type*} [Group G] {N : ℕ}
+    (hprod : ∀ u v : G, orderOf u = 2 → orderOf v = 2 → orderOf (u * v) ≤ N)
+    {x t : G} (ht : orderOf t = 2) (hinv : t * x * t⁻¹ = x⁻¹) (hx : orderOf x ≠ 2) :
+    orderOf x ≤ N := by
+  have ht2 : t * t = 1 := by rw [← sq, ← ht, pow_orderOf_eq_one]
+  have hti : t⁻¹ = t := inv_eq_of_mul_eq_one_right ht2
+  rw [hti] at hinv
+  have hv2 : (t * x) ^ 2 = 1 := by
+    calc (t * x) ^ 2 = (t * x) * (t * x) := pow_two _
+      _ = (t * x * t) * x := by simp only [mul_assoc]
+      _ = 1 := by rw [hinv, inv_mul_cancel]
+  have hv1 : t * x ≠ 1 := by
+    intro h1
+    have hxt : x = t := by
+      calc x = t * (t * x) := by rw [← mul_assoc, ht2, one_mul]
+        _ = t := by rw [h1, mul_one]
+    exact hx (by rw [hxt, ht])
+  have hvo : orderOf (t * x) = 2 := by
+    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+    exact orderOf_eq_prime hv2 hv1
+  have hle := hprod t (t * x) ht hvo
+  have hxe : t * (t * x) = x := by rw [← mul_assoc, ht2, one_mul]
+  rwa [hxe] at hle
+
+theorem mcl_inverted_odd_order
+    (h : invProdCheck = true) {x t : NativeSporadic.McL} (ht : orderOf t = 2)
+    (hinv : t * x * t⁻¹ = x⁻¹) (hodd : Odd (orderOf x)) :
+    x = 1 ∨ orderOf x = 3 ∨ orderOf x = 5 := by
+  obtain ⟨k, hk⟩ := hodd
+  have hle := @orderOf_le_of_inverted NativeSporadic.McL inferInstance 6
+    (fun u v hu hv => mcl_involution_product_order_le h u v hu hv) x t ht hinv (by omega)
+  by_cases h1 : orderOf x = 1
+  · exact Or.inl (orderOf_eq_one_iff.1 h1)
+  · right
+    omega
 
 end CFSG.Sporadic.Recognition.McLAS

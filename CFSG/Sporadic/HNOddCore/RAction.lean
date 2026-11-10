@@ -156,6 +156,36 @@ theorem jR_smul
 theorem cR_smul_x0 :
     cR • x0 = x0 := vL_injective (by rw [vL_smul, matR_cR, vL_x0, matCx_fix])
 
+theorem faithful_R :
+    FaithfulSMul RH X := by
+  have hJ := hns_faithful
+  have key : ∀ r : RH, (∀ i : X, r • i = i) → r = 1 := by
+    intro r hr
+    rcases exists_jR_or r with ⟨g, rfl⟩ | ⟨g, rfl⟩
+    · have : g = 1 := eq_of_smul_eq_smul fun i => by rw [← jR_smul, hr, one_smul]
+      rw [this, map_one]
+    · exfalso
+      have hc : ∀ i : X, cR • i = g⁻¹ • i := fun i => by
+        have h1 : g • cR • i = i := by
+          have := hr i
+          rwa [mul_smul, jR_smul] at this
+        calc cR • i = g⁻¹ • (g • (cR • i)) := (inv_smul_smul g _).symm
+          _ = g⁻¹ • i := by rw [h1]
+      have hk : g⁻¹ * g⁻¹ = 1 := eq_of_smul_eq_smul (α := X) fun i => by
+        rw [mul_smul, ← hc, ← hc, ← mul_smul, cR_mul_self, one_smul, one_smul]
+      have hkk : g⁻¹⁻¹ = g⁻¹ := (inv_eq_of_mul_eq_one_right hk)
+      apply conjC_not_inner g⁻¹
+      apply MulEquiv.ext
+      intro h
+      apply eq_of_smul_eq_smul (α := X)
+      intro i
+      have e1 : (conjC h) • i = cR • (h • (cR • i)) := by
+        rw [← jR_smul, ← cR_conj_jR, cR_inv, mul_smul, mul_smul, jR_smul]
+      rw [e1, hc, hc, MulAut.conj_apply, hkk, mul_smul, mul_smul]
+  refine ⟨fun {r s} hrs => ?_⟩
+  have h1 : r⁻¹ * s = 1 := key _ fun i => by rw [mul_smul, ← hrs i, inv_smul_smul]
+  rw [inv_mul_eq_one] at h1
+  exact h1
 
 noncomputable abbrev permR :
     RH →* Equiv.Perm X := MulAction.toPermHom RH X
@@ -163,6 +193,11 @@ noncomputable abbrev permR :
 theorem permR_apply
     (r : RH) (i : X) : permR r i = r • i := rfl
 
+theorem permR_injective :
+    Function.Injective permR := by
+  intro r s h
+  have := faithful_R
+  exact eq_of_smul_eq_smul fun x => by rw [← permR_apply, h, permR_apply]
 
 theorem permR_jR
     (g : JH) : permR (jR g) = permJ g :=

@@ -41,5 +41,6 @@ open Equiv Equiv.Perm
     (if r.testBit 2 then spX else 1) * (if r.testBit 3 then spY else 1) *
     (if r.testBit 4 then spW else 1)
 
+variable {G : Type*} [Group G] [DecidableEq G]
 
 end CFSG.CGT.Stroth77

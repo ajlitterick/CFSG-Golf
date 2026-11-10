@@ -40,6 +40,7 @@ instance instDecMemB (s : J2Syl) : Decidable (s ∈ B) :=
 instance instDecMemCx (s : J2Syl) : Decidable (s ∈ Cx) :=
   inferInstanceAs (Decidable (s * x0 = x0 * s))
 
+theorem mem_W {s : J2Syl} : s ∈ W ↔ s.right = 1 := Iff.rfl
 
 theorem mem_U {s : J2Syl} : s ∈ U ↔ s.right = 1 ∧ s.left.a = 0 ∧ s.left.b = 0 := Iff.rfl
 
@@ -88,6 +89,7 @@ theorem A_le_W : A ≤ W := fun _ hs => hs.1
 
 theorem B_le_W : B ≤ W := fun _ hs => hs.1
 
+theorem U_le_W : U ≤ W := fun _ hs => hs.1
 
 theorem comm_A : ∀ s t : J2Syl, s ∈ A → t ∈ A → s * t = t * s := by decide +kernel
 
@@ -212,6 +214,10 @@ theorem isE4_unique (E : Subgroup J2Syl) (hE : IsE 4 E) : E = A ∨ E = B := by
   · left; exact Subgroup.eq_of_le_of_card_ge h1 (by rw [card_A, hE.2]; norm_num)
   · right; exact Subgroup.eq_of_le_of_card_ge h1 (by rw [card_B, hE.2]; norm_num)
 
+theorem JE_eq_W : JE (⊤ : Subgroup J2Syl) = W := by
+  rw [JE_eq_sup (A := A) (B := B) le_top le_top isE_A isE_B
+    (fun F _ hF => (card_le_16 F hF).trans (by norm_num))
+    (fun E _ hE => isE4_unique E hE), A_sup_B]
 
 theorem class_four : ∀ n : J2Syl, n * n = 1 → n ≠ 1 →
     ¬ (n.right = 1 ∧ n.left.a = 0 ∧ n.left.b = 0) →

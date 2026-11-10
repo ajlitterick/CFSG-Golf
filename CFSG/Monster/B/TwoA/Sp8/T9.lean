@@ -262,6 +262,16 @@ theorem coe_tEquiv
     (tEquiv v : Dfull) = Psi9 v.toAdd :=
   rfl
 
+theorem tEquiv_single
+    (k : Fin 9) :
+    (tEquiv (Multiplicative.ofAdd (Pi.single k 1)) : Dfull) = tT k := by
+  rw [coe_tEquiv, toAdd_ofAdd, Psi9_single]
+
+theorem natCard_T9 :
+    Nat.card T9 = 2 ^ 9 := by
+  rw [← Nat.card_congr tEquiv.toEquiv]
+  show Nat.card (Fin 9 → ZMod 2) = 2 ^ 9
+  rw [Nat.card_fun, Nat.card_zmod, Nat.card_fin]
 
 theorem T9_comm
     (x y : T9) : x * y = y * x := by

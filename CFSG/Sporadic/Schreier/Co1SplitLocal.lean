@@ -37,6 +37,9 @@ theorem d_eq
   rw [split_conj.2 i.val i.isLt] at h1
   exact h1.eq (eProd_rep _)
 
+theorem corrExps_eq : Native.expVec (Data.corrExps.getD 0 []) = ![1, 1, 0, 2, 0, 0] ∧
+    Native.expVec (Data.corrExps.getD 1 []) = ![2, 2, 1, 0, 2, 0] := by
+  constructor <;> decide
 
 theorem E_finite :
 
@@ -375,6 +378,37 @@ theorem cPerm_ker_iff
   rw [MonoidHom.mem_ker, cPerm, MonoidHom.comp_apply, cHom_apply]
   exact qPerm_eq_one_iff (cEquiv x)
 
+theorem card_ker_cPerm :
+    Nat.card cPerm.ker = 2 := by
+  have e : cPerm.ker ≃ qPerm.ker :=
+    { toFun := fun x => ⟨cEquiv x, x.2⟩
+      invFun := fun y => ⟨cEquiv.symm y, by
+        rw [MonoidHom.mem_ker]
+        change qPerm (cEquiv (cEquiv.symm y)) = 1
+        rw [MulEquiv.apply_symm_apply]
+        exact y.2⟩
+      left_inv := fun x => Subtype.ext (cEquiv.symm_apply_apply x)
+      right_inv := fun y => Subtype.ext (cEquiv.apply_symm_apply y) }
+  rw [Nat.card_congr e, card_ker_qPerm]
+
+theorem ker_cPerm_le_center :
+    cPerm.ker ≤ Subgroup.center C := by
+  intro x hx
+  rw [Subgroup.mem_center_iff]
+  intro y
+  apply cEquiv.injective
+  rw [map_mul, map_mul]
+  exact (Subgroup.mem_center_iff.mp ((mem_center_Q_iff _).mpr ((cPerm_ker_iff x).mp hx))) _
+
+theorem not_exists_section_C :
+    ¬ ∃ s : cPerm.range →* C, ∀ y, cPerm (s y) = y := by
+  rintro ⟨s, hs⟩
+  have hR : cPerm.range = qPerm.range := by rw [cPerm_range, range_qPerm]; rfl
+  apply not_exists_section
+  refine ⟨cHom.comp (s.comp (MulEquiv.subgroupCongr hR.symm : qPerm.range →* cPerm.range)),
+    fun y => ?_⟩
+  have := hs ((MulEquiv.subgroupCongr hR.symm) y)
+  exact this
 
 theorem A_le_GA : A ≤ GA := by
   have hAB : ∀ x ∈ [A₁, A₂], x ∈ GA := by

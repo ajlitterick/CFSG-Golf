@@ -376,6 +376,25 @@ theorem weylCoord_val (z : Coord J) :
     ((weylCoord J z : Coord J) : K × K) = (-z.1.1 / J.conj z.1.2, z.1.2⁻¹) :=
   rfl
 
+theorem weyl_smul_root_smul_pzero (z : Coord J) (hz : z ≠ 1) :
+    weyl J hJ • (root J hJ z • pzero J hJ) = root J hJ (weylCoord J z) • pzero J hJ := by
+  have hb : z.1.2 ≠ 0 := coord_snd_ne_zero J hz
+  have hconjb : J.conj z.1.2 ≠ 0 := (map_ne_zero J.conj).2 hb
+  apply Subtype.ext
+  rw [coe_smul_of_eq_mk J (coe_weyl J hJ) (coe_root_smul_pzero J hJ z), coe_root_smul_pzero]
+  apply (Projectivization.mk_eq_mk_iff' K _ _ _ _).mpr
+  refine ⟨z.1.2, ?_⟩
+  funext i
+  fin_cases i <;> simp [weylCoord, hermitianWeylGL, hermitianWeylMatrix, Matrix.mulVec,
+    dotProduct, Fin.sum_univ_three, map_div₀, hb]
+  field_simp
+
+theorem weyl_smul_rootCoord_smul_pzero (z : Coord J) (hz : z ≠ 1) :
+    weyl J hJ • (((rootCoord J hJ z : rootGroup J hJ) : ProjectiveSpecialUnitaryMatrixGroup J) •
+        pzero J hJ) =
+      ((rootCoord J hJ (weylCoord J z) : rootGroup J hJ) :
+        ProjectiveSpecialUnitaryMatrixGroup J) • pzero J hJ :=
+  weyl_smul_root_smul_pzero J hJ z hz
 
 omit hJ in
 @[expose] def weylCoordRight (z : Coord J) : Coord J :=
@@ -407,12 +426,30 @@ theorem weylCoordRight_ne_one {z : Coord J} (hz : z ≠ 1) : weylCoordRight J z 
   simp only [weylCoordRight_val, coord_one_val, inv_eq_zero] at h2
   exact coord_snd_ne_zero J hz h2
 
+omit hJ in
+theorem weylCoord_weylCoord (z : Coord J) : weylCoord J (weylCoord J z) = z := by
+  by_cases hz : z = 1
+  · subst hz
+    apply Subtype.ext
+    simp [weylCoord_val, coord_one_val]
+  · have hb : z.1.2 ≠ 0 := coord_snd_ne_zero J hz
+    have hconjb : J.conj z.1.2 ≠ 0 := (map_ne_zero J.conj).2 hb
+    apply Subtype.ext
+    apply Prod.ext
+    · simp only [weylCoord_val, map_inv₀]
+      field_simp
+    · simp [weylCoord_val]
 
 omit hJ in
 theorem weylCoord_inv (z : Coord J) : weylCoord J z⁻¹ = (weylCoordRight J z)⁻¹ := by
   apply Subtype.ext
   simp [weylCoord_val, weylCoordRight_val, coord_inv_val, neg_div]
 
+theorem weyl_smul_root_inv_smul_pzero (z : Coord J) (hz : z ≠ 1) :
+    weyl J hJ • ((root J hJ z)⁻¹ • pzero J hJ) =
+      (root J hJ (weylCoordRight J z))⁻¹ • pzero J hJ := by
+  have hz' : z⁻¹ ≠ 1 := inv_ne_one.mpr hz
+  rw [← map_inv, ← map_inv, weyl_smul_root_smul_pzero J hJ z⁻¹ hz', weylCoord_inv]
 
 abbrev torus : Kˣ →* ProjectiveSpecialUnitaryMatrixGroup J :=
   hermitianTorusPSU J hJ
@@ -470,6 +507,12 @@ theorem torus_mul_root_mul_inv (k : Kˣ) (z : Coord J) :
     torus J hJ k * root J hJ z * (torus J hJ k)⁻¹ = root J hJ (hermitianTorusAction J k z) := by
   rw [hermitianTorusPSU_mul_unipotent J hJ k z, mul_inv_cancel_right]
 
+theorem torus_mul_rootCoord_mul_inv (k : Kˣ) (z : Coord J) :
+    torus J hJ k * ((rootCoord J hJ z : rootGroup J hJ) : ProjectiveSpecialUnitaryMatrixGroup J) *
+        (torus J hJ k)⁻¹ =
+      ((rootCoord J hJ (hermitianTorusAction J k z) : rootGroup J hJ) :
+        ProjectiveSpecialUnitaryMatrixGroup J) :=
+  torus_mul_root_mul_inv J hJ k z
 
 theorem torus_smul_root_smul_pzero (k : Kˣ) (z : Coord J) :
     torus J hJ k • (root J hJ z • pzero J hJ) =

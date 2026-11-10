@@ -40,6 +40,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Sp6I CFSG.EvenSmallLi
 
 #kc_each ch725106d 0 12
 
+theorem ch725106cls : D.cls = [2, 2, 2, 2, 2, 2, 1, 1, 3, 3, 3, 3] := by decide +kernel
 
 end CertificateChecks.KernelS6I
 

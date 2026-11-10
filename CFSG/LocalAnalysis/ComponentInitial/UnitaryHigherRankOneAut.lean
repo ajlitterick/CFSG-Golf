@@ -88,6 +88,23 @@ theorem uS_ext {x y : rkOneUStar h} (ha : uA h x = uA h y) (hb : uB h x = uB h y
   rw [eq_uS h x, eq_uS h y]
   exact uS_congr h _ ha hb
 
+theorem uS_zero_zero : uS h 0 0 (norm_zero_add_trace (zero_mem h.traceZero)) = 1 :=
+  Subtype.ext (rkOneU_zero_zero h)
+
+theorem uA_one : uA h (1 : rkOneUStar h) = 0 := by
+  rw [← uS_zero_zero h, uA_uS]
+
+theorem inv_param {a b : K} (hab : h.norm a + h.trace b = 0) :
+    h.norm (-a) + h.trace (h.bar b) = 0 := by
+  simp only [UnitaryFieldData.norm, UnitaryFieldData.trace, map_neg, h.bar_bar] at hab ⊢
+  linear_combination hab
+
+theorem uS_mul_uS_neg {a b : K} (hab : h.norm a + h.trace b = 0) :
+    uS h a b hab * uS h (-a) (h.bar b) (inv_param h hab) = 1 := by
+  rw [uS_mul, ← uS_zero_zero h]
+  refine uS_congr h _ (add_neg_cancel a) ?_
+  simp only [UnitaryFieldData.norm, UnitaryFieldData.trace] at hab
+  linear_combination hab
 
 end Params
 
@@ -176,6 +193,9 @@ theorem uS_commutator {a b c d : K} (hab : h.norm a + h.trace b = 0)
       uS h 0 (h.bar c * a - h.bar a * c) (commutator_param_mem h a c) :=
   Subtype.ext (rkOneU_commutator h hab hcd)
 
+theorem uA_commutator (x y : rkOneUStar h) : uA h (x * y * x⁻¹ * y⁻¹) = 0 := by
+  rw [uA_mul, uA_mul, uA_mul, uA_inv, uA_inv]
+  ring
 
 theorem exists_uS_commutator {t : K} (ht : t ∈ h.traceZero) :
     ∃ (r b d : K) (hb : h.norm 1 + h.trace b = 0) (hd : h.norm r + h.trace d = 0),
@@ -272,6 +292,8 @@ variable (h : UnitaryFieldData p f K)
 theorem aut_inv_apply_apply (ψ : MulAut (rkOneUStar h)) (x : rkOneUStar h) : ψ⁻¹ (ψ x) = x := by
   rw [MulAut.inv_apply, MulEquiv.symm_apply_apply]
 
+theorem aut_apply_inv_apply (ψ : MulAut (rkOneUStar h)) (x : rkOneUStar h) : ψ (ψ⁻¹ x) = x := by
+  rw [MulAut.inv_apply, MulEquiv.apply_symm_apply]
 
 theorem addMap_inv_apply {ψ : MulAut (rkOneUStar h)} {A A' : K →+ K}
     (hA : ∀ x, uA h (ψ x) = A (uA h x)) (hA' : ∀ x, uA h (ψ⁻¹ x) = A' (uA h x)) (a : K) :

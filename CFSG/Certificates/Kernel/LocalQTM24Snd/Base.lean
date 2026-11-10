@@ -15,6 +15,7 @@ namespace CFSG.KC.LQT.M24Snd
 
 variable {α : Type*} {f : α → List α} {seeds : Set α}
 
+theorem ball_zero : ball f seeds 0 = seeds := rfl
 
 theorem mem_ball_zero {x : α} (h : x ∈ seeds) : x ∈ ball f seeds 0 := h
 

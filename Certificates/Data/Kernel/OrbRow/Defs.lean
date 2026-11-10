@@ -49,6 +49,10 @@ open CFSG.KC.Enum
 @[expose] noncomputable def prodL (L : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) (nat_lit 1) (fun x _ ih => Nat.mul x ih) L
 
+@[expose] noncomputable def setL (L : List Nat) (i x : Nat) : List Nat :=
+  List.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+    (fun y t ih j => Nat.rec (motive := fun _ => List Nat) (List.cons x t)
+      (fun j' _ => List.cons y (ih j')) j) L i
 
 @[expose] noncomputable def fixLvK (w m : Nat) (S : List Nat) (k lv : Nat) (B : List Nat) (i : Nat) :
     Bool :=

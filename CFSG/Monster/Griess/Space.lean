@@ -243,6 +243,8 @@ theorem bform_basisB (k l : BIdx) :
 theorem card_shortIdx' : Fintype.card ShortIdx = 98280 := by
   rw [← Nat.card_eq_fintype_card, card_shortIdx]
 
+theorem finrank_S : finrank ℚ (SpinIdx → ℚ) = 4096 := by
+  rw [Module.finrank_fintype_fun_eq_card, card_spinIdx]
 
 theorem finrank_A : finrank ℚ symMat = 300 := by
   rw [finrank_eq_card_basis basisA, card_pairIdx]
@@ -305,16 +307,93 @@ theorem gramDiag_mem (k : BIdx) : gramDiag k = 1 ∨ gramDiag k = 2 := by
     split_ifs <;> simp
   · exact .inl rfl
 
+theorem gramDiag_inl_eq_two_iff (z : PairIdx) : gramDiag (Sum.inl z) = 2 ↔ ¬ z.IsDiag := by
+  simp only [gramDiag]
+  split_ifs with h <;> simp [h]
+
+theorem card_offDiag : Fintype.card {z : PairIdx // ¬ z.IsDiag} = 276 := by
+  rw [Sym2.card_subtype_not_diag, Fintype.card_fin]
+  rfl
 
 theorem two_mem_dyadic_inv : ((2 : ℚ))⁻¹ ∈ dyadic := by
   have := inv_two_pow_mem_dyadic 1
   simpa using this
 
+open Classical in
+theorem gram_invertible_dyadic :
+    (Matrix.of fun k l => bform (basisB k) (basisB l)) * Matrix.diagonal (fun k => (gramDiag k)⁻¹) = 1 ∧
+      (∀ k l, (Matrix.of fun k l => bform (basisB k) (basisB l)) k l ∈ dyadic) ∧
+      ∀ k l, Matrix.diagonal (fun k => (gramDiag k)⁻¹) k l ∈ dyadic := by
+  have hG : (Matrix.of fun k l => bform (basisB k) (basisB l)) = Matrix.diagonal gramDiag := by
+    ext k l
+    rw [of_apply, bform_basisB, Matrix.diagonal_apply]
+  refine ⟨?_, fun k l => ?_, fun k l => ?_⟩
+  · rw [hG, Matrix.diagonal_mul_diagonal]
+    convert Matrix.diagonal_one with k
+    rcases gramDiag_mem k with h | h <;> rw [h] <;> norm_num
+  · rw [hG, Matrix.diagonal_apply]
+    split_ifs
+    · rcases gramDiag_mem k with h | h <;> rw [h]
+      · exact dyadic.one_mem
+      · have h2 : (2 : ℚ) = 1 + 1 := by norm_num
+        rw [h2]
+        exact dyadic.add_mem dyadic.one_mem dyadic.one_mem
+    · exact dyadic.zero_mem
+  · rw [Matrix.diagonal_apply]
+    split_ifs
+    · rcases gramDiag_mem k with h | h <;> rw [h]
+      · simpa using dyadic.one_mem
+      · exact two_mem_dyadic_inv
+    · exact dyadic.zero_mem
 
 theorem Xlift_eq {r : Q} (h : IsShortCoord (coordOf r)) :
     Xlift r = sgn (centralCoord r) • Pi.single ⟨coordOf r, h⟩ 1 := by
   unfold Xlift
   exact dif_pos h
 
+theorem gramDiag_inr (k : ShortIdx ⊕ (SpinIdx × Fin 24)) : gramDiag (Sum.inr k) = 1 := rfl
+
+open Classical in
+theorem rational_algebra_space_data :
+    (∀ r : Q, IsShort (QuotientGroup.mk r) ↔ IsShortCoord (coordOf r)) ∧
+    Nat.card ShortIdx = 98280 ∧
+    (∀ p : C × Cocode, coordOf (rep p) = p ∧ centralCoord (rep p) = 0 ∧
+      ((rep p : Q) : GL SpinIdx ℚ) = TU p.1 * DU p.2) ∧
+    (∀ r : Q, r = zQ ^ (centralCoord r).val * rep (coordOf r)) ∧
+    (∀ r : Q, IsShortCoord (coordOf r) → r ^ 2 = 1) ∧
+    (∀ c : ShortIdx, uvec c ∈ minVecs ∧ classOf (uvec c) = SpinLattice.phi0 c.1 ∧
+      LexLE (uvec c) (-uvec c) ∧
+      ∀ v ∈ minVecs, classOf v = SpinLattice.phi0 c.1 → LexLE v (-v) → v = uvec c) ∧
+    (∀ (r : Q) (h : IsShortCoord (coordOf r)),
+      Xlift r = sgn (centralCoord r) • Pi.single ⟨coordOf r, h⟩ 1) ∧
+    finrank ℚ (SpinIdx → ℚ) = 4096 ∧ finrank ℚ symMat = 300 ∧ finrank ℚ SpaceX = 98280 ∧
+    finrank ℚ SpaceW = 98304 ∧ finrank ℚ SpaceB = 196884 ∧
+    (∀ (q q' : SpinIdx → ℚ) (v w : Fin 24 → ℚ),
+      bform (0, 0, tensor q v) (0, 0, tensor q' w) = (q ⬝ᵥ q') * (v ⬝ᵥ w)) ∧
+    (∀ z, basisB (Sum.inl z) = (basisA z, 0, 0)) ∧
+    (∀ i j : Fin 24, (basisA s(i, j) : Matrix (Fin 24) (Fin 24) ℚ) =
+      if i = j then Matrix.single i i 1 else Matrix.single i j 1 + Matrix.single j i 1) ∧
+    (∀ c, basisB (Sum.inr (Sum.inl c)) = (0, Pi.single c 1, 0)) ∧
+    (∀ k : SpinIdx × Fin 24,
+      basisB (Sum.inr (Sum.inr k)) = (0, 0, tensor (Pi.single k.1 1) (Pi.single k.2 1))) ∧
+    BR = Submodule.span dyadic (Set.range basisB) ∧
+    (∀ k l, bform (basisB k) (basisB l) = if k = l then gramDiag k else 0) ∧
+    (∀ z, gramDiag (Sum.inl z) = 2 ↔ ¬ z.IsDiag) ∧ (∀ k, gramDiag (Sum.inr k) = 1) ∧
+    (∀ z, z.IsDiag → gramDiag (Sum.inl z) = 1) ∧
+    Fintype.card {z : PairIdx // ¬ z.IsDiag} = 276 ∧
+    (∀ v : SpaceB, v ≠ 0 → 0 < bform v v) ∧
+    ((Matrix.of fun k l => bform (basisB k) (basisB l)) *
+        Matrix.diagonal (fun k => (gramDiag k)⁻¹) = 1 ∧
+      (∀ k l, (Matrix.of fun k l => bform (basisB k) (basisB l)) k l ∈ dyadic) ∧
+      ∀ k l, Matrix.diagonal (fun k => (gramDiag k)⁻¹) k l ∈ dyadic) :=
+  ⟨isShort_mk_iff, card_shortIdx,
+    fun p => ⟨coordOf_rep p, centralCoord_rep p, coe_rep p⟩, eq_zQ_pow_mul_rep,
+    fun _ h => sq_eq_one_of_isShort h,
+    fun c => ⟨uvec_mem c, classOf_uvec c, (uvec_spec c).2.2, fun _ hv hcl hle => eq_uvec hv hcl hle⟩,
+    fun _ h => Xlift_eq h, finrank_S, finrank_A, finrank_X, finrank_W, finrank_B, bform_tensor,
+    basisB_inl, coe_basisA, basisB_inr_inl, basisB_inr_inr, rfl, bform_basisB,
+    gramDiag_inl_eq_two_iff, gramDiag_inr,
+    fun z hz => by simp only [gramDiag]; exact if_pos hz, card_offDiag,
+    fun _ hv => bform_self_pos hv, gram_invertible_dyadic⟩
 
 end CFSG.Monster.Griess

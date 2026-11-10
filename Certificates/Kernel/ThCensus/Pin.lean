@@ -21,6 +21,13 @@ theorem ch17305J :
           (initPk (ThS.RBf 1) (ThS.RBf 2) ThS.ONE) 22) (RB regU))))) = true := by
   quickRfl
 
+theorem neg17305_pinS : BigS.notB (Nat.beq (RB regS) ThCent.W.Z3B) = true := by
+  quickRfl
+
+theorem neg17305_pinU : BigS.notB (Nat.beq (runPk ThS.c ThS.rm ThS.ONE
+    CFSG.HardMathSupport.Dickson.I271.TabThNative.progU
+    (initPk (ThS.RBf 1) (ThS.RBf 2) ThS.ONE) 21) (RB regU)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelThCensus
 

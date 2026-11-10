@@ -203,6 +203,14 @@ theorem conjSub_ptD_xU' {a b : F} (ha : a ≠ 0) (hab : 1 + a * b ≠ 0) :
   congr 1
   field_simp
 
+theorem conjSub_ptD_xU'_eq {a b : F} (ha : a ≠ 0) (hab : 1 + a * b = 0) :
+    conjSub (ptD R Ψ ι a) (xU' R Ψ ι b) = xg Ψ 0 2 := by
+  have h1 : a⁻¹ + b = 0 := by
+    have : a * (a⁻¹ + b) = 1 + a * b := by field_simp
+    rw [hab] at this
+    exact (mul_eq_zero.1 this).resolve_left ha
+  rw [conjSub_xU', conjSub_ptD_piT h hS hP hι ha, conjSub_ptD_xU hι, h1, ptD_zero hι,
+    conjSub_13_piT]
 
 omit h hS hP in
 theorem xU_mul_self (t : F) : xU R Ψ ι t * xU R Ψ ι t = 1 := by

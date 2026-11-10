@@ -96,6 +96,9 @@ theorem orbitPoints_eq_orbit {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseC
     Q.orbitPoints i = MulAction.orbit (Q.levelSubgroup i.val) (Q.base.get i) :=
   SchreierOrbitState.run_signed_orbit (Q.levelGenerators i.val) (Q.base.get i)
 
+theorem orbitSearch_queue_empty {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseCount) :
+    (Q.orbitSearch i).queue = [] :=
+  SchreierOrbitState.run_initial_queue_empty (Q.levelSteps i.val) (Q.base.get i)
 
 theorem orbitSearch_keys_nodup {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseCount) :
     (Q.orbitSearch i).keys.Nodup :=
@@ -108,6 +111,15 @@ theorem orbitPoint_transversal {n : ℕ} (Q : RawSchreierDatum n)
   obtain ⟨t, ht⟩ := Option.isSome_iff_exists.1 hx
   exact ⟨t, ht, Q.transversal_sound i x t ht⟩
 
+theorem schreier_orbit_search {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseCount) :
+    Q.orbitPoints i = MulAction.orbit (Q.levelSubgroup i.val) (Q.base.get i) ∧
+      (∀ x ∈ Q.orbitPoints i, ∃ t, Q.transversal? i x = some t ∧
+        t ∈ Q.levelSubgroup i.val ∧
+        (∀ b ∈ Q.base.toList.take i.val, t b = b) ∧ t (Q.base.get i) = x) ∧
+      Q.transversal? i (Q.base.get i) = some 1 ∧
+      (Q.orbitSearch i).queue = [] ∧ (Q.orbitSearch i).keys.Nodup :=
+  ⟨Q.orbitPoints_eq_orbit i, Q.orbitPoint_transversal i, Q.transversal_root i,
+    Q.orbitSearch_queue_empty i, Q.orbitSearch_keys_nodup i⟩
 
 end RawSchreierDatum
 

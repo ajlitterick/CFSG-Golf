@@ -30,6 +30,14 @@ theorem Q2_inv (q : Q2) : q⁻¹ = q := by
   · simp
   · exact inv_eq_of_mul_eq_one_right g2_mul_g2
 
+theorem Q2_mul_self (q : Q2) : q * q = 1 := by
+  rcases Q2_cases q with rfl | rfl
+  · simp
+  · exact g2_mul_g2
+
+theorem Q2_one_mul_g2 : (1 : Q2) * g2 = g2 := one_mul _
+
+theorem g2_mul_g2' : g2 * g2 = 1 := g2_mul_g2
 
 namespace W5
 
@@ -87,6 +95,10 @@ theorem incl2_apply (σ : S5) : incl2 σ = mk 1 σ 1 := rfl
 
 @[expose] def tau : W5 := mk 1 1 g2
 
+theorem tau_mul_tau : tau * tau = 1 := by
+  apply ext' <;> simp [tau, mul_l1, mul_lg, g2_mul_g2]
+
+theorem tau_inv : tau⁻¹ = tau := inv_eq_of_mul_eq_one_right tau_mul_tau
 
 theorem mk_one_eq (a b : S5) : mk a b 1 = incl1 a * incl2 b := by
   apply ext' <;> simp [mul_l1, mul_lg, mk_l1, mk_lg, incl1_apply, incl2_apply]
@@ -113,6 +125,9 @@ theorem eq_mk_of_mem_base {w : W5} (hw : w ∈ base) : w = incl1 (w.left 1) * in
   rw [← mk_one_eq]
   apply ext' <;> simp [hr]
 
+theorem incl1_mem_base (a : S5) : incl1 a ∈ base := mem_base.2 (by simp [incl1_apply])
+
+theorem incl2_mem_base (a : S5) : incl2 a ∈ base := mem_base.2 (by simp [incl2_apply])
 
 theorem conj_incl1_of_base {p : W5} (hp : p ∈ base) (σ : S5) :
     p * incl1 σ * p⁻¹ = incl1 (p.left 1 * σ * (p.left 1)⁻¹) := by
@@ -134,6 +149,13 @@ theorem conj_incl2_of_not_base {p : W5} (hp : p.right = g2) (σ : S5) :
   apply ext' <;> simp [mul_l1, mul_lg, inv_l1, inv_lg, hp, incl1_apply, incl2_apply,
     g2_mul_g2, Q2_inv]
 
+theorem tau_conj_incl1 (σ : S5) : tau * incl1 σ * tau⁻¹ = incl2 σ := by
+  rw [conj_incl1_of_not_base (p := tau) rfl]
+  simp [tau]
+
+theorem tau_conj_incl2 (σ : S5) : tau * incl2 σ * tau⁻¹ = incl1 σ := by
+  rw [conj_incl2_of_not_base (p := tau) rfl]
+  simp [tau]
 
 @[expose] def c3 : S5 := Equiv.swap 0 1 * Equiv.swap 1 2
 
@@ -193,6 +215,28 @@ theorem A1_le_base : A1 ≤ base := fun _ hw => mem_base.2 (mem_A1.1 hw).1
 
 theorem A2_le_base : A2 ≤ base := fun _ hw => mem_base.2 (mem_A2.1 hw).1
 
+theorem A1_inf_A2 : A1 ⊓ A2 = ⊥ := by
+  rw [eq_bot_iff]
+  rintro w ⟨h1, h2⟩
+  obtain ⟨r1, l1, l2⟩ := mem_A1.1 h1
+  obtain ⟨-, m1, -⟩ := mem_A2.1 h2
+  rw [Subgroup.mem_bot]
+  apply ext' <;> simp [r1, l1, m1]
+
+theorem A1_comm {a b : W5} (ha : a ∈ A1) (hb : b ∈ A2) : a * b = b * a := by
+  obtain ⟨r1, l1, -⟩ := mem_A1.1 ha
+  obtain ⟨r2, m1, -⟩ := mem_A2.1 hb
+  apply ext' <;> simp [mul_l1, mul_lg, r1, r2, l1, m1]
+
+theorem tau_conj_A1 {x : W5} (hx : x ∈ A1) : tau * x * tau⁻¹ ∈ A2 := by
+  obtain ⟨σ, hσ, rfl⟩ := hx
+  rw [tau_conj_incl1]
+  exact ⟨σ, hσ, rfl⟩
+
+theorem tau_conj_A2 {x : W5} (hx : x ∈ A2) : tau * x * tau⁻¹ ∈ A1 := by
+  obtain ⟨σ, hσ, rfl⟩ := hx
+  rw [tau_conj_incl2]
+  exact ⟨σ, hσ, rfl⟩
 
 noncomputable def A1equiv : ↥(A5) ≃* ↥A1 :=
   Subgroup.equivMapOfInjective _ incl1 incl1_injective
@@ -294,6 +338,7 @@ theorem normalizer_A2 : Subgroup.normalizer (A2 : Set W5) = base := by
     · rw [inv_lg, ha]
       simpa using inv_mem ha2
 
+theorem mem_S0 {w : W5} : w ∈ S0 ↔ w.right = 1 ∧ w.left 1 ∈ A5 ∧ w.left g2 ∈ A5 := Iff.rfl
 
 theorem A1_le_S0 : A1 ≤ S0 := by
   intro w hw
@@ -439,6 +484,88 @@ theorem normal_in_S0 {N : Subgroup W5} (hN : N ≤ S0)
     obtain ⟨a, ha, b, hb, rfl⟩ := S0_eq_mul hw
     exact mul_mem (h1 ha) (h2 hb)
 
+theorem centralizer_S0 {w : W5} (h : ∀ s ∈ S0, w * s = s * w) : w = 1 := by
+  have hr : w.right = 1 := by
+    rcases Q2_cases w.right with h' | h'
+    · exact h'
+    · exfalso
+      have hx : incl1 c3 ∈ S0 := A1_le_S0 (incl1_mem_A1 (mem_A5.2 c3_even))
+      have h1 := h (incl1 c3) hx
+      have e : w * incl1 c3 * w⁻¹ = incl1 c3 := by rw [h1]; group
+      rw [conj_incl1_of_not_base h'] at e
+      have := congrArg (fun y : W5 => y.left 1) e
+      simp [incl1_apply, incl2_apply] at this
+      exact c3_ne_one this.symm
+  have hb : w ∈ base := mem_base.2 hr
+  have e1 : w.left 1 = 1 := by
+    apply centralizer_A5
+    intro a ha
+    have hx : incl1 a ∈ S0 := A1_le_S0 (incl1_mem_A1 (mem_A5.2 ha))
+    have h1 := h (incl1 a) hx
+    have e : w * incl1 a * w⁻¹ = incl1 a := by rw [h1]; group
+    rw [conj_incl1_of_base hb] at e
+    have := incl1_injective e
+    calc w.left 1 * a = (w.left 1 * a * (w.left 1)⁻¹) * w.left 1 := by group
+      _ = a * w.left 1 := by rw [this]
+  have e2 : w.left g2 = 1 := by
+    apply centralizer_A5
+    intro a ha
+    have hx : incl2 a ∈ S0 := A2_le_S0 (incl2_mem_A2 (mem_A5.2 ha))
+    have h1 := h (incl2 a) hx
+    have e : w * incl2 a * w⁻¹ = incl2 a := by rw [h1]; group
+    rw [conj_incl2_of_base hb] at e
+    have := incl2_injective e
+    calc w.left g2 * a = (w.left g2 * a * (w.left g2)⁻¹) * w.left g2 := by group
+      _ = a * w.left g2 := by rw [this]
+  apply ext' <;> simp [e1, e2, hr]
+
+theorem S0_le_of_normal {N : Subgroup W5} [hN : N.Normal] (hne : N ≠ ⊥) : S0 ≤ N := by
+  have hN' : N ⊓ S0 ≤ S0 := inf_le_right
+  have hnorm : ∀ s ∈ S0, ∀ n ∈ N ⊓ S0, s * n * s⁻¹ ∈ N ⊓ S0 := fun s hs n hn =>
+    ⟨hN.conj_mem n hn.1 s, conj_mem_S0 s hn.2⟩
+  rcases normal_in_S0 hN' hnorm with h | h | h | h
+  · exfalso
+    apply hne
+    rw [eq_bot_iff]
+    intro n hn
+    rw [Subgroup.mem_bot]
+    apply centralizer_S0
+    intro s hs
+    have hc : s * n * s⁻¹ * n⁻¹ ∈ N ⊓ S0 := by
+      refine Subgroup.mem_inf.2 ⟨N.mul_mem (hN.conj_mem n hn s) (N.inv_mem hn), ?_⟩
+      have : s * n * s⁻¹ * n⁻¹ = s * (n * s⁻¹ * n⁻¹) := by group
+      rw [this]
+      exact S0.mul_mem hs (by simpa using conj_mem_S0 n (S0.inv_mem hs))
+    rw [h, Subgroup.mem_bot] at hc
+    calc n * s = (s * n * s⁻¹ * n⁻¹) * (n * s) := by rw [hc]; simp
+      _ = s * n := by group
+  · exfalso
+    have hA1N : A1 ≤ N := by rw [← h]; exact inf_le_left
+    have hA2 : A2 ≤ N ⊓ S0 := by
+      intro x hx
+      refine Subgroup.mem_inf.2 ⟨?_, A2_le_S0 hx⟩
+      have h1 : tau * x * tau⁻¹ ∈ N := hA1N (tau_conj_A2 hx)
+      have h2 := hN.conj_mem _ h1 tau⁻¹
+      have e : tau⁻¹ * (tau * x * tau⁻¹) * tau⁻¹⁻¹ = x := by group
+      rwa [e] at h2
+    rw [h] at hA2
+    apply A2_ne_bot
+    rw [eq_bot_iff, ← A1_inf_A2]
+    exact le_inf hA2 le_rfl
+  · exfalso
+    have hA2N : A2 ≤ N := by rw [← h]; exact inf_le_left
+    have hA1 : A1 ≤ N ⊓ S0 := by
+      intro x hx
+      refine Subgroup.mem_inf.2 ⟨?_, A1_le_S0 hx⟩
+      have h1 : tau * x * tau⁻¹ ∈ N := hA2N (tau_conj_A1 hx)
+      have h2 := hN.conj_mem _ h1 tau⁻¹
+      have e : tau⁻¹ * (tau * x * tau⁻¹) * tau⁻¹⁻¹ = x := by group
+      rwa [e] at h2
+    rw [h] at hA1
+    apply A1_ne_bot
+    rw [eq_bot_iff, ← A1_inf_A2]
+    exact le_inf le_rfl hA1
+  · rw [← h]; exact inf_le_left
 
 theorem card_S5 : Nat.card S5 = 120 := by
   rw [Nat.card_perm]
@@ -549,6 +676,7 @@ theorem mem_Sw {w : W5} : w ∈ Sw ↔ w.left 1 4 = 4 ∧ w.left g2 4 = 4 := Iff
 theorem incl1_mem_Sw {σ : S5} (h : σ 4 = 4) : incl1 σ ∈ Sw :=
   ⟨by simpa [incl1_apply] using h, by simp [incl1_apply]⟩
 
+theorem incl2_mem_Sw {σ : S5} (h : σ 4 = 4) : incl2 σ ∈ Sw := ⟨by simp [incl2_apply], by simpa [incl2_apply] using h⟩
 
 @[expose] def Swequiv : ↥Sw ≃ ({σ : S5 // σ 4 = 4} × {σ : S5 // σ 4 = 4}) × Q2 where
   toFun w := ((⟨w.1.left 1, w.2.1⟩, ⟨w.1.left g2, w.2.2⟩), w.1.right)
@@ -662,6 +790,14 @@ theorem commutator_not_two_element {p : W5} (hp : p ∉ base) (k : ℕ) :
     · rw [inv_lg, ha]
       simpa using inv_mem ha2
 
+theorem mem_E0 {w : W5} :
+    w ∈ E0 ↔ w.right = 1 ∧ w.left 1 ∈ Subgroup.zpowers c3 ∧ w.left g2 ∈ Subgroup.zpowers c3 :=
+  Iff.rfl
+
+theorem E0_le_S0 : E0 ≤ S0 := by
+  intro w hw
+  have hle : Subgroup.zpowers c3 ≤ A5 := (Subgroup.zpowers_le).2 ((mem_A5).2 c3_even)
+  exact ⟨hw.1, hle hw.2.1, hle hw.2.2⟩
 
 theorem zpowers_c3_le_stab {σ : S5} (h : σ ∈ Subgroup.zpowers c3) : σ 4 = 4 := by
   obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 h
@@ -858,6 +994,23 @@ theorem eq_base_of_equiv_prod {J : Subgroup W5} (e : ↥J ≃* S5 × S5) : J = b
   · rw [h, card_S0] at hDcard
     omega
 
+theorem mem_base_of_odd_orderOf {w : W5} (h : Odd (orderOf w)) : w ∈ base := by
+  have hd : orderOf w.right ∣ orderOf w := by
+    have := orderOf_map_dvd (RegularWreathProduct.rightHom : W5 →* Q2) w
+    exact this
+  have hQ : orderOf w.right ∣ 2 := by
+    rcases Q2_cases w.right with h' | h'
+    · rw [h']; simp
+    · rw [h']
+      have : g2 ^ 2 = 1 := by rw [pow_two]; exact g2_mul_g2
+      exact orderOf_dvd_of_pow_eq_one this
+  have h1 : orderOf w.right = 1 := by
+    have h2 : orderOf w.right ∣ Nat.gcd (orderOf w) 2 := Nat.dvd_gcd hd hQ
+    have hg : Nat.gcd (orderOf w) 2 = 1 := by
+      exact Nat.coprime_two_right.2 h
+    rw [hg] at h2
+    exact Nat.dvd_one.1 h2
+  exact mem_base.2 (orderOf_eq_one_iff.1 h1)
 
 theorem not_le_base_of_sylow {P : Subgroup W5} (hP : IsPGroup 2 P) (hidx : ¬ 2 ∣ P.index) :
     ¬ P ≤ base := by

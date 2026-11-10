@@ -34,6 +34,7 @@ open CFSG.KC.KDense CFSG.KC.KDenseP CFSG.KC.KDenseP.NortonSLP
 
 @[expose] noncomputable def WL (σ : Nat) : List CFSG.Monster.AxisCount.Native.Gen := decW (WD σ)
 
+@[expose] noncomputable def CHI (k : Nat) : Nat := CH (IXf k)
 
 @[expose] noncomputable def rn (c : Nat) (s : St) : St :=
   CFSG.KD.SLP.Gen11.run (WD (f20 c (nat_lit 0))) c s
@@ -41,12 +42,14 @@ open CFSG.KC.KDense CFSG.KC.KDenseP CFSG.KC.KDenseP.NortonSLP
 @[expose] noncomputable def u (g : Nat) : Bool :=
   grpL rn (CFSG.KD.SLP.Gen11.chk WL) CH PRf Gf CFSG.KD.KDF.I (nat_lit 3) g
 
+theorem weq : wordsEqB WD (CFSG.KC.KDense.Y443.words (E ++ E ++ E ++ [])) 276 = true := by quickRfl
 
 theorem idx : idxOK CFSG.AGLEmbedding.Norton.Gen11.gen11Gens CFSG.KD.SLP.Gen11.S 33 79 = true := by
   quickRfl
 
 theorem ix : ((List.range 498).all fun k => Nat.blt (IXf k) 495) = true := by quickRfl
 
+theorem plan : planOKP WL CHI 498 IT = true := by quickRfl
 
 end CFSG.KD.SLP.c125505
 

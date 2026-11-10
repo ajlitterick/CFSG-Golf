@@ -216,6 +216,13 @@ theorem toLin_isometry {M : Array ℕ} (h : isomOK M = true) (v : V₀) : Q₀ (
 theorem ofArr_apply {M : Array ℕ} (h : isomOK M = true) (v : V₀) :
     ((ofArr M h : TauCeti.QuadraticMap.orthogonalGroup Q₀) : V₀ ≃ₗ[F4] V₀) v = toLin M v := rfl
 
+theorem ofArr_mul {A B C : Array ℕ} (hA : isomOK A = true) (hB : isomOK B = true)
+    (hC : isomOK C = true) (h : matMul A B = C) : ofArr A hA * ofArr B hB = ofArr C hC := by
+  apply Subtype.ext
+  apply LinearEquiv.ext
+  intro v
+  change toLin A (toLin B v) = toLin C v
+  rw [← h, toLin_matMul, LinearMap.comp_apply]
 
 theorem ofArr_eq_one {A : Array ℕ} (hA : isomOK A = true) (h : A = idMat) : ofArr A hA = 1 := by
   apply Subtype.ext
@@ -404,6 +411,7 @@ section Facts
 
 abbrev OV : Type := TauCeti.QuadraticMap.orthogonalGroup Q₀
 
+@[expose] noncomputable def Stab : Subgroup OV := MulAction.stabilizer OV N0
 
 theorem smul_N0_eq (g : OV) (φ : Set V₀) :
     g • φ = (fun v => (g : V₀ ≃ₗ[F4] V₀) v) '' φ := by

@@ -206,6 +206,15 @@ theorem maximal_N0
   · exact hNY n0b_mem
   · exact hgY
 
+theorem normalizer_E0_inf :
+    Subgroup.normalizer (E0 : Set (Equiv.Perm (Fin 21))) ⊓ P21 = N0 := by
+  rcases maximal_N0 (le_inf N0_le_normalizer N0_le_P21) inf_le_right with h | h
+  · exact h
+  · exfalso
+    have hpa : pa ∈ Subgroup.normalizer (E0 : Set (Equiv.Perm (Fin 21))) ⊓ P21 := by
+      rw [h]
+      exact pa_mem
+    exact pa_conj_not_mem ((Subgroup.mem_normalizer_iff.mp hpa.1 e0a).mp e0a_mem)
 
 abbrev E0' : Subgroup P21 := E0.subgroupOf P21
 

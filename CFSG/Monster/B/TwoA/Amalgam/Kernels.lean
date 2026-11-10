@@ -99,5 +99,32 @@ theorem Nc_le_Pc
 theorem Nc_le_Bam
     (i : Fin 4) : Nc i ≤ Bam := le_iInf fun j => Nc_le_Pc i j
 
+theorem comap_map_of_Bam_le
+    (i : Fin 4) {H : Subgroup Dfull} (hH : Bam ≤ H) :
+    ((H.subgroupOf (Pc i)).map (QuotientGroup.mk' (CFSG.pCore 2 (Pc i)))).comap
+        (QuotientGroup.mk' (CFSG.pCore 2 (Pc i))) = H.subgroupOf (Pc i) := by
+  rw [Subgroup.comap_map_eq, QuotientGroup.ker_mk', sup_eq_left]
+  intro g hg
+  rw [Subgroup.mem_subgroupOf]
+  exact hH (Nc_le_Bam i ⟨g, hg, rfl⟩)
+
+theorem short_local_centralizer_kernels_common :
+    Nc 0 = Ehat ⊓ Subgroup.centralizer {cQ} ∧ Nc 1 = R2 ⊓ Subgroup.centralizer {cQ} ∧
+    Nc 2 = R3 ⊓ Subgroup.centralizer {cQ} ∧ Nc 3 = Lgrp ∧
+    R2 = (CFSG.pCore 2 Ntwo).map Ntwo.subtype ∧ R3 = (CFSG.pCore 2 K3).map K3.subtype ∧
+    Nat.card (Nc 0) = 2 ^ 22 ∧ Nat.card (Nc 1) = 2 ^ 30 ∧ Nat.card (Nc 2) = 2 ^ 32 ∧
+    Nat.card (Nc 3) = 2 ^ 25 ∧
+    (∀ i, Nc i ≤ Bam) ∧
+    (∀ (i : Fin 4) (J : Set (Fin 4)),
+      ((((⨅ j ∈ J, Pc j) ⊓ Pc i).subgroupOf (Pc i)).map
+          (QuotientGroup.mk' (CFSG.pCore 2 (Pc i)))).comap
+        (QuotientGroup.mk' (CFSG.pCore 2 (Pc i))) = ((⨅ j ∈ J, Pc j) ⊓ Pc i).subgroupOf (Pc i)) ∧
+    (∀ (i : Fin 4) (H : Subgroup Dfull), Bam ≤ H →
+      ((H.subgroupOf (Pc i)).map (QuotientGroup.mk' (CFSG.pCore 2 (Pc i)))).comap
+        (QuotientGroup.mk' (CFSG.pCore 2 (Pc i))) = H.subgroupOf (Pc i)) := by
+  obtain ⟨h0, h1, h2, h3⟩ := natCard_Nc
+  refine ⟨Nc_zero, Nc_one, Nc_two, Nc_three, R2_eq_map_pCore_Ntwo, R3_eq_pCore_K3, h0, h1, h2, h3,
+    Nc_le_Bam, fun i J => comap_map_of_Bam_le i ?_, fun i _ hH => comap_map_of_Bam_le i hH⟩
+  exact le_inf (le_iInf₂ fun j _ => Bam_le_Pc j) (Bam_le_Pc i)
 
 end CFSG.Monster.B.TwoA.Amalgam

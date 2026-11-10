@@ -11,19 +11,230 @@ namespace CFSG.Sporadic.Recognition.LyonsSims.Ly0
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Recognition.McLMultiplier Equiv
   Subgroup
 
+theorem cp3Valid_spec {D : Cp3Data} (h : cp3Valid D = true) :
+    D.sets.size = 15400 ∧ D.sets[0]! = fixPts tabYw ∧ D.words[0]! = ([] : List ℤ) ∧
+    (∀ a ∈ D.sets, isStrictSet a = true) ∧
+    (∀ i < 15400, i ≠ 0 → (D.par[i]!).1 < i ∧ (D.par[i]!).2 < 2 ∧
+      D.sets[i]! = applyToSet (gTab (D.par[i]!).2) D.sets[(D.par[i]!).1]! ∧
+      D.words[i]! = gLet (D.par[i]!).2 :: D.words[(D.par[i]!).1]!) ∧
+    (∀ i < 15400, ∀ j < 2, ∃ k < 15400, D.sets[k]! = applyToSet (gTab j) D.sets[i]!) ∧
+    (∀ i < 15400, ∀ i' < 15400, D.sets[i]! = D.sets[i']! → i = i') ∧
+    (∀ i < 15400, i = 0 ∨ i ∈ D.orb ∨ isWit D.words[i]! D.wit[i]! = true) ∧
+    0 < D.orb.size ∧ (∀ i ∈ D.orb, i < 15400) ∧
+    (∀ k < D.orb.size, k ≠ 0 → (D.opar[k]!).1 < k ∧ (D.opar[k]!).2 < uTabs.size ∧
+      D.sets[D.orb[k]!]! = applyToSet uTabs[(D.opar[k]!).2]! D.sets[D.orb[(D.opar[k]!).1]!]!) ∧
+    D.sets[D.orb[0]!]! = fixPts tabW := by
+  unfold cp3Valid at h
+  simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq, Array.all_eq_true, List.all_eq_true,
+    List.mem_range, Bool.or_eq_true, and_assoc] at h
+  obtain ⟨hn, hpar, hwords, hwit, hopar, h0, hw0, hstrict, htree, hclos, hdist, hcomm, horb0,
+    horb, hforest, hw⟩ := h
+  refine ⟨hn, h0, hw0, ?_, ?_, ?_, ?_, ?_, horb0, ?_, ?_, hw⟩
+  · intro a ha
+    obtain ⟨i, hi, rfl⟩ := Array.mem_iff_getElem.1 ha
+    exact hstrict i hi
+  · intro i hi hne
+    rcases htree i (by omega) with h1 | h1
+    · exact absurd h1 hne
+    · exact h1
+  · intro i hi j hj
+    have h1 := hclos i (by omega) j hj
+    revert h1
+    cases hm : (setIdx D.sets)[applyToSet (gTab j) D.sets[i]!]? with
+    | none => simp
+    | some k =>
+      simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq]
+      intro h2
+      exact ⟨k, by omega, h2.2⟩
+  · intro i hi i' hi' he
+    have h1 := hdist i (by omega)
+    have h2 := hdist i' (by omega)
+    rw [he] at h1
+    rw [h1] at h2
+    exact Option.some.inj h2
+  · intro i hi
+    rcases hcomm i (by omega) with (h1 | h1) | h1
+    · exact Or.inl h1
+    · exact Or.inr (Or.inl (Array.contains_iff_mem.1 h1))
+    · exact Or.inr (Or.inr h1)
+  · intro i hi
+    obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 hi
+    have := horb k hk
+    omega
+  · intro k hk hne
+    rcases hforest k hk with h1 | h1
+    · exact absurd h1 hne
+    · exact h1
+
+theorem rep_gTab (h : tabCheck = true) {j : ℕ} (hj : j < 2) : Rep deg (gTab j) (gens0 j) :=
+  rep_gens0 h j hj
+
+theorem letterG_gLet (j : ℕ) : letterG gens0 (gLet j) = gens0 j := by
+  unfold gLet
+  rw [letterG_pos gens0 (by omega)]
+  simp
+
+theorem rep_letter0 (h : tabCheck = true) {l : ℤ} (hl : l ≠ 0 ∧ l.natAbs ≤ 2) :
+    Rep deg (letterOf tabs0 invs0 l) (letterG gens0 l) :=
+  rep_letterOf (rep_gens0 h) (invOK_level0 h) hl
+
+theorem evalPt_eq (h : tabCheck = true) (w : List ℤ) (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 2)
+    {q : ℕ} (hq : q < deg) : evalPt w q = idx deg (wG gens0 w) q := by
+  induction w with
+  | nil => simp [evalPt, idx_one]
+  | cons l w ih =>
+    have ih' := ih (fun l' hl' => hw l' (by simp [hl']))
+    have hlt : evalPt w q < deg := by rw [ih']; exact idx_lt _ hq
+    have e1 : evalPt (l :: w) q = ap (letterOf tabs0 invs0 l) (evalPt w q) := by
+      simp only [evalPt, List.foldr_cons]
+    rw [e1, wG_cons, idx_mul, rep_letter0 h (hw l (by simp)) _ hlt, ih']
+
+theorem conjPt_eq (h : tabCheck = true) (g : List ℤ) (hg : ∀ l ∈ g, l ≠ 0 ∧ l.natAbs ≤ 2)
+    {q : ℕ} (hq : q < deg) :
+    conjPt g q = idx deg (wG gens0 g * y0G * (wG gens0 g)⁻¹) q := by
+  have hginv : ∀ l ∈ invW g, l ≠ 0 ∧ l.natAbs ≤ 2 := fun l hl => by
+    have := hg (-l) (mem_invW hl)
+    simpa using this
+  have e1 : evalPt (invW g) q = idx deg (wG gens0 g)⁻¹ q := by
+    rw [evalPt_eq h _ hginv hq, wG_invW gens0 (fun l hl => (hg l hl).1)]
+  have hlt1 : idx deg (wG gens0 g)⁻¹ q < deg := idx_lt _ hq
+  have e2 : ap tabYw (idx deg (wG gens0 g)⁻¹ q) = idx deg y0G (idx deg (wG gens0 g)⁻¹ q) :=
+    rep_tabYw h _ hlt1
+  have hlt2 : idx deg y0G (idx deg (wG gens0 g)⁻¹ q) < deg := idx_lt _ hlt1
+  unfold conjPt
+  rw [e1, e2, evalPt_eq h g hg hlt2, ← idx_mul, ← idx_mul]
+
+theorem isWit_spec (h : tabCheck = true) {g : List ℤ} (hg : ∀ l ∈ g, l ≠ 0 ∧ l.natAbs ≤ 2)
+    {q : ℕ} (hw : isWit g q = true) :
+    ¬ (wG gens0 g * y0G * (wG gens0 g)⁻¹) * y0G = y0G * (wG gens0 g * y0G * (wG gens0 g)⁻¹) := by
+  intro hcomm
+  unfold isWit at hw
+  simp only [Bool.and_eq_true, decide_eq_true_eq, bne_iff_ne, ne_eq] at hw
+  obtain ⟨hq, hne⟩ := hw
+  apply hne
+  have e1 := conjPt_eq h g hg hq
+  have hyq : ap tabYw q = idx deg y0G q := rep_tabYw h q hq
+  have hlt' : ap tabYw q < deg := by rw [hyq]; exact idx_lt _ hq
+  rw [e1, rep_tabYw h _ (idx_lt _ hq), conjPt_eq h g hg hlt', hyq, ← idx_mul, ← idx_mul, hcomm]
 
 section Sets
 
 variable {D : Cp3Data}
 
+theorem words_valid (hv : cp3Valid D = true) :
+    ∀ i < 15400, ∀ l ∈ D.words[i]!, l ≠ 0 ∧ l.natAbs ≤ 2 := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    intro hi l hl
+    by_cases h0 : i = 0
+    · subst h0
+      obtain ⟨-, -, hw0, -⟩ := cp3Valid_spec hv
+      rw [hw0] at hl
+      simp at hl
+    · obtain ⟨-, -, -, -, htree, -⟩ := cp3Valid_spec hv
+      obtain ⟨hlt, hj, -, hw⟩ := htree i hi h0
+      rw [hw] at hl
+      rcases List.mem_cons.1 hl with rfl | hl'
+      · unfold gLet
+        constructor
+        · omega
+        · omega
+      · exact ih _ hlt (by omega) l hl'
+
+theorem gElt_mem_B0 (hv : cp3Valid D = true) {i : ℕ} (hi : i < 15400) :
+    wG gens0 D.words[i]! ∈ B0 :=
+  wG_mem B0 gens0 2 gens0_mem _ (words_valid hv i hi)
+
+theorem strict_get (hv : cp3Valid D = true) {i : ℕ} (hi : i < 15400) :
+    isStrictSet D.sets[i]! = true := by
+  obtain ⟨hn, -, -, hs, -⟩ := cp3Valid_spec hv
+  have hi' : i < D.sets.size := by omega
+  rw [getElem!_pos D.sets i hi']
+  exact hs _ (Array.getElem_mem hi')
+
+theorem sets_eq (h : tabCheck = true) (hv : cp3Valid D = true) :
+    ∀ i < 15400, setOfArr D.sets[i]! = (wG gens0 D.words[i]!) '' {x | y0G x = x} := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    intro hi
+    by_cases h0 : i = 0
+    · subst h0
+      obtain ⟨-, hs0, hw0, -⟩ := cp3Valid_spec hv
+      rw [hs0, hw0, wG_nil, setOfArr_fixPts (rep_tabYw h)]
+      simp
+    · obtain ⟨-, -, -, -, htree, -⟩ := cp3Valid_spec hv
+      obtain ⟨hlt, hj, hs, hw⟩ := htree i hi h0
+      have hp : (D.par[i]!).1 < 15400 := by omega
+      rw [hs, hw, wG_cons, letterG_gLet,
+        setOfArr_applyToSet (rep_gTab h hj) (isStrictSet_lt (strict_get hv hp)), ih _ hlt hp,
+        Set.image_image]
+      rfl
 
 def fam (D : Cp3Data) : Set (Set (Fin deg)) := {S | ∃ i < 15400, S = setOfArr D.sets[i]!}
 
+theorem fixSet_mem_fam (h : tabCheck = true) (hv : cp3Valid D = true) :
+    {x | y0G x = x} ∈ fam D := by
+  refine ⟨0, by norm_num, ?_⟩
+  rw [sets_eq h hv 0 (by norm_num)]
+  obtain ⟨-, -, hw0, -⟩ := cp3Valid_spec hv
+  rw [hw0, wG_nil]
+  simp
+
+theorem fam_closed (h : tabCheck = true) (hv : cp3Valid D = true) :
+    ∀ g ∈ B0, ∀ S ∈ fam D, g '' S ∈ fam D := by
+  intro g hg
+  induction hg using Subgroup.closure_induction with
+  | mem g hg =>
+    have key : ∀ j < 2, ∀ S ∈ fam D, (gens0 j) '' S ∈ fam D := by
+      intro j hj S hS
+      obtain ⟨i, hi, rfl⟩ := hS
+      obtain ⟨k, hk, he⟩ := (cp3Valid_spec hv).2.2.2.2.2.1 i hi j hj
+      refine ⟨k, hk, ?_⟩
+      rw [he, setOfArr_applyToSet (rep_gTab h hj) (isStrictSet_lt (strict_get hv hi))]
+    rcases hg with hg | hg
+    · rw [hg, ← gens0_zero]
+      exact key 0 (by norm_num)
+    · rw [Set.mem_singleton_iff.1 hg, ← gens0_one]
+      exact key 1 (by norm_num)
+  | one => intro S hS; simpa using hS
+  | mul a b _ _ ha hb =>
+    intro S hS
+    have : (a * b) '' S = a '' (b '' S) := by rw [Set.image_image]; rfl
+    rw [this]
+    exact ha _ (hb S hS)
+  | inv a _ ha => exact image_inv_mem_of_image_mem (fam D) a ha
+
+theorem fam_mem (h : tabCheck = true) (hv : cp3Valid D = true) :
+    ∀ g ∈ B0, g '' {x | y0G x = x} ∈ fam D := fun g hg =>
+  fam_closed h hv g hg _ (fixSet_mem_fam h hv)
+
+theorem fam_cov (h : tabCheck = true) (hv : cp3Valid D = true) :
+    ∀ S ∈ fam D, ∃ g ∈ B0, S = g '' {x | y0G x = x} := by
+  rintro S ⟨i, hi, rfl⟩
+  exact ⟨_, gElt_mem_B0 hv hi, sets_eq h hv i hi⟩
+
+theorem fam_ncard (hv : cp3Valid D = true) : (fam D).ncard = 15400 := by
+  have hrange : fam D = Set.range fun i : Fin 15400 => setOfArr D.sets[i.val]! := by
+    ext S
+    constructor
+    · rintro ⟨i, hi, rfl⟩
+      exact ⟨⟨i, hi⟩, rfl⟩
+    · rintro ⟨i, rfl⟩
+      exact ⟨i.val, i.isLt, rfl⟩
+  have hinj : Function.Injective fun i : Fin 15400 => setOfArr D.sets[i.val]! := by
+    intro i i' he
+    have h1 := setOfArr_inj (strict_get hv i.isLt) (strict_get hv i'.isLt) he
+    exact Fin.ext ((cp3Valid_spec hv).2.2.2.2.2.2.1 i.val i.isLt i'.val i'.isLt h1)
+  rw [hrange, Set.ncard_range_of_injective hinj]
+  simp
 
 end Sets
 
 abbrev UYperm : Subgroup (Perm (Fin deg)) := closure (Set.range fun j : Fin 4 => uG j.val)
 
+theorem uTabs_size : uTabs.size = 4 := by simp [uTabs, uWords]
 
 theorem UYperm_le_B0 : UYperm ≤ B0 := by
   refine (closure_le B0).2 ?_
@@ -38,6 +249,31 @@ section Orbit
 
 variable {D : Cp3Data}
 
+theorem orb_get_lt (hv : cp3Valid D = true) {k : ℕ} (hk : k < D.orb.size) : D.orb[k]! < 15400 := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, horb, -⟩ := cp3Valid_spec hv
+  apply horb
+  rw [getElem!_pos D.orb k hk]
+  exact Array.getElem_mem hk
+
+theorem orb_forest (h : tabCheck = true) (hv : cp3Valid D = true) :
+    ∀ k < D.orb.size, ∃ u ∈ UYperm,
+      setOfArr D.sets[D.orb[k]!]! = u '' setOfArr D.sets[D.orb[0]!]! := by
+  intro k
+  induction k using Nat.strong_induction_on with
+  | _ k ih =>
+    intro hk
+    by_cases h0 : k = 0
+    · subst h0
+      exact ⟨1, one_mem _, by simp⟩
+    · obtain ⟨-, -, -, -, -, -, -, -, -, -, hforest, -⟩ := cp3Valid_spec hv
+      obtain ⟨hq, hj, hs⟩ := hforest k hk h0
+      rw [uTabs_size] at hj
+      have hqk : (D.opar[k]!).1 < D.orb.size := by omega
+      obtain ⟨u, hu, hue⟩ := ih _ hq hqk
+      refine ⟨uG (D.opar[k]!).2 * u, mul_mem (subset_closure ⟨⟨(D.opar[k]!).2, hj⟩, rfl⟩) hu, ?_⟩
+      rw [hs, setOfArr_applyToSet (rep_uTabs h hj)
+        (isStrictSet_lt (strict_get hv (orb_get_lt hv hqk))), hue, Set.image_image]
+      rfl
 
 end Orbit
 
@@ -53,6 +289,11 @@ theorem fix_conj (g y : Perm (Fin deg)) :
   · rintro ⟨j, hj, rfl⟩
     simp [hj]
 
+theorem fix_inv (y : Perm (Fin deg)) :
+    {i | (y⁻¹ : Perm (Fin deg)) i = i} = {i | y i = i} := by
+  ext i
+  show (y⁻¹ : Perm (Fin deg)) i = i ↔ y i = i
+  rw [Equiv.Perm.inv_eq_iff_eq, eq_comm]
 
 theorem conj_y0G_of_mem_normalizer (h : tabCheck = true) (hs : structCheck = true)
     (hc1 : cp1Check = true) {n : Perm (Fin deg)}

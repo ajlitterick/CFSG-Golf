@@ -117,6 +117,16 @@ theorem finite_of_isLThreeFour {X : Type} [Group X] (hX : IsLThreeFour X) : Fini
   obtain ⟨F, _, _, _, ⟨e⟩⟩ := hX
   exact Finite.of_equiv _ e.symm.toEquiv
 
+theorem inputAutL34Order9_holds : Lemma1112b.InputAutL34Order9 := by
+  intro X _ hX E hE
+  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  haveI : Finite X := finite_of_isLThreeFour hX
+  obtain ⟨n, hn⟩ := (IsPGroup.iff_card).1 (Lemma1112b.isPGroup_of_isElemAbelian hE)
+  have hn2 : n ≤ 2 :=
+    (Lemma1112b.le_pRank_of_card (le_top : E ≤ ⊤) hE hn).trans (pRank_mulAut_le_two_of_isLThreeFour hX)
+  rw [hn]
+  calc (3 : ℕ) ^ n ≤ 3 ^ 2 := Nat.pow_le_pow_right (by norm_num) hn2
+    _ = 9 := by norm_num
 
 theorem exists_conj_of_mk_eq_three {Γ : Type} [Group Γ] [Finite Γ] (Q : Subgroup Γ) [Q.Normal]
     (hQ : ¬ 3 ∣ Nat.card Q) {y w : Γ} (hy : orderOf y = 3) (hw : orderOf w = 3)
@@ -271,6 +281,27 @@ theorem inputL34FusionK_holds : Lemma1112b.InputL34FusionK := by
   calc (h * c)⁻¹⁻¹ * x * (h * c)⁻¹ = h * (c * x * c⁻¹) * h⁻¹ := by group
     _ = y := hh
 
+theorem p1rank_of_inputs_alt (h1111 : Lemma1111Statement) (hKn : Lemma1112b.InputCgNormalizesK)
+    (hC1 : Lemma1112b.InputCentBarRankOne) :
+    ∀ {G : Type} [Group G] [Finite G] {m : ℕ} {B M E A : Subgroup G} {a : G} {K : Subgroup G}
+      (h : Cex117 G m 3 B M E A a K), CFSG.Open.pRank 3 (Cg a) = 3 :=
+  Lemma1112b.p1rank_of_inputs h1111 hKn hC1 inputAutL34Order9_holds
+
+theorem p1Claim_of_inputs_alt (hsyl : Lemma1112b.P1SylowClaim) (h1111 : Lemma1111Statement)
+    (hKn : Lemma1112b.InputCgNormalizesK) (hC1 : Lemma1112b.InputCentBarRankOne) :
+    Lemma1112.P1Claim :=
+  Lemma1112b.p1Claim_of_inputs hsyl h1111 hKn hC1 inputAutL34Order9_holds
+
+theorem p2Claim_of_inputs_alt (h1111 : Lemma1111Statement) (h119 : Lemma119Statement)
+    (h113 : Lemma113_iStatement) (hsyl : Lemma1112b.P1SylowClaim) : Lemma1112.P2Claim :=
+  Lemma1112b.p2Claim_of_inputs h1111 h119 h113 inputL34FusionK_holds hsyl
+
+theorem lemma1112_of_inputs_alt (h1111 : Lemma1111Statement) (h119 : Lemma119Statement)
+    (h113 : Lemma113_iStatement) (h104ii : Lemma104_iiStatement)
+    (hsyl : Lemma1112b.P1SylowClaim) (hKn : Lemma1112b.InputCgNormalizesK)
+    (hC1 : Lemma1112b.InputCentBarRankOne) (hP3 : Lemma1112.P3Claim) : Lemma1112Statement :=
+  lemma1112_of_inputs h1111 h119 h104ii (p1Claim_of_inputs_alt hsyl h1111 hKn hC1)
+    (p2Claim_of_inputs_alt h1111 h119 h113 hsyl) hP3
 
 end L34
 
@@ -278,6 +309,15 @@ theorem cex134_O2_of_siblings (hP95 : Prop95) (h111 : Prop111Statement)
     (h121 : Prop121_of_cexStatement) : Cex134_O2Statement :=
   cex134_O2_of_inputs hP95 h111 h121 sec13_comp_holds
 
+theorem prop134_of_cex_of_siblings (hP95 : Prop95) (h111 : Prop111Statement)
+    (h121 : Prop121_of_cexStatement) (h136 : Lemma136Statement) : Prop134_of_cexStatement :=
+  prop134_of_cex_of_inputs' hP95 h111 h121 h136 input23_2Aut_holds
+    (cex134_O2_of_siblings hP95 h111 h121)
+
+theorem lemma136_of_inputs_alt (hP95 : Prop95) (h111 : Prop111Statement)
+    (h121 : Prop121_of_cexStatement) (hP1 : Lemma136.P1BarInput)
+    (h121c : Prop121_corStatement) (hII : Lemma136.IIHardInput) : Lemma136Statement :=
+  lemma136_of_inputs'' hP95 h111 h121 hP1 (cex134_O2_of_siblings hP95 h111 h121) h121c hII
 
 section A13
 
@@ -721,6 +761,8 @@ open scoped Classical
 
 @[expose] def moved (Fh : Subgroup (Perm (Fin 13))) : Set (Fin 13) := {j | ∃ g ∈ Fh, g j ≠ j}
 
+theorem mem_moved {Fh : Subgroup (Perm (Fin 13))} {j : Fin 13} :
+    j ∈ moved Fh ↔ ∃ g ∈ Fh, g j ≠ j := Iff.rfl
 
 theorem not_moved_fix' {Fh : Subgroup (Perm (Fin 13))} {g : Perm (Fin 13)} (hg : g ∈ Fh)
     {j : Fin 13} (hj : j ∉ moved Fh) : g j = j := by

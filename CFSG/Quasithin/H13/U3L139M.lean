@@ -52,6 +52,12 @@ theorem inA4_inv {σ : Perm (Fin 6)} (hσ : InA4 σ) : InA4 σ⁻¹ := by
     exact h5.symm
   · rw [Perm.sign_inv, hs]
 
+theorem inA4_pow {σ : Perm (Fin 6)} (hσ : InA4 σ) (n : ℕ) : InA4 (σ ^ n) := by
+  induction n with
+  | zero => exact inA4_one
+  | succ n ih =>
+    rw [pow_succ]
+    exact inA4_mul ih hσ
 
 @[expose] def c012 : Perm (Fin 6) := swap 0 1 * swap 1 2
 

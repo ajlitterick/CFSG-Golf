@@ -85,6 +85,8 @@ theorem rho_txElt {n : ℕ} (hn : n < 243) : M.rho (txElt M n) = decode txL[n]! 
       _ = (M.rho a⁻¹ * M.rho a) * decode txL[j]! := by rw [← ha, mul_assoc]
       _ = decode txL[j]! := by rw [h1, one_mul]
 
+theorem mem_TX_iff (g : adjointGroup .G2 K) :
+    g ∈ TX M ↔ ∃ i < 243, M.rho g = decode txL[i]! := Iff.rfl
 
 theorem txElt_mem {n : ℕ} (hn : n < 243) : txElt M n ∈ TX M := ⟨n, hn, rho_txElt M hn⟩
 
@@ -189,6 +191,7 @@ theorem coe_T0Sylow (hK : Nat.card K = 8) :
     ((T0Sylow M hK : Sylow 3 (MulAut (adjointGroup .G2 K))) :
       Subgroup (MulAut (adjointGroup .G2 K))) = T0 M hK := rfl
 
+theorem tzc_eq : tzc = powCode tU 3 := rfl
 
 @[expose] noncomputable def zE : adjointGroup .G2 K := tuE M ^ 3
 

@@ -144,6 +144,21 @@ theorem tightlyEmbedded_conjSubgroup [Finite G] {K : Subgroup G}
   rw [h1, ← conjSubgroup_inf, card_conjSubgroup]
   exact h2
 
+theorem conjSubgroup_inf_eq_or_inf_eq_bot_of_tight [Finite G] {K S : Subgroup G}
+    (hK : classicalInvolutionTightlyEmbedded K) (hS : IsPGroup 2 S) {g : G}
+    (hg : g ∈ Subgroup.normalizer (S : Set G)) :
+    conjSubgroup g (S ⊓ K) = S ⊓ K ∨ (S ⊓ K) ⊓ conjSubgroup g (S ⊓ K) = ⊥ := by
+  have hQg : conjSubgroup g (S ⊓ K) = S ⊓ conjSubgroup g K := by
+    rw [conjSubgroup_inf, conjSubgroup_eq_self_iff.mpr hg]
+  by_cases h : (S ⊓ K) ⊓ conjSubgroup g (S ⊓ K) = ⊥
+  · exact Or.inr h
+  · left
+    have hKK : conjSubgroup g K = K :=
+      conjSubgroup_eq_of_tight_of_two_group_le hK
+        (hS.to_le (inf_le_left.trans inf_le_left)) h
+        (inf_le_left.trans inf_le_right)
+        (inf_le_right.trans (conjSubgroup_mono inf_le_right))
+    rw [hQg, hKK]
 
 namespace TightData
 
@@ -178,6 +193,10 @@ theorem inf_conj_eq_bot {g : G} (hgH : g ∈ H) (hgS : conjSubgroup g Q ≤ S)
   apply hne
   rw [d'.eq_inf, hK, ← d.eq_inf]
 
+theorem conj_eq_or_inf_eq_bot {g : G} (hg : g ∈ Subgroup.normalizer (S : Set G)) :
+    conjSubgroup g Q = Q ∨ Q ⊓ conjSubgroup g Q = ⊥ := by
+  rw [d.eq_inf]
+  exact conjSubgroup_inf_eq_or_inf_eq_bot_of_tight d.tight d.two hg
 
 theorem normalizer_le_normalizer {X : Subgroup G} (hXQ : X ≤ Q) (hX1 : X ≠ ⊥) :
     Subgroup.normalizer (X : Set G) ≤ Subgroup.normalizer (K : Set G) := by

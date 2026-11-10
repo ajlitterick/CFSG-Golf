@@ -36,6 +36,11 @@ theorem ch709441rw6 : rowsK D.pts (D.RF) (1680) 280 = true := by
 theorem ch709441rw7 : rowsK D.pts (D.RF) (1960) 280 = true := by
   quickRfl
 
+theorem ch709441rw_negSelf : (!rowsK D.pts (fun i => Nat.lor (D.RF i) 1) 0 1) = true := by
+  quickRfl
+
+theorem ch709441rw_negShift : (!rowsK D.pts (fun i => D.RF (Nat.succ i)) 0 1) = true := by
+  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

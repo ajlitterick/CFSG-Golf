@@ -311,6 +311,15 @@ theorem isConj_of_mem_leechQ_two
   obtain ⟨g₂, h₂, h₂'⟩ := h.exists_conj_of_mem_leechQ hw hay hy
   exact exists_mem_centralizer_conj h₁ h₁' h₂ h₂'
 
+theorem isConj_of_mem_leechQ_four
+    [Finite G] (hSLS : SLSStatement d₀) (hTV : TableVIn G)
+    (hL : LeechStatement) {a z₀ : G} (hG : GMSF1Type d₀ a z₀) {w x y : G} (hw : IsConj z₀ w)
+    (hx : x ∈ leechQ w) (hy : y ∈ leechQ w) (hxw : x ≠ w) (hyw : y ≠ w) (hbx : IsConj z₀ x)
+    (hby : IsConj z₀ y) : ∃ g ∈ Subgroup.centralizer ({w} : Set G), g * x * g⁻¹ = y := by
+  obtain ⟨b, z, u, h⟩ := exists_twoClasses hSLS hTV hL hG
+  obtain ⟨T₂, T₃, T₄, hT⟩ := (h.leech w hw).exists_orbits
+  exact hT.trans_four x (h.mem_four_of_isConj hw hT hx hxw hbx) y
+    (h.mem_four_of_isConj hw hT hy hyw hby)
 
 theorem isConj_of_not_mem_leechQ
     [Finite G] (hSLS : SLSStatement d₀) (hTV : TableVIn G)

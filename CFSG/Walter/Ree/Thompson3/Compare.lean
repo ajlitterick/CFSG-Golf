@@ -17,6 +17,9 @@ theorem act_ι_eq
   · rw [act_none_ι, act_none_ι]
   · rw [act_ι, act_ι]
 
+theorem act_Jg_eq
+    (ω : Option (k × k × k)) : R₁.act ω R₁.Jg = R₂.act ω R₂.Jg :=
+  R₁.act_ι_eq R₂ ω _
 
 theorem fixSet_J_eq :
     R₁.fixSet R₁.Jg = R₂.fixSet R₂.Jg := by
@@ -32,6 +35,9 @@ theorem act_none_K_eq :
 theorem none_mem_agree :
     none ∈ agree R₁ R₂ := R₁.act_none_K_eq R₂
 
+theorem zero_mem_agree :
+    some (0, 0, 0) ∈ agree R₁ R₂ := by
+  simp only [agree, Set.mem_ofPred_eq, act_zero_K]
 
 theorem agree_K
     {ω : Option (k × k × k)} (h : ω ∈ agree R₁ R₂) :

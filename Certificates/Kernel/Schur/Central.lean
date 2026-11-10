@@ -20,6 +20,13 @@ theorem sword_map {F : Type*} [Group F] (f : E →* F) (gen : ℕ → E) (w : Li
     rw [sword_cons, sword_cons, ih, map_mul]
     cases x.2 <;> simp
 
+theorem sword_congr {gen gen' : ℕ → E} {w : List (ℕ × Bool)}
+    (h : ∀ x ∈ w, gen x.1 = gen' x.1) : sword gen w = sword gen' w := by
+  induction w with
+  | nil => rfl
+  | cons x w ih =>
+    rw [sword_cons, sword_cons, h x List.mem_cons_self,
+      ih (fun y hy => h y (List.mem_cons_of_mem _ hy))]
 
 theorem sword_mem_closure (gen : ℕ → E) {m : ℕ} (w : List (ℕ × Bool)) (hw : ∀ x ∈ w, x.1 < m) :
     sword gen w ∈ Subgroup.closure (gen '' {i | i < m}) := by

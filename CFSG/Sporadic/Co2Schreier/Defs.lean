@@ -208,5 +208,77 @@ theorem chainRAction_records :
     localRec.chains.rAction.Records chainRAction :=
   records_rawOfArrays_of_shape localShape.chainR _ _ _ _ (by norm_num)
 
+theorem oddN1_eq : oddN1 = 3 := by
+  rw [oddN1, localShape.odd]
+  rfl
+
+theorem oddN2_eq : oddN2 = 3 := by
+  rw [oddN2, localShape.odd]
+  rfl
+
+theorem locH_eq : locH = locX * locZ * (locZ0 * locX) := by
+  rw [locH, oddN1_eq, oddN2_eq]
+  simp
+
+theorem AT_Co2_local_certificate_data :
+    localRec.schemaVersion = 1 ∧
+    localRec.alignmentOddOrders = [3, 3] ∧ oddN1 = 3 ∧ oddN2 = 3 ∧
+    localRec.cInitialWords.length = 2 ∧ localRec.dWords.length = 2 ∧
+    localRec.dStrongDerivations.length = 5 ∧ localRec.rWords.length = 10 ∧
+    localRec.cStrongDerivations.length = 7 ∧ localRec.qWords.length = 8 ∧
+    localRec.sQuotientWords.length = 7 ∧
+    (∀ w ∈ localRec.cInitialWords, lettersOK 2 w = true) ∧
+    (∀ w ∈ localRec.dWords, lettersOK 2 w = true) ∧
+    extWordsOK 2 localRec.dStrongDerivations = true ∧
+    (∀ w ∈ localRec.rWords, lettersOK 7 w = true) ∧
+    lettersOK 2 localRec.cInitialCenterWord = true ∧ lettersOK 2 localRec.dCenterWord = true ∧
+    lettersOK 10 localRec.zRWord = true ∧ lettersOK 2 localRec.alignmentIntermediateWord = true ∧
+    extWordsOK 2 localRec.cStrongDerivations = true ∧
+    (∀ w ∈ localRec.qWords, lettersOK 9 w = true) ∧
+    (∀ w ∈ localRec.sQuotientWords, lettersOK 9 w = true) ∧
+    aSeeds = [co2Gen 0, co2Gen 1] ∧ co2P = Subgroup.closure {co2Gen 0, co2Gen 1} ∧
+    cInitTuple = localRec.cInitialWords.map (wordValue aSeeds) ∧
+    dTuple = localRec.dWords.map (wordValue aSeeds) ∧
+    dStarTuple = extendTuple dTuple localRec.dStrongDerivations ∧
+    rTuple = localRec.rWords.map (wordValue dStarTuple) ∧
+    locR = Subgroup.closure {g | g ∈ rTuple} ∧
+    locZ0 = wordValue cInitTuple localRec.cInitialCenterWord ∧
+    locT = wordValue dTuple localRec.dCenterWord ∧ locZ = wordValue rTuple localRec.zRWord ∧
+    locW = wordValue aSeeds localRec.alignmentIntermediateWord ∧
+    locX = locW * locZ0 * locW⁻¹ ∧
+    locH = (locX * locZ) ^ ((oddN2 - 1) / 2) * (locZ0 * locX) ^ ((oddN1 - 1) / 2) ∧
+    locH = locX * locZ * (locZ0 * locX) ∧
+    cTuple = cInitTuple.map (fun g => locH * g * locH⁻¹) ∧
+    locC = Subgroup.closure {g | g ∈ cTuple} ∧ locD = Subgroup.closure {g | g ∈ dTuple} ∧
+    cStarTuple = extendTuple cTuple localRec.cStrongDerivations ∧
+    qTuple = localRec.qWords.map (wordValue cStarTuple) ∧
+    locQ = Subgroup.closure {g | g ∈ qTuple} ∧
+    sTuple = qTuple ++ localRec.sQuotientWords.map (wordValue cStarTuple) ∧
+    locS = Subgroup.closure {g | g ∈ sTuple} ∧
+    localRec.chains.C.Records chainC ∧ localRec.chains.D.Records chainD ∧
+    localRec.chains.S.Records chainS ∧ localRec.chains.join.Records chainJoin ∧
+    localRec.chains.qAction.Records chainQAction ∧ localRec.chains.rAction.Records chainRAction ∧
+    chainC.originalCount = 2 ∧ chainC.strongCount = 14 ∧ chainD.originalCount = 2 ∧
+    chainD.strongCount = 12 ∧ chainS.originalCount = 15 ∧ chainS.strongCount = 23 ∧
+    chainJoin.originalCount = 4 ∧ chainJoin.strongCount = 17 ∧
+    chainQAction.originalCount = 2 ∧ chainQAction.strongCount = 17 ∧
+    chainRAction.originalCount = 2 ∧ chainRAction.strongCount = 11 ∧
+    localRec.frattiniProfiles.length = 32 ∧ (∀ r ∈ localRec.frattiniProfiles, r.length = 12) :=
+  ⟨localShape.schema, localShape.odd, oddN1_eq, oddN2_eq, localShape.cInit_length,
+    localShape.dWords_length, localShape.dDeriv_length, localShape.rWords_length,
+    localShape.cDeriv_length, localShape.qWords_length, localShape.sWords_length,
+    localShape.cInit_letters, localShape.dWords_letters, localShape.dDeriv_letters,
+    localShape.rWords_letters, localShape.z0_letters, localShape.t_letters,
+    localShape.z_letters, localShape.w_letters, localShape.cDeriv_letters,
+    localShape.qWords_letters, localShape.sWords_letters, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
+    rfl, rfl, rfl, rfl, rfl, rfl, locH_eq, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
+    chainC_records, chainD_records, chainS_records, chainJoin_records, chainQAction_records,
+    chainRAction_records, localShape.chainC.origArrs_size, localShape.chainC.strongArrs_size,
+    localShape.chainD.origArrs_size, localShape.chainD.strongArrs_size,
+    localShape.chainS.origArrs_size, localShape.chainS.strongArrs_size,
+    localShape.chainJoin.origArrs_size, localShape.chainJoin.strongArrs_size,
+    localShape.chainQ.origArrs_size, localShape.chainQ.strongArrs_size,
+    localShape.chainR.origArrs_size, localShape.chainR.strongArrs_size,
+    localShape.profiles_length, localShape.profiles_rows⟩
 
 end CFSG.Sporadic.Co2Schreier

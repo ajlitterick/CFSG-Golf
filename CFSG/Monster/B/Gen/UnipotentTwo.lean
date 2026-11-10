@@ -42,6 +42,17 @@ namespace CFSG.Monster.B
 theorem zmod_two_add_self {W : Type*} [AddCommGroup W] [Module (ZMod 2) W] (w : W) : w + w = 0 := by
   rw [← two_smul (ZMod 2) w, show (2 : ZMod 2) = 0 from rfl, zero_smul]
 
+theorem mul_self_eq_one_of_trivial_sub_quot {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
+    (f : W →ₗ[ZMod 2] W) (U : Submodule (ZMod 2) W) (hU : ∀ u ∈ U, f u = u)
+    (hQ : ∀ w, f w - w ∈ U) : f * f = 1 := by
+  ext w
+  have h1 : f (f w - w) = f w - w := hU _ (hQ w)
+  rw [map_sub] at h1
+  have h2 : f (f w) = f w - w + f w := by rw [← h1, sub_add_cancel]
+  change f (f w) = w
+  rw [h2, sub_add_eq_add_sub, zmod_two_add_self, zero_sub]
+  have := zmod_two_add_self w
+  exact (neg_eq_of_add_eq_zero_right this)
 
 theorem eq_one_of_mul_self_eq_one_of_simple {G H : Type*} [Group G] [Group H] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a) (φ : G →* H) (hφ : ∀ g, φ g * φ g = 1) (g : G) :

@@ -18,6 +18,21 @@ open Native
 
 @[expose] noncomputable def betaInvT : Table := invT (thBFS ()).count betaT
 
+theorem thCertificate_parts {c : ℕ} (h : thCertificate c = true) :
+    (thBFS ()).count = thN ∧ orbitOK (tblA ()) (tblB ()) wKey (thBFS ()) c = true ∧
+      deltaOK (thBFS ()) = true ∧ invoOK (thBFS ()).count alphaT = true ∧
+      order3OK (thBFS ()).count betaT = true ∧ invOK (thBFS ()).count betaT betaInvT = true ∧
+      ap alphaT 0 = 1 ∧ ap betaT 0 = 2 ∧
+      tableChecks (thBFS ()).count alphaT betaT betaInvT gplT c = true := by
+  unfold thCertificate at h
+  dsimp only at h
+  split at h
+  · exact absurd h Bool.false_ne_true
+  · rename_i hc
+    simp only [Bool.not_eq_true', Bool.not_eq_false, Bool.and_eq_true, beq_iff_eq] at hc
+    simp only [Bool.and_eq_true, beq_iff_eq] at h
+    obtain ⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩ := h
+    exact ⟨hc.1.1, hc.1.2, hc.2, h1, h2, h3, h4, h5, h6⟩
 
 end CFSG.Sporadic.Th
 
@@ -76,5 +91,29 @@ structure TableFacts (c : ℕ) : Prop where
   counts : (countLabels nT 11 compsT).toList = suborbitSizes
   global : globalChecks nT alphaT betaT betaInvT gplT chainT c = true
 
+theorem tableChecks_parts {c : ℕ} (h : tableChecks nT alphaT betaT betaInvT gplT c = true) :
+    TableFacts c := by
+  unfold tableChecks at h
+  dsimp only at h
+  split at h
+  · exact absurd h Bool.false_ne_true
+  rename_i h1
+  split at h
+  · exact absurd h Bool.false_ne_true
+  rename_i h2
+  split at h
+  · exact absurd h Bool.false_ne_true
+  rename_i h3
+  split at h
+  · exact absurd h Bool.false_ne_true
+  rename_i h4
+  simp only [Bool.not_eq_true', Bool.not_eq_false, Bool.and_eq_true, beq_iff_eq] at h1 h2 h3 h4 h
+  obtain ⟨⟨⟨hx, hy⟩, hx0⟩, hy0⟩ := h1
+  obtain ⟨⟨⟨⟨hyi, hz0⟩, hz1⟩, hz01⟩, hz11⟩ := h2
+  obtain ⟨⟨⟨hs0, hs1⟩, ht0⟩, ht1⟩ := h3
+  obtain ⟨htwo, hone⟩ := h4
+  obtain ⟨⟨⟨hreps, hcomp⟩, hcounts⟩, hglob⟩ := h
+  exact ⟨hx, hy, hx0, hy0, hyi, hz0, hz1, hz01, hz11, hs0, hs1, ht0, ht1, htwo, hone, hreps, hcomp,
+    hcounts, hglob⟩
 
 end CFSG.Sporadic.Th

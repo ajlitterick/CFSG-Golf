@@ -15,6 +15,10 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.Schreier.C
 @[expose] def co3TransvMat (v : Co3V6) : Matrix (Fin 3 ⊕ Fin 3) (Fin 3 ⊕ Fin 3) (ZMod 2) :=
   1 + vecMulVec v (co3J6 *ᵥ v)
 
+theorem co3Sp6Zeros_check : ∀ a < 64,
+    decide (a ∈ co3A) = decide ((Finset.univ.filter fun n : Fin 64 =>
+      co3Sp6Form a (co3Vec6 n) = 0).card = 36) :=
+  Certificates.certificate2161.1
 
 theorem co3Sp6A_check :
     co3A.Nodup ∧ 0 ∈ co3A ∧ (∀ i < 6, 2 ^ i ∈ co3A) ∧ (∀ a ∈ co3A, a < 64) :=

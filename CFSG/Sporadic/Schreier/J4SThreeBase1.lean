@@ -60,16 +60,20 @@ theorem q3Elt_injOn
 
 section Generic
 
+variable {G : Type*} [Group G]
 
 end Generic
 
 section Kernel
 
+variable {G : Type*} [Group G] [Finite G] {X : Type*} [MulAction G X] [Finite X]
+  [IsPretransitive G X] {H N : Subgroup G} {r : X}
 
 end Kernel
 
 section Core
 
+variable {G : Type*} [Group G] [Finite G]
 
 end Core
 

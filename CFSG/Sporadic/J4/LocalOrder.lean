@@ -336,6 +336,49 @@ theorem hsep0 : ∀ g : Hj, (∀ t < (Array.range qLen).size,
   rw [idx_eq_iff hF.orbitFacts hlt hlt, vecAt_qIdx0 hF ht']
   exact hfix
 
+theorem level0_top : levelGroup letters0 chainBase (pairG gs0) 0 = ⊤ := by
+  rw [eq_top_iff, ← Subgroup.closure_closure_coe_preimage (k := ({xJ 0, xJ 1, xJ 2} : Set J)),
+    Subgroup.closure_le]
+  intro x hx
+  have hk : ∃ k < 3, (x : J) = xJ k := by
+    rcases hx with h | h | h
+    · exact ⟨0, by norm_num, h⟩
+    · exact ⟨1, by norm_num, h⟩
+    · exact ⟨2, by norm_num, h⟩
+  obtain ⟨k, hk, hxk⟩ := hk
+  have e : x = (gq k)⁻¹ := Subtype.ext (by simp [gq, dite_eq_left hk, hxk])
+  rw [e]
+  apply Subgroup.inv_mem
+  have hs := strong0_size hF.mat
+  have hl : 2 * k ∈ levelLetters letters0 chainBase 0 := by
+    rw [levelLetters, Array.mem_range, letters0_size]
+    omega
+  have := lG_mem (lG := pairG gs0) hl
+  have e2 : pairG gs0 (2 * k) = gq k := by
+    simp only [pairG, gs0]
+    rw [ite_eq_left (by omega), ite_eq_left (by omega)]
+    congr 1
+    omega
+  rw [e2] at this
+  exact this
+
+theorem trees0_size_at : ∀ l < 6, trees0[l]!.pts.size = chainSizes[l]! := by
+  have hs := hF.sizes
+  have hlen : trees0.size = 6 := by
+    have := congrArg List.length hs
+    simpa [orbitSizes, chainSizes] using this
+  intro l hl
+  rw [← hs, orbitSizes,
+    getElem!_pos (trees0.toList.map fun T => T.pts.size) l (by simp [hlen]; exact hl),
+    List.getElem_map, Array.getElem_toList, ← getElem!_pos trees0 l (by rw [hlen]; exact hl)]
+
+theorem card_Hj_N : Nat.card Hj = 501397585920 := by
+  have h := (chain_facts (G := Hj) (n := 15180) (gs := gs0) (rep_strong0 hF) (hsep0 hF)
+    hF.chain).2.2 0 (Nat.zero_le _)
+  rw [level0_top hF, Subgroup.card_top] at h
+  rw [h, show chainBase.size = 6 from rfl, ← Finset.range_eq_Ico,
+    Finset.prod_congr rfl fun l hl => trees0_size_at hF l (Finset.mem_range.1 hl)]
+  decide
 
 end Chain
 

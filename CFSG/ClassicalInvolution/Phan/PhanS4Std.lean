@@ -132,6 +132,8 @@ theorem gram_comm (x y : Vec K) : gram M y x = gram M x y := by
   simp only [gram]
   ring
 
+theorem tau_mul_self_fixed (c : K) : M.τ (c * M.τ c) = c * M.τ c := by
+  rw [map_mul, M.tau_tau, mul_comm]
 
 theorem tau_ne_zero {c : K} (hc : c ≠ 0) : M.τ c ≠ 0 := by
   intro h

@@ -32,6 +32,7 @@ open CFSG.PSL3Four.Native CFSG.Sporadic.SuzOddCore
 
 @[expose] def repTab (k : Nat) : Tab := wordTab (fun j => gensP[j]!) (repWords.getD k [])
 
+@[expose] def classSizes : List Nat := [315, 2520, 1800]
 
 @[expose] def pairsE : List (Nat × Nat) := [(1, 257), (113, 190), (198, 64), (190, 224)]
 

@@ -141,6 +141,11 @@ theorem rho_eq_one_iff (α : ↥F.E) : F.rho α = 1 ↔ (α : MulAut Y) ∈ F.D 
   · intro h
     exact F.rho_eq h (c := 1) (by simp)
 
+theorem rho_fld (c : C) : F.rho ⟨F.fld c, F.fld_mem_E c⟩ = c :=
+  F.rho_eq F.D.one_mem (by simp)
+
+theorem rho_D {d : MulAut Y} (hd : d ∈ F.D) : F.rho ⟨d, F.D_le_E hd⟩ = 1 :=
+  (F.rho_eq_one_iff _).2 hd
 
 theorem eq_or_eq_of_between {K : Subgroup (MulAut Y)}
     (h1 : inner Y ≤ K) (h2 : K ≤ F.D) : K = inner Y ∨ K = F.D := by

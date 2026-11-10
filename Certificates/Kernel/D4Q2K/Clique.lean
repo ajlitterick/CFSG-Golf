@@ -18,6 +18,12 @@ open CFSG.KC.D4Q2K
 
 #kc_each CertificateChecks.KernelD4Q2K.cqSl 0 112
 
+theorem cqSl_negDrop :
+    (!cliqueN D.RF D.MF 1 0 [(DC.cl.headD []).tail]) = true := by
+  quickRfl
+
+theorem cqSl_negRow : (!cliqueN (fun i => D.RF (Nat.succ i)) D.MF 1 0 DC.cl) = true := by
+  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

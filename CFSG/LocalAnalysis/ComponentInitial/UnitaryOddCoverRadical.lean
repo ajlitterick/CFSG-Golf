@@ -220,6 +220,8 @@ theorem commutatorElement_eq_of_map_eq_left (hC : θ.ker ≤ Subgroup.center E) 
     group
   rw [e, ← one_mul m, commutatorElement_central_mul hc (Subgroup.one_mem _), one_mul]
 
+theorem mul_comm_of_commutatorElement_eq_one {a b : E} (hab : ⁅a, b⁆ = 1) : a * b = b * a :=
+  commutatorElement_eq_one_iff_mul_comm.mp hab
 
 end General
 

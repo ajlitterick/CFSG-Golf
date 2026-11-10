@@ -61,12 +61,37 @@ theorem mem_P5c {b g x : G} : x ∈ P5c b g ↔ g⁻¹ * x * g ∈ P5 b := by
   rw [Subgroup.mem_map_equiv]
   simp [MulAut.conj_symm_apply]
 
+omit [Finite G] in
+theorem conj_mem_P5c {b g x : G} (hx : x ∈ P5 b) : g * x * g⁻¹ ∈ P5c b g := by
+  rw [mem_P5c]; group; exact hx
 
 section Five
 
 variable {M} {b : G} (hbH : b ∈ ruH M.T) (hb5 : orderOf b = 5)
 include hbH hb5
 
+theorem card_P5c
+    (g : G) : Nat.card (P5c b g) = 125 := by
+  rw [Subgroup.card_map_of_injective (MulAut.conj g).injective, card_P5_eq_125 hbH hb5]
+
+theorem not_comm_P5c
+    (g : G) : ¬ ∀ x ∈ P5c b g, ∀ y ∈ P5c b g, x * y = y * x := by
+  intro h
+  apply not_comm_P5 hbH hb5
+  intro x hx y hy
+  have := h _ (conj_mem_P5c (g := g) hx) _ (conj_mem_P5c (g := g) hy)
+  calc x * y = g⁻¹ * ((g * x * g⁻¹) * (g * y * g⁻¹)) * g := by group
+    _ = g⁻¹ * ((g * y * g⁻¹) * (g * x * g⁻¹)) * g := by rw [this]
+    _ = y * x := by group
+
+theorem pow_five_P5c
+    {g x : G} (hx : x ∈ P5c b g) : x ^ 5 = 1 := by
+  have h := pow_five_eq_one_P5 hbH hb5 (mem_P5c.mp hx)
+  have e : (g⁻¹ * x * g) ^ 5 = g⁻¹ * x ^ 5 * g := by
+    rw [show g⁻¹ * x * g = g⁻¹ * x * g⁻¹⁻¹ by group, conj_pow]; group
+  rw [e] at h
+  calc x ^ 5 = g * (g⁻¹ * x ^ 5 * g) * g⁻¹ := by group
+    _ = 1 := by rw [h]; group
 
 omit [Finite G] hbH hb5 in
 theorem comm_center_P5c {g x : G} (hx : x ∈ P5c b g) :

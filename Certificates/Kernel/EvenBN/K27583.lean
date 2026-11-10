@@ -43,6 +43,8 @@ theorem vpK : fIdx.all (fun i =>
 
 theorem piPI : permOK 1755 11 (mask 11) (1755 * 11) Pi PiI = true := by quickRfl
 
+theorem negPiSift : (siftK 1755 11 (mask 11) (1755 * 11) (pidn 1755 11) TitsH.LR TitsH.TRI TitsH.BP 5 0
+    Pi).not = true := by quickRfl
 
 end CertificateChecks.KernelEvenBN
 

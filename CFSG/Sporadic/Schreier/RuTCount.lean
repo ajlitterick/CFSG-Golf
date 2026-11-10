@@ -77,5 +77,22 @@ theorem ncard_ruT :
     finsum_mem_eq_finite_toFinset_sum _ hs, Finset.sum_const, ← Set.ncard_eq_toFinset_card _ hs,
     ncard_ruOrb11, smul_eq_mul]
 
+theorem CTUC_Ru_constrained_second_generator_orbit_count :
+    ruT.ncard = 116480 ∧
+    (∀ k < 19, ruRepZ k ∈ ruZP) ∧ ruZP = ⋃ k ∈ Finset.range 19, conjSet ruL (ruRepZ k) ∧
+    (∀ k < 19, ∀ k' < 19, k ≠ k' →
+      Disjoint (conjSet ruL (ruRepZ k)) (conjSet ruL (ruRepZ k'))) ∧
+    (∀ k < 19, ∀ t ∈ conjSet ruL (ruRepZ k), orderOf (ruA0 * t) = 14 ↔ k ∈ [3, 6, 11]) ∧
+    (∀ k ∈ [3, 6, 11], (conjSet ruL (ruRepZ k)).ncard = 29120) ∧
+    [ruReps.getD 3 0, ruReps.getD 6 0, ruReps.getD 11 0] = [7, 13, 27] ∧
+    (ruFib (ruRepZ 3)).ncard = 0 ∧ (ruFib (ruRepZ 6)).ncard = 0 ∧
+    (ruFib (ruRepZ 11)).ncard = 4 ∧
+    {x | x ∈ ruP ∧ x ^ 2 = ruZ}.ncard = 816 := by
+  refine ⟨ncard_ruT, fun k _ => ruRepZ_mem k, ruZP_eq_iUnion,
+    fun k hk k' hk' h => ruOrb_disjoint hk hk' h, fun k hk t ht => ruOrb_ord14 hk ht, ?_, rfl,
+    ruFibCounts.1, ruFibCounts.2.1, ruFibCounts.2.2, ncard_ruRoots⟩
+  intro k hk
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hk
+  rcases hk with rfl | rfl | rfl <;> rw [ncard_ruOrb (by decide)] <;> rfl
 
 end CFSG.Sporadic.RuSchreier

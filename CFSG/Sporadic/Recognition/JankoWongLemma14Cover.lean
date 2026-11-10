@@ -16,6 +16,11 @@ theorem permW_conj_permA3 : permW * permA3 * permW⁻¹ = permB3 := by
 theorem permW_conj_permB3 : permW * permB3 * permW⁻¹ = permA3⁻¹ := by
   unfold permW permA3 permB3; decide
 
+theorem permW_inv_conj_permA3 : permW⁻¹ * permA3 * permW = permB3⁻¹ := by
+  unfold permW permA3 permB3; decide
+
+theorem permW_inv_conj_permB3 : permW⁻¹ * permB3 * permW = permA3 := by
+  unfold permW permA3 permB3; decide
 
 theorem permW_pow_four : permW ^ 4 = 1 := by unfold permW; decide
 
@@ -186,6 +191,8 @@ theorem mem_normalizer_PG_of_gens {g : G} (ha : g * (c.a : G) * g⁻¹ ∈ c.PG)
 theorem d_mem_normalizer_PG : (c.d : G) ∈ normalizer (c.PG : Set G) :=
   c.mem_normalizer_PG_of c.PG_normalizes_d.1 c.PG_normalizes_d.2
 
+theorem t_mem_normalizer_PG : (c.t : G) ∈ normalizer (c.PG : Set G) :=
+  c.mem_normalizer_PG_of c.PG_normalizes_t.1 c.PG_normalizes_t.2
 
 theorem exists_semidihedral_embedding :
     ∃ φ : SemidihedralGroup 4 →* G, Function.Injective φ ∧ (∀ x, φ x ∈ S.H) ∧

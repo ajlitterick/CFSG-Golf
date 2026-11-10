@@ -98,6 +98,17 @@ theorem ch21194_orb39 : orbBlk OR (nat_lit 19656) (nat_lit 504) = true := by dec
 #kc_forall_chunks ch21194_orbAll (fun k => orbBlk OR (504 * k) 504 = true) 40
   CFSG.KC.M24R3.ch21194_orb 1
 
+theorem ch21194_orb_neg_swap :
+    orbBlk (fun n => Bool.rec (OR n) (OR 6) (Nat.beq n 5)) (nat_lit 0) (nat_lit 8) = false := by
+  decide +kernel
+
+theorem ch21194_orb_neg_key : orbOK (fun n => Nat.add (OR n) (nat_lit 1099511627776)) (nat_lit 1) =
+    false := by
+  decide +kernel
+
+theorem ch21194_orb_neg_gen : orbOK (fun n => Nat.xor (OR n) (nat_lit 1073741824)) (nat_lit 1) =
+    false := by
+  decide +kernel
 
 end CFSG.KC.M24R3
 

@@ -235,6 +235,9 @@ theorem Wb_valid : ∀ c ∈ Wb, c < 4096 := by
 theorem Wb_mem_planes : Wb ∈ planes := by
   decide
 
+theorem card_Wsub : Nat.card Wsub = 64 := by
+  rw [Wsub, card_spanSub Wb_valid]
+  decide +kernel
 
 private theorem hvalid_getD : ∀ n, n < 77 → ∀ c ∈ planes.getD n [], c < 4096 := by
   intro n hn c hc
@@ -354,6 +357,60 @@ theorem planes5_inj : Function.Injective fun i : Fin 5 => spanSub (planes5.getD 
     apply (bne_iff_ne.mp hne)
     exact spanMask_eq_of_spanSub_eq (hvalid5 i.val i.isLt) (hvalid5 j.val j.isLt) hij
 
+theorem Wsub_isotropic : ∀ u ∈ Wsub, ∀ v ∈ Wsub, f0 u v = 0 := by
+  intro u hu v hv
+  rw [Wsub, mem_spanSub_iff Wb_valid] at hu hv
+  conv_lhs => rw [← dc_cd u, ← dc_cd v]
+  rw [f0_dc (cd_lt u) (cd_lt v)]
+  have h : ((spanN Wb).all fun a => (spanN Wb).all fun b =>
+      !(polN 12 Qcols (mvN z12 (mvN z12 a)) b) && !(polN 12 Qcols a b)) = true := by
+    decide +kernel
+  have ha := (List.all_eq_true.mp h) (cd u) hu
+  have hb := (List.all_eq_true.mp ha) (cd v) hv
+  rw [Bool.and_eq_true] at hb
+  have hb1 : polN 12 Qcols (mvN z12 (mvN z12 (cd u))) (cd v) = false := by
+    simpa using hb.1
+  have hb2 : polN 12 Qcols (cd u) (cd v) = false := by
+    simpa using hb.2
+  rw [hb1, hb2]
+  rfl
+
+theorem smulSub_zU_Wsub : smulSub zU Wsub = Wsub := by
+  have hmask : spanMask (Wb.map (mvN z12)) = spanMask Wb := by decide +kernel
+  rw [Wsub, smulSub_spanSub]
+  have hmap : Wb.map (gmv zU) = Wb.map (mvN z12) := by
+    apply List.map_congr_left
+    intro c _
+    rw [gmv, zU_val, colsN_decN validN_z12]
+  rw [hmap]
+  refine (spanSub_eq_iff ?_ Wb_valid).mpr fun c _ => mem_iff_of_maskOf_eq hmask c
+  intro c hc
+  obtain ⟨d, hd, rfl⟩ := List.mem_map.mp hc
+  exact z12_lt d
+
+theorem T0_le_ptStab_Wsub : T0 ≤ ptStab glHom G0 Wsub := by
+  refine (Subgroup.closure_le (ptStab glHom G0 Wsub)).mpr ?_
+  intro u hu
+  have hgen : ∀ g ∈ tG, ∀ c ∈ Wb, mvN g c ∈ spanN Wb := by
+    have h : (tG.all fun g => Wb.all fun c => (spanN Wb).contains (mvN g c)) = true := by
+      decide +kernel
+    intro g hg c hc
+    exact List.contains_iff_mem.mp ((List.all_eq_true.mp ((List.all_eq_true.mp h) g hg)) c hc)
+  have hle : smulSub u Wsub ≤ Wsub := by
+    show smulSub u (spanSub Wb) ≤ spanSub Wb
+    rw [smulSub_spanSub]
+    refine (spanSub_le_iff ?_ Wb_valid).mpr ?_
+    · intro c hc
+      obtain ⟨d, hd, rfl⟩ := List.mem_map.mp hc
+      exact gmv_lt u d
+    · intro c hc
+      obtain ⟨d, hd, rfl⟩ := List.mem_map.mp hc
+      exact hgen (colsN u.val) hu d hd
+  exact (mem_ptStab_iff G0 Wsub u).mpr
+    ⟨T0_le_G (Subgroup.subset_closure hu), smulSub_eq_of_le u Wsub hle⟩
+
+theorem zU_mem_ptStab_Wsub : zU ∈ ptStab glHom G0 Wsub := by
+  exact (mem_ptStab_iff G0 Wsub zU).mpr ⟨zU_mem, smulSub_zU_Wsub⟩
 
 @[expose] def nonhypPts : List ℕ := [5, 113, 116, 123, 126, 1313, 1323, 1360, 1375, 1459, 1462,
   1474, 1479, 1480, 1485]
@@ -392,9 +449,13 @@ theorem mem_hyp_of_mem_O1465 {c : ℕ} (hc : c ∈ spanN Wb) (hc0 : c ≠ 0) (h 
   simp only [h1, h2, h3, Bool.not_true, Bool.not_false, Bool.or_false, Bool.false_or] at hc'
   exact List.mem_flatMap.mp (List.contains_iff_mem.mp hc')
 
+theorem hypPts_length : hypPts.length = 6 := by
+  decide
 
 theorem hypPts_lt : ∀ r ∈ hypPts, r < 4096 := by
   decide
 
+theorem nonhypPts_lt : ∀ r ∈ nonhypPts, r < 4096 := by
+  decide
 
 end CFSG.Quasithin.AppendixH.H12.Model

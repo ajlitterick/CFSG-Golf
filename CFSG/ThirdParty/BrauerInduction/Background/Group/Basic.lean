@@ -106,3 +106,29 @@ lemma Subgroup.commute_subtype_iff
   · intro h
     exact h.map (Subgroup.subtype H)
 
+/--
+The two ways of viewing `A ∩ B`, either as a subgroup of `A` or as a subgroup
+of `B`, are multiplicatively equivalent.
+-/
+@[expose] def Subgroup.comapSubtypeCommEquiv
+    (A B : Subgroup G) :
+    Subgroup.comap (Subgroup.subtype A) B ≃*
+      Subgroup.comap (Subgroup.subtype B) A where
+  toFun x := by
+    refine ⟨⟨((x : A) : G), x.property⟩, ?_⟩
+    exact (x : A).property
+  invFun x := by
+    refine ⟨⟨((x : B) : G), x.property⟩, ?_⟩
+    exact (x : B).property
+  left_inv := by
+    intro x
+    ext
+    rfl
+  right_inv := by
+    intro x
+    ext
+    rfl
+  map_mul' := by
+    intro x y
+    ext
+    rfl

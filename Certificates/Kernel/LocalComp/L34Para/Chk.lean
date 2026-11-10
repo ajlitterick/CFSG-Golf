@@ -81,6 +81,10 @@ theorem kWords : allN 96 (fun e => strictB (L34PW.WL.getD (Nat.mul 4 e) 0) fun k
       (L34PW.WL.getD (Nat.add (Nat.add (Nat.mul 4 e) 1) i) 0)) (L34R.G i))) = true := by
   quickRfl
 
+theorem kNeg : andB (notB (memK 959 (fun q => L34P1.T (Nat.succ q)) (pidn 42 6)))
+    (notB (Nat.beq (CFSG.KC.L34Two.dwordK 42 6 (L34PW.A (L34PW.WL.getD 0 0)) 4 16
+      (L34PW.WL.getD 2 0)) (L34R.G 0))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Para
 

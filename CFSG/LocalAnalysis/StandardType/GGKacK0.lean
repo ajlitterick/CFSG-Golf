@@ -55,6 +55,21 @@ structure GGKacDatum where
         ψ.ker ≤ Subgroup.center L' → commutator L' = ⊤ →
         (Nat.card (Subgroup.center L')).Coprime p
 
+@[expose] def GGTCJKac (Gen : LargeEvenLabel → ℕ → Prop)
+    (Valid : LargeEvenLabel → ℕ → GGKacDatum → Prop) : Prop :=
+  GGK0Main Gen Valid ∧ GGK0Schur Gen
+
+def GGTCJKnownGeneric : Prop :=
+  ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →
+    GGKacGeneric lab p →
+    LargeEvenLabelAll lab fun R _ I _ =>
+      ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R), Function.Surjective ψ →
+        ψ.ker ≤ Subgroup.center L' → commutator L' = ⊤ →
+        ∀ e : MulAut L', e ^ p = 1 → (∃ φ ∈ I, ∀ l : L', φ (ψ l) = ψ (e l)) →
+          ∀ J : Subgroup L', CFSG.Assembly.IsComponentOf J (ggFixSub e) →
+            ∃ labJ : LargeEvenLabel, LargeEvenInLambda2 labJ ∧ lab.n ∣ labJ.n ∧
+              GGHasLabel labJ (J ⧸ Subgroup.center J)
+
 
 end CFSG.StandardType
 

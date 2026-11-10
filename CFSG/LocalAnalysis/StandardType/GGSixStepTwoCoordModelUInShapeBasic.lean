@@ -24,6 +24,9 @@ section Decomp
 @[expose] def cvA (F : PieceFrame f n K h p A) : Set (Fin n → K) :=
   {v | ∀ j, v ∈ (rng (F.y j)).orthogonalBilin (stdHermForm h n)}
 
+theorem mem_cvA {F : PieceFrame f n K h p A} {v : Fin n → K} :
+    v ∈ cvA F ↔ ∀ j, v ∈ (rng (F.y j)).orthogonalBilin (stdHermForm h n) :=
+  Iff.rfl
 
 theorem exists_decomp_pieces (hA : MaxElemAb p A) (F : PieceFrame f n K h p A)
     (v : Fin n → K) :
@@ -274,6 +277,9 @@ section Fix
     rw [← Module.End.mul_apply, ← lin_mul, inv_mul_cancel, lin_one]
     rfl
 
+theorem mem_fixSU {S : Set (Fin n → K)} {Y : ↥(unitarySU 2 f K n)} :
+    Y ∈ fixSU S ↔ ∀ v ∈ S, lin Y v = v :=
+  Iff.rfl
 
 theorem normal_fixSU {G : Type} [Group G] {φ : ↥(unitarySU 2 f K n) →* G} {H : Subgroup G}
     (hH : H ≤ φ.range) {S : Set (Fin n → K)}

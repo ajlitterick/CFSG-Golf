@@ -88,6 +88,20 @@ private theorem q1_mem_Q (a : ZMod 5) : D.q1 (.ofAdd a) ∈ D.Q :=
 private theorem q3_mem_Q (a : ZMod 5) : D.q3 (.ofAdd a) ∈ D.Q :=
   P3_le_Q D (MonoidHom.mem_range.mpr ⟨_, rfl⟩)
 
+private theorem qcf_q1 (a : ZMod 5) :
+    qcf D (D.q1 (.ofAdd a)) = Pi.single 0 a := by
+  exact qcf_eq D _ (q1_mem_Q D a) (a := Pi.single 0 a) (by
+    simp [Pi.single_eq_same, Pi.single_eq_of_ne])
+
+private theorem qcf_q3 (a : ZMod 5) :
+    qcf D (D.q3 (.ofAdd a)) = Pi.single 2 a := by
+  exact qcf_eq D _ (q3_mem_Q D a) (a := Pi.single 2 a) (by
+    simp [Pi.single_eq_same, Pi.single_eq_of_ne])
+
+private theorem qcf_q1_zero : qcf D (1 : G) = 0 := by
+  have h : (1 : G) = D.q1 (.ofAdd (0 : ZMod 5)) := by simp
+  rw [h, qcf_q1]
+  simp
 
 end Basic
 
@@ -334,6 +348,19 @@ private theorem Q_pow (a b c : ZMod 5) (n : ℕ) :
     rw [← map_pow, ← ofAdd_nsmul]
   rw [h1, h2, h3]
 
+private theorem V_pow_mod (A B C : ZMod 5) (n : ℕ) :
+    ∃ t : ZMod 5, (D.q1 (.ofAdd A) * D.q3 (.ofAdd B) * D.q4 (.ofAdd C)) ^ n =
+      D.q1 (.ofAdd t) * D.q3 (.ofAdd (n • B)) * D.q4 (.ofAdd (n • C)) := by
+  induction n with
+  | zero => exact ⟨0, by simp⟩
+  | succ n ih =>
+      obtain ⟨t, ht⟩ := ih
+      obtain ⟨t', ht'⟩ := V_mul_coords D t (n • B) (n • C) A B C
+      refine ⟨t', ?_⟩
+      rw [pow_succ, ht, ht']
+      have hB : n • B + B = (n + 1) • B := by rw [succ_nsmul]
+      have hC : n • C + C = (n + 1) • C := by rw [succ_nsmul]
+      rw [← hB, ← hC]
 
 end Powers
 
@@ -341,6 +368,22 @@ section Coeffs
 
 variable [Finite G]
 
+private theorem q4_mem_normalizer_Q : D.q4 (.ofAdd 1) ∈ normalizer (D.Q : Set G) := by
+  have hUH := (D.four_root_order_and_products).2.2.2.2.2.2.2.2.2.2
+  exact hUH (Subgroup.mem_sup_left (Subgroup.mem_sup_right
+    (P4_le_V D (MonoidHom.mem_range.mpr ⟨_, rfl⟩))))
+
+private theorem q4_inv_q2_mul_mem_Q :
+    (D.q4 (.ofAdd 1))⁻¹ * D.q2 (.ofAdd 1) * D.q4 (.ofAdd 1) ∈ D.Q := by
+  have h := (Subgroup.mem_normalizer_iff''.mp (q4_mem_normalizer_Q D) (D.q2 (.ofAdd 1))).mp
+    (q2_mem_Q D 1)
+  simpa [mul_assoc] using h
+
+private theorem q4_inv_q3_mul_mem_Q :
+    (D.q4 (.ofAdd 1))⁻¹ * D.q3 (.ofAdd 1) * D.q4 (.ofAdd 1) ∈ D.Q := by
+  have h := (Subgroup.mem_normalizer_iff''.mp (q4_mem_normalizer_Q D) (D.q3 (.ofAdd 1))).mp
+    (q3_mem_Q D 1)
+  simpa [mul_assoc] using h
 
 private def P13 : Subgroup G where
   carrier := {x | ∃ t s : ZMod 5, x = D.q1 (.ofAdd t) * D.q3 (.ofAdd s)}
@@ -470,6 +513,25 @@ private theorem q4_conj_q3 :
       D.q1 (.ofAdd (lcoef D)) * D.q3 (.ofAdd 1) :=
   Classical.choose_spec (q4_conj_q3_form D)
 
+private theorem P1_inf_P3 : D.P1 ⊓ D.P3 = ⊥ := by
+  rw [eq_bot_iff]
+  intro x hx
+  obtain ⟨hx1, hx3⟩ := hx
+  obtain ⟨a, rfl⟩ := MonoidHom.mem_range.mp hx1
+  obtain ⟨b, hb⟩ := MonoidHom.mem_range.mp hx3
+  have hv1 := vFull_eq D (P1_le_V D (MonoidHom.mem_range.mpr ⟨a, rfl⟩))
+    (a := a.toAdd) (b := 0) (c := 0) (by simp)
+  have hv3 := vFull_eq D (P3_le_V D (MonoidHom.mem_range.mpr ⟨b, rfl⟩))
+    (a := 0) (b := b.toAdd) (c := 0) (by simp)
+  rw [← hb] at hv1
+  rw [hv1] at hv3
+  have ha0 : a.toAdd = 0 := by
+    have := congrArg (fun p : ZMod 5 × ZMod 5 × ZMod 5 => p.1) hv3
+    simpa using this
+  have ha1 : a = 1 := by
+    apply Multiplicative.toAdd.injective
+    simpa using ha0
+  rw [Subgroup.mem_bot, ha1, map_one]
 
 end Coeffs
 
@@ -901,6 +963,10 @@ private theorem vp_pow {x : G} (hx : x ∈ D.V) (n : ℕ) :
   | succ n ih =>
       rw [pow_succ, vp_mul D (D.V.pow_mem hx n) hx, ih, succ_nsmul]
 
+private theorem vp_inv {x : G} (hx : x ∈ D.V) : vp D x⁻¹ = -vp D x := by
+  have h := vp_mul D hx (D.V.inv_mem hx)
+  rw [mul_inv_cancel, vp_one D] at h
+  exact eq_neg_of_add_eq_zero_right h.symm
 
 private theorem c2_conj_mem_vp {x : G} (hx : x ∈ D.V) :
     D.c2⁻¹ * x * D.c2 ∈ D.V ∧

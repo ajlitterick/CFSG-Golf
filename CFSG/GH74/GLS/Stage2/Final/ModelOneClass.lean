@@ -63,6 +63,10 @@ theorem isConj_of_ConjMod {M : ModelData F} {g g' : GL (Fin 4) F} (hg : g ∈ M.
   rw [← map_inv, ← map_mul, ← map_mul, h1, map_mul, mkP_sc4 hs, one_mul]
 
 
+theorem trace_sc2 (c : Fˣ) :
+    ((sc2 c : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F).trace = 2 * (c : F) := by
+  simp [sc2, Matrix.GeneralLinearGroup.coe_scalar, Matrix.scalar_apply]
+
 theorem ne_one_of_trace_zero (h2 : (2 : F) ≠ 0) {a : GL (Fin 2) F}
     (ht : (a : Matrix (Fin 2) (Fin 2) F).trace = 0) : a ≠ 1 ∧ a ≠ -1 := by
   constructor

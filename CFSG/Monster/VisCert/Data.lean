@@ -14,6 +14,8 @@ namespace CFSG.Monster.VisCert
 open CFSG.Monster CFSG.Monster.Code CFSG.Monster.SpinLattice CFSG.Monster.ScalarKernel
   CFSG.Monster.Visible
 
+@[expose] def pImage : List ℕ :=
+  [2, 1, 3, 4, 8, 12, 16, 20, 22, 10, 18, 14, 21, 13, 9, 17, 5, 6, 7, 0, 11, 15, 19, 23]
 
 @[expose] def pCyc : Equiv.Perm (Fin 24) where
   toFun := ![2, 1, 3, 4, 8, 12, 16, 20, 22, 10, 18, 14, 21, 13, 9, 17, 5, 6, 7, 0, 11, 15, 19, 23]
@@ -21,6 +23,7 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.SpinLattice CFSG.Monster.Scalar
   left_inv := by decide
   right_inv := by decide
 
+theorem pCyc_image : ∀ i : Fin 24, (pCyc i : ℕ) = pImage.getD i 0 := by decide +kernel
 
 private theorem pCyc_basis : ∀ i, B i ∘ ⇑pCyc ∈ C := by decide +kernel
 
@@ -30,6 +33,8 @@ theorem pCyc_mem : pCyc ∈ AutPerm := mem_AutPerm_of_basis pCyc_basis pCyc_basi
 
 @[expose] def pAut : AutPerm := ⟨pCyc, pCyc_mem⟩
 
+@[expose] def pCoeff : List ℕ :=
+  [3462, 3463, 1467, 2491, 3461, 443, 1533, 835, 1550, 296, 1854, 2622]
 
 @[expose] def bC (j : Fin 12) : C := ⟨B j, B_mem_C j⟩
 

@@ -42,6 +42,7 @@ open CFSG.TcRes.TK
 @[expose] noncomputable def C3.root (i : Nat) : Bool :=
   pbW C3.CMs E8.V C3.XM C3.SG C3.KE C3.REPS i
 
+@[expose] noncomputable def C3.sig : Bool := sigOK E8.RTs E8.NEG C2P.PW C3.COLS C3.SG
 
 @[expose] noncomputable def C3.cls : Bool := clsOK C3.CMs E8.V C3.XM C3.SG C3.REPS
 

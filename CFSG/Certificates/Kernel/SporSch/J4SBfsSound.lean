@@ -534,6 +534,18 @@ theorem closedK_sound_proved {gens : Array (Array Nat)} {G : Nat → Nat} {k n :
 
 end Proofs
 
+theorem bfsK_sound {gens : Array (Array Nat)} {G : Nat → Nat} {k s n : Nat}
+    {PT PAR LAB POS : Nat → Nat}
+    (hg : gens.size = k ∧ ∀ g < k, gens[g]! = unpack11 (G g))
+    (h : bfsK G k s n PT PAR LAB POS = true) :
+    bfs11 gens s = (tabA n PT, tabA n PAR, tabA n LAB) ∧
+      bfsOK gens s n (tabA n PT, tabA n PAR, tabA n LAB) = true :=
+  bfsK_sound_proved hg h
+
+theorem closedK_sound {gens : Array (Array Nat)} {G : Nat → Nat} {k n : Nat} {PT POS : Nat → Nat}
+    (hg : gens.size = k ∧ ∀ g < k, gens[g]! = unpack11 (G g))
+    (h : closedK G k n PT POS = true) : closedOK gens (tabA n PT) n = true :=
+  closedK_sound_proved hg h
 
 end CFSG.KS.SporSch.C11
 

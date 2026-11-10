@@ -711,6 +711,22 @@ namespace NormPair
 variable (np : NormPair A R T g n) (hn : 9 ≤ n) (hc : Sec3 A R T g)
 include hc
 
+include np in
+theorem exists_star_coords
+    (hK : Assembly.KProper Blueprint.Catalog G) (h4 : Asc75Theorem4) (h32 : Lemma32)
+    (h34 : Asc08Lemma34) (IH : AltStandardAt (n - 3)) :
+    ∃ (ψA : A ≃* alternatingGroup (Fin n)) (ψB : rightConjugate A g ≃* alternatingGroup (Fin n)),
+      (∀ a : A, ψA a ∈ rootV n → (a : G) ∈ centralizer (rightConjugate A g : Set G)) ∧
+      (∀ b : rightConjugate A g, ψB b ∈ rootV n → (b : G) ∈ centralizer (A : Set G)) ∧
+      (∀ (a : A) (b : rightConjugate A g),
+        (ψA a : Perm (Fin n)) = c45 (le_trans (by norm_num) hn) ⟨0, by omega⟩ →
+        (ψB b : Perm (Fin n)) = c45 (le_trans (by norm_num) hn) ⟨0, by omega⟩ →
+          ((a : G) * b) ^ 2 = 1) ∧
+      ∀ (a : A) (b : rightConjugate A g) (o : Fin n), 6 ≤ (o : ℕ) →
+        (ψA a : Perm (Fin n)) = c45 (le_trans (by norm_num) hn) o →
+        (ψB b : Perm (Fin n)) = c45 (le_trans (by norm_num) hn) o → (a : G) = b := by
+  obtain ⟨ψD⟩ := np.nonempty_DW_equiv (by omega) hc hn hK h4 h32 h34 IH
+  exact np.exists_star_coords_of (by omega) ψD hc h32
 
 include np in
 theorem exists_hom_ge_nine

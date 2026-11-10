@@ -96,6 +96,12 @@ private theorem spJsl_inv_eq : (spJsl n K)⁻¹ = negSpJsl n K :=
     rw [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_one]
     simpa only [spJsl, negSpJsl] using spJ_mul_neg_spJ n K)
 
+variable (n K) in
+theorem coe_spJsl_inv :
+    (((spJsl n K)⁻¹ : Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K) :
+      Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) = -spJ n K := by
+  rw [spJsl_inv_eq]
+  rfl
 
 @[expose] def adj : Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K ≃*
     Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K :=
@@ -127,6 +133,38 @@ section CharTwo
 
 variable [CharP K 2]
 
+theorem neg_one_matrix {ι : Type*} [Fintype ι] [DecidableEq ι] :
+    (-1 : Matrix ι ι K) = 1 := by
+  ext a b
+  rw [Matrix.neg_apply, CharTwo.neg_eq]
+
+variable (n K) in
+theorem spJ_transpose : (spJ n K)ᵀ = spJ n K := by
+  rw [spJ_transpose_eq_neg]
+  ext a b
+  rw [Matrix.neg_apply, CharTwo.neg_eq]
+
+variable (n K) in
+theorem spJ_mul_spJ_two : spJ n K * spJ n K = 1 := by
+  rw [spJ_mul_spJ, neg_one_matrix]
+
+theorem spJsl_mul_self : spJsl n K * spJsl n K = 1 :=
+  Subtype.ext (by
+    rw [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_one]
+    exact spJ_mul_spJ_two n K)
+
+theorem spJsl_inv : (spJsl n K)⁻¹ = spJsl n K :=
+  inv_eq_of_mul_eq_one_right spJsl_mul_self
+
+theorem coe_adj_charTwo (g : Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K) :
+    ((adj g : Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K) :
+      Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) =
+      spJ n K * ((g⁻¹ : Matrix.SpecialLinearGroup (Fin n ⊕ Fin n) K) :
+        Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K)ᵀ * spJ n K := by
+  have hneg : -spJ n K = spJ n K := by
+    ext a b
+    rw [Matrix.neg_apply, CharTwo.neg_eq]
+  rw [coe_adj, hneg]
 
 end CharTwo
 

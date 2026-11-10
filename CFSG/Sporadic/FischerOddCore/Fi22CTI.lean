@@ -103,6 +103,7 @@ theorem rep_ctiQ_inv {j : ℕ} (hj : j < 10) :
     Rep 3510 (invCand 3510 ctiQArr[j]!) (ctiQP j)⁻¹ :=
   (rep_permOfArr (cti_Q_parts.2.2.2.2.2.2.2.2.2.2.2.2.2.2 j hj)).2
 
+theorem ctiQArr_size : ctiQArr.size = 10 := Array.size_ofFn
 
 theorem rep_ctiQArr :
     ∀ k < ctiQArr.size, Rep 3510 ctiQArr[k]! (ctiQP k) :=
@@ -121,6 +122,16 @@ theorem rep_ctiZ : Rep 3510 ctiZ ctiZP := by
       (rep_ctiQ_inv (j := 2) (by norm_num))))
   rwa [← mul_assoc, ← mul_assoc] at h
 
+theorem ctiZP_mem : ctiZP ∈ ctiQSub := by
+  have h2 := ctiQP_mem (j := 2) (by norm_num)
+  have h6 := ctiQP_mem (j := 6) (by norm_num)
+  exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ h6 h2)
+    (Subgroup.inv_mem _ h6)) (Subgroup.inv_mem _ h2)
+
+theorem ctiZP_ne_one : ctiZP ≠ 1 := fun h => by
+  have := cti_Q_parts.2.2.2.2.2.1
+  rw [(eqA_iff rep_ctiZ rep_idA).2 h] at this
+  exact Bool.noConfusion this
 
 theorem ctiZP_mul_self : ctiZP * ctiZP = 1 :=
   eq_of_eqA (rep_compA rep_ctiZ rep_ctiZ) rep_idA cti_Q_parts.2.2.2.2.2.2.1
@@ -378,6 +389,8 @@ abbrev ctiPhi :
   right_inv τ := by ext x; simp
   map_mul' σ τ := by ext x; simp
 
+theorem permConj_apply {α β : Type*} (e : α ≃ β) (σ : Equiv.Perm α) (b : β) :
+    permConj e σ b = e (σ (e.symm b)) := rfl
 
 abbrev ctiPsi :
     ↥(fi22H 1) →* Equiv.Perm (Fin 512) :=

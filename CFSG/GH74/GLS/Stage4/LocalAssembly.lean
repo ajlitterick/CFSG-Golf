@@ -62,4 +62,10 @@ theorem isTwoCentralG2TypeG2_iff_exists_at (G : Type) [Group G] (Gs : Type) [Gro
       (hasSL2ProductOfIndexTwoCh6_iff_exists_at _ _).2 ⟨q₁, q₂, h⟩⟩
 
 
+@[expose] def Ch6CaseRest : Prop :=
+  ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
+    ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
+      ¬ (q₁ = 9 ∧ q₂ = 9) → (¬ ∃ n : ℕ, 3 ≤ n ∧ q₁ = 3 ^ n ∧ q₂ = 3 ^ n) → Ch6Out G
+
+
 end CFSG.GH74.GLS.Stage4

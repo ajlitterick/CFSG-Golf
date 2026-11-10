@@ -216,10 +216,26 @@ abbrev deg : ℕ := 66825
     (compT deg tabT0 tabYw == compT deg tabYw tabT0) &&
     (compT deg tabT0 tabW == compT deg tabW tabT0)
 
+@[expose] def gTab (j : ℕ) : Table := tabs0[j]!
+
+@[expose] def gLet (j : ℕ) : ℤ := (j : ℤ) + 1
 
 @[expose] def evalPt (w : List ℤ) (q : ℕ) : ℕ :=
   w.foldr (fun l q => ap (letterOf tabs0 invs0 l) q) q
 
+@[expose] def fixPts (T : Table) : Array UInt32 :=
+  (Array.range deg).filterMap fun i =>
+    if T[i]! == UInt32.ofNat i then some (UInt32.ofNat i) else none
+
+@[expose] def applyToSet (T : Table) (F : Array UInt32) : Array UInt32 :=
+  (F.map fun p => T[p.toNat]!).mergeSort
+
+@[expose] def isStrictSet (F : Array UInt32) : Bool :=
+  F.all (fun p => decide (p.toNat < deg)) &&
+    (List.range (F.size - 1)).all fun k => decide (F[k]! < F[k + 1]!)
+
+@[expose] def setIdx (sets : Array (Array UInt32)) : Std.HashMap (Array UInt32) ℕ :=
+  (Array.range sets.size).foldl (fun m i => m.insert sets[i]! i) {}
 
 structure Cp3Data where
   sets : Array (Array UInt32)
@@ -232,5 +248,79 @@ structure Cp3Data where
 @[expose] def conjPt (g : List ℤ) (q : ℕ) : ℕ :=
   evalPt g (ap tabYw (evalPt (invW g) q))
 
+@[expose] def isWit (g : List ℤ) (q : ℕ) : Bool :=
+  decide (q < deg) && (ap tabYw (conjPt g q) != conjPt g (ap tabYw q))
+
+@[expose] def cp3Valid (D : Cp3Data) : Bool :=
+  let n := D.sets.size
+  let idx := setIdx D.sets
+  decide (n = 15400) && decide (D.par.size = n) && decide (D.words.size = n) &&
+    decide (D.wit.size = n) && decide (D.opar.size = D.orb.size) &&
+    (D.sets[0]! == fixPts tabYw) && (D.words[0]! == ([] : List ℤ)) &&
+    D.sets.all isStrictSet &&
+    (List.range n).all (fun i => i == 0 ||
+      (decide ((D.par[i]!).1 < i) && decide ((D.par[i]!).2 < 2) &&
+        (D.sets[i]! == applyToSet (gTab (D.par[i]!).2) D.sets[(D.par[i]!).1]!) &&
+        (D.words[i]! == gLet (D.par[i]!).2 :: D.words[(D.par[i]!).1]!))) &&
+    (List.range n).all (fun i => (List.range 2).all fun j =>
+      match idx[applyToSet (gTab j) D.sets[i]!]? with
+      | some k => decide (k < n) && (D.sets[k]! == applyToSet (gTab j) D.sets[i]!)
+      | none => false) &&
+    (List.range n).all (fun i => idx[D.sets[i]!]? == some i) &&
+    (List.range n).all (fun i => i == 0 || D.orb.contains i || isWit D.words[i]! D.wit[i]!) &&
+    decide (0 < D.orb.size) && D.orb.all (fun i => decide (i < n)) &&
+    (List.range D.orb.size).all (fun k => k == 0 ||
+      (decide ((D.opar[k]!).1 < k) && decide ((D.opar[k]!).2 < uTabs.size) &&
+        (D.sets[D.orb[k]!]! ==
+          applyToSet uTabs[(D.opar[k]!).2]! D.sets[D.orb[(D.opar[k]!).1]!]!))) &&
+    (D.sets[D.orb[0]!]! == fixPts tabW)
+
+@[expose] def cp3Gen (_ : Unit) : Cp3Data := Id.run do
+  let F0 := fixPts tabYw
+  let mut sets : Array (Array UInt32) := #[F0]
+  let mut par : Array (ℕ × ℕ) := #[(0, 0)]
+  let mut words : Array (List ℤ) := #[[]]
+  let mut idx : Std.HashMap (Array UInt32) ℕ := ({} : Std.HashMap (Array UInt32) ℕ).insert F0 0
+  let mut bi := 0
+  while bi < sets.size do
+    for j in [0:2] do
+      let S' := applyToSet (gTab j) sets[bi]!
+      if !idx.contains S' then
+        idx := idx.insert S' sets.size
+        sets := sets.push S'
+        par := par.push (bi, j)
+        words := words.push (gLet j :: words[bi]!)
+    bi := bi + 1
+  let n := sets.size
+  let mut wit : Array ℕ := Array.replicate n 0
+  let mut comm : Array ℕ := #[]
+  for i in [1:n] do
+    let mut found := false
+    for q in [0:200] do
+      if !found && isWit words[i]! q then
+        wit := wit.set! i q
+        found := true
+    if !found then comm := comm.push i
+  let r0 := (idx.get? (fixPts tabW)).getD 0
+  let mut orb : Array ℕ := #[r0]
+  let mut opar : Array (ℕ × ℕ) := #[(0, 0)]
+  let mut seen : Std.HashSet ℕ := ({} : Std.HashSet ℕ).insert r0
+  let mut k := 0
+  while k < orb.size do
+    for j in [0:uTabs.size] do
+      let S' := applyToSet uTabs[j]! sets[orb[k]!]!
+      match idx.get? S' with
+      | some m =>
+        if !seen.contains m then
+          seen := seen.insert m
+          orb := orb.push m
+          opar := opar.push (k, j)
+      | none => pure ()
+    k := k + 1
+  return { sets := sets, par := par, words := words, wit := wit, orb := orb, opar := opar }
+
+@[expose] def cp3Data : Cp3Data := cp3Gen ()
+
+@[expose] def cp3Check : Bool := cp3Valid cp3Data
 
 end CFSG.Sporadic.Recognition.LyonsSims.Ly0

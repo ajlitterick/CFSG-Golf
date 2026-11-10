@@ -40,6 +40,8 @@ public section
 namespace CFSG.Open
 open CFSG.Open
 
+@[expose] def sporadicOrderBabyMonster : ℕ :=
+  2 ^ 41 * 3 ^ 13 * 5 ^ 6 * 7 ^ 2 * 11 * 13 * 17 * 19 * 23 * 31 * 47
 
 @[expose] def sporadicOrderTwistedE6Two : ℕ :=
   2 ^ 36 * 3 ^ 9 * 5 ^ 2 * 7 ^ 2 * 11 * 13 * 17 * 19

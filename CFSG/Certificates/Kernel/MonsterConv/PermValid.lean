@@ -23,10 +23,17 @@ open CFSG.KC
 @[expose] noncomputable def netsValid (k : Nat) (Ns : List Nat) : Bool :=
   List.rec (motive := fun _ => Bool) true (fun N _ ih => andB (netValid k N) ih) Ns
 
+@[expose] noncomputable def colVOK (RAW rec n k c N : Nat) : Bool :=
+  andB (netValid k N) (colOK RAW rec n k c N)
 
 @[expose] noncomputable def wordNetV (k : Nat) (Ns : List Nat) (N : Nat) : Bool :=
   andB (andB (netsValid k Ns) (netValid k N)) (wordNet k Ns N)
 
+@[expose] noncomputable def wordIdV (k : Nat) (Ns : List Nat) : Bool :=
+  andB (netsValid k Ns) (wordId k Ns)
+
+@[expose] noncomputable def orbitVOK (k : Nat) (Ns : List Nat) (r R M : Nat) : Bool :=
+  andB (netsValid k Ns) (orbitOK k Ns r R M)
 
 end CFSG.KC.MonsterConv.Perm
 

@@ -33,6 +33,7 @@ theorem ncommInd_act (hlab : ∀ (a : S) (x : V), lab (act a x) = a * lab x * a�
   · rw [ncommInd_of_commute lab hc, ncommInd_of_commute lab (h.mpr hc)]
   · rw [ncommInd_of_not_commute lab hc, ncommInd_of_not_commute lab (mt h.mp hc)]
 
+@[expose] def ncommLabels : Set S := lab '' Y
 
 @[expose] def ncommForm : LinearMap.BilinForm (ZMod 2) (Y →₀ ZMod 2) :=
   Finsupp.linearCombination (ZMod 2) fun y : Y =>
@@ -96,6 +97,8 @@ theorem ncommQuotForm_nondegenerate : (ncommQuotForm lab Y).Nondegenerate := by
 theorem ncommEps_of_mem {x : V} (h : x ∈ Y) : ncommEps Y x = Finsupp.single ⟨x, h⟩ 1 :=
   dite_eq_left h
 
+theorem ncommEps_of_notMem {x : V} (h : x ∉ Y) : ncommEps Y x = 0 :=
+  dite_eq_right h
 
 @[expose] def ncommProdBasis (y z : Y) : Y →₀ ZMod 2 :=
   open _root_.Classical in
@@ -141,6 +144,9 @@ theorem act_mem_iff_of_mapsTo (hH : ∀ h ∈ H, ∀ y ∈ Y, act h y ∈ Y) (h 
     rw [map_mul]
     rfl)
 
+theorem coe_ncommPerm_apply (hH : ∀ h ∈ H, ∀ y ∈ Y, act h y ∈ Y) (h : H) (y : Y) :
+    (ncommPerm act Y H hH h y : V) = act h y :=
+  rfl
 
 @[expose] def ncommRep (hH : ∀ h ∈ H, ∀ y ∈ Y, act h y ∈ Y) :
     Representation (ZMod 2) H (Y →₀ ZMod 2) where
@@ -184,6 +190,11 @@ theorem ncommQuotRep_mk (hH : ∀ h ∈ H, ∀ y ∈ Y, act h y ∈ Y)
       Submodule.Quotient.mk (ncommRep act Y H hH h u) :=
   rfl
 
+theorem ncommQuotRep_ncommVec (hH : ∀ h ∈ H, ∀ y ∈ Y, act h y ∈ Y)
+    (hlab : ∀ (a : S) (x : V), lab (act a x) = a * lab x * a⁻¹) (h : H) (y : Y) :
+    ncommQuotRep act lab Y H hH hlab h (ncommVec lab Y y) =
+      ncommVec lab Y (ncommPerm act Y H hH h y) := by
+  rw [ncommVec, ncommQuotRep_mk, ncommRep_single, ncommVec]
 
 end Action
 

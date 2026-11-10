@@ -61,6 +61,8 @@ theorem Dmat_comm (δ ε : Cocode) : Dmat δ * Dmat ε = Dmat ε * Dmat δ := by
 theorem Tmat_mul_self (a : C) : Tmat a * Tmat a = 1 := by
   rw [Tmat_mul_Tmat, add_self_C', Tmat_zero]
 
+theorem Dmat_mul_self (δ : Cocode) : Dmat δ * Dmat δ = 1 := by
+  rw [Dmat_mul_Dmat, add_self_cocode, Dmat_zero]
 
 theorem Tmat_transpose (a : C) : (Tmat a)ᵀ = Tmat a := by
   rw [Tmat_eq_qmatR, qmatR_transpose, pair_zero_right, add_zero]
@@ -131,6 +133,11 @@ theorem XiG_mul_self : XiG * XiG = 1 := by
   rw [sum_sum_sgn_qG (fun κ => Tmat (greyC κ)), map_zero, Tmat_zero, smul_smul]
   norm_num
 
+theorem XiGamma_transpose_mul_self : XiGammaᵀ * XiGamma = 1 := by
+  rw [XiGamma_transpose, XiGamma_mul_self]
+
+theorem XiG_transpose_mul_self : XiGᵀ * XiG = 1 := by
+  rw [XiG_transpose, XiG_mul_self]
 
 theorem Tg_mul_XiGamma (μ : Fin 6 → ZMod 2) :
     Tmat (greyC μ) * XiGamma =
@@ -240,11 +247,91 @@ theorem Ximat_inv : Ximat⁻¹ = Ximatᵀ := Matrix.inv_eq_left_inv Ximat_transp
 theorem Ximat_inv_mul_self : Ximat⁻¹ * Ximat = 1 := by
   rw [Ximat_inv, Ximat_transpose_mul_self]
 
+theorem Ximat_mul_inv_self : Ximat * Ximat⁻¹ = 1 := by
+  rw [Ximat_inv, Ximat_mul_transpose_self]
 
 theorem conj_eq_of_mul_eq {X Y : Matrix SpinIdx SpinIdx ℚ} (h : X * Ximat = Ximat * Y) :
     Ximat⁻¹ * X * Ximat = Y := by
   rw [Matrix.mul_assoc, h, ← Matrix.mul_assoc, Ximat_inv_mul_self, Matrix.one_mul]
 
+private theorem two_ne_zero_rat : (2 : ℚ) ≠ 0 := two_ne_zero
+
+theorem trace_Tmat_mul_Dmat (a : C) (δ : Cocode) :
+    trace (Tmat a * Dmat δ) = if a = 0 ∧ δ = 0 then 4096 else 0 := by
+  rw [← TDR_rat (a, δ), TDR_eq_qmatR, trace_qmatR two_ne_zero_rat]
+  simp only [sgnR_zero, one_mul]
+
+theorem trace_Tg_mul_Dg (μ ν : Fin 6 → ZMod 2) :
+    trace (Tmat (greyC μ) * Dmat (gammaD ν)) = if μ = 0 ∧ ν = 0 then 4096 else 0 := by
+  rw [trace_Tmat_mul_Dmat]
+  congr 1
+  exact propext (and_congr (greyC.map_eq_zero_iff greyC_injective)
+    (gammaD.map_eq_zero_iff gammaD_injective))
+
+theorem trace_Ximat : trace Ximat = 64 := by
+  rw [Ximat, XiGamma, XiG, avg_mul_avg, trace_smul, trace_sum]
+  simp only [trace_sum, trace_smul, smul_eq_mul]
+  have h : ∀ μ ν : Fin 6 → ZMod 2, trace (Dmat (gammaD μ) * Tmat (greyC ν)) =
+      if ν = 0 ∧ μ = 0 then 4096 else 0 := fun μ ν => by
+    rw [trace_mul_comm, trace_Tg_mul_Dg]
+  simp only [h, ite_and, mul_ite, mul_zero, Finset.sum_ite_eq', Finset.mem_univ, ite_true,
+    qG_zero, sgn_zero]
+  norm_num
+
+theorem trace_XiGamma : trace XiGamma = 512 := by
+  rw [XiGamma, trace_smul, trace_sum]
+  have h : ∀ μ : Fin 6 → ZMod 2, trace (sgn (qG μ) • Dmat (gammaD μ)) =
+      if μ = 0 then 4096 else 0 := fun μ => by
+    rw [trace_smul, ← Matrix.one_mul (Dmat _), ← Tmat_zero, trace_Tmat_mul_Dmat]
+    by_cases hμ : μ = 0
+    · subst hμ; simp [sgn_zero]
+    · have h0 : gammaD μ ≠ 0 := fun h => hμ (gammaD_injective (h.trans (map_zero _).symm))
+      simp [hμ, h0]
+  simp only [h, Finset.sum_ite_eq', Finset.mem_univ, ite_true, smul_eq_mul]
+  norm_num
+
+theorem trace_XiG : trace XiG = 512 := by
+  rw [XiG, trace_smul, trace_sum]
+  have h : ∀ μ : Fin 6 → ZMod 2, trace (sgn (qG μ) • Tmat (greyC μ)) =
+      if μ = 0 then 4096 else 0 := fun μ => by
+    rw [trace_smul, ← Matrix.mul_one (Tmat _), ← Dmat_zero, trace_Tmat_mul_Dmat]
+    by_cases hμ : μ = 0
+    · subst hμ; simp [sgn_zero]
+    · have h0 : greyC μ ≠ 0 := fun h => hμ (greyC_injective (h.trans (map_zero _).symm))
+      simp [hμ, h0]
+  simp only [h, Finset.sum_ite_eq', Finset.mem_univ, ite_true, smul_eq_mul]
+  norm_num
+
+theorem trace_one_spin : trace (1 : Matrix SpinIdx SpinIdx ℚ) = 4096 := by
+  rw [trace_one, card_spinIdx]
+  norm_num
+
+theorem Ximat_ne_one : Ximat ≠ 1 := fun h => by
+  have := trace_Ximat
+  rw [h, trace_one_spin] at this
+  norm_num at this
+
+theorem XiGamma_ne_one : XiGamma ≠ 1 := fun h => by
+  have := trace_XiGamma
+  rw [h, trace_one_spin] at this
+  norm_num at this
+
+theorem XiG_ne_one : XiG ≠ 1 := fun h => by
+  have := trace_XiG
+  rw [h, trace_one_spin] at this
+  norm_num at this
+
+theorem orderOf_Ximat : orderOf Ximat = 3 := by
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  exact orderOf_eq_prime Ximat_pow_three Ximat_ne_one
+
+theorem orderOf_XiGamma : orderOf XiGamma = 2 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  exact orderOf_eq_prime (by rw [pow_two, XiGamma_mul_self]) XiGamma_ne_one
+
+theorem orderOf_XiG : orderOf XiG = 2 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  exact orderOf_eq_prime (by rw [pow_two, XiG_mul_self]) XiG_ne_one
 
 theorem Tg_mul_Ximat (μ : Fin 6 → ZMod 2) :
     Tmat (greyC μ) * Ximat = Ximat * Dmat (gammaD μ) := by
@@ -268,6 +355,19 @@ theorem DHstar_mul_Ximat {η : Cocode} (hη : η ∈ Hstar) : Dmat η * Ximat = 
   rw [Ximat, ← Matrix.mul_assoc, Dmat_mul_XiGamma, Matrix.mul_assoc, DHstar_mul_XiG hη,
     Matrix.mul_assoc]
 
+theorem conj_Tg (μ : Fin 6 → ZMod 2) :
+    Ximat⁻¹ * Tmat (greyC μ) * Ximat = Dmat (gammaD μ) :=
+  conj_eq_of_mul_eq (Tg_mul_Ximat μ)
+
+theorem conj_Dg (ν : Fin 6 → ZMod 2) :
+    Ximat⁻¹ * Dmat (gammaD ν) * Ximat = sgn (qG ν) • (Tmat (greyC ν) * Dmat (gammaD ν)) :=
+  conj_eq_of_mul_eq (Dg_mul_Ximat ν)
+
+theorem conj_TH {h : C} (hh : (h : Fin 24 → ZMod 2) ∈ H) : Ximat⁻¹ * Tmat h * Ximat = Tmat h :=
+  conj_eq_of_mul_eq (TH_mul_Ximat hh)
+
+theorem conj_DHstar {η : Cocode} (hη : η ∈ Hstar) : Ximat⁻¹ * Dmat η * Ximat = Dmat η :=
+  conj_eq_of_mul_eq (DHstar_mul_Ximat hη)
 
 theorem conj_Ximat (μ ν : Fin 6 → ZMod 2) {h : C} (hh : (h : Fin 24 → ZMod 2) ∈ H) {η : Cocode}
     (hη : η ∈ Hstar) :
@@ -323,6 +423,24 @@ theorem conj_mem_Qmats {g : Matrix SpinIdx SpinIdx ℚ} (hg : g ∈ Qmats) :
     Tmat_mul_Tmat, Dmat_mul_Dmat, ← sgnR_rat, Tmat_eq, Dmat_eq, ← qmatR_eq]
   exact qmatR_mem_Qmats _ _ _
 
+theorem Ximat_inv_pow_three_conj (g : Matrix SpinIdx SpinIdx ℚ) :
+    Ximat⁻¹ * (Ximat⁻¹ * (Ximat⁻¹ * g * Ximat) * Ximat) * Ximat = g := by
+  have h3 : Ximat * Ximat * Ximat = 1 := by
+    rw [← Ximat_pow_three, pow_succ, pow_two]
+  have hinv : Ximat⁻¹ = Ximat * Ximat := by
+    calc Ximat⁻¹ = Ximat⁻¹ * (Ximat * Ximat * Ximat) := by rw [h3, Matrix.mul_one]
+      _ = Ximat * Ximat := by
+        rw [Matrix.mul_assoc, ← Matrix.mul_assoc Ximat⁻¹, Ximat_inv_mul_self, Matrix.one_mul]
+  calc Ximat⁻¹ * (Ximat⁻¹ * (Ximat⁻¹ * g * Ximat) * Ximat) * Ximat =
+        (Ximat * Ximat * Ximat) * (Ximat * Ximat * Ximat) * g * (Ximat * Ximat * Ximat) := by
+          rw [hinv]; simp only [Matrix.mul_assoc]
+    _ = g := by rw [h3, Matrix.one_mul, Matrix.one_mul, Matrix.mul_one]
+
+theorem image_conj_Qmats : (fun g => Ximat⁻¹ * g * Ximat) '' Qmats = Qmats := by
+  refine Set.Subset.antisymm ?_ fun g hg => ?_
+  · rintro _ ⟨g, hg, rfl⟩
+    exact conj_mem_Qmats hg
+  · exact ⟨_, conj_mem_Qmats (conj_mem_Qmats hg), Ximat_inv_pow_three_conj g⟩
 
 @[expose] def XiU : GL SpinIdx ℚ :=
   ⟨Ximat, Ximatᵀ, Ximat_mul_transpose_self, Ximat_transpose_mul_self⟩
@@ -362,5 +480,29 @@ theorem XiU_mem_normalizer : XiU ∈ Subgroup.normalizer (Q : Set (GL SpinIdx �
   have h := Subgroup.inv_mem _ hinv
   rwa [inv_inv] at h
 
+theorem orderOf_XiU : orderOf XiU = 3 := by
+  rw [← orderOf_units, coe_XiU, orderOf_Ximat]
+
+theorem xi_spin_Fourier_conjugation :
+    (XiGammaᵀ = XiGamma ∧ XiGammaᵀ * XiGamma = 1 ∧ XiGamma * XiGamma = 1 ∧
+      orderOf XiGamma = 2) ∧
+    (XiGᵀ = XiG ∧ XiGᵀ * XiG = 1 ∧ XiG * XiG = 1 ∧ orderOf XiG = 2) ∧
+    Ximatᵀ * Ximat = 1 ∧ Ximat * Ximatᵀ = 1 ∧ (∀ i j, Ximat i j ∈ dyadic) ∧
+    (fun g => Ximat⁻¹ * g * Ximat) '' Qmats = Qmats ∧
+    XiU ∈ Subgroup.normalizer (Q : Set (GL SpinIdx ℚ)) ∧
+    Ximat ^ 3 = 1 ∧ orderOf Ximat = 3 ∧ trace Ximat = 64 ∧
+    (∀ h : C, (h : Fin 24 → ZMod 2) ∈ H → Ximat⁻¹ * Tmat h * Ximat = Tmat h) ∧
+    (∀ η ∈ Hstar, Ximat⁻¹ * Dmat η * Ximat = Dmat η) ∧
+    (∀ (μ ν : Fin 6 → ZMod 2) (h : C), (h : Fin 24 → ZMod 2) ∈ H → ∀ η ∈ Hstar,
+      Ximat⁻¹ * (Tmat (greyC μ) * Tmat h * Dmat (gammaD ν) * Dmat η) * Ximat =
+        sgn (qG ν + bG μ ν) • (Tmat (greyC ν) * Tmat h * Dmat (gammaD (μ + ν)) * Dmat η)) ∧
+    (∀ μ : Fin 6 → ZMod 2, Ximat⁻¹ * Tmat (greyC μ) * Ximat = Dmat (gammaD μ)) ∧
+    (∀ μ : Fin 6 → ZMod 2, Ximat⁻¹ * Dmat (gammaD μ) * Ximat =
+      sgn (qG μ) • (Tmat (greyC μ) * Dmat (gammaD μ))) :=
+  ⟨⟨XiGamma_transpose, XiGamma_transpose_mul_self, XiGamma_mul_self, orderOf_XiGamma⟩,
+    ⟨XiG_transpose, XiG_transpose_mul_self, XiG_mul_self, orderOf_XiG⟩,
+    Ximat_transpose_mul_self, Ximat_mul_transpose_self, Ximat_mem_dyadic, image_conj_Qmats,
+    XiU_mem_normalizer, Ximat_pow_three, orderOf_Ximat, trace_Ximat, fun _ hh => conj_TH hh,
+    fun _ hη => conj_DHstar hη, fun μ ν _ hh _ hη => conj_Ximat μ ν hh hη, conj_Tg, conj_Dg⟩
 
 end CFSG.Monster.Xi

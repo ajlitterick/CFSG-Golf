@@ -275,6 +275,21 @@ abbrev burnsideF48s_sp43eWsB (k : ℕ) : List (List (Fin (subsetOf 5 [0, 1, 2, 4
 abbrev burnsideF48s_sp43eEvL (w : List (Fin 5 × Bool)) : List ℕ :=
   burnsideF48s_eEvL 45 burnsideF48s_sp43eLS burnsideF48s_sp43eLSi w
 
+@[expose] def burnsideF48s_sp43eCheckGens (_ : Unit := ()) : Bool :=
+  decide (burnsideF48s_sp43eLS = burnsideF48s_sp43eXY.map CFSG.Quasithin.H13.F431.U42Aut.evalAL) &&
+    decide (burnsideF48s_sp43eLSi = burnsideF48s_sp43eXY.map fun w =>
+      CFSG.Quasithin.H13.F431.U42Aut.evalAL (CFSG.Quasithin.H13.F431.U42Aut.invAL w))
+
+@[expose] def burnsideF48s_sp43eCheckRels (_ : Unit := ()) : Bool :=
+  ((burnsideF48s_sp43eR1 ++ burnsideF48s_sp43eR2).all fun w =>
+    decide (burnsideF48s_sp43eEvL w = List.range 45)) &&
+  ([0, 4, 8, 12, 16, 20, 24, 28].all fun k => decide (burnsideF48s_sp43eEvL
+    (burnsideF48s_eCandRel 4 (burnsideF48s_sp43eU.getD k []) (burnsideF48s_sp43eV.getD k [])
+      (burnsideF48s_sp43eW.getD k [])) = List.range 45)) &&
+  decide (burnsideF48s_sp43eEvL (burnsideF48s_sp43eWord "pbpBp") = U42F431.xL) &&
+  decide (burnsideF48s_sp43eEvL (burnsideF48s_sp43eWord "aQABpBp") = U42F431.yL) &&
+  decide (burnsideF48s_sp43eEvL (burnsideF48s_sp43eWord "abapBQpfb") = CFSG.Quasithin.H13.F431.U42Aut.f45L) &&
+  decide ((burnsideF48s_sp43eKW.map burnsideF48s_sp43eEvL).Nodup)
 
 @[expose] def burnsideF48s_sp43eCheckLetters (_ : Unit := ()) : Bool :=
   ((burnsideF48s_sp43eP1W ++ burnsideF48s_sp43eR1 ++ burnsideF48s_sp43eU).all fun w =>

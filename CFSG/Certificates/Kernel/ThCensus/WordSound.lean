@@ -170,6 +170,14 @@ theorem nfM_spec (hk : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE =
   funext k
   exact hd k
 
+theorem letR_cases (r0 r1 r2 r3 x : ℕ) (hx : x < 4) :
+    (x = 0 ∧ letR r0 r1 r2 r3 x = r0) ∨ (x = 1 ∧ letR r0 r1 r2 r3 x = r1) ∨
+      (x = 2 ∧ letR r0 r1 r2 r3 x = r2) ∨ (x = 3 ∧ letR r0 r1 r2 r3 x = r3) := by
+  rcases (by omega : x = 0 ∨ x = 1 ∨ x = 2 ∨ x = 3) with rfl | rfl | rfl | rfl
+  · exact Or.inl ⟨rfl, rfl⟩
+  · exact Or.inr (Or.inl ⟨rfl, rfl⟩)
+  · exact Or.inr (Or.inr (Or.inl ⟨rfl, rfl⟩))
+  · exact Or.inr (Or.inr (Or.inr ⟨rfl, rfl⟩))
 
 theorem wordR_spec (hk : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE = true)
     {RB : ℕ → ℕ} {r0 r1 r2 r3 q : ℕ}

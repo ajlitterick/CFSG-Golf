@@ -28,6 +28,9 @@ theorem native_actGo_eq (rows : Array ℕ) (v : ℕ) :
 theorem native_actRows_eq (rows : Array ℕ) (v : ℕ) : Native.actRows rows v = actRows rows v :=
   native_actGo_eq rows v 24 0
 
+theorem native_frameReps_eq : Native.frameReps = fusionOrbitReps := by decide +kernel
+
+theorem native_frameSizes_eq : Native.frameSizes = fusionOrbitSizes := by decide +kernel
 
 theorem kGenN_smul_dec : ∀ g < 15, ∀ p, dec (Native.gimg g p) = kGenN g • dec p := by
   intro g hg p
@@ -173,5 +176,33 @@ theorem exists_Kvis_smul_twoΩCls
     {x : L2} (hx : x ∈ frameDelta) : ∃ u ∈ Kvis, u • twoΩCls = x :=
   exists_Kvis_smul_eq twoΩCls_mem_frameDelta hx
 
+theorem frameRep_eq (t : Fin 6) : frameRep t = dec Native.frameReps[(t : ℕ) + 1 - 1]! := by
+  rw [frameRep, native_frameReps_eq]
+  rfl
+
+theorem frameRep_mem_frameDelta
+    (t : Fin 6) : frameRep t ∈ frameDelta := by
+  rw [frameDelta_eq_iUnion]
+  exact Set.mem_iUnion.2 ⟨t, MulAction.mem_orbit_self _⟩
+
+theorem visible_frame_orbit_certificate :
+    pA = bridgePA ∧ pB = bridgePB ∧
+    frameDelta.ncard = 8292375 ∧ twoΩCls ∈ frameDelta ∧
+    MulAction.orbit Kvis twoΩCls = frameDelta ∧
+    (∀ x ∈ frameDelta, ∀ y ∈ frameDelta, ∃ k ∈ Kvis, k • x = y) ∧
+    (∀ (j : Fin 15) (i : Fin 24), kGen j • ellCls i =
+      ∑ l : Fin 24, bvec 24 (frameMatrices[(j : ℕ)]!)[(i : ℕ)]! l • ellCls l) ∧
+    twoΩCls = ∑ l : Fin 24, bvec 24 frameSeedVec l • ellCls l ∧
+    fusionOrbitReps = #[63, 61440, 13135901, 267519, 798985, 14989736] ∧
+    fusionOrbitSizes = #[1, 3542, 1457280, 48576, 2637824, 4145152] ∧
+    (∀ t : Fin 6, frameRep t ∈ frameDelta ∧
+      (MulAction.orbit Nvis (frameRep t)).ncard = fusionOrbitSizes[(t : ℕ)]!) ∧
+    frameDelta = ⋃ t : Fin 6, MulAction.orbit Nvis (frameRep t) ∧
+    (∀ t t' : Fin 6, t ≠ t' →
+      Disjoint (MulAction.orbit Nvis (frameRep t)) (MulAction.orbit Nvis (frameRep t'))) :=
+  ⟨pA_eq_bridgePA, pB_eq_bridgePB, ncard_frameDelta, twoΩCls_mem_frameDelta, orbit_Kvis_twoΩCls,
+    fun _ hx _ hy => exists_Kvis_smul_eq hx hy, kGen_smul_ellCls, dec_seed.symm, rfl, rfl,
+    fun t => ⟨frameRep_mem_frameDelta t, ncard_orbit_Nvis t⟩, frameDelta_eq_iUnion,
+    fun _ _ h => disjoint_orbit_Nvis h⟩
 
 end CFSG.Monster.VisCert

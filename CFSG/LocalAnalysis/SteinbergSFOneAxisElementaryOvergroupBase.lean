@@ -200,6 +200,9 @@ variable (K) in
 @[expose] def weylElt₂ : antiSp K :=
   ⟨⟨weylMat₂ K, weylMat₂ K, weylMat₂_mul_self, weylMat₂_mul_self⟩, weylMat₂_mem⟩
 
+theorem glMat_weylElt₁ : glMat (weylElt₁ K : GL (Fin 4) K) = weylMat₁ K := rfl
+
+theorem glMat_weylElt₂ : glMat (weylElt₂ K : GL (Fin 4) K) = weylMat₂ K := rfl
 
 theorem weylElt₁_mul_self : weylElt₁ K * weylElt₁ K = 1 := antiSp_ext weylMat₁_mul_self
 
@@ -293,6 +296,14 @@ theorem u_mem_Z_iff {a b c d : K} :
   · rintro ⟨rfl, rfl⟩
     exact ⟨b, c, rfl⟩
 
+theorem u_mem_U₁_iff {a b c d : K} :
+    𝐮[a, b, c, d] ∈ pull φ (rootU K Axis.one) ↔ a = 0 ∧ c = 0 ∧ d = 0 := by
+  rw [symm_mem_pull]
+  constructor
+  · rintro ⟨b', h⟩
+    exact ⟨(uElt_inj h).1, (uElt_inj h).2.2.1, (uElt_inj h).2.2.2⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    exact ⟨b, rfl⟩
 
 theorem u_mem_U₂_iff {a b c d : K} :
     𝐮[a, b, c, d] ∈ pull φ (rootU K Axis.two) ↔ a = 0 ∧ b = 0 ∧ d = 0 := by

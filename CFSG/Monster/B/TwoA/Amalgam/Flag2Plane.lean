@@ -153,9 +153,16 @@ theorem exists_smul_flag
   · rw [pPt_eq, wordElt_smul_Ωproj, h1]
   · rw [ellLine_eq, wordElt_smul_lineSet, h2]
 
+theorem exists_mem_projLine : ∀ i : Fin 21, ∃ b, i ∈ projLine b := by decide
 
 theorem exists_mem_projLine' : ∀ b : Fin 21, ∃ i, i ∈ projLine b := by decide
 
+theorem exists_smul_pPt
+    (x : PlanePoint) : ∃ s : SigmaL3, s • pPt = x := by
+  obtain ⟨i, rfl⟩ := Ωproj.surjective x
+  obtain ⟨b, hb⟩ := exists_mem_projLine i
+  obtain ⟨s, hs, -⟩ := exists_smul_flag (lineSet_mem_planeLines b) (Ωproj_mem_lineSet.2 hb)
+  exact ⟨s, hs⟩
 
 theorem exists_smul_ellLine
     {S : Set PlanePoint} (hS : S ∈ planeLines) :

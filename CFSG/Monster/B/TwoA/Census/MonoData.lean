@@ -119,10 +119,26 @@ structure XiEdge where
     #[3, 2, 1, 0, 5, 4, 7, 6, 8, 9, 10, 11, 14, 15, 12, 13, 16, 17, 18, 19, 22, 23, 20, 21],
     #[20, 22, 14, 12, 11, 19, 9, 17, 1, 2, 7, 6, 18, 8, 10, 16, 5, 3, 4, 0, 13, 23, 21, 15]⟩]
 
+@[expose] noncomputable def xiAfterMat (e : XiEdge) : Matrix (Fin 24) (Fin 24) ℚ :=
+  diagonal (fun k => sgn (bvec 24 e.afterSign k)) * Pmat (decode e.afterPerm)
+
+@[expose] noncomputable def xiNormalizer (e : XiEdge) : Equiv.Perm (Fin 24) := decode e.normalizer
 
 theorem xiEdges_perm :
     ∀ e ∈ xiEdges, PermArr e.afterPerm = true ∧ PermArr e.normalizer = true := by
   decide +kernel
 
+theorem xiEdges_word : ∀ e ∈ xiEdges, ∀ l ∈ e.word, l < 2 := by decide +kernel
+
+theorem monomial_involution_certificate_data :
+    sylowGenArr.length = 10 ∧ (∀ a ∈ sylowGenArr, PermArr a = true) ∧
+    seedArr.length = 3 ∧ (∀ a ∈ seedArr, PermArr a = true) ∧ seedPerm 0 = 1 ∧
+    (∀ j < 3, ∀ a ∈ centGenArrs j, PermArr a = true) ∧
+    monoSign = [0, 255, 212822, 0, 197482, 0, 3346236] ∧ monoSeed = [0, 0, 0, 1, 1, 2, 2] ∧
+    (∀ i, monoA i * (monoA i)ᵀ = 1) ∧
+    xiEdges.length = 3 ∧ (∀ e ∈ xiEdges, PermArr e.afterPerm = true ∧ PermArr e.normalizer = true) ∧
+    (∀ e ∈ xiEdges, ∀ l ∈ e.word, l < 2) :=
+  ⟨rfl, sylowGenArr_perm, rfl, seedArr_perm, seedPerm_zero, centGenArr_perm, rfl, rfl,
+    monoA_mul_transpose, rfl, xiEdges_perm, xiEdges_word⟩
 
 end CFSG.Monster.B.TwoA.Census

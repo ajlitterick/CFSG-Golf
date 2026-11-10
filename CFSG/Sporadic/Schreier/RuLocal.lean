@@ -107,6 +107,12 @@ theorem range_closure_pair {G M : Type*} [Group G] [Group M] {g₀ g₁ : G}
     · exact ⟨⟨g₀, Set.mem_insert _ _⟩, rfl⟩
     · exact ⟨⟨g₁, Set.mem_insert_of_mem _ rfl⟩, rfl⟩
 
+theorem list_map_getD_eq {α β : Type*} [Inhabited α] (f : α → β) (l : List α) (d : α) :
+    ((List.range l.length).map fun i => f (l.getD i d)) = l.map f := by
+  apply List.ext_getElem (by simp)
+  intro i h1 h2
+  simp only [List.getElem_map, List.getElem_range]
+  rw [List.getD_eq_getElem l d (by simpa using h2)]
 
 theorem rep_ruCBlockHom
     {g : ℕ} (hg : g < 2) (hmem : [ruC0, ruC1].getD g 1 ∈ ruC) :
@@ -122,6 +128,11 @@ theorem rep_ruNBlockHom
   have h := (ruNBlockHom_spec ⟨_, hmem⟩ i).symm.trans (ruN_gen_block hg i)
   rw [← ruNPi_val hg i, ruNBlock_injective h]
 
+theorem ruChainCBlock_valid :
+    ValidSchreier ruChainCBlock := ruChain_valid ruChainBlocks_check.1
+
+theorem ruChainNBlock_valid : ValidSchreier ruChainNBlock :=
+  ruChain_valid ruChainBlocks_check.2.2.1
 
 theorem ruCBlockHom_range :
     ruCBlockHom.range = ruChainCBlock.originalSubgroup := by
@@ -269,5 +280,106 @@ theorem factorization_ruP :
 theorem ruSylow_coe :
     (ruSylow : Subgroup ruP) = ruS.subgroupOf ruP := rfl
 
+theorem ncard_ptSet {n : ℕ} {Fl : Array ℕ} (h : PtList n Fl) : (ptSet n Fl).ncard = Fl.size := by
+  rw [← Nat.card_coe_set_eq, ← Nat.card_congr (ptEquiv h), Nat.card_eq_fintype_card,
+    Fintype.card_fin]
+
+theorem AT_Ru_local_actions_and_normal_cores :
+    (ValidSchreier ruChainC ∧ ruChainC.original.toList = [ruC0, ruC1]) ∧
+    (ValidSchreier ruChainN ∧ ruChainN.original.toList = [ruNs0, ruNs1]) ∧
+    (ValidSchreier ruChainJoin ∧ ruChainJoin.original.toList = [ruC0, ruC1, ruNs0, ruNs1]) ∧
+    (ValidSchreier ruChainCFaithful ∧
+      ruChainCFaithful.original.toList = [ruResFPerm ruC0, ruResFPerm ruC1]) ∧
+    (ValidSchreier ruChainS ∧ ruChainS.original.toList = ruSGens.map ruResFPerm) ∧
+    (ValidSchreier ruChainJ ∧ ruChainJ.original.toList = ruJGens.map ruResFPerm) ∧
+    (ValidSchreier ruChainK ∧ ruChainK.original.toList = ruKGens.map ruResFPerm) ∧
+    (ValidSchreier ruChainR ∧ ruChainR.original.toList = ruRGens.map ruResFPerm) ∧
+    (ValidSchreier ruChainCQuotient80 ∧
+      ruChainCQuotient80.original.toList = [ruResYPerm ruC0, ruResYPerm ruC1]) ∧
+    Nat.card ruP = 145926144000 ∧ Nat.card ruC = 245760 ∧ Nat.card ruN = 344064 ∧
+    Nat.card ruS = 16384 ∧ Nat.card ruJ = 2048 ∧ Nat.card ruK = 2048 ∧ Nat.card ruR = 2048 ∧
+    ruC ⊔ ruN = ruP ∧
+    (∀ x : Fin 4060, ∃ k < 4, x ∈ ptSet 4060 (ruCOrbit k) ∧
+      MulAction.orbit ruC x = ptSet 4060 (ruCOrbit k)) ∧
+    ((List.range 4).map fun k => (ptSet 4060 (ruCOrbit k)).ncard) = [1920, 2048, 80, 12] ∧
+    (∀ x : Fin 4060, ∃ k < 3, x ∈ ptSet 4060 (ruNOrbit k) ∧
+      MulAction.orbit ruN x = ptSet 4060 (ruNOrbit k)) ∧
+    ((List.range 3).map fun k => (ptSet 4060 (ruNOrbit k)).ncard) = [3584, 448, 28] ∧
+    ruF = ruCOrbit 0 ∧ ruC ≤ MulAction.stabilizer (Equiv.Perm (Fin 4060)) (ptSet 4060 ruF) ∧
+    Function.Injective ruResF ∧
+    ruY = ruCOrbit 2 ∧ ruC ≤ MulAction.stabilizer (Equiv.Perm (Fin 4060)) (ptSet 4060 ruY) ∧
+    Nat.card ruResY.range = 122880 ∧ ruResY.ker = Subgroup.zpowers ⟨ruZ, ruZ_memC⟩ ∧
+    orderOf ruZ = 2 ∧ (∀ g ∈ ruC, g * ruZ = ruZ * g) ∧
+    (∀ (g : ruC) (i : Fin 6), (g : Equiv.Perm (Fin 4060)) • ruCBlock i =
+      ruCBlock (ruCBlockHom g i)) ∧
+    Nat.card ruCBlockHom.range = 120 ∧ ruCBlockHom.ker = ruJ.subgroupOf ruC ∧
+    (∀ (g : ruN) (i : Fin 7), (g : Equiv.Perm (Fin 4060)) • ruNBlock i =
+      ruNBlock (ruNBlockHom g i)) ∧
+    Nat.card ruNBlockHom.range = 168 ∧ ruNBlockHom.ker = ruK.subgroupOf ruN ∧
+    ruJ ≤ ruC ∧ ruK ≤ ruN ∧ (ruJ.subgroupOf ruC).Normal ∧ (ruK.subgroupOf ruN).Normal ∧
+    ruS ≤ ruC ⊓ ruN ∧ (∃ T : Sylow 2 ruP, (T : Subgroup ruP) = ruS.subgroupOf ruP) ∧
+    ruJ ≤ ruS ∧ ruK ≤ ruS ∧ ruR ≤ ruS ∧ ruZ ∈ ruJ ⊓ ruK ⊓ ruR := by
+  have hS : ruChainS.original.toList = ruSGens.map ruResFPerm := by
+    rw [show ruChainS.original.toList = (List.range 4).map fun i => permOfArr 1920
+      (ruField1920 1)[i]! from ofArrays_original_toList,
+      chain1920_original ruSGens_memC ruSGens_length rep_ruSGens
+        (fun i hi => ruChain_strong_inv ruChainS_check.1
+          (by simp [ruField1920, ruLines1920]; omega))
+        ruGens_check.2.2.2.2.2.2.2.2.2.2.1, ← ruSGens_length, list_map_getD_eq]
+  have hJ : ruChainJ.original.toList = ruJGens.map ruResFPerm := by
+    rw [show ruChainJ.original.toList = (List.range 6).map fun i => permOfArr 1920
+      (ruField1920 3)[i]! from ofArrays_original_toList,
+      chain1920_original ruJGens_memC ruJGens_length rep_ruJGens
+        (fun i hi => ruChain_strong_inv ruChainJ_check.1
+          (by simp [ruField1920, ruLines1920]; omega))
+        ruGens_check.2.2.2.2.2.2.2.2.2.2.2.2.1, ← ruJGens_length, list_map_getD_eq]
+  have hK : ruChainK.original.toList = ruKGens.map ruResFPerm := by
+    rw [show ruChainK.original.toList = (List.range 8).map fun i => permOfArr 1920
+      (ruField1920 2)[i]! from ofArrays_original_toList,
+      chain1920_original ruKGens_memC ruKGens_length rep_ruKGens
+        (fun i hi => ruChain_strong_inv ruChainK_check.1
+          (by simp [ruField1920, ruLines1920]; omega))
+        ruGens_check.2.2.2.2.2.2.2.2.2.2.2.1, ← ruKGens_length, list_map_getD_eq]
+  have hR : ruChainR.original.toList = ruRGens.map ruResFPerm := by
+    rw [show ruChainR.original.toList = (List.range 5).map fun i => permOfArr 1920
+      (ruField1920 4)[i]! from ofArrays_original_toList,
+      chain1920_original ruRGens_memC ruRGens_length rep_ruRGens
+        (fun i hi => ruChain_strong_inv ruChainR_check.1
+          (by simp [ruField1920, ruLines1920]; omega))
+        ruGens_check.2.2.2.2.2.2.2.2.2.2.2.2.2.1, ← ruRGens_length, list_map_getD_eq]
+  have hCsizes : ((List.range 4).map fun k => (ptSet 4060 (ruCOrbit k)).ncard) =
+      [1920, 2048, 80, 12] := by
+    have e : ∀ k < 4, (ptSet 4060 (ruCOrbit k)).ncard = (ruCOrbit k).size := fun k hk =>
+      ncard_ptSet (ptPosOK_spec (ruOrbits_check.2.2.2.2.1 k hk)).1
+    rw [show List.range 4 = [0, 1, 2, 3] from rfl]
+    simp only [List.map_cons, List.map_nil, e 0 (by norm_num), e 1 (by norm_num),
+      e 2 (by norm_num), e 3 (by norm_num)]
+    simp only [ruCOrbit, ruPtList, Array.size_ofFn]
+    decide
+  have hNsizes : ((List.range 3).map fun k => (ptSet 4060 (ruNOrbit k)).ncard) =
+      [3584, 448, 28] := by
+    have e : ∀ k < 3, (ptSet 4060 (ruNOrbit k)).ncard = (ruNOrbit k).size := fun k hk =>
+      ncard_ptSet (ptPosOK_spec (ruOrbits_check.2.2.2.2.2.1 k hk)).1
+    rw [show List.range 3 = [0, 1, 2] from rfl]
+    simp only [List.map_cons, List.map_nil, e 0 (by norm_num), e 1 (by norm_num),
+      e 2 (by norm_num)]
+    simp only [ruNOrbit, ruPtList, Array.size_ofFn]
+    decide
+  refine ⟨⟨ruChainC_valid, ruChainC_original⟩, ⟨ruChainN_valid, ruChainN_original⟩,
+    ⟨ruChainJoin_valid, ruChainJoin_original⟩,
+    ⟨ruChainCFaithful_valid, ruChainCFaithful_original⟩, ⟨ruChainS_valid, hS⟩,
+    ⟨ruChainJ_valid, hJ⟩, ⟨ruChainK_valid, hK⟩, ⟨ruChainR_valid, hR⟩,
+    ⟨ruChainCQuotient80_valid, ruChainCQuotient80_original⟩, card_ruP, card_ruC, card_ruN,
+    card_ruS, card_ruJ, card_ruK, card_ruR, ruP_eq_sup.symm,
+    fun x => ?_, hCsizes, fun x => ?_, hNsizes, ruOrbits_check.2.2.1, ruC_le_stabF,
+    ruResF_injective, ruOrbits_check.2.2.2.1, ruC_le_stabY, card_ruResY_range, ruResY_ker,
+    orderOf_ruZ, ruZ_central, ruCBlockHom_spec, card_ruCBlockHom_range, ruCBlockHom_ker,
+    ruNBlockHom_spec, card_ruNBlockHom_range, ruNBlockHom_ker, ruJ_leC, ruK_leN, ruJ_normal,
+    ruK_normal, le_inf ruS_leC ruS_leN, ⟨ruSylow, rfl⟩, ruJ_leS, ruK_leS, ruR_leS,
+    ⟨⟨ruZ_memJ, ruZ_memK⟩, ruZ_memR⟩⟩
+  · obtain ⟨k, hk, hx⟩ := ruCOrbit_cover x
+    exact ⟨k, hk, hx, ruC_orbit hk hx⟩
+  · obtain ⟨k, hk, hx⟩ := ruNOrbit_cover x
+    exact ⟨k, hk, hx, ruN_orbit hk hx⟩
 
 end CFSG.Sporadic.RuSchreier

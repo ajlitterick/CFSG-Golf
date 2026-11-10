@@ -173,4 +173,7 @@ end Out
 open Out
 
 
+variable {G : Type} [Group G] [Finite G] [FrameSimple G]
+  {K K' J : Subgroup G} {S : Sylow 2 G} {R R' W V : Subgroup G} {z t : G}
+
 end CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf

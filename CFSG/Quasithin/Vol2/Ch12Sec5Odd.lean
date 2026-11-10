@@ -36,6 +36,7 @@ theorem x3_pow : x3 ^ 3 = 1 := by decide
 
 theorem y3_pow : y3 ^ 3 = 1 := by decide
 
+theorem x3_y3 : x3 * y3 = y3 * x3 := by decide
 
 theorem det_eq_one_of_pow {A : M5} {n : ℕ} (hn : n ≠ 0) (h : A ^ n = 1) : A.det = 1 := by
   have h1 : A.det ^ n = 1 := by rw [← Matrix.det_pow, h, Matrix.det_one]
@@ -149,6 +150,7 @@ theorem nFix_le_of_mem_zpowers {y z : SL5} (hz : (orderOf z).Prime)
   have hst : Subgroup.zpowers y ≤ stab v := (Subgroup.zpowers_le (G := SL5)).2 hv
   exact hst hzy
 
+theorem X3_Y3 : X3 * Y3 = Y3 * X3 := Subtype.ext x3_y3
 
 theorem coe_X3_pow_mul (a b : ℕ) : ((X3 ^ a * Y3 ^ b : SL5) : M5) = x3 ^ a * y3 ^ b := by
   rw [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_pow,

@@ -32,6 +32,9 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Blueprint Matrix
 
 section Consequences
 
+variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
+
+include e
 
 end Consequences
 

@@ -34,6 +34,14 @@ theorem conj_pair_apply_eq (hE : ∀ e : E, e * e = 1) {C : Subgroup E} {b s : M
   simp only [MulAut.mul_apply]
   rw [hsinv, e1, e2, e3]
 
+theorem apply_eq_of_comm (hE : ∀ e : E, e * e = 1) {C : Subgroup E} {a : MulAut E}
+    (ha2 : a * a = 1) (haC : ∀ c ∈ C, a c = c) {p u : E} (h : a u * u⁻¹ * p⁻¹ ∈ C) : a p = p := by
+  have hinv : ∀ x : E, x⁻¹ = x := fun x => inv_eq_of_mul_eq_one_right (hE x)
+  obtain ⟨c, hcC, hp⟩ : ∃ c ∈ C, p = a u * u * c := by
+    refine ⟨_, h, ?_⟩
+    rw [hinv u, hinv p, ← mul_assoc, hE (a u * u), one_mul]
+  have hau : a (a u) = u := by rw [← MulAut.mul_apply, ha2, MulAut.one_apply]
+  rw [hp, map_mul, map_mul, hau, haC c hcC, mul_comm u (a u)]
 
 end Pure
 
@@ -119,6 +127,53 @@ theorem conj_pair_apply_eq_of_lift (hW : ∀ w : W, w * w = 1) {Z : Subgroup W} 
     exact (hβk _).mp h1
   exact conj_pair_apply_eq hW hbZ hsZ (hmem hbV hbp) (hmem hsV hsp)
 
+theorem apply_eq_of_lift (hW : ∀ w : W, w * w = 1) {Z : Subgroup W} {a : MulAut W}
+    (ha2 : a * a = 1) (haZ : ∀ z ∈ Z, a z = z) (haV : ∀ v ∈ V, a v ∈ V) {Q : Type*} [Group Q]
+    (β : ↥V →* Q) (hβk : ∀ u : ↥V, β u = 1 ↔ (u : W) ∈ Z) {p u : ↥V}
+    (h : β ⟨a u, haV u u.2⟩ * (β u)⁻¹ = β p) : a (p : W) = p := by
+  have h1 : β (⟨a u, haV u u.2⟩ * u⁻¹ * p⁻¹) = 1 := by
+    rw [map_mul, map_mul, map_inv, map_inv, h, mul_inv_cancel]
+  exact apply_eq_of_comm hW ha2 haZ ((hβk _).mp h1)
+
+theorem apply_eq_of_lift_closure (hW : ∀ w : W, w * w = 1) {Z : Subgroup W} {a : MulAut W}
+    (ha2 : a * a = 1) (haZ : ∀ z ∈ Z, a z = z) (haV : ∀ v ∈ V, a v ∈ V) {Q : Type*} [CommGroup Q]
+    (β : ↥V →* Q) (hβk : ∀ u : ↥V, β u = 1 ↔ (u : W) ∈ Z) {S : Set Q}
+    (hS : ∀ q ∈ S, ∃ u : ↥V, β ⟨a u, haV u u.2⟩ * (β u)⁻¹ = q) {p : ↥V}
+    (hp : β p ∈ Subgroup.closure S) : a (p : W) = p := by
+  let R : Subgroup Q :=
+    { carrier := {q | ∃ u : ↥V, β ⟨a u, haV u u.2⟩ * (β u)⁻¹ = q}
+      one_mem' := ⟨1, by
+        have : (⟨a ((1 : ↥V) : W), haV _ (1 : ↥V).2⟩ : ↥V) = 1 := Subtype.ext (map_one a)
+        rw [this, map_one, inv_one, one_mul]⟩
+      mul_mem' := by
+        rintro _ _ ⟨u₁, rfl⟩ ⟨u₂, rfl⟩
+        refine ⟨u₁ * u₂, ?_⟩
+        have : (⟨a ((u₁ * u₂ : ↥V) : W), haV _ (u₁ * u₂).2⟩ : ↥V) =
+            ⟨a u₁, haV u₁ u₁.2⟩ * ⟨a u₂, haV u₂ u₂.2⟩ := Subtype.ext (map_mul a _ _)
+        rw [this, map_mul, map_mul, mul_inv, mul_mul_mul_comm]
+      inv_mem' := by
+        rintro _ ⟨u, rfl⟩
+        refine ⟨u⁻¹, ?_⟩
+        have : (⟨a ((u⁻¹ : ↥V) : W), haV _ u⁻¹.2⟩ : ↥V) = (⟨a u, haV u u.2⟩ : ↥V)⁻¹ :=
+          Subtype.ext (map_inv a _)
+        rw [this, map_inv, map_inv, inv_inv, mul_inv, inv_inv] }
+  obtain ⟨u, hu⟩ := (Subgroup.closure_le R).mpr hS hp
+  exact apply_eq_of_lift hW ha2 haZ haV β hβk hu
+
+@[expose] def fixSub {Γ : Type*} [Group Γ] (π : Γ →* ↥L) (P : Set W) : Subgroup Γ where
+  carrier := {γ | ∀ p ∈ P, ((π γ : ↥L) : MulAut W) p = p}
+  one_mem' := fun p _ => by rw [map_one]; rfl
+  mul_mem' := fun {a b} ha hb p hp => by
+    rw [map_mul, Subgroup.coe_mul, MulAut.mul_apply, hb p hp, ha p hp]
+  inv_mem' := fun {a} ha p hp => by
+    rw [map_inv, Subgroup.coe_inv]
+    have h := ha p hp
+    calc ((π a : ↥L) : MulAut W)⁻¹ p = ((π a : ↥L) : MulAut W)⁻¹ (((π a : ↥L) : MulAut W) p) := by
+          rw [h]
+      _ = p := MulAut.inv_apply_self _ _ _
+
+theorem mem_fixSub {Γ : Type*} [Group Γ] {π : Γ →* ↥L} {P : Set W} {γ : Γ} :
+    γ ∈ fixSub π P ↔ ∀ p ∈ P, ((π γ : ↥L) : MulAut W) p = p := Iff.rfl
 
 theorem exists_ambMap {D : FFModel} (hker : D.ker = ⊥) {Z : Subgroup W} {π : D.Gam →* ↥L}
     (hπ : D.RealizesVia L V Z π) :

@@ -15,6 +15,8 @@ open CFSG.KC.Fi22F.Walks CFSG.Sporadic.Presentation.Fi22Exact
 
 theorem pw_ok : pwOK CFSG.KD.Fi22BP.blk (nat_lit 82571) allPairs CFSG.KD.FiFP.R 0 = true := by quickRfl
 
+theorem neg_pw_shift : CFSG.KC.notB (pwOK CFSG.KD.Fi22BP.blk (nat_lit 82571) allPairs CFSG.KD.FiFP.R 1) = true := by
+  quickRfl
 
 end CertificateChecks.KernelFi22F
 

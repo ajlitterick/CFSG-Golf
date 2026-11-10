@@ -264,6 +264,14 @@ theorem finrank_H1_eq_zero {ρ : Representation (ZMod 2) Γ W}
   exact finrank_H1_eq_zero_of_le fun f hf =>
     (transport_mem_B1A he).1 (hZ ((transport_mem_Z1A he).2 hf))
 
+theorem finrank_H1_eq_one {ρ : Representation (ZMod 2) Γ W}
+    (h : Explicit.AlternatingNatural ρ n .alternating)
+    (hZ : Nat.card (Z1A C.actA) = 2 * Nat.card (B1A C.actA)) :
+    Module.finrank (ZMod 2) (H1 ρ) = 1 := by
+  obtain ⟨θ, e, he⟩ := C.exists_intertwiner h
+  have : Finite Γ := Finite.of_equiv _ θ.symm.toEquiv
+  have : Finite W := Finite.of_equiv _ e.symm.toEquiv
+  exact finrank_H1_of_card ρ ((card_H1_eq_of_card ρ he hZ).trans (pow_one 2).symm)
 
 end DnCoords
 

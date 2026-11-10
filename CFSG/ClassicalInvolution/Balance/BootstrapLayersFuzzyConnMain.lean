@@ -28,6 +28,9 @@ variable {p f : ℕ} [Fact p.Prime]
         ∀ (a : G) (M : Subgroup G), M ∈ 𝒞 K → IsClassicalMember p f M a →
           NoComponentOverF3 p f (linkFamily p f (𝒞 K) a) a
 
+theorem LinkNoF3.of_ne_27 (𝒞 : MemberClass) (h27 : p ^ f ≠ 27) : LinkNoF3 p f 𝒞 := by
+  intro G _ _ _ _ _ hq K z hz hBelow hconn hind a M hM𝒞 hM
+  exact NoComponentOverF3.of_ne_27 a hq h27
 
 end Link
 
@@ -73,6 +76,54 @@ section Main
 
 variable {p f : ℕ} [Fact p.Prime]
 
+theorem fuzzyEdgeInFrame_canonClass (hF3 : LinkNoF3 p f (canonClass p f)) :
+    FuzzyEdgeInFrame p f (canonClass p f) (tqAdj p f) := by
+  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind M hM𝒞 N hN𝒞 zM zN hM hN hE hne
+  have hf : 0 < f := Nat.pos_of_ne_zero (by rintro rfl; simp at hq)
+  have hinv := conjInvariant_canonClass (p := p) (f := f) K
+  have hcan := canonClass_subset (p := p) (f := f) K
+  obtain ⟨a', u', hM', -, -, hNa'⟩ := hE
+  have ha' : a' = zM := hM.eq_of_isCentralInvolution hp2 hf hM'.isCentralInvolution
+  have haN : zM ∈ trivialOnQuot N := mem_trivialOnQuot_iff_actsTrivOnQuot.mpr (ha' ▸ hNa')
+  have hua : zN ≠ zM := hne.symm
+  obtain ⟨ld⟩ := exists_linkData hnab hp2 hq hBelow hinv hM𝒞 hM
+    (hF3 G hnab hp2 hq K z hz hBelow hconn hind zM M hM𝒞 hM)
+  obtain ⟨K', z', hK', hcomm, hel, hcard⟩ := hind
+  have hAex : IndepTripleOn p f (CoreAssembly.conjClass K) (Subgroup.closure (Set.range z')) :=
+    ⟨K', z', hK', hcomm, rfl, hel, hcard⟩
+  have hA₀ := fuzzyFrameOn_canonClass_of_indepTripleOn hAex
+  obtain ⟨z₀, hz₀⟩ := Theorem5.FuzzyFrameOn.exists_vertex hA₀
+  have hz₀' := hz₀
+  obtain ⟨-, J₀, hJ₀𝒞, hJ₀, -⟩ := hz₀'
+  obtain ⟨h, hh⟩ := exists_conj_of_mem_canonClass hp2 hf hJ₀𝒞 hJ₀ hM𝒞 hM
+  have hA₁ := Theorem5.FuzzyFrameOn.map hinv hA₀ h
+  have haA₁ := Theorem5.mem_fuzzyVertices_map hinv hz₀ h
+  rw [hh] at haA₁
+  obtain ⟨J, t, N₁, u₁, hb⟩ := exists_frameBasis hA₁ haA₁
+  have ha2 : zM * zM = 1 := hb.sq hb.aB
+  obtain ⟨cJ, hcJ⟩ := ld.sec.exists_comp ld.D hb.linkJ
+  obtain ⟨c₁, hc₁⟩ := ld.sec.exists_comp ld.D hb.linkN
+  obtain ⟨c₀, hc₀⟩ := ld.sec.exists_comp ld.D (triangleResidual_mem_linkFamily hN𝒞 hN haN)
+  by_cases h0J : c₀ = cJ
+  · obtain ⟨B, hB, haB, huB⟩ := exists_frame_of_comp ld hp2 hinv hb hN𝒞 hN haN (j := cJ) hcJ
+      (by rw [← h0J]; exact hc₀)
+    exact ⟨B, hB, haB, huB⟩
+  by_cases h0N : c₀ = c₁
+  · obtain ⟨B, hB, haB, huB⟩ := exists_frame_of_comp ld hp2 hinv hb.swap hN𝒞 hN haN (j := c₁)
+      hc₁ (by rw [← h0N]; exact hc₀)
+    exact ⟨B, hB, haB, huB⟩
+  by_cases hcl : SameClass zM t zN
+  · have hcl' : ¬ SameClass zM u₁ zN := fun h => hb.not_sameClass (hcl.trans ha2 (h.symm ha2))
+    obtain ⟨B, hB, haB, huB⟩ := exists_frame_of_cross ld hp2 hq hinv hcan hM𝒞 hM hb.memN hb.clsN
+      (hb.tqN hb.aB) hb.u_ne_a hN𝒞 hN haN hua (j₁ := c₁) (j₂ := c₀) (Ne.symm h0N) hc₁ hc₀ hcl'
+    exact ⟨B, hB, haB, huB⟩
+  · obtain ⟨B, hB, haB, huB⟩ := exists_frame_of_cross ld hp2 hq hinv hcan hM𝒞 hM hb.memJ hb.clsJ
+      (hb.tqJ hb.aB) hb.ta hN𝒞 hN haN hua (j₁ := cJ) (j₂ := c₀) (Ne.symm h0J) hcJ hc₀ hcl
+    exact ⟨B, hB, haB, huB⟩
+
+theorem fuzzyVertexConn_canonClass_of_linkNoF3 (hF3 : LinkNoF3 p f (canonClass p f)) :
+    FuzzyVertexConn p f (canonClass p f) :=
+  fuzzyVertexConn_canonClass (fuzzyEdgeInFrame_canonClass hF3)
 
 theorem fuzzyLinkConn_canonClass (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
     (hF3 : LinkNoF3 p f (canonClass p f)) : FuzzyLinkConn p f (canonClass p f) := by
@@ -108,6 +159,18 @@ end Main
 
 section Assembly
 
+variable {p f : ℕ} [Fact p.Prime]
+
+theorem bootTriple_canonClass (hlay : Theorem5.TriangleLayers p f)
+    (hmodel : LayerGenerationHybrid p)
+    (hF3 : FuzzyNoF3 p f (canonClass p f)) (hlinkF3 : LinkNoF3 p f (canonClass p f))
+    (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
+    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
+    CoreAssembly.BootTriple p f :=
+  Theorem5.bootTriple_of_fuzzyFrames (canonClass p f) hlay
+    (fun _ _ _ K => conjInvariant_canonClass K) (fuzzyFrameBalance_of_hybrid hmodel hF3)
+    (fuzzyAxisExact_canonClass p f) (fuzzyVertexConn_canonClass_of_linkNoF3 hlinkF3)
+    (fuzzyLinkConn_canonClass hMFC hlinkF3) hcov9 hexotic
 
 end Assembly
 

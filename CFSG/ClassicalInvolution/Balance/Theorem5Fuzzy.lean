@@ -463,6 +463,48 @@ end Inputs
 
 section BootTriple
 
+theorem bootTriple_of_fuzzyFrames (𝒞 : MemberClass) (hlay : TriangleLayers p f)
+    (hinv : ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G), ConjInvariant (𝒞 K))
+    (hbal : FuzzyFrameBalance p f 𝒞) (hexact : FuzzyAxisExact p f 𝒞)
+    (hvert : FuzzyVertexConn p f 𝒞) (hlink : FuzzyLinkConn p f 𝒞)
+    (hcov9 : p ^ f = 9 → ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
+    CoreAssembly.BootTriple p f := by
+  by_cases h9 : p ^ f = 9
+  · exact bootTriple_of_triangleLayers hlay (hcov9 h9) hexotic
+  · intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
+    have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
+    have hIH := localLieSystems_of_citBelowU hΩ hBelow
+    have hind' := hind
+    obtain ⟨K', z', hK', hcomm, hel, hcard⟩ := hind
+    have hAex : IndepTripleOn p f (CoreAssembly.conjClass K) (Subgroup.closure (Set.range z')) :=
+      ⟨K', z', hK', hcomm, rfl, hel, hcard⟩
+    have hA : Subgroup.closure (Set.range z') ∈ fuzzyFrames p f (𝒞 K) :=
+      hexact G hnab hp2 hq K z hz hBelow hconn _ hAex
+    have hf : 0 < f := by
+      rcases Nat.eq_zero_or_pos f with rfl | h
+      · simp at hq
+      · exact h
+    have hmap : ∀ A ∈ fuzzyFrames p f (𝒞 K), ∀ g : G,
+        A.map (MulAut.conj g).toMonoidHom ∈ fuzzyFrames p f (𝒞 K) := fun A hA g =>
+      FuzzyFrameOn.map (hinv G K) hA g
+    have hcon := shareFour_connected_of_vertexGraph_modOdd (𝒯 := fuzzyFrames p f (𝒞 K)) hmap
+      (fun A hA => by
+        obtain ⟨J, z, -, -, hel, hcard, -⟩ := hA
+        exact ⟨hel, hcard⟩)
+      (fuzzyVertices p f (𝒞 K)) (fun A _ z hz => hz.1) (fun A hA => hA.exists_vertex)
+      (fun A _ A' _ a ha a' ha' =>
+        hvert G hnab hp2 hq K z hz hBelow hconn hind' a a'
+          (by obtain ⟨-, J, hJ, hJa, -⟩ := ha; exact ⟨J, hJ, hJa⟩)
+          (by obtain ⟨-, J, hJ, hJa, -⟩ := ha'; exact ⟨J, hJ, hJa⟩))
+      (fun a A hA A' hA' ha ha' =>
+        hlink G hnab hp2 hq K z hz hBelow hconn hind' a A hA A' hA' ha ha')
+    obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_balancedFamily hnab hp2 hq h9 hΩ
+      (CoreAssembly.exists_single_class K) hIH
+      (fun A' hA' => hlay G hnab hp2 hq K z hz hBelow hconn A' hA')
+      (fun A hA => hbal G hnab hp2 hq K z hz hBelow hconn hind' A hA) hmap hcon hK' hcomm rfl hel
+      hcard hA
+    exact ⟨hex, hP1 K (CoreAssembly.mem_conjClass_self K) z hz⟩
+
 
 end BootTriple
 

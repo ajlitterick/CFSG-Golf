@@ -131,6 +131,7 @@ theorem gz_chOf {c : Nat} (hc : c < 4) (y : Nat) : gz P (letterOf (chOf c)) y = 
   · rw [reg_three]
     rfl
 
+theorem exF_zero (k : Nat) : exF S 0 k = [k] := rfl
 
 theorem exF_succ (f k : Nat) : exF S (f + 1) k =
     Bool.rec (motive := fun _ => List Nat) (List.append (exF S f (raOf S k)) (exF S f (rbOf S k))) [k]

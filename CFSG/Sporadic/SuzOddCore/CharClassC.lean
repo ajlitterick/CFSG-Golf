@@ -17,6 +17,9 @@ open CFSG.Certificates CFSG.Monster.B.Co2
       show suzTheta3 ((g : Equiv.Perm (Fin 22880)) 0) = (H : Subgroup suzP)
       rw [← autMap_conj_eq, hg]⟩
 
+theorem suzThetaEquiv_apply
+    (i : Fin 22880) : (suzThetaEquiv i : Subgroup suzP) = suzTheta3 i :=
+  rfl
 
 @[expose] def autClassPerm
     (α : MulAut suzP) : Equiv.Perm suzClassQ where
@@ -29,6 +32,9 @@ open CFSG.Certificates CFSG.Monster.B.Co2
     show autMap α (autMap α⁻¹ (H : Subgroup suzP)) = H
     rw [← autMap_mul, mul_inv_cancel, autMap_one])
 
+theorem autClassPerm_apply
+    (α : MulAut suzP) (H : suzClassQ) :
+    (autClassPerm α H : Subgroup suzP) = autMap α H := rfl
 
 @[expose] def phiPerm
     (α : MulAut suzP) : Equiv.Perm (Fin 22880) :=

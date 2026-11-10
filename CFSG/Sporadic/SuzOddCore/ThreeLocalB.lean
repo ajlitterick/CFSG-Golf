@@ -105,6 +105,10 @@ theorem suzH0_preserves_delta :
     suzH0 →* Equiv.Perm (Fin 280) :=
   localDomain_points.restrHom suzH0 suzH0_preserves_delta
 
+theorem pt_suzRho
+    (g : suzH0) (i : Fin 280) :
+    localDomain_points.pt (suzRho g i) = (g : Equiv.Perm (Fin 22880)) (localDomain_points.pt i) :=
+  localDomain_points.pt_restrHom _ _ g i
 
 theorem tabRep_suzRho
     {t : Array ℕ} (g : suzH0) (ht : Rep 22880 t g) :
@@ -192,5 +196,20 @@ theorem ker_suzRho :
   · rw [card_ker_suzRho, Nat.card_congr (Subgroup.subgroupOfEquivOfLe suzQ_le_suzH0).toEquiv,
       card_suzQ]
 
+theorem suzDeltaΩ_eq_orbit :
+    suzDeltaΩ = MulAction.orbit suzH0 (localDomain_points.pt 0) := by
+  ext x
+  constructor
+  · intro hx
+    obtain ⟨i, rfl⟩ := localDomain_points.exists_pt ((mem_suzDeltaΩ_iff x).1 hx)
+    obtain ⟨σ, hσ, hσi⟩ := localGroup_transitive i
+    rw [← range_suzRho] at hσ
+    obtain ⟨g, rfl⟩ := hσ
+    refine ⟨g, ?_⟩
+    change (g : Equiv.Perm (Fin 22880)) (localDomain_points.pt 0) = localDomain_points.pt i
+    rw [← pt_suzRho, hσi]
+  · rintro ⟨g, rfl⟩
+    rw [mem_suzDeltaΩ_iff]
+    exact suzH0_preserves_delta g g.2 _ (localDomain_points.pt_mem 0)
 
 end CFSG.Sporadic.SuzOddCore

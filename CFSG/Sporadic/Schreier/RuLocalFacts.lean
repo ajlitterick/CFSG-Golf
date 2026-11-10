@@ -15,10 +15,33 @@ namespace CFSG.Sporadic.RuSchreier
 
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certificates.Native
 
+theorem ruChainC_valid :
+    ValidSchreier ruChainC := ruChain_valid ruChainC_check.1
+
+theorem ruChainN_valid :
+    ValidSchreier ruChainN := ruChain_valid ruChainN_check.1
 
 theorem ruChainJoin_valid :
     ValidSchreier ruChainJoin := ruChain_valid ruChainJoin_check.1
 
+theorem ruChainCFaithful_valid : ValidSchreier ruChainCFaithful :=
+  ruChain_valid ruChainCFaithful_check.1
+
+theorem ruChainCQuotient80_valid :
+    ValidSchreier ruChainCQuotient80 :=
+  ruChain_valid ruChainCQuotient80_check.1
+
+theorem ruChainS_valid :
+    ValidSchreier ruChainS := ruChain_valid ruChainS_check.1
+
+theorem ruChainK_valid :
+    ValidSchreier ruChainK := ruChain_valid ruChainK_check.1
+
+theorem ruChainJ_valid :
+    ValidSchreier ruChainJ := ruChain_valid ruChainJ_check.1
+
+theorem ruChainR_valid :
+    ValidSchreier ruChainR := ruChain_valid ruChainR_check.1
 
 theorem ruChainC_original :
     ruChainC.original.toList = [ruC0, ruC1] := by

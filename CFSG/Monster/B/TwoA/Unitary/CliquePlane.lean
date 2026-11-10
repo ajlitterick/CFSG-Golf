@@ -42,6 +42,8 @@ theorem smulSub_one (X : Submodule F4 V) : smulSub 1 X = X := by
   ext v
   rw [mem_smulSub, inv_one, one_smul]
 
+theorem smulSub_mono {g : SU frobeniusF4 6} {X Y : Submodule F4 V} (h : X ≤ Y) :
+    smulSub g X ≤ smulSub g Y := Submodule.map_mono h
 
 theorem finrank_smulSub (g : SU frobeniusF4 6) (X : Submodule F4 V) :
     Module.finrank F4 (smulSub g X) = Module.finrank F4 X :=
@@ -311,6 +313,9 @@ theorem IsMaxIso.exists_eq_smulSub {W : Submodule F4 V} (hW : IsMaxIso W) :
   obtain ⟨g, hg⟩ := exists_le_smulSub_W0 hW.2
   exact ⟨g, Submodule.eq_of_le_of_finrank_eq hg (by rw [hW.1, finrank_smulSub, finrank_W0])⟩
 
+theorem isMaxIso_iff_exists {W : Submodule F4 V} :
+    IsMaxIso W ↔ ∃ g : SU frobeniusF4 6, W = smulSub g W0 :=
+  ⟨IsMaxIso.exists_eq_smulSub, fun ⟨g, hg⟩ => hg ▸ isMaxIso_smulSub isMaxIso_W0 g⟩
 
 theorem IsMaxIso.mem_of_herm {W : Submodule F4 V} (hW : IsMaxIso W) {v : V}
     (h : ∀ w ∈ W, herm v w = 0) : v ∈ W := by

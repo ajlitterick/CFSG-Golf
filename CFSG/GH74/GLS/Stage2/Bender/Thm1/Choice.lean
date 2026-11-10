@@ -38,6 +38,8 @@ theorem Ctx6.orderOf_z (h : Ctx6 G z k S M p) : orderOf z = 2 := h.ctx.orderOf_z
 theorem Ctx6.Fs_eq (h : Ctx6 G z k S M p) {N : Subgroup G} (hN : N ∈ maximalOverCentralizer z) :
     Fs N = Fm N := (h.hyp.fitting N hN).1
 
+theorem Ctx6.Fm_eq (h : Ctx6 G z k S M p) {N : Subgroup G} (hN : N ∈ maximalOverCentralizer z) :
+    Fm N = pPrimeCoreOf 2 (Fm N) := (h.hyp.fitting N hN).2
 
 end Access
 

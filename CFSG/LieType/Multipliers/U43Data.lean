@@ -420,6 +420,11 @@ open Matrix
       (1, false), (0, true), (1, true), (1, true), (0, true), (1, false), (0, true), (1, false),
       (1, false), (0, true), (1, false), (1, false)], 3)]
 
+@[expose] def extraRels : List (List (Fin 2 × Bool)) :=
+  [[(1, true), (1, true), (1, true), (1, true), (1, true), (1, true)],
+    [(0, true), (1, false), (0, true), (1, false), (0, true), (1, false), (0, true), (1, false),
+      (0, true), (1, false), (0, true), (1, false), (0, true), (1, false)],
+    [(0, true), (0, true), (0, true), (0, true)]]
 
 @[expose] def checkWords : List (List (ℕ × Bool)) :=
   (rels ++ kernelT.map Prod.fst ++

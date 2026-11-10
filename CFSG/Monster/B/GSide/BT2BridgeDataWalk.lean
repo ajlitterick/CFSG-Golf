@@ -23,6 +23,8 @@ theorem codeAdj_w_q₂ : codeGraph.Adj 6175 2652785 :=
 theorem codeAdj_q₂_σ : codeGraph.Adj 2652785 6144 :=
   Certificates.certificate3178.2.2.2.2.1
 
+theorem not_adj_q₁_q₂ : ¬ codeGraph.Adj 24606 2652785 :=
+  Certificates.certificate3178.2.2.2.2.2
 
 @[expose] def bridgeWalk : codeGraph.Walk 6144 6144 :=
   .cons codeAdj_q₁_σ.symm (.cons codeAdj_w_q₁.symm (.cons codeAdj_w_q₂ (.cons codeAdj_q₂_σ .nil)))

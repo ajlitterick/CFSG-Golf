@@ -82,6 +82,8 @@ noncomputable def centralizerMulEquiv {X Y : Type*} [Group X] [Group Y] (φ : X 
         apply φ.injective
         rw [map_mul, map_mul, φ.apply_symm_apply, hy]))
 
+theorem uA_mul_self : uA * uA = 1 :=
+  Subtype.ext (rhoEquiv_mul_self_DQ (deltaPair 0 2))
 
 theorem uC_mul_self : uC * uC = 1 :=
   Subtype.ext (rhoEquiv_mul_self_DQ (deltaPair 0 2))

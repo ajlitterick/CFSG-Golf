@@ -94,6 +94,10 @@ theorem e12_smul (c : F) (w : Fin 2 → F) : e12 c • w = ![w 0 + c * w 1, w 1]
   ext i
   fin_cases i <;> simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two]
 
+theorem e21_smul (c : F) (w : Fin 2 → F) : e21 c • w = ![w 0, w 1 + c * w 0] := by
+  rw [smul_eq_mulVec']
+  ext i
+  fin_cases i <;> simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two, add_comm]
 
 theorem e12_add (a b : F) : e12 (a + b) = e12 a * e12 b := by
   ext i j
@@ -178,6 +182,13 @@ theorem fcoord_add (ρ : MulAut (Wm F)) (x x' : F) :
     fin_cases i <;> simp
   simp [fcoord, h, map_mul]
 
+theorem gcoord_add (ρ : MulAut (Wm F)) (y y' : F) :
+    gcoord ρ (y + y') = gcoord ρ y + gcoord ρ y' := by
+  have h : (Multiplicative.ofAdd ![0, y + y'] : Wm F) =
+      Multiplicative.ofAdd ![0, y] * Multiplicative.ofAdd ![0, y'] := by
+    ext i
+    fin_cases i <;> simp
+  simp [gcoord, h, map_mul]
 
 theorem fcoord_zero (ρ : MulAut (Wm F)) : fcoord ρ 0 = 0 := by
   have : (Multiplicative.ofAdd ![0, 0] : Wm F) = 1 := by
@@ -471,6 +482,10 @@ theorem dgm_one : dgm (1 : Fˣ) = (1 : SL(2, F)) := by
 
 theorem dgm_inv (d : Fˣ) : (dgm d)⁻¹ = dgm d⁻¹ := (map_inv (dghom (F := F)) d).symm
 
+theorem dgm_smul (d : Fˣ) (w : Fin 2 → F) : dgm d • w = ![(d : F) * w 0, ((d⁻¹ : Fˣ) : F) * w 1] := by
+  rw [smul_eq_mulVec']
+  ext i
+  fin_cases i <;> simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two]
 
 theorem dgm_conj_e12 (d : Fˣ) (c : F) :
     dgm d * e12 c * (dgm d)⁻¹ = e12 ((d : F) ^ 2 * c) := by
@@ -850,6 +865,37 @@ theorem smul_e0 (A : SL(2, F)) : A • e0 F = ![A.1 0 0, A.1 1 0] := by
   ext i
   fin_cases i <;> simp [Matrix.mulVec, dotProduct, Pi.single_apply]
 
+theorem stab_iff (A : SL(2, F)) : A.1 1 0 = 0 ↔ ∃ c : F, A • e0 F = c • e0 F := by
+  constructor
+  · intro h
+    refine ⟨A.1 0 0, ?_⟩
+    rw [smul_e0]
+    ext i
+    fin_cases i <;> simp [h]
+  · rintro ⟨c, hc⟩
+    have := congrFun hc 1
+    rw [smul_e0] at this
+    simpa [Pi.single_apply] using this
+
+theorem e12_smul_e0 (b : F) : e12 b • e0 F = e0 F := by
+  rw [smul_e0]
+  ext i
+  fin_cases i <;> simp
+
+theorem dgm_smul_e0 (d : Fˣ) : dgm d • e0 F = (d : F) • e0 F := by
+  rw [smul_e0]
+  ext i
+  fin_cases i <;> simp
+
+theorem TI_line (B : SL(2, F)) (hB : B.1 1 0 ≠ 0) (c c' : F)
+    (h : c • e0 F = c' • (B • e0 F)) : c • e0 F = 0 := by
+  have h1 := congrFun h 1
+  rw [smul_e0] at h1
+  simp at h1
+  rcases h1 with h1 | h1
+  · rw [h1] at h
+    simpa using h
+  · exact absurd h1 hB
 
 end Lines
 

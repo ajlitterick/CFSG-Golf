@@ -210,6 +210,10 @@ theorem blkEmb_injective (σ : F ≃+* F) (hι : Function.Injective ι) :
   have := congrArg (fun g : SUid σ m => (((g : GL (Fin m) F) : Matrix (Fin m) (Fin m) F))) hAB
   exact Subtype.ext (Units.ext (blkMat_injective hι this))
 
+theorem blkEmb_comp (σ : F ≃+* F) (hι : Function.Injective ι) {ι' : Fin m → Fin l}
+    (hι' : Function.Injective ι') :
+    (blkEmb σ hι').comp (blkEmb σ hι) = blkEmb σ (hι'.comp hι) :=
+  MonoidHom.ext fun _ => Subtype.ext (Units.ext (blkMat_blkMat ι' _))
 
 end Embedding
 
@@ -217,6 +221,9 @@ section IdOut
 
 @[expose] def pairIdx (a b : Fin 4) : Fin 2 → Fin 4 := ![a, b]
 
+theorem pairIdx_zero (a b : Fin 4) : pairIdx a b 0 = a := rfl
+
+theorem pairIdx_one (a b : Fin 4) : pairIdx a b 1 = b := rfl
 
 theorem pairIdx_injective {a b : Fin 4} (h : a ≠ b) : Function.Injective (pairIdx a b) := by
   intro x y hxy

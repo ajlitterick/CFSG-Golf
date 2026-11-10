@@ -46,6 +46,10 @@ theorem trVis_cosetElt_sixtythree :
     rw [Census.cosetElt_sixtythree]
   rw [h3, ← h, h2]
 
+theorem trVis_ne :
+    trVis (cosetRep 1) ≠ trVis (cosetElt 1 63) := by
+  rw [trVis_cosetRep_one, trVis_cosetElt_sixtythree]
+  norm_num
 
 @[expose] noncomputable def stabR1 :
     Subgroup Gvis :=

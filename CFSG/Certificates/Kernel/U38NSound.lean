@@ -17,6 +17,8 @@ variable {K : FK} {d : ℕ → GF8}
 @[expose] def colL (K : FK) (d : ℕ → GF8) (c : ColN) : Col :=
   (dec K d c.1, dec K d c.2.1, dec K d c.2.2)
 
+theorem ofCols_colL (a b c : ColN) :
+    ofCols (colL K d a) (colL K d b) (colL K d c) = toL K d (ofColsN a b c) := rfl
 
 section
 variable (hK : K.Sound d) {w : ℕ} (hw : dec K d w = w0)

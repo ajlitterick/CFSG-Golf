@@ -48,5 +48,8 @@ theorem eq_one_of_isRows {R : Array V4} {g : J} (hR : IsRows R g)
     (h : eqRows R idRows = true) : g = 1 :=
   hR.eq_of_eqRows IsRows.one h
 
+theorem ne_one_of_isRows {R : Array V4} {g : J} (hR : IsRows R g)
+    (h : eqRows R idRows = false) : g ≠ 1 :=
+  hR.ne_of_eqRows IsRows.one h
 
 end CFSG.Sporadic.ThSchreier

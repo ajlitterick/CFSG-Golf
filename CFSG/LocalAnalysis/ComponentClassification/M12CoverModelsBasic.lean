@@ -71,6 +71,11 @@ open CFSG.ComponentClassification.CentralCover in
     have := hl x.snd y.snd
     grind
 
+open CFSG.ComponentClassification.CentralCover in
+theorem cochainAut_apply {Q : Type*} [Group Q] {f : NormCocycle Q} (α : Q ≃* Q)
+    (l : Q → ZMod 2) (hl : ∀ s t, l s + l t + l (s * t) = f (α s) (α t) + f s t)
+    (x : CocycleExtension f) : cochainAut α l hl x = ⟨x.fst + l x.snd, α x.snd⟩ :=
+  rfl
 
 structure TwistHyp {R : Type*} [Group R] (τ : R ≃* R) (z : R) : Prop where
   invol : ∀ x, τ (τ x) = x
@@ -197,6 +202,11 @@ theorem map_mem_center {G H : Type*} [Group G] [Group H] (φ : G ≃* H) {z : G}
   obtain ⟨x, rfl⟩ := φ.surjective y
   rw [← map_mul, ← map_mul, hz]
 
+theorem aut_apply_eq_of_rootCount {G : Type*} [Group G] (φ : MulAut G) {z : G}
+    (hz : z ∈ Subgroup.center G)
+    (h : ∀ w ∈ Subgroup.center G, rootCount 2 w = rootCount 2 z →
+      rootCount 4 w = rootCount 4 z → w = z) : φ z = z :=
+  h _ (map_mem_center φ hz) (rootCount_map φ 2 z) (rootCount_map φ 4 z)
 
 theorem aut_fixes_center {G : Type*} [Group G] {z₁ z₂ z₃ : G}
     (hc : ∀ w, w ∈ Subgroup.center G ↔ w = 1 ∨ w = z₁ ∨ w = z₂ ∨ w = z₃)

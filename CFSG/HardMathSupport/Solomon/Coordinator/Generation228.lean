@@ -2660,6 +2660,8 @@ theorem faithful {β : G} (hβ : β ∈ B) (hfaith : B ⊓ Subgroup.centralizer 
     rw [inv_inv]
     exact h.symm
 
+theorem mem_transSub {g : G} : g ∈ d.transSub ↔
+    ∃ β ∈ B, ∀ i, ∀ y, y ∈ K i ↔ g * y * g⁻¹ ∈ K (d.sigma β i) := Iff.rfl
 
 theorem sup_le_transSub : X ⊔ B ≤ d.transSub := by
   refine sup_le (fun g hg => ?_) (fun β hβ => ?_)

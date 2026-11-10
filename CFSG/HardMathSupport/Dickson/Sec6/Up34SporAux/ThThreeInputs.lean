@@ -27,6 +27,8 @@ set_option compiler.extract_closed false
 @[expose] def regs3 (_ : Unit := ()) : Array (Array V4) :=
   slpRows (rowsOf seedA) (rowsOf seedB) n3 prog3
 
+@[expose] def ordOK (X : Array V4) (p : Nat) : Bool :=
+  eqRows (powRowsN X p) idRows && rowsDiffer X idRows
 
 @[expose] def commOK (X Y : Array V4) : Bool := eqRows (mulRows X Y) (mulRows Y X)
 

@@ -37,6 +37,8 @@ theorem det_Gm {i : F} (hi : i * i = -1) : (Gm i).det = 4 := by
     rw [this]
     exact mul_ne_zero h2 h2)
 
+theorem coe_Gel (h2 : (2 : F) ≠ 0) {i : F} (hi : i * i = -1) :
+    ((Gel h2 hi : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) = Gm i := rfl
 
 theorem four_pow_of_sq {i : F} (hi : i * i = -1) : i ^ 4 = 1 := by
   linear_combination (i * i - 1) * hi

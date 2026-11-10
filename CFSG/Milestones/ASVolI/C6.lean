@@ -126,6 +126,24 @@ open scoped Pointwise
   ∀ (G : Type) [Group G] (L R TH Λ : Subgroup G), HypC_6_2 L R TH Λ →
     ¬ (L ⊔ TH ≤ Subgroup.normalizer (R : Set G)) ∧ pCoreOf 2 (L ⊔ R) < R
 
+theorem as_C_6_2 : C_6_2 := by
+  intro G _ L R TH Λ h
+  have hR : R ≠ ⊥ := by
+    intro hR0
+    have h1 : pCoreOf 2 L ≤ ⊥ := by
+      have h0 := h.O2_le
+      rw [hR0, sup_bot_eq] at h0
+      exact h0
+    apply h.U_ne
+    rw [le_bot_iff.mp h1]
+    simp
+  have hnot : ¬ (L ⊔ TH ≤ Subgroup.normalizer (R : Set G)) := fun hLT =>
+    h.no_common R le_rfl hR hLT le_rfl
+  refine ⟨hnot, lt_of_le_of_ne h.O2_le fun heq => hnot ?_⟩
+  have hN : L ⊔ R ≤ Subgroup.normalizer (pCoreOf 2 (L ⊔ R) : Set G) :=
+    CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 (L ⊔ R)
+  rw [heq] at hN
+  exact sup_le (le_sup_left.trans hN) h.R_norm
 
 @[expose] def C_6_3 : Prop :=
   ∀ (G : Type) [Group G] (L R TH Λ : Subgroup G), HypC_6_2 L R TH Λ →

@@ -370,6 +370,9 @@ abbrev lev (n : ℕ) (S : Array (Array ℕ)) (base : Array ℕ) (i : ℕ) : CLev
 
 theorem levelsOf_size : (levelsOf n S base).size = base.size := by simp [levelsOf, cLevels]
 
+theorem levelsOf_getElem {i : ℕ} (hi : i < base.size) :
+    (levelsOf n S base)[i]! = cbfs n base[i]! (stepsOf n S base)[i]! := by
+  rw [levelsOf, cLevels, getElem!_pos _ i (by simpa using hi), Array.getElem_ofFn]
 
 section Facts
 

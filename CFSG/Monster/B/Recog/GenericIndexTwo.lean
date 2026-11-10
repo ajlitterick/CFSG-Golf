@@ -186,5 +186,14 @@ theorem exists_mulEquiv_of_index_two (ι₁ : A →* E₁) (ι₂ : A →* E₂)
     ht'σ hτ₁ ht'sq
   exact ⟨e, he⟩
 
+theorem exists_mulEquiv_of_index_two' (ι₁ : A →* E₁) (ι₂ : A →* E₂)
+    (hι₁ : Function.Injective ι₁) (hι₂ : Function.Injective ι₂) (h₁ : ι₁.range.index = 2)
+    (h₂ : ι₂.range.index = 2) {s₁ : E₁} {s₂ : E₂} (hs₁ : s₁ ∉ ι₁.range) (hs₂ : s₂ ∉ ι₂.range)
+    (σ₁ : A ≃* A) (σ₂ : A → A) (hσ₁ : ∀ a, s₁ * ι₁ a * s₁⁻¹ = ι₁ (σ₁ a))
+    (hσ₂ : ∀ a, s₂ * ι₂ a * s₂⁻¹ = ι₂ (σ₂ a)) (c : A) (hc : ∀ a, σ₂ a = c * σ₁ a * c⁻¹)
+    (hnorm : ∀ c ∈ Subgroup.center A, σ₁ c = c → ∃ d ∈ Subgroup.center A, c = d * σ₁ d) :
+    ∃ e : E₁ ≃* E₂, ∀ a, e (ι₁ a) = ι₂ a :=
+  exists_mulEquiv_of_index_two ι₁ ι₂ hι₁ hι₂ h₁ h₂ hs₁ hs₂ σ₁ σ₂ hσ₁ hσ₂ (σ₁.symm c)
+    (fun a => by rw [hc, map_mul, map_mul, map_inv, MulEquiv.apply_symm_apply]) hnorm
 
 end CFSG.Monster.B.Recog

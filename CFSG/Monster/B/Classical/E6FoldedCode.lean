@@ -72,6 +72,8 @@ theorem ι_23 : ι 23 = θΛ := Subtype.ext pv_23
 theorem gen_ι (k : Fin 4) (a : Fin 24) : gen k (ι a) = ι ⟨gidx k a, gidx_lt k a.2⟩ :=
   Subtype.ext (r_pv_eq k a.2)
 
+theorem card_Λ : Nat.card Λ = 24 := by
+  rw [← Nat.card_congr ι, Nat.card_eq_fintype_card, Fintype.card_fin]
 
 @[expose] def code (w : Equiv.Perm Λ) : List ℕ :=
   List.ofFn fun a : Fin 24 => (ι.symm (w (ι a)) : ℕ)
@@ -252,6 +254,12 @@ theorem card_WJ : Nat.card WJ = 48 := by
     (fun l hl k hk => (mem_J_iff k).2 (jWords_letters l hl k hk)) idCode_mem_jCodes jCodes_closed
     jCodes_nodup, jCodes_length]
 
+theorem card_WK : Nat.card WK = 48 := by
+  rw [WK, card_closure_of_list (by rw [kWords_length, kCodes_length])
+    (fun i hi => codeWord_kWords i (by rwa [kCodes_length] at hi))
+    (fun l hl k hk => (mem_K_iff k).2 (kWords_letters l hl k hk)) idCode_mem_kCodes
+    (fun i hi k hk => kCodes_closed i (by rwa [kCodes_length] at hi) k ((mem_K_iff k).1 hk))
+    kCodes_nodup, kCodes_length]
 
 theorem mem_WJ_iff (w : Equiv.Perm Λ) : w ∈ WJ ↔ ∃ i < 48, w = jElt i := by
   rw [mem_WJ_iff_code]

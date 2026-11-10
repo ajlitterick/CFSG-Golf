@@ -71,6 +71,8 @@ variable {G : Type*} [Group G]
       calc b⁻¹ * x * b⁻¹⁻¹ = b⁻¹ * x * b⁻¹⁻¹ * z * z := by rw [mul_assoc _ z z, hz2, mul_one]
         _ = x * z := congrArg (· * z) (h1.symm.trans h2)
 
+theorem mem_pairStab {x z : G} {hz : ∀ g : G, g * z = z * g} {hz2 : z * z = 1} {b : G} :
+    b ∈ pairStab x z hz hz2 ↔ b * x * b⁻¹ = x ∨ b * x * b⁻¹ = x * z := Iff.rfl
 
 theorem centralizer_le_pairStab (x z : G) (hz : ∀ g : G, g * z = z * g) (hz2 : z * z = 1) :
     Subgroup.centralizer {x} ≤ pairStab x z hz hz2 := fun b hb => by
@@ -150,6 +152,13 @@ theorem xhat_pow_val_cases (t : ZMod 2) : xhat ^ t.val = 1 ∨ xhat ^ t.val = xh
   · left; rw [ZMod.val_zero, pow_zero]
   · right; rw [ZMod.val_one, pow_one]
 
+theorem xhat_pow_val_eq_one {t : ZMod 2} (h : xhat ^ t.val = 1) : t = 0 := by
+  rcases Fischer.zmod2_cases t with rfl | rfl
+  · rfl
+  · rw [ZMod.val_one, pow_one] at h
+    have h2 := orderOf_xhat
+    rw [h, orderOf_one] at h2
+    exact absurd h2 (by norm_num)
 
 theorem conj_edgeQ
     (y q : cEdgeStab) (hy : y ∈ edgeQ) (hq : q ∈ edgeQ) :

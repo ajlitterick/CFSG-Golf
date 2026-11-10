@@ -335,6 +335,12 @@ theorem exists_inv_mul_frobTwistGL_closedIdentityComponent [IsAlgClosed k]
 
 end Lang
 
+theorem isPointClosed_iInf {ι : Sort*} {H : ι → Subgroup (ModGL τ k)}
+    (h : ∀ i, IsPointClosed k (transportPoints (modGLPoint τ k) (H i : Set (ModGL τ k)))) :
+    IsPointClosed k
+      (transportPoints (modGLPoint τ k) ((⨅ i, H i : Subgroup (ModGL τ k)) : Set (ModGL τ k))) := by
+  rw [Subgroup.coe_iInf, transportPoints, Set.image_iInter bijective_ofConv_modGLPoint]
+  exact isPointClosed_iInter h
 
 theorem isPointClosed_inf {H K : Subgroup (ModGL τ k)}
     (hH : IsPointClosed k (transportPoints (modGLPoint τ k) (H : Set (ModGL τ k))))

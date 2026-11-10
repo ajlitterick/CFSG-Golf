@@ -14,6 +14,11 @@ set_option maxRecDepth 400000
 
 namespace CertificateChecks.KernelFi22Ax
 
+meta def btM : Array (Array Nat) :=
+  let G := (Array.range 10).map fun k => CFSG.Sporadic.FischerOddCore.fi22ExtArr (11 + k)
+  let Gi := G.map (CFSG.Monster.B.Co2.Native.invCand 3510)
+  CFSG.EvenSporadicStandard.TwoFi22.DS81.axBasWords.map
+    (CFSG.EvenSporadicStandard.TwoFi22.DS81.axWordTab G Gi)
 
 end CertificateChecks.KernelFi22Ax
 

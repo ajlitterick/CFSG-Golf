@@ -92,6 +92,64 @@ theorem distinctKeys_nodup {keys : List ℕ} (h : distinctKeys keys = true) : ke
     List.isChain_iff_pairwise.1 (strictInc_isChain _ h)
   exact hp.nodup_iff.1 (List.Pairwise.imp (fun h' => ne_of_lt h') hsorted)
 
+theorem ctOK_sound {G Gi : Array (Array ℕ)} {root : Array ℕ} {c : ConjCert}
+    (h : ctOK G Gi root c = true) (kk : ℕ → NativeSporadic.Co1)
+    (hk : ∀ l < G.size, matHom (kk l) = rowsMatrix 24 G[l]!)
+    (hki : ∀ l < G.size, mulRows 24 G[l]! Gi[l]! = idRows 24)
+    (s : NativeSporadic.Co1) (hs : matHom s = rowsMatrix 24 root) :
+    ∃ f : ℕ → NativeSporadic.Co1,
+      (∀ i < c.pts.size, (∃ x ∈ Subgroup.closure (kk '' {l | l < G.size}), f i = x * s * x⁻¹) ∧
+        matHom (f i) = rowsMatrix 24 c.pts[i]!) ∧
+      ∀ i < c.pts.size, ∀ j < c.pts.size, f i = f j → i = j := by
+  unfold ctOK at h
+  simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at h
+  obtain ⟨⟨⟨hpos, hroot⟩, hall⟩, hdist⟩ := h
+  have hpt := CFSG.Sporadic.Th.allIn_eq_true.1 hall
+  have hinvmat : ∀ l < G.size, matHom (kk l)⁻¹ = rowsMatrix 24 Gi[l]! := by
+    intro l hl
+    apply matHom_inv_eq
+    rw [hk l hl, ← rowsMatrix_mulRows, hki l hl, rowsMatrix_idRows]
+  have hmain : ∀ i < c.pts.size, ∃ x ∈ Subgroup.closure (kk '' {l | l < G.size}),
+      matHom (x * s * x⁻¹) = rowsMatrix 24 c.pts[i]! := by
+    intro i
+    induction i using Nat.strong_induction_on with
+    | _ i ih =>
+      intro hi
+      have hp := hpt i (Nat.zero_le _) hi
+      simp only [ctPointOK, Bool.and_eq_true, Bool.or_eq_true, beq_iff_eq, decide_eq_true_eq] at hp
+      by_cases hi0 : i = 0
+      · subst hi0
+        refine ⟨1, Subgroup.one_mem _, ?_⟩
+        rw [hroot]
+        simpa using hs
+      · obtain ⟨-, hp2⟩ := hp
+        rcases hp2 with h0 | ⟨⟨hpar, hlab⟩, hconj⟩
+        · exact absurd h0 hi0
+        · obtain ⟨x', hx', hx'e⟩ := ih (c.par[i]!) hpar (by omega)
+          refine ⟨kk (c.lab[i]!) * x', Subgroup.mul_mem _
+            (Subgroup.subset_closure ⟨_, hlab, rfl⟩) hx', ?_⟩
+          rw [hconj, conjRows, rowsMatrix_mulRows, rowsMatrix_mulRows, ← hk _ hlab, ← hx'e,
+            ← hinvmat _ hlab]
+          simp only [map_mul, _root_.mul_inv_rev, Matrix.mul_assoc]
+  choose! x hx using hmain
+  refine ⟨fun i => x i * s * (x i)⁻¹, fun i hi => ⟨⟨x i, (hx i hi).1, rfl⟩, (hx i hi).2⟩, ?_⟩
+  intro i hi j hj hij
+  have hvalid : ∀ i < c.pts.size, validRows c.pts[i]! = true := by
+    intro i hi
+    have hp := hpt i (Nat.zero_le _) hi
+    simp only [ctPointOK, Bool.and_eq_true] at hp
+    exact hp.1
+  have hm : rowsMatrix 24 c.pts[i]! = rowsMatrix 24 c.pts[j]! := by
+    rw [← (hx i hi).2, ← (hx j hj).2]
+    exact congrArg matHom hij
+  have hpe := rowsMatrix_injective_of_valid (hvalid i hi) (hvalid j hj) hm
+  have hnd := distinctKeys_nodup hdist
+  have hlen : (c.pts.toList.map rowsKey).length = c.pts.size := by simp
+  have hgi : (c.pts.toList.map rowsKey)[i]'(hlen ▸ hi) = rowsKey c.pts[i]! := by
+    simp [getElem!_pos c.pts i hi]
+  have hgj : (c.pts.toList.map rowsKey)[j]'(hlen ▸ hj) = rowsKey c.pts[j]! := by
+    simp [getElem!_pos c.pts j hj]
+  exact (List.Nodup.getElem_inj_iff hnd).1 (hgi.trans ((congrArg rowsKey hpe).trans hgj.symm))
 
 theorem countBelow_eq (p : ℕ → Bool) (n acc : ℕ) :
     countBelow p n acc = acc + ((Finset.range n).filter fun i => p i = true).card := by

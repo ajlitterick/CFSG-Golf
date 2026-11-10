@@ -9,6 +9,10 @@ namespace CFSG.KC.McL.Sub
 
 open CFSG.KC CFSG.KC.Bind CFSG.KC.McL
 
+@[expose] noncomputable def constF (v : Nat) : Nat → Nat := fun _ => v
+
+@[expose] noncomputable def patch (f : Nat → Nat) (k v : Nat) : Nat → Nat :=
+  fun i => Bool.rec (motive := fun _ => Nat) (f i) v (Nat.beq i k)
 
 @[expose] noncomputable def pn (v : Nat) : Nat := Nat.land v (nat_lit 65535)
 @[expose] noncomputable def pw (v : Nat) : Nat := Nat.shiftRight v (nat_lit 16)

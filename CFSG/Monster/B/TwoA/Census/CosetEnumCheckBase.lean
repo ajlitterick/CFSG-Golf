@@ -15,6 +15,7 @@ namespace CFSG.Monster.B.TwoA.Census
 
 open CFSG.Monster.B.Rep4371
 
+theorem cosetOrbits_one_length : (cosetOrbits 1).length = 137 := by decide +kernel
 
 theorem classSize_eq : ∀ k < 137, classSize k = if k = 0 ∨ k = 4 then 256 else 512 := by
   decide +kernel
@@ -27,5 +28,7 @@ theorem classEnc_zero : classEnc 0 = 0 := by decide +kernel
 
 theorem classEnc_four : classEnc 4 = 63 := by decide +kernel
 
+theorem cosetOrbits_two : (cosetOrbits 2).map OrbitRecord.rep = [734] ∧
+    (cosetOrbits 2).map OrbitRecord.size = [8192] := by decide +kernel
 
 end CFSG.Monster.B.TwoA.Census

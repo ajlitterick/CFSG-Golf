@@ -149,6 +149,8 @@ theorem coord_psi_comm (v : VL) (l : A) (i : Fin 5)
     rw [this, map_inv, toAdd_inv]
     simp [hgi]
 
+theorem mem_coordSub {i : Fin 5} {g : G} : g ∈ D.coordSub i ↔
+    ∃ hg : g ∈ VL, ((Multiplicative.toAdd (D.ψ ⟨g, hg⟩) : ↥Ev) : Fin 5 → ZMod 2) i = 0 := Iff.rfl
 
 theorem pact_fix_of_normalizes {L V₁ : Subgroup G} (D : RawData5 L K VL) (w' : W5) (hw'1 : w' ≠ 1)
     (hline : ∀ v : VL, (v : G) ∈ V₁ ↔ D.ψ v = 1 ∨ D.ψ v = w') (x : L)
@@ -995,6 +997,8 @@ theorem map_theta_lOne :
     refine ⟨l₁ * l₂, Subgroup.mem_subgroupOf.2 ((lOne L V₁).mul_mem hl₁ hl₂), ?_⟩
     rw [map_mul, hθ₁, hθ₂, hσαβ]
 
+omit [Finite G] in
+theorem U_le_LT : conjClosure V H ≤ L ⊔ T := (S.U_le_T).trans le_sup_right
 
 omit [Finite G] in
 theorem isPGroup_U : IsPGroup 2 (conjClosure V H) := S.hyp.base.isPGroup_T.to_le S.U_le_T
@@ -1064,6 +1068,7 @@ include S
 theorem LU_le_normVL :
     L ⊔ conjClosure V H ≤ Subgroup.normalizer (conjClosure V₁ L : Set G) := S.toCore.LU_le_normVL
 
+theorem LU_le_LT : L ⊔ conjClosure V H ≤ L ⊔ T := S.toCore.LU_le_LT
 
 theorem alpha_mem_range (x : ↥(L ⊔ conjClosure V H)) :
     S.D.alpha ⟨x, S.LU_le_normVL x.2⟩ ∈ pactA.range := S.toCore.alpha_mem_range x
@@ -1080,6 +1085,10 @@ theorem Phi_of_L (a : L) :
 theorem Phi_eq_one_iff (x : ↥(L ⊔ conjClosure V H)) :
     S.Phi x = 1 ↔ (x : G) ∈ pCoreOf 2 (L ⊔ T) := S.toCore.Phi_eq_one_iff x
 
+theorem Phi_of_U {u : G} (hu : u ∈ conjClosure V H) :
+    ∃ σ : A5, σ ∈ K4 ∧
+      S.Phi ⟨u, (le_sup_right : conjClosure V H ≤ L ⊔ conjClosure V H) hu⟩ = σ :=
+  S.toCore.Phi_of_U hu
 
 theorem Phi_surjective : Function.Surjective S.Phi := S.toCore.Phi_surjective
 
@@ -1090,6 +1099,7 @@ theorem theta_mem_A4s_of_normalizer (a : L) (ha : (a : G) ∈ Subgroup.normalize
 theorem map_theta_lOne :
     ((lOne L V₁).subgroupOf L).map S.D.θ = A4s := S.toCore.map_theta_lOne
 
+theorem U_le_LT : conjClosure V H ≤ L ⊔ T := S.toCore.U_le_LT
 
 theorem isPGroup_U : IsPGroup 2 (conjClosure V H) := S.toCore.isPGroup_U
 
@@ -1107,29 +1117,326 @@ theorem betaU_eq_one_iff (u : ↥(conjClosure V H)) :
 
 @[expose] noncomputable def Ubar : Subgroup A5 := S.betaU.range
 
+theorem Ubar_le_K4 : S.Ubar ≤ K4 := S.toCore.Ubar_le_K4
+
+theorem Ubar_ne_bot : S.Ubar ≠ ⊥ := S.toCore.Ubar_ne_bot
+
+theorem Ubar_conj (x : A5) (hx : x ∈ S.Ubar) : c3A * x * c3A⁻¹ ∈ S.Ubar := S.toCore.Ubar_conj x hx
 
 theorem Ubar_eq_K4 : S.Ubar = K4 := S.toCore.Ubar_eq_K4
 
 end A5Setting
 
+theorem isPGroup_le_K4 (X : Subgroup A5) (hX : X ≤ A4s) (hp : IsPGroup 2 X) : X ≤ K4 := by
+  intro x hx
+  obtain ⟨k, hk⟩ := hp ⟨x, hx⟩
+  have hk' : x ^ 2 ^ k = 1 := by simpa using congrArg Subtype.val hk
+  apply mem_K4_of_pow_four x (hX hx)
+  have h12 := A4s_pow_twelve x (hX hx)
+  refine eq_one_of_pow_three_of_pow_two_pow (x := x ^ 4) (k := k) ?_ ?_
+  · rw [← pow_mul]
+    exact h12
+  · rw [← pow_mul, mul_comm, pow_mul, hk', one_pow]
+
+theorem lOne_le_sup_conjClosure (L V₁ V H : Subgroup G) : lOne L V₁ ≤ L ⊔ conjClosure V H :=
+  (oTwoUpper_le _).trans (inf_le_left.trans le_sup_left)
 
 namespace A5SettingCore
 
+variable [Finite G] {V V₁ L T H : Subgroup G} (S : A5SettingCore V V₁ L T H)
+
+include S
+
+theorem star_iso : ∃ e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5,
+    ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x :=
+  secImg_equiv_of_hom S.LU_le_LT S.Phi S.Phi_surjective S.Phi_eq_one_iff
+
+omit [Finite G] in
+theorem Ubar_eq_map : S.Ubar =
+    ((conjClosure V H).subgroupOf (L ⊔ conjClosure V H)).map S.Phi := by
+  ext A
+  constructor
+  · rintro ⟨u, rfl⟩
+    exact ⟨⟨u, (le_sup_right : conjClosure V H ≤ L ⊔ conjClosure V H) u.2⟩,
+      Subgroup.mem_subgroupOf.2 u.2, rfl⟩
+  · rintro ⟨x, hx, rfl⟩
+    exact ⟨⟨x, Subgroup.mem_subgroupOf.1 hx⟩, rfl⟩
+
+omit [Finite G] in
+theorem star_map_eq {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    {X : Subgroup G} (hX : X ≤ L ⊔ conjClosure V H) :
+    ((starImg L T X).subgroupOf (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom =
+      (X.subgroupOf (L ⊔ conjClosure V H)).map S.Phi := by
+  ext A
+  constructor
+  · rintro ⟨y, hy, rfl⟩
+    obtain ⟨x, hxX, hxy⟩ := mem_secImg.1 (Subgroup.mem_subgroupOf.1 hy)
+    have hxLU : (x : G) ∈ L ⊔ conjClosure V H := hX hxX
+    have hyx : y = ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT hxLU⟩,
+        secMk_mem_secImg hxLU⟩ := Subtype.ext hxy.symm
+    refine ⟨⟨x, hxLU⟩, Subgroup.mem_subgroupOf.2 hxX, ?_⟩
+    rw [hyx]
+    exact (he ⟨x, hxLU⟩).symm
+  · rintro ⟨x, hx, rfl⟩
+    have hxX : (x : G) ∈ X := Subgroup.mem_subgroupOf.1 hx
+    refine ⟨⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩,
+      Subgroup.mem_subgroupOf.2 (secMk_mem_secImg hxX), ?_⟩
+    exact he x
+
+theorem star_map_U {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T (conjClosure V H)).subgroupOf
+      (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = K4 := by
+  rw [S.star_map_eq he le_sup_right, ← S.Ubar_eq_map, S.Ubar_eq_K4]
+
+theorem Phi_lOne :
+    ((lOne L V₁).subgroupOf (L ⊔ conjClosure V H)).map S.Phi = A4s := by
+  ext σ
+  constructor
+  · rintro ⟨x, hx, rfl⟩
+    have hx' : (x : G) ∈ L ⊓ Subgroup.normalizer (V₁ : Set G) :=
+      oTwoUpper_le _ (Subgroup.mem_subgroupOf.1 hx)
+    have hxL : (x : G) ∈ L := hx'.1
+    have h1 : S.Phi x = S.D.θ ⟨x, hxL⟩ := S.Phi_of_L ⟨x, hxL⟩
+    rw [h1]
+    exact S.theta_mem_A4s_of_normalizer ⟨x, hxL⟩ hx'.2
+  · intro hσ
+    obtain ⟨α, β, hα, hβ, hα3, hβ3, hσαβ⟩ := A4s_prod_three σ hσ
+    obtain ⟨l₁, hl₁, hθ₁⟩ := S.D.exists_l1_of_odd (le_conjClosure V₁ L) S.D.line α hα hα3
+    obtain ⟨l₂, hl₂, hθ₂⟩ := S.D.exists_l1_of_odd (le_conjClosure V₁ L) S.D.line β hβ hβ3
+    have hl₁₂ : (l₁ : G) * l₂ ∈ lOne L V₁ := (lOne L V₁).mul_mem hl₁ hl₂
+    refine ⟨⟨(l₁ : G) * l₂, (lOne_le_sup_conjClosure L V₁ V H) hl₁₂⟩, Subgroup.mem_subgroupOf.2 hl₁₂, ?_⟩
+    have h1 : (⟨(l₁ : G) * l₂, (lOne_le_sup_conjClosure L V₁ V H) hl₁₂⟩ : ↥(L ⊔ conjClosure V H)) =
+        ⟨l₁, (le_sup_left : L ≤ L ⊔ conjClosure V H) l₁.2⟩ *
+          ⟨l₂, (le_sup_left : L ≤ L ⊔ conjClosure V H) l₂.2⟩ := rfl
+    rw [h1, map_mul, S.Phi_of_L l₁, S.Phi_of_L l₂, hθ₁, hθ₂, hσαβ]
+
+theorem star_map_lOne {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T (lOne L V₁)).subgroupOf
+      (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = A4s := by
+  rw [S.star_map_eq he (lOne_le_sup_conjClosure L V₁ V H), S.Phi_lOne]
+
+omit [Finite G] in
+theorem star_map_L {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T L).subgroupOf (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = ⊤ := by
+  rw [S.star_map_eq he le_sup_left, eq_top_iff]
+  intro A _
+  obtain ⟨a, rfl⟩ := S.D.surj A
+  exact ⟨⟨a, (le_sup_left : L ≤ L ⊔ conjClosure V H) a.2⟩,
+    Subgroup.mem_subgroupOf.2 a.2, S.Phi_of_L a⟩
+
+theorem mem_star_U_iff {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    (y : ↥(starImg L T (L ⊔ conjClosure V H))) :
+    (y : SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T))) ∈ starImg L T (conjClosure V H) ↔ e y ∈ K4 := by
+  rw [← S.star_map_U he]
+  constructor
+  · intro hy
+    exact ⟨y, Subgroup.mem_subgroupOf.2 hy, rfl⟩
+  · rintro ⟨y', hy', hyy⟩
+    have : y' = y := e.injective hyy
+    rw [← this]
+    exact Subgroup.mem_subgroupOf.1 hy'
+
+theorem mem_star_lOne_iff {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    (y : ↥(starImg L T (L ⊔ conjClosure V H))) :
+    (y : SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T))) ∈ starImg L T (lOne L V₁) ↔ e y ∈ A4s := by
+  rw [← S.star_map_lOne he]
+  constructor
+  · intro hy
+    exact ⟨y, Subgroup.mem_subgroupOf.2 hy, rfl⟩
+  · rintro ⟨y', hy', hyy⟩
+    have : y' = y := e.injective hyy
+    rw [← this]
+    exact Subgroup.mem_subgroupOf.1 hy'
+
+theorem star_U_eq : starImg L T (conjClosure V H) =
+    pCoreOf 2 (starImg L T (lOne L V₁)) := by
+  obtain ⟨e, he⟩ := S.star_iso
+  have hUY : starImg L T (conjClosure V H) ≤ starImg L T (L ⊔ conjClosure V H) :=
+    secImg_mono le_sup_right
+  have hNY : starImg L T (lOne L V₁) ≤ starImg L T (L ⊔ conjClosure V H) :=
+    secImg_mono (lOne_le_sup_conjClosure L V₁ V H)
+  apply le_antisymm
+  ·
+    have hUN : starImg L T (conjClosure V H) ≤ starImg L T (lOne L V₁) := by
+      intro z hz
+      exact (S.mem_star_lOne_iff he ⟨z, hUY hz⟩).2
+        (K4_le_A4s ((S.mem_star_U_iff he ⟨z, hUY hz⟩).1 hz))
+    have key : ∀ m ∈ starImg L T (lOne L V₁), ∀ z ∈ starImg L T (conjClosure V H),
+        m * z * m⁻¹ ∈ starImg L T (conjClosure V H) := by
+      intro m hm z hz
+      have hmY := hNY hm
+      have hzY := hUY hz
+      have hw : m * z * m⁻¹ ∈ starImg L T (L ⊔ conjClosure V H) :=
+        Subgroup.mul_mem _ (Subgroup.mul_mem _ hmY hzY) (Subgroup.inv_mem _ hmY)
+      have h1 : e ⟨m * z * m⁻¹, hw⟩ = e ⟨m, hmY⟩ * e ⟨z, hzY⟩ * (e ⟨m, hmY⟩)⁻¹ := by
+        rw [← map_inv, ← map_mul, ← map_mul]
+        rfl
+      apply (S.mem_star_U_iff he ⟨m * z * m⁻¹, hw⟩).2
+      rw [h1]
+      exact K4_norm _ ((S.mem_star_lOne_iff he ⟨m, hmY⟩).1 hm) _
+        ((S.mem_star_U_iff he ⟨z, hzY⟩).1 hz)
+    have hnorm : starImg L T (lOne L V₁) ≤
+        Subgroup.normalizer (starImg L T (conjClosure V H) :
+          Set (SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T)))) := by
+      intro m hm
+      rw [Subgroup.mem_normalizer_iff]
+      intro z
+      refine ⟨fun hz => key m hm z hz, fun hz => ?_⟩
+      have := key m⁻¹ (Subgroup.inv_mem _ hm) _ hz
+      simpa [mul_assoc] using this
+    exact le_pCoreOf_of_le_normalizer 2 hUN hnorm (isPGroup_secImg S.U_le_LT S.isPGroup_U)
+  ·
+    set Z := pCoreOf 2 (starImg L T (lOne L V₁)) with hZ
+    have hZN : Z ≤ starImg L T (lOne L V₁) := pCoreOf_le 2 _
+    have hZY : Z ≤ starImg L T (L ⊔ conjClosure V H) := hZN.trans hNY
+    let Z' : Subgroup A5 := (Z.subgroupOf (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom
+    have hZ'A : Z' ≤ A4s := by
+      rintro _ ⟨z, hz, rfl⟩
+      exact (S.mem_star_lOne_iff he z).1 (hZN (Subgroup.mem_subgroupOf.1 hz))
+    have hZ'p : IsPGroup 2 Z' :=
+      ((pCoreOf_isPGroup 2 _).of_equiv (Subgroup.subgroupOfEquivOfLe hZY).symm).map e.toMonoidHom
+    have hle := isPGroup_le_K4 Z' hZ'A hZ'p
+    intro z hz
+    have hzY : z ∈ starImg L T (L ⊔ conjClosure V H) := hZY hz
+    have : e ⟨z, hzY⟩ ∈ Z' := ⟨⟨z, hzY⟩, Subgroup.mem_subgroupOf.2 hz, rfl⟩
+    exact (S.mem_star_U_iff he ⟨z, hzY⟩).2 (hle this)
+
+theorem star_L_eq : starImg L T L = starImg L T (L ⊔ conjClosure V H) := by
+  obtain ⟨e, he⟩ := S.star_iso
+  apply le_antisymm (secImg_mono le_sup_left)
+  intro z hz
+  have h1 := S.star_map_L he
+  have h2 : e ⟨z, hz⟩ ∈ ((starImg L T L).subgroupOf (starImg L T (L ⊔ conjClosure V H))).map
+      e.toMonoidHom := by
+    rw [h1]
+    exact Subgroup.mem_top _
+  obtain ⟨y, hy, hyz⟩ := h2
+  have hyz' : y = ⟨z, hz⟩ := e.injective hyz
+  have h3 : (y : SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T))) ∈ starImg L T L :=
+    Subgroup.mem_subgroupOf.1 hy
+  rw [hyz'] at h3
+  exact h3
+
+theorem star_sylow :
+    IsSylowTwoOf (starImg L T (conjClosure V H)) (starImg L T L) := by
+  rw [S.star_L_eq]
+  obtain ⟨e, he⟩ := S.star_iso
+  refine ⟨secImg_mono le_sup_right, isPGroup_secImg S.U_le_LT S.isPGroup_U, ?_⟩
+  set P' : Subgroup ↥(starImg L T (L ⊔ conjClosure V H)) :=
+    (starImg L T (conjClosure V H)).subgroupOf (starImg L T (L ⊔ conjClosure V H)) with hP'
+  have hmap : P'.map e.toMonoidHom = K4 := S.star_map_U he
+  have h1 : (P'.map e.toMonoidHom).index = P'.index := Subgroup.index_map_equiv P' e
+  rw [hmap] at h1
+  change ¬ 2 ∣ P'.index
+  rw [← h1]
+  exact K4_index_odd
 
 end A5SettingCore
 
 namespace A5Setting
 
+variable [Finite G] {V V₁ L T H : Subgroup G} (S : A5Setting V V₁ L T H)
+
+include S
+
+theorem star_iso : ∃ e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5,
+    ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x :=
+  S.toCore.star_iso
+
+theorem Ubar_eq_map : S.Ubar =
+    ((conjClosure V H).subgroupOf (L ⊔ conjClosure V H)).map S.Phi := S.toCore.Ubar_eq_map
+
+theorem star_map_eq {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    {X : Subgroup G} (hX : X ≤ L ⊔ conjClosure V H) :
+    ((starImg L T X).subgroupOf (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom =
+      (X.subgroupOf (L ⊔ conjClosure V H)).map S.Phi := S.toCore.star_map_eq he hX
+
+theorem star_map_U {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T (conjClosure V H)).subgroupOf
+      (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = K4 := S.toCore.star_map_U he
+
+theorem Phi_lOne :
+    ((lOne L V₁).subgroupOf (L ⊔ conjClosure V H)).map S.Phi = A4s := S.toCore.Phi_lOne
+
+theorem star_map_lOne {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T (lOne L V₁)).subgroupOf
+      (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = A4s := S.toCore.star_map_lOne he
+
+theorem star_map_L {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x) :
+    ((starImg L T L).subgroupOf (starImg L T (L ⊔ conjClosure V H))).map e.toMonoidHom = ⊤ :=
+  S.toCore.star_map_L he
+
+theorem mem_star_U_iff {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    (y : ↥(starImg L T (L ⊔ conjClosure V H))) :
+    (y : SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T))) ∈ starImg L T (conjClosure V H) ↔ e y ∈ K4 :=
+  S.toCore.mem_star_U_iff he y
+
+theorem mem_star_lOne_iff {e : ↥(starImg L T (L ⊔ conjClosure V H)) ≃* A5}
+    (he : ∀ x : ↥(L ⊔ conjClosure V H),
+      e ⟨secMk (L ⊔ T) (pCoreOf 2 (L ⊔ T)) ⟨x, S.LU_le_LT x.2⟩, secMk_mem_secImg x.2⟩ = S.Phi x)
+    (y : ↥(starImg L T (L ⊔ conjClosure V H))) :
+    (y : SecQuot (L ⊔ T) (pCoreOf 2 (L ⊔ T))) ∈ starImg L T (lOne L V₁) ↔ e y ∈ A4s :=
+  S.toCore.mem_star_lOne_iff he y
+
+theorem star_U_eq : starImg L T (conjClosure V H) =
+    pCoreOf 2 (starImg L T (lOne L V₁)) := S.toCore.star_U_eq
+
+theorem star_L_eq : starImg L T L = starImg L T (L ⊔ conjClosure V H) := S.toCore.star_L_eq
+
+theorem star_sylow :
+    IsSylowTwoOf (starImg L T (conjClosure V H)) (starImg L T L) := S.toCore.star_sylow
 
 end A5Setting
 
 namespace AlmostSpecialA5Core
 
+variable [Finite G] {V V₁ L T H : Subgroup G} (hyp : AlmostSpecialA5Core V V₁ L T H)
+
+include hyp
+
+theorem G24_one :
+    starImg L T (conjClosure V H) = pCoreOf 2 (starImg L T (lOne L V₁)) ∧
+      IsSylowTwoOf (starImg L T (conjClosure V H)) (starImg L T L) := by
+  obtain ⟨D⟩ := hyp.natural.nonempty_natData5 hyp.base.le_V (le_conjClosure V₁ L) hyp.card_V₁
+    hyp.V_eq
+  let S : A5SettingCore V V₁ L T H := ⟨hyp, D⟩
+  exact ⟨S.star_U_eq, S.star_sylow⟩
 
 end AlmostSpecialA5Core
 
 namespace AlmostSpecialA5Hyp
 
+variable [Finite G] {V V₁ L T H : Subgroup G} (hyp : AlmostSpecialA5Hyp V V₁ L T H)
+
+include hyp
+
+theorem G24_one :
+    starImg L T (conjClosure V H) = pCoreOf 2 (starImg L T (lOne L V₁)) ∧
+      IsSylowTwoOf (starImg L T (conjClosure V H)) (starImg L T L) := hyp.toCore.G24_one
 
 end AlmostSpecialA5Hyp
 

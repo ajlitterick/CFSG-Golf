@@ -85,5 +85,8 @@ open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.FischerOddCore CFSG.Monster.B.Fisc
     zOK 3510 siftP uT (tT 2) (zT 2) && zOK 3510 siftP uT (tT 3) (tT 3) &&
     zOK 3510 siftP uT (tT 4) (tT 4) && zOK 3510 siftP uT (tT 5) (tT 5)
 
+@[expose] def foursData : Bool :=
+  foursWitOK 3510 siftP (lT 3) (tT 3) && foursWitOK 3510 siftP (lT 4) (tT 4) &&
+    foursWitOK 3510 siftP (lT 5) (tT 5)
 
 end CFSG.EvenSporadicStandard.HypOne.Fi22

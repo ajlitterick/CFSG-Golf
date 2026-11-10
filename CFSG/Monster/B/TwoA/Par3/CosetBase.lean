@@ -171,6 +171,9 @@ theorem closure_eq_E4 :
 instance isElementaryAbelian_E4 :
     CFSG.IsElementaryAbelian 2 E4 := isElementaryAbelian_EU qV_U4
 
+theorem natCard_E4 :
+    Nat.card E4 = 16 := by
+  rw [E4, natCard_EU, natCard_U4]
 
 @[expose] def cE3 : Set Dfull := {d | ∃ e ∈ E3, cQ * e = d}
 

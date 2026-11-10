@@ -11,6 +11,31 @@ open CFSG.Monster.B.Recog CFSG.Monster.B.Recog.IndexTwo
 
 variable {A E G : Type*} [Group A] [Group E] [Group G]
 
+theorem exists_conj_mulEquiv (ι : A →* E) (hι : Function.Injective ι) (h2 : ι.range.index = 2)
+    (s : E) : ∃ σ : A ≃* A, ∀ a, s * ι a * s⁻¹ = ι (σ a) := by
+  have hN : ι.range.Normal := Subgroup.normal_of_index_eq_two h2
+  have hmem : ∀ (g : E) (a : A), g * ι a * g⁻¹ ∈ ι.range := fun g a =>
+    hN.conj_mem _ ⟨a, rfl⟩ g
+  let σf : E → A → A := fun g a => Classical.choose (hmem g a)
+  have hσf : ∀ g a, ι (σf g a) = g * ι a * g⁻¹ := fun g a => Classical.choose_spec (hmem g a)
+  have hl : ∀ a, σf s⁻¹ (σf s a) = a := fun a => hι (by
+    simp only [hσf]
+    group)
+  have hr : ∀ a, σf s (σf s⁻¹ a) = a := fun a => hι (by
+    simp only [hσf]
+    group)
+  have hm : ∀ a b, σf s (a * b) = σf s a * σf s b := fun a b => hι (by
+    simp only [hσf, map_mul]
+    group)
+  exact ⟨{ toFun := σf s, invFun := σf s⁻¹, left_inv := hl, right_inv := hr, map_mul' := hm },
+    fun a => (hσf s a).symm⟩
+
+theorem hom_ext_of_index_two (ι : A →* E) (h2 : ι.range.index = 2) {s : E} (hs : s ∉ ι.range)
+    {f g : E →* G} (hA : ∀ a, f (ι a) = g (ι a)) (hs' : f s = g s) : f = g := by
+  ext x
+  rcases eq_or_eq_mul ι h2 hs x with ⟨a, rfl⟩ | ⟨a, rfl⟩
+  · exact hA a
+  · rw [map_mul, map_mul, hA, hs']
 
 theorem exists_hom_of_index_two_of_norm (ι : A →* E) (hι : Function.Injective ι)
     (h2 : ι.range.index = 2) {s : E} (hs : s ∉ ι.range) (σ : A ≃* A)
@@ -76,5 +101,14 @@ theorem exists_hom_of_index_two (ι : A →* E) (hι : Function.Injective ι)
   refine ⟨f, hf, d, hd, ?_⟩
   rw [hfs, ht₁, mul_assoc, ← map_mul]
 
+theorem exists_hom_of_index_two' (ι : A →* E) (hι : Function.Injective ι)
+    (h2 : ι.range.index = 2) {s : E} (hs : s ∉ ι.range) (σ : A ≃* A)
+    (hσ : ∀ a, s * ι a * s⁻¹ = ι (σ a)) (θ : A →* G) (hθ : Function.Injective θ) (t : G)
+    (ht : ∀ a, t * θ a * t⁻¹ = θ (σ a)) (ht2 : t * t ∈ θ.range)
+    (hnorm : ∀ c ∈ Subgroup.center A, σ c = c → ∃ d ∈ Subgroup.center A, c = d * σ d) :
+    ∃ f : E →* G, (∀ a, f (ι a) = θ a) ∧ ∃ d ∈ Subgroup.center A, f s = t * θ d := by
+  obtain ⟨f, hf, d, hd, hfs⟩ := exists_hom_of_index_two ι hι h2 hs σ hσ θ hθ t 1
+    (fun a => by simpa using ht a) ht2 hnorm
+  exact ⟨f, hf, d, hd, by rw [hfs, inv_one, one_mul]⟩
 
 end CFSG.Monster.B.GSide

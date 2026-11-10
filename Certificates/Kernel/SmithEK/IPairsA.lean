@@ -17,5 +17,8 @@ namespace CertificateChecks.KernelSmithEK
 
 open CFSG.SmithE.K
 
+theorem c21107neg_pair : pairI (wBits wd.W ||| 1) (pts.L.getD 0 0) (spanM (bs.L.getD 0 []))
+    (pts.L.getD 1 0) (spanM (bs.L.getD 0 [])) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSmithEK

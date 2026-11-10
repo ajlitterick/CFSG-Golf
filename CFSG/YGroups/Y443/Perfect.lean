@@ -68,5 +68,14 @@ theorem y443_derived_commutator_eq :
 theorem y443_derived_isPerfect : Group.IsPerfect MonsterY443Derived :=
   Subgroup.isPerfect_iff.2 y443_derived_commutator_eq
 
+theorem y443_derived_commutator_eq_top : commutator MonsterY443Derived = ⊤ :=
+  Group.isPerfect_def.1 y443_derived_isPerfect
+
+theorem y443_derived_hom_trivial {A : Type*} [CommGroup A] (f : MonsterY443Derived →* A) :
+    f = 1 := by
+  have h := Abelianization.commutator_subset_ker f
+  rw [y443_derived_commutator_eq_top] at h
+  ext x
+  exact MonoidHom.mem_ker.1 (h (Subgroup.mem_top x))
 
 end CFSG.YGroups

@@ -48,6 +48,10 @@ theorem refineIterT_inv {col : Array ℕ} (hc : ColInv 1782 col σ) :
 
 end Inv
 
+theorem getElem!_set!_eq {col : Array ℕ} {p x : ℕ} (hp : p < col.size) :
+    (col.set! p x)[p]! = x := by
+  rw [getElem!_pos _ p (by simpa using hp)]
+  simp [Array.set!]
 
 theorem getElem!_set!_ne {col : Array ℕ} {p q x : ℕ} (hq : q < col.size) (hpq : p ≠ q) :
     (col.set! p x)[q]! = col[q]! := by

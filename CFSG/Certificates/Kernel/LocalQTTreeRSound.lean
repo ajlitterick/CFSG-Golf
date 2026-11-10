@@ -104,6 +104,26 @@ theorem nodeCheck_congr {N : ℕ} {m1 m2 : ℕ → ℕ → ℕ} (h0 : 0 < N)
 theorem mulIdx_zero (g gi : ℕ) (par cl : Array ℕ) (f k : ℕ) : mulIdx g gi par cl f 0 k = k := by
   cases f <;> simp [mulIdx]
 
+theorem mulT_zero (W g N : ℕ) (PT CT : ℕ → ℕ) (k : ℕ) : mulT W g N PT CT 0 k = k := by
+  cases N <;> rfl
+
+theorem cen_of_cenR {W g N zi K L : ℕ} {PT CT : ℕ → ℕ} (hKL : N ≤ K * L)
+    (hc : ∀ c < K, cenR W g N zi PT CT (c * L) L = true) :
+    ∀ i < N, mulT W g N PT CT zi i = mulT W g N PT CT i zi := by
+  intro i hi
+  have hL : 0 < L := by
+    rcases Nat.eq_zero_or_pos L with h | h
+    · rw [h, Nat.mul_zero] at hKL
+      omega
+    · exact h
+  have hcK : i / L < K := by
+    rw [Nat.div_lt_iff_lt_mul hL]
+    omega
+  have hci := hc _ hcK
+  rw [cenR] at hci
+  have := allR_true hci (i % L) (Nat.mod_lt _ hL)
+  rw [Nat.div_add_mod'] at this
+  exact P.beq_iff.1 this
 
 theorem cen_of_cayley {Γ : Type} [Group Γ] {N g gi : ℕ} {par cl : Array ℕ} {gens : List Γ}
     {ι : ℕ → Γ} (h : Cayley N g gi par cl gens ι) {zi : ℕ} (hzi : zi < N)

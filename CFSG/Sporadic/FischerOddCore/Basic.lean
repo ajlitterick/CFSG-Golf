@@ -22,6 +22,9 @@ variable {G H : Type*} [Group G] [Group H]
   right_inv g := Subtype.ext (e.apply_symm_apply (g : H))
   map_mul' g h := Subtype.ext (map_mul e (g : G) h)
 
+theorem coe_centralizerMulEquiv (e : G ≃* H) (x : G) (g : Subgroup.centralizer ({x} : Set G)) :
+    ((centralizerMulEquiv e x g : Subgroup.centralizer ({e x} : Set H)) : H) = e g :=
+  rfl
 
 theorem oddCore_centralizer_eq_bot_of_mulEquiv (e : G ≃* H) {x : G}
     (h : CFSG.oddCore (Subgroup.centralizer ({x} : Set G)) = ⊥) :

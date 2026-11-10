@@ -112,6 +112,27 @@ theorem MaximalTwoComponentInputTyped.base (h : MaximalTwoComponentInputTyped) :
   fun G _ _ _ hsF hnF hoF hK J hJ h2 hSp htype =>
     h G hsF hnF hoF hK J hJ h2 hSp (htype.imp_left And.left)
 
+@[expose] def MaximalTwoComponentInputAll : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G],
+    IsSimpleGroup (GeneralizedFitting.subgroup G) →
+    (∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a) →
+    ¬ Blueprint.OddLieType (GeneralizedFitting.subgroup G) →
+    Assembly.KProper Blueprint.Catalog G →
+    ∀ J : Subgroup G, GSWeakMaximalComponent J → 2 ≤ pRank 2 ↥J →
+    (¬ ∃ (K : Type) (_ : Field K) (_ : Finite K), Odd (Nat.card K) ∧
+        Nonempty (J ⧸ Open.fusionZStar J ≃*
+          Assembly.LowTwoRank.StatedProj (Assembly.LowTwoRank.StatedSp 2 K))) →
+    ∀ t : G, orderOf t = 2 → J ≤ centralizer ({t} : Set G) →
+      (⨆ (g : G) (_ : conjugate J g ≤ centralizer ({t} : Set G)), conjugate J g) ≤
+          (pPrimeCore 2 (centralizer ({t} : Set G))).map (centralizer ({t} : Set G)).subtype ⊔
+            J ∧
+      (3 ≤ pRank 2 ↥J → ∀ g : G, ¬ ⁅J, conjugate J g⁆ ≤
+        (pPrimeCore 2 J).map J.subtype ⊓
+          (pPrimeCore 2 (conjugate J g)).map (conjugate J g).subtype)
+
+theorem MaximalTwoComponentInputAll.typed (h : MaximalTwoComponentInputAll) :
+    MaximalTwoComponentInput :=
+  fun G _ _ _ hsF hnF hoF hK J hJ h2 hSp _ => h G hsF hnF hoF hK J hJ h2 hSp
 
 @[expose] def SolomonCommutingCoreInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (S T : Subgroup G), S ≠ ⊥ → T ≠ ⊥ →
@@ -162,6 +183,14 @@ theorem MaximalTwoComponentInputTyped.base (h : MaximalTwoComponentInputTyped) :
       Nonempty ((S : Subgroup G) ≃* (T : Subgroup Blueprint.NativeSporadic.HS)) →
       Nonempty (G ≃* Blueprint.NativeSporadic.HS)
 
+@[expose] def HoltTransitiveInput : Prop :=
+  ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup (GeneralizedFitting.subgroup G) →
+    (∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a) →
+    ∀ (Ω : Type) [MulAction G Ω] [Finite Ω], MulAction.IsPretransitive G Ω → 2 ≤ Nat.card Ω →
+      ∀ t : G, orderOf t = 2 → Odd (centralizer ({t} : Set G)).index →
+        (∃ ω : Ω, ∀ ω' : Ω, t • ω' = ω' ↔ ω' = ω) →
+        ∀ L : Subgroup G, L ≤ centralizer ({t} : Set G) →
+          ¬ IsPComponent 2 (L.subgroupOf (centralizer ({t} : Set G)))
 
 @[expose] def GoldschmidtStronglyClosedInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup (GeneralizedFitting.subgroup G) →

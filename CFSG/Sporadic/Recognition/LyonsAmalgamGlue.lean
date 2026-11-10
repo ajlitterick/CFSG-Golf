@@ -163,6 +163,97 @@ theorem borelPhiT_borelTx (φ : ↥(NormX x₁) ≃* Ly0.B0)
   rw [h1, h3]
   exact M.ιT_tx i
 
+@[expose] noncomputable def borelCD (φ : ↥(NormX x₁) ≃* Ly0.B0) (k : ℕ) : G :=
+  ((φ.symm (if k = 0 then Ly0.cB else Ly0.dB) : ↥(NormX x₁)) : G)
+
+theorem letterG_mem_B0 {l : ℤ} (hl : l ≠ 0 ∧ l.natAbs ≤ 2) :
+    Ly0.letterG Ly0.gens0 l ∈ Ly0.B0 := by
+  have := Ly0.wG_mem Ly0.B0 Ly0.gens0 2 Ly0.gens0_mem [l] (by simpa using hl)
+  simpa using this
+
+theorem borel_letter (φ : ↥(NormX x₁) ≃* Ly0.B0) {l : ℤ} (hl : l ≠ 0 ∧ l.natAbs ≤ 2) :
+    ((φ.symm ⟨Ly0.letterG Ly0.gens0 l, letterG_mem_B0 hl⟩ : ↥(NormX x₁)) : G) =
+      wordLetter (borelCD φ) l := by
+  unfold wordLetter
+  by_cases hpos : 0 < l
+  · have e1 : (l - 1).toNat = l.toNat - 1 := by omega
+    have e : (⟨Ly0.letterG Ly0.gens0 l, letterG_mem_B0 hl⟩ : Ly0.B0) =
+        if l.toNat - 1 = 0 then Ly0.cB else Ly0.dB := by
+      apply Subtype.ext
+      show Ly0.letterG Ly0.gens0 l =
+        ((if l.toNat - 1 = 0 then Ly0.cB else Ly0.dB : Ly0.B0) : Perm (Fin Ly0.deg))
+      rw [Ly0.letterG_pos _ hpos, e1]
+      split_ifs with h0
+      · rw [h0, Ly0.gens0_zero]
+        rfl
+      · have h1 : l.toNat - 1 = 1 := by omega
+        rw [h1, Ly0.gens0_one]
+        rfl
+    rw [e]
+    simp only [hpos, ite_true]
+    rfl
+  · have e1 : (-l - 1).toNat = (-l).toNat - 1 := by omega
+    have e : (⟨Ly0.letterG Ly0.gens0 l, letterG_mem_B0 hl⟩ : Ly0.B0) =
+        (if (-l).toNat - 1 = 0 then Ly0.cB else Ly0.dB)⁻¹ := by
+      apply Subtype.ext
+      show Ly0.letterG Ly0.gens0 l =
+        (((if (-l).toNat - 1 = 0 then Ly0.cB else Ly0.dB : Ly0.B0)⁻¹ : Ly0.B0) :
+          Perm (Fin Ly0.deg))
+      rw [Ly0.letterG_neg_of _ hpos, e1]
+      split_ifs with h0
+      · rw [h0, Ly0.gens0_zero]
+        rfl
+      · have h1 : (-l).toNat - 1 = 1 := by omega
+        rw [h1, Ly0.gens0_one]
+        rfl
+    rw [e, map_inv]
+    simp only [hpos, ite_false]
+    rfl
+
+theorem borel_word (φ : ↥(NormX x₁) ≃* Ly0.B0) (w : List ℤ)
+    (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 2) (hmem : Ly0.wG Ly0.gens0 w ∈ Ly0.B0) :
+    ((φ.symm ⟨Ly0.wG Ly0.gens0 w, hmem⟩ : ↥(NormX x₁)) : G) =
+      wordG (wordLetter (borelCD φ)) w := by
+  induction w with
+  | nil =>
+    have : (⟨Ly0.wG Ly0.gens0 [], hmem⟩ : Ly0.B0) = 1 := Subtype.ext (by simp)
+    rw [this, map_one]
+    rfl
+  | cons l w ih =>
+    have hl := hw l (List.mem_cons_self ..)
+    have hw' : ∀ l' ∈ w, l' ≠ 0 ∧ l'.natAbs ≤ 2 := fun l' hl' =>
+      hw l' (List.mem_cons_of_mem _ hl')
+    have hmem' : Ly0.wG Ly0.gens0 w ∈ Ly0.B0 :=
+      Ly0.wG_mem Ly0.B0 Ly0.gens0 2 Ly0.gens0_mem w hw'
+    have e : (⟨Ly0.wG Ly0.gens0 (l :: w), hmem⟩ : Ly0.B0) =
+        ⟨Ly0.letterG Ly0.gens0 l, letterG_mem_B0 hl⟩ * ⟨Ly0.wG Ly0.gens0 w, hmem'⟩ :=
+      Subtype.ext (by simp)
+    have e2 : wordG (wordLetter (borelCD φ)) (l :: w) =
+        wordLetter (borelCD φ) l * wordG (wordLetter (borelCD φ)) w := rfl
+    rw [e, map_mul, Subgroup.coe_mul, ih hw' hmem', e2, borel_letter φ hl]
+
+theorem borelU_eq (φ : ↥(NormX x₁) ≃* Ly0.B0) {i : ℕ} (hi : i < 4) :
+    borelU φ i = wordG (wordLetter (borelCD φ)) (Ly0.uWords.getD i []) := by
+  have hmem : Ly0.wG Ly0.gens0 (Ly0.uWords.getD i []) ∈ Ly0.B0 :=
+    Ly0.wG_mem Ly0.B0 Ly0.gens0 2 Ly0.gens0_mem _ (Ly0.uWords_mem i hi)
+  have h := borel_word (G := G) φ (Ly0.uWords.getD i []) (Ly0.uWords_mem i hi) hmem
+  rw [← h]
+  have e : Ly0.uB i = ⟨Ly0.wG Ly0.gens0 (Ly0.uWords.getD i []), hmem⟩ :=
+    Subtype.ext (Ly0.uG_def i)
+  unfold borelU
+  rw [e]
+
+theorem borelTx_eq (φ : ↥(NormX x₁) ≃* Ly0.B0) (M : ModelGlue) (i : Fin 4) :
+    borelTx φ M i = wordG (wordLetter (borelCD φ)) (M.txW i) := by
+  have hmem : Ly0.wG Ly0.gens0 (M.txW i) ∈ Ly0.B0 := by
+    rw [← M.tx_val i]
+    exact ((M.tx i : ↥Ly0.Tx) : Ly0.B0).2
+  have h := borel_word (G := G) φ (M.txW i) (M.txW_range i) hmem
+  rw [← h]
+  have e : (((M.tx i : ↥Ly0.Tx) : Ly0.B0)) = ⟨Ly0.wG Ly0.gens0 (M.txW i), hmem⟩ :=
+    Subtype.ext (M.tx_val i)
+  unfold borelTx
+  rw [e]
 
 end Generators
 

@@ -69,6 +69,10 @@ theorem map_conj_inf_centralizer {K : Subgroup G} {c g : G} (hc : c ∈ K) :
     · rw [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
       group
 
+theorem commutator_eq_of_map {N L M : Subgroup G} {c : G}
+    (hN : N.map (MulAut.conj c).toMonoidHom = N) (hM : L.map (MulAut.conj c).toMonoidHom = M)
+    (h : ⁅N, L⁆ = N) : ⁅N, M⁆ = N := by
+  rw [← hM, ← hN, ← Subgroup.map_commutator, h]
 
 end Generic
 
@@ -83,5 +87,6 @@ theorem mem_centralizer_of_conj_eq {k g : J} (h : k * g * k⁻¹ = g) :
   calc k * g = k * g * k⁻¹ * k := by group
     _ = g * k := by rw [h]
 
+theorem commPicks_lt : ∀ p ∈ commPicks, p.2 < 8 := by decide
 
 end CFSG.Sporadic.J4Schreier

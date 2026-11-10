@@ -24,6 +24,7 @@ open Certificates.Kernel.AS91K468 CFSG.KD.AS91K46
 
 #kc_each CertificateChecks.KernelAS91K468 ch89406_b4_ (fun i => jAll2 pfL (chunkL 20 i (fk 4))) 0 1
 
+theorem ch89406_b_neg : (!jFQ (pfL ++ pfL) w1M w1M) = true := by quickRfl
 
 end CertificateChecks.KernelAS91K468
 

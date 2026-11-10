@@ -324,6 +324,9 @@ theorem pow_dvd_relIndex_of [Finite G] {X N₁ N₂ : Subgroup G} {k d : ℕ}
   rw [← Subgroup.relIndex_mul_relIndex N₁ _ _ (h1.trans hc.1.le) h2]
   exact Dvd.dvd.mul_right (key k (Nat.lt_succ_self k)) _
 
+theorem four_pow_dvd_relIndex [Finite G] {X N₁ N₂ : Subgroup G} {k : ℕ}
+    (h : HasNCBetween X N₁ N₂ k) : 4 ^ k ∣ N₁.relIndex N₂ :=
+  pow_dvd_relIndex_of (fun _ _ hc hn _ _ => four_dvd_relIndex hc hn) h
 
 theorem ncAtMost_of_relIndex_lt_pow [Finite G] {X N₁ N₂ : Subgroup G} {c d : ℕ}
     (hd : ∀ A B : Subgroup G, IsTwoChiefFactor X A B → ¬ ⁅A, X⁆ ≤ B → N₁ ≤ B → A ≤ N₂ →
@@ -338,5 +341,97 @@ theorem ncAtMost_of_relIndex_lt [Finite G] {X N₁ N₂ : Subgroup G} {c : ℕ}
     (h : N₁.relIndex N₂ < 4 ^ (c + 1)) : NCAtMost X N₁ N₂ c :=
   ncAtMost_of_relIndex_lt_pow (fun _ _ hc hn _ _ => four_dvd_relIndex hc hn) h
 
+theorem exists_ker_section [Finite G] {X A B : Subgroup G}
+    (hAB : A ≤ Subgroup.normalizer (B : Set G)) (hXA : X ≤ Subgroup.normalizer (A : Set G))
+    (hXB : X ≤ Subgroup.normalizer (B : Set G)) :
+    ∃ C : Subgroup G, C ≤ X ∧ X ≤ Subgroup.normalizer (C : Set G) ∧
+      (∀ x ∈ X, x ∈ C ↔ ∀ a ∈ A, ⁅a, x⁆ ∈ B) ∧ C.relIndex X ∣ (B.relIndex A).factorial := by
+  classical
+  have : (B.subgroupOf A).Normal := Subgroup.normal_subgroupOf_of_le_normalizer hAB
+  let c : ↥X →* MulAut ↥A := A.normalizerMonoidHom.comp (Subgroup.inclusion hXA)
+  have hcx : ∀ (x : ↥X) (a : ↥A), ((c x a : ↥A) : G) = (x : G) * a * (x : G)⁻¹ :=
+    fun _ _ => rfl
+  have hmemB : ∀ (x : ↥X) (a : ↥A), (c x a : ↥A) ∈ B.subgroupOf A ↔ a ∈ B.subgroupOf A := by
+    intro x a
+    rw [Subgroup.mem_subgroupOf, Subgroup.mem_subgroupOf, hcx]
+    exact (Subgroup.mem_normalizer_iff.mp (hXB x.2) a).symm
+  have hc : ∀ x : ↥X, (B.subgroupOf A).map (c x : ↥A →* ↥A) = B.subgroupOf A := by
+    intro x
+    ext a
+    constructor
+    · rintro ⟨b, hb, rfl⟩
+      exact (hmemB x b).mpr hb
+    · intro ha
+      refine ⟨(c x).symm a, ?_, (c x).apply_symm_apply a⟩
+      show (c x).symm a ∈ B.subgroupOf A
+      rw [← hmemB x, MulEquiv.apply_symm_apply]
+      exact ha
+  let φ : ↥X →* MulAut (↥A ⧸ B.subgroupOf A) :=
+    { toFun := fun x => QuotientGroup.congr _ _ (c x) (hc x)
+      map_one' := by
+        ext q
+        induction q using QuotientGroup.induction_on with
+        | H a =>
+          rw [QuotientGroup.congr_mk]
+          simp
+      map_mul' := fun x y => by
+        ext q
+        induction q using QuotientGroup.induction_on with
+        | H a =>
+          rw [MulAut.mul_apply, QuotientGroup.congr_mk, QuotientGroup.congr_mk,
+            QuotientGroup.congr_mk, map_mul, MulAut.mul_apply] }
+  have hφ : ∀ (x : ↥X) (a : ↥A), φ x (a : ↥A ⧸ B.subgroupOf A) = ((c x a : ↥A) :
+      ↥A ⧸ B.subgroupOf A) := fun x a => QuotientGroup.congr_mk _ _ _ (hc x) a
+  refine ⟨φ.ker.map X.subtype, Subgroup.map_subtype_le _, ?_, ?_, ?_⟩
+  · have : (φ.ker.map X.subtype).subgroupOf X = φ.ker :=
+      Subgroup.comap_map_eq_self_of_injective X.subtype_injective _
+    rw [← Subgroup.normal_subgroupOf_iff_le_normalizer (Subgroup.map_subtype_le _), this]
+    infer_instance
+  · intro x hx
+    have hmem : x ∈ φ.ker.map X.subtype ↔ (⟨x, hx⟩ : ↥X) ∈ φ.ker := by
+      constructor
+      · rintro ⟨y, hy, rfl⟩
+        exact hy
+      · intro h
+        exact ⟨⟨x, hx⟩, h, rfl⟩
+    rw [hmem, MonoidHom.mem_ker]
+    constructor
+    · intro h a ha
+      have h1 := hφ ⟨x, hx⟩ ⟨a⁻¹, A.inv_mem ha⟩
+      rw [h, MulAut.one_apply, QuotientGroup.eq, Subgroup.mem_subgroupOf] at h1
+      have e : ⁅a, x⁆ = (((⟨a⁻¹, A.inv_mem ha⟩ : ↥A)⁻¹ * c ⟨x, hx⟩ ⟨a⁻¹, A.inv_mem ha⟩ : ↥A) :
+          G) := by
+        rw [Subgroup.coe_mul, Subgroup.coe_inv, hcx]
+        simp only [commutatorElement_def, inv_inv]
+        group
+      rw [e]
+      exact h1
+    · intro h
+      ext q
+      induction q using QuotientGroup.induction_on with
+      | H a =>
+        rw [hφ, MulAut.one_apply, QuotientGroup.eq, Subgroup.mem_subgroupOf]
+        have h1 := B.inv_mem (h _ (A.inv_mem a.2))
+        have e : (((c ⟨x, hx⟩ a)⁻¹ * a : ↥A) : G) = (⁅(a : G)⁻¹, x⁆)⁻¹ := by
+          rw [Subgroup.coe_mul, Subgroup.coe_inv, hcx]
+          simp only [commutatorElement_def]
+          group
+        rw [e]
+        exact h1
+  · have hidx : (φ.ker.map X.subtype).relIndex X = Nat.card φ.range := by
+      rw [Subgroup.relIndex, show (φ.ker.map X.subtype).subgroupOf X = φ.ker from
+        Subgroup.comap_map_eq_self_of_injective X.subtype_injective _, Subgroup.index_ker]
+    rw [hidx]
+    have h1 : Nat.card φ.range ∣ Nat.card (MulAut (↥A ⧸ B.subgroupOf A)) :=
+      Subgroup.card_subgroup_dvd_card _
+    have hinj : Function.Injective (MulAut.toPerm (↥A ⧸ B.subgroupOf A)) := fun f g hfg => by
+      ext q
+      exact congrArg (fun σ : Equiv.Perm (↥A ⧸ B.subgroupOf A) => σ q) hfg
+    have h2 : Nat.card (MulAut (↥A ⧸ B.subgroupOf A)) ∣
+        Nat.card (Equiv.Perm (↥A ⧸ B.subgroupOf A)) := by
+      rw [Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv]
+      exact Subgroup.card_subgroup_dvd_card _
+    rw [Nat.card_perm] at h2
+    exact h1.trans h2
 
 end CFSG.Quasithin.ChiefCount

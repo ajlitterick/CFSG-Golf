@@ -25,6 +25,10 @@ theorem chi_add (f b b' : Fin 6 → ZMod 3) : chi w f (b + b') = chi w f b * chi
   unfold chi
   rw [dotProduct_add, w_pow_val_add hw3]
 
+include hw3 in
+theorem chi_add_left (f f' b : Fin 6 → ZMod 3) : chi w (f + f') b = chi w f b * chi w f' b := by
+  unfold chi
+  rw [add_dotProduct, w_pow_val_add hw3]
 
 theorem chi_zero (f : Fin 6 → ZMod 3) : chi w f 0 = 1 := by
   unfold chi

@@ -36,6 +36,11 @@ theorem titsDLineAct_range :
     (fun _ ⟨j, hj⟩ => by subst hj; exact ⟨j, (titsDLineAct_dGen j.2).symm⟩)
     (fun _ ⟨j, hj⟩ => ⟨_, ⟨j, rfl⟩, by rw [← hj]; exact titsDLineAct_dGen j.2⟩)
 
+theorem titsDFlagAct_range :
+    titsDFlagAct.range = Subgroup.closure (Set.range fun j : Fin 2 => titsDFlag j) :=
+  range_eq_closure_of titsDFlagAct
+    (fun _ ⟨j, hj⟩ => by subst hj; exact ⟨j, (titsDFlagAct_dGen j.2).symm⟩)
+    (fun _ ⟨j, hj⟩ => ⟨_, ⟨j, rfl⟩, by rw [← hj]; exact titsDFlagAct_dGen j.2⟩)
 
 @[expose] def titsH0 : Subgroup (Equiv.Perm (Fin 1755)) :=
   Subgroup.closure {g | ∃ j < 13, titsT j = g ∧ g 0 = 0}

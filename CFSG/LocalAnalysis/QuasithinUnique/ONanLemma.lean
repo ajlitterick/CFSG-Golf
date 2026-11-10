@@ -44,6 +44,13 @@ theorem binary_larger_complement_transitivity (X R : Subgroup (V ≃ₗ[ZMod 2] 
     (hR : IsTransitiveOnSummand R A C) : IsTransitiveNonzero X :=
   larger_complement_transitive ⟨hRX, hAC, hR.1, hR.2.1, hR.2.2⟩ hX hC hAC'
 
+theorem binary_deficiency_one_spread_completion (r : ℕ) (hr : 1 ≤ r)
+    (hV : Module.finrank (ZMod 2) V = 2 * r) (D : Fin (2 ^ r) → Submodule (ZMod 2) V)
+    (hD : ∀ i, Module.finrank (ZMod 2) (D i) = r) (hDD : ∀ i j, i ≠ j → D i ⊓ D j = ⊥) :
+    ∃ Z : Submodule (ZMod 2) V, Module.finrank (ZMod 2) Z = r ∧
+      ∀ v : V, v ∈ Z ↔ (v = 0 ∨ ∀ i, v ∉ D i) := by
+  have _ := hr
+  exact spread_completion_fin r hV D hD hDD
 
 theorem balanced_TI_cyclic_normalizer (X R : Subgroup (V ≃ₗ[ZMod 2] V)) (hRX : R ≤ X)
     (hX : IsIrreducible X) (A C : Submodule (ZMod 2) V) (hAC : IsCompl A C)

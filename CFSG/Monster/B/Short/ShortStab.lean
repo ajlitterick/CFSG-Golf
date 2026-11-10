@@ -261,6 +261,8 @@ theorem ratVec_of_latHom_eq {g : latticeO} {u : LL} (h : latHom g u = u) :
     ScalarKernel.ratVec (u : Fin 24 → ℤ) ᵥ* mat g = ScalarKernel.ratVec u :=
   (ratVec_latHom g u).symm.trans (congrArg (fun w : LL => ScalarKernel.ratVec w) h)
 
+theorem classOf_coe (x : LL) : classOf (x : Fin 24 → ℤ) = Submodule.Quotient.mk x :=
+  classOf_of_mem x.2
 
 theorem latHom_eq_or_eq_neg {u : Fin 24 → ℤ} (hu : u ∈ minVecs) {g : latticeO}
     (hg : modTwoEnd g (classOf u) = classOf u) :
@@ -313,6 +315,8 @@ theorem mk_mem_Kstab_of_mem_OLstab {u : Fin 24 → ℤ} (hu : u ∈ codeLattice 
   ((QuotientGroup.mk' (Subgroup.zpowers negOneO)).comp (OLstab u).subtype).codRestrict
     (Kstab (classOf u)) fun g => mk_mem_Kstab_of_mem_OLstab hu g.2
 
+theorem coe_stabRes {u : Fin 24 → ℤ} (hu : u ∈ codeLattice C) (g : OLstab u) :
+    (stabRes hu g : OLq) = QuotientGroup.mk (g : latticeO) := rfl
 
 theorem stabRes_injective {u : Fin 24 → ℤ} (hu : u ∈ minVecs) : Function.Injective (stabRes hu.1) := by
   rw [injective_iff_map_eq_one]
@@ -341,6 +345,8 @@ theorem stabRes_surjective {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :
 @[expose] def stabResEquiv {u : Fin 24 → ℤ} (hu : u ∈ minVecs) : OLstab u ≃* Kstab (classOf u) :=
   MulEquiv.ofBijective (stabRes hu.1) ⟨stabRes_injective hu, stabRes_surjective hu⟩
 
+theorem stabResEquiv_apply {u : Fin 24 → ℤ} (hu : u ∈ minVecs) (g : OLstab u) :
+    stabResEquiv hu g = stabRes hu.1 g := rfl
 
 theorem htriv_of_KvAct {u : Fin 24 → ℤ} (hu : u ∈ codeLattice C) (g : latticeO)
     (hk : (QuotientGroup.mk g : OLq) ∈ Kstab (classOf u))

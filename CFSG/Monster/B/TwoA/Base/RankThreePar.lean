@@ -86,5 +86,20 @@ theorem exists_k3QuotProd :
     ker_B3_characteristic sym5_conj_bijective
   exact ⟨(QuotientGroup.quotientMulEquivOfEq R3_subgroupOf_eq).trans e, fun g => he g⟩
 
+theorem full_short_rank_three_parabolic_structure :
+    (∀ g : C3, (g : Dfull) ∈ R3 ↔ c3Proj g ∈ CFSG.pCore 2 CU) ∧
+    R3 = (CFSG.pCore 2 C3).map C3.subtype ∧ R3 = (CFSG.pCore 2 K3).map K3.subtype ∧
+    Nat.card R3 = 2 ^ 35 ∧ E3 ≤ R3 ∧ (E3.subgroupOf R3).index = 2 ^ 32 ∧
+    (∃ e : K3 ⧸ R3.subgroupOf K3 ≃* GL (Fin 3) (ZMod 2) × Equiv.Perm (Fin 5),
+      (∀ g : K3, (e (QuotientGroup.mk g)).1 = actE3 g) ∧
+      (∀ g : K3, (g : Dfull) ∈ C3 ↔ (e (QuotientGroup.mk g)).1 = 1) ∧
+      ∀ g : C3, (e (QuotientGroup.mk (⟨g, C3_le_K3 g.2⟩ : K3))).2 = betaCU (c3Proj g)) ∧
+    K3 ≤ Shat ∧ Nat.card K3 = 692692325498880 ∧
+    (H3.subgroupOf K3).index = 7 ∧ ((K3 ⊓ Ntwo).subgroupOf K3).index = 7 := by
+  obtain ⟨e, he⟩ := exists_k3QuotProd
+  refine ⟨mem_R3_iff, R3_eq_pCore_C3, R3_eq_pCore_K3, natCard_R3, E3_le_R3, index_E3_R3,
+    ⟨e, fun g => by rw [he], fun g => ?_, fun g => by rw [he, sigma3_coe]⟩, K3_le_Shat,
+    natCard_K3, index_H3_K3, index_K3_inf_Ntwo⟩
+  rw [he, ← MonoidHom.mem_ker, ker_actE3, Subgroup.mem_subgroupOf]
 
 end CFSG.Monster.B.TwoA

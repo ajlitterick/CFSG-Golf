@@ -20,6 +20,13 @@ theorem basisc : CFSG.KC.Fam.rowsBasis Vc (CFSG.KC.Ord.mulR 5 13 1729 133 9 L H 
     (CFSG.KC.Ord.validM 5 229957 L H) (CFSG.KC.Ord.validM 5 1729 LV HV) 1729 133 ONE Mic = true := by
   quickRfl
 
+theorem treer : CFSG.KC.Fam.treeVecOK Vr (CFSG.KC.Ord.vecR 5 13 1729 133 9 LV HV RM) (RW 1) (RW 2)
+    urow PTr 133 = true := by
+  quickRfl
+
+theorem basisr : CFSG.KC.Fam.rowsBasis Vr (CFSG.KC.Ord.mulR 5 13 1729 133 9 L H CM RM)
+    (CFSG.KC.Ord.validM 5 229957 L H) (CFSG.KC.Ord.validM 5 1729 LV HV) 1729 133 ONE Mir = true := by
+  quickRfl
 
 end CFSG.KD.FamHNAlg
 

@@ -51,6 +51,15 @@ theorem entsBelow_sound {T : Nat → Nat} {nE b : Nat} (h : McL.RangeX.entsBelow
   rw [Nat.blt_eq] at h2
   exact h2
 
+theorem relsNorm_sound {RT : Nat → Nat} {n : Nat} (h : relsNorm RT n = true) :
+    ∀ r < n, LceS.wWord (RT r) < 2 ^ (8 * LceS.wLen (RT r)) := by
+  intro r hr
+  have h1 := rec_andB_sound _ h r hr
+  rw [Nat.blt_eq] at h1
+  have e : Nat.shiftLeft (nat_lit 1) (Nat.mul (nat_lit 8) (LceS.wLen (RT r))) =
+      2 ^ (8 * LceS.wLen (RT r)) := (Nat.shiftLeft_eq _ _).trans (Nat.one_mul _)
+  rw [← e]
+  exact h1
 
 theorem relsOK_sound {RR : Nat → Nat} {NL NR : Nat} (h : McL.Dce.relsOK RR NL NR = true) :
     ∀ r < NR, ∀ i < LceS.wLen (RR r), wLet (LceS.wWord (RR r)) i < NL := by
@@ -97,6 +106,11 @@ theorem bval_eq_list {G : Type*} [Group G] (y : ℕ → G) (W n : ℕ) (L : List
   rw [← hL, List.map_map]
   rfl
 
+theorem ival_eq_list {G : Type*} [Group G] (y : ℕ → G) (W n : ℕ) (L : List ℕ)
+    (hL : (List.range n).map (wLet W) = L) :
+    ival y W n = (L.map fun c => if c = 255 then 1 else y c).prod := by
+  rw [← hL, List.map_map]
+  rfl
 
 theorem pval_eq_list {G : Type*} [Group G] (y : ℕ → G) (v : ℕ) (L : List ℕ)
     (hL : (List.range (McL.Sub.pn v)).map (wLet (McL.Sub.pw v)) = L) :

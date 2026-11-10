@@ -30,4 +30,11 @@ theorem classify {Γ : Matrix B B ℤ} (h : IsFiniteType Γ) (hc : (diagramGraph
   exact ⟨t, ht, e, fun x y => by simpa [stdCartan_apply] using he y x⟩
 
 
+theorem stdCartan_B (n : ℕ) (i j : Fin n) : stdCartan (.B n) i j = CartanMatrix.B n j i :=
+  congrFun (congrFun (DynkinType.cartanMatrix_B n) j) i
+
+theorem stdCartan_C (n : ℕ) (i j : Fin n) : stdCartan (.C n) i j = CartanMatrix.C n j i :=
+  congrFun (congrFun (DynkinType.cartanMatrix_C n) j) i
+
+
 end CFSG.ClassicalInvolution.RouteD

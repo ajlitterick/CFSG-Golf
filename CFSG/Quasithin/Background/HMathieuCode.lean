@@ -258,6 +258,7 @@ theorem c22_smul (c : ZMod 2) (w : Fin 10 → ZMod 2) : c22 (c • w) = c * c22 
     · simp only [Fin.cons_zero, Pi.smul_apply, smul_eq_mul, c22_smul, RingHom.id_apply]
     · simp only [Fin.cons_succ, Pi.smul_apply, RingHom.id_apply]
 
+theorem cons22_apply (w : Fin 10 → ZMod 2) : cons22 w = Fin.cons (c22 w) w := rfl
 
 @[expose] def lift22 : (Fin 10 → ZMod 2) →ₗ[ZMod 2] (Fin 24 → ZMod 2) := liftC.comp cons22
 

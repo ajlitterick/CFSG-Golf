@@ -15,6 +15,7 @@ theorem hd_ok : penumHdK idn S.cnt 20160 S.T S.PL = true := by quickRfl
 
 theorem cnt_ok : Nat.beq S.cnt 20160 = true := by quickRfl
 
+theorem gen_ok : allN 3 (fun j => cn (S.G j)) = true := by quickRfl
 
 theorem u1_ok : u1K S.T U W S.cnt = true := by quickRfl
 

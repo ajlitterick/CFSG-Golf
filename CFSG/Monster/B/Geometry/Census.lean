@@ -143,6 +143,10 @@ theorem shell_finite_ncard {q : ι → ℕ} (hpanel : ∀ i x, (panel cs δ i x)
   rw [← hw] at h
   exact h
 
+theorem encard_shell {q : ι → ℕ} (hpanel : ∀ i x, (panel cs δ i x).encard = q i + 1) (a : C)
+    (w : W) : {b | δ a b = w}.encard = weylWeight cs q w := by
+  obtain ⟨hfin, hcard⟩ := shell_finite_ncard hδ hpanel a w
+  rw [← hfin.cast_ncard_eq, hcard]
 
 variable [Finite W]
 
@@ -223,5 +227,32 @@ theorem card_eq_card_stabilizer_mul {q : ι → ℕ}
 
 end Building
 
+theorem weighted_census [Finite W] (hδ : IsWeylDistanceBuilding cs δ) {q : ι → ℕ}
+    (hpanel : ∀ i x, (panel cs δ i x).encard = q i + 1) :
+    (∀ ω ω' : List ι, cs.IsReduced ω → cs.IsReduced ω' → cs.wordProd ω = cs.wordProd ω' →
+      wordWeight q ω = wordWeight q ω') ∧
+    (∀ ω : List ι, cs.IsReduced ω → weylWeight cs q (cs.wordProd ω) = wordWeight q ω) ∧
+    (∀ (a : C) (w : W), {b | δ a b = w}.encard = weylWeight cs q w) ∧
+    (Finite C ∧ Nat.card C = ∑ᶠ w, weylWeight cs q w) ∧
+    (∀ (J : Set ι) (x : C),
+      (residue cs δ J x).ncard = ∑ᶠ w ∈ (cs.parabolic J : Set W), weylWeight cs q w) ∧
+    (∀ J : Set ι,
+      (Set.range (residue cs δ J)).ncard * ∑ᶠ w ∈ (cs.parabolic J : Set W), weylWeight cs q w =
+        ∑ᶠ w, weylWeight cs q w ∧
+      (Set.range (residue cs δ J)).ncard =
+        (∑ᶠ w, weylWeight cs q w) / ∑ᶠ w ∈ (cs.parabolic J : Set W), weylWeight cs q w) ∧
+    (∀ H : Subgroup (Equiv.Perm C), (∀ x y : C, ∃ h ∈ H, h x = y) →
+      Finite H ∧ ∀ a : C,
+        Nat.card H = Nat.card (MulAction.stabilizer H a) * ∑ᶠ w, weylWeight cs q w) := by
+  refine ⟨fun ω ω' hω hω' h => wordWeight_eq_of_wordProd_eq hδ hpanel hω hω' h,
+    fun ω hω => weylWeight_wordProd hδ hpanel hω, encard_shell hδ hpanel,
+    card_eq_finsum_weylWeight hδ hpanel, ncard_residue_eq_finsum hδ hpanel,
+    fun J => ⟨ncard_range_residue_mul hδ hpanel J, ncard_range_residue_eq_div hδ hpanel J⟩,
+    fun H htr => ?_⟩
+  have := (card_eq_finsum_weylWeight hδ hpanel).1
+  have : MulAction.IsPretransitive H C := ⟨fun x y => by
+    obtain ⟨h, hh, rfl⟩ := htr x y
+    exact ⟨⟨h, hh⟩, rfl⟩⟩
+  exact ⟨inferInstance, card_eq_card_stabilizer_mul hδ hpanel⟩
 
 end CFSG.Monster.B.Geometry

@@ -301,6 +301,15 @@ theorem FS79Hyp.rho_of_mem_M0 (h : FS79Hyp b t b₁ b₂ J) {m : H}
     (hm : m ∈ Subgroup.closure ({b, t} : Set H) ⊔ J) : h.rho m = m :=
   h.rho_eq (h.M0_le_Nor hm) hm (by simp)
 
+theorem FS79Hyp.rho_of_mem_K (h : FS79Hyp b t b₁ b₂ J) {k : H}
+    (hk : k ∈ Opp 3 (Nor (Subgroup.zpowers b))) : h.rho k = 1 :=
+  h.rho_eq (L14.Opp_le 3 _ hk) (Subgroup.one_mem _) (by simpa using hk)
+
+theorem FS79Hyp.mem_K_of_rho_eq_one (h : FS79Hyp b t b₁ b₂ J) {n : H}
+    (hn : n ∈ Nor (Subgroup.zpowers b)) (h1 : h.rho n = 1) :
+    n ∈ Opp 3 (Nor (Subgroup.zpowers b)) := by
+  have := (h.rho_spec hn).2
+  rwa [h1, inv_one, mul_one] at this
 
 theorem FS79Hyp.rho_mul (h : FS79Hyp b t b₁ b₂ J) {n n' : H} (hn : n ∈ Nor (Subgroup.zpowers b))
     (hn' : n' ∈ Nor (Subgroup.zpowers b)) : h.rho (n * n') = h.rho n * h.rho n' := by

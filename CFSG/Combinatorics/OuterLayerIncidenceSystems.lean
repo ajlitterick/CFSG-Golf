@@ -27,6 +27,15 @@ structure Iso (S : MarkedIncidenceSystem.{u, v}) (T : MarkedIncidenceSystem.{u',
 def Iso.refl (S : MarkedIncidenceSystem.{u, v}) : S.Iso S :=
   ⟨Equiv.refl _, Equiv.refl _, fun _ _ => Iff.rfl, fun _ => Iff.rfl⟩
 
+theorem Iso.image_marked {S : MarkedIncidenceSystem.{u, v}} {T : MarkedIncidenceSystem.{u', v'}}
+    (e : S.Iso T) : e.pts '' S.marked = T.marked := by
+  ext y
+  constructor
+  · rintro ⟨x, hx, rfl⟩
+    exact (e.marked_iff x).mp hx
+  · intro hy
+    exact ⟨e.pts.symm y, (e.marked_iff _).mpr (by rwa [Equiv.apply_symm_apply]),
+      Equiv.apply_symm_apply _ _⟩
 
 @[expose] def ptGraph (S : MarkedIncidenceSystem.{u, v}) : SimpleGraph S.Pt :=
   SimpleGraph.fromRel fun x y => ∃ m, S.inc x m ∧ S.inc y m

@@ -38,9 +38,25 @@ theorem codeForm_vecMul_vecMul {g : Matrix (Fin 24) (Fin 24) ℚ} (hg : g * gᵀ
   rw [codeForm_eq_dotProduct, codeForm_eq_dotProduct, ← dotProduct_mulVec, ← mulVec_transpose,
     mulVec_mulVec, hg, one_mulVec]
 
+theorem mem_orthogonalGroup_iff_codeForm (g : Matrix (Fin 24) (Fin 24) ℚ) :
+    g ∈ orthogonalGroup (Fin 24) ℚ ↔
+      ∀ x y : Fin 24 → ℚ, codeForm (x ᵥ* g) (y ᵥ* g) = codeForm x y := by
+  rw [mem_orthogonalGroup_iff]
+  refine ⟨fun hg => codeForm_vecMul_vecMul hg, fun h => ?_⟩
+  ext i j
+  have hij := h (Pi.single i 1) (Pi.single j 1)
+  rw [codeForm_eq_dotProduct, codeForm_eq_dotProduct, single_one_vecMul, single_one_vecMul,
+    div_left_inj' (by norm_num)] at hij
+  rw [mul_apply, one_apply]
+  simp only [transpose_apply]
+  rw [single_dotProduct, one_mul, Pi.single_apply] at hij
+  rw [← hij]
+  rfl
 
 @[expose] def latticeQ : Set (Fin 24 → ℚ) := ratVec '' codeLattice C
 
+theorem ratVec_mem_latticeQ_iff {u : Fin 24 → ℤ} : ratVec u ∈ latticeQ ↔ u ∈ codeLattice C :=
+  ratVec_injective.mem_set_image
 
 @[expose] def latticeO : Subgroup (GL (Fin 24) ℚ) where
   carrier := {g | (g : Matrix (Fin 24) (Fin 24) ℚ) ∈ orthogonalGroup (Fin 24) ℚ ∧
@@ -88,6 +104,7 @@ theorem mat_one : mat 1 = 1 := rfl
 theorem mat_injective : Function.Injective mat := fun _ _ h =>
   Subtype.ext (Units.ext h)
 
+theorem mat_mem_orthogonalGroup (g : latticeO) : mat g ∈ orthogonalGroup (Fin 24) ℚ := g.2.1
 
 theorem mat_mul_transpose (g : latticeO) : mat g * (mat g)ᵀ = 1 :=
   (mem_orthogonalGroup_iff _ _).1 g.2.1
@@ -142,6 +159,8 @@ theorem latVec_spec (g : latticeO) {u : Fin 24 → ℤ} (hu : u ∈ codeLattice 
     simp only [AddSubgroup.coe_add, ratVec_add, add_vecMul]
     rw [(latVec_spec g u.2).2, (latVec_spec g v.2).2]
 
+theorem coe_latHom (g : latticeO) (u : codeLatticeSubgroup allOnes_mem_C) :
+    ((latHom g u : codeLatticeSubgroup allOnes_mem_C) : Fin 24 → ℤ) = latVec (mat g) u := rfl
 
 theorem ratVec_latHom (g : latticeO) (u : codeLatticeSubgroup allOnes_mem_C) :
     ratVec (latHom g u) = ratVec u ᵥ* mat g :=
@@ -194,6 +213,10 @@ theorem modTwoEnd_one : modTwoEnd 1 = 1 := by
     congr 1
     exact Units.ext (modTwoEnd_mul g k)
 
+theorem modTwoHom_apply (g : latticeO) :
+    (((modTwoHom g).unop : LinearMap.GeneralLinearGroup (ZMod 2)
+      (codeLatticeModTwo C allOnes_mem_C)) : Module.End (ZMod 2)
+        (codeLatticeModTwo C allOnes_mem_C)) = modTwoEnd g := rfl
 
 theorem mem_ker_modTwoHom {g : latticeO} : g ∈ modTwoHom.ker ↔ modTwoEnd g = 1 := by
   rw [MonoidHom.mem_ker]
@@ -379,5 +402,38 @@ theorem injective_lift_modTwoHom :
 theorem mat_mkO (g : Matrix (Fin 24) (Fin 24) ℚ) (hg : g * gᵀ = 1)
     (hL : (fun x => x ᵥ* g) '' latticeQ = latticeQ) : mat (mkO g hg hL) = g := rfl
 
+theorem eq_one_or_eq_neg_one_of_classOf {g : Matrix (Fin 24) (Fin 24) ℚ} (hg : g * gᵀ = 1)
+    (hL : (fun x => x ᵥ* g) '' latticeQ = latticeQ)
+    (htriv : ∀ u v : Fin 24 → ℤ, u ∈ codeLattice C → ratVec v = ratVec u ᵥ* g →
+      classOf v = classOf u) : g = 1 ∨ g = -1 := by
+  refine mat_eq_one_or_neg_one_of_modTwoEnd (g := mkO g hg hL) (LinearMap.ext fun x => ?_)
+  induction x using Submodule.Quotient.induction_on with
+  | H u =>
+    rw [modTwoEnd_mk, Module.End.one_apply]
+    have hs := latVec_spec (mkO g hg hL) u.2
+    have h1 := htriv u _ u.2 hs.2
+    rwa [classOf_of_mem hs.1, classOf_of_mem u.2] at h1
+
+theorem lattice_mod_two_scalar_kernel :
+    (∀ g : Matrix (Fin 24) (Fin 24) ℚ, g ∈ orthogonalGroup (Fin 24) ℚ ↔
+      ∀ x y : Fin 24 → ℚ, codeForm (x ᵥ* g) (y ᵥ* g) = codeForm x y) ∧
+    (∀ g : GL (Fin 24) ℚ, g ∈ latticeO ↔
+      (g : Matrix (Fin 24) (Fin 24) ℚ) ∈ orthogonalGroup (Fin 24) ℚ ∧
+        (fun x => x ᵥ* (g : Matrix (Fin 24) (Fin 24) ℚ)) '' latticeQ = latticeQ) ∧
+    latticeQ = ratVec '' codeLattice C ∧
+    (∀ (g : latticeO) (u : codeLatticeSubgroup allOnes_mem_C),
+      ratVec (latHom g u) = ratVec u ᵥ* mat g ∧
+      (((modTwoHom g).unop : LinearMap.GeneralLinearGroup (ZMod 2)
+        (codeLatticeModTwo C allOnes_mem_C)) : Module.End (ZMod 2)
+          (codeLatticeModTwo C allOnes_mem_C)) (Submodule.Quotient.mk u) =
+        Submodule.Quotient.mk (latHom g u)) ∧
+    (∀ g : latticeO, g ∈ modTwoHom.ker ↔ mat g = 1 ∨ mat g = -1) ∧
+    mat negOneO = -1 ∧ (modTwoHom.ker : Set latticeO) = {1, negOneO} ∧
+    Subgroup.zpowers negOneO = modTwoHom.ker ∧
+    Function.Injective (QuotientGroup.lift (Subgroup.zpowers negOneO) modTwoHom
+      zpowers_negOneO_eq_ker.le) :=
+  ⟨mem_orthogonalGroup_iff_codeForm, fun _ => Iff.rfl, rfl,
+    fun g u => ⟨ratVec_latHom g u, modTwoEnd_mk g u⟩, mem_ker_modTwoHom_iff, mat_negOneO,
+    coe_ker_modTwoHom, zpowers_negOneO_eq_ker, injective_lift_modTwoHom⟩
 
 end CFSG.Monster.ScalarKernel

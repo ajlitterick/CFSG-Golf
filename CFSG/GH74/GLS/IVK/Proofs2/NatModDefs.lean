@@ -89,5 +89,22 @@ theorem diagSL_eq_weylSL (a : Fˣ) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [coe_diagSL, coe_weylSL, Matrix.mul_apply, Fin.sum_univ_two]
 
+theorem weylSL_one_mul_self :
+    (weylSL 1 : SpecialLinearGroup (Fin 2) F) * weylSL 1 = diagSL (-1) := by
+  apply Subtype.ext
+  simp only [Matrix.SpecialLinearGroup.coe_mul]
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [coe_diagSL, coe_weylSL, Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem diagSL_mul_lowerSL (a : Fˣ) (c : F) :
+    (diagSL a : SpecialLinearGroup (Fin 2) F) * lowerSL c =
+      lowerSL (((a⁻¹ : Fˣ) : F) ^ 2 * c) * diagSL a := by
+  apply Subtype.ext
+  simp only [Matrix.SpecialLinearGroup.coe_mul]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [coe_diagSL, coe_lowerSL, Matrix.mul_apply, Fin.sum_univ_two]
+  have ha : (a : F) ≠ 0 := a.ne_zero
+  field_simp
 
 end CFSG.GH74.GLS.IVK.Proofs2

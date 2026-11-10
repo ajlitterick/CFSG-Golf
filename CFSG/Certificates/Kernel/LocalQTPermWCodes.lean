@@ -68,6 +68,9 @@ theorem sumW_succ (w : ℕ) (f : ℕ → ℕ) (m : ℕ) :
     sumW w f (m + 1) = sumW w f m + f m * 2 ^ (w * m) := by
   rw [sumW, sum_range_succ, ← sumW]
 
+theorem sumW_congr {w : ℕ} {f g : ℕ → ℕ} {m : ℕ} (h : ∀ i < m, f i = g i) :
+    sumW w f m = sumW w g m :=
+  sum_congr rfl fun i hi => by rw [h i (mem_range.1 hi)]
 
 theorem sumW_lt {w : ℕ} {f : ℕ → ℕ} {m : ℕ} (h : ∀ i < m, f i < 2 ^ w) :
     sumW w f m < 2 ^ (w * m) := by

@@ -69,5 +69,11 @@ theorem exists_invariant {A G : Type*} [Group A] [Group G] [Finite G]
     exact congrArg (fun automorphism : MulAut G => automorphism member.val)
       (homomorphism.map_mul first second)
 
+theorem restriction_apply {A G : Type*} [Group A] [Group G]
+    (homomorphism : A →* MulAut G) (subgroup : Subgroup G)
+    (hinvariant : ∀ actor : A, subgroup.map (homomorphism actor).toMonoidHom = subgroup)
+    (actor : A) (member : subgroup) :
+    (restriction homomorphism subgroup hinvariant actor member).val =
+      (homomorphism actor) member.val := rfl
 
 end CFSG.ComponentClassification.CoprimeInvariantSylow

@@ -59,6 +59,9 @@ theorem isPermList_spec {n : ℕ} {l : List ℕ} (h : isPermList n l = true) :
   simp only [isPermList, Bool.and_eq_true, beq_iff_eq] at h
   exact h
 
+theorem rep_of_isPermList {n : ℕ} {l : List ℕ} (h : isPermList n l = true) :
+    Rep n l.toArray (permOfArr n l.toArray) :=
+  (rep_permOfArr (isPermList_spec h).2).1
 
 theorem strongArrs_size_eq (c : ChainRecord) : c.strongArrs.size = c.strongGenerators.length := by
   simp [ChainRecord.strongArrs]
@@ -115,11 +118,31 @@ theorem co2BaseArr_nodup : co2BaseArr.toList.Nodup := by
   rw [co2BaseArr_eq]
   decide
 
+theorem co2cOrigArrs_size :
+    co2cOrigArrs.size = 2 := co2Shape.coprimeChain.origArrs_size
+
+theorem co2cStrongArrs_size :
+    co2cStrongArrs.size = 17 := co2Shape.coprimeChain.strongArrs_size
+
+theorem co2cBaseArr_eq : co2cBaseArr = #[0, 1, 3, 2, 5, 4] := by
+  rw [co2cBaseArr, baseArr_eq, co2Shape.coprimeChain.base_eq]
+
+theorem co2cBaseArr_lt :
+    ∀ i < co2cBaseArr.size, co2cBaseArr[i]! < 2300 := by
+  rw [co2cBaseArr_eq]
+  decide
+
+theorem co2cBaseArr_nodup : co2cBaseArr.toList.Nodup := by
+  rw [co2cBaseArr_eq]
+  decide
 
 @[expose] noncomputable def co2Q : RawSchreierDatum 2300 :=
   rawOfArrays 2300 co2OrigArrs co2StrongArrs co2BaseArr co2WordArrs (by norm_num)
     (by rw [co2OrigArrs_size, co2StrongArrs_size]; norm_num) co2BaseArr_lt co2BaseArr_nodup
 
+@[expose] noncomputable def co2Qc : RawSchreierDatum 2300 :=
+  rawOfArrays 2300 co2cOrigArrs co2cStrongArrs co2cBaseArr co2cWordArrs (by norm_num)
+    (by rw [co2cOrigArrs_size, co2cStrongArrs_size]; norm_num) co2cBaseArr_lt co2cBaseArr_nodup
 
 theorem records_rawOfArrays {c : ChainRecord} {k r : ℕ} {base : List ℕ}
     (hc : ChainShape c 2300 k r base) (hle : c.origArrs.size ≤ c.strongArrs.size)
@@ -154,6 +177,8 @@ theorem records_rawOfArrays {c : ChainRecord} {k r : ℕ} {base : List ℕ}
 theorem co2Q_records : co2Rec.chain.Records co2Q :=
   records_rawOfArrays co2Shape.chain _ _ _ (by norm_num)
 
+theorem co2Qc_records : co2Rec.coprimeChain.Records co2Qc :=
+  records_rawOfArrays co2Shape.coprimeChain _ _ _ (by norm_num)
 
 @[expose] noncomputable def co2Gen (k : ℕ) : Equiv.Perm (Fin 2300) :=
   permOfArr 2300 co2OrigArrs[k]!
@@ -164,19 +189,53 @@ theorem co2Q_records : co2Rec.chain.Records co2Q :=
 @[expose] noncomputable def co2cGen (k : ℕ) : Equiv.Perm (Fin 2300) :=
   permOfArr 2300 co2cOrigArrs[k]!
 
+@[expose] noncomputable def co2cStrong (j : ℕ) : Equiv.Perm (Fin 2300) :=
+  permOfArr 2300 co2cStrongArrs[j]!
 
 @[expose] noncomputable def co2P : Subgroup (Equiv.Perm (Fin 2300)) :=
   Subgroup.closure {co2Gen 0, co2Gen 1}
 
+@[expose] noncomputable def co2Pc : Subgroup (Equiv.Perm (Fin 2300)) :=
+  Subgroup.closure {co2cGen 0, co2cGen 1}
 
 @[expose] noncomputable def co2W : Equiv.Perm (Fin 2300) :=
   wordValue [co2Gen 0, co2Gen 1] co2Rec.coprimeConjugator
 
+@[expose] def co2Pt (x : ℕ) : Fin 2300 := ⟨x % 2300, Nat.mod_lt _ (by norm_num)⟩
+
+@[expose] def co2Point : Fin 2300 := co2Pt co2Rec.point
+
+@[expose] def co2StabIdx : List ℕ := co2Rec.stabilizerGeneratorIndices
+
+@[expose] noncomputable def co2H0 : Subgroup (Equiv.Perm (Fin 2300)) :=
+  Subgroup.closure {g | ∃ j ∈ co2StabIdx, co2Strong j = g}
+
+@[expose] def co2StabOrbit (t : ℕ) : Set (Fin 2300) :=
+  {x | (x : ℕ) ∈ co2Rec.stabilizerOrbits.getD t []}
+
+@[expose] def co2Triple (t : List ℕ) : Fin 2 × Fin 2300 × Fin 2300 :=
+  (⟨t.getD 0 0 % 2, Nat.mod_lt _ (by norm_num)⟩, co2Pt (t.getD 1 0), co2Pt (t.getD 2 0))
+
+@[expose] def co2Merges : List (Fin 2300 × List (Fin 2 × Fin 2300 × Fin 2300)) :=
+  co2Rec.merges.map fun m => (co2Pt m.representative, m.instructions.map co2Triple)
+
+@[expose] noncomputable def co2MergeGens : Fin 2 → Equiv.Perm (Fin 2300) := fun i => co2Gen i
+
+theorem co2Q_original_get
+    (k : Fin co2Q.originalCount) : co2Q.original.get k = co2Gen k :=
+  rawOfArrays_original_get k
 
 theorem co2Q_strong_get
     (j : Fin co2Q.strongCount) : co2Q.strong.get j = co2Strong j :=
   rawOfArrays_strong_get j
 
+theorem co2Qc_original_get
+    (k : Fin co2Qc.originalCount) : co2Qc.original.get k = co2cGen k :=
+  rawOfArrays_original_get k
+
+theorem co2Qc_strong_get
+    (j : Fin co2Qc.strongCount) : co2Qc.strong.get j = co2cStrong j :=
+  rawOfArrays_strong_get j
 
 theorem co2Q_originalCount :
     co2Q.originalCount = 2 := co2OrigArrs_size
@@ -184,6 +243,11 @@ theorem co2Q_originalCount :
 theorem co2Q_strongCount :
     co2Q.strongCount = 11 := co2StrongArrs_size
 
+theorem co2Qc_originalCount :
+    co2Qc.originalCount = 2 := co2cOrigArrs_size
+
+theorem co2Qc_strongCount :
+    co2Qc.strongCount = 17 := co2cStrongArrs_size
 
 theorem rep_co2Gen
     {k : ℕ} (hk : k < 2) : Rep 2300 co2OrigArrs[k]! (co2Gen k) :=
@@ -197,6 +261,9 @@ theorem rep_co2cGen
     {k : ℕ} (hk : k < 2) : Rep 2300 co2cOrigArrs[k]! (co2cGen k) :=
   (rep_permOfArr (co2Shape.coprimeChain.orig_inv hk)).1
 
+theorem rep_co2cStrong
+    {j : ℕ} (hj : j < 17) : Rep 2300 co2cStrongArrs[j]! (co2cStrong j) :=
+  (rep_permOfArr (co2Shape.coprimeChain.strong_inv hj)).1
 
 theorem originalSubgroup_rawOfArrays_two {O S : Array (Array ℕ)} {base : Array ℕ}
     {W : Array (List ℤ)} {hn : 1 ≤ 2300} {hle : O.size ≤ S.size}
@@ -220,6 +287,8 @@ theorem originalSubgroup_rawOfArrays_two {O S : Array (Array ℕ)} {base : Array
 theorem co2Q_originalSubgroup : co2Q.originalSubgroup = co2P :=
   originalSubgroup_rawOfArrays_two co2OrigArrs_size
 
+theorem co2Qc_originalSubgroup : co2Qc.originalSubgroup = co2Pc :=
+  originalSubgroup_rawOfArrays_two co2cOrigArrs_size
 
 theorem wordValue_conj {G : Type*} [Group G] (a b : G) :
     wordValue [a, b] [-1, 2, 2, 1, 2, -1] = a⁻¹ * b * b * a * b * a⁻¹ := by
@@ -230,5 +299,84 @@ theorem co2W_eq :
   rw [co2W, co2Shape.conjugator]
   exact wordValue_conj _ _
 
+theorem co2Point_eq : co2Point = 0 := by
+  rw [co2Point, co2Pt, co2Shape.point]
+  rfl
+
+theorem co2StabIdx_eq :
+    co2StabIdx = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10] := co2Shape.stabIdx
+
+theorem co2StabOrbits_length :
+    co2Rec.stabilizerOrbits.length = 3 := by
+  have h := congrArg List.length co2Shape.orbit_lengths
+  simpa using h
+
+theorem co2StabOrbit_list {t : ℕ} (ht : t < 3) :
+    (∀ x ∈ co2Rec.stabilizerOrbits.getD t [], x < 2300) ∧
+      ∀ k, k + 1 < (co2Rec.stabilizerOrbits.getD t []).length →
+        (co2Rec.stabilizerOrbits.getD t []).getD k 0 <
+          (co2Rec.stabilizerOrbits.getD t []).getD (k + 1) 0 := by
+  have ht' : t < co2Rec.stabilizerOrbits.length := by rw [co2StabOrbits_length]; exact ht
+  have h := co2Shape.orbits _ (List.getElem_mem ht')
+  rw [List.getD_eq_getElem _ _ ht']
+  simp only [increasingBelow, Bool.and_eq_true, List.all_eq_true, decide_eq_true_eq,
+    List.mem_range] at h
+  exact ⟨h.1, fun k hk => h.2 k (by omega)⟩
+
+theorem co2StabOrbit_lengths :
+    ((List.range 3).map fun t => (co2Rec.stabilizerOrbits.getD t []).length) = [1, 1408, 891] := by
+  rw [← co2Shape.orbit_lengths]
+  apply List.ext_getElem (by simp [co2StabOrbits_length])
+  intro k h1 h2
+  have hk : k < 3 := by simpa using h1
+  have hk' : k < co2Rec.stabilizerOrbits.length := by rw [co2StabOrbits_length]; exact hk
+  simp [List.getElem?_eq_getElem hk']
+
+theorem co2Merges_reps :
+    co2Merges.map (fun m => (m.1 : ℕ)) = [1, 3] := by
+  have h := co2Shape.merge_reps
+  rw [co2Merges, List.map_map]
+  have hlen : co2Rec.merges.length = 2 := by simpa using congrArg List.length h
+  apply List.ext_getElem (by simp [hlen])
+  intro k h1 h2
+  have := congrArg (fun l => l[k]?) h
+  simp only [List.getElem?_map] at this
+  simp only [List.getElem_map, Function.comp_apply, co2Pt]
+  have hk : k < co2Rec.merges.length := by simpa using h1
+  rw [List.getElem?_eq_getElem hk] at this
+  have hk2 : k < 2 := by omega
+  interval_cases k <;> simp_all
+
+theorem co2Merges_lengths :
+    co2Merges.map (fun m => m.2.length) = [2298, 2298] := by
+  rw [co2Merges, List.map_map, ← co2Shape.merge_lengths]
+  simp [Function.comp_def]
+
+theorem co2Merges_triples :
+    ∀ m ∈ co2Rec.merges, ∀ t ∈ m.instructions, t.length = 3 ∧ t.getD 0 0 < 2 ∧
+      t.getD 1 0 < 2300 ∧ t.getD 2 0 < 2300 := by
+  intro m hm t ht
+  have h := co2Shape.merge_triples m hm t ht
+  simp only [tripleOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  exact ⟨h.1.1.1, h.1.1.2, h.1.2, h.2⟩
+
+theorem co2_image_lists :
+    ∀ a ∈ co2Rec.chain.generators ++ co2Rec.chain.strongGenerators ++
+      co2Rec.coprimeChain.generators ++ co2Rec.coprimeChain.strongGenerators,
+      a.length = 2300 ∧ ∃ σ : Equiv.Perm (Fin 2300), ∀ x : Fin 2300, a.getD x 0 = σ x := by
+  intro a ha
+  have hp : isPermList 2300 a = true := by
+    simp only [List.mem_append] at ha
+    rcases ha with ((h | h) | h) | h
+    · exact co2Shape.chain.gens_perm a h
+    · exact co2Shape.chain.strong_perm a h
+    · exact co2Shape.coprimeChain.gens_perm a h
+    · exact co2Shape.coprimeChain.strong_perm a h
+  refine ⟨(isPermList_spec hp).1, permOfArr 2300 a.toArray, fun x => ?_⟩
+  have h := rep_of_isPermList hp x
+  rw [← h]
+  have hx : (x : ℕ) < a.length := by rw [(isPermList_spec hp).1]; exact x.2
+  rw [List.getD_eq_getElem _ _ hx, getElem!_pos a.toArray (x : ℕ) (by simpa using hx)]
+  simp
 
 end CFSG.Sporadic.Co2Cert

@@ -69,5 +69,32 @@ theorem mem_wFix {S : Set (Wv v0)} {k : Kstab v0} : k ∈ wFix S ↔ ∀ x ∈ S
     change wAct v0 (k * k')⁻¹ x = wAct v0 k⁻¹ (wAct v0 k'⁻¹ x)
     rw [mul_inv_rev, wAct_mul, Module.End.mul_apply]
 
+theorem stabilizer_wLeftAction (x : Wv v0) :
+    @MulAction.stabilizer (Kstab v0) (Wv v0) _ wLeftAction x = wStab x := by
+  ext k
+  change wAct v0 k⁻¹ x = x ↔ wAct v0 k x = x
+  constructor
+  · intro h
+    conv_lhs => rw [← h]
+    exact wAct_apply_inv k x
+  · intro h
+    conv_lhs => rw [← h]
+    exact wAct_inv_apply k x
+
+theorem orbit_wLeftAction (x : Wv v0) :
+    @MulAction.orbit (Kstab v0) (Wv v0) wLeftAction.toSMul x = wOrbit x := by
+  ext y
+  constructor
+  · rintro ⟨k, rfl⟩
+    exact ⟨k⁻¹, rfl⟩
+  · rintro ⟨k, rfl⟩
+    refine ⟨k⁻¹, ?_⟩
+    change wAct v0 k⁻¹⁻¹ x = wAct v0 k x
+    rw [inv_inv]
+
+theorem index_wStab
+    (x : Wv v0) : (wStab x).index = (wOrbit x).ncard := by
+  rw [← stabilizer_wLeftAction, ← orbit_wLeftAction]
+  exact @MulAction.index_stabilizer (Kstab v0) (Wv v0) _ wLeftAction x
 
 end CFSG.Monster.B.TwoA

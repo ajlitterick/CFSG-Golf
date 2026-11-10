@@ -16,6 +16,7 @@ namespace Certificates
 
 open CertificateChecks
 
+theorem certificate7295 : CFSG.EvenSporadicStandard.TwoRu.SzCover.szCoverChk () = true := KernelMisc.RuCoverNet.szCoverChk_true
 
 end Certificates
 

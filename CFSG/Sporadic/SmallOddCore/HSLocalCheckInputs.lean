@@ -45,6 +45,7 @@ open CFSG.PSL3Four.Native CFSG.Sporadic.SmallOddCore.Native
 
 @[expose] def hsQEnum : Enum := enumBFS 3850 hsQGens 64
 
+@[expose] def hsC2Enum : Enum := enumBFS 3850 hsC2Tabs 2880
 
 @[expose] def hsDEnum : Enum := enumBFS 3850 hsDGens 360
 

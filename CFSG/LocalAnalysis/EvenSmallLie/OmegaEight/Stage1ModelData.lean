@@ -210,11 +210,46 @@ open CFSG.EvenSmallLie.OmegaEight.Stage2 (urRows)
 @[expose] def maskOf (ε : Eps) (g : Array ℕ) : Array Bool :=
   Array.ofFn (n := deg ε) fun z => inOT ε (invCand (deg ε) g)[z.val]!
 
+@[expose] def oOrbitOf (ε : Eps) : Array (Array ℕ) := Id.run do
+  let n := deg ε
+  let gens := (lS ε).extract 0 (lK ε)
+  let mut elts : Array (Array ℕ) := #[idA n]
+  let mut masks : Array (Array Bool) := #[maskOf ε (idA n)]
+  let mut h := 0
+  for _ in [0:200] do
+    if h < elts.size then
+      let g := elts[h]!
+      for s in gens do
+        let g' := compA n s g
+        let m := maskOf ε g'
+        if !(masks.contains m) then
+          elts := elts.push g'
+          masks := masks.push m
+      h := h + 1
+  return elts
+
+@[expose] def oOrbitPlus : Array (Array ℕ) := oOrbitOf .plus
+
+@[expose] def oOrbitMinus : Array (Array ℕ) := oOrbitOf .minus
+
+@[expose] def oOrbit : Eps → Array (Array ℕ)
+  | .plus => oOrbitPlus
+  | .minus => oOrbitMinus
 
 @[expose] def nOrb : Eps → ℕ
   | .plus => 135
   | .minus => 119
 
+@[expose] def oSetCheck (ε : Eps) : Bool :=
+  let n := deg ε
+  let T := oOrbit ε
+  let M := T.map (maskOf ε)
+  allLt n (fun z => inOT ε z == inO ε z) &&
+    (pBaseA ε).all (inOT ε) &&
+    allLt n (fun z => !(inOT ε z) || (List.range 64).any fun y => (psiT ε y)[0]! == z) &&
+    T.size == nOrb ε &&
+    allLt T.size (fun i => isInvA n T[i]! (invCand n T[i]!) && memL ε T[i]!) &&
+    allLt T.size (fun i => allLt i fun j => (List.range n).any fun z => (M[i]!)[z]! != (M[j]!)[z]!)
 
 @[expose] def uElem (ε : Eps) (i : ℕ) : Array ℕ := Id.run do
   let L := uLevels ε
@@ -323,6 +358,14 @@ open CFSG.EvenSmallLie.OmegaEight.Stage2 (urRows)
   | .plus => adjTabPlus
   | .minus => adjTabMinus
 
+@[expose] def adjT (ε : Eps) (c c' : ℕ) : Bool := ((adjTab ε).getD c #[]).getD c' false
+
+@[expose] def okPre (ε : Eps) (d : List Bool) : Bool :=
+  let da := d.toArray
+  match d.getLast? with
+  | some true => adjT ε (d.length - 1) (d.length - 1) &&
+      allLt (d.length - 1) fun c' => !(da.getD c' false) || adjT ε c' (d.length - 1)
+  | _ => true
 
 @[expose] def enumAux (ok : List Bool → Bool) : ℕ → List Bool → List (List Bool)
   | 0, pre => [pre]
@@ -330,6 +373,21 @@ open CFSG.EvenSmallLie.OmegaEight.Stage2 (urRows)
     (if ok (pre ++ [false]) then enumAux ok k (pre ++ [false]) else []) ++
       (if ok (pre ++ [true]) then enumAux ok k (pre ++ [true]) else [])
 
+@[expose] def sumSel (ε : Eps) (d : List Bool) : ℕ :=
+  let da := d.toArray
+  ((List.range 4096).filter fun i => selB da (clsOf ε i)).length
+
+@[expose] def finalOK (ε : Eps) (w : List ℤ) (d : List Bool) : Bool :=
+  let n := deg ε
+  let S := uList ε
+  let da := d.toArray
+  let l := lWord ε w
+  let a := psiT ε 1
+  memL ε l && isInvA n l (invCand n l) && !eqA n (conjA n l a) a &&
+    allLt 4096 fun i => !(selB da (clsOf ε i)) ||
+      (let y := conjA n l (S.getD i #[])
+       let k := uIdx ε y
+       decide (k < 4096) && eqA n y (S.getD k #[]) && selB da (clsOf ε k))
 
 @[expose] def cands : Eps → List (List ℤ)
   | .plus => [[8, 4, 1, -8, -7, 3, -8, -3, -7, 8], [3, 2, 2, -4, 3, 4, 6],
@@ -344,5 +402,18 @@ open CFSG.EvenSmallLie.OmegaEight.Stage2 (urRows)
       [-3, -1, 5, 8, 8, -1, -6, 10, -7, -7, -10, -4, -7, -2], [-2, 1, 2, 3, -1, 7, -5, -4, 7],
       [-3, 3, 5, -6, 2, 3, 6, 3, -4, -6]]
 
+@[expose] def s5Check (ε : Eps) : Bool :=
+  let n := deg ε
+  let S := uList ε
+  S.size == 4096 &&
+    allLt 4096 (fun i => isInvA n (S.getD i #[]) (invCand n (S.getD i #[])) &&
+      (S.getD i #[]).size == n && memU ε (S.getD i #[]) && uIdx ε (S.getD i #[]) == i) &&
+    allLt 4096 (fun i => match clsOf ε i with
+      | none => !(isInvol n (S.getD i #[]))
+      | some (c, j) => decide (c < nCls ε) && decide (j < 4096) && isInvol n (S.getD i #[]) &&
+          eqA n (S.getD i #[]) (conjA n (S.getD j #[]) (S.getD (repOf ε c) #[]))) &&
+    allLt (nCls ε) (fun c => decide (repOf ε c < 4096)) &&
+    (enumAux (okPre ε) (nCls ε) []).all fun d =>
+      sumSel ε d != 63 || (cands ε).any fun w => finalOK ε w d
 
 end CFSG.EvenSmallLie.OmegaEight.Stage1.Model

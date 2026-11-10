@@ -194,6 +194,7 @@ theorem phiHom_bijective : Function.Bijective phiHom := by
 @[expose] noncomputable def phi : MulAut Z4Z4 ≃* G96 :=
   MulEquiv.ofBijective phiHom phiHom_bijective
 
+theorem phi_val (φ : MulAut Z4Z4) : (phi φ).1 = toM4 φ := rfl
 
 theorem toAdd_phi' (φ : MulAut Z4Z4) (b : Z4Z4) :
     Multiplicative.toAdd (φ b) = (phi φ).1.act (Multiplicative.toAdd b) := by

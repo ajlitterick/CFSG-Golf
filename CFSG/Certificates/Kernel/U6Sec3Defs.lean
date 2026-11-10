@@ -70,6 +70,15 @@ open CFSG.KS.Prim
   bAnd(canonK 693 10 (mask 10) (693 * 10) p, bAnd(canonK 693 10 (mask 10) (693 * 10) q,
     permOK 693 10 (mask 10) (693 * 10) p q))
 
+theorem prodAllK_succ {n w m nw d i acc : Nat} {LR TR : Nat → Nat} {f : Nat → Bool} :
+    prodAllK n w m nw LR TR f (d + 1) i acc = allN (rcnt (LR i)) (fun a =>
+      prodAllK n w m nw LR TR f d (i + 1) (pcomp n w m acc (TR (roff n nw (LR i) + a)))) := by
+  unfold prodAllK
+  simp only [strictB_eq₀]
+  rfl
+
+theorem prodAllK_zero {n w m nw i acc : Nat} {LR TR : Nat → Nat} {f : Nat → Bool} :
+    prodAllK n w m nw LR TR f 0 i acc = f acc := rfl
 
 theorem prodLazyK_succ {n nw d i : Nat} {L : List Nat} {LR TR : Nat → Nat} {f : List Nat → Bool} :
     prodLazyK n nw LR TR f (d + 1) i L = allN (rcnt (LR i)) (fun a =>

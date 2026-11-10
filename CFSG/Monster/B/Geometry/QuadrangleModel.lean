@@ -37,6 +37,10 @@ structure QFlag where
     simp only [Equiv.Perm.inv_def, Equiv.apply_symm_apply] at this
     exact ⟨this.1.symm, this.2.symm⟩
 
+theorem mem_qflagTypeAut {g : Equiv.Perm QFlag} :
+    g ∈ qflagTypeAut ↔ ∀ x y, ((g x).pt = (g y).pt ↔ x.pt = y.pt) ∧
+      ((g x).line = (g y).line ↔ x.line = y.line) :=
+  Iff.rfl
 
 theorem perm_inv_apply_self {α : Type*} (g : Equiv.Perm α) (x : α) : g⁻¹ (g x) = x :=
   Equiv.symm_apply_apply g x

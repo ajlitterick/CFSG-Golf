@@ -16,6 +16,16 @@ theorem vSorted_of_pairwise : ∀ {l : List Nat}, l.Pairwise (· < ·) → vSort
     simp only [vSorted, Bool.and_eq_true, decide_eq_true_eq]
     exact ⟨h.1 b List.mem_cons_self, vSorted_of_pairwise h.2⟩
 
+theorem pairwise_of_vSorted : ∀ {l : List Nat}, vSorted l = true → l.Pairwise (· < ·)
+  | [], _ => List.Pairwise.nil
+  | [_], _ => List.pairwise_singleton _ _
+  | a :: b :: r, h => by
+    simp only [vSorted, Bool.and_eq_true, decide_eq_true_eq] at h
+    have ih := pairwise_of_vSorted h.2
+    refine List.Pairwise.cons (fun c hc => ?_) ih
+    rcases List.mem_cons.1 hc with rfl | hc
+    · exact h.1
+    · exact lt_trans h.1 ((List.pairwise_cons.1 ih).1 c hc)
 
 theorem vSorted_mergeSort {l : List Nat} (h : l.Nodup) :
     vSorted (l.mergeSort fun a b => decide (a ≤ b)) = true := by
@@ -28,6 +38,8 @@ theorem vSorted_mergeSort {l : List Nat} (h : l.Nodup) :
   simp only [decide_eq_true_eq] at hab
   omega
 
+theorem nodup_of_vSorted {l l' : List Nat} (h : vSorted l' = true) (hp : l'.Perm l) : l.Nodup :=
+  hp.nodup_iff.1 ((pairwise_of_vSorted h).imp Nat.ne_of_lt)
 
 @[expose] def tstep (tab : Array Nat) (p : (Nat × Nat) × Nat) : Array Nat :=
   ((tab.set! p.1.1 p.2).set! p.1.2 p.2).set! (p.1.1 ^^^ p.1.2) p.2
@@ -42,6 +54,10 @@ theorem triTable_eq (T : List (Nat × Nat)) :
 theorem tstep_size (tab : Array Nat) (p : (Nat × Nat) × Nat) : (tstep tab p).size = tab.size := by
   simp [tstep]
 
+theorem foldl_size (tab : Array Nat) :
+    ∀ L : List ((Nat × Nat) × Nat), (L.foldl tstep tab).size = tab.size
+  | [] => rfl
+  | p :: L => by rw [List.foldl_cons, foldl_size _ L, tstep_size]
 
 theorem tstep_get {tab : Array Nat} {p : (Nat × Nat) × Nat} (hp : ∀ y ∈ tpos p, y < tab.size)
     (y : Nat) : (tstep tab p)[y]! = if y ∈ tpos p then p.2 else tab[y]! := by

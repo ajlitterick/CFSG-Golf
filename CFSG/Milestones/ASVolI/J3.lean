@@ -26,6 +26,28 @@ open CFSG.Open CFSG.ASVolI.ChIJK
 
 section BurnsideJ5
 
+private theorem burnsideJ5_mem_conjClass_iff {G : Type} [Group G] (z x : G) :
+    x ∈ CFSG.ASVolI.ChIJK.conjClass z ↔ IsConj z x := by
+  rw [isConj_iff]
+  constructor
+  · rintro ⟨g, rfl⟩
+    exact ⟨g⁻¹, by group⟩
+  · rintro ⟨c, rfl⟩
+    exact ⟨c⁻¹, by group⟩
+
+private theorem burnsideJ5_eq_z {G : Type} [Group G] [Finite G]
+    (M : CFSG.Quasithin.RuType.RuDataM G) {z : G}
+    (hz : Subgroup.zpowers z = CFSG.Quasithin.RuType.ruZ M.T) : z = M.z := by
+  have hzmem : z ∈ CFSG.Quasithin.RuType.ruZ M.T := by
+    rw [← hz]
+    exact Subgroup.mem_zpowers z
+  rcases M.mem_Z_iff.mp hzmem with h1 | h1
+  · exfalso
+    have h2 := M.toRuData.card_Z
+    rw [← hz, h1, Subgroup.zpowers_one_eq_bot, Subgroup.card_bot] at h2
+    omega
+  · exact h1
+
 
 end BurnsideJ5
 
@@ -41,6 +63,20 @@ end
 
 section
 
+private theorem burnsideJ5_J_3_2_of_st (hSt : CFSG.Quasithin.RuType.StUniqueStatement) : J_3_2 := by
+  intro G _ _ L V T h z hz u hu v hv huv h1
+  obtain ⟨M, -, hMT⟩ := CFSG.ASVolI.ChIJK.RuType.exists_ruDataM hSt h
+  have hzM : z = M.z := by
+    refine burnsideJ5_eq_z M ?_
+    rw [hMT, ← CFSG.ASVolI.ChIJK.RuType.ZRu_eq_ruZ h]
+    exact hz
+  subst hzM
+  obtain ⟨s, hs, hs1⟩ := M.exists_S0_ne_one
+  rw [burnsideJ5_mem_conjClass_iff] at hu hv ⊢
+  exact M.lemma_J32 hs hs1 hu hv huv h1
+
+theorem as_J_3_2 : J_3_2 :=
+  burnsideJ5_J_3_2_of_st CFSG.Quasithin.RuType.stUnique
 
 end
 

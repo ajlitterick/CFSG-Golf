@@ -122,5 +122,21 @@ theorem tauB_conj_thetaEquiv_signLiftPair (e : Parker) (hP : P (e.code : Fin 24 
       thetaEquiv (signLiftPair e) * rhoEquiv (XQ e) := by
   rw [tauB_mul_thetaEquiv_signLiftPair e hP, mul_inv_cancel_right]
 
+theorem coe_rhoPair_XQ_mul_signLiftPair (e : Parker) :
+    ((rhoPair (XQ e) * signLiftPair e : Pvis) : GL SpinIdx ℚ × latticeO) =
+      (XU e * YU e, gO e.code) :=
+  Prod.ext rfl (one_mul _)
+
+theorem tauB_conj_thetaEquiv_signLiftPair_eq (e : Parker)
+    (hP : P (e.code : Fin 24 → ZMod 2) = 0) :
+    tauB * thetaEquiv (signLiftPair e) * tauB⁻¹ = thetaEquiv (rhoPair (XQ e) * signLiftPair e) := by
+  rw [thetaEquiv_mul, tauB_conj_thetaEquiv_signLiftPair e hP]
+  rfl
+
+theorem tauB_sq_conj_rhoEquiv_XQ (e : Parker) (hP : P (e.code : Fin 24 → ZMod 2) = 0) :
+    tauB * tauB * rhoEquiv (XQ e) * tauB⁻¹ * tauB⁻¹ =
+      thetaEquiv (signLiftPair e) * rhoEquiv (XQ e) := by
+  rw [← tauB_conj_thetaEquiv_signLiftPair e hP, thetaEquiv_signLiftPair]
+  simp only [mul_assoc]
 
 end CFSG.Monster.Visible

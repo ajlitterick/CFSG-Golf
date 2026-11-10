@@ -50,11 +50,16 @@ variable {V : Type} (O : Ops Nat V)
 @[expose] def letterN (g gi : Nat → Nat) (l : Int) : Nat :=
   if 0 < l then g (l.toNat - 1) else gi ((-l).toNat - 1)
 
+@[expose] noncomputable def wordFromN (g gi : Nat → Nat) (w : List Int) : Nat → Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun X => X)
+    (fun l _ ih X => CFSG.KC.Loop.strictN (O.mul X (letterN g gi l)) ih) w
 
 @[expose] noncomputable def powL (X : Nat) : Nat → Nat
   | 0 => O.one
   | e + 1 => O.mul (powL X e) X
 
+@[expose] noncomputable def chunkN (A B : Nat) (C : MCert) (k i : Nat) : Bool :=
+  regsN O A B C.nregs C.prog fun R => ((C.facts.drop (i * k)).take k).all (factN O R C.nregs)
 
 end CFSG.KC.OpsMN
 

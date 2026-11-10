@@ -14,6 +14,7 @@ section Generic
 
 variable {G : Type*} [Group G]
 
+theorem cmt_def (x y : G) : cmt x y = x⁻¹ * y⁻¹ * x * y := rfl
 
 theorem cmt_swap (x y : G) : cmt y x = (cmt x y)⁻¹ := by simp [cmt, mul_assoc]
 

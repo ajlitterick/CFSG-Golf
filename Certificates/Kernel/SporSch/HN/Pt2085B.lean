@@ -25,6 +25,8 @@ theorem pb : EN.length = 6 ∧ CH.length = 4 ∧ (∀ c < 4, lget CH c < 1140000
     (∀ k < 4, ∀ t < 50, lget (lgetL ES6 k) t < 50) := by
   decide +kernel
 
+theorem neg_bnd : Bool.not (bndOk (EN.map (· - 1)) TW IS IDS (lgetL ST 3)) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelSporSch.HNPt2085
 

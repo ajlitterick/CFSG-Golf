@@ -48,6 +48,8 @@ theorem compSet_eq_univ {d : X}
   toEquiv := Equiv.subtypeUnivEquiv fun e => by rw [h]; trivial
   map_rel_iff' := Iff.rfl
 
+theorem compGraphIsoTop_apply {d : X} (h : compSet E d = Set.univ) (e : compSet E d) :
+    compGraphIsoTop h e = e := rfl
 
 theorem mem_farSet_of_mem_compSet {d : X} {e : E} (he : e ∈ compSet E d)
     (h1 : (e : X) * d ≠ d * e) : (e : X) ∈ farSet E d := by
@@ -56,6 +58,9 @@ theorem mem_farSet_of_mem_compSet {d : X} {e : E} (he : e ∈ compSet E d)
   · exact absurd h.2.2 h1
   · exact h
 
+theorem mem_compSet_of_mem_localClass {d : X} {e : E} (he : (e : X) ∈ LocalClass E d) :
+    e ∈ compSet E d :=
+  Or.inr (Or.inl he)
 
 section Piece
 
@@ -226,6 +231,8 @@ include hπ hadj in
   toEquiv := pieceEquiv hd hd' L L' βA
   map_rel_iff' {e₁ e₂} := (pieceMap_adj hd hd' L L' βA hπ hadj e₁ e₂).symm
 
+theorem compGraphIso_apply (e : compSet E d) :
+    compGraphIso hd hd' L L' βA hπ hadj e = pieceMap hd' L L' βA e := rfl
 
 end Piece
 

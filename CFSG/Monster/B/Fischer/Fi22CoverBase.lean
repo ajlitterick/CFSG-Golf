@@ -24,6 +24,9 @@ theorem orderOf_eq_two_of_eqA {t : Array ℕ} {g : Equiv.Perm (Fin 3510)} (ht : 
   · rw [← Bool.not_eq_true, eqA_iff ht rep_idA] at h1
     exact h1 hg
 
+theorem fi22OuterR_length : fi22OuterR.length = 256 := by
+  simp only [fi22OuterR, fi22FinList, List.length_map, fi22OuterTPointsNat, hex3List,
+    List.length_range]
 
 theorem fi22OuterChainT_baseCount : fi22OuterChainT.baseCount = 6 := rfl
 

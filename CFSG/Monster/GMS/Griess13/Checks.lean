@@ -120,6 +120,11 @@ theorem wN_mem (s : String) : wN s ∈ N := by
   · exact Subgroup.subset_closure (Set.mem_insert _ _)
   · exact Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
 
+theorem n1_mem :
+    n1 ∈ N := Subgroup.subset_closure (Set.mem_insert _ _)
+
+theorem n2_mem :
+    n2 ∈ N := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
 
 theorem e_mem (i : Fin 6) : e i ∈ N := wN_mem _
 
@@ -254,6 +259,14 @@ theorem tau_sq : tau * tau = 1 :=
     simp only [tauCheck, Bool.and_eq_true] at this
     exact this.1)
 
+theorem tau_conj_e
+    (i : Fin 6) : tau * e i * tau⁻¹ = e i ^ 2 :=
+  (is_prTau.conj (is_prE i)).eq_of ((is_prE i).pow 2) (by
+    have := tauCheck_true
+    simp only [tauCheck, Bool.and_eq_true] at this
+    have h := forall_fin_of_all this.2 i
+    simp only [Bool.and_eq_true] at h
+    exact h.1)
 
 theorem conjMat_tau :
     ConjMat tau scal2 := by
@@ -265,6 +278,29 @@ theorem conjMat_tau :
   simp only [Bool.and_eq_true] at h
   exact h.2
 
+theorem tau_conj_iota
+    (v : Fin 6 → ZMod 3) : tau * iota v * tau⁻¹ = (iota v)⁻¹ := by
+  rw [conjMat_tau v]
+  apply eq_inv_of_mul_eq_one_left
+  rw [← iota_add]
+  have h0 : v ᵥ* scal2 + v = 0 := by
+    funext j
+    have h2 : (v ᵥ* scal2) j = v j * 2 := by
+      simp [Matrix.vecMul, dotProduct, scal2]
+    show (v ᵥ* scal2) j + v j = 0
+    rw [h2]
+    exact (by decide : ∀ x : ZMod 3, x * 2 + x = 0) (v j)
+  rw [h0, iota_zero]
+
+theorem tau_normalizes_K0
+    (v : Fin 6 → ZMod 3) (hv : w1 ⬝ᵥ v = 0) :
+    ∃ u, tau * iota v * tau⁻¹ = iota u ∧ w1 ⬝ᵥ u = 0 := by
+  refine ⟨v ᵥ* scal2, conjMat_tau v, ?_⟩
+  rw [hyp_conj]
+  have h : scal2 *ᵥ w1 = (2 : ZMod 3) • w1 := by
+    funext i
+    simp [Matrix.mulVec, dotProduct, scal2]
+  rw [h, smul_dotProduct, hv, smul_zero]
 
 private theorem conj_commutator_aux {M : Type} [Group M] (a b g : M) :
     g⁻¹ * (a⁻¹ * b⁻¹ * a * b) * g = ⁅g⁻¹ * a⁻¹ * g, g⁻¹ * b⁻¹ * g⁆ := by
@@ -324,6 +360,11 @@ theorem P_le_commutator :
     subst hx
     exact m_mem_commutator 1
 
+theorem commutator_P :
+    ⁅P, P⁆ = P := by
+  refine le_antisymm (Subgroup.commutator_le.2 fun g₁ h₁ g₂ h₂ => ?_) P_le_commutator
+  rw [commutatorElement_def]
+  exact mul_mem (mul_mem (mul_mem h₁ h₂) (inv_mem h₁)) (inv_mem h₂)
 
 private theorem mConjCheck_true :
     mConjCheck = true :=
@@ -342,6 +383,9 @@ theorem conj_iota_m
 theorem actP_w1 : ∀ i : Fin 2, actP i *ᵥ w1 = w1 :=
   Certificates.certificate10032.2.2.2.2.2.2.2.1
 
+private theorem w1_dotProduct_vecMul {A : Matrix (Fin 6) (Fin 6) (ZMod 3)} (h : A *ᵥ w1 = w1)
+    (v : Fin 6 → ZMod 3) : w1 ⬝ᵥ (v ᵥ* A) = w1 ⬝ᵥ v := by
+  rw [hyp_conj, h, dotProduct_comm]
 
 private def Pres (g : G) : Prop :=
   ∀ v, ∃ u, g * iota v * g⁻¹ = iota u ∧ w1 ⬝ᵥ u = w1 ⬝ᵥ v
@@ -377,6 +421,28 @@ private theorem Pres.inv
     group
   · rw [← hφ2 u, hu]
 
+private theorem pres_m
+    (i : Fin 2) : Pres (m i) := fun v =>
+  ⟨v ᵥ* actP i, conj_iota_m i v, w1_dotProduct_vecMul (actP_w1 i) v⟩
+
+private theorem pres_of_mem_closure
+    {p : G}
+    (hp : p ∈ Subgroup.closure ({m 0, m 1} : Set G)) : Pres p := by
+  induction hp using Subgroup.closure_induction with
+  | mem x hx =>
+    rcases hx with rfl | hx
+    · exact pres_m 0
+    · rw [Set.mem_singleton_iff] at hx
+      rw [hx]
+      exact pres_m 1
+  | one => exact Pres.one
+  | mul x y _ _ hx hy => exact hx.mul hy
+  | inv x _ hx => exact hx.inv
+
+theorem P_conj_iota
+    {p : G} (hp : p ∈ P) (v : Fin 6 → ZMod 3) :
+    ∃ u, p * iota v * p⁻¹ = iota u ∧ w1 ⬝ᵥ u = w1 ⬝ᵥ v :=
+  pres_of_mem_closure hp v
 
 private theorem rConjCheck_true :
     rConjCheck = true :=
@@ -396,6 +462,11 @@ theorem actR_repw :
     ∀ k : Fin 12, ∃ c : ZMod 3, c ≠ 0 ∧ actR k *ᵥ repw k = c • w1 :=
   Certificates.certificate10032.2.2.2.2.2.2.2.2.2.1
 
+theorem hyp_r (k : Fin 12) (v : Fin 6 → ZMod 3) :
+    repw k ⬝ᵥ (v ᵥ* actR k) = 0 ↔ w1 ⬝ᵥ v = 0 := by
+  obtain ⟨c, hc, h⟩ := actR_repw k
+  rw [hyp_conj, h, dotProduct_comm, dotProduct_smul, smul_eq_mul, dotProduct_comm, mul_eq_zero]
+  simp [hc]
 
 theorem repw_zero : repw 0 = w1 :=
   Certificates.certificate10032.2.2.2.2.2.2.2.2.2.2.1
@@ -424,5 +495,8 @@ theorem dec_spec
 theorem decP_mem
     (s : Fin 2) (k : Fin 12) (j : Fin 2) : decP s k j ∈ P := wM_mem _
 
+theorem decEps_le_one :
+    ∀ (s : Fin 2) (k : Fin 12) (j : Fin 2), decEps s k j ≤ 1 :=
+  Certificates.certificate10032.2.2.2.2.2.2.2.2.2.2.2.2.2
 
 end CFSG.Monster.GMS.Griess13.Co1Data

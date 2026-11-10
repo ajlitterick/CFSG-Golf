@@ -61,6 +61,60 @@ theorem fib_subset_porb {P : Subgroup G} {ω₀ : X} (hJ : ∀ e : E, e • ω�
   rw [heq]
   exact mul_mem_porb hjP hc
 
+theorem fib_base_subset_porb {P : Subgroup G} {ω₀ : X}
+    (hJ : ∀ e : E, e • ω₀ = ω₀ → S.ψ e ∈ P) {x₀ : G} (hx₀ : x₀ ∈ S.H) :
+    S.fib x₀ ω₀ ω₀ ⊆ S.porb P := by
+  refine fib_subset_porb hJ (e₀ := 1) (by rw [inv_one, one_smul]; exact MulAction.mem_orbit_self _)
+    ⟨1, P.one_mem, ?_⟩
+  rw [cosetOf, QuotientGroup.eq]
+  simpa using hx₀
+
+theorem fib_move {P : Subgroup G} {ω₀ : X} (hJ : ∀ e : E, e • ω₀ = ω₀ → S.ψ e ∈ P)
+    (ht : S.t ∈ P) {xi xk : G} {ω ω'' : X} {r : Ω} {er : E}
+    (hfib : S.fib xi ω₀ ω ⊆ S.porb P) (hrc : S.RCoset (xi * S.T r) (xk * S.ψ er))
+    (hω : ω'' ∈ MulAction.orbit (B.stabSub S xi) ω) (hinc : ∃ g : E, g • ω₀ = ω'' ∧ g • S.o = r) :
+    S.fib xk ω₀ (er • ω'') ⊆ S.porb P := by
+  obtain ⟨g, hgω, hgo⟩ := hinc
+  have hc : S.cosetOf xi g⁻¹ ∈ S.porb P :=
+    hfib ⟨g⁻¹, by rw [inv_inv, hgω]; exact hω, rfl⟩
+  refine fib_subset_porb hJ (e₀ := g⁻¹ * er⁻¹) ?_ ?_
+  · rw [mul_inv_rev, inv_inv, inv_inv, mul_smul, hgω]
+    exact MulAction.mem_orbit_self _
+  ·
+    obtain ⟨q, hq, hqe⟩ := hc
+    have hT : S.T r = S.ψ g * S.t * (S.ψ g)⁻¹ := S.T_eq_of_smul g r hgo
+    refine ⟨S.t * q, P.mul_mem ht hq, ?_⟩
+    rw [cosetOf, QuotientGroup.eq] at hqe ⊢
+    have hrc' : xi * S.T r * (xk * S.ψ er)⁻¹ ∈ S.H := hrc
+    rw [hT] at hrc'
+    have key : (S.ψ (g⁻¹ * er⁻¹) * xk⁻¹)⁻¹ * (S.t * q) =
+        (xi * (S.ψ g * S.t * (S.ψ g)⁻¹) * (xk * S.ψ er)⁻¹)⁻¹ *
+          ((S.ψ g⁻¹ * xi⁻¹)⁻¹ * q) := by
+      simp only [map_mul, map_inv, mul_inv_rev, inv_inv]
+      have ht' : S.t⁻¹ = S.t := S.t_inv
+      rw [ht']
+      group
+    rw [key]
+    exact S.H.mul_mem (S.H.inv_mem hrc') hqe
+
+theorem fib_subset_porb_of_moves {P : Subgroup G} {ω₀ : X}
+    (hJ : ∀ e : E, e • ω₀ = ω₀ → S.ψ e ∈ P) (ht : S.t ∈ P) (x : ℕ → G) (labels : ℕ → ℕ × X)
+    (m : ℕ) (h0 : x (labels 0).1 ∈ S.H) (h0' : (labels 0).2 = ω₀)
+    (hmove : ∀ i, 0 < i → i < m → ∃ i' < i, ∃ (r : Ω) (er : E) (ω'' : X),
+      S.RCoset (x (labels i').1 * S.T r) (x (labels i).1 * S.ψ er) ∧
+      ω'' ∈ MulAction.orbit (B.stabSub S (x (labels i').1)) (labels i').2 ∧
+      (∃ g : E, g • ω₀ = ω'' ∧ g • S.o = r) ∧ (labels i).2 = er • ω'') :
+    ∀ i < m, S.fib (x (labels i).1) ω₀ (labels i).2 ⊆ S.porb P := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    intro hi
+    rcases Nat.eq_zero_or_pos i with rfl | hpos
+    · rw [h0']
+      exact fib_base_subset_porb hJ h0
+    · obtain ⟨i', hi', r, er, ω'', hrc, hω, hinc, hlab⟩ := hmove i hpos hi
+      rw [hlab]
+      exact fib_move hJ ht (ih i' hi' (hi'.trans hi)) hrc hω hinc
 
 theorem le_ncard_fib [Finite E] [Finite X] {y : G} {ω₀ ω : X}
     (hω : ω ∈ MulAction.orbit E ω₀) {s : ℕ} (hs : s ≤ (B.stabSub S y).index) :

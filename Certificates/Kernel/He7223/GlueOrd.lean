@@ -186,6 +186,10 @@ theorem E_le_lGrp :
   · exact colE_unit 4 (by decide +kernel) h16
   · exact colE_unit 5 (by decide +kernel) h32
 
+theorem eSub_le_lGrp :
+    eSub ebasis_E ≤ lGrp := by
+  rw [eSub_eq_closure]
+  exact (Subgroup.closure_le _).mpr fun _ ⟨i, hi⟩ => hi ▸ E_le_lGrp i
 
 theorem lGrp_eq :
     lGrp = Subgroup.closure (Set.range ![elt (lg 0), elt (lg 1), elt (lg 2)] ∪

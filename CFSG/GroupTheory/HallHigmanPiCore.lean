@@ -390,5 +390,12 @@ theorem isCharacteristicP_of_isPSolvable [Finite X] {p : ℕ} [hp : Fact p.Prime
   rw [← hcore, pPrimeCore_eq_piCore X p]
   rfl
 
+theorem hall_higman_pi_core_self_centralizing :
+    (∀ (π : Set Nat.Primes) (X : Type*) [Group X] [Finite X], IsPiSeparable π X →
+      piCore πᶜ X = ⊥ → centralizer (piCore π X : Set X) ≤ piCore π X) ∧
+    ∀ (p : ℕ) [Fact p.Prime] (X : Type*) [Group X] [Finite X], IsPSolvable p X →
+      pPrimeCore p X = ⊥ → IsCharacteristicP p X :=
+  ⟨fun _ _ _ _ hX hcore => centralizer_piCore_le_piCore hX hcore,
+    fun _ _ _ _ _ hX hcore => isCharacteristicP_of_isPSolvable hX hcore⟩
 
 end CFSG.HallHigman

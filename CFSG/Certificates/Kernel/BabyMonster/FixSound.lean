@@ -114,6 +114,11 @@ theorem notB_beq {x : Nat} (h : notB (Nat.beq x 0) = true) : x ≠ 0 := by
   rw [e] at h
   exact absurd h (by decide)
 
+set_option exponentiation.threshold 300000 in
+theorem topRow_ne : topRow ≠ 0 := by
+  unfold topRow
+  rw [nshl, Nat.one_shiftLeft]
+  exact (Nat.two_pow_pos _).ne'
 
 theorem projRows_eq (p f : Nat) : ∀ (R : List Nat) (i0 : Nat),
     projRows p f R i0 = (if i0 ≤ p then R.eraseIdx (p - i0) else R).map (projRow p f)

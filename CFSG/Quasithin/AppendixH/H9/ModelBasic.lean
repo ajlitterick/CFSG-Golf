@@ -74,6 +74,17 @@ private theorem swap_mul_pairAct_mul_swap (A : GL (Fin n) (ZMod 2)) :
     swapN n * pairActN n A * swapN n = pairActN n (dualGLn n A) := by
   rw [swapN_mul_pairActN, mul_assoc, swapN_mul_self, mul_one]
 
+theorem pairActN_injective : Function.Injective (pairActN n) := by
+  intro A B h
+  have h1 : ∀ a : Fin n → ZMod 2,
+      (A : Matrix (Fin n) (Fin n) (ZMod 2)) *ᵥ a =
+        (B : Matrix (Fin n) (Fin n) (ZMod 2)) *ᵥ a := by
+    intro a
+    have h2 := congrArg (fun e : MulAut (PairN n) => e (pairVec a 0)) h
+    simp only [pairActN_pairVec, Matrix.mulVec_zero] at h2
+    exact (pairVec_inj.mp h2).1
+  apply Units.ext
+  exact Matrix.ext_of_mulVec_single fun j => h1 (Pi.single j 1)
 
 theorem mem_Lg_iff {g : MulAut (PairN n)} : g ∈ Lg n ↔ ∃ A : GL (Fin n) (ZMod 2), pairActN n A = g := by
   rw [Lg, MonoidHom.mem_range]

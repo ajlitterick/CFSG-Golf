@@ -125,6 +125,17 @@ theorem chW_expC {L : ℕ → Bool} {M : List (List ℕ)} (h : chA L M = true) :
     rw [expC_cons]
     exact chW_append_of (chW_nthW h k) (chW_expC h c)
 
+theorem catW_nil : catW [] = [] := rfl
+
+theorem catW_cons (w : List ℕ) (R : List (List ℕ)) : catW (w :: R) = w ++ catW R := rfl
+
+theorem chW_catW {L : ℕ → Bool} : ∀ {R : List (List ℕ)}, chA L R = true → chW L (catW R) = true
+  | [], _ => chW_nil L
+  | w :: R, h => by
+    change (chW L w && chA L R) = true at h
+    rw [Bool.and_eq_true] at h
+    rw [catW_cons]
+    exact chW_append_of h.1 (chW_catW h.2)
 
 theorem repW_zero (w : List ℕ) : repW w 0 = [] := rfl
 
@@ -220,6 +231,13 @@ theorem genOK_facts {a ai b bi : List ℕ} (h : genOK E L a ai b bi = true) :
   rw [hM.append, hM.nil, mul_eq_one_iff_eq_inv] at f₁ f₂
   exact ⟨ha, hai, hb, hbi, f₁, f₂⟩
 
+theorem repOK_facts {p : ℕ} {T : List (List ℕ)} {i : ℕ} {r : List ℕ}
+    (h : repOK E L p T i r = true) :
+    chW L (nthW T i) = true ∧ ev (nthW T i) = ev r ∧ ev (nthW T i) ^ p = 1 := by
+  unfold repOK at h
+  simp only [Bool.and_eq_true] at h
+  obtain ⟨⟨⟨hc, hr⟩, he⟩, hp⟩ := h
+  exact ⟨hc, hM.eq hc hr he, hM.pow hc hp⟩
 
 theorem p3OK_facts {p e₁ e₂ : ℕ} {g₁ g₂ z : List ℕ} (h : p3OK E L p g₁ g₂ z e₁ e₂ = true) :
     chW L g₁ = true ∧ chW L g₂ = true ∧ chW L z = true ∧ neOK E z = true ∧ ev z ^ p = 1 ∧
@@ -233,6 +251,13 @@ theorem p3OK_facts {p e₁ e₂ : ℕ} {g₁ g₂ z : List ℕ} (h : p3OK E L p 
   exact ⟨h1, h2, hz, hne, hM.pow hz hzp, hM.comm hz h1 c₁, hM.comm hz h2 c₂, e,
     hM.pow_eq h1 hz hp₁, hM.pow_eq h2 hz hp₂⟩
 
+theorem lineOK_eq {g₁ g₂ t : List ℕ} {i : ℕ} (h₁ : chW L g₁ = true) (h₂ : chW L g₂ = true)
+    (h : lineOK E L g₁ g₂ i t = true) : chW L t = true ∧ ev t = ev g₁ * ev g₂ ^ i := by
+  unfold lineOK at h
+  rw [Bool.and_eq_true] at h
+  have e := hM.eq h.1 (chW_append_of (chW_repW h₂ i) h₁) h.2
+  rw [hM.append, hM.repW_eq] at e
+  exact ⟨h.1, e⟩
 
 theorem mem_of_letters {y₁ y₂ : List ℕ} {M : List (List ℕ)} {nL n : ℕ}
     (hM2 : lenLe M (2 * nL) = true) (hMc : chA L M = true) (o₁ : chW L y₁ = true)
@@ -290,6 +315,26 @@ theorem mem_of_stages {S : Subgroup G} {M C R : List (List ℕ)} {nR : ℕ}
   · rw [nthW_ge R k (by have := (lenLe_iff _ _).1 hs.1; omega), hM.nil]
     exact S.one_mem
 
+theorem mem_catW {S : Subgroup G} : ∀ {R : List (List ℕ)}, (∀ w ∈ R, ev w ∈ S) →
+    ev (catW R) ∈ S
+  | [], _ => by
+    rw [catW_nil, hM.nil]
+    exact S.one_mem
+  | w :: R, h => by
+    rw [catW_cons, hM.append]
+    exact S.mul_mem (mem_catW fun v hv => h v (List.mem_cons_of_mem _ hv))
+      (h w List.mem_cons_self)
+
+theorem mem_of_prOK {S : Subgroup G} {R : List (List ℕ)} {nR : ℕ} {o : List ℕ}
+    (hR : ∀ k, ev (nthW R k) ∈ S) (hs : stH L R nR = true) (hP : prOK E L R o = true) :
+    ev o ∈ S := by
+  unfold stH at hs
+  unfold prOK at hP
+  rw [Bool.and_eq_true] at hs hP
+  rw [← hM.eq (chW_catW hs.2) hP.1 hP.2]
+  exact hM.mem_catW fun w hw => by
+    obtain ⟨k, -, rfl⟩ := exists_nthW R w hw
+    exact hR k
 
 end Model
 

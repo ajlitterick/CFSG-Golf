@@ -108,5 +108,13 @@ set_option compiler.extract_closed false
 
 @[expose] def qKeys (O : KOrbit) : Array ByteArray := chainQ.map fun q => O.keys[q]!
 
+@[expose] def orbitPart (O : KOrbit) : Bool :=
+  orbitOK tabA tabB rootKey O 3 && O.keys.size == nPts &&
+    faithChecks (qKeys O) formF (matOfDigits faithY) (matOfDigits faithCinv) (digitsOf faithV)
+      (digitsOf faithW) faithPar faithOp faithAB faithMu &&
+    actionChecks O.alpha O.beta
+
+@[expose] def lyCertificate (_ : Unit) : Bool :=
+  matrixChecks () && rootChecks () && orbitPart (orbitData ())
 
 end CFSG.Sporadic.Ly.Native

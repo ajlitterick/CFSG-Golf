@@ -111,5 +111,13 @@ theorem FrameSide.of_cover (hL : LocalHypotheses p f Ω A) (hA : IsElemAbelian 2
     obtain ⟨K, hKS, hK⟩ := hfa
     exact involutionLink_of_lie hL ha hK.ne_one hS hinv (hcover a ha ⟨K, hKS, hK⟩)
 
+theorem fusionGenerated_of_lie (hL : LocalHypotheses p f Ω A) (hA : IsElemAbelian 2 A)
+    (h16 : 16 ≤ Nat.card A) (hS : S ⊆ Ω) (hne : S.Nonempty)
+    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
+    (hgen : ∀ a ∈ A, IsFrameInvolution p f S a → CentralizerGenerationModO Ω A a)
+    (hcover : ∀ a ∈ A, IsFrameInvolution p f S a → FrameCoversModO Ω S a)
+    (hconn : OmegaConnected Ω) : CFSG.ClassicalInvolution.Balance.FusionGenerated A :=
+  fusionGenerated_of_deltaClosure hL.inClass
+    (FrameSide.of_cover hL hA h16 hS hne hinv hgen hcover) hconn
 
 end CFSG.ClassicalInvolution.Generic.DeltaClosure

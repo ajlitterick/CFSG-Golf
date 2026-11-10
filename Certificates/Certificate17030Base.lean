@@ -12,6 +12,9 @@ open CFSG CFSG.QuasithinUnique CFSG.QuasithinUnique.A5 CFSG.QuasithinUnique.A5.K
 
 namespace CertificateChecks.Batch17030
 
+private theorem fixed_alt_zero'_0 :  ∀ v : Fin 5 → ZMod 2, isEven v →
+    (∀ σ : Equiv.Perm (Fin 5), Equiv.Perm.sign σ = 1 → pact σ v = v) → v = 0  := by
+  decide +kernel
 
 end CertificateChecks.Batch17030
 

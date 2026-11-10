@@ -69,6 +69,8 @@ theorem ptE_commute_iff
     rw [e, Equiv.symm_apply_apply]
     rfl
 
+theorem ptLocal_χ_symm
+    (u : Fin 693) : ptLocal.χ.symm u = ptE u := rfl
 
 theorem mem_ptLocal_pts
     {U : Set J} {u : Fin 693} :
@@ -165,6 +167,10 @@ theorem mem_lhData_iff {i : ℕ} (hi : i < 2) {x : ℕ} :
   · rintro ⟨l, hl, rfl⟩
     exact ⟨l, by omega, by rw [getElem!_pos _ l (by omega)]⟩
 
+theorem lt_of_mem_lhData
+    {i : ℕ} (hi : i < 2) {x : ℕ} (hx : x ∈ lhData[i]!) : x < 3510 := by
+  obtain ⟨l, hl, rfl⟩ := (mem_lhData_iff hi).1 hx
+  exact lhData_lt hi hl
 
 theorem conjPt_mem_lhRoot
     {i : Fin 2} {x : ℕ} (hx : x < 3510) :
@@ -345,6 +351,12 @@ theorem val_image_conjPerm (g : J) (T : Set D) :
   rw [Set.image_image, Set.image_image]
   simp only [Pair.conjPerm_apply]
 
+theorem isLocallyHyperoval_of_mem_lhOrbit
+    (hHF : HyperovalFacts) {i : Fin 2} {T : Set D}
+    (hT : T ∈ lhOrbit i) : IsLocallyHyperoval D (Subtype.val '' T) := by
+  obtain ⟨g, rfl⟩ := hT
+  rw [val_image_conjPerm]
+  exact (isLocallyHyperoval_lhRoot hHF i).conj pair_D g
 
 theorem ncard_lhRoot
     (i : Fin 2) : (lhRoot i).ncard = 351 := by

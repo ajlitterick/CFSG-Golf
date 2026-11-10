@@ -31,5 +31,14 @@ theorem ch687010n2b : nodeOK N2Q node2b = true := by decide +kernel
 
 theorem ch687010n2c : nodeOK N2Q node2c = true := by decide +kernel
 
+theorem ch687010s1a_neg : s1OK N1Q spin1a (List.drop 1 recs1a) (repsOf [node1a]) = false := by
+  decide +kernel
+
+theorem ch687010n1a_neg : nodeOK N1Q (node1a.1, (node1a.2.1, List.drop 1 node1a.2.2)) = false := by
+  decide +kernel
+
+theorem ch687010n1a_negw :
+    nodeOK N1Q (node1a.1, (node1a.2.1, node1a.2.2.map fun s => (s.1, (s.2.1, [])))) = false := by
+  decide +kernel
 
 end CFSG.KD.A9Mod

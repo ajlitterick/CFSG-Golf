@@ -33,6 +33,21 @@ namespace CertificateChecks.KernelDet.ON
 
 open CFSG.F3.Native CFSG.KS CFSG.KS.Row CFSG.KS.F3L
 
+@[expose] noncomputable def lt (i : Nat) : Nat :=
+  rg (nat_lit 23716) (mask (nat_lit 23716)) LT (nat_lit 0) i
+
+@[expose] noncomputable def ln (i : Nat) : V :=
+  ⟨lt (Nat.mul (nat_lit 2) i), lt (Nat.succ (Nat.mul (nat_lit 2) i))⟩
+
+@[expose] noncomputable def LA : V := ln (nat_lit 0)
+@[expose] noncomputable def LB : V := ln (nat_lit 1)
+@[expose] noncomputable def LI : V := ln (nat_lit 2)
+
+@[expose] noncomputable def SP : Nat := spreadE (nat_lit 154) (nat_lit 154)
+
+@[expose] noncomputable def mulF (X Y : V) : V := mulLane (nat_lit 154) SP X Y
+
+@[expose] noncomputable def powF (X : V) (e : Nat) : V := powLane (nat_lit 154) SP LI X e
 
 end CertificateChecks.KernelDet.ON
 

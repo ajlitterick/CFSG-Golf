@@ -75,6 +75,15 @@ theorem exists_smul_eq_pair {v w v' w' : cgraph.neighborSet u}
   exact ⟨y, hy, congrArg Subtype.val (M.pt_injective hv2),
     congrArg Subtype.val (M.pt_injective hw2)⟩
 
+theorem orbSize_smul {y : Shat} (hy : cvMul u y = u) (v w : cgraph.neighborSet u)
+    (hv : cvMul v y ∈ cgraph.neighborSet u) (hw : cvMul w y ∈ cgraph.neighborSet u) :
+    orbSize (M.pt ⟨_, hv⟩) (M.pt ⟨_, hw⟩) = orbSize (M.pt v) (M.pt w) := by
+  obtain ⟨γ, hact⟩ := M.act y hy
+  obtain ⟨hv0, hv'⟩ := hact v
+  obtain ⟨hw0, hw'⟩ := hact w
+  have e1 : M.pt ⟨_, hv⟩ = γ⁻¹ * M.pt v * γ⁻¹⁻¹ := by rw [inv_inv]; exact hv'
+  have e2 : M.pt ⟨_, hw⟩ = γ⁻¹ * M.pt w * γ⁻¹⁻¹ := by rw [inv_inv]; exact hw'
+  rw [e1, e2, orbSize_conj]
 
 theorem natCard_orbSize_eq (v : cgraph.neighborSet u) (i : Fin 5) :
     Nat.card {w : cgraph.neighborSet u // orbSize (M.pt v) (M.pt w) = repSize i} = repSize i := by

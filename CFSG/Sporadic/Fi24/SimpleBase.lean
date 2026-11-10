@@ -43,6 +43,8 @@ noncomputable abbrev root : Fin 306936 := ⟨0, by norm_num⟩
 
 instance (T : Tree) (p : ℕ) : Decidable (InTree T p) := by unfold InTree; infer_instance
 
+theorem inTreeB_iff (T : Tree) (p : ℕ) : inTreeB T p = true ↔ InTree T p := by
+  simp [inTreeB, InTree]
 
 @[expose] def InOrbOne (p : Fin 306936) : Prop :=
   ∃ w : List ℕ, (∀ l ∈ w, l ∈ lv1) ∧ w.foldr (fun l z => ap letters[l]! z) p.val = 305530

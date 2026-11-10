@@ -49,6 +49,7 @@ theorem kGensGD : grOK GD.S RG (dg.getD 0 []) (vl.getD 0 []) = true := by quickR
 theorem kOrdGD : Nat.beq (rcnt (GD.LR 0) * rcnt (GD.LR 1) * rcnt (GD.LR 2) * rcnt (GD.LR 3) *
     rcnt (GD.LR 4) * rcnt (GD.LR 5)) 1290240 = true := by quickRfl
 
+theorem kGensGDNeg : (!grOK GD.S RG (dg.getD 1 []) (vl.getD 0 [])) = true := by quickRfl
 
 end CertificateChecks.KernelAE6Tri
 

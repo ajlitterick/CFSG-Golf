@@ -110,6 +110,12 @@ theorem t1J_mem_centralizer :
   rw [Subgroup.coe_mul, Subgroup.coe_mul] at h'
   exact h'
 
+theorem t1J_ne_tJ :
+    t1J ≠ tJ := by
+  intro h
+  apply y1_mem.2.1
+  rw [← fi23EquivM_t1J, ← fi23EquivM_tJ]
+  exact congrArg fi23EquivM (Subtype.ext h)
 
 theorem sup_centralizer_eq_top
     {e : J} (he : EdgeSwap e) :

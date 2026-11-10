@@ -12,6 +12,8 @@ namespace CFSG.Sporadic.ThSchreier
 
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Max3 CFSG.Assembly.Dichotomy
 
+theorem assemblyPCore_eq (p : ℕ) (X : Type*) [Group X] :
+    CFSG.Assembly.pCore p X = CFSG.pCore p X := CFSG.Assembly.pCore_eq_pCore p X
 
 theorem charP_of_equiv {H H' : Type*} [Group H] [Group H'] (e : H ≃* H') {p : ℕ}
     (h : dichotomyCharP p H) : dichotomyCharP p H' := by
@@ -100,6 +102,14 @@ theorem oddCore_M :
     rw [hzo] at h1
     exact (Nat.not_even_iff_odd.2 hNodd) (even_iff_two_dvd.2 h1)
 
+theorem nonempty_centralizer_equiv_M
+    (hM : Subgroup.centralizer {a} = M)
+    (hInv : ∀ u : J, orderOf u = 2 → IsConj a u) {u : J} (hu : orderOf u = 2) :
+    Nonempty (Subgroup.centralizer {u} ≃* ↥M) := by
+  obtain ⟨g, rfl⟩ := isConj_iff.1 (hInv u hu)
+  have e1 : Subgroup.centralizer {a} ≃* Subgroup.centralizer {g * a * g⁻¹} :=
+    ((MulAut.conj g).subgroupMap _).trans (MulEquiv.subgroupCongr (centralizer_map_conj g a))
+  exact ⟨e1.symm.trans (MulEquiv.subgroupCongr hM)⟩
 
 theorem charP_oddCore_J
     (hM : Subgroup.centralizer {a} = M)

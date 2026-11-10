@@ -63,6 +63,13 @@ theorem RS_all :
     relsAll RG MUL RS (nat_lit 5) CFSG.KD.OrdRu.ONE (nat_lit 0) (nat_lit 2) = true := by
   quickRfl
 
+theorem neg_rel :
+    notB (relOK RG MUL [[(2, true)]] (nat_lit 5) CFSG.KD.OrdRu.ONE (nat_lit 0)) = true := by
+  quickRfl
+
+theorem neg_surj : notB (relOK RG MUL [appK (sgnWordK (RuSurjT.W.getD 0 [])) [(1, false)]]
+    (nat_lit 5) CFSG.KD.OrdRu.ONE (nat_lit 0)) = true := by
+  quickRfl
 
 theorem wordProd_phi_eq_one {R : List (List (Nat × Bool))} {n : Nat} (hb : relsBounded R 5 = true)
     (hall : relsAll RG MUL R 5 CFSG.KD.OrdRu.ONE 0 n = true) (hn : Nat.beq (lenRels R) n = true)

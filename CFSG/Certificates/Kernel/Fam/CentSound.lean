@@ -21,6 +21,13 @@ theorem ordMat_zero : ordMat p d w S 0 = 0 := by
   funext i j
   simp [ordMat]
 
+theorem lane_lt_p_bound (hc : constsOK p w S d T L H CM RM ONE LV HV = true) :
+    p ≤ 2 ^ w := by
+  obtain ⟨-, -, hw, -, hT, -⟩ := consts_facts hc
+  have hp2 : p ≤ 2 ^ (w - 1) :=
+    Nat.le_trans (Nat.le_mul_of_pos_right p (Nat.two_pow_pos T)) hT
+  have e2 := two_pow_pred hw
+  omega
 
 private theorem lane_bound {p d x y c B : Nat} (hd : 2 ≤ d) (hB : d * ((p - 1) * (p - 1)) < B)
     (hx : x < p) (hy : y < p) (hc : c < p) : x + y * c < B := by

@@ -102,6 +102,7 @@ theorem telMul_chk (i : ℕ) (hi : i < 128) : MulRowOK i := by
 theorem telInv_chk : ∀ i < 128, telInv i < 128 ∧ compL (tl i) (tl (telInv i)) = idl := by
   decide +kernel
 
+theorem tl_zero : tl 0 = idl := by decide +kernel
 
 theorem invIdx_chk : ∀ u < 128, (u ≠ 0 ∧ telMul u u = 0) ↔ u ∈ invIdx := by
   have e : telMul = JMul.mK := funext fun i => funext fun j => JMul.getD_mK i j

@@ -29,6 +29,12 @@ theorem root : Nat.beq (fld32 S 0) 46090 = true := by quickRfl
 
 theorem target : Nat.beq (fld32 S 32) 4204845 = true := by quickRfl
 
+theorem neg_clos : notB (closPt act 37 64 S (Nat.xor E 1) 0) = true := by quickRfl
+
+theorem neg_tree : notB (treePt act 37 64 0 S (Nat.xor T (Nat.shiftLeft 1 (Nat.add 32 12))) 1) = true := by
+  quickRfl
+
+theorem neg_inc : notB (incPt 64 46090 S 0) = true := by quickRfl
 
 end CertificateChecks.KernelBM.CTIB.Outer3122
 

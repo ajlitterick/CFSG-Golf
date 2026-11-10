@@ -13,6 +13,17 @@ open CFSG.Certificates CFSG.Certificates.RawSchreierDatum CFSG.Monster.B.Co2
 @[expose] def suzZS : Set (Equiv.Perm (Fin 22880)) :=
   {x | x ∈ suzS3 ∧ ∀ y ∈ suzS3, x * y = y * x}
 
+theorem centerFullPerm_ne
+    {r r' : ℕ} (hr : r < 9) (hr' : r' < 9) (hne : r ≠ r') :
+    centerFullPerm r ≠ centerFullPerm r' := by
+  intro h
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+  · have := sylowCenterChecks_facts.2.2.2.2.1 r hr r' hr' hlt
+    rw [(eqA_iff (rep_centerFull hr) (rep_centerFull hr')).2 h] at this
+    exact Bool.false_ne_true this.symm
+  · have := sylowCenterChecks_facts.2.2.2.2.1 r' hr' r hr hlt
+    rw [(eqA_iff (rep_centerFull hr') (rep_centerFull hr)).2 h.symm] at this
+    exact Bool.false_ne_true this.symm
 
 theorem suzS3_center_eq :
     suzZS = Set.range (fun r : Fin 9 => centerFullPerm r) := by
@@ -24,6 +35,11 @@ theorem suzS3_center_eq :
   · rintro ⟨r, rfl⟩
     exact ⟨centerFullPerm_mem r.2, centerFullPerm_central r.2⟩
 
+theorem ncard_suzZS :
+    suzZS.ncard = 9 := by
+  rw [suzS3_center_eq, Set.ncard_range_of_injective (fun r r' h => Fin.ext (by
+    by_contra hne
+    exact centerFullPerm_ne r.2 r'.2 hne h)), Nat.card_eq_fintype_card, Fintype.card_fin]
 
 theorem mem_center_map_iff {x : Equiv.Perm (Fin 22880)} :
     x ∈ (Subgroup.center suzS3).map suzS3.subtype ↔ x ∈ suzZS := by
@@ -53,6 +69,18 @@ theorem centerFullPerm_pow_three
     mul_comm (r % 3), pow_mul, pow_mul, centerFullPerm_three_pow, suzZ_pow_three, one_pow,
     one_pow, one_mul]
 
+theorem orderOf_centerFullPerm
+    {r : ℕ} (hr : r < 9) (hr0 : r ≠ 0) :
+    orderOf (centerFullPerm r) = 3 := by
+  refine orderOf_eq_prime (centerFullPerm_pow_three hr) fun h => ?_
+  exact centerFullPerm_ne hr (by norm_num : 0 < 9) hr0 (h.trans centerFullPerm_zero.symm)
+
+theorem card_center_suzS3 :
+    Nat.card (Subgroup.center suzS3) = 9 := by
+  have e : ((Subgroup.center suzS3).map suzS3.subtype : Set (Equiv.Perm (Fin 22880))) = suzZS :=
+    Set.ext fun x => mem_center_map_iff
+  rw [← Subgroup.card_map_of_injective suzS3.subtype_injective, ← ncard_suzZS, ← e]
+  exact Nat.card_coe_set_eq _
 
 theorem center_pow_three
     {x : suzS3} (hx : x ∈ Subgroup.center suzS3) : x ^ 3 = 1 := by
@@ -117,6 +145,82 @@ theorem suzLine_of_mem
     rw [suzLine, ← h4, zpowers_sq (centerFullPerm_pow_three (by norm_num))]
     rfl
 
+theorem suzLine_le
+    {r : ℕ} (hr : r < 9) : (suzLine r : Set (Equiv.Perm (Fin 22880))) ⊆ suzZS := by
+  intro x hx
+  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hx
+  have hmem : centerFullPerm r ∈ (Subgroup.center suzS3).map suzS3.subtype :=
+    mem_center_map_iff.2 ⟨centerFullPerm_mem hr, centerFullPerm_central hr⟩
+  exact mem_center_map_iff.1 (Subgroup.zpow_mem _ hmem k)
+
+theorem card_suzLine
+    {r : ℕ} (hr : r < 9) (hr0 : r ≠ 0) : Nat.card (suzLine r) = 3 := by
+  rw [suzLine, Nat.card_zpowers, orderOf_centerFullPerm hr hr0]
+
+theorem order_three_subgroups
+    (D : Subgroup (Equiv.Perm (Fin 22880)))
+    (hD : (D : Set (Equiv.Perm (Fin 22880))) ⊆ suzZS) (h3 : Nat.card D = 3) :
+    D = suzLine 1 ∨ D = suzLine 3 ∨ D = suzLine 4 ∨ D = suzLine 5 := by
+  have : Nontrivial D := Finite.one_lt_card_iff_nontrivial.mp (by rw [h3]; norm_num)
+  obtain ⟨⟨d, hdD⟩, hd1⟩ := exists_ne (1 : D)
+  have hd1' : d ≠ 1 := fun h => hd1 (Subtype.ext h)
+  have hdZ := hD hdD
+  rw [suzS3_center_eq] at hdZ
+  obtain ⟨r, hr⟩ := hdZ
+  simp only at hr
+  subst hr
+  have hr0 : (r : ℕ) ≠ 0 := by
+    intro h
+    apply hd1'
+    have e : r = ⟨0, by norm_num⟩ := Fin.ext h
+    rw [e]
+    exact centerFullPerm_zero
+  have hDeq : D = suzLine r := by
+    symm
+    refine Subgroup.eq_of_le_of_card_ge ?_ ?_
+    · rw [suzLine, Subgroup.zpowers_le]
+      exact hdD
+    · rw [h3, card_suzLine r.2 hr0]
+  rw [hDeq]
+  exact suzLine_of_mem r.2 hr0
+
+theorem mem_suzLine
+    {r s : ℕ} (hr : r < 9) (hr0 : r ≠ 0)
+    (hsq : centerFullPerm r * centerFullPerm r = centerFullPerm s) {x : Equiv.Perm (Fin 22880)}
+    (hx : x ∈ suzLine r) : x = 1 ∨ x = centerFullPerm r ∨ x = centerFullPerm s := by
+  classical
+  rw [suzLine, mem_zpowers_iff_mem_range_orderOf, orderOf_centerFullPerm hr hr0] at hx
+  simp only [Finset.mem_image, Finset.mem_range] at hx
+  obtain ⟨k, hk, rfl⟩ := hx
+  interval_cases k
+  · exact Or.inl (pow_zero _)
+  · exact Or.inr (Or.inl (pow_one _))
+  · exact Or.inr (Or.inr (by rw [pow_two, hsq]))
+
+theorem suzLine_ne
+    {r r' s' : ℕ} (hr : r < 9) (hr' : r' < 9) (hs' : s' < 9) (hr0 : r ≠ 0)
+    (hr'0 : r' ≠ 0) (hsq : centerFullPerm r' * centerFullPerm r' = centerFullPerm s')
+    (h1 : r ≠ r') (h2 : r ≠ s') : suzLine r ≠ suzLine r' := by
+  intro h
+  have hmem : centerFullPerm r ∈ suzLine r' := h ▸ Subgroup.mem_zpowers _
+  rcases mem_suzLine hr' hr'0 hsq hmem with h0 | h0 | h0
+  · exact centerFullPerm_ne hr (by norm_num : 0 < 9) hr0 (h0.trans centerFullPerm_zero.symm)
+  · exact centerFullPerm_ne hr hr' h1 h0
+  · exact centerFullPerm_ne hr hs' h2 h0
+
+theorem suzLines_ne :
+    suzLine 1 ≠ suzLine 3 ∧ suzLine 1 ≠ suzLine 4 ∧ suzLine 1 ≠ suzLine 5 ∧
+      suzLine 3 ≠ suzLine 4 ∧ suzLine 3 ≠ suzLine 5 ∧ suzLine 4 ≠ suzLine 5 := by
+  obtain ⟨h1, h3, h4, h5⟩ := centerFullPerm_sq_eq
+  refine ⟨suzLine_ne (by norm_num) (by norm_num) (by norm_num : 6 < 9) (by norm_num) (by norm_num)
+    h3 (by norm_num) (by norm_num), suzLine_ne (by norm_num) (by norm_num) (by norm_num : 8 < 9)
+    (by norm_num) (by norm_num) h4 (by norm_num) (by norm_num), suzLine_ne (by norm_num)
+    (by norm_num) (by norm_num : 7 < 9) (by norm_num) (by norm_num) h5 (by norm_num)
+    (by norm_num), suzLine_ne (by norm_num) (by norm_num) (by norm_num : 8 < 9) (by norm_num)
+    (by norm_num) h4 (by norm_num) (by norm_num), suzLine_ne (by norm_num) (by norm_num)
+    (by norm_num : 7 < 9) (by norm_num) (by norm_num) h5 (by norm_num) (by norm_num),
+    suzLine_ne (by norm_num) (by norm_num) (by norm_num : 7 < 9) (by norm_num) (by norm_num) h5
+    (by norm_num) (by norm_num)⟩
 
 @[expose] def suzFusionG : Equiv.Perm (Fin 22880) :=
   Quiver.SchreierGraph.evalWord (fun h : Fin 2 => if (h : ℕ) = 0 then suzA0 else suzA1)
@@ -202,6 +306,15 @@ theorem ncard_fixed_eq {n : ℕ} {t : Array ℕ} {g : Equiv.Perm (Fin n)} (ht : 
     rw [← ht ⟨y, hy.1⟩]
     exact hy.2
 
+theorem fixedSet_zpowers (e : Equiv.Perm (Fin 22880)) :
+    {x : Fin 22880 | ∀ d ∈ Subgroup.zpowers e, d x = x} = {x | e x = x} := by
+  ext x
+  constructor
+  · intro h
+    exact h e (Subgroup.mem_zpowers e)
+  · intro h d hd
+    obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hd
+    exact Equiv.Perm.zpow_apply_eq_self_of_apply_eq_self h k
 
 @[expose] def localOrig (h : ℕ) : Equiv.Perm (Fin 280) :=
   if hh : h < localChain.originalCount then localChain.original.get ⟨h, hh⟩ else 1

@@ -31,6 +31,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.MulH CFSG.GH74.Unique
 theorem four_ok : fourK = true := by
   quickRfl
 
+theorem four_neg : bIf(Nat.beq (J3CentP 22) (J3CentP 22), false, true) = false ∧
+    Nat.beq (pcomp 6156 13 (mask 13) (J3CentP 25) (J3CentP 25)) (pidn 6156 13) = false := by
+  decide +kernel
 
 theorem tbl_unpack {k : Nat} (hk : k < 31) : j3CentTbl k = tabT (unpack 6156 13 (J3CentP k)) := by
   rw [← tabT_natArr (j3CentTbl k), j3CentTbl_eq hk]

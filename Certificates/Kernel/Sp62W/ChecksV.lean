@@ -35,6 +35,9 @@ theorem ch9441v_h : (Nat.beq (recX VR 20 0) (numC oneC) && Nat.beq (recC VR 20 2
 #kc_forall_chunks ch9441v_s (fun j => stepSl VR 20 25920 2 j = true) 13
   CertificateChecks.KernelSp62W.ch9441vS 1
 
+theorem ch9441v_n1 : gensK VR [cB, cA] = false := by decide +kernel
+
+theorem ch9441v_n2 : memsK VR 2 20 25920 [cGD] = false := by decide +kernel
 
 end CertificateChecks.KernelSp62W
 

@@ -41,6 +41,26 @@ theorem len_K : cs.length = 5 := by decide +kernel
 
 theorem fin_K : liftFinL L.lay (SL.getD cs.length []) lyLift = true := by decide +kernel
 
+theorem ren_neg : (!renOK [490, 478, 500, 22, 22, 779, 925, 1070] lyLift.base.prog cs) = true := by
+  decide +kernel
+
+theorem ch_neg : (!chunkV L.lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
+  decide +kernel
+
+theorem fin_neg_rep : (!liftFinL L.lay (SL.getD 5 [])
+    { lyLift with base := { lyLift.base with outs := [478, 478, 500] } }) = true := by
+  decide +kernel
+
+theorem fin_neg_inv : (!liftFinL L.lay (SL.getD 5 []) { lyLift with inv₁ := 478 }) = true := by
+  decide +kernel
+
+theorem fin_neg_rel : (!liftFinL L.lay (SL.getD 5 []) { lyLift with rels := [.fix 779 0] }) =
+    true := by
+  decide +kernel
+
+theorem fin_neg_unit : (!liftFinL L.lay (SL.getD 5 [])
+    { lyLift with units := [(779, 1), (925, 24), (1070, 12)] }) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelCensus.LiftLy
 

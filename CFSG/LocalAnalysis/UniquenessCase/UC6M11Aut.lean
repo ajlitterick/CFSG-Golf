@@ -157,6 +157,8 @@ theorem allInner (α : MulAut S11) : ∃ g : S11, α = MulAut.conj g := by
   obtain ⟨g, hg⟩ := h
   exact ⟨g, hg.symm⟩
 
+theorem conj_inj : Function.Injective (MulAut.conj : S11 →* MulAut S11) :=
+  conj_injective_of_center NativeSporadic.M11 m11_center_eq_bot'
 
 theorem mem_Eu_of_conj_fix {g : S11} (h : ∀ e ∈ Eu, (MulAut.conj g : MulAut S11) e = e) : g ∈ Eu := by
   refine centralizer_Eu fun e he => ?_

@@ -257,6 +257,16 @@ theorem N0_conj {E Q0 : Subgroup G} (hQ : ∀ n ∈ Subgroup.normalizer (E : Set
     rw [e1] at this
     exact this
 
+theorem centralizer_le_N0 {E Q0 : Subgroup G} (hQE : Q0 ≤ E) :
+    Subgroup.centralizer (E : Set G) ≤ N0 E Q0 := by
+  intro n hn
+  have hc : ∀ y ∈ E, n * y * n⁻¹ = y := by
+    intro y hy
+    have := Subgroup.mem_centralizer_iff.1 hn y hy
+    calc n * y * n⁻¹ = (y * n) * n⁻¹ := by rw [this]
+      _ = y := by group
+  exact mem_N0.2 ⟨Subgroup.centralizer_le_normalizer (E : Set G) hn, fun q hq => hc q (hQE hq),
+    fun y hy => by rw [hc y hy]; simp [Q0.one_mem]⟩
 
 @[expose] def N1 (E Q0 : Subgroup G) : Subgroup G where
   carrier := {n | n ∈ Subgroup.normalizer (E : Set G) ∧ n ∈ Subgroup.normalizer (Q0 : Set G) ∧
@@ -1294,6 +1304,10 @@ theorem no_big_abelian {M : Subgroup G} {a : G} (haA : a ∈ A)
     exact (Nat.pow_right_injective (by norm_num : 2 ≤ 3) h).symm
   exact h0 F hFM hFel (by omega) haN
 
+theorem card_R_of {R' : Subgroup G} (hR' : IsSylowIn 3 (Subgroup.normalizer (E : Set G)) R') :
+    Nat.card ↥R' = 3 ^ 8 := by
+  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  rw [card_eq_of_isSylowIn r.hR hR', r.hR8]
 
 theorem dichotomy :
     (∃ F : Subgroup G, F ≤ R ⊓ N0 E (Q ⊓ K) ∧ Nat.card ↥F = 3 ^ 6 ∧

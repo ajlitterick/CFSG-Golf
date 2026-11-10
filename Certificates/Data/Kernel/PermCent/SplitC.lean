@@ -37,6 +37,8 @@ variable [Small n]
       (CFSG.Certificates.Kernel.PkEnum.levelV (CFSG.Certificates.Kernel.PkEnum.strongV Q) Q.base i)).map
       toCV
 
+theorem elemsC_eq_levelsC (Q : CFSG.Certificates.RawSchreierDatum n) :
+    elemsC Q = productsC (levelsC Q) := rfl
 
 @[expose] noncomputable def allSplit (L : List (List (CV n))) (g : CV n → CV n → Bool) : Bool :=
   match L with

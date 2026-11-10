@@ -74,6 +74,13 @@ theorem fd_enc {w len : Nat} {f : Nat → Nat} (hf : ∀ i < len, f i < 2 ^ w) {
       Nat.mul_left_comm, Nat.add_assoc]
   rw [h2, fd_add_mul_of_lt h1, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt hfj]
 
+theorem fd_enc_of_le {w len : Nat} {f : Nat → Nat} (hf : ∀ i < len, f i < 2 ^ w) {j : Nat}
+    (hj : len ≤ j) : fd w (enc w f len) j = 0 := by
+  have h1 : enc w f len < 2 ^ (w * len) := enc_lt hf
+  have h2 : 2 ^ (w * len) ≤ 2 ^ (w * j) :=
+    Nat.pow_le_pow_right Nat.zero_lt_two (Nat.mul_le_mul_left w hj)
+  unfold fd
+  rw [Nat.div_eq_of_lt (Nat.lt_of_lt_of_le h1 h2), Nat.zero_mod]
 
 private theorem enc_fd_mod (w x len : Nat) : enc w (fd w x) len = x % 2 ^ (w * len) := by
   induction len with

@@ -99,6 +99,12 @@ theorem tauSp_mem_Γ₆
     rw [map_mul]
     rfl
 
+theorem coe_tau₆ (γ : ↥Γ₆) :
+    (((tau₆ γ : ↥Γ₆) : GL (Fin 2 ⊕ Fin 2) (ZMod 2)) :
+      Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) (ZMod 2)) =
+      tauMat ((γ : GL (Fin 2 ⊕ Fin 2) (ZMod 2)) :
+        Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) (ZMod 2)) :=
+  rfl
 
 theorem tauSp_tauSp_two (g : StatedSp 2 (ZMod 2)) : tauSp (tauSp g) = g := by
   rw [tauSp_tauSp]

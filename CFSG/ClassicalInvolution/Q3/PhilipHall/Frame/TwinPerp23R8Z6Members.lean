@@ -202,6 +202,16 @@ theorem I1Members.bijOn {n : ℕ} {R : Subgroup Y} {S : Sylow 2 R} {t e : Y}
     exact ⟨J, hJ, hb⟩
 
 
+theorem I1Members.exists_map_phi {R : Subgroup Y} {t e : Y} {B : Subgroup Y}
+    {f : ↥(rLayer (Om R) e) →* Wr 6} {Θ : ↥Sp62Rec.I1.Wsub ≃* ↥Hhat} {φ : ↥B →* ↥Hhat}
+    (M : I1Members R e f) (D : I1Action t e (rLayer (Om R) e) B f Θ φ) {J : Subgroup Y}
+    (hJ : J ∈ Om R) (hJE : J ≤ rLayer (Om R) e) :
+    ∃ (α : Finset (Fin 6)) (h : α.card = 4) (b : Bool),
+      (J.subgroupOf B).map φ =
+        ((memAt α h b).subgroupOf Sp62Rec.I1.Wsub).map Θ.toMonoidHom := by
+  obtain ⟨α, h, b, hb⟩ := M.label hJ hJE
+  exact ⟨α, h, b, D.map_member hJE hb⟩
+
 variable {Ω : Set (Subgroup Y)} {c : Y}
 
 theorem map_secOf_coreAt

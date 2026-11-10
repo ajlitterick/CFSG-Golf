@@ -28,6 +28,9 @@ theorem omega_conj :
       tStar := by
   rw [fM_y443C_eq, omega_comm, mul_assoc, mul_inv_cancel, mul_one]
 
+theorem fM_y443C_mem_shortClass :
+    ((fM y443C : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) ∈ shortClass :=
+  ⟨(wordLin omegaWord)⁻¹, inv_mem (wordLin_mem_Gmat _), by rw [← omega_conj]; group⟩
 
 theorem commute_fMc_iff
     {x : SpaceB ≃ₗ[ℚ] SpaceB} :

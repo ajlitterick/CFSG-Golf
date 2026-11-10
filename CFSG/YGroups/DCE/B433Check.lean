@@ -99,6 +99,67 @@ theorem treeGens_rep
       rw [getElem!_pos treeWords _ hk]
       exact Array.getElem_mem hk))⟩
 
+theorem gB_rep
+    {L : Array ByteArray} (hL : ∀ l < 10, RepB 31671 L[l]! (rho432F (yGen 4 3 2 l))) :
+    RepB 31671 (gB L) (rho432F gRel) := by
+  refine repB_congr (wordB_rep hL #[1, 2, 5, 0, 8, 9] (by decide)) ?_
+  simp only [gRel, evalWord_cons, evalWord_nil, mul_one, mul_assoc]
+
+theorem relHs_spec
+    {L : Array ByteArray} (hg : RepB 31671 (gB L) (rho432F gRel)) :
+    (relHs L).size = 9 ∧ ∀ s < 9, RepB 31671 (relHs L)[s]! (rho432F (gRel ^ s)) := by
+  have key : ∀ m, ((List.range m).foldl
+        (fun acc (_ : ℕ) => acc.push (bcomp deg acc.back! (gB L))) #[bid deg]).size = m + 1 ∧
+      ∀ s < m + 1, RepB 31671 ((List.range m).foldl
+        (fun acc (_ : ℕ) => acc.push (bcomp deg acc.back! (gB L))) #[bid deg])[s]!
+          (rho432F (gRel ^ s)) := by
+    intro m
+    induction m with
+    | zero =>
+      refine ⟨rfl, fun s hs => ?_⟩
+      obtain rfl : s = 0 := by omega
+      have h0 : (#[bid deg] : Array ByteArray)[0]! = bid deg := rfl
+      rw [List.range_zero, List.foldl_nil, h0, pow_zero, map_one]
+      exact repB_bid (n := 31671) (by norm_num)
+    | succ m ih =>
+      obtain ⟨hs, hrep⟩ := ih
+      rw [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil]
+      generalize (List.foldl (fun acc (_ : ℕ) => acc.push (bcomp deg acc.back! (gB L)))
+        #[bid deg] (List.range m)) = acc at hs hrep ⊢
+      have hback : RepB 31671 acc.back! (rho432F (gRel ^ m)) := by
+        have := hrep m (by omega)
+        rw [Array.back!, hs, Nat.add_sub_cancel]
+        exact this
+      refine ⟨by rw [Array.size_push, hs], fun s hs' => ?_⟩
+      by_cases hsm : s < m + 1
+      · rw [getElem!_pos (acc.push _) s (by rw [Array.size_push]; omega), Array.getElem_push_lt
+          (by omega), ← getElem!_pos acc s (by omega)]
+        exact hrep s hsm
+      · obtain rfl : s = m + 1 := by omega
+        rw [getElem!_pos (acc.push _) (m + 1) (by rw [Array.size_push]; omega),
+          Array.getElem_push, dite_eq_right (by omega), pow_succ, map_mul]
+        exact repB_bcomp (by norm_num) hback hg
+  exact key 8
+
+theorem relPi_rep
+    {L : Array ByteArray} (hg : RepB 31671 (gB L) (rho432F gRel))
+    (hinv : bisInv deg (gB L) (binvCand deg (gB L)) = true) :
+    RepB 31671 (relPi L) (rho432F (gRel⁻¹ ^ 9)) := by
+  have hgi : RepB 31671 (binvCand deg (gB L)) (rho432F gRel⁻¹) := by
+    rw [map_inv]
+    exact repB_binv hg hinv
+  have key : ∀ m, RepB 31671 ((List.range m).foldl
+      (fun acc (_ : ℕ) => bcomp deg acc (binvCand deg (gB L))) (bid deg))
+        (rho432F (gRel⁻¹ ^ m)) := by
+    intro m
+    induction m with
+    | zero =>
+      rw [List.range_zero, List.foldl_nil, pow_zero, map_one]
+      exact repB_bid (n := 31671) (by norm_num)
+    | succ m ih =>
+      rw [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil, pow_succ, map_mul]
+      exact repB_bcomp (by norm_num) ih hgi
+  exact key 9
 
 structure Checked (L : Array ByteArray) (O : BigOmega) (cert : B.Cert) : Prop where
   hL : L = lettersB ()
@@ -198,8 +259,151 @@ theorem pt_zero :
   show BigOmega.rowFinset 31671 O 0 = listFinset 31671 x0B
   rw [BigOmega.rowFinset_zero S.big, S.X0_eq]
 
+theorem pt_of_lt
+    {p : ℕ} (hp : p < O.N) : (S.pt p).1 = BigOmega.rowFinset 31671 O p := by
+  unfold pt
+  rw [dite_eq_left hp]
+
+theorem act_pt
+    {σ : ByteArray} {e : YGroup 4 3 2} (hσ : RepB 31671 σ (rho432F e)) {p : ℕ}
+    (hp : p < O.N) : O.act σ p < O.N ∧ S.pt (O.act σ p) = e • S.pt p := by
+  obtain ⟨g, hg⟩ := S.exists_g
+  obtain ⟨h1, h2⟩ := BigOmega.act_spec rho432F.range g hg S.big S.n_eq S.hcard
+    (e := ⟨rho432F e, e, rfl⟩) hσ hp
+  refine ⟨h1, Subtype.ext ?_⟩
+  rw [S.pt_of_lt h1]
+  show _ = e • (S.pt p).1
+  rw [S.pt_of_lt hp]
+  exact h2
+
+theorem actAll_pt
+    {σ : ByteArray} {e : YGroup 4 3 2} (hσ : RepB 31671 σ (rho432F e)) {p : ℕ}
+    (hp : p < O.N) :
+    B.u32get (O.actAll σ) p < O.N ∧ S.pt (B.u32get (O.actAll σ) p) = e • S.pt p := by
+  obtain ⟨g, hg⟩ := S.exists_g
+  obtain ⟨-, h1, h2⟩ := BigOmega.actAll_spec rho432F.range g hg S.big S.n_eq S.hcard
+    (e := ⟨rho432F e, e, rfl⟩) hσ (chunk := 16384) (by norm_num) hp
+  have e1 : B.u32get (O.actAll σ) p = u32Entry (O.actAll σ) p := rfl
+  rw [e1]
+  refine ⟨h1, Subtype.ext ?_⟩
+  rw [S.pt_of_lt h1]
+  show _ = e • (S.pt p).1
+  rw [S.pt_of_lt hp]
+  exact h2
+
+theorem pt_surj :
+    ∀ ω : Pts x0B, ∃ p < O.N, S.pt p = ω := by
+  obtain ⟨g, hg⟩ := S.exists_g
+  have hT : (↑((Finset.range O.N).image (BigOmega.rowFinset 31671 O)) :
+      Set (Finset (Fin 31671))) = MulAction.orbit rho432F.range (listFinset 31671 O.X0) :=
+    Set.eq_of_subset_of_ncard_le (BigOmega.rows_subset_orbit rho432F.range g hg S.big S.n_eq)
+      (by
+        rw [Set.ncard_coe_finset, BigOmega.rows_card rho432F.range g hg S.big S.n_eq]
+        exact S.hcard)
+      (Set.toFinite _)
+  intro ω
+  have hω : ω.1 ∈ MulAction.orbit rho432F.range (listFinset 31671 O.X0) := by
+    rw [S.X0_eq, ← orbit_eq]
+    exact ω.2
+  rw [← hT] at hω
+  obtain ⟨j, hj, hjω⟩ := Finset.mem_image.1 (Finset.mem_coe.1 hω)
+  have hjN : j < O.N := Finset.mem_range.1 hj
+  exact ⟨j, hjN, Subtype.ext (by rw [S.pt_of_lt hjN]; exact hjω)⟩
+
+theorem nodesOK : NodesOK (ctxB433 O L cert) := by
+  intro j i p hjp hj
+  have hjp' : (cert.words.map fun w => (w.1, O.act (wordB L w.2) 0))[j]? = some (i, p) := hjp
+  rw [Array.getElem?_map] at hjp'
+  cases hw : cert.words[j]? with
+  | none => rw [hw] at hjp'; simp at hjp'
+  | some w =>
+    rw [hw] at hjp'
+    simp only [Option.map_some, Option.some.injEq, Prod.mk.injEq] at hjp'
+    obtain ⟨hi, -⟩ := hjp'
+    obtain ⟨hlt, hwj⟩ := Array.getElem?_eq_some_iff.1 hw
+    have h4 := S.small_spec.2.2.2 j hlt
+    rcases h4 with h4 | h4
+    · omega
+    · rw [getElem!_pos cert.words j hlt, hwj] at h4
+      rw [← hi]
+      exact h4
+
+theorem actSpec :
+
+    ActSpec (ctxB433 O L cert) S.pt := fun _ _ hσ _ hp => S.act_pt hσ hp
+
+theorem actAllSpec :
+
+    ∀ (σ : ByteArray) (e : YGroup 4 3 2), RepB 31671 σ (rho432F e) →
+    ∀ p < (ctxB433 O L cert).N, B.u32get ((ctxB433 O L cert).actAll σ) p < (ctxB433 O L cert).N ∧
+      S.pt (B.u32get ((ctxB433 O L cert).actAll σ) p) = e • S.pt p :=
+  fun _ _ hσ _ hp => S.actAll_pt hσ hp
+
+theorem ptSurj :
+
+    ∀ ω : Pts x0B, ∃ p < (ctxB433 O L cert).N, S.pt p = ω := S.pt_surj
+
+theorem ctxGood : CtxGood (ctxB433 O L cert) where
+  n_eq := rfl
+  N_pos := by
+    show 0 < O.N
+    rw [S.N_eq]
+    norm_num
+  letters_size := S.letters_size
+  letters_rep := fun l hl => S.letters_rep hl
+  cl_eq := rfl
+  one_rep := repB_bid (n := 31671) (by norm_num)
+  rels_ok := by
+    have hg := gB_rep (L := L) fun l hl => S.letters_rep hl
+    obtain ⟨hsz, hhs⟩ := relHs_spec hg
+    exact rels_ok_single (hs := relHs L) (π := relPi L) rfl hsz hhs
+      (relPi_rep hg S.small_spec.2.2.1)
+
+@[expose] def finalCheck
+    (order bound : ℕ) : Bool :=
+  (env S.good S.ctxGood S.pt S.pt_zero S.actSpec S.nodesOK).finalOK cert.prog cert.fins order
+    bound
+
+theorem card_B433_le
+    {bound : ℕ} (h : S.finalCheck 4089470473293004800 bound = true) :
+    Finite B433 ∧ Nat.card B433 ≤ bound * 4089470473293004800 :=
+  card_B433_le_of_finalOK S.good S.ctxGood S.pt S.pt_zero S.actSpec S.nodesOK S.actAllSpec
+    S.ptSurj bound cert.prog cert.fins h
+
+theorem Q343_bound
+    {bound : ℕ} (hbound : bound ≤ 1015970529280000)
+    (h : S.finalCheck 4089470473293004800 bound = true) :
+    Finite Q343 ∧ Nat.card Q343 ≤ Q343N :=
+  Q343_bound_of_finalOK S.good S.ctxGood S.pt S.pt_zero S.actSpec S.nodesOK S.actAllSpec
+    S.ptSurj bound hbound cert.prog cert.fins h
 
 end Checked
 
+@[expose] def b433Check :
+    Bool :=
+  let L := lettersB ()
+  let O := omegaB433 L
+  let cert := certB433 ()
+  if h : bigOK O L fixB = true ∧ smallOK O L cert = true then
+    Checked.finalCheck (⟨rfl, rfl, h.1, h.2⟩ : Checked L O cert) 4089470473293004800
+      1015970529280000
+  else false
+
+theorem b433_bound_of_check
+    (h : b433Check = true) :
+    Finite B433 ∧ Nat.card B433 ≤ 1015970529280000 * 4089470473293004800 := by
+  unfold b433Check at h
+  dsimp only at h
+  split at h
+  · exact Checked.card_B433_le _ h
+  · cases h
+
+theorem Q343_bound_of_check
+    (h : b433Check = true) : Finite Q343 ∧ Nat.card Q343 ≤ Q343N := by
+  unfold b433Check at h
+  dsimp only at h
+  split at h
+  · exact Checked.Q343_bound _ le_rfl h
+  · cases h
 
 end CFSG.YGroups.DCE.B433

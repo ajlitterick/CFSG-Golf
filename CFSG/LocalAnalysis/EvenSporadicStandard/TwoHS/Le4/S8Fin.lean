@@ -38,6 +38,8 @@ open Matrix Finset
 @[expose] def sListR (α : R4) : List R4 :=
   q0R ++ repsR.flatMap fun r => q0R.map fun q => rmul (rmul r α) q
 
+theorem map_ofR4_toR4 (l : List M4) : (l.map toR4).map ofR4 = l := by
+  simp [List.map_map, Function.comp_def, ofR4_toR4]
 
 theorem sList_eq (α : M4) : sList α = (sListR (toR4 α)).map ofR4 := by
   simp only [sList, sListR, q0R, repsR, List.map_append, List.map_flatMap, List.flatMap_map,

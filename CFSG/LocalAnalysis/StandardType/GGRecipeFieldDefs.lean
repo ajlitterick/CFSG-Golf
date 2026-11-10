@@ -69,6 +69,13 @@ theorem ggRawFieldConjInputExc_of_on {S : ℕ → LargeEvenLabel → Prop}
 theorem GGRawFieldConjInput.exc (h : GGRawFieldConjInput) : GGRawFieldConjInputExc :=
   fun p hp hp2 lab hlab _ => h p hp hp2 lab hlab
 
+theorem ggRawFieldConjInput_iff : GGRawFieldConjInput ↔ GGRawFieldConjInputExc ∧
+    GGRawFieldConjOn fun p lab => lab.tag = .triD4 ∧ p = 3 := by
+  refine ⟨fun h => ⟨h.exc, fun p hp hp2 lab hlab _ => h p hp hp2 lab hlab⟩, ?_⟩
+  rintro ⟨h, h'⟩ p hp hp2 lab hlab
+  by_cases hD : lab.tag = .triD4 ∧ p = 3
+  · exact h' p hp hp2 lab hlab hD
+  · exact h p hp hp2 lab hlab hD
 
 theorem ringEquiv_mul_comm_of_finite {K : Type*} [Field K] [Finite K] (σ τ : K ≃+* K) :
     σ * τ = τ * σ := by
@@ -115,6 +122,11 @@ theorem ggRawFieldCentral_of_commutator_mem (h : ∀ α β : MulAut R, α * β *
     GGRawFieldCentral R I F :=
   fun _ _ α u _ f _ => h α (u * f)
 
+theorem ggRawFieldCentral_of_hom {Q : Type*} [CommGroup Q] (Θ : MulAut R →* Q)
+    (hker : ∀ φ : MulAut R, Θ φ = 1 → φ ∈ I) : GGRawFieldCentral R I F :=
+  ggRawFieldCentral_of_commutator_mem fun α β => hker _ (by
+    rw [map_mul, map_mul, map_mul, map_inv, map_inv, mul_right_comm (Θ α), mul_inv_cancel,
+      one_mul, mul_inv_cancel])
 
 theorem ggRawFieldCentral_of_forall_eq_one (J : Subgroup (MulAut R)) [hJn : J.Normal]
     (hJ : (J : Set (MulAut R)) = I) (hF : ∀ f ∈ F, f = 1) : GGRawFieldCentral R I F := by

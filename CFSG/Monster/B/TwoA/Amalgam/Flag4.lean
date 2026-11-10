@@ -59,6 +59,10 @@ theorem flag4Obj_smul
       obtain ⟨g, hg⟩ := exists_p4_map_eq j X.2
       exact ⟨g, Subtype.ext hg⟩⟩
 
+theorem coe_flag4Equiv
+    (j : Fin 3) (c : P4 ⧸ flag4H j) :
+    (flag4Equiv j c : Submodule (ZMod 2) V8) = flag4Obj j c :=
+  rfl
 
 theorem index_flag4H
     (j : Fin 3) :

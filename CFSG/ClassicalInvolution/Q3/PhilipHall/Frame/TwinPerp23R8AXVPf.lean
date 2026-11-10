@@ -505,6 +505,7 @@ theorem mem_qE {x : Y} :
   · rintro ⟨hx, h⟩
     exact ⟨⟨x, hx⟩, h, rfl⟩
 
+theorem qE_le : qE hc D ≤ rLayer (Om R) e := Subgroup.map_subtype_le _
 
 theorem piE_inj (hOE : oddCoreOf (rLayer (Om R) e) = ⊥) : Function.Injective (ZTwo.piE hc) := by
   rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
@@ -1792,6 +1793,12 @@ theorem qE_conj (h2grp : ∀ J ∈ Om R, IsPGroup 2 ↥J) (hOE : oddCoreOf (rLay
       (Subgroup.mem_sup_left (Subgroup.subset_closure rfl))
 
 end Steps
+
+
+
+
+
+
 
 
 end AXV

@@ -14,6 +14,8 @@ local notation "P45" => Equiv.Perm (Fin 45)
 @[expose] def swapChk (KAl KBl : List P45) (u : P45) : Bool :=
   (KAl.all fun k => memB KBl (u * k * u⁻¹)) && KBl.all fun k => memB KAl (u * k * u⁻¹)
 
+@[expose] def stabChk (KAl KBl : List P45) (u : P45) : Bool :=
+  (KAl.all fun k => memB KAl (u * k * u⁻¹)) && KBl.all fun k => memB KBl (u * k * u⁻¹)
 
 @[expose] def kaList (_ : Unit := ()) : List P45 := (allSL ()).map (rhoOf (rhoTab ()))
 

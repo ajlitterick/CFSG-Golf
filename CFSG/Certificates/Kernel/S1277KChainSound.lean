@@ -82,6 +82,27 @@ theorem card_eq_mul_stab' [Finite Γ] {β : Type} (A : Subgroup Γ) (x : α) (f 
   obtain ⟨g, hg, hgc⟩ := h2 c hc
   exact ⟨g • x, Finset.mem_preimage.2 (hgc ▸ hc), hgc⟩
 
+def Chain : Subgroup Γ → List α → List (Finset α) → Prop
+  | A, x :: b, C :: Cs => (∀ g ∈ A, g • x ∈ C) ∧ (∀ c ∈ C, ∃ g ∈ A, g • x = c) ∧
+      Chain (A ⊓ MulAction.stabilizer Γ x) b Cs
+  | _, [], [] => True
+  | _, _, _ => False
+
+theorem card_chain [Finite Γ] :
+    ∀ (b : List α) (Cs : List (Finset α)) (A : Subgroup Γ), Chain A b Cs →
+      (∀ g ∈ A, (∀ a ∈ b, g • a = a) → g = 1) → Nat.card A = (Cs.map Finset.card).prod
+  | [], [], A, _, htriv => by
+    have : A = ⊥ := (Subgroup.eq_bot_iff_forall A).2 fun g hg => htriv g hg (by simp)
+    rw [this, Subgroup.card_bot]
+    rfl
+  | x :: b, C :: Cs, A, ⟨h1, h2, hc⟩, htriv => by
+    rw [card_eq_mul_stab A x C h1 h2, List.map_cons, List.prod_cons,
+      card_chain b Cs _ hc fun g hg hb => htriv g hg.1 fun a ha => ?_]
+    rcases List.mem_cons.1 ha with rfl | ha
+    · exact hg.2
+    · exact hb a ha
+  | [], _ :: _, _, h, _ => h.elim
+  | _ :: _, [], _, h, _ => h.elim
 
 end CFSG.KS.S1277Chain
 

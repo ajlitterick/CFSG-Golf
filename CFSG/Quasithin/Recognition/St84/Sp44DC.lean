@@ -72,6 +72,11 @@ theorem A1B_le_T0B : A1B F ≤ T0B F :=
 theorem A2B_le_T0B : A2B F ≤ T0B F :=
   Subgroup.subgroupOf_mono _ (radA2_le_antiUnipotent (K := F))
 
+theorem Z0B_le_A1B : Z0B F ≤ A1B F :=
+  Subgroup.subgroupOf_mono _ (antiUnipotentCenter_le_radA1 (K := F))
+
+theorem Z0B_le_A2B : Z0B F ≤ A2B F :=
+  Subgroup.subgroupOf_mono _ (antiUnipotentCenter_le_radA2 (K := F))
 
 theorem U1B_le_Z0B : U1B F ≤ Z0B F :=
   Subgroup.subgroupOf_mono _ rootU₁_le_antiUnipotentCenter
@@ -420,6 +425,7 @@ theorem map_A2B (hF : Nat.card F = 2 ^ 2) (σ : MulAut ↥(B0 F))
       exact Subgroup.map_subtype_le_map_subtype.mp h
     exact Subgroup.eq_of_le_of_card_ge hle2 (by
       rw [card_radA2_subgroupOf hF, hcardA2])
+
 
 
 theorem exists_frobAutB0_pow_fixes_torus (hF : Nat.card F = 2 ^ 2) (σ₁ : MulAut ↥(B0 F)) (ε : ℕ)

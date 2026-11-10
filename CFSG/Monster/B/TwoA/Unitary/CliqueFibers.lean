@@ -20,6 +20,19 @@ open scoped LinearAlgebra.Projectivization
 
 theorem mem_perpSub {p : IsoPt} {v : V} : v ∈ perpSub p ↔ herm v p.1.rep = 0 := Iff.rfl
 
+theorem submodule_eq_span (p : IsoPt) : p.1.submodule = Submodule.span F4 {p.1.rep} := by
+  conv_lhs => rw [← Projectivization.mk_rep p.1]
+  exact Projectivization.submodule_mk _ _
+
+theorem mem_perpSub_iff {p : IsoPt} {v : V} :
+    v ∈ perpSub p ↔ ∀ w ∈ p.1.submodule, herm v w = 0 := by
+  rw [mem_perpSub, submodule_eq_span]
+  constructor
+  · intro h w hw
+    obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.1 hw
+    rw [herm_smul_right, h, mul_zero]
+  · intro h
+    exact h _ (Submodule.mem_span_singleton_self _)
 
 @[expose] def fiberY (W A : Submodule F4 V) : Set IsoPt :=
   {p | p ∉ planePts W ∧ perpSub p ⊓ W = A}
@@ -204,6 +217,15 @@ theorem ofHyp_e3_ne_zero (a : Fin 3 → F4) : ofHyp a (e3 2) ≠ 0 := by
 @[expose] noncomputable def ptA (a : Fin 3 → F4) (ha : bar (a 2) = a 2) : IsoPt :=
   pt (ofHyp a (e3 2)) (ofHyp_e3_ne_zero a) (by rw [herm_ofHyp_e3]; exact add_bar_eq_zero _ ha)
 
+theorem ptA_mem_fiberY (a : Fin 3 → F4) (ha : bar (a 2) = a 2) : ptA a ha ∈ fiberY W0 A0 := by
+  rw [mem_fiberY_W0_A0]
+  obtain ⟨c, hc⟩ := rep_pt (ofHyp_e3_ne_zero a)
+    (by rw [herm_ofHyp_e3]; exact add_bar_eq_zero _ ha)
+  change (pt _ _ _).1.rep 4 = 0 ∧ (pt _ _ _).1.rep 5 = 0 ∧ (pt _ _ _).1.rep 3 ≠ 0
+  rw [← hc]
+  simp only [Units.smul_def, Pi.smul_apply, smul_eq_mul, ofHyp_3, ofHyp_4, ofHyp_5]
+  refine ⟨by simp, by simp, ?_⟩
+  simp [c.ne_zero]
 
 theorem exists_normal_of_mem_fiberY {p : IsoPt} (hp : p ∈ fiberY W0 A0) :
     ∃ (a : Fin 3 → F4) (ha : bar (a 2) = a 2), p = ptA a ha := by

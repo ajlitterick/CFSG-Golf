@@ -34,5 +34,11 @@ theorem ch441783f3_274 : f3B 274 A274.L = true := by quickRfl
 theorem ch441783f3_338 : f3B 338 A338.L = true := by quickRfl
 theorem ch441783f4 : f4B W.W = true := by quickRfl
 
+theorem ch441783neg_f2J : f2B 9 U9.C U9.S U9.SV = false := by decide +kernel
+theorem ch441783neg_f2rows : f2B 64 U64.C U64.S U64.SV.tail = false := by decide +kernel
+theorem ch441783neg_f3 : f3L [592, 777] = false := by decide +kernel
+theorem ch441783neg_f3list : f3B 64 A256.L = false := by decide +kernel
+theorem ch441783neg_f4dom : f4B W.W.tail = false := by decide +kernel
+theorem ch441783neg_f4wit : f4B (List.cons 0 W.W) = false := by decide +kernel
 
 end CertificateChecks.KernelFzJt

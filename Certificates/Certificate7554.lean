@@ -11,5 +11,7 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG CFSG.ASVolI in
+theorem certificate7554 : burnsideF48s_u42eCheckClosed () = true := KernelF48S.checkClosed
 
 end Certificates

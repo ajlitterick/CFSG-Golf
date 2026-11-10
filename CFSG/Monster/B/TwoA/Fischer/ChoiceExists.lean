@@ -115,6 +115,14 @@ theorem exists_canonical_identification :
   obtain ⟨ψ, hψ, -, hxT, -⟩ := hS.canonical_permutation_identification hC hx hη hθ hφ hα hΦ
   exact ⟨Φ, ψ, hψ, x, hx.1, (FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα).phi_base hΦ, hxT⟩
 
+theorem exists_adjEquiv
+    {ρ : sliceGroup lab Y →* stdGroup} (hρ : Function.Injective ρ)
+    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass) :
+    ∃ Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL, ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y := by
+  obtain ⟨Φ, ψ, hψ, x, hx, hxo, hxT⟩ := hS.exists_canonical_identification
+  obtain ⟨-, -, -, -, Ψ, -, hΨ, -⟩ :=
+    hS.exact_fixed_E6_adjoint_intertwiner ρ hρ hroot Φ ψ hψ hx hxo hxT
+  exact ⟨Ψ, hΨ⟩
 
 end IsFischerSlice
 

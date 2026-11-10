@@ -250,6 +250,10 @@ theorem sum_single_apply (T : Finset I) (f : I → ℤ) (j : I) :
     (∑ t ∈ T, Pi.single t (f t)) j = if j ∈ T then f j else 0 := by
   rw [Finset.sum_apply, Finset.sum_pi_single]
 
+theorem degree_sum_single (d : I → ℝ) (T : Finset I) (f : I → ℤ) :
+    degree d (∑ t ∈ T, Pi.single t (f t)) = ∑ t ∈ T, (f t : ℝ) * d t := by
+  rw [map_sum]
+  exact Finset.sum_congr rfl fun t _ => degree_single d t (f t)
 
 omit [DecidableEq I] in
 theorem odd_of_modEq_unit {x y : ℤ} (h : x ≡ y [ZMOD 2]) (hy : y = 1 ∨ y = -1) : Odd x := by

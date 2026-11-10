@@ -231,5 +231,8 @@ theorem SemisimpleAction.orbit (h : SemisimpleAction p A G) (hJ : J ∈ lcal G) 
     rw [this]
     infer_instance
 
+omit [Finite Γ] in
+theorem Thm210.cenIn_orbitClosure (J A : Subgroup Γ) : cenIn (orbitClosure J A) A = smear J A :=
+  rfl
 
 end CFSG.SignalizerFunctorTheorem.McBride.Near

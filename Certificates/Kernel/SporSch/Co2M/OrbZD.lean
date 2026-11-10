@@ -23,6 +23,11 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Co2M CFSG.KS.SporSch CFSG.KS.SporS
 
 @[expose] noncomputable def OZS : Nat → Nat := rowGet Co2OZ.ST (nat_lit 20)
 
+@[expose] noncomputable def OZSI : Nat → Nat := rowGet Co2OZ.SIT (nat_lit 20)
+
+theorem oz_c : Co2OZ.c = 56925 := rfl
+
+theorem oz_rx : Co2OZ.rx = 3436 := rfl
 
 theorem gens_ok : allN 2 (fun k => Nat.beq (Co2OZ.G k) (AP k)) = true := by quickRfl
 

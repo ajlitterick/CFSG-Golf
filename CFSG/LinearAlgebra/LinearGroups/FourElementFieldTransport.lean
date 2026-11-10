@@ -10,6 +10,8 @@ namespace CFSG.LinearGroups
 open CFSG.Fischer
 
 
+theorem F4_ω_sq : F4.ω ^ 2 + F4.ω + 1 = 0 := by decide
+
 @[expose] noncomputable def frobeniusF4 : F4 ≃+* F4 :=
   RingEquiv.ofBijective (frobenius F4 2)
     ⟨(frobenius F4 2).injective, Finite.surjective_of_injective (frobenius F4 2).injective⟩

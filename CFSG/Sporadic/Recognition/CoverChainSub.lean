@@ -97,5 +97,39 @@ theorem card_PG_le_chain₃_sub {ws L₃ : List (List (Fin m × Bool))} {S₁ S�
   obtain ⟨f3, c3⟩ := card_le_of_subsetCheckShortCC_sub h₃s S₁ h₃
   exact ⟨f3, c3.trans (Nat.mul_le_mul_left _ (c2.trans (Nat.mul_le_mul_left _ c1)))⟩
 
+theorem card_PG_le_chain₂_sub {ws L₂ : List (List (Fin m × Bool))} {S : List ℕ}
+    {L₁ : List (List (Fin (subsetOf m S).length × Bool))}
+    (h₂s : ∀ w ∈ L₂, w ∈ ws) (h₁s : ∀ w ∈ L₁, w ∈ restrictWords (subsetOf m S) ws)
+    {k₂ k₁ c₂ c₁ n₂ n₁ : ℕ} (h₂ : subsetCheckShortCC L₂ S k₂ c₂ n₂ = true)
+    (h₁ : subsetCheckShortCC L₁ [] k₁ c₁ n₁ = true) :
+    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n₂ * n₁ := by
+  obtain ⟨f1, c1⟩ := card_PG_le_of_subsetCheckShortCC_nil_sub h₁s h₁
+  have := f1
+  obtain ⟨f2, c2⟩ := card_le_of_subsetCheckShortCC_sub h₂s S h₂
+  exact ⟨f2, c2.trans (Nat.mul_le_mul_left _ c1)⟩
+
+theorem card_PG_le_chain₄_sub {ws L₄ : List (List (Fin m × Bool))} {S₁ S₂ S₃ : List ℕ}
+    {L₃ : List (List (Fin (subsetOf m S₁).length × Bool))}
+    {L₂ : List (List (Fin (subsetOf (subsetOf m S₁).length S₂).length × Bool))}
+    {L₁ : List (List (Fin (subsetOf (subsetOf (subsetOf m S₁).length S₂).length S₃).length × Bool))}
+    (h₄s : ∀ w ∈ L₄, w ∈ ws) (h₃s : ∀ w ∈ L₃, w ∈ restrictWords (subsetOf m S₁) ws)
+    (h₂s : ∀ w ∈ L₂, w ∈ restrictWords (subsetOf (subsetOf m S₁).length S₂)
+      (restrictWords (subsetOf m S₁) ws))
+    (h₁s : ∀ w ∈ L₁, w ∈ restrictWords
+      (subsetOf (subsetOf (subsetOf m S₁).length S₂).length S₃)
+      (restrictWords (subsetOf (subsetOf m S₁).length S₂) (restrictWords (subsetOf m S₁) ws)))
+    {k₄ k₃ k₂ k₁ c₄ c₃ c₂ c₁ n₄ n₃ n₂ n₁ : ℕ} (h₄ : subsetCheckShortCC L₄ S₁ k₄ c₄ n₄ = true)
+    (h₃ : subsetCheckShortCC L₃ S₂ k₃ c₃ n₃ = true) (h₂ : subsetCheckShortCC L₂ S₃ k₂ c₂ n₂ = true)
+    (h₁ : subsetCheckShortCC L₁ [] k₁ c₁ n₁ = true) :
+    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n₄ * (n₃ * (n₂ * n₁)) := by
+  obtain ⟨f1, c1⟩ := card_PG_le_of_subsetCheckShortCC_nil_sub h₁s h₁
+  have := f1
+  obtain ⟨f2, c2⟩ := card_le_of_subsetCheckShortCC_sub h₂s S₃ h₂
+  have := f2
+  obtain ⟨f3, c3⟩ := card_le_of_subsetCheckShortCC_sub h₃s S₂ h₃
+  have := f3
+  obtain ⟨f4, c4⟩ := card_le_of_subsetCheckShortCC_sub h₄s S₁ h₄
+  exact ⟨f4, c4.trans (Nat.mul_le_mul_left _ (c3.trans (Nat.mul_le_mul_left _
+    (c2.trans (Nat.mul_le_mul_left _ c1)))))⟩
 
 end CFSG.Sporadic.Recognition.CoverRecipe

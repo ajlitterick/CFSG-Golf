@@ -150,9 +150,68 @@ theorem eq_linComb_of_linCheckWith {cons : List (ℕ × ℕ)} {qc : List (List �
   rw [linRec, conPart_eq_zero cons qc hsol, Nat.zero_xor] at e
   exact e.symm
 
+@[expose] def conCol : List (ℕ × ℕ) → ℕ → ℕ → ℕ
+  | [], _, _ => 0
+  | c :: cs, k, j => ((mulK c.1 (2 ^ j) ^^^ mulK (2 ^ j) c.2) <<< (144 * k)) ||| conCol cs (k + 1) j
+
+@[expose] def linSolve (cons : List (ℕ × ℕ)) : List (List ℕ) × List ℕ × List ℕ := Id.run do
+  let K := cons.length
+  let mut piv : Array (Option (ℕ × ℕ)) := Array.replicate (144 * K) none
+  let mut fs : Array ℕ := #[]
+  let mut qf : Array ℕ := #[]
+  for j in [0:144] do
+    let mut v := conCol cons 0 j
+    let mut c := 2 ^ j
+    let mut done := false
+    for _ in [0:144 * K + 1] do
+      if !done then
+        if v == 0 then
+          fs := fs.push j
+          qf := qf.push c
+          done := true
+        else
+          let h := Nat.log2 v
+          match piv.getD h none with
+          | some (pv, pc) =>
+            v := v ^^^ pv
+            c := c ^^^ pc
+          | none =>
+            piv := piv.set! h (some (v, c))
+            done := true
+  let mut q : Array ℕ := Array.replicate (144 * K) 0
+  for i in [0:144 * K] do
+    match piv.getD i none with
+    | some (pv, pc) =>
+      let rest := pv ^^^ 2 ^ i
+      let mut acc := pc
+      for b in [0:i] do
+        if rest.testBit b then
+          acc := acc ^^^ q.getD b 0
+      q := q.set! i acc
+    | none => pure ()
+  let qc := (List.range K).map fun k => (List.range 144).map fun i => q.getD (144 * k + i) 0
+  return (qc, qf.toList, fs.toList)
+
+@[expose] def linBasis (cons : List (ℕ × ℕ)) : List ℕ := (linSolve cons).2.1
+
+@[expose] def linFree (cons : List (ℕ × ℕ)) : List ℕ := (linSolve cons).2.2
+
+@[expose] def linCheck (cons : List (ℕ × ℕ)) : Bool :=
+  linCheckWith cons (linSolve cons).1 (linBasis cons) (linFree cons)
+
+theorem eq_linComb_of_linCheck {cons : List (ℕ × ℕ)} (h : linCheck cons = true) {m : ℕ}
+    (hm : m < 2 ^ 144) (hsol : ∀ c ∈ cons, mulK c.1 m = mulK m c.2) :
+    m = linComb (linBasis cons) (freeBits (linFree cons) m) :=
+  eq_linComb_of_linCheckWith h hm hsol
 
 @[expose] def spanAll (qf : List ℕ) (d : ℕ) (P : ℕ → Bool) : Bool :=
   (List.range (2 ^ d)).all fun c => P (linComb qf c)
 
+theorem forall_of_linCheck {cons : List (ℕ × ℕ)} (h : linCheck cons = true) {P : ℕ → Bool}
+    (hP : spanAll (linBasis cons) (linFree cons).length P = true) {m : ℕ} (hm : m < 2 ^ 144)
+    (hsol : ∀ c ∈ cons, mulK c.1 m = mulK m c.2) : P m = true := by
+  rw [eq_linComb_of_linCheck h hm hsol]
+  simp only [spanAll, List.all_eq_true, List.mem_range] at hP
+  exact hP _ (freeBits_lt _ _)
 
 end CFSG.EvenSmallLie.OmegaEight.Stage2

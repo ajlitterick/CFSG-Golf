@@ -13,6 +13,11 @@ namespace CFSG.Monster.Visible
 open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
   CFSG.Monster.Griess Subgroup
 
+theorem toAdd_projQ (r : Q) : Multiplicative.toAdd (projQ r) = coordOf r := rfl
+
+theorem setOf_isShort_eq : {r : Q | IsShort (QuotientGroup.mk r)} =
+    {r : Q | IsShortCoord (coordOf r)} :=
+  Set.ext fun r => isShort_mk_iff r
 
 instance instFiniteQ : Finite Q := Nat.finite_of_card_ne_zero (by rw [natCard_Q]; positivity)
 
@@ -73,5 +78,14 @@ theorem closure_isShortCoord_eq_top : closure {r : Q | IsShortCoord (coordOf r)}
   rw [map_closure_short_projQ, comap_top, ker_projQ, center_Q, ← frattini_Q] at h
   exact h.symm
 
+theorem closure_isShort_eq_top : closure {r : Q | IsShort (QuotientGroup.mk r)} = ⊤ := by
+  rw [setOf_isShort_eq]
+  exact closure_isShortCoord_eq_top
+
+theorem closure_coe_isShort_eq_Q :
+    closure ((↑) '' {r : Q | IsShort (QuotientGroup.mk r)} : Set (GL SpinIdx ℚ)) = Q := by
+  have h := MonoidHom.map_closure Q.subtype {r : Q | IsShort (QuotientGroup.mk r)}
+  rw [closure_isShort_eq_top, ← MonoidHom.range_eq_map, range_subtype] at h
+  exact h.symm
 
 end CFSG.Monster.Visible

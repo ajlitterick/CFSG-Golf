@@ -25,6 +25,9 @@ theorem weakPairingAdj_iff [Finite G] (Fr : WeakPreFrame F Ω E S) {K L : Subgro
     rwa [Fr.eq_of_central hL hz hz']
   · exact fun h => ⟨z, hz, h⟩
 
+theorem weak_isMulCommutative (Fr : WeakPreFrame F Ω E S) : IsMulCommutative ↥E :=
+  ⟨⟨fun x y => Subtype.ext (Fr.comm x.2 y.2)⟩⟩
+
 
 section Construction
 

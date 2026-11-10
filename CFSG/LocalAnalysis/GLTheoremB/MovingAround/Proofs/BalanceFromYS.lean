@@ -44,6 +44,12 @@ theorem isLocallyOTwoBalancedWrtP_of_abs {k : ℕ} (hp : p.Prime) (hp2 : p ≠ 2
   exact le_bot_iff.1 ((localDeltaTwoIn_le_localDeltaIn hp hp2 H D).trans
     (h D hD.2.1 hD.2.2 H hH hDH).le)
 
+theorem isWeaklyLocallyOTwoBalancedWrtP_of_abs (hp : p.Prime) (hp2 : p ≠ 2)
+    (h : IsLocallyBalancedAbs p 1 K) : IsWeaklyLocallyOTwoBalancedWrtP p 1 K := by
+  intro A _ D hD H hH hAH
+  have h0 : localDeltaTwoIn H D = ⊥ := le_bot_iff.1 ((localDeltaTwoIn_le_localDeltaIn hp hp2 H D).trans
+    (h D hD.2.1 hD.2.2 H hH (hD.1.trans hAH)).le)
+  rw [h0, Subgroup.commutator_bot_left]
 
 theorem isWeaklyLocallyOTwoBalancedWrtP_congr {K' : Type} [Group K'] [Finite K'] {k : ℕ} (e : K ≃* K') :
     IsWeaklyLocallyOTwoBalancedWrtP p k K ↔ IsWeaklyLocallyOTwoBalancedWrtP p k K' :=
@@ -781,6 +787,13 @@ theorem input19_17_2_simple (F : SporadicFacts) {p : ℕ} (hp : p.Prime)
   · exact h (isLocallyOTwoBalancedWrtP_two_spor F hp hp2 hS hnab hs hexc5)
   · exact h (isWeaklyLocallyOTwoBalancedWrtP_one_spor F hp hp2 hS hnab hs hexc)
 
+theorem input19_17_2_of_facts (F : SporadicFacts) : Lemma123.Input19_17_2 := by
+  intro p hp hp2 s Y _ _ hq _ hs hnb
+  haveI : IsSimpleGroup (Y ⧸ Subgroup.center Y) := hq.2
+  refine input19_17_2_simple F hp hp2 hq.2 (Prop1116Design.not_isCommutative_barQuot Y hq) hs ?_
+  rcases hnb with h | h
+  · exact Or.inl fun h2 => h (Inputs123a.isLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
+  · exact Or.inr fun h2 => h (Inputs123a.isWeaklyLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
 
 theorem innerAut_carrier_J4_eq_top :
     innerAut (CFSG.Blueprint.NativeSporadic.Carrier .J4) = ⊤ :=
@@ -930,6 +943,9 @@ theorem false_of_alt_quot {Y : Type} [Group Y] [Finite Y] (hY : commutator Y = �
           (IsUpType p (q ^ n) (Y ⧸ Subgroup.center Y) ∧ p ∣ q ^ n + 1 ∧
             Prop1116Design.HeisenbergImageU p (q ^ n) B')
 
+theorem input19_7_3Lp_of_input19_7_3 (h : Lemma123.Input19_7_3) : Input19_7_3Lp :=
+  fun p q hp hp2 hq hq2 hqp Y _ _ hY hO hchev _ B' hB'el hB'c hnb =>
+    (h p q hp hp2 hq hq2 hqp Y hY hO hchev 2 B' le_rfl hB'el hB'c hnb).2
 
 theorem input19_7_3_of_ys (h02 : LocalThreeBalanceCrossChar)
     (h03 : CFSG.Yardstones.M67c2c3e09a6b.LocalTwoBalanceThreeFive) (h04 : LocalTwoBalanceCrossCharGtFive)
@@ -1139,6 +1155,10 @@ theorem input19_8_A8_holds : IsLocallyOTwoBalancedWrtP 3 2 ↥(alternatingGroup 
         ∀ H : Subgroup (MulAut Y), innerAut Y ≤ H → localDeltaTwoIn H B' ≠ ⊥ →
           ∃ u : MulAut Y, IsUnitaryAut u ∧ localDeltaTwoIn H B' = Subgroup.zpowers u
 
+theorem input19_16_twoLp_of_input19_16_two (h : Lemma123.Input19_16_two) : Input19_16_twoLp := by
+  intro p hp hp2 Y _ _ hY hO hchev _ B' hB'el hB'c hnb
+  obtain ⟨hp3, hL, -, hinn, hu⟩ := h p hp hp2 Y hY hO hchev 2 B' le_rfl hB'el hB'c hnb
+  exact ⟨hp3, hL, hinn, hu⟩
 
 theorem input19_16_two_of_ys (h02 : LocalThreeBalanceCrossChar)
     (h03 : CFSG.Yardstones.M67c2c3e09a6b.LocalTwoBalanceThreeFive) (h04 : LocalTwoBalanceCrossCharGtFive)
@@ -1186,10 +1206,17 @@ section ChevThree
   ∀ (p : ℕ), p.Prime → 3 < p → ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S →
     Prop1116Design.IsLieOverField 3 S → ∀ x : MulAut S, x ^ p = 1 → x ∈ innerAut S
 
+@[expose] def Input19_18Inner : Prop :=
+  ∀ (p : ℕ), p.Prime → 3 < p → ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S →
+    Prop1116Design.IsLieOverField 3 S → ∀ x y : MulAut S, x ∈ innerAut S → y ∈ innerAut S →
+      orderOf x = p → y ^ p = 1 → x * y = y * x →
+        ∀ t ∈ pCoreOf 2 (innerAut S ⊓ Subgroup.centralizer ({x} : Set (MulAut S))), y * t = t * y
 
 @[expose] def Input19_18b : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsLpType 3 (3 ^ 13) S → IsWeaklyLocallyOTwoBalancedWrtP 13 1 S
 
+theorem input19_18b_of_input19_18S (h : Inputs123a.Input19_18S) : Input19_18b :=
+  fun S _ _ hL => h 13 (by norm_num) (by norm_num) S (Or.inr ⟨rfl, hL⟩)
 
 theorem conj_pow_eq {G : Type*} [Group G] {a t c : G} (hc : a * t * a⁻¹ = c * t) (hac : a * c = c * a)
     (n : ℕ) : a ^ n * t * (a ^ n)⁻¹ = c ^ n * t := by
@@ -1281,6 +1308,13 @@ theorem isWeaklyLocallyOTwoBalancedWrtP_of_inner {K : Type} [Group K] [Finite K]
   calc t * a * t⁻¹ * a⁻¹ = (a * t) * t⁻¹ * a⁻¹ := by rw [hat]
     _ = 1 := by group
 
+theorem input19_18S_of (hOut : Input7_1Chev3) (hInner : Input19_18Inner) (hb : Input19_18b) :
+    Inputs123a.Input19_18S := by
+  intro p hp hp3 S _ _ hS
+  rcases hS with ⟨hsimp, hlie⟩ | ⟨rfl, hL⟩
+  · exact isWeaklyLocallyOTwoBalancedWrtP_of_inner hp (by omega) (hOut p hp hp3 S hsimp hlie)
+      (hInner p hp hp3 S hsimp hlie)
+  · exact hb S hL
 
 end ChevThree
 

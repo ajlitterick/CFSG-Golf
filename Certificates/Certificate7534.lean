@@ -24,5 +24,13 @@ end CertificateChecks.PresLetters7534
 
 namespace Certificates
 
+open CertificateChecks.PresLetters7534 in
+open CFSG CFSG.ASVolI CFSG.CosetTable in
+theorem certificate7534 : ∀ j < 4, Finite (PG 6 (burnsideF48s_g22Ws j)) ∧
+    Nat.card (PG 6 (burnsideF48s_g22Ws j)) ≤ if j = 1 then 12096 else 192 := fun j hj => by
+  obtain ⟨f, c⟩ := TableFact.card_restrict (burnsideF48s_g22Ws j) (by norm_num)
+    (subsetOf 6 [0, 1, 2, 4, 5]) (by decide) (idx j hj) (res j hj)
+  refine ⟨f, c.trans ?_⟩
+  split_ifs <;> norm_num
 
 end Certificates

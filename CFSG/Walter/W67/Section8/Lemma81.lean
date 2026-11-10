@@ -152,6 +152,13 @@ theorem three_pow_mod_eight_of_odd {f : ℕ} (hf : Odd f) : 3 ^ f % 8 = 3 := by
   norm_num
 
 
+theorem exists_involution_T {h : Hyp G} (fr : Frame h) :
+    ∃ T₂ ∈ fr.T, orderOf T₂ = 2 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨t, ht⟩ := exists_prime_orderOf_dvd_card' (G := fr.T) 2
+    (by rw [fr.card_T]; norm_num)
+  exact ⟨t, t.2, by rw [← ht, Subgroup.orderOf_coe]⟩
+
 end Lemma81
 
 

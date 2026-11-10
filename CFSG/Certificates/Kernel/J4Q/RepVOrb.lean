@@ -133,6 +133,101 @@ private theorem flatten_index {B : Nat} : ∀ {chs : List (List Nat)},
       · rw [List.flatten_cons, List.getD_append_right _ _ _ _ (by omega)]
         simpa using hg
 
+theorem vorbit_sound (_hK : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) {mats : Array (Array V2)}
+    {Ms : List Nat} (_hs : mats.size = Ms.length)
+    (_hM : ∀ g, WfA (mats[g]?.getD (idRows ())) ∧ encR (mats[g]?.getD (idRows ())) = getN one Ms g)
+    {w : V2} (_hw : w.wf = true) {cap bits : Nat} (_hcap : cap < 2 ^ bits)
+    (_h32 : 4 * 2 ^ bits < 2 ^ 32)
+    {Rs : List (List Nat)} (_hR : Rs = Ms.map (rowsOfJ rm)) {B : Nat} (_hB : Ms.length * B ≤ 131072)
+    {chs : List (List Nat)} {p0s : List Nat} {SPch : List (List Nat)}
+    (_hlen : chs.flatten.length + 1 = cap)
+    (_hchs : ∀ i, i + 1 < chs.length → (chs.getD i []).length = B)
+    (_hlast : ∀ ch ∈ chs, ch.length ≤ B)
+    (_htree : ∀ i < chs.length, vtChunkK rm Rs (vptsK rm (v2N w) chs.flatten) (chs.getD i [])
+      (p0s.getD i 0) (1 + B * i) = true)
+    (_hsinc : sincK SPch.flatten 0 = true) (_hsl : SPch.flatten.length = cap)
+    (_hspl : ∀ sc ∈ SPch, sc.length ≤ 131072)
+    (_hin : ∀ pc ∈ pchK rm (v2N w) chs, inSK pc SPch.flatten = true)
+    (_hsp : ∀ sc ∈ SPch, spInK sc (pchK rm (v2N w) chs) = true)
+    (_hcl : ∀ pc ∈ pchK rm (v2N w) chs, clK Rs pc SPch.flatten = true) :
+    vorbOK (mats.map frTable) w (vorbit (mats.map frTable) w cap bits) cap = true := by
+  set ts := mats.map frTable with hts
+  set A := vptsK rm (v2N w) chs.flatten with hA
+  have hAP : (pchK rm (v2N w) chs).flatten = A := by
+    simp only [pchK, List.flatten_cons, List.singleton_append, hA, vptsK, List.map_flatten]
+  have htsz : ts.size = Ms.length := by rw [hts, Array.size_map, _hs]
+  have hRl : Rs.length = Ms.length := by rw [_hR, List.length_map]
+  have hact : ∀ v : V2, v.wf = true → ∀ g < ts.size,
+      (frApply ts[g]! v).wf = true ∧ v2N (frApply ts[g]! v) = vecLJ (v2N v) (Rs.getD g []) := by
+    intro v hv g hg
+    have hgm : g < mats.size := by rw [hts, Array.size_map] at hg; exact hg
+    have hget : ts[g]! = frTable mats[g] := by
+      rw [getElem!_pos ts g hg]
+      simp only [hts, Array.getElem_map]
+    have hMg := _hM g
+    rw [Array.getElem?_eq_getElem hgm, Option.getD_some] at hMg
+    rw [hget]
+    refine ⟨wf_frApply hMg.1 v, ?_⟩
+    have hMs : Ms.getD g one = Ms[g]'(by omega) := List.getD_eq_getElem _ _ (by omega)
+    have hRs : Rs.getD g [] = rowsOfJ rm (Ms[g]'(by omega)) := by
+      rw [List.getD_eq_getElem _ _ (by omega)]
+      simp only [_hR, List.getElem_map]
+    rw [v2N_frApply _hK hMg.1 hv, hMg.2, getN_eq, hMs, hRs, vecLJ_rowsOfJ]
+  have hpts := VOrbTree.checked_points_spec (Pch := pchK rm (v2N w) chs) (cap := cap)
+    (by rw [hAP, hA, vptsK, List.length_cons, List.length_map, _hlen]) _hsl _hsinc _hsp
+  rw [hAP] at hpts
+  have hmem := VOrbTree.checked_membership _hin _hsp
+  rw [hAP] at hmem
+  have hclA : ∀ x ∈ A, ∀ g < Ms.length, vecLJ x (Rs.getD g []) ∈ A := by
+    intro x hx g hg
+    rw [← hAP] at hx
+    obtain ⟨pc, hpc, hx⟩ := List.mem_flatten.1 hx
+    have hrs : Rs.getD g [] ∈ Rs := by
+      rw [List.getD_eq_getElem _ _ (by omega)]
+      exact List.getElem_mem _
+    exact (hmem _).2 (VOrbTree.clK_sound (_hcl pc hpc) x hx _ hrs)
+  have htr : ∀ k, 0 < k → k < A.length → ∃ par < k, ∃ lab < Rs.length,
+      A.getD k 0 = vecLJ (A.getD par 0) (Rs.getD lab []) := by
+    intro k hk0 hk
+    obtain ⟨k, rfl⟩ : ∃ k', k = k' + 1 := ⟨k - 1, by omega⟩
+    have hkl : k < chs.flatten.length := by
+      rw [hA, vptsK, List.length_cons, List.length_map] at hk
+      omega
+    obtain ⟨i, hi, j, hj, hkij, hg⟩ := flatten_index _hchs k hkl
+    have ht := _htree i hi
+    unfold vtChunkK at ht
+    rw [dropK_eq] at ht
+    obtain ⟨par, hpar, lab, hlab, he⟩ := vtGo_sound rm Rs _ _ _ _ ht j hj
+    refine ⟨par, by omega, lab, hlab, ?_⟩
+    rw [he, ← hg, hA, vptsK, List.getD_cons_succ, List.getD_eq_getElem _ _ (by rw [List.length_map]; exact hkl),
+      List.getD_eq_getElem _ _ hkl, List.getElem_map]
+  have hreach : ∀ S : Nat → Prop, S (v2N w) →
+      (∀ v, S (v2N v) → ∀ g < ts.size, S (v2N (frApply ts[g]! v))) → ∀ x ∈ A, S x := by
+    intro S h0 hstep
+    have hall : ∀ k, k < A.length → S (A.getD k 0) ∧ ∃ v : V2, v.wf = true ∧ v2N v = A.getD k 0 := by
+      intro k
+      induction k using Nat.strong_induction_on with
+      | _ k ih =>
+        intro hk
+        rcases Nat.eq_zero_or_pos k with rfl | hk0
+        · exact ⟨h0, w, _hw, rfl⟩
+        · obtain ⟨par, hpar, lab, hlab, he⟩ := htr k hk0 hk
+          obtain ⟨hS, v, hv, hvp⟩ := ih par hpar (by omega)
+          have hlt : lab < ts.size := by omega
+          obtain ⟨hw', hn⟩ := hact v hv lab hlt
+          rw [he, ← hvp, ← hn]
+          rw [← hvp] at hS
+          exact ⟨hstep v hS lab hlt, _, hw', rfl⟩
+    intro x hx
+    obtain ⟨k, hk, rfl⟩ := List.mem_iff_getElem.1 hx
+    rw [← List.getD_eq_getElem _ 0 hk]
+    exact (hall k hk).1
+  refine VOrbBFS.vorbit_ok _h32 _hcap hpts.2.1
+    ((List.toFinset_card_of_nodup hpts.2.1).symm.trans hpts.2.2) _hw
+    (by rw [hA, vptsK]; exact List.mem_cons_self)
+    (fun v hv g hg => (hact v hv g hg).1) (fun v hv hvA g hg => ?_) hreach
+  · rw [(hact v hv g hg).2]
+    exact hclA _ hvA g (by omega)
 
 end CFSG.KC.J4Q
 

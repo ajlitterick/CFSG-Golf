@@ -19,5 +19,7 @@ theorem qs8_2007K : schP QS8 = true ∧ orderV QS8 = 40320 := by
 theorem qa8_2007K : schP QA8 = true ∧ orderV QA8 = 20160 := by
   constructor <;> decide +kernel
 
+theorem neg2007K : orderV QA8 ≠ 40320 := by
+  decide +kernel
 
 end CertificateChecks.KernelCatFacts

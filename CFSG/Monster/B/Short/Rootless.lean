@@ -273,6 +273,8 @@ theorem bModFun_mk (h : L →+ L →+ ℤ) (a b : L) :
         rfl
       · rw [one_smul, one_smul])
 
+theorem bMod_mk (h : L →+ L →+ ℤ) (a b : L) :
+    bMod h (Submodule.Quotient.mk a) (Submodule.Quotient.mk b) = ((h a b : ℤ) : ZMod 2) := rfl
 
 @[expose] def vPerp (h : L →+ L →+ ℤ) (u : L) : Submodule (ZMod 2) (ModN L 2) :=
   LinearMap.ker (bMod h (Submodule.Quotient.mk u))
@@ -283,6 +285,12 @@ theorem bModFun_mk (h : L →+ L →+ ℤ) (a b : L) :
 theorem mem_vPerp_mk (h : L →+ L →+ ℤ) (u a : L) :
     (Submodule.Quotient.mk a : ModN L 2) ∈ vPerp h u ↔ ((h u a : ℤ) : ZMod 2) = 0 := Iff.rfl
 
+theorem vLine_le_vPerp (h : L →+ L →+ ℤ) {u : L} (hu : Even (h u u)) : vLine u ≤ vPerp h u := by
+  rw [vLine, Submodule.span_le, Set.singleton_subset_iff, SetLike.mem_coe, mem_vPerp_mk]
+  obtain ⟨k, hk⟩ := hu
+  rw [hk]
+  push_cast
+  rw [← two_mul, show (2 : ZMod 2) = 0 from rfl, zero_mul]
 
 @[expose] def vLineIn (h : L →+ L →+ ℤ) (u : L) : Submodule (ZMod 2) (vPerp h u) :=
   (vLine u).comap (vPerp h u).subtype
@@ -377,5 +385,119 @@ theorem modTwoMap_comp (g g' : L →ₗ[ℤ] L) (x : ModN L 2) :
       exact congrArg Submodule.Quotient.mk (Subtype.ext (modTwoMap_comp
         (g : L ≃ₗ[ℤ] L).toLinearMap (g' : L ≃ₗ[ℤ] L).toLinearMap (x : ModN L 2)))
 
+theorem stabAct_injective_of_closure [Module.IsTorsionFree ℤ L] (h : L →+ L →+ ℤ)
+    (hsymm : ∀ x y, h x y = h y x) (hpos : ∀ x, x ≠ 0 → 0 < h x x)
+    (hmin : ∀ w, w ≠ 0 → 4 ≤ h w w) {u : L} (hu : h u u = 4) (W : Finset L)
+    (hWne : W.Nonempty) (hW4 : ∀ w ∈ W, h w w = 4) (hWu : ∀ w ∈ W, h u w = 0)
+    (hspan : ∀ x : L, h u x = 0 → ∃ n : ℤ, n ≠ 0 ∧ n • x ∈ AddSubgroup.closure (W : Set L))
+    (hconn : (SimpleGraph.fromRel fun a b : W => h a b ≠ 0).Connected)
+    {y : L} (hy : Odd (h u y)) : Function.Injective (stabAct h u) := by
+  rw [injective_iff_map_eq_one]
+  intro g hg
+  have htriv : ∀ x : L, Even (h u x) →
+      ∃ m : ℤ, ∃ t : L, (g : L ≃ₗ[ℤ] L) x = x + m • u + (2 : ℤ) • t := by
+    intro x hx
+    have hxv : (Submodule.Quotient.mk x : ModN L 2) ∈ vPerp h u := by
+      rw [mem_vPerp_mk]
+      obtain ⟨k, hk⟩ := hx
+      rw [hk]
+      push_cast
+      rw [← two_mul, show (2 : ZMod 2) = 0 from rfl, zero_mul]
+    have h1 := LinearMap.congr_fun hg (Submodule.Quotient.mk ⟨_, hxv⟩)
+    change stabActFun h u g (Submodule.Quotient.mk ⟨_, hxv⟩) = Submodule.Quotient.mk ⟨_, hxv⟩
+      at h1
+    rw [stabActFun_mk, Submodule.Quotient.eq] at h1
+    change (Submodule.Quotient.mk ((g : L ≃ₗ[ℤ] L) x) - Submodule.Quotient.mk x : ModN L 2) ∈
+      vLine u at h1
+    rw [vLine, Submodule.mem_span_singleton] at h1
+    obtain ⟨a, ha⟩ := h1
+    rcases zmod_two_cases' a with rfl | rfl
+    · rw [zero_smul, eq_comm, sub_eq_zero, modN_two_mk_eq_mk_iff] at ha
+      obtain ⟨t, ht⟩ := ha
+      exact ⟨0, t, by rw [zero_smul, add_zero, ← ht]; abel⟩
+    · rw [one_smul, eq_sub_iff_add_eq, ← Submodule.Quotient.mk_add, modN_two_mk_eq_mk_iff] at ha
+      obtain ⟨t, ht⟩ := ha
+      exact ⟨1, -t, by rw [one_smul, smul_neg, ← ht]; abel⟩
+  have hid := eq_id_of_trivial_mod_two h hsymm hpos hmin hu W hWne hW4 hWu hspan hconn hy
+    (g : L ≃ₗ[ℤ] L).toLinearMap.toAddMonoidHom (fun x x' => g.2.1 x x') g.2.2 htriv
+  exact Subtype.ext (LinearEquiv.ext hid)
+
+@[expose] def hBil (h : L →+ L →+ ℤ) : LinearMap.BilinForm ℤ L :=
+  LinearMap.mk₂ ℤ (fun x y => h x y)
+    (fun _ _ _ => by simp only [map_add, AddMonoidHom.add_apply])
+    (fun c x y => by simp only [map_zsmul, AddMonoidHom.zsmul_apply])
+    (fun _ _ _ => by simp only [map_add])
+    (fun c x y => by simp only [map_zsmul])
+
+theorem hBil_apply (h : L →+ L →+ ℤ) (x y : L) : hBil h x y = h x y := rfl
+
+theorem exists_zsmul_mem_closure_of_mem_span_rat {M : Type*} [AddCommGroup M] [Module ℚ M]
+    {S : Set M} {z : M} (hz : z ∈ Submodule.span ℚ S) :
+    ∃ n : ℤ, n ≠ 0 ∧ n • z ∈ AddSubgroup.closure S := by
+  induction hz using Submodule.span_induction with
+  | mem x hx => exact ⟨1, one_ne_zero, by rw [one_smul]; exact AddSubgroup.subset_closure hx⟩
+  | zero => exact ⟨1, one_ne_zero, by rw [smul_zero]; exact zero_mem _⟩
+  | add x y _ _ hx hy =>
+    obtain ⟨n, hn, hnx⟩ := hx
+    obtain ⟨m, hm, hmy⟩ := hy
+    refine ⟨n * m, mul_ne_zero hn hm, ?_⟩
+    have e : (n * m) • (x + y) = m • (n • x) + n • (m • y) := by
+      rw [smul_add, mul_smul, mul_smul, smul_comm n m x]
+    rw [e]
+    exact add_mem (AddSubgroup.zsmul_mem _ hnx m) (AddSubgroup.zsmul_mem _ hmy n)
+  | smul q x _ hx =>
+    obtain ⟨n, hn, hnx⟩ := hx
+    refine ⟨(q.den : ℤ) * n, mul_ne_zero (by exact_mod_cast q.den_nz) hn, ?_⟩
+    have e : ((q.den : ℤ) * n) • (q • x) = q.num • (n • x) := by
+      rw [← Int.cast_smul_eq_zsmul ℚ, ← Int.cast_smul_eq_zsmul ℚ q.num, ← Int.cast_smul_eq_zsmul ℚ n,
+        smul_smul, smul_smul]
+      congr 1
+      push_cast
+      rw [mul_comm (q.den : ℚ) (n : ℚ), mul_assoc, Rat.den_mul_eq_num, mul_comm]
+    rw [e]
+    exact AddSubgroup.zsmul_mem _ hnx _
+
+theorem one_tmul_injective [Module.Free ℤ L] :
+    Function.Injective (fun x : L => (1 : ℚ) ⊗ₜ[ℤ] x) := by
+  have hinj := Module.Flat.rTensor_preserves_injective_linearMap (M := L) (Algebra.linearMap ℤ ℚ)
+    (fun a b hab => Int.cast_injective hab)
+  intro x y hxy
+  apply (TensorProduct.lid ℤ L).symm.injective
+  apply hinj
+  simp only [TensorProduct.lid_symm_apply, LinearMap.rTensor_tmul, Algebra.linearMap_apply,
+    map_one]
+  exact hxy
+
+theorem exists_smul_mem_closure_of_span [Module.Free ℤ L] (h : L →+ L →+ ℤ) {u : L}
+    (W : Set L)
+    (hspan : Submodule.span ℚ ((fun w => (1 : ℚ) ⊗ₜ[ℤ] w) '' W) =
+      LinearMap.ker ((hBil h).baseChange ℚ ((1 : ℚ) ⊗ₜ[ℤ] u)))
+    (x : L) (hx : h u x = 0) : ∃ n : ℤ, n ≠ 0 ∧ n • x ∈ AddSubgroup.closure W := by
+  have h1 : (1 : ℚ) ⊗ₜ[ℤ] x ∈ LinearMap.ker ((hBil h).baseChange ℚ ((1 : ℚ) ⊗ₜ[ℤ] u)) := by
+    rw [LinearMap.mem_ker, LinearMap.BilinForm.baseChange_tmul, hBil_apply, hx, zero_smul]
+  rw [← hspan] at h1
+  obtain ⟨n, hn, hnx⟩ := exists_zsmul_mem_closure_of_mem_span_rat h1
+  refine ⟨n, hn, ?_⟩
+  let f : L →+ ℚ ⊗[ℤ] L := (TensorProduct.mk ℤ ℚ L 1).toAddMonoidHom
+  have hf : (fun w => (1 : ℚ) ⊗ₜ[ℤ] w) '' W = f '' W := rfl
+  rw [hf, ← AddMonoidHom.map_closure] at hnx
+  obtain ⟨w', hw', hfw'⟩ := hnx
+  have : w' = n • x := by
+    apply one_tmul_injective
+    change f w' = f (n • x)
+    rw [hfw', map_zsmul]
+    rfl
+  rwa [← this]
+
+theorem rootless_short_stabilizer_quotient_faithful [Module.Free ℤ L] [Module.Finite ℤ L]
+    (h : L →+ L →+ ℤ) (hsymm : ∀ x y, h x y = h y x) (hpos : ∀ x, x ≠ 0 → 0 < h x x)
+    (hmin : ∀ w, w ≠ 0 → 4 ≤ h w w) {u : L} (hu : h u u = 4) (W : Finset L)
+    (hWne : W.Nonempty) (hW4 : ∀ w ∈ W, h w w = 4) (hWu : ∀ w ∈ W, h u w = 0)
+    (hspan : Submodule.span ℚ ((fun w => (1 : ℚ) ⊗ₜ[ℤ] w) '' (W : Set L)) =
+      LinearMap.ker ((hBil h).baseChange ℚ ((1 : ℚ) ⊗ₜ[ℤ] u)))
+    (hconn : (SimpleGraph.fromRel fun a b : W => h a b ≠ 0).Connected)
+    {y : L} (hy : Odd (h u y)) : Function.Injective (stabAct h u) :=
+  stabAct_injective_of_closure h hsymm hpos hmin hu W hWne hW4 hWu
+    (exists_smul_mem_closure_of_span h (W : Set L) hspan) hconn hy
 
 end CFSG.Monster.B.Short

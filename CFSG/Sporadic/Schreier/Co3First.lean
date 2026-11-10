@@ -40,6 +40,27 @@ theorem co3M_preserves :
   (MulAut.conj co3Csp).toMonoidHom.comp ((finCongr co3Iz_length).permCongrHom.toMonoidHom.comp
     (restrictHom co3Iz co3M co3M_preserves co3Iz_nodup))
 
+@[expose] def co3IzLab (k : Fin 36) : Fin 276 :=
+  co3Iz.get ((finCongr co3Iz_length).symm (co3Csp⁻¹ k))
+
+theorem co3IzLab_kappa
+    (m : co3M) (k : Fin 36) :
+    co3IzLab (co3Kappa m k) = (m : Equiv.Perm (Fin 276)) (co3IzLab k) := by
+  have generic {n r : ℕ} (I : List (Fin n)) (H : Subgroup (Equiv.Perm (Fin n)))
+      (hH : ∀ h ∈ H, ∀ p ∈ I, h p ∈ I) (hI : I.Nodup)
+      (e : Fin I.length ≃ Fin r) (c : Equiv.Perm (Fin r))
+      (L : Fin r → Fin n) (ρ : H →* Equiv.Perm (Fin r))
+      (hL : L = fun j => I.get (e.symm (c⁻¹ j)))
+      (hρ : ρ = (MulAut.conj c).toMonoidHom.comp
+        (e.permCongrHom.toMonoidHom.comp (restrictHom I H hH hI)))
+      (h : H) (j : Fin r) : L (ρ h j) = (h : Equiv.Perm (Fin n)) (L j) := by
+    subst L ρ
+    simp only [MonoidHom.coe_comp, Function.comp_apply, MulEquiv.coe_toMonoidHom,
+      MulAut.conj_apply, Equiv.Perm.mul_apply]
+    rw [Equiv.Perm.coe_inv, Equiv.symm_apply_apply, co3_permCongrHom_apply,
+      Equiv.symm_apply_apply, get_restrictHom]
+  exact generic co3Iz co3M co3M_preserves co3Iz_nodup
+    (finCongr co3Iz_length) co3Csp co3IzLab co3Kappa rfl rfl m k
 
 theorem co3Csp_inv :
     isInvA 36 co3CspArr (invCand 36 co3CspArr) = true :=
@@ -315,5 +336,15 @@ theorem co3M_outer_solvable :
     (CFSG.LocalAnalysis.ComponentInitial.SymplecticHigher.classical_model_schreier le_rfl
       co3MQuot_classicalModel).2
 
+theorem AT_Co3_first_centralizer_Schreier :
+    Group.IsPerfect co3M ∧ ⁅co3M, co3M⁆ = co3M ∧
+    Subgroup.center co3M = Subgroup.zpowers co3ZM ∧ Nat.card (Subgroup.center co3M) = 2 ∧
+    (∀ (m : co3M) (k : Fin 36),
+      co3IzLab (co3Kappa m k) = (m : Equiv.Perm (Fin 276)) (co3IzLab k)) ∧
+    co3Kappa.range = co3X36 ∧ co3Kappa.ker = Subgroup.zpowers co3ZM ∧
+    StatedClassicalModel (co3M ⧸ Subgroup.center co3M) .PSp 3 2 1 ∧
+    Group.IsSolvable (Outer co3M) :=
+  ⟨co3M_isPerfect, co3M_commutator, co3M_center, card_co3M_center, co3IzLab_kappa,
+    co3Kappa_range, co3Kappa_ker, co3MQuot_classicalModel, co3M_outer_solvable⟩
 
 end CFSG.Sporadic.Schreier.Co3

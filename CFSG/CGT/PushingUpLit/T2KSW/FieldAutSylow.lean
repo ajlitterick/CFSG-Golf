@@ -430,6 +430,7 @@ theorem card_le_ker_mul {K X Y : Type*} [Group K] [Finite K] [Group X] [Finite X
       exact this.trans hp2
 
 
+
 section Count
 
 variable {L M T : Subgroup G} {n : ℕ} (H : CoordData G L M n)
@@ -454,6 +455,12 @@ theorem exists_of_card_thetaRange_eq (K : Subgroup G) (hK : K ≤ Qc L M)
   obtain ⟨u, hu⟩ := h2
   exact ⟨u, u.2, congrArg Multiplicative.toAdd hu⟩
 
+theorem thetaG_eq_zero_of_card_thetaRange_eq_one (K : Subgroup G) (hK : K ≤ Qc L M)
+    (h : Nat.card ↥(thetaHom H K hK).range = 1) {u : G} (hu : u ∈ K) : thetaG H u = 0 := by
+  have h1 : (thetaHom H K hK).range = ⊥ := Subgroup.eq_bot_of_card_eq _ h
+  have h2 : thetaHom H K hK ⟨u, hu⟩ ∈ (thetaHom H K hK).range := ⟨⟨u, hu⟩, rfl⟩
+  rw [h1, Subgroup.mem_bot] at h2
+  exact congrArg Multiplicative.toAdd h2
 
 theorem count_comm (hT : IsSylowOf 2 T M) {r q : G} (hr : r ∈ Rl L T) (hq : q ∈ Dc L T)
     {s : Fq n} (hφ : H.D.φ ⟨r, hr.2⟩ = uMat s) (hs0 : s ≠ 0) {K : Subgroup G}
@@ -553,6 +560,8 @@ section Normal
 
 variable {L M T : Subgroup G} {n : ℕ} {H : CoordData G L M n} {B : Subgroup G} {s : Fq n}
 
+omit [Finite G] in
+theorem Ec_le_Dc' : Ec L T ≤ Dc L T := Ec_le_Dc
 
 theorem C2Data.dec (hs : Sec4 G L M T n) (hE1 : FooteNonsolvableSimple)
     (hD : C2Data T H B s) :

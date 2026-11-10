@@ -344,6 +344,13 @@ theorem glueLine_of_not_mem (c e : Frame σ m) {S : Finset (Fin m)} {k : Fin m} 
     · rw [glueLine_of_not_mem c e hk, glueLine_of_not_mem c e hl]
       exact c.orth_line k l hkl
 
+theorem glue_line_of_mem (c e : Frame σ m) {S : Finset (Fin m)} (h : e.spanAt S = c.spanAt S)
+    {k : Fin m} (hk : k ∈ S) : (c.glue e S h).line k = e.line k :=
+  glueLine_of_mem c e hk
+
+theorem glue_line_of_not_mem (c e : Frame σ m) {S : Finset (Fin m)} (h : e.spanAt S = c.spanAt S)
+    {k : Fin m} (hk : k ∉ S) : (c.glue e S h).line k = c.line k :=
+  glueLine_of_not_mem c e hk
 
 end Frame
 

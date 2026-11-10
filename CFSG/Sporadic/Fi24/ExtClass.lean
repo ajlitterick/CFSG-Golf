@@ -76,6 +76,8 @@ theorem tPt_tPt
 theorem pt_tPerm
     (k : Fin 306936) : pt (tPerm k).val = tSub (pt k.val) := pt_tPt k
 
+theorem tPerm_tPerm
+    (k : Fin 306936) : tPerm (tPerm k) = k := tPt_tPt k
 
 theorem tPerm_smul
     (g : J) (k : Fin 306936) : tPerm (g • k) = tAut g • tPerm k :=
@@ -176,6 +178,13 @@ theorem cls_eq_of_mk_eq
 theorem clsEquiv_apply
     (k : Fin 306936) : (clsEquiv k : R) = cls k := rfl
 
+theorem clsEquiv_smul_root
+    (g : J) : (clsEquiv (g • root) : R) = jR g * tR * (jR g)⁻¹ :=
+  cls_smul_root g
+
+theorem clsEquiv_smul
+    (g : J) (k : Fin 306936) :
+    (clsEquiv (g • k) : R) = jR g * clsEquiv k * (jR g)⁻¹ := cls_smul g k
 
 theorem cls_tPerm
     (k : Fin 306936) : cls (tPerm k) = tR * cls k * tR := by
@@ -183,6 +192,9 @@ theorem cls_tPerm
   rw [tPerm_smul_root, cls_smul_root, cls_smul_root, ← tR_mul_jR_mul_tR]
   simp only [mul_inv_rev, tR_inv, mul_assoc, tR_mul_tR_mul]
 
+theorem clsEquiv_tPerm
+    (k : Fin 306936) :
+    (clsEquiv (tPerm k) : R) = tR * clsEquiv k * tR := cls_tPerm k
 
 theorem cls_mul_cls
     (k : Fin 306936) : cls k * cls k = 1 := by
@@ -331,6 +343,17 @@ theorem tPerm_p2 : tPerm p2 ≠ p2 := by
   rw [this, orderOf_one] at h1
   exact absurd h1 (by norm_num)
 
+theorem subLab_subRoot :
+    subLab (⟨subRoot, by decide⟩ : Fin 306936) = 2 := by
+  have hpos : 0 < (Finset.univ.filter (fun p : Fin 306936 => subLab p = 2)).card := by
+    rw [card_subLab_two]; norm_num
+  obtain ⟨q, hq⟩ := Finset.card_pos.1 hpos
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hq
+  obtain ⟨⟨h, hh⟩, hhq⟩ := two_mem_orbit hq
+  have := subLab_inv h hh ⟨subRoot, by decide⟩
+  change subLab (h • _) = _ at this
+  rw [show (h • (⟨subRoot, by decide⟩ : Fin 306936)) = q from hhq, hq] at this
+  exact this.symm
 
 theorem subLab_p1 :
     subLab p1 = 2 := subLab_a_root
@@ -398,6 +421,27 @@ theorem tPerm_eq_self_iff
     · obtain ⟨g, hg, rfl⟩ := subLab_orb p1 k (subLab_p1.trans h2.symm)
       rw [tPerm_smul_of_mem (mem_stabilizer_of_lvl hg), tPerm_p1]
 
+theorem card_fixed_tPerm :
+    (Finset.univ.filter fun k : Fin 306936 => tPerm k = k).card = 31672 := by
+  have e : (Finset.univ.filter fun k : Fin 306936 => tPerm k = k) =
+      (Finset.univ.filter fun k => subLab k = 0) ∪ (Finset.univ.filter fun k => subLab k = 2) := by
+    ext k
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_union, tPerm_eq_self_iff,
+      subLab_eq_zero]
+  have hd : Disjoint (Finset.univ.filter fun k : Fin 306936 => subLab k = 0)
+      (Finset.univ.filter fun k => subLab k = 2) :=
+    Finset.disjoint_filter.2 fun k _ h0 h2 => by rw [h0] at h2; exact absurd h2 (by decide)
+  rw [e, Finset.card_union_of_disjoint hd, card_subLab_zero, card_subLab_two]
+
+theorem card_moved_tPerm :
+    (Finset.univ.filter fun k : Fin 306936 => tPerm k ≠ k).card = 275264 := by
+  have e : (Finset.univ.filter fun k : Fin 306936 => tPerm k ≠ k) =
+      Finset.univ.filter fun k => subLab k = 1 := by
+    ext k
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, ne_eq, tPerm_eq_self_iff,
+      subLab_eq_zero.symm, not_or]
+    rcases subLab_cases k with h | h | h <;> simp [h]
+  rw [e, card_subLab_one]
 
 theorem orderOf_mem_D24
     {x : R} (hx : x ∈ D24) : orderOf x = 2 := by

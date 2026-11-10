@@ -128,6 +128,8 @@ structure Spec where
 
 @[expose] def co3Spec (_ : Unit := ()) : Spec := ⟨7, co3Rels, parseWords co3ImgText, parseWords co3SurjText⟩
 
+@[expose] def co3Check (_ : Unit) : Bool :=
+  seedLetterChecks CFSG.Sporadic.Co3.Native.co3Data co3Spec
 
 @[expose] def co1Rels (_ : Unit := ()) : List (List (Nat × Bool)) :=
   let powWord (w : List (Nat × Bool)) (n : Nat) := (List.replicate n w).flatten

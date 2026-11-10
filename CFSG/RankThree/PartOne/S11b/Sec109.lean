@@ -90,6 +90,37 @@ structure Witness (A : Subgroup G) (c : G) (B : Subgroup G) (b : G) (S : Subgrou
     Config p A c L B n → ∀ (b : G) (S K : Subgroup G), Witness A c B b S →
       K ∈ sectionTenAt p (sectionTenZeroStar p A) b → S ≤ K → K ∈ sectionTenOne p A → False
 
+omit [Finite G] in
+theorem inner_of_mem_sup {p : ℕ} {A K : Subgroup G} (hAK : A ≤ normalizer (K : Set G)) {b d : G}
+    (hbK : ∀ k ∈ K, b * k * b⁻¹ * k⁻¹ = 1) (hdK : d ∈ K) (hbA : b ∈ A) (hdA : d ∈ A) {c : G}
+    (hcA : c ∈ A) (hc : c ∈ zpowers b ⊔ zpowers d) :
+    ∃ q : K ⧸ aschbacherSolvableCore p K, thetaQuotientAction p hAK ⟨c, hcA⟩ = MulAut.conj q := by
+  set f := thetaQuotientAction p hAK with hf
+  set H : Subgroup A := (MulAut.conj : (K ⧸ aschbacherSolvableCore p K) →*
+    MulAut (K ⧸ aschbacherSolvableCore p K)).range.comap f with hH
+  have hb : (⟨b, hbA⟩ : A) ∈ H := by
+    have h1 : f ⟨b, hbA⟩ = 1 := by
+      rw [← MonoidHom.mem_ker, hf, mem_ker_thetaQuotientAction_iff]
+      intro k hk
+      rw [hbK k hk]
+      exact Subgroup.one_mem _
+    refine ⟨1, ?_⟩
+    rw [map_one, h1]
+  have hd : (⟨d, hdA⟩ : A) ∈ H :=
+    ⟨((⟨d, hdK⟩ : K) : K ⧸ aschbacherSolvableCore p K),
+      (thetaQuotientAction_eq_conj_of_mem hAK ⟨d, hdA⟩ hdK).symm⟩
+  have hsup : zpowers (⟨b, hbA⟩ : A) ⊔ zpowers (⟨d, hdA⟩ : A) ≤ H :=
+    sup_le ((Subgroup.zpowers_le).2 hb) ((Subgroup.zpowers_le).2 hd)
+  have hmap : (zpowers (⟨b, hbA⟩ : A) ⊔ zpowers (⟨d, hdA⟩ : A)).map A.subtype =
+      zpowers b ⊔ zpowers d := by
+    rw [Subgroup.map_sup, MonoidHom.map_zpowers, MonoidHom.map_zpowers]
+    rfl
+  rw [← hmap] at hc
+  obtain ⟨a, ha, hac⟩ := hc
+  have hac' : a = ⟨c, hcA⟩ := Subtype.ext hac
+  rw [hac'] at ha
+  obtain ⟨q, hq⟩ := hsup ha
+  exact ⟨q, hq.symm⟩
 
 theorem inSec10Nine_of_steps (h112 : InSec11Two) (hsetup : Setup) (hwit : WitnessExists)
     (hcomp : ComponentExists) (hmax : MaximalExists) (hfield : FieldCaseImpossible)

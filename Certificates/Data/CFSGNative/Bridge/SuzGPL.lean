@@ -86,5 +86,26 @@ set_option compiler.extract_closed false
 @[expose] def seedLetter (G4 : Array Table) (z : Int) : Table :=
   if z = 1 then G4[0]! else if z = -1 then G4[1]! else if z = 2 then G4[2]! else G4[3]!
 
+@[noinline, expose] def imageChecks (α β : Table) (I Iv : Array Table) : Bool :=
+  imgWords.size == 7 && surjWords.size == 2 &&
+    surjWords.all (fun w => w.all fun z => z != 0 && decide (z.natAbs ≤ 7)) &&
+    (List.range 7).all (fun k => invOK 22880 I[k]! Iv[k]!) &&
+    rels.all (fun r =>
+      tupleEq (apT (wordT 22880 (imgLetter I Iv) (r.map relLetter)) chainQ) chainQ) &&
+    tupleEq (apT (wordT 22880 (imgLetter I Iv) surjWords[0]!) chainQ) (apT α chainQ) &&
+    tupleEq (apT (wordT 22880 (imgLetter I Iv) surjWords[1]!) chainQ) (apT β chainQ)
+
+@[noinline, expose] def inverseChecks (α β : Table) (I : Array Table) : Bool :=
+  imageChecks α β I (I.map (invT 22880))
+
+@[noinline, expose] def tableChecks (α β : Table) (G4 : Array Table) : Bool :=
+  inverseChecks α β (imgWords.map (wordT 22880 (seedLetter G4)))
+
+@[noinline, expose] def seedChecks (α β αi βi : Table) : Bool :=
+  invOK 22880 α αi && invOK 22880 β βi && tableChecks α β #[α, αi, β, βi]
+
+@[expose] def bridgeCheck (_ : Unit) : Bool :=
+  let O := orbitData ()
+  seedChecks O.alpha O.beta O.alpha (invT 22880 O.beta)
 
 end CFSG.Sporadic.Bridge.SuzGPL.Native

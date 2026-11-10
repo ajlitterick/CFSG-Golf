@@ -145,6 +145,10 @@ theorem isFCode_g_inv :
     IsFCode (SylowTable.nth 0 gInvCode) ((g : Equiv.Perm (Fin 12))⁻¹) :=
   isFCode_g.inv (by decide) (by decide)
 
+theorem imageArray_g :
+    imageArray (g : Equiv.Perm (Fin 12)) = [2, 3, 7, 6, 1, 0, 9, 4, 5, 11, 10, 8] := by
+  rw [imageArray_eq isFCode_g]
+  decide
 
 @[expose] def u : Fin 4 → NativeSporadic.M12 :=
   ![⟨s₁, s₁_mem_M12⟩, ⟨s₂, s₂_mem_M12⟩, ⟨s₃, s₃_mem_M12⟩, ⟨s₄, s₄_mem_M12⟩]
@@ -270,6 +274,9 @@ theorem d_zero : d 0 = 1 := by
   change g * eltM (kIdx ((0 : Fin 64) : ℕ)) * g⁻¹ = 1
   rw [hk, he, mul_one, mul_inv_cancel]
 
+theorem imageArray_d27 : imageArray (dPerm 27) = [3, 6, 9, 0, 4, 5, 1, 8, 7, 2, 10, 11] := by
+  rw [imageArray_eq (isFCode_d 27)]
+  decide +kernel
 
 @[expose] def mIdx (i j : ℕ) : ℕ := packEntry mTable 6 (64 * i + j)
 
@@ -327,6 +334,7 @@ theorem bTab_bTab (j : Fin 64) : bTab (bTab j) = j := Fin.ext (tableCheck_spec.1
 theorem bTab_mul (i j : Fin 64) : bTab (mTab i j) = mTab (bTab i) (bTab j) :=
   Fin.ext (tableCheck_spec.2.2 i i.2 j j.2)
 
+theorem bTab_zero : bTab 0 = 0 := Fin.ext tableCheck_spec.2.1
 
 @[expose] noncomputable def βS : S ≃* S where
   toFun s := d (bTab (idx s))

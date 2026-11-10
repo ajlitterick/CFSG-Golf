@@ -21,6 +21,8 @@ theorem img_ge (hn : n ≤ 32) {x : ℕ} (hx : FC n x) {i : ℕ} (hi : n ≤ i) 
     exact lt_of_lt_of_le h1 (Nat.pow_le_pow_right (by norm_num) hi)
   rw [P.img_eq, Nat.div_eq_of_lt hlt]
 
+theorem code_mul' (hn : n ≤ 32) (σ τ : Perm (Fin n)) :
+    P.mul n (P.code σ) (P.code τ) = P.code (σ * τ) := P.code_mul hn σ τ
 
 theorem code_inv_mul (hn : n ≤ 32) (σ τ : Perm (Fin n)) :
     P.mul n (P.inv n (P.code τ)) (P.code σ) = P.code (τ⁻¹ * σ) := by

@@ -49,12 +49,35 @@ variable {M V : Type} (O : Ops M V)
           else O.eq (O.pow G[i.val]! (D.e i)) O.one)) &&
     D.rels.all fun w => O.eq (O.evalWordN G I w) O.one
 
+@[expose] def coverEnumCheck [Inhabited M] [Inhabited V] {m : Nat} (D : CoverData m) (n t : Nat) :
+    Bool :=
+  let G := O.coverGens D
+  let En := O.enumBFS #[G[0]!, G[1]!] n
+  O.enumOK #[G[0]!, G[1]!] n t En.1 En.2.1 En.2.2.1 En.2.2.2
 
 @[expose] def orbitVecs [Inhabited M] [Inhabited V] (gens : Array M) (t : Nat)
     (par lab : Array Nat) (n : Nat) : Array V :=
   (List.range n).foldl (fun W i =>
     if i = 0 then W.push (O.unit t) else W.push (O.vmul W[par[i]!]! gens[lab[i]!]!)) #[]
 
+@[expose] def orbitBFS [Inhabited M] [Inhabited V] (gens : Array M) (t : Nat) (key : V → Nat)
+    (cap : Nat) : Array Nat × Array Nat := Id.run do
+  let mut W : Array V := #[O.unit t]
+  let mut par : Array Nat := #[0]
+  let mut lab : Array Nat := #[0]
+  let mut seen : Std.HashSet Nat := Std.HashSet.emptyWithCapacity.insert (key (O.unit t))
+  for h in [0:cap] do
+    if h < W.size then
+      let x := W[h]!
+      for g in [0:gens.size] do
+        let y := O.vmul x gens[g]!
+        let k := key y
+        if !(seen.contains k) && W.size < cap then
+          seen := seen.insert k
+          W := W.push y
+          par := par.push h
+          lab := lab.push g
+  return (par, lab)
 
 @[expose] def strictInc : List Nat → Bool
   | a :: b :: l => decide (a < b) && strictInc (b :: l)
@@ -67,6 +90,11 @@ variable {M V : Type} (O : Ops M V)
       i == 0 || (decide (par[i]! < i) && decide (lab[i]! < gens.size))) &&
     strictInc (((O.orbitVecs gens t par lab n).toList.map key).mergeSort fun a b => decide (a ≤ b))
 
+@[expose] def coverOrbitCheck [Inhabited M] [Inhabited V] {m : Nat} (D : CoverData m)
+    (t n : Nat) (key : V → Nat) : Bool :=
+  let G := O.coverGens D
+  let T := O.orbitBFS G t key n
+  O.orbitOK G t n key T.1 T.2
 
 end Ops
 

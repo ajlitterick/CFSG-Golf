@@ -332,6 +332,21 @@ theorem gBfs_spec (hroot : root ∈ T) (hT : ∀ x ∈ T, ∀ k < ngen, act k x 
   obtain ⟨⟨idx, hc⟩, he, hr⟩ := gBfs_out (fuel := fuel) hroot hT hkey hfuel
   exact ⟨hc.pos, hc.root, hc.mem, fun a ha b hb e => hc.inj ha hb e, he, hr, hc.tree⟩
 
+theorem gBfs_reach (hroot : root ∈ T) (hT : ∀ x ∈ T, ∀ k < ngen, act k x ∈ T)
+    (hkey : ∀ x ∈ T, ∀ y ∈ T, key x = key y → x = y) (hfuel : T.card ≤ fuel) :
+    ∀ j < (gBfs act ngen key root fuel).1.size,
+      Reach act ngen root (gBfs act ngen key root fuel).1[j]! := by
+  obtain ⟨-, h0, -, -, -, -, htree⟩ := gBfs_spec (fuel := fuel) hroot hT hkey hfuel
+  intro j
+  induction j using Nat.strong_induction_on with
+  | _ j ih =>
+    intro hj
+    rcases Nat.eq_zero_or_pos j with rfl | h0'
+    · rw [h0]
+      exact Reach.root
+    · obtain ⟨hp, hl, e⟩ := htree j h0' hj
+      rw [e]
+      exact Reach.step _ hl (ih _ hp (by omega))
 
 theorem gBfs_complete (hroot : root ∈ T) (hT : ∀ x ∈ T, ∀ k < ngen, act k x ∈ T)
     (hkey : ∀ x ∈ T, ∀ y ∈ T, key x = key y → x = y) (hfuel : T.card ≤ fuel) {x : α}

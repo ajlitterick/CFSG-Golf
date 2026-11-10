@@ -12,6 +12,8 @@ abbrev bar {n : ℕ} : Fin n ⊕ Fin n → Fin n ⊕ Fin n := Sum.swap
 
 theorem bar_bar (x : Fin n ⊕ Fin n) : bar (bar x) = x := Sum.swap_swap x
 
+theorem bar_ne (x : Fin n ⊕ Fin n) : bar x ≠ x := by
+  rcases x with x | x <;> simp [bar]
 
 theorem bar_inj {x y : Fin n ⊕ Fin n} : bar x = bar y ↔ x = y :=
   ⟨fun h => by simpa [bar_bar] using congrArg bar h, fun h => by rw [h]⟩

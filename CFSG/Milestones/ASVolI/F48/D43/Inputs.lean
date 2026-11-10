@@ -122,6 +122,8 @@ abbrev burnsideF48d_C : RootCertificate .D4 := Tag.rootCertificate .D4
 @[expose] def burnsideF48d_gen (k : ℕ) : Array ℕ :=
   hexTable 4 26572 (26572 * k) burnsideF48d_GensHex
 
+@[expose] def burnsideF48d_phi (_ : Unit := ()) : Array ℕ :=
+  hexTable 4 26572 0 burnsideF48d_PhiHex
 
 @[expose] def burnsideF48d_toT (a : Array ℕ) : Table := a.map UInt32.ofNat
 

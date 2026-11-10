@@ -34,6 +34,9 @@ variable (N : ℕ) (m : ℕ → ℕ → ℕ) (inv : ℕ → ℕ)
   | some e => evalK m inv g e.2
   | none => 0
 
+@[expose] def autK (order parent label img : ℕ → ℕ) : Array ℕ :=
+  (List.range' 1 (N - 1)).foldl (fun a i => a.set! (order i) (m (img (label i)) a[parent i]!))
+    (Array.replicate N 0)
 
 @[expose] def twK (a : ℕ → ℕ) (Zt : ℕ → Bool) : Bool :=
   (List.range N).all fun s0 =>

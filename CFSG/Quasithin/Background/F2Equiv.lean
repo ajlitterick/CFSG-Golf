@@ -180,10 +180,14 @@ theorem hatPiHom_mul (a b : Aut α) : hatPiHom (a * b) = (hatPiHom a).comp (hatP
     ext g
     simp [hatPiHom_mul]
 
+theorem hatPi_apply (a : Aut α) (g : gp α) : hatPi a g = hatPiHom a g := rfl
 
 @[simp] theorem hatPi_ξ (a : Aut α) (d : D) (x : α.X d) :
     hatPi a (ξ α d x) = ξ α d (a.1 d x) := hatPiHom_ξ a d x
 
+theorem hatPi_ξ_comp (a : Aut α) (d : D) :
+    (hatPi a).toMonoidHom.comp (ξ α d) = (ξ α d).comp (a.1 d).toMonoidHom :=
+  MonoidHom.ext fun x => hatPi_ξ a d x
 
 namespace Completion
 
@@ -289,6 +293,8 @@ noncomputable def piMinus (μ : Completion α G) : stabilizer μ →* MulAut G w
     show aMinus μ a.1 a.2 (aMinus μ b.1 b.2 (μ.toHom d x)) = μ.toHom d (a.1.1 d (b.1.1 d x))
     rw [aMinus_apply, aMinus_apply]
 
+theorem piMinus_apply (μ : Completion α G) (a : stabilizer μ) (d : D) (x : α.X d) :
+    piMinus μ a (μ.toHom d x) = μ.toHom d (a.1.1 d x) := aMinus_apply μ a.1 a.2 d x
 
 @[expose] def normAut (μ : Completion α G) : Subgroup (MulAut G) where
   carrier := {b | ∀ d, (μ.toHom d).range.map (b : G →* G) = (μ.toHom d).range}
@@ -322,6 +328,10 @@ noncomputable def piMinus (μ : Completion α G) : stabilizer μ →* MulAut G w
 theorem mem_normAut {μ : Completion α G} {b : MulAut G} :
     b ∈ normAut μ ↔ ∀ d, (μ.toHom d).range.map (b : G →* G) = (μ.toHom d).range := Iff.rfl
 
+theorem apply_mem_range_of_mem_normAut {μ : Completion α G} {b : MulAut G} (hb : b ∈ normAut μ)
+    (d : D) (x : α.X d) : b (μ.toHom d x) ∈ (μ.toHom d).range := by
+  have hmem : b (μ.toHom d x) ∈ (μ.toHom d).range.map (b : G →* G) := ⟨μ.toHom d x, ⟨x, rfl⟩, rfl⟩
+  rwa [hb d] at hmem
 
 @[expose] noncomputable def sigmaApp (μ : Completion α G) (hμ : μ.IsFaithful) (b : MulAut G)
     (hb : b ∈ normAut μ) (d : D) : MulAut (α.X d) :=
@@ -354,6 +364,8 @@ theorem sigmaApp_comm (μ : Completion α G) (hμ : μ.IsFaithful) (b : MulAut G
     Aut α :=
   ⟨fun d => sigmaApp μ hμ b.1 b.2 d, fun {_ _} h x => sigmaApp_comm μ hμ b.1 b.2 h x⟩
 
+theorem sigmaAut_apply (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) (d : D)
+    (x : α.X d) : (sigmaAut μ hμ b).1 d x = sigmaApp μ hμ b.1 b.2 d x := rfl
 
 noncomputable def sigma (μ : Completion α G) (hμ : μ.IsFaithful) : normAut μ →* Aut α where
   toFun := sigmaAut μ hμ
@@ -373,6 +385,54 @@ noncomputable def sigma (μ : Completion α G) (hμ : μ.IsFaithful) : normAut �
     rw [sigmaApp_eq_iff, sigmaApp_spec, sigmaApp_spec]
     rfl
 
+theorem sigma_mem_stabilizer (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) :
+    sigma μ hμ b ∈ stabilizer μ := by
+  show IsEquivalent (act (sigma μ hμ b) μ) μ
+  refine ⟨b.1, fun d x => ?_⟩
+  rw [act_apply]
+  have h1 : (sigma μ hμ b)⁻¹ = sigma μ hμ b⁻¹ := (map_inv (sigma μ hμ) b).symm
+  rw [h1]
+  show b.1 (μ.toHom d (sigmaApp μ hμ (b⁻¹ : normAut μ).1 (b⁻¹ : normAut μ).2 d x)) = μ.toHom d x
+  rw [sigmaApp_spec]
+  show b.1 ((b.1)⁻¹ (μ.toHom d x)) = μ.toHom d x
+  simp
+
+theorem piMinus_sigma (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) :
+    piMinus μ ⟨sigma μ hμ b, sigma_mem_stabilizer μ hμ b⟩ = b.1 := by
+  apply mulAut_ext (μ := μ)
+  intro d x
+  rw [piMinus_apply]
+  show μ.toHom d (sigmaApp μ hμ b.1 b.2 d x) = b.1 (μ.toHom d x)
+  exact sigmaApp_spec μ hμ b.1 b.2 d x
+
+theorem piMinus_mem_normAut (μ : Completion α G) (a : stabilizer μ) : piMinus μ a ∈ normAut μ := by
+  intro d
+  ext g
+  rw [Subgroup.mem_map]
+  constructor
+  · rintro ⟨_, ⟨x, rfl⟩, rfl⟩
+    exact ⟨a.1.1 d x, (piMinus_apply μ a d x).symm⟩
+  · rintro ⟨y, rfl⟩
+    refine ⟨μ.toHom d ((a.1⁻¹).1 d y), ⟨_, rfl⟩, ?_⟩
+    show piMinus μ a (μ.toHom d ((a.1⁻¹).1 d y)) = μ.toHom d y
+    rw [piMinus_apply, Aut.apply_inv_apply]
+
+theorem sigma_piMinus (μ : Completion α G) (hμ : μ.IsFaithful) (a : stabilizer μ) :
+    sigma μ hμ ⟨piMinus μ a, piMinus_mem_normAut μ a⟩ = a.1 := by
+  apply Subtype.ext
+  funext d
+  ext x
+  show sigmaApp μ hμ (piMinus μ a) (piMinus_mem_normAut μ a) d x = a.1.1 d x
+  rw [sigmaApp_eq_iff, piMinus_apply]
+
+theorem range_sigma (μ : Completion α G) (hμ : μ.IsFaithful) :
+    (sigma μ hμ).range = stabilizer μ := by
+  ext a
+  constructor
+  · rintro ⟨b, rfl⟩
+    exact sigma_mem_stabilizer μ hμ b
+  · intro ha
+    exact ⟨⟨piMinus μ ⟨a, ha⟩, piMinus_mem_normAut μ ⟨a, ha⟩⟩, sigma_piMinus μ hμ ⟨a, ha⟩⟩
 
 end Completion
 

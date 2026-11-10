@@ -21,6 +21,18 @@ theorem testBit_one_shiftLeft (s i : ℕ) : (1 <<< s).testBit i = decide (i = s)
   · subst h; simp
   · simp [h, Ne.symm h]
 
+theorem testBit_maskOfList (l : List ℕ) (i : ℕ) : (maskOfList l).testBit i = decide (i ∈ l) := by
+  have key : ∀ (l : List ℕ) (m : ℕ), (l.foldl (fun m s => m ||| (1 <<< s)) m).testBit i =
+      (m.testBit i || decide (i ∈ l)) := by
+    intro l
+    induction l with
+    | nil => intro m; simp
+    | cons s l ih =>
+      intro m
+      rw [List.foldl_cons, ih, Nat.testBit_or, testBit_one_shiftLeft]
+      by_cases h1 : i = s <;> by_cases h2 : i ∈ l <;> simp [h1, h2]
+  rw [maskOfList, key]
+  simp
 
 theorem testBit_permMask (p : Array ℕ) (m j : ℕ) :
     (permMask p m).testBit j = true ↔ ∃ i < 12, m.testBit i = true ∧ p[i]! = j := by

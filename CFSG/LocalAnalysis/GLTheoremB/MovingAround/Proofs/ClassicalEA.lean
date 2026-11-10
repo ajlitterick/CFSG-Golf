@@ -368,6 +368,12 @@ theorem card_sup_of_inf_eq_bot [Finite G] {A C : Subgroup G} (hAC : ∀ a ∈ A,
   rw [hd, Subgroup.card_bot, mul_one] at h
   exact h
 
+theorem mem_sup_iff_of_commute [Finite G] {A C : Subgroup G}
+    (hAC : ∀ a ∈ A, ∀ c ∈ C, a * c = c * a) {x : G} :
+    x ∈ A ⊔ C ↔ ∃ a ∈ A, ∃ c ∈ C, a * c = x := by
+  have h := (CFSG.GroupTheory.card_sup_mul_card_inf_of_commute A C hAC).2
+  rw [← SetLike.mem_coe, h, Set.mem_mul]
+  simp only [SetLike.mem_coe]
 
 theorem card_zpowers_of_prime {g : G} {p : ℕ} (hp : p.Prime) (hg : g ^ p = 1) (hg1 : g ≠ 1) :
     Nat.card (Subgroup.zpowers g) = p := by

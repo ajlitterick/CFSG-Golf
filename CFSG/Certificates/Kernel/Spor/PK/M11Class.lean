@@ -27,6 +27,22 @@ private theorem mc_finv_eq {n : Nat} {g : Nat → Nat} (hg : IsPermN n g) {z y :
   rw [← h]
   exact finv_apply hg hz
 
+private theorem mc_pq_congr {f f' h h' : Nat → Nat} (hf : IsPermN 11 f) (hh : IsPermN 11 h)
+    (ef : ∀ i < 11, f i = f' i) (eh : ∀ i < 11, h i = h' i) : mc_pq f h = mc_pq f' h' := by
+  have hh' := mc_perm_congr hh eh
+  unfold mc_pq
+  have e1 : ordF 11 (fun i => f (h i)) = ordF 11 (fun i => f' (h' i)) := by
+    refine ordF_congr (fun i hi => hf.1 _ (hh.1 i hi)) (fun i hi => ?_)
+    rw [eh i hi]
+    exact ef _ (hh'.1 i hi)
+  have e2 : ordF 11 (fun i => f (h (finv 11 f (finv 11 h i)))) =
+      ordF 11 (fun i => f' (h' (finv 11 f' (finv 11 h' i)))) := by
+    refine ordF_congr (fun i hi => hf.1 _ (hh.1 _ (mc_finv_lt _ _))) (fun i hi => ?_)
+    rw [finv_congr eh i, finv_congr ef (finv 11 h' i)]
+    have hv := mc_finv_lt f' (finv 11 h' i)
+    rw [eh _ hv]
+    exact ef _ (hh'.1 _ hv)
+  rw [e1, e2]
 
 private theorem mc_finv_conj {f a : Nat → Nat} (hf : IsPermN 11 f) (ha : IsPermN 11 a) {j : Nat}
     (hj : j < 11) :

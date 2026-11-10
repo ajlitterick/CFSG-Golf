@@ -163,6 +163,17 @@ theorem card_cent_b (hP : Nat.card ↥P1408 = 177408000) :
     exact CzInv.mem_cz hP hq hq'
   exact card_cent_of_stabK hP (repC_word (by decide)) hmem stab0_ok
 
+noncomputable def c1E : Equiv.Perm (Fin 1408) := t0P 817 * t1P 0
+
+theorem c1E_mem (hP : Nat.card ↥P1408 = 177408000) :
+    c1E ∈ P1408 ⊓ centralizer ({elemZ} : Set (Equiv.Perm (Fin 1408))) :=
+  CzInv.mem_cz hP (by norm_num) (by norm_num)
+
+theorem card_cent_c1 (hP : Nat.card ↥P1408 = 177408000) :
+    Nat.card ↥(P1408 ⊓ centralizer ({elemZ} : Set (Equiv.Perm (Fin 1408))) ⊓
+      centralizer ({c1E} : Set (Equiv.Perm (Fin 1408)))) = 384 :=
+  card_cent_of_stabK hP (repC_pc (t0P_spec (by norm_num)).2 (t1P_spec (by norm_num)).2)
+    (c1E_mem hP) stab1_ok
 
 end CFSG.KD.HN1408.TabX
 

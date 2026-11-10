@@ -21,6 +21,7 @@ namespace CertificateChecks.KernelFi23U3
 
 open CFSG.KC.OpsLayK CertificateChecks.KernelTc.Fi23
 
+theorem cs_length : D.cs.length = 4 := rfl
 
 theorem q0_eq : Q.S0 = S.S5 := rfl
 
@@ -31,6 +32,14 @@ theorem q0_eq : Q.S0 = S.S5 := rfl
 
 #kc_forall_tree rc_all (fun i => rc i = true) 4 CertificateChecks.KernelFi23U3.rc
 
+theorem rc_neg_sel :
+    (!chunkV lay (25, [], [16, 19, 22, 5]) (Q.SL.getD 0 []) (Q.SL.getD 1 [])) = true := by
+  quickRfl
+
+theorem rc_neg_op : (!chunkV lay ((D.cs.getD 1 (0, [], [])).1,
+    ((D.cs.getD 1 (0, [], [])).2.1.take 1), (D.cs.getD 1 (0, [], [])).2.2)
+    (Q.SL.getD 1 []) (Q.SL.getD 2 [])) = true := by
+  quickRfl
 
 @[expose] noncomputable def M₀ : List Nat := (Q.SL.getD 4 []).reverse
 

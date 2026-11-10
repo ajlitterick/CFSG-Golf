@@ -82,6 +82,7 @@ theorem eq_of_deq {a b : Nat × Nat} (h : deq a b = true) : a = b := by
 @[expose] def semEval {n : Nat} (gd : Fin n → Nat × Nat) (w : List (Fin n × Bool)) : Nat × Nat :=
   w.foldr (fun a d => dmul (letterD gd a) d) one
 
+theorem semEval_nil {n : Nat} (gd : Fin n → Nat × Nat) : semEval gd [] = one := rfl
 
 theorem semEval_cons {n : Nat} (gd : Fin n → Nat × Nat) (a : Fin n × Bool)
     (w : List (Fin n × Bool)) : semEval gd (a :: w) = dmul (letterD gd a) (semEval gd w) := rfl

@@ -20,6 +20,16 @@ theorem card_PG10_le :
     Finite PG10 ∧ Nat.card PG10 ≤ 4089470473293004800 :=
   Certificates.certificate9113.2
 
+theorem expandX_map {n : ℕ} (hn : 0 < n) (w : List (ℕ × Bool)) (hw : ∀ l ∈ w, l.1 < n) :
+    expandX (w.map fun l => ((⟨l.1 % n, Nat.mod_lt _ hn⟩ : Fin n), l.2)) =
+      w.flatMap expandSigned := by
+  induction w with
+  | nil => rfl
+  | cons l w ih =>
+    have h1 : l.1 < n := hw l List.mem_cons_self
+    have h2 := ih fun l' hl' => hw l' (List.mem_cons_of_mem _ hl')
+    simp only [List.map_cons, expandX, List.flatMap_cons] at h2 ⊢
+    rw [h2, Nat.mod_eq_of_lt h1]
 
 section Model
 

@@ -45,5 +45,45 @@ theorem inner_le {G : Type*} [Group G] (component : Subgroup G) :
   change PerfectAutomorphisms.centerQuotientHom component (component.normalizerMonoidHom actor) = _
   rw [hnormalizer, OuterAutomorphisms.centerQuotient_conj]
 
+theorem image_two_bound {G : Type*} [Group G] [Finite G]
+    (component : Subgroup G) (hquasisimple : IsQuasisimple component) :
+    GroupTwoPart.value (Nat.card (action component).range) ≤
+      GroupTwoPart.value (Nat.card (component ⧸ Subgroup.center component)) *
+        GroupTwoPart.value (Nat.card (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component))) := by
+  let quotient := component ⧸ Subgroup.center component
+  let : IsSimpleGroup quotient := hquasisimple.2
+  have hcenter : Subgroup.center quotient = ⊥ := Helpers.center_eq_bot quotient
+    (Helpers.quasisimple_central_quotient_nonabelian component hquasisimple)
+  have hcard := InnerActionOrder.image_card (action component).range (inner_le component)
+  rw [InnerActionOrder.centerless_card quotient hcenter] at hcard
+  rw [hcard, GroupTwoPart.mul (ne_of_gt Nat.card_pos) (ne_of_gt Nat.card_pos)]
+  exact Nat.mul_le_mul_left _ (GroupTwoPart.subgroup_le _)
+
+theorem two_bound {G : Type*} [Group G] [Finite G]
+    (component : Subgroup G) (heven : Even (Nat.card component))
+    (huniversal : UniversalComponentBlock.Universal component) (hquasisimple : IsQuasisimple component) :
+    GroupTwoPart.value (Nat.card (UniversalOrbitBlock.normalizer component)) ≤
+      GroupTwoPart.value (Nat.card ↥(UniversalOrbitBlock.block component)) *
+        GroupTwoPart.value (Nat.card (Subgroup.centralizer (component : Set G))) *
+        GroupTwoPart.value (Nat.card (component ⧸ Subgroup.center component)) *
+        GroupTwoPart.value (Nat.card (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component))) := by
+  let centralOrder := Nat.card (Subgroup.centralizer (component : Set G))
+  let imageOrder := Nat.card (action component).range
+  let blockOrder := Nat.card ↥(UniversalOrbitBlock.block component)
+  have hcentralPositive : centralOrder ≠ 0 := ne_of_gt (Nat.card_pos (α := Subgroup.centralizer (component : Set G)))
+  have himagePositive : imageOrder ≠ 0 := ne_of_gt (Nat.card_pos (α := (action component).range))
+  have hblockPositive : blockOrder ≠ 0 := by
+    let : Nonempty ↥(UniversalOrbitBlock.block component) := ⟨⟨component, UniversalOrbitBlock.mem_block_self component⟩⟩
+    exact ne_of_gt (Nat.card_pos (α := ↥(UniversalOrbitBlock.block component)))
+  have hcard : Nat.card (UniversalOrbitBlock.normalizer component) = centralOrder * imageOrder * blockOrder :=
+    card component heven huniversal hquasisimple
+  have hparts : GroupTwoPart.value (centralOrder * imageOrder * blockOrder) =
+      GroupTwoPart.value centralOrder * GroupTwoPart.value imageOrder * GroupTwoPart.value blockOrder := by
+    rw [GroupTwoPart.mul (mul_ne_zero hcentralPositive himagePositive) hblockPositive,
+      GroupTwoPart.mul hcentralPositive himagePositive]
+  have hexact := (congrArg GroupTwoPart.value hcard).trans hparts
+  have hbound := Nat.mul_le_mul_right (GroupTwoPart.value blockOrder)
+    (Nat.mul_le_mul_left (GroupTwoPart.value centralOrder) (image_two_bound component hquasisimple))
+  exact hexact.le.trans (hbound.trans_eq (by dsimp [centralOrder, blockOrder]; ac_rfl))
 
 end CFSG.ComponentClassification.BlockNormalizerOrder

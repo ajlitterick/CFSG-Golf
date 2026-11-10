@@ -43,6 +43,25 @@ theorem bar_zero : bar 0 = 0 := by decide
 
 theorem bar_one : bar 1 = 1 := by decide
 
+theorem irreducible_omega_poly :
+    Irreducible (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)) := by
+  apply Polynomial.irreducible_of_degree_le_three_of_not_isRoot
+  · have : (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)).natDegree = 2 := by
+      compute_degree!
+    rw [this]
+    decide
+  · intro x hx
+    rw [Polynomial.IsRoot.def, Polynomial.eval_add, Polynomial.eval_add, Polynomial.eval_pow,
+      Polynomial.eval_X, Polynomial.eval_one] at hx
+    revert x
+    decide
+
+theorem eval₂_omega_poly :
+    Polynomial.eval₂ (algebraMap (ZMod 2) K) ω
+      (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)) = 0 := by
+  rw [Polynomial.eval₂_add, Polynomial.eval₂_add, Polynomial.eval₂_pow, Polynomial.eval₂_X,
+    Polynomial.eval₂_one]
+  exact omega_sq_add_omega_add_one
 
 @[expose] def t0 (a : K) : ZMod 2 := ((F4.code a).val : ZMod 2)
 
@@ -68,6 +87,19 @@ theorem t1_coe_add_mul_omega (c d : ZMod 2) :
 
 theorem t0_coe (c : ZMod 2) : t0 (algebraMap (ZMod 2) K c) = c := by revert c; decide
 
+noncomputable def adjoinRootEquiv :
+    AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)) ≃+* K :=
+  haveI : Fact (Irreducible (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2))) :=
+    ⟨irreducible_omega_poly⟩
+  RingEquiv.ofBijective (AdjoinRoot.lift (algebraMap (ZMod 2) K) ω eval₂_omega_poly)
+    ⟨RingHom.injective _, fun a => ⟨AdjoinRoot.of _ (t0 a) + AdjoinRoot.of _ (t1 a) *
+      AdjoinRoot.root _, by
+        rw [map_add, map_mul, AdjoinRoot.lift_of, AdjoinRoot.lift_of, AdjoinRoot.lift_root,
+          t0_add_t1_omega]⟩⟩
+
+theorem adjoinRootEquiv_root :
+    adjoinRootEquiv (AdjoinRoot.root _) = ω :=
+  AdjoinRoot.lift_root eval₂_omega_poly
 
 theorem coe_t0_of_bar_eq (a : K) (h : bar a = a) : algebraMap (ZMod 2) K (t0 a) = a := by
   revert a; decide
@@ -82,6 +114,9 @@ abbrev V : Type := Fin 4 → K
 @[expose] def herm (v w : V) : K :=
   v 0 * bar (w 3) + v 1 * bar (w 2) + v 2 * bar (w 1) + v 3 * bar (w 0)
 
+theorem herm_eq_sum (v w : V) : herm v w = ∑ i, v i * bar (w (Fin.rev i)) := by
+  simp only [herm, Fin.sum_univ_four]
+  rfl
 
 theorem herm_add_left (v v' w : V) : herm (v + v') w = herm v w + herm v' w := by
   simp only [herm, Pi.add_apply]; ring
@@ -138,6 +173,9 @@ theorem T_smul (c : K) (a : W) : T (c • a) = bar c • T a := by
   funext p
   fin_cases p <;> simp [T_apply, bar_mul]
 
+theorem T_T (a : W) : T (T a) = a := by
+  funext p
+  fin_cases p <;> simp [T_apply, bar_bar]
 
 theorem T_smul_zmod (c : ZMod 2) (a : W) : T (c • a) = c • T a := by
   rw [← algebraMap_smul K c a, T_smul, bar_coe, algebraMap_smul]
@@ -214,6 +252,7 @@ theorem param_psiLin {w : W} (hw : w ∈ W₀) : param (psiLin w) = w := by
 
 theorem Ψ_apply (w : W₀) : Ψ w = psiLin w.1 := rfl
 
+theorem Ψ_param (x : X) : Ψ ⟨param x, param_mem_W₀ x⟩ = x := psiLin_param x
 
 @[expose] def wedgeL (x : V) : V →ₗ[K] W where
   toFun := wedge x
@@ -255,10 +294,30 @@ theorem M_eq_map {ℓ : Submodule K V} {x : V} (hℓ : ℓ = K ∙ x) :
       exact ⟨x, hℓ ▸ Submodule.mem_span_singleton_self x, v, hv, rfl⟩
   rw [M, hset, Submodule.span_eq]
 
+theorem coe_M {ℓ : Submodule K V} (hℓ : finrank K ℓ = 1) :
+    (M ℓ : Set W) = {w | ∃ x ∈ ℓ, ∃ v ∈ perp ℓ, w = wedge x v} := by
+  have hne : ℓ ≠ ⊥ := by
+    rintro rfl
+    simp at hℓ
+  obtain ⟨x, hx, hx0⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hne
+  have hℓx := eq_span_singleton_of_mem_of_finrank_eq_one hℓ hx hx0
+  rw [M_eq_map hℓx]
+  ext w
+  simp only [Submodule.map_coe, Set.mem_image, SetLike.mem_coe, wedgeL_apply,
+    Set.mem_ofPred_eq]
+  constructor
+  · rintro ⟨v, hv, rfl⟩
+    exact ⟨x, hx, v, hv, rfl⟩
+  · rintro ⟨y, hy, v, hv, rfl⟩
+    rw [hℓx] at hy
+    obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.mp hy
+    exact ⟨c • v, (perp ℓ).smul_mem c hv, by rw [wedge_smul_left, wedge_smul_right]⟩
 
 abbrev UVertex : Type :=
   {U : Submodule K V // IsTotallyIsotropic U ∧ (finrank K U = 1 ∨ finrank K U = 2)}
 
+@[expose] def UVertex.Incident (x y : UVertex) : Prop :=
+  x.1 ≤ y.1 ∨ y.1 ≤ x.1
 
 @[expose] noncomputable def UVertex.type (x : UVertex) : ℕ :=
   finrank K x.1

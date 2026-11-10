@@ -79,6 +79,13 @@ theorem k27811_j3 : f1K 6156 13 (J3CentP 21) (TS16J3P 11) (TS16J3P 12)
     (j3W rWord (TS16J3P 11)) (j3W uWord (TS16J3P 12)) = true := by
   quickRfl
 
+theorem k27811_j2_neg : f1K 315 9 (J2Cn.F 9) (ppw 315 9 (TS16J2T.F 12) 2) (TS16J2T.F 13)
+    true true = false := by
+  decide +kernel
+
+theorem k27811_j3_neg : f1K 6156 13 (J3CentP 21) (ppw 6156 13 (TS16J3P 11) 2) (TS16J3P 12)
+    true true = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.F27811
 

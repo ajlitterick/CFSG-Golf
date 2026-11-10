@@ -25,6 +25,8 @@ theorem eq_uElt_coords {y : antiSp F} (hy : y ∈ antiUnipotent F) :
   rfl
 
 theorem mat_uElt_01 (a b c d : F) : mat (uElt a b c d) 0 1 = a := rfl
+theorem mat_uElt_02 (a b c d : F) : mat (uElt a b c d) 0 2 = b := rfl
+theorem mat_uElt_03 (a b c d : F) : mat (uElt a b c d) 0 3 = c := rfl
 theorem mat_uElt_12 (a b c d : F) : mat (uElt a b c d) 1 2 = d := rfl
 
 theorem commute_uElt_iff {a b c d a' b' c' d' : F}
@@ -301,6 +303,12 @@ theorem frobAut_pow_dHom (i : Axis) (s : ℕ) (l : Fˣ) :
   | succ s ih =>
     rw [pow_succ', MulAut.mul_apply, ih, frobAut_dHom, ← pow_mul, ← pow_succ]
 
+theorem frobAut_pow_rootCoord (i : Axis) (s : ℕ) (x : F) :
+    (frobAut F ^ s) (rootCoord F i x) = rootCoord F i (x ^ 2 ^ s) := by
+  induction s with
+  | zero => simp
+  | succ s ih =>
+    rw [pow_succ', MulAut.mul_apply, ih, frobAut_rootCoord, ← pow_mul, ← pow_succ]
 
 omit [Finite F] in
 theorem eq_of_sq_eq_one {x : F} (hx : x ^ 2 = 1) : x = 1 := by

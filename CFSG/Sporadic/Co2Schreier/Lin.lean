@@ -28,6 +28,11 @@ theorem linP_vec
   rw [h, co2Vec_rho]
   rfl
 
+theorem linP_injective :
+    Function.Injective linP := by
+  intro g h hgh
+  refine Subtype.ext (Equiv.ext fun i => Fin.ext (co2Vec_injective (Fin.isLt _) (Fin.isLt _) ?_))
+  rw [← linP_vec, ← linP_vec, hgh]
 
 @[expose] def xorBits (vs : Array ℕ) (m : ℕ) : ℕ :=
   (List.range vs.size).foldl (fun acc i => if m.testBit i then acc ^^^ vs[i]! else acc) 0

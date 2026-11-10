@@ -17,5 +17,6 @@ namespace CFSG.Sporadic.Co1Schreier.RecData
   "CFSG/Sporadic/Schreier/Data/co1-cert-merges.json.gz" 3283775 15023569460192625957
   (m0 : List Nat) (m1 : List Nat) (m2 : List Nat)
 
+@[expose] def triple (x : Nat) : List Nat := [x % 2, x / 2 % 98280, x / 196560]
 
 end CFSG.Sporadic.Co1Schreier.RecData

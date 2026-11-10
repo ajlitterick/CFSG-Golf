@@ -17,6 +17,14 @@ theorem rels_eq : TauCeti.Sporadic.co3Presentation.relatorLetters = rels := by
 theorem gens_eq : TauCeti.Sporadic.co3Presentation.generatorCount = 7 := by
   simp [TauCeti.GroupPresentation.generatorCount, TauCeti.Sporadic.co3Presentation_generatorNames]
 
+theorem rels_T1_tau : KB.relsOk CFSG.KBData.Co3_T1v.R (nat_lit 24) T1.amap TauCeti.Sporadic.co3Presentation.relatorLetters = true := by
+  rw [rels_eq]; exact T1.rels_ok
+
+theorem rels_T2_tau : KB.relsOk CFSG.KBData.Co3Alt_T2v.R (nat_lit 18) T2.amap TauCeti.Sporadic.co3Presentation.relatorLetters = true := by
+  rw [rels_eq]; exact T2.rels_ok
+
+theorem rels_T3_tau : KB.relsOk CFSG.KBData.Co3Alt_T3v.R (nat_lit 12) T3.amap TauCeti.Sporadic.co3Presentation.relatorLetters = true := by
+  rw [rels_eq]; exact T3.rels_ok
 
 end CFSG.KBRoute.Co3Alt
 

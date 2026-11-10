@@ -17,5 +17,9 @@ theorem ch840004mg_k : allL kPresK hexaMGensK = true := by decide +kernel
 theorem ch840004mg_kmask : allN (fun v => beqB (memL v hallKList) (inKK v)) 64 = true := by
   decide +kernel
 
+theorem ch840004mg_neg :
+    zipArrK [idK, 34633937090] hexaMGens = false ∧ kPresK 1344290976 = false ∧
+      kPresK idK = true := by
+  decide +kernel
 
 end CFSG.KC.Hall82K

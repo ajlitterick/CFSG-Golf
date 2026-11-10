@@ -30,6 +30,11 @@ open CFSG.F3.Native CFSG.KS.F3R CFSG.KS.F3L CFSG.KC.McLMult
 @[expose] noncomputable def coverAB (d : Nat) (A B : V) : Bool :=
   withEs d A B fun E I X Xi => coverCheck d E I X Xi mclRels mclCommWord mclR0
 
+theorem seedTA_ok : seedK 42 (laneOf TA.chars) TA.chars = true := by
+  decide +kernel
+
+theorem seedTB_ok : seedK 42 (laneOf TB.chars) TB.chars = true := by
+  decide +kernel
 
 theorem id42_ok : bAnd(canonL 42 (idLane 42), eqMK 42 (idM 42) (unlane 42 (idLane 42))) = true := by
   decide +kernel

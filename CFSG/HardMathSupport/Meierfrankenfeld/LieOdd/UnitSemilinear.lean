@@ -37,6 +37,10 @@ theorem tau_sub (x y : ι → K) : tau σ A (x - y) = tau σ A x - tau σ A y :=
   funext i
   simp
 
+theorem tau_zero : tau σ A (0 : ι → K) = 0 := by
+  unfold tau
+  simp
+  exact Matrix.mulVec_zero A
 
 theorem hf_map (hσb : ∀ c, σ (h.bar c) = h.bar (σ c)) (hGσ : G.map σ = G) (x y : ι → K) :
     hf h G (fun i => σ (x i)) (fun i => σ (y i)) = σ (hf h G x y) := by

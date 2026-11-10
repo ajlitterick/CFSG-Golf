@@ -78,6 +78,8 @@ abbrev MsigR (p : ℕ) (A : Subgroup G) (θ : G → Subgroup G) (r : ℕ) : Set 
 abbrev IsSr (p : ℕ) (A : Subgroup G) (θ : G → Subgroup G) (r : ℕ) (S : Subgroup G) : Prop :=
   IsSrSubgroup p A θ (signalizerMcBrideHypothesisB p) r S
 
+@[expose] def indSB (θ : G → Subgroup G) (S B : Subgroup G) : Set (Subgroup G) :=
+  {Y | ∃ L ∈ Ind (thetaOf θ B), Y = S ⊓ L}
 
 @[expose] def lHat (H L : Subgroup G) : Subgroup G :=
   sSup {R | R ∈ lcal H ∧ ¬ L ≤ Subgroup.centralizer (R : Set G)}

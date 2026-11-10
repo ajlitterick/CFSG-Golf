@@ -23,6 +23,9 @@ instance : Fintype ExceptionalF9 :=
   Fintype.ofEquiv (ZMod 3 × ZMod 3)
     (QuadraticAlgebra.equivProd (-1 : ZMod 3) 0).symm
 
+@[expose] def secondRootF9 : ExceptionalF9 := ω - 1
+@[expose] def secondRootX9 : ExceptionalSL9 :=
+  ⟨!![1, secondRootF9; 0, 1], by simp [Matrix.det_fin_two]⟩
 
 @[expose] def exceptionalMatrixKey (g : ExceptionalSL5) : Nat :=
   (g.1 0 0).val + 5 * (g.1 0 1).val +

@@ -22,5 +22,13 @@ theorem co3Layout_check :
     (∀ r < 276, co3FormWord r < 2 ^ 253) :=
   Certificates.certificate2152.1
 
+theorem co3Words_check :
+    wordsOK 2 14 co3ChainDerivations = true ∧ wordsOK 2 14 co3CoprimeDerivations = true ∧
+    wordsOK 8 10 co3TDerivations = true ∧ wordsOK 7 14 co3MDerivations = true ∧
+    wordsOK 6 11 co3M1Derivations = true ∧ wordsOK 4 8 co3MCommDerivations = true ∧
+    wordsOK 3 8 co3M1CommDerivations = true ∧ wordsOK 13 25 co3JointDerivations = true ∧
+    wordsOK 63 66 co3Sp36Derivations = true ∧ wordsOK 6 16 co3M36Derivations = true ∧
+    wordsOK 5 13 co3M112Derivations = true :=
+  Certificates.certificate2152.2
 
 end CFSG.Sporadic.Schreier.Co3

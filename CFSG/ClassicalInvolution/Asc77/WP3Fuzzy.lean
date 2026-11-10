@@ -70,4 +70,12 @@ theorem cent [IsSimpleGroup G] (hnab : ∃ x y : G, x * y ≠ y * x) (hp2 : p �
 end FuzzyBalancedDataD
 
 
+@[expose] def ExactP1D (p f : ℕ) [Fact p.Prime] : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+    p ≠ 2 → 5 ≤ p ^ f → CITBelowU p f (Nat.card G) → ∀ (K : Subgroup G) (z : G),
+      IsClassicalMember p f K z → 3 ≤ CFSG.Open.twoRank G → ¬ TwoSubgroupsFourGenerated G →
+      DConnected (CoreAssembly.conjClass K) →
+      ExactMembers (CoreAssembly.conjClass K) ∧ LocalOddCentral (CoreAssembly.conjClass K) {z}
+
+
 end CFSG.ClassicalInvolution.Disconnected

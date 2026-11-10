@@ -390,9 +390,29 @@ theorem kshape_sound (f : ℕ → G) {RZT : ℕ → ℕ} {INV WT C : ℕ}
     exact subset_closure ⟨0, rfl⟩
   exact ⟨hab, hsq', hfin, hcard, hz, hVK, hKN, hKc⟩
 
+theorem krs_inv : CFSG.KJ4.KRS.INV = invJ := Nat.eq_of_beq_eq_true inv_ok
 
 theorem wrec_len : ∀ i < 11, wN (wrec WREC i) < 1000 := by decide +kernel
 
+theorem kshape_krs (x y t z : G) (ht : t * t = 1)
+    (hR : ∀ r < 88, rv (jv x y t z) (CFSG.KJ4.KRS.RZT r) = 1) :
+    (∀ a ∈ Vz (jv x y t z) WREC, ∀ b ∈ Vz (jv x y t z) WREC, a * b = b * a) ∧
+    (∀ a ∈ Vz (jv x y t z) WREC, a * a = 1) ∧ Finite (Vz (jv x y t z) WREC) ∧
+    Nat.card (Vz (jv x y t z) WREC) ≤ 2 ^ 11 ∧ z ∈ Vz (jv x y t z) WREC ∧
+    Vz (jv x y t z) WREC ≤ closure ({x, y, z} : Set G) ∧
+    closure ({x, y, z} : Set G) ≤ normalizer (Vz (jv x y t z) WREC) ∧
+    Nat.card (closure ({x, y, z} : Set G)) ≤ 2 ^ 11 * Nat.card (closure ({x, y} : Set G)) := by
+  have hI : ∀ c < 255, lInv CFSG.KJ4.KRS.INV c < 255 ∧
+      jv x y t z (lInv CFSG.KJ4.KRS.INV c) = (jv x y t z c)⁻¹ := fun c _ => by
+    rw [krs_inv]
+    exact jv_inv x y t z ht c
+  have := kshape_sound (jv x y t z) hI (by simp [jv]) (by simp [jv]) (by simp [jv]) wrec_len hR
+    words_ok sq_ok comm_ok0 comm_ok1 conj_ok
+  have e0 : jv x y t z 0 = x := by simp [jv]
+  have e2 : jv x y t z 2 = y := by simp [jv]
+  have e5 : jv x y t z 5 = z := by simp [jv]
+  rw [e0, e2, e5] at this
+  exact this
 
 end CFSG.Certificates.J4KShape
 

@@ -145,5 +145,12 @@ theorem range_wordsHom {G : Type*} [Group G] (ws : List (List (Fin m × Bool))) 
   ext i
   simp
 
+theorem signedProd_neg_one (w : List (Fin m × Bool)) :
+    signedProd (fun _ => (-1 : ℤˣ)) w = (-1) ^ w.length := by
+  induction w with
+  | nil => simp
+  | cons l w ih =>
+    rw [signedProd_cons, ih, List.length_cons, pow_succ']
+    split <;> simp
 
 end CFSG.Certificates

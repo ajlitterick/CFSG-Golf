@@ -29,5 +29,9 @@ open Certificates.KernelTower
 theorem ch36408_l3c : allB 8192 (fun c => Nat.beq (wm wrSM wrAC 1 c) (wm wrSM wrAC c 1)) = true := by
   decide +kernel
 
+theorem ch36408_l3t_neg :
+    (!tgtOK (l3M 0) wGS (Nat.shiftRight (l3P 0) 48) (l16 (l3P 0) 2) (l3G 0)
+      (Nat.xor (l3Im 0 1) 2) (l3Wd 0) (l3X 0 1) (l3H 0 1) (l3g2 0 1)) = true := by
+  decide +kernel
 
 end Certificates.KernelTower

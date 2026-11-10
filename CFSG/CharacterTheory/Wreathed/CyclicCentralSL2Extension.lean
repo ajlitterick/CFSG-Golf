@@ -393,6 +393,36 @@ theorem fieldAction_cyclicGenerator (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Ev
       cyclicGenerator F b m hm heven := by
   rw [cyclicGenerator, fieldAction_quotientClass, map_one]
 
+@[expose] def CyclicCentralSL2Data (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
+    (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b) : Prop :=
+  (nonsquareMatrix F b : Matrix (Fin 2) (Fin 2) F) = !![0, -(b : F); 1, 0] ∧
+  (∀ X, SpecialLinearGroup.toGL (beta F b X) =
+    nonsquareMatrix F b * SpecialLinearGroup.toGL X * (nonsquareMatrix F b)⁻¹) ∧
+  beta F b ^ 2 = 1 ∧
+  (∀ (X Y : SpecialLinearGroup (Fin 2) F) (j k : ZMod (2 * m)),
+    pair F b m hm X j * pair F b m hm Y k =
+      pair F b m hm (X * (beta F b ^ j.val) Y) (j + k)) ∧
+  diagonalKernel F b m hm heven = Subgroup.zpowers (diagonalInvolution F b m hm) ∧
+  diagonalKernel F b m hm heven ≤ Subgroup.center (PairGroup F b m hm) ∧
+  Nat.card (diagonalKernel F b m hm heven) = 2 ∧
+  (∀ X, specialInclusion F b m hm heven X = quotientClass F b m hm heven X 0) ∧
+  cyclicGenerator F b m hm heven = quotientClass F b m hm heven 1 1 ∧
+  (∀ (sigma : Sigma) (X : SpecialLinearGroup (Fin 2) F) (j : ZMod (2 * m)),
+    fieldAction F b m hm heven Sigma hSigma sigma (quotientClass F b m hm heven X j) =
+      quotientClass F b m hm heven (fieldSL F sigma X) j) ∧
+  (∀ (sigma : Sigma) (X : SpecialLinearGroup (Fin 2) F) (i j : Fin 2),
+    fieldSL F sigma X i j = (sigma : F ≃+* F) (X i j))
+
+theorem cyclic_central_SL2_extension_data [Finite F]
+    (_hodd : ringChar F ≠ 2) (b : Fˣ) (_hnonsquare : ¬ IsSquare b)
+    (m : ℕ) (hm : 2 ≤ m) (heven : Even m)
+    (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b) :
+    CyclicCentralSL2Data F b m (by omega) heven Sigma hSigma := by
+  exact ⟨nonsquareMatrix_val F b, beta_toGL F b, beta_square F b,
+    pair_mul_explicit F b m _, rfl, diagonalKernel_le_center F b m _ heven,
+    diagonalKernel_card F b m _ heven, specialInclusion_apply F b m _ heven,
+    rfl, fieldAction_quotientClass F b m _ heven Sigma hSigma,
+    fun sigma X i j => fieldSL_apply F sigma X i j⟩
 
 abbrev SemilinearExtension (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
     (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b) :=

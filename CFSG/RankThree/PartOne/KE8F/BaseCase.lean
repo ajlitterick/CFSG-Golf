@@ -199,6 +199,9 @@ theorem not_dvd_char (hf : 1 ≤ f) (hK : Nat.card K = ℓ ^ f) (hp : p.Prime)
     (Y : Subgroup (adjointGroup .E8 K)) : Subgroup (Fin Tag.E8.rank → Lˣ) :=
   (Y.map (psiC F c)).comap (rootDiagUnitHom .E8 L)
 
+theorem mem_tupleGroup {F : E8P4Frame0 K L ℓ f} {c : adjointGroup .E8 K}
+    {Y : Subgroup (adjointGroup .E8 K)} {b : Fin Tag.E8.rank → Lˣ} :
+    b ∈ tupleGroup F c Y ↔ rootDiagUnit .E8 b ∈ Y.map (psiC F c) := Iff.rfl
 
 theorem tupleGroup_le_T0tors (F : E8P4Frame0 K L ℓ f) (c : adjointGroup .E8 K)
     {Y : Subgroup (adjointGroup .E8 K)}
@@ -472,6 +475,20 @@ theorem base_case_gen (F : E8P4Frame0 K L ℓ f) (hf : 1 ≤ f) (hK : Nat.card K
   exact embed_normal_le_torus F hK c hP hrat
     (fun d hd => centralizer_psiC_le_sup F hgen c hYT hYp hYcard hd) hVD hVn hVs
 
+theorem base_case (F : E8P4Frame0 K L ℓ f) (hf : 1 ≤ f) (hK : Nat.card K = ℓ ^ f)
+    (hp : p.Prime) (hp10 : 10 < p) (hpf : p ∣ Nat.card K * Nat.card K + 1)
+    (c : adjointGroup .E8 K) {Y : Subgroup (adjointGroup .E8 K)}
+    (hYT : ∀ y ∈ Y, psiC F c y ∈
+      twistedTorusOf F.n (Units.map (entrywiseHom (iterateFrobenius L ℓ f))))
+    (hYp : ∀ y ∈ Y, y ^ p = 1) (hYcard : p ^ 3 ≤ Nat.card Y)
+    {V : Subgroup (adjointGroup .E8 K)}
+    (hVD : V ≤ Subgroup.centralizer (Y : Set (adjointGroup .E8 K)))
+    (hVn : ∀ d ∈ Subgroup.centralizer (Y : Set (adjointGroup .E8 K)), ∀ v ∈ V, d * v * d⁻¹ ∈ V)
+    (hVs : Group.IsSolvable V) :
+    ∀ v ∈ V, psiC F c v ∈
+      twistedTorusOf F.n (Units.map (entrywiseHom (iterateFrobenius L ℓ f))) :=
+  base_case_gen F hf hK hp (by omega)
+    (stabGen_of_not_dvd_weyl hp hp10 (not_dvd_char hf hK hp hpf)) hpf c hYT hYp hYcard hVD hVn hVs
 
 end BaseMain
 

@@ -96,6 +96,8 @@ theorem sE : penumSlK 6156 13 (mask 13) (6156 * 13) true J3BA.G J3BA.GI 2 J3BA.c
 theorem sHF : slK J3BA.cnt (hsortPtKF 6156 13 (mask 13) J3BA.cnt J3BA.T J3BA.HS J3BA.HSI)
     0 J3BA.cnt = true := by quickRfl
 
+theorem sHF_neg : hsortPtKF 6156 13 (mask 13) J3BA.cnt (fun _ => 0) J3BA.HS J3BA.HSI 0 = false := by
+  decide +kernel
 
 theorem sCl : slK (Nat.mul J3BA.cnt 4)
     (findPtK J3BA.cnt J3BA.T (prodQK 6156 13 (mask 13) 4 J3BA.T (bothK 2 J3BA.GI J3BetaI)) J3BACl)
@@ -113,6 +115,9 @@ theorem b_word : wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S PJ3.SI 5 bWord (
     true := by
   quickRfl
 
+theorem a_word_neg : wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S PJ3.SI 5 aWord (J3BetaP 6) =
+    false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.J3BetaA5
 

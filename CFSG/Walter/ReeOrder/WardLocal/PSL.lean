@@ -36,6 +36,15 @@ theorem card_pslE [Finite K] : Nat.card (pslE K) = Nat.card K := by
   rw [show Nat.card (pslE K) = Nat.card (Set.range (pslU (K := K))) from rfl,
     Nat.card_range_of_injective pslU_injective]
 
+theorem centralizer_pslU {p f : ℕ} [Fact p.Prime] (hp : p ≠ 2) (hf : f ≠ 0)
+    {b : GaloisField p f} (hb : b ≠ 0) :
+    Subgroup.centralizer ({pslU b} : Set PSL(2, GaloisField p f)) = pslE (GaloisField p f) := by
+  have hfacts := psl2UnipotentFacts (⊤ : Subgroup PSL(2, GaloisField p f)) Subgroup.topEquiv hp hf
+  have hcard : Nat.card (pslE (GaloisField p f)) = p ^ f := by
+    rw [card_pslE, GaloisField.card p f hf]
+  have h := hfacts.centralizer (pslE (GaloisField p f)) le_top hcard (pslU b) ⟨b, rfl⟩
+    (pslU_ne_one hb)
+  rwa [top_inf_eq] at h
 
 section Torus
 

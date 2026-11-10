@@ -65,12 +65,18 @@ theorem dep_facts {y : Nat} (hy : y < 31671) : depP y < 100 ∧ (y = rtP (labP y
   rw [bAnd_eq, Bool.and_eq_true] at h
   exact depAt_spec h.2
 
+theorem hd_facts : offP 0 = 0 ∧ 0 < offP 1 ∧ offP 1 < offP 2 ∧ offP 2 < offP 3 ∧
+    offP 3 = 31671 ∧ ∀ c < 3, rtP c < 31671 ∧ labP (rtP c) = c ∧ posP (rtP c) = offP c :=
+  bfsHd_spec hd_ok
 
 theorem lab_lt {y : Nat} (hy : y < 31671) : labP y < 3 := (facts hy).2.2.1
 
 theorem lab_T {y : Nat} (hy : y < 31671) {k : Nat} (hk : gOK k = true) :
     labP (TG k y) = labP y := (facts hy).2.2.2.2.2.1 k hk
 
+theorem rt_lt {c : Nat} (hc : c < 3) : rtP c < 31671 := (hd_facts.2.2.2.2.2 c hc).1
+
+theorem lab_rt {c : Nat} (hc : c < 3) : labP (rtP c) = c := (hd_facts.2.2.2.2.2 c hc).2.1
 
 theorem nonroot {y : Nat} (hy : y < 31671) (hr : y ≠ rtP (labP y)) :
     gOK (genP y) = true ∧ parP y < 31671 ∧ labP (parP y) = labP y ∧ TG (genP y) (parP y) = y ∧
@@ -80,9 +86,19 @@ theorem nonroot {y : Nat} (hy : y < 31671) (hr : y ≠ rtP (labP y)) :
   obtain ⟨g1, g2, g3, g4, -⟩ := hF.2.2.2.2.2.2.2 hp
   exact ⟨g1, g2, g3, g4, (dep_facts hy).2.2 hr⟩
 
+theorem root_pg {y : Nat} (hy : y < 31671) (hr : y = rtP (labP y)) : parP y = 0 ∧ genP y = 0 := by
+  have hF := facts hy
+  have hc := lab_lt hy
+  have hp : posP y = offP (labP y) := by
+    have := (hd_facts.2.2.2.2.2 (labP y) hc).2.2
+    rw [← hr] at this
+    exact this
+  exact (hF.2.2.2.2.2.2.1 hp).2
 
 theorem dep_lt {y : Nat} (hy : y < 31671) : depP y < 100 := (dep_facts hy).1
 
+theorem dep_root {y : Nat} (hy : y < 31671) (hr : y = rtP (labP y)) : depP y = 0 :=
+  (dep_facts hy).2.1 hr
 
 theorem moving {y : Nat} (hy : y < 31671) (hr : y ≠ rtP (labP y)) :
     baseP (labP y) ≤ tb L 8 y ∧ tb L 8 y < baseP (labP y + 1) ∧ wS (tb L 8 y) y ≠ y := by

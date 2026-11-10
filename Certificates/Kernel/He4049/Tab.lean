@@ -17,6 +17,7 @@ theorem ta_ok : tabK CFSG.KD.HeOrb.AL 14 16383 (CFSG.KD.He4049.TF 0) = true := b
 
 theorem tb_ok : tabK CFSG.KD.HeOrb.BE 14 16383 (CFSG.KD.He4049.TF 1) = true := by quickRfl
 
+theorem neg_ab : (!tabK CFSG.KD.HeOrb.AL 14 16383 (CFSG.KD.He4049.TF 1)) = true := by quickRfl
 
 end CFSG.KD.He4049.Tab
 

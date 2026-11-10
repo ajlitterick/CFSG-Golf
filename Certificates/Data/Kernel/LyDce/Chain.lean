@@ -16,6 +16,22 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.LyBenes CFSG.KC.LyBase CFSG.KC.LyReplay
 @[expose] noncomputable def expandG (G : List (List Nat)) (w : List Nat) : List Nat :=
   List.rec (motive := fun _ => List Nat) [] (fun g _ ih => jwOf (G.getD g []) ++ ih) w
 
+@[expose] def eGenOK (r : List (Fin 6 × Bool)) (u : List Nat) : Bool :=
+  r.take (u.length + 2) == [(5, true)] ++ wordOf u ++ [(5, true)]
+
+@[expose] def dGenOK (r : List (Fin 6 × Bool)) (X s : List Nat) : Bool :=
+  r.take (X.length + s.length + X.length) == wordOf X ++ wordOf s ++ derivInv (wordOf X)
+
+@[expose] def gensOK (sG : List (List (List Nat))) : Bool :=
+  sG.length == 4 &&
+    (sG.getD 0 []).length == modularE.length &&
+    (modularE.zip (sG.getD 0 [])).all (fun p => eGenOK p.1 p.2) &&
+    (sG.getD 1 []).length == modularD1.length &&
+    (modularD1.zip (sG.getD 1 [])).all (fun p => dGenOK p.1 (rootC 2) p.2) &&
+    (sG.getD 2 []).length == modularD2.length &&
+    (modularD2.zip (sG.getD 2 [])).all (fun p => dGenOK p.1 (rootC 3) p.2) &&
+    (sG.getD 3 []).length == modularD3.length &&
+    (modularD3.zip (sG.getD 3 [])).all (fun p => dGenOK p.1 (rootC 4) p.2)
 
 @[expose] noncomputable def allFix (cF dF : Nat → Nat) (G : List (List Nat)) (b : Nat)
     (ws : List (List Nat)) : Bool :=

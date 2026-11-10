@@ -172,6 +172,10 @@ theorem not_mem_of_sameB {p q : PP} (hp : p.Valid) (hq : q.Valid) (h : sameB p q
   rw [← sameB_iff hp hq, h]
   decide
 
+theorem not_mem_symm {g h : Lin.SLn 4} (hgh : g⁻¹ * h ∉ unitriangular 4 (ZMod 2)) :
+    h⁻¹ * g ∉ unitriangular 4 (ZMod 2) := fun hm => hgh (by
+  have := inv_mem hm
+  rwa [_root_.mul_inv_rev, inv_inv] at this)
 
 theorem four_of_w4 {u : PP} (hu : u.Valid) {e : Bool} {g₁ g₂ g₃ g₄ : PP}
     (h : w4 u e g₁ g₂ g₃ g₄ = true) : Four (toSL u) e := by

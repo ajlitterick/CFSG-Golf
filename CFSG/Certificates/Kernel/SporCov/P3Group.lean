@@ -423,6 +423,15 @@ theorem line_not_mem (hz : z ≠ 1) (i : ℕ) : g₁ * g₂ ^ i ∉ zpowers z :=
   rw [e]
   exact hc.eq
 
+theorem eq_line [Finite G] (hp : p.Prime) (hz : z ≠ 1)
+    (hS : Nat.card (closure ({g₁, g₂} : Set G)) = p ^ 3) {E : Subgroup G}
+    (hE : E ≤ closure ({g₁, g₂} : Set G)) (hEc : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x)
+    (hcard : Nat.card E = p ^ 2) :
+    E = closure ({z, g₂} : Set G) ∨ ∃ i < p, E = closure ({z, g₁ * g₂ ^ i} : Set G) := by
+  obtain ⟨hzE, hl⟩ := hR.mem_lines hp hz hS hE hEc hcard
+  rcases hl with h2 | ⟨i, hi, h3⟩
+  · exact Or.inl (eq_closure_pair hp hR.zp hz hcard hzE h2 (hR.g₂_not_mem hz)).symm
+  · exact Or.inr ⟨i, hi, (eq_closure_pair hp hR.zp hz hcard hzE h3 (hR.line_not_mem hz i)).symm⟩
 
 theorem exists_conj_lines [Finite G] (hp : p.Prime) (hz : z ≠ 1)
     (hval : (Nat.card G).factorization p = 3) {E : Subgroup G} (hEp : IsPGroup p E)

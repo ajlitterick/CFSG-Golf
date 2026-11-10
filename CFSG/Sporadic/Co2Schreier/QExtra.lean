@@ -57,6 +57,8 @@ theorem qmod_conj
   rw [Bool.and_eq_true, decide_eq_true_eq] at h
   exact h
 
+theorem qmod_col00 :
+    qCol witRec 0 0 = 143 := beq_iff_eq.1 qmodFacts.col00
 
 theorem qmod_span {v : ℕ} (hv : v < 255) :
     spanIter (qActCols witRec 0) (qActCols witRec 1) 8 (spanIns 1 (v + 1)) = 2 ^ 256 - 1 :=
@@ -84,6 +86,16 @@ theorem locZ_mem_Q :
 @[expose] def toQc (g : Equiv.Perm (Fin 2300)) (hg : g ∈ locQ) : locQ.subgroupOf locC :=
   ⟨⟨g, locQ_le_C hg⟩, Subgroup.mem_subgroupOf.2 hg⟩
 
+theorem coe_toQc (g : Equiv.Perm (Fin 2300)) (hg : g ∈ locQ) :
+    (((toQc g hg : locQ.subgroupOf locC) : locC) : Equiv.Perm (Fin 2300)) = g := rfl
+
+theorem toQc_mul {a b : Equiv.Perm (Fin 2300)} (ha : a ∈ locQ) (hb : b ∈ locQ) :
+    toQc (a * b) (locQ.mul_mem ha hb) = toQc a ha * toQc b hb := rfl
+
+theorem toQc_eq {a b : Equiv.Perm (Fin 2300)} (ha : a ∈ locQ) (hb : b ∈ locQ) (h : a = b) :
+    toQc a ha = toQc b hb := by
+  subst h
+  rfl
 
 @[expose] def zQc :
     locQ.subgroupOf locC := toQc locZ locZ_mem_Q
@@ -129,6 +141,8 @@ theorem mem_qcGens
   rw [qTuple_length] at hk
   exact ⟨k, hk, Subtype.ext (Subtype.ext h.symm)⟩
 
+theorem qcGen_mem_qcGens {k : ℕ} (hk : k < 8) : qcGen k ∈ qcGens :=
+  getD_mem (by rw [qTuple_length]; exact hk)
 
 theorem mem_center_qc_iff (x : locQ.subgroupOf locC) :
     x ∈ Subgroup.center (locQ.subgroupOf locC) ↔

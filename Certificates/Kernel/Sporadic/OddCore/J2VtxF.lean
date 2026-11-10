@@ -67,6 +67,7 @@ theorem invV_spec {p r : Nat} (h : invV p r = true) :
   simp only [bAnd_iff] at h
   exact h
 
+theorem vc {j : Nat} (hj : j < 10) : Cv (VxT j) := (invV_spec (base_parts.2.2.2.2.2.2.2.2.2.2.1 j hj)).1
 
 theorem vinv {j : Nat} (hj : j < 10) : invEqK 315 9 (mask 9) (315 * 9) (VxT j) (VxI j) = true ∧
     Cv (VxI j) :=
@@ -152,6 +153,7 @@ theorem perm_eq {x : Table} {j : Nat} (hj : j < 10) (hx : TU x (VxT j)) : permOK
   rw [hx.1]
   exact permOK_unpack hx.2 (vinv hj).1
 
+theorem pw_mod (k : Nat) {x : Table} {p : Nat} (hx : TU x p) : TU (powT 315 k x) (pw k p) := pow_eq hx k
 
 theorem EmT_eq (a : F4) : TU (EmT a) (EKc a.code.val) :=
   comp_eq (pow_eq e1T_eq _) (pow_eq e2T_eq _)
@@ -384,6 +386,14 @@ theorem b4_true : b4OK = true := by
   rw [eB, eC, eX]
   rfl
 
+theorem vx_neg_word : (!Nat.beq (VxT 0) (wC [4, 4])) = true := by quickRfl
+
+theorem vx_neg_kappa : (!Nat.beq (VxK (q1mIdx (q1mAt 1 * q1mAt 4))) (pc (VxK 4) (VxK 1)) ||
+    Nat.beq (pc (VxK 1) (VxK 4)) (pc (VxK 4) (VxK 1))) = true := by quickRfl
+
+theorem vx_neg_pos : (!findPtK VxA.cnt VxA.T
+    (prodQK 315 9 (mask 9) 4 VxA.T (bothK 2 VxA.GI (invOf [0, 1]))) (fun c => VxACl (c + 1)) 0) =
+    true := by quickRfl
 
 theorem j2vtx_all : (a1OK = true) ∧ (a2OK = true) ∧ (a3OK = true) ∧ (b0OK = true) ∧
     (b1OK = true) ∧ (b2OK = true) ∧ (b3OK = true) ∧ (b4OK = true) ∧ (b5OK = true) :=

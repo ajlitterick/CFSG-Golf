@@ -93,6 +93,10 @@ theorem ch7152o : allN 6 (fun k => bAnd(Nat.beq (pw (pc (pc (JG k) (OA k)) (OB k
     (pidn 4060 12), bAnd(Nat.beq (pw (OA k) (ruOddMA k)) (pidn 4060 12),
       Nat.beq (pw (OB k) (ruOddMB k)) (pidn 4060 12)))) = true := by quickRfl
 
+theorem ch7152neg1 : (!Nat.beq (pc (UA 1) (UA 2)) (UA 2)) = true := by quickRfl
+theorem ch7152neg2 : (!Nat.beq (pc (pc (SG 2) (UA 2)) (SGI 2)) (UA 2)) = true := by quickRfl
+theorem ch7152neg3 : (!Nat.beq (xK 3) (UA 2)) = true := by quickRfl
+theorem ch7152neg4 : (!Nat.beq (pw (OA 0) 2) (pidn 4060 12)) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.RuU1
 

@@ -1124,6 +1124,10 @@ theorem inc_mkTabs {j i : ℕ} (hj : j < F.size) (hi : i < (ptCodes ()).size) :
     ((mkTabs (ptCodes ()) F).inc[j]!)[i]! = memC (ptCodes ()) F[j]! (ptCodes ())[i]! :=
   d4s_inc_eval hj hi
 
+theorem mem_solPts_mkTabs {j i : ℕ} (hj : j < F.size) :
+    i ∈ (mkTabs (ptCodes ()) F).solPts[j]! ↔
+      i < (ptCodes ()).size ∧ memC (ptCodes ()) F[j]! (ptCodes ())[i]! = true :=
+  d4s_mem_solPts_mkTabs hj
 
 section Omega
 

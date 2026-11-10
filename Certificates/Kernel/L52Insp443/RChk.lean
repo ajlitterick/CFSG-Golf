@@ -27,6 +27,8 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM CFSG.KC.L52I
 #kc_each ch725109f 0 2
 #kc_each ch725109g 0 1
 
+theorem ch725109n_rec : notB (recUnits ((0, 0, idK, 0, 0) :: D.oZ.getD 0 [])) = true := by
+  quickRfl
 
 end CertificateChecks.KernelL52I
 

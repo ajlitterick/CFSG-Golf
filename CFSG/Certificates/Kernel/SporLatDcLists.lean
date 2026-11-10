@@ -24,6 +24,10 @@ theorem lexLt_irrefl (l : List ℕ) : lexLt l l = false := by
   rw [lexLt_iff_lt] at h
   exact lt_irrefl l h
 
+private theorem lexLt_ne {a b : List ℕ} (h : lexLt a b = true) : a ≠ b := by
+  rintro rfl
+  rw [lexLt_irrefl] at h
+  exact Bool.false_ne_true h
 
 theorem lexLt_trans {a b c : List ℕ} (h1 : lexLt a b = true) (h2 : lexLt b c = true) :
     lexLt a c = true := by

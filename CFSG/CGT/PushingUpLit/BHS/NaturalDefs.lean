@@ -12,6 +12,11 @@ open CFSG.Quasithin CFSG.Quasithin.G6
 
 variable {V : Type*} [CommGroup V]
 
+@[expose] def IsSymNatSection (X : Subgroup (MulAut V)) (P Z : Subgroup V) (n : ℕ) : Prop :=
+  (∀ x ∈ X, ∀ p ∈ P, x p ∈ P) ∧ ∃ (θ : X ≃* Equiv.Perm (Fin n)) (β : ↥P →* coreMod n),
+    Function.Surjective β ∧ β.ker = Z.subgroupOf P ∧
+    ∀ (x : X) (p : ↥P) (hp : (x : MulAut V) p ∈ P),
+      β ⟨(x : MulAut V) p, hp⟩ = coreAct n (θ x) (β p)
 
 @[expose] def IsAltNatSection (X : Subgroup (MulAut V)) (P Z : Subgroup V) (n : ℕ) : Prop :=
   (∀ x ∈ X, ∀ p ∈ P, x p ∈ P) ∧

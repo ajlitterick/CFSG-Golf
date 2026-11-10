@@ -76,5 +76,20 @@ abbrev clsL (c : ℕ) : Array ℕ := csArr[c]!.1
 @[expose] def classSet (c : ℕ) : Set (Perm (Fin 800)) :=
   {x | ∃ j < (clsL c).size, ePerm (clsL c)[j]! = x}
 
+theorem card_eq_countP_fin {p : ℕ → Bool} :
+    (Finset.univ.filter fun k : Fin 16384 => p k = true).card =
+      (List.range 16384).countP p := by
+  have h := card_filter_range_eq_countP' 16384 (fun k => p k = true)
+  simp only [Bool.decide_eq_true] at h
+  rw [← h]
+  refine Finset.card_bij (fun k _ => k.val) ?_ ?_ ?_
+  · intro k hk
+    rw [Finset.mem_filter] at hk ⊢
+    exact ⟨Finset.mem_range.2 k.2, by simpa using hk.2⟩
+  · intro a _ b _ hab
+    exact Fin.ext hab
+  · intro i hi
+    rw [Finset.mem_filter, Finset.mem_range] at hi
+    exact ⟨⟨i, hi.1⟩, by simpa using hi.2, rfl⟩
 
 end CFSG.Sporadic.HNOddCore

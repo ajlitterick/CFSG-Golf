@@ -33,6 +33,9 @@ theorem gB_gB (x : Blk) : gB (gB x) = x := by
   revert x
   decide
 
+theorem gB_fB_gB (x : Blk) : gB (fB (gB x)) = fB (fB x) := by
+  revert x
+  decide
 
 theorem fB_gB_fB (x : Blk) : fB (gB (fB x)) = gB x := by
   revert x
@@ -58,6 +61,7 @@ abbrev Pk (k r : ℕ) : Type := (Fin k → Blk) × (Fin r → ZMod 2)
 theorem onCoord_fst (φ : Blk → Blk) (i j : Fin k) (x : Pk k r) :
     (onCoord φ i x).1 j = if j = i then φ (x.1 j) else x.1 j := rfl
 
+theorem onCoord_snd (φ : Blk → Blk) (i : Fin k) (x : Pk k r) : (onCoord φ i x).2 = x.2 := rfl
 
 theorem onCoord_comp (φ ψ : Blk → Blk) (i : Fin k) (x : Pk k r) :
     onCoord φ i (onCoord ψ i x) = onCoord (φ ∘ ψ) i x := by

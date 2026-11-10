@@ -13,6 +13,7 @@ theorem sB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by cases y <;>
 
 theorem bA_eq (a b : Bool) : bAnd(a, b) = (a && b) := by cases a <;> rfl
 
+theorem bI_eq (c t e : Bool) : bIf(c, t, e) = (if c = true then t else e) := by cases c <;> rfl
 
 section Base
 

@@ -18,6 +18,7 @@ theorem j4_11Q : cubicQ 112 JA.M JB.M j4Sylow11Data = true := by decide +kernel
 
 theorem j4_3irrQ : cubicQ 112 JA.M JB.M j4Sylow3IrrData = true := by decide +kernel
 
+theorem j4_negQ : (!cubicQ 112 JB.M JA.M j4Sylow3Data) = true := by decide +kernel
 
 end CertificateChecks.KernelLC.J4R
 

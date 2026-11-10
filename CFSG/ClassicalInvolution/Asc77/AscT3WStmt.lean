@@ -75,6 +75,10 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
+theorem res10aY'_of_parts (h1 : Res10aCyc p f) (h2 : Res10aFus p f) : Res10aY' p f :=
+  fun G _ _ _ K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb =>
+    ⟨h1 G K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb,
+      h2 G K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb⟩
 
 theorem Res10aY'.cyc (h : Res10aY' p f) : Res10aCyc p f :=
   fun G _ _ _ K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb =>

@@ -123,6 +123,31 @@ theorem conj_mem_closure_of_gens {G : Type*} [Group G] {T : Set G} {g : G}
     rw [e]
     exact Subgroup.inv_mem _ ha
 
+@[expose] def bucketIdx (n : ℕ) (a : Array ℕ) : ℕ := a[0]! * n + a[1]!
+
+@[expose] def mkBuckets (n : ℕ) (E : List (Array ℕ)) : Array (List (Array ℕ)) :=
+  E.foldl (fun B e => B.set! (bucketIdx n e) (e :: B[bucketIdx n e]!)) (Array.replicate (n * n) [])
+
+
+@[expose] def leafNC (n : ℕ) (gR : Array (Array ℕ)) (B : Array (List (Array ℕ)))
+    (a : Array ℕ) : Bool :=
+  let ai := invCand n a
+  isInvA n a ai &&
+    allLt gR.size (fun l =>
+      let c := compA n a (compA n gR[l]! ai)
+      (B[bucketIdx n c]!).any (eqA n c)) &&
+    (!(allLt gR.size fun l => commA n a gR[l]!) || (B[bucketIdx n a]!).any (eqA n a))
+
+
+@[expose] def centNormOKP (p n : ℕ) (S : Array (Array ℕ)) (base x : Array ℕ)
+    (rels : List (ℕ × ℕ × ℕ)) (gR : Array (Array ℕ)) (ps : List ℕ) (cR : ArrCert) (N : ℕ) :
+    Bool :=
+  relsOKP p n base x rels && enumOK n gR ps cR && cR.pts.size == N &&
+    allLt gR.size (fun k => commA n gR[k]! x) &&
+    allLt gR.size (fun k => siftA n (rawLevels n S base) base 0 gR[k]!) &&
+    siftA n (rawLevels n S base) base 0 x &&
+    ptailOKQ n (rawLevels n S base) base x (powPA p n x) rels
+      (leafNC n gR (mkBuckets n cR.pts.toList)) base.size 0 (idA n)
 
 section Spec
 

@@ -976,6 +976,9 @@ private theorem InV_append {l : List ℕ} {a x : ℕ} (hk : l.length < 6) :
       rw [evalV_append rfl hk hw, hwx, Nat.xor_comm x a, ← Nat.xor_assoc, Nat.xor_self,
         Nat.zero_xor]
 
+private theorem InV_mem {l : List ℕ} {j : ℕ} (hj : j < l.length) (h6 : l.length ≤ 6) :
+    InV l (l.getD j 0) :=
+  ⟨2 ^ j, Nat.pow_lt_pow_right Nat.one_lt_two hj, evalV_two_powP (by omega)⟩
 
 private theorem SpN_nil {x : ℕ} : SpN [] x ↔ x = 0 := by
   constructor
@@ -1394,11 +1397,19 @@ private theorem level2K_eq (u k : ℕ) (L : List (ℕ × List ℕ × List ℕ)) 
     show appK (step2K u k st) (level2K u k t) = _
     rw [appK_eqP, ih, List.flatMap_cons]
 
+private theorem fstsK_eq (L : List (ℕ × List ℕ × List ℕ)) : fstsK L = L.map Prod.fst := by
+  induction L with
+  | nil => rfl
+  | cons st t ih =>
+    show List.cons st.1 (fstsK t) = _
+    rw [ih]; rfl
 
 private noncomputable def lvl (u : ℕ) : ℕ → List (ℕ × List ℕ × List ℕ) → List (ℕ × List ℕ × List ℕ)
   | 0, L => L
   | m + 1, L => level2K u (m + 1) (lvl u m L)
 
+private theorem levels2K_one (u : ℕ) (L : List (ℕ × List ℕ × List ℕ)) :
+    levels2K u 1 L = lvl u 5 L := rfl
 
 private theorem oqStatesFrom_succ (u : Bool) (t m : ℕ) :
     oqStatesFrom u t (m + 1) = (oqStatesFrom u t m).flatMap (oqStep u (m + 1)) := by

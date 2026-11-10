@@ -42,5 +42,23 @@ theorem basis_repr : ∀ f : D,
       basis 2 ^ (Multiplicative.toAdd (f 2)).val := by
   decide +kernel
 
+@[expose] def singer : MulAut D := v ^ 2 * w * u * v⁻¹
+
+theorem singer_pow_thirteen : singer ^ 13 = 1 := by decide +kernel
+theorem singer_ne_one : singer ≠ 1 := by decide +kernel
+
+theorem orderOf_singer : orderOf singer = 13 := by
+  haveI : Fact (Nat.Prime 13) := ⟨by decide +kernel⟩
+  exact orderOf_eq_prime_iff.mpr ⟨singer_pow_thirteen, singer_ne_one⟩
+
+theorem thirteen_dvd_card_of_u_v_w {S : Subgroup (MulAut D)}
+    (hu : u ∈ S) (hv : v ∈ S) (hw : w ∈ S) : 13 ∣ Nat.card S := by
+  have hs : singer ∈ S :=
+    S.mul_mem (S.mul_mem (S.mul_mem (S.pow_mem hv 2) hw) hu) (S.inv_mem hv)
+  have horder : orderOf (⟨singer, hs⟩ : S) = 13 := by
+    exact (orderOf_injective S.subtype Subtype.val_injective (⟨singer, hs⟩ : S)).symm.trans
+      orderOf_singer
+  rw [← horder]
+  exact orderOf_dvd_natCard _
 
 end CFSG.LieType.Chevalley.E7Three.CoordinateActions

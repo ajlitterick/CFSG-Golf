@@ -251,6 +251,16 @@ theorem conj_mem_of_commute {A B : Subgroup G} (hc : ∀ a ∈ A, ∀ b ∈ B, a
   rw [this]
   exact A.mul_mem (A.mul_mem ha hn) (A.inv_mem ha)
 
+theorem conj_mem_of_commute' {A B : Subgroup G} (hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
+    {x : G} (hx : x ∈ A ⊔ B) {n : G} (hn : n ∈ B) : x * n * x⁻¹ ∈ B := by
+  obtain ⟨a, ha, b, hb, rfl⟩ := mem_sup_of_commute hc hx
+  have hm : b * n * b⁻¹ ∈ B := B.mul_mem (B.mul_mem hb hn) (B.inv_mem hb)
+  have h3 : a * (b * n * b⁻¹) = (b * n * b⁻¹) * a := hc a ha _ hm
+  have : a * b * n * (a * b)⁻¹ = b * n * b⁻¹ := by
+    calc a * b * n * (a * b)⁻¹ = a * (b * n * b⁻¹) * a⁻¹ := by group
+      _ = (b * n * b⁻¹) * a * a⁻¹ := by rw [h3]
+      _ = b * n * b⁻¹ := by group
+  rw [this]; exact hm
 
 theorem Syl2In.eq_sup_of_normalizing [Finite G] {A B P : Subgroup G}
     (hBA : B ≤ normalizer (A : Set G))
@@ -289,6 +299,12 @@ theorem Syl2In.eq_sup_of_normalizing [Finite G] {A B P : Subgroup G}
   have hle : (P ⊓ A) ⊔ (P ⊓ B) ≤ P := sup_le inf_le_left inf_le_left
   exact (Subgroup.eq_of_le_of_card_ge hle hcard).symm
 
+theorem Syl2In.eq_sup_of_commute [Finite G] {A B P : Subgroup G}
+    (hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a) (h : Syl2In P (A ⊔ B)) :
+    P = (P ⊓ A) ⊔ (P ⊓ B) :=
+  Syl2In.eq_sup_of_normalizing (le_normalizer_of_commute hc)
+    (fun _ hx _ hn => conj_mem_of_commute hc hx hn) (fun _ hx _ hn => conj_mem_of_commute' hc hx hn)
+    h (fun _ ha _ hb => hc _ ha.2 _ hb.2)
 
 open scoped commutatorElement
 
@@ -310,6 +326,9 @@ open scoped commutatorElement
     rw [h1]
     exact (mem_normalizer_iff.mp (inv_mem hcM) _).mp (M.inv_mem (hc k hk))
 
+theorem mem_secCent {K M : Subgroup G} {c : G} :
+    c ∈ secCent K M ↔ c ∈ normalizer (K : Set G) ∧ c ∈ normalizer (M : Set G) ∧
+      ∀ k ∈ K, ⁅k, c⁆ ∈ M := Iff.rfl
 
 @[expose] def ZsM (O : Subgroup G → Subgroup G) (X : Subgroup G) : Subgroup G := X ⊓ secCent X (O X)
 
@@ -323,6 +342,10 @@ structure IsOddCore (X N : Subgroup G) : Prop where
 @[expose] def Rk1 (H : Subgroup G) : Prop :=
   ∀ a ∈ H, ∀ b ∈ H, a * a = 1 → b * b = 1 → a * b = b * a → a = 1 ∨ b = 1 ∨ a = b
 
+theorem IsOddCore.le_of_le_odd {X N M O' : Subgroup G} (h : IsOddCore X N) (hM : M ≤ X)
+    (hMn : ∀ x ∈ X, ∀ m ∈ M, x * m * x⁻¹ ∈ M) (hMO : M ≤ O') (hO' : Odd (Nat.card ↥O')) :
+    M ≤ N :=
+  h.max M hM hMn (Odd.of_dvd_nat hO' (Subgroup.card_dvd_of_le hMO))
 
 theorem IsOddCore.conj_mem {X N : Subgroup G} (h : IsOddCore X N) {c : G}
     (hc : ∀ x ∈ X, c * x * c⁻¹ ∈ X) (hc' : ∀ x ∈ X, c⁻¹ * x * c ∈ X) {n : G} (hn : n ∈ N) :

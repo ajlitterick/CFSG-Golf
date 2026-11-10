@@ -91,6 +91,11 @@ theorem codes43c_ok : codesLt10 Sp43cB.codes = true ∧ codesLt10 Sp43cS.codes =
     codesLt10 Sp43cP1.codes = true ∧ codesLt10 Sp43cP2.codes = true := by
   refine ⟨?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
+theorem gens43c_ok : burnsideF48s_sp43c_checkGens () = true := by decide +kernel
+
+theorem far43c_ok : burnsideF48s_sp43c_checkFar () = true := by decide +kernel
+
+theorem xy43c_ok : burnsideF48s_sp43c_checkXY () = true := by decide +kernel
 
 theorem shape43c_ok : (wB43c.length = 162 ∧ [] ∈ wB43c) ∧ (wS43c.length = 81 ∧ [] ∈ wS43c) ∧
     (wP143c.length = 648 ∧ [] ∈ wP143c) ∧ (wP243c.length = 648 ∧ [] ∈ wP243c) := by
@@ -125,5 +130,20 @@ theorem not43c_ok :
       (encL (burnsideF48s_sp43c_L 3))) = true := by
   decide +kernel
 
+theorem neg_subP143c : notB (groupK 45
+    (wP143c.map (evK 45 (burnsideF48s_sp43c_LS.map encL) (burnsideF48s_sp43c_LSi.map encL))).tail
+    ([0, 1, 2].map (getK (burnsideF48s_sp43c_LS.map encL)))) = true := by decide +kernel
+
+theorem neg_nodup43c : notB (nodupT
+    ((wB43c.map (evK 45 (burnsideF48s_sp43c_LS.map encL) (burnsideF48s_sp43c_LSi.map encL))).take 5
+      ++ [evK 45 (burnsideF48s_sp43c_LS.map encL) (burnsideF48s_sp43c_LSi.map encL) ([] : List (Fin 2 × Bool))])
+    NT.lf) = true := by decide +kernel
+
+theorem neg_cover43c : notB (coverK43c 2 burnsideF48s_sp43c_trQ burnsideF48s_sp43c_witP
+    burnsideF48s_sp43c_decP) = true := by decide +kernel
+
+theorem neg_s43c : notB (checkSK43c
+    (setT (wS43c.map (evK 45 (sLS43c.map encL) (sLSi43c.map encL))).tail)) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelF48S

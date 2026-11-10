@@ -172,9 +172,13 @@ theorem wf_radd (v w : RV) : (radd v w).wf := by
   simp only [RV.wf, radd]
   refine ⟨?_, ?_, ?_, ?_⟩ <;> omega
 
+theorem wf_rsub1 (c : R4) : (rsub1 c).wf := by
+  simp only [R4.wf, rsub1]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
 
 theorem wf_one : R4.one.wf := by decide
 
+theorem wf_negOne : R4.negOne.wf := by decide
 
 theorem ofR4_rsub1 {c : R4} (hc : c.wf) : ofR4 (rsub1 c) = 1 - ofR4 c := by
   obtain ⟨h00, h01, h02, h03, h10, h11, h12, h13, h20, h21, h22, h23, h30, h31, h32, h33⟩ := hc

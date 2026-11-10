@@ -39,6 +39,11 @@ inductive ExtWit where
   | .d5 W Lj =>
     d5OK T m cv cz (T.zm[cv]!) (T.zm[cv]! &&& T.zm[cy]!) (T.zm[cz]!) W Lj
 
+@[expose] def extOK (T : Tabs) (m : Fin 6) (S : Search) (X : Nat → Nat → Nat → Nat → ExtWit) :
+    Bool :=
+  scanN T m true true S fun cv cy =>
+    candScanN T m S cv cy fun a b =>
+      extWitOK T m cv cy (combN (dim m) cv cy a b) (X cv cy a b)
 
 @[expose] def extRangeOK (T : Tabs) (m : Fin 6) (S : Search) (X : Nat → Nat → Nat → Nat → ExtWit)
     (lo n : Nat) : Bool :=

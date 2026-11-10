@@ -97,6 +97,23 @@ theorem card_stabilizer_smul [Finite G] (g : G) (w : X) :
   rw [stabilizer_smul_eq_stabilizer_map_conj]
   exact Subgroup.card_map_of_injective (MulAut.conj g).injective
 
+theorem fix_orbit_eq_empty [Finite G] {p : ℕ} (w : X) {h : G} (ho : orderOf h = p)
+    (hp : ¬ p ∣ Nat.card (stabilizer G w)) {x : X} (hx : x ∈ orbit G w) : h • x ≠ x := by
+  intro hfix
+  obtain ⟨g, rfl⟩ := hx
+  apply hp
+  rw [← card_stabilizer_smul g w, ← ho]
+  exact Subgroup.orderOf_dvd_natCard (stabilizer G (g • w)) hfix
+
+theorem card_fix_orbit_eq_zero [Finite G] (w : X) (h : G)
+    (hc : ∀ s ∈ stabilizer G w, ¬ IsConj h s) :
+    Nat.card {x : X // x ∈ orbit G w ∧ h • x = x} = 0 := by
+  have e := card_fix_orbit_mul w h
+  have h0 : Nat.card {s : G // s ∈ stabilizer G w ∧ IsConj h s} = 0 := by
+    have : IsEmpty {s : G // s ∈ stabilizer G w ∧ IsConj h s} := ⟨fun s => hc s.1 s.2.1 s.2.2⟩
+    exact Nat.card_of_isEmpty
+  rw [h0, mul_zero] at e
+  exact (Nat.mul_eq_zero.1 e).resolve_right Nat.card_pos.ne'
 
 end Orbit
 

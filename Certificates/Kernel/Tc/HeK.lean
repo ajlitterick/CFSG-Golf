@@ -14,6 +14,8 @@ namespace CertificateChecks.KernelTc.He
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch CFSG.KC.HeLoc CFSG.KC.TcF
   CFSG.KC.Misc.ArrEnum
 
+theorem kN : bAnd(Nat.beq TQ.N 7560, bAnd(Nat.beq TK.N 1080, Nat.beq TY.N 27)) = true := by
+  quickRfl
 
 theorem kTreeQ : allN 7560 (fun i => bIf(Nat.beq i 0, true, treeAtK 2 TQ.P TQ.L i)) = true := by
   quickRfl
@@ -58,6 +60,12 @@ theorem rest : tcRestF bs 7 (t 14) 2 gq cu cv cui cvi 3 gk rr ri sigF 7560 tq 10
 
 theorem cubeY : allN 27 (fun k => eqOnL bs (powF (ty k) 3) (fun y => y)) = true := by quickRfl
 
+theorem restNeg : (!tcRestF bs 7 (t 14) 2 gq cu cv cui cvi 3 gk
+    (fun j => rr (Nat.sub j (Nat.ble j 1).toNat)) (fun j => ri (Nat.sub j (Nat.ble j 1).toNat))
+    sigF 7560 tq 1080 tk ES.N) = true := by
+  quickRfl
+
+theorem cubeNeg : (!eqOnL bs (powF (t 4) 3) (fun y => y)) = true := by quickRfl
 
 end CertificateChecks.KernelTc.He
 

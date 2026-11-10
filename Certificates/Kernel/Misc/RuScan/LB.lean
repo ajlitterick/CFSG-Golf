@@ -20,6 +20,7 @@ theorem ch7230lb2 : lbK V2 16 = true := by quickRfl
 theorem ch7230lb3 : lbK V3 24 = true := by quickRfl
 theorem ch7230lb8 : lbK V8 6 = true := by quickRfl
 
+theorem ch7230lbNeg : notB (lbK V0 135) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.RuScan
 

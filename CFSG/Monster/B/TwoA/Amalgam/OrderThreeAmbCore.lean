@@ -75,6 +75,85 @@ theorem orbSize_of_mem_commonNeighbors
   · exact (M.triType_eq_orbSize u z).symm.trans (triType_eq_of_adj hw hu hz h)
   · exact (M.triType_eq_orbSize u z).symm.trans (triType_eq_of_not_adj hType hw hu hz hne' h)
 
+include hType in
+theorem adj_iff_orbSize
+    (hw : w ∈ sphereThree v) {u z : cgraph.neighborSet v}
+    (hu : (u : CVert) ∈ cgraph.commonNeighbors v w)
+    (hz : (z : CVert) ∈ cgraph.commonNeighbors v w) :
+    cgraph.Adj u z ↔ orbSize (M.pt u) (M.pt z) = 44352 := by
+  constructor
+  · intro h
+    have hne : u ≠ z := fun e => h.ne (congrArg Subtype.val e)
+    exact (M.orbSize_of_mem_commonNeighbors hType hw hu hz hne).1 h
+  · intro h
+    have hne := M.ne_of_orbSize_eq h (by decide)
+    by_contra hna
+    have h2 := (M.orbSize_of_mem_commonNeighbors hType hw hu hz hne).2 hna
+    rw [h] at h2
+    exact absurd h2 (by decide)
+
+include hType in
+theorem orbSize_eq_two_iff
+    (hw : w ∈ sphereThree v) {u z : cgraph.neighborSet v}
+    (hu : (u : CVert) ∈ cgraph.commonNeighbors v w)
+    (hz : (z : CVert) ∈ cgraph.commonNeighbors v w) :
+    orbSize (M.pt u) (M.pt z) = 2097152 ↔ u ≠ z ∧ ¬cgraph.Adj u z := by
+  constructor
+  · intro h
+    have hne := M.ne_of_orbSize_eq h (by decide)
+    refine ⟨hne, fun ha => ?_⟩
+    have h1 := (M.orbSize_of_mem_commonNeighbors hType hw hu hz hne).1 ha
+    rw [h] at h1
+    exact absurd h1 (by decide)
+  · rintro ⟨hne, hna⟩
+    exact (M.orbSize_of_mem_commonNeighbors hType hw hu hz hne).2 hna
+
+include hType in
+theorem ncard_rel44352
+    (hw : w ∈ sphereThree v) {u : cgraph.neighborSet v}
+    (hu : (u : CVert) ∈ cgraph.commonNeighbors v w) :
+    {z : cgraph.neighborSet v | (z : CVert) ∈ cgraph.commonNeighbors v w ∧
+      orbSize (M.pt u) (M.pt z) = 44352}.ncard = 693 := by
+  have e : Subtype.val '' {z : cgraph.neighborSet v | (z : CVert) ∈ cgraph.commonNeighbors v w ∧
+      orbSize (M.pt u) (M.pt z) = 44352} = cgraph.neighborSet u ∩ cgraph.commonNeighbors v w := by
+    ext y
+    constructor
+    · rintro ⟨z, ⟨hz, h⟩, rfl⟩
+      exact ⟨(M.adj_iff_orbSize hType hw hu hz).2 h, hz⟩
+    · rintro ⟨hy, hyC⟩
+      exact ⟨⟨y, hyC.1⟩, ⟨hyC, (M.adj_iff_orbSize hType hw hu hyC).1 hy⟩, rfl⟩
+  rw [← Set.ncard_image_of_injective _ Subtype.val_injective, e]
+  exact (native_order_three_common_neighbor_local_unitary_graph.2.2 v w hw).2.2.2.2 u hu |>.1
+
+include hType in
+theorem ncard_rel2097152
+    (hw : w ∈ sphereThree v) {u : cgraph.neighborSet v}
+    (hu : (u : CVert) ∈ cgraph.commonNeighbors v w) :
+    {z : cgraph.neighborSet v | (z : CVert) ∈ cgraph.commonNeighbors v w ∧
+      orbSize (M.pt u) (M.pt z) = 2097152}.ncard = (cgraph.commonNeighbors v w).ncard - 694 := by
+  have e : Subtype.val '' {z : cgraph.neighborSet v | (z : CVert) ∈ cgraph.commonNeighbors v w ∧
+      orbSize (M.pt u) (M.pt z) = 2097152} = cgraph.commonNeighbors v w \
+        insert (u : CVert) (cgraph.neighborSet u ∩ cgraph.commonNeighbors v w) := by
+    ext y
+    constructor
+    · rintro ⟨z, ⟨hz, h⟩, rfl⟩
+      obtain ⟨hne, hna⟩ := (M.orbSize_eq_two_iff hType hw hu hz).1 h
+      refine ⟨hz, fun hmem => ?_⟩
+      rcases hmem with h' | h'
+      · exact hne (Subtype.ext h'.symm)
+      · exact hna h'.1
+    · rintro ⟨hyC, hy⟩
+      refine ⟨⟨y, hyC.1⟩, ⟨hyC, (M.orbSize_eq_two_iff hType hw hu hyC).2 ⟨fun e => hy ?_,
+        fun ha => hy (Or.inr ⟨ha, hyC⟩)⟩⟩, rfl⟩
+      exact Or.inl (congrArg Subtype.val e).symm
+  have hsub : insert (u : CVert) (cgraph.neighborSet u ∩ cgraph.commonNeighbors v w) ⊆
+      cgraph.commonNeighbors v w :=
+    Set.insert_subset hu Set.inter_subset_right
+  have hnot : (u : CVert) ∉ cgraph.neighborSet u ∩ cgraph.commonNeighbors v w := fun h =>
+    cgraph.irrefl h.1
+  rw [← Set.ncard_image_of_injective _ Subtype.val_injective, e, Set.ncard_sdiff hsub,
+    Set.ncard_insert_of_notMem hnot,
+    ((native_order_three_common_neighbor_local_unitary_graph.2.2 v w hw).2.2.2.2 u hu).1]
 
 end RootModel
 

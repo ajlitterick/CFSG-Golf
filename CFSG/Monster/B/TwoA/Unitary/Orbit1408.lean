@@ -224,6 +224,13 @@ theorem ncard_usigOrbit_tau :
   exact CFSG.Perm.orbitTree_card_orbit closure_genUL (by norm_num) tauP_inj tauP_closed tauPar_lt
     tauP_tree
 
+theorem natCard_Atau :
+    Nat.card Atau = 13063680 := by
+  have h := (CFSG.Perm.orbitTree_schreier (genUL '' {k | k < 17}) closure_genUL 1408
+    (by norm_num) tauP tauP_inj tauP_closed tauPar tauLab genUL tauPar_lt tauP_tree ⊤
+    (fun _ _ _ _ _ _ _ => Subgroup.mem_top _)).2
+  rw [natCard_Usig, tauP_zero, stabilizer_tauW] at h
+  omega
 
 theorem tauOrb_subset :
     usigOrbit tauW ⊆ OmegaW := by
@@ -428,5 +435,28 @@ theorem ncard_commonNeighbors_sigmaPt_tauPt :
   convert h
   rfl
 
+theorem native_unitary_1408_suborbit_and_plane_shift :
+    OmegaW = Set.range wvec ∧ OmegaW.ncard = 2300 ∧ tauW = decW 60 ∧ tauW ∈ OmegaW ∧
+    OmegaW = {sigmaW} ∪ DeltaW ∪ usigOrbit tauW ∧
+    Disjoint ({sigmaW} : Set (Wv v0)) DeltaW ∧ sigmaW ∉ usigOrbit tauW ∧
+    Disjoint DeltaW (usigOrbit tauW) ∧
+    ({sigmaW} : Set (Wv v0)).ncard = 1 ∧ DeltaW.ncard = 891 ∧ (usigOrbit tauW).ncard = 1408 ∧
+    usigOrbit sigmaW = {sigmaW} ∧ usigOrbit (sigmaW + wFr) = DeltaW ∧
+    (∀ x ∈ OmegaW,
+      usigOrbit x = {sigmaW} ∨ usigOrbit x = DeltaW ∨ usigOrbit x = usigOrbit tauW) ∧
+    usigOrbit tauW = {x | ∃ i : Fin 1408, decW o14VecArr[(i : ℕ)]! = x} ∧
+    (∀ j : Fin 891, shiftPlane (sigmaW + n6vec j) = plane (b6Iso j)) ∧
+    Set.BijOn shiftPlane DeltaW {P | IsMaxIso P} ∧
+    (∀ (u : Usig), ∀ x ∈ DeltaW,
+      wAct v0 u x ∈ DeltaW ∧ shiftPlane (wAct v0 u x) = sigmaAct (shiftPlane x) (phiU u)) ∧
+    Nat.card Atau = 13063680 ∧
+    (∀ x : OmegaPt, omegaGraph.Adj sigmaPt x ↔ (x : Wv v0) ∈ DeltaW) ∧
+    ¬ omegaGraph.Adj sigmaPt tauPt ∧ (omegaGraph.commonNeighbors sigmaPt tauPt).ncard = 324 :=
+  ⟨OmegaW_eq, ncard_OmegaW, rfl, tauW_mem_OmegaW, OmegaW_eq_union,
+    Set.disjoint_singleton_left.2 sigmaW_notMem_DeltaW, sigmaW_notMem_tauOrb,
+    disjoint_DeltaW_tauOrb, Set.ncard_singleton _, ncard_DeltaW, ncard_usigOrbit_tau,
+    usigOrbit_sigma, usigOrbit_delta, fun _ hx => usigOrbit_of_mem_OmegaW hx, usigOrbit_tau,
+    shiftPlane_add, bijOn_shiftPlane, fun u _ hx => shiftPlane_wAct u hx, natCard_Atau,
+    adj_sigmaPt_iff, not_adj_sigmaPt_tauPt, ncard_commonNeighbors_sigmaPt_tauPt⟩
 
 end CFSG.Monster.B.TwoA.Unitary

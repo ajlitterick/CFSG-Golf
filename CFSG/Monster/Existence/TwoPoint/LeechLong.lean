@@ -64,6 +64,12 @@ theorem leech_mem_pointStab_triple {α β γ g : G} :
   simp only [pointStab, Subgroup.mem_iInf, Set.mem_insert_iff, Set.mem_singleton_iff,
     forall_eq_or_imp, forall_eq, mem_centralizer_singleton_iff]
 
+theorem leech_pointStab_le_cent_prod (α β γ : G) :
+    pointStab ({α, β, γ} : Set G) ≤ cent (α * β * γ) := fun g hg => by
+  obtain ⟨h1, h2, h3⟩ := leech_mem_pointStab_triple.1 hg
+  exact mem_centralizer_singleton_iff.2
+    (Commute.mul_right (Commute.mul_right (show Commute g α from h1) (show Commute g β from h2))
+      (show Commute g γ from h3)).eq
 
 end PointStab
 
@@ -255,5 +261,42 @@ theorem pCore_eq_of_quotient {G X : Type*} [Group G] [Group X] (N : Subgroup G) 
   have h2 : (QuotientGroup.mk' N) g = 1 := e.injective (h1.trans (map_one e).symm)
   exact (QuotientGroup.eq_one_iff g).1 h2
 
+theorem leech_longTriangle_pCore_gen
+    {v₁ v₂ : L2} (h₁ : v₁ ∈ shortSet) (h₂ : v₂ ∈ shortSet)
+    (h12 : v₁ + v₂ ∈ shortSet)
+    (hX : ∀ P : Subgroup ↥(Kstab v₁ ⊓ Kstab v₂), P.Normal → IsPGroup 2 P → P = ⊥) :
+    ∃ α β γ : MGriess, IsLongTriangle tGriess {α, β, γ} ∧ α * β * γ = xGriess ∧
+      ∃ (N : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N.Normal)
+        (N₀ : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N₀.Normal), N₀ ≤ N ∧
+        IsElementaryAbelian 2 N₀ ∧ Nat.card N₀ = 2 ^ 3 ∧
+        IsElementaryAbelian 2 (N ⧸ N₀.subgroupOf N) ∧ Nat.card N = 2 ^ (3 + 20) ∧
+        Nonempty (↥(pointStab ({α, β, γ} : Set MGriess)) ⧸ N ≃* ↥(Kstab v₁ ⊓ Kstab v₂)) ∧
+        pCore 2 ↥(pointStab ({α, β, γ} : Set MGriess)) = N := by
+  obtain ⟨α, β, γ, hT, hx, N, hN, N₀, hN₀, hle, hE, hc₀, hQ, hc, ⟨e⟩⟩ :=
+    leech_longTriangle_shape_gen h₁ h₂ h12
+  have : N.Normal := hN
+  exact ⟨α, β, γ, hT, hx, N, hN, N₀, hN₀, hle, hE, hc₀, hQ, hc, ⟨e⟩,
+    pCore_eq_of_quotient N (IsPGroup.of_card hc) e hX⟩
+
+theorem leech_longTriangle_pCore
+    (v₂ : L2) (h₂ : v₂ ∈ shortSet) (h12 : Co2.v0 + v₂ ∈ shortSet)
+    (hX : ∀ P : Subgroup ↥(Kstab Co2.v0 ⊓ Kstab v₂), P.Normal → IsPGroup 2 P → P = ⊥) :
+    ∃ α β γ : MGriess, IsLongTriangle tGriess {α, β, γ} ∧ α * β * γ = xGriess ∧
+      ∃ (N : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N.Normal)
+        (N₀ : Subgroup ↥(pointStab ({α, β, γ} : Set MGriess))) (_ : N₀.Normal), N₀ ≤ N ∧
+        IsElementaryAbelian 2 N₀ ∧ Nat.card N₀ = 2 ^ 3 ∧
+        IsElementaryAbelian 2 (N ⧸ N₀.subgroupOf N) ∧ Nat.card N = 2 ^ (3 + 20) ∧
+        Nonempty (↥(pointStab ({α, β, γ} : Set MGriess)) ⧸ N ≃* ↥(Kstab Co2.v0 ⊓ Kstab v₂)) ∧
+        pCore 2 ↥(pointStab ({α, β, γ} : Set MGriess)) = N :=
+  leech_longTriangle_pCore_gen classOf_vMinus_mem_shortSet h₂ h12 hX
+
+theorem exists_leech_longTriangle_class :
+    ∃ v₂ : L2, v₂ ∈ shortSet ∧ Co2.v0 + v₂ ∈ shortSet := by
+  have h : phi0 (coordOf rOneTwo) = Co2.v0 + phi0 (coordOf rTwo) :=
+    (congrArg (fun r => phi0 (coordOf r)) rStar_mul_rTwo.symm).trans
+      ((phi0_coordOf_mul rStar rTwo).trans (congrArg (· + phi0 (coordOf rTwo))
+        phi0_coordOf_rStar))
+  exact ⟨phi0 (coordOf rTwo), isShortCoord_rTwo,
+    leech_mem_shortSet_of_eq h.symm isShortCoord_rOneTwo⟩
 
 end CFSG.Monster.Existence

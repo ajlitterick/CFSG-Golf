@@ -232,5 +232,8 @@ set_option maxRecDepth 100000 in
 theorem BS_fixS : ∀ S : Finset Vec, IsPlane S → ∀ g ∈ BS S, g ≠ 1 → fixS g = S := by
   decide +kernel
 
+set_option maxRecDepth 100000 in
+theorem exists_invol_fixS : ∀ S : Finset Vec, IsPlane S → ∃ g : Γ, IsInvol g ∧ fixS g = S := by
+  decide +kernel
 
 end CFSG.Quasithin.L3

@@ -93,6 +93,12 @@ theorem mf7_wt_wtIdx (x : Nat) (h : wtIdx x < 75735) : wt (wtIdx x) = x := by
     · contradiction
   · exact absurd h (Nat.lt_irrefl _)
 
+theorem mf7_adjW_eq (a b : Nat) : adjW a b = (wt a == wt b || mf7IsWt (wt a ^^^ wt b)) := by
+  unfold adjW mf7IsWt
+  dsimp only
+  by_cases h : wtIdx (wt a ^^^ wt b) < 75735
+  · simp [h, mf7_wt_wtIdx _ h]
+  · simp [h]
 
 @[expose] def mf7Commute (A B : Array Nat) : Bool :=
   mf7All 32 fun m => mf7Ap A B[m]! == mf7Ap B A[m]!
@@ -107,6 +113,7 @@ theorem mf7_wt_wtIdx (x : Nat) (h : wtIdx x < 75735) : wt (wtIdx x) = x := by
 @[expose] def mf7KindOf (A B : Array Nat) : Nat :=
   if mf7Commute A B then 0 else if mf7Braid A B then 1 else 2
 
+@[expose] def mf7PairKind (k l : Nat) : Nat := mf7KindOf (tvCols k) (tvCols l)
 
 theorem mf7KindOf_mem (A B : Array Nat) :
     mf7KindOf A B = 0 ∨ mf7KindOf A B = 1 ∨ mf7KindOf A B = 2 := by
@@ -117,6 +124,9 @@ theorem mf7KindOf_mem (A B : Array Nat) :
     · simp [h1, h2]
     · simp [h1, h2]
 
+theorem mf7PairKind_mem (k l : Nat) :
+    mf7PairKind k l = 0 ∨ mf7PairKind k l = 1 ∨ mf7PairKind k l = 2 :=
+  mf7KindOf_mem (tvCols k) (tvCols l)
 
 @[expose] def mf7RelOf (k : Nat) (A B : Array Nat) : Bool :=
   match k with

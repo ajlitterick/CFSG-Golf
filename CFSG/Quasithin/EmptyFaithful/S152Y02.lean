@@ -143,6 +143,20 @@ theorem inf_le_normalizer_yOf : M ⊓ Mc ≤ Subgroup.normalizer (yOf152 T Mc M 
   rw [h.yOf_eq]
   exact normalizer_le_normalizer_oTwoUpper _ hW
 
+theorem normalizer_Z_le_Mc :
+    Subgroup.normalizer (quasithinOmegaOneCenter T : Set G) ≤ Mc := by
+  have hZp : IsPGroup 2 (quasithinOmegaOneCenter T) :=
+    h.qtfe.sylow.1.to_le (quasithinOmegaOneCenter_le_center T |>.trans inf_le_left)
+  obtain ⟨M'', hM'', hNM''⟩ := exists_maxTwoLocal_ge
+    (L := Subgroup.normalizer (quasithinOmegaOneCenter T : Set G))
+    ⟨quasithinOmegaOneCenter T, h.qtfe.omegaOneCenter_ne_bot, hZp, rfl⟩
+  have hCZ : Subgroup.centralizer (quasithinOmegaOneCenter T : Set G) ≤ M'' :=
+    (Subgroup.centralizer_le_normalizer _).trans hNM''
+  rw [← h.qtfe.mc_unique M'' hM'' hCZ]
+  exact hNM''
+
+theorem normalizer_T_le_Mc : Subgroup.normalizer (T : Set G) ≤ Mc :=
+  (normalizer_le_normalizer_quasithinOmegaOneCenter T).trans h.normalizer_Z_le_Mc
 
 end Data
 

@@ -211,6 +211,23 @@ theorem mem_Vhat {j : Fin n} {v : Fin n → F} : v ∈ Vhat F n j ↔ v j = 0 :=
     · exact Submodule.mem_iSup_of_mem (⟨k, hk⟩ : {k : Fin n // k ≠ j})
         (mem_Vi.2 fun m hm => by simp [hm])
 
+theorem mem_Vij {i j : Fin n} (hij : i ≠ j) {v : Fin n → F} :
+    v ∈ Vi F n i ⊔ Vi F n j ↔ ∀ k, k ≠ i → k ≠ j → v k = 0 := by
+  constructor
+  · intro hv k hki hkj
+    obtain ⟨a, ha, b, hb, rfl⟩ := Submodule.mem_sup.1 hv
+    simp [mem_Vi.1 ha k hki, mem_Vi.1 hb k hkj]
+  · intro h
+    have hv : v = Pi.single i (v i) + Pi.single j (v j) := by
+      funext k
+      by_cases hki : k = i
+      · subst hki; simp [hij]
+      · by_cases hkj : k = j
+        · subst hkj; simp [hki]
+        · simp [hki, hkj, h k hki hkj]
+    rw [hv]
+    exact Submodule.add_mem_sup (mem_Vi.2 fun m hm => by simp [hm])
+      (mem_Vi.2 fun m hm => by simp [hm])
 
 @[expose] def rootGroup (A B : Submodule F (Fin n → F)) : Subgroup (Matrix.SpecialLinearGroup (Fin n) F) where
   carrier := {t | (∀ v, t • v - v ∈ A) ∧ ∀ v ∈ B, t • v = v}
@@ -337,6 +354,66 @@ variable (F)
 
 variable {F} {i j : Fin n}
 
+theorem Rij_le_rootGroup_bot (W : Submodule F (Fin n → F)) (hW : Vi F n i ≤ W) :
+    Rij F i j ≤ rootGroup W ⊥ := by
+  intro t ht
+  refine ⟨fun v => hW (ht.1 v), fun v hv => ?_⟩
+  rw [Submodule.mem_bot] at hv
+  subst hv
+  simp
+
+theorem commSub_Lij (hij : i ≠ j) : commSub F (Lij F i j) = Vij F i j := by
+  apply le_antisymm
+  · refine Submodule.span_le.2 ?_
+    rintro w ⟨t, ht, v, rfl⟩
+    have hle : Lij F i j ≤ rootGroup (Vij F i j) ⊥ :=
+      sup_le (Rij_le_rootGroup_bot _ le_sup_left) (Rij_le_rootGroup_bot _ le_sup_right)
+    exact (hle ht).1 v
+  · refine sup_le ?_ ?_
+    · rw [Vi, Submodule.span_singleton_le_iff_mem]
+      refine Submodule.subset_span ⟨Matrix.SpecialLinearGroup.transvection hij 1,
+        Subgroup.mem_sup_left (T_mem_Rij hij 1), Pi.single j 1, ?_⟩
+      funext k
+      simp [T_smul_apply, Pi.single_apply]
+    · rw [Vi, Submodule.span_singleton_le_iff_mem]
+      refine Submodule.subset_span ⟨Matrix.SpecialLinearGroup.transvection hij.symm 1,
+        Subgroup.mem_sup_right (T_mem_Rij hij.symm 1), Pi.single i 1, ?_⟩
+      funext k
+      simp [T_smul_apply, Pi.single_apply]
+
+
+theorem fixSub_Lij (hij : i ≠ j) : fixSub F (Lij F i j) = Vhatij F i j := by
+  ext v
+  constructor
+  · intro hv
+    have h1 := hv _ (Subgroup.mem_sup_left (T_mem_Rij hij 1))
+    have h2 := hv _ (Subgroup.mem_sup_right (T_mem_Rij hij.symm 1))
+    have hj : v j = 0 := by
+      have := congrFun h1 i
+      rw [T_smul_apply] at this
+      simpa using this
+    have hi : v i = 0 := by
+      have := congrFun h2 j
+      rw [T_smul_apply] at this
+      simpa using this
+    exact ⟨mem_Vhat.2 hi, mem_Vhat.2 hj⟩
+  · rintro ⟨hvi, hvj⟩ t ht
+    have hle : Lij F i j ≤ MulAction.stabilizer (Matrix.SpecialLinearGroup (Fin n) F) v :=
+      sup_le (fun t ht => ht.2 v hvj) (fun t ht => ht.2 v hvi)
+    exact hle ht
+
+theorem Rij_le_ptStab_setStab :
+    Rij F i j ≤ ptStab F (Vhatij F i j) ⊓ setStab F (Vij F i j) := by
+  intro t ht
+  refine ⟨fun v hv => ht.2 v hv.2, fun v => ?_⟩
+  have h1 : t • v - v ∈ Vij F i j := Submodule.mem_sup_left (ht.1 v)
+  constructor
+  · intro hv
+    have := (Vij F i j).add_mem hv h1
+    simpa using this
+  · intro hv
+    have := (Vij F i j).sub_mem hv h1
+    simpa using this
 
 @[expose] noncomputable def embSL (hij : i ≠ j) :
     Matrix.SpecialLinearGroup (Fin 2) F →* Matrix.SpecialLinearGroup (Fin n) F where
@@ -378,6 +455,98 @@ theorem emb_apply (i j : Fin n) (B : Matrix (Fin 2) (Fin 2) F) (a c : Fin n) :
     emb i j B a c = blockMap i j B (Pi.single c 1) a := by
   rw [← emb_mulVec]
   simp
+
+theorem SL_apply_eq (A : Matrix.SpecialLinearGroup (Fin n) F) (a c : Fin n) :
+    (A • (Pi.single c 1 : Fin n → F)) a = A a c := by
+  simp [smul_eq_mulVec']
+
+theorem single_mem_Vhatij {c : Fin n} (hci : c ≠ i) (hcj : c ≠ j) :
+    (Pi.single c 1 : Fin n → F) ∈ Vhatij F i j :=
+  ⟨mem_Vhat.2 (by simp [Ne.symm hci]), mem_Vhat.2 (by simp [Ne.symm hcj])⟩
+
+theorem single_mem_Vij_left : (Pi.single i 1 : Fin n → F) ∈ Vij F i j :=
+  Submodule.mem_sup_left (mem_Vi.2 fun k hk => by simp [hk])
+
+theorem single_mem_Vij_right : (Pi.single j 1 : Fin n → F) ∈ Vij F i j :=
+  Submodule.mem_sup_right (mem_Vi.2 fun k hk => by simp [hk])
+
+theorem exists_embSL_eq (hij : i ≠ j) {A : Matrix.SpecialLinearGroup (Fin n) F}
+    (hA : A ∈ ptStab F (Vhatij F i j) ⊓ setStab F (Vij F i j)) :
+    ∃ B : Matrix.SpecialLinearGroup (Fin 2) F, A = embSL hij B := by
+  have hji : j ≠ i := hij.symm
+  set B0 : Matrix (Fin 2) (Fin 2) F := !![A i i, A i j; A j i, A j j] with hB0
+  have hmat : (A : Matrix (Fin n) (Fin n) F) = emb i j B0 := by
+    refine Matrix.ext fun a c => ?_
+    rw [emb_apply, ← SL_apply_eq, blockMap_apply]
+    by_cases hci : c = i
+    · subst hci
+      have hmem := (mem_Vij hij).1 ((hA.2 _).1 (single_mem_Vij_left))
+      by_cases hac : a = c
+      · subst hac; simp [B0, SL_apply_eq, hji]
+      · by_cases haj : a = j
+        · subst haj; simp [B0, SL_apply_eq, hac]
+        · simp [hac, haj, hmem a hac haj]
+    · by_cases hcj : c = j
+      · subst hcj
+        have hmem := (mem_Vij hij).1 ((hA.2 _).1 (single_mem_Vij_right))
+        by_cases hac : a = i
+        · subst hac; simp [B0, SL_apply_eq, hij]
+        · by_cases haj : a = c
+          · subst haj; simp [B0, SL_apply_eq, hac]
+          · simp [hac, haj, hmem a hac haj]
+      · have h1 := hA.1 (Pi.single c 1) (single_mem_Vhatij hci hcj)
+        rw [h1]
+        by_cases hai : a = i
+        · subst hai; simp [Ne.symm hci, Ne.symm hcj]
+        · by_cases haj : a = j
+          · subst haj; simp [Ne.symm hci, Ne.symm hcj, hai]
+          · simp [hai, haj]
+  have hdet : B0.det = 1 := by
+    rw [← det_emb hij, ← hmat]
+    exact A.2
+  exact ⟨⟨B0, hdet⟩, Subtype.ext hmat⟩
+
+
+theorem Vhatij_comm (i j : Fin n) : Vhatij F j i = Vhatij F i j := inf_comm _ _
+
+theorem Vij_comm (i j : Fin n) : Vij F j i = Vij F i j := sup_comm _ _
+
+theorem Lij_eq (hij : i ≠ j) :
+    Lij F i j = ptStab F (Vhatij F i j) ⊓ setStab F (Vij F i j) := by
+  apply le_antisymm
+  · refine sup_le Rij_le_ptStab_setStab ?_
+    have := Rij_le_ptStab_setStab (F := F) (i := j) (j := i)
+    rwa [Vhatij_comm, Vij_comm] at this
+  · intro A hA
+    obtain ⟨B, rfl⟩ := exists_embSL_eq hij hA
+    exact embSL_mem_Lij hij B
+
+theorem emb_apply_idx (hij : i ≠ j) (B : Matrix (Fin 2) (Fin 2) F) (p q : Fin 2) :
+    emb i j B (![i, j] p) (![i, j] q) = B p q := by
+  rw [emb_apply, blockMap_apply]
+  fin_cases p <;> fin_cases q <;> simp [hij, hij.symm]
+
+theorem embSL_injective (hij : i ≠ j) : Function.Injective (embSL (F := F) hij) := by
+  intro B B' h
+  apply Subtype.ext
+  apply Matrix.ext
+  intro p q
+  have := congrArg (fun A : Matrix.SpecialLinearGroup (Fin n) F =>
+    (A : Matrix (Fin n) (Fin n) F) (![i, j] p) (![i, j] q)) h
+  simpa only [embSL_coe, emb_apply_idx hij] using this
+
+theorem Lij_mulEquiv (hij : i ≠ j) :
+    Nonempty (Lij F i j ≃* Matrix.SpecialLinearGroup (Fin 2) F) := by
+  have hrange : (embSL (F := F) hij).range = Lij F i j := by
+    apply le_antisymm
+    · rintro _ ⟨B, rfl⟩
+      exact embSL_mem_Lij hij B
+    · intro A hA
+      have hA' : A ∈ ptStab F (Vhatij F i j) ⊓ setStab F (Vij F i j) := by
+        rw [← Lij_eq hij]; exact hA
+      obtain ⟨B, rfl⟩ := exists_embSL_eq hij hA'
+      exact ⟨B, rfl⟩
+  exact ⟨(MulEquiv.subgroupCongr hrange.symm).trans (MonoidHom.ofInjective (embSL_injective hij)).symm⟩
 
 
 theorem SL_ext_vec {A B : Matrix.SpecialLinearGroup (Fin n) F} (h : ∀ v : Fin n → F, A • v = B • v) : A = B :=

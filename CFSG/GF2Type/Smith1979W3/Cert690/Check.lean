@@ -117,6 +117,9 @@ open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62
       else (E, par)
   go fuel #[Code.one] #[(0, 0)] ((∅ : Std.HashSet ℕ).insert Code.one) 0
 
+@[expose] def enumGroup (gens : List ℕ) (_ : Unit := ()) : Array ℕ :=
+  (enumData gens).1
+
 
 @[expose] def enumOK (gens : List ℕ) (E : Array ℕ) (par : Array (ℕ × ℕ)) : Bool :=
   let gs := gens.toArray

@@ -159,6 +159,8 @@ theorem Tel_mem_T (i : ι) : d.Tel i ∈ d.T := d.Tel_mem i
 theorem exists_Tel_mul (i j : ι) : ∃ k, d.Tel k = d.Tel i * d.Tel j :=
   (d.mem_T_iff _).1 (d.T.mul_mem (d.Tel_mem_T i) (d.Tel_mem_T j))
 
+theorem exists_Tel_inv (i : ι) : ∃ k, d.Tel k = (d.Tel i)⁻¹ :=
+  (d.mem_T_iff _).1 (d.T.inv_mem (d.Tel_mem_T i))
 
 theorem next_aux {i₁ i₂ k : ι} {j : κ} {z : G} (hk : d.Tel i₂ * z = d.Tel k) :
     d.Tel i₁ * d.D j * d.Tel i₂ * z = d.Tel i₁ * d.D j * d.Tel k := by
@@ -209,6 +211,9 @@ theorem D_mem_of_le {H : Subgroup G} (hH : d.T ≤ H) {g : G} (hg : g ∈ H) :
   rw [this]
   exact H.mul_mem (H.mul_mem (H.inv_mem h1) hg) (H.inv_mem h2)
 
+theorem double_coset_mem {H : Subgroup G} (hH : d.T ≤ H) {j : κ} (hj : d.D j ∈ H) (i₁ i₂ : ι) :
+    d.Tel i₁ * d.D j * d.Tel i₂ ∈ H :=
+  H.mul_mem (H.mul_mem (hH (d.Tel_mem_T i₁)) hj) (hH (d.Tel_mem_T i₂))
 
 theorem mem_A_iff (g : G) :
     g ∈ d.A ↔ ∃ j, (j = d.j0 ∨ j = d.ja) ∧ ∃ i₁ i₂, g = d.Tel i₁ * d.D j * d.Tel i₂ := by

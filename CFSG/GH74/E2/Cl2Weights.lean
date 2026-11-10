@@ -551,6 +551,12 @@ private theorem mem_wsub_of_le (h : AbInv2 a b A) {E : Subgroup P} (hE : E ≤ A
     x ∈ wsub a b E hE' w ↔ x ∈ E ∧ x ∈ wsub a b A h w := by
   cases w <;> exact ⟨fun hx => ⟨hx.1, hE hx.1, hx.2⟩, fun hx => ⟨hx.1, hx.2.2⟩⟩
 
+theorem wsub_of_le (h : AbInv2 a b A) {E : Subgroup P} (hE : E ≤ A)
+    (hEa : ∀ x ∈ E, a x ∈ E) (hEb : ∀ x ∈ E, b x ∈ E) (w : Wt) :
+    wsub a b E (h.mono hE hEa hEb) w = E ⊓ wsub a b A h w := by
+  ext x
+  rw [Subgroup.mem_inf]
+  exact mem_wsub_of_le h hE _ w
 
 theorem AbInv2.omega1 (h : AbInv2 a b A) : AbInv2 a b (omega1 A h.comm) :=
   ⟨fun x hx y hy => h.comm x hx.1 y hy.1,
@@ -648,6 +654,14 @@ theorem wsub_card [Finite P] (hP : IsPGroup 2 P) (ha : a ^ 3 = 1) (hb : b ^ 3 = 
   rw [← Nat.card_eq_of_bijective f hf]
   simp only [Nat.card_prod, mul_assoc]
 
+theorem wsub_decomp_sub [Finite P] (hP : IsPGroup 2 P) (ha : a ^ 3 = 1) (hb : b ^ 3 = 1)
+    (hab : a * b = b * a) (h : AbInv2 a b A) {N : Subgroup P} (hN : N ≤ A)
+    (hNa : ∀ x ∈ N, a x ∈ N) (hNb : ∀ x ∈ N, b x ∈ N) {x : P} (hx : x ∈ N) :
+    ∃ x0 ∈ N ⊓ wsub a b A h .w0, ∃ xa ∈ N ⊓ wsub a b A h .wa,
+      ∃ xb ∈ N ⊓ wsub a b A h .wb, ∃ xp ∈ N ⊓ wsub a b A h .wp,
+        ∃ xm ∈ N ⊓ wsub a b A h .wm, x = x0 * xa * xb * xp * xm := by
+  simp only [← wsub_of_le h hN hNa hNb]
+  exact wsub_decomp hP ha hb hab (h.mono hN hNa hNb) hx
 
 theorem wsub_card_ge_four [Finite P] (hP : IsPGroup 2 P) (ha : a ^ 3 = 1) (hb : b ^ 3 = 1)
     (hab : a * b = b * a) (h : AbInv2 a b A) (hE : ∀ x ∈ A, x * x = 1) {w : Wt}

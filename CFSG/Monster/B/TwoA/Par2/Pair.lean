@@ -102,6 +102,9 @@ theorem pW_eq_iff
   · rintro ⟨rfl, rfl⟩
     rfl
 
+theorem pW_injective
+    (j : Rest) : Function.Injective (pW j) := fun _ _ h =>
+  ((pW_eq_iff j j _ _).1 h).2
 
 theorem pW_ne_zero
     (j : Rest) (b : ZMod 2) : pW j b ≠ 0 := by
@@ -131,6 +134,7 @@ theorem pW_ne_wFr
 @[expose] def restImg {p : AutPerm} (hp : p ∈ Ppair) (j : Rest) : Rest :=
   ⟨(p : Equiv.Perm (Fin 24)) j, Ppair_apply_ne hp j.2.1 j.2.2⟩
 
+theorem restImg_eq_smul (p : Ppair) (j : Rest) : restImg p.2 j = p • j := rfl
 
 theorem wAct_monomial_pW
     {a : C} {p : AutPerm} (hk : (QuotientGroup.mk (gO a * PO p) : OLq) ∈

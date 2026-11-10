@@ -20,6 +20,12 @@ theorem mul_sub_one_expand {R : Type*} [Ring R] (x y : R) :
     x * y - 1 = (x - 1) * (y - 1) + (x - 1) + (y - 1) := by
   noncomm_ring
 
+private theorem commutator_sub_one_expand {R : Type*} [Ring R] (x y : R) :
+    x * y - y * x = (x - 1) * (y - 1) - (y - 1) * (x - 1) := by
+  noncomm_ring
+private theorem conjugate_sub_expand {R : Type*} [Ring R] (x y z : R)
+    (hyz : y * z = 1) : y * x * z - x = (y * x - x * y) * z := by
+  rw [sub_mul, mul_assoc x y z, hyz, mul_one]
 
 namespace LabelRaises
 
@@ -90,6 +96,23 @@ theorem of_sub_one {x : Module.End K (RootModule τ K)} (hx : LabelRaises wt 0 (
   have := hx.add one
   rwa [e] at this
 
+theorem mul_commutator {x y : Module.End K (RootModule τ K)}
+    (hx : LabelRaises wt ε (x - 1)) (hy : LabelRaises wt ε' (y - 1)) :
+    LabelRaises wt (ε + ε') (x * y - y * x) := by
+  rw [commutator_sub_one_expand x y]
+  exact (hx.mul hy).sub (by simpa only [add_comm] using hy.mul hx)
+
+theorem conjugate_sub {x y z : Module.End K (RootModule τ K)}
+    (hx : LabelRaises wt ε (x - 1)) (hy : LabelRaises wt ε' (y - 1))
+    (hz : LabelRaises wt 0 z) (hyz : y * z = 1) :
+    LabelRaises wt (ε' + ε) (y * x * z - x) := by
+  rw [conjugate_sub_expand x y z hyz]
+  simpa only [add_zero] using (hy.mul_commutator hx).mul hz
+
+theorem apply_eq_zero_of_lt (h : LabelRaises wt ε T) (a b : Label τ)
+    (hab : wt a < wt b + ε) : T (Finsupp.single b 1) a = 0 := by
+  by_contra hne
+  exact (not_le_of_gt hab) (h a b hne)
 
 end LabelRaises
 
@@ -111,6 +134,11 @@ variable (τ K) in
     simp only [Set.mem_ofPred_eq, inv_inv] at hu ⊢
     exact ⟨hu.2, hu.1⟩
 
+theorem mem_labelRaisingSubgroup {wt : Label τ → ℝ} {ε : ℝ} {hε : 0 ≤ ε} {u : ModGL τ K} :
+    u ∈ labelRaisingSubgroup τ K wt ε hε ↔
+      LabelRaises wt ε ((u : Module.End K (RootModule τ K)) - 1) ∧
+        LabelRaises wt ε ((↑u⁻¹ : Module.End K (RootModule τ K)) - 1) :=
+  Iff.rfl
 
 @[expose] def latticeGrade
     (m : RootWeightSpace τ) (b : Label τ) : ℝ :=

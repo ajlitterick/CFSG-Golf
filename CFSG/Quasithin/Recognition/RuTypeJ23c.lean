@@ -63,6 +63,10 @@ theorem isX_of_fix {F : Matrix (Fin 3) (Fin 3) (ZMod 2)} (hF : F ∈ fixC0List) 
 theorem isX_of_st1 {Y : Matrix (Fin 3) (Fin 3) (ZMod 2)} (hY : Y ∈ st1List) : IsX Y :=
   ⟨0, by decide, Y, hY, (zero_add Y).symm⟩
 
+theorem IsX.stAct_b0 {A : Matrix (Fin 3) (Fin 3) (ZMod 2)} (hA : IsX A) :
+    IsX (stAct b0 A) := by
+  obtain ⟨F, hF, Y, hY, rfl⟩ := hA
+  exact ⟨_, (fixC0_props F hF).2.2.1, _, (st1_props Y hY).2.2.1, stAct_add b0 F Y⟩
 
 theorem st1_iterate (n : ℕ) {Y : Matrix (Fin 3) (Fin 3) (ZMod 2)} (hY : Y ∈ st1List) :
     (stAct c0)^[n] Y ∈ st1List := by
@@ -436,6 +440,14 @@ theorem conj_mem_S1_of {l : M.L} (hl : ∀ A ∈ SL3.st1List, stAct (M.θ l) A �
 theorem cel_conj_S1 {y : G} (hy : y ∈ M.S1) : (M.cel : G) * y * (M.cel : G)⁻¹ ∈ M.S1 :=
   M.conj_mem_S1_of (fun A hA => by rw [M.θ_cel]; exact (SL3.st1_props A hA).2.1) hy
 
+theorem bel_conj_S1 {y : G} (hy : y ∈ M.S1) : (M.bel : G) * y * (M.bel : G)⁻¹ ∈ M.S1 :=
+  M.conj_mem_S1_of (fun A hA => by rw [M.θ_bel]; exact (SL3.st1_props A hA).2.2.1) hy
+
+theorem bel_conj_S3 {x : G} (hx : x ∈ M.S3) : (M.bel : G) * x * (M.bel : G)⁻¹ ∈ M.S3 := by
+  obtain ⟨hxS, hxX⟩ := hx
+  refine ⟨(Subgroup.mem_normalizer_iff.mp (le_normalizer_pCoreOf 2 M.L M.bel.2) x).mp hxS, ?_⟩
+  rw [M.χ_conj M.bel ⟨x, hxS⟩, M.θ_bel]
+  exact hxX.stAct_b0
 
 theorem S3_comm_of_S1_comm (h1 : ∀ y ∈ M.S1, ∀ y' ∈ M.S1, y * y' = y' * y) :
     ∀ x ∈ M.S3, ∀ x' ∈ M.S3, x * x' = x' * x := by
@@ -584,6 +596,27 @@ theorem mem_V_of_S1_sq {y : G} (hy : y ∈ M.S1) (hy2 : y ^ 2 = 1) : y ∈ ruV M
   by_contra hyV
   exact M.sq_ne_one_of_S1 hy hyV hy2
 
+@[expose] noncomputable def conjS1 : MulAut M.S1 :=
+  MulEquiv.ofBijective
+    ({ toFun := fun y => ⟨(M.cel : G) * y * (M.cel : G)⁻¹, M.cel_conj_S1 y.2⟩
+       map_one' := Subtype.ext (by simp)
+       map_mul' := fun y y' => Subtype.ext (by simp only [Subgroup.coe_mul]; group) } :
+      M.S1 →* M.S1)
+    (by
+      refine Function.Injective.bijective_of_finite fun y y' h => Subtype.ext ?_
+      have h' : (M.cel : G) * y * (M.cel : G)⁻¹ = (M.cel : G) * y' * (M.cel : G)⁻¹ :=
+        congrArg Subtype.val h
+      simpa using h')
+
+theorem conjS1_pow_apply (n : ℕ) (y : M.S1) :
+    (((M.conjS1 ^ n) y : M.S1) : G) = (M.cel : G) ^ n * y * ((M.cel : G) ^ n)⁻¹ := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    rw [pow_succ', MulAut.mul_apply]
+    show (M.cel : G) * (((M.conjS1 ^ n) y : M.S1) : G) * (M.cel : G)⁻¹ = _
+    rw [ih]
+    group
 
 theorem ψV_conj_cel_pow (n : ℕ) (v : ruV M.L) (hw : (M.cel : G) ^ n * v * ((M.cel : G) ^ n)⁻¹ ∈
     ruV M.L) :
@@ -592,6 +625,60 @@ theorem ψV_conj_cel_pow (n : ℕ) (v : ruV M.L) (hw : (M.cel : G) ^ n * v * ((M
   rw [map_pow, M.θ_cel, SL3.natAct3_pow] at e
   rw [e, toAdd_ofAdd]
 
+theorem S1_suzuki : CFSG.GroupTheory.IsSuzukiTwoGroup M.S1 := by
+  have hz1 : M.z ≠ 1 := M.z_ne_one
+  have hzS1 : M.z ∈ M.S1 := M.V_le_S1 M.z_mem_V
+  have hcz : (M.cel : G) * M.z * (M.cel : G)⁻¹ ∈ ruV M.L :=
+    M.toRuData.conj_mem_V M.cel.2 M.z_mem_V
+  have hord : ∀ v : M.S1, (v : G) ∈ ruV M.L → (v : G) ≠ 1 → orderOf v = 2 := by
+    intro v hv hv1
+    rw [← Subgroup.orderOf_coe]
+    exact orderOf_eq_prime (M.sq_eq_one_of_V hv) hv1
+  refine ⟨inferInstance, IsPGroup.of_card M.card_S1, ?_, ?_, ?_⟩
+  · rintro ⟨h⟩
+    apply M.S1_not_comm
+    intro y hy y' hy'
+    exact congrArg Subtype.val (h.comm ⟨y, hy⟩ ⟨y', hy'⟩)
+  · refine ⟨⟨M.z, hzS1⟩, ⟨_, M.V_le_S1 hcz⟩, hord _ M.z_mem_V hz1, hord _ hcz ?_, ?_⟩
+    · intro h1
+      apply hz1
+      have := congrArg (fun x => (M.cel : G)⁻¹ * x * M.cel) h1
+      simpa [mul_assoc] using this
+    · intro h
+      have h' : (M.cel : G) * (⟨M.z, M.z_mem_V⟩ : ruV M.L) * (M.cel : G)⁻¹ =
+          (⟨M.z, M.z_mem_V⟩ : ruV M.L) := (congrArg Subtype.val h).symm
+      have h0 := SL3.c0_fix_vec _ ((M.conj_cel_V ⟨M.z, M.z_mem_V⟩).mp h')
+      rw [show (⟨M.z, M.z_mem_V⟩ : ruV M.L) = M.zV from rfl, M.ψV_zV] at h0
+      exact absurd h0 (by decide)
+  · refine ⟨Subgroup.zpowers M.conjS1, inferInstance, fun x y hx hy => ?_⟩
+    have hx2 : (x : G) ^ 2 = 1 := by
+      rw [← Subgroup.orderOf_coe] at hx
+      rw [← hx]
+      exact pow_orderOf_eq_one _
+    have hy2 : (y : G) ^ 2 = 1 := by
+      rw [← Subgroup.orderOf_coe] at hy
+      rw [← hy]
+      exact pow_orderOf_eq_one _
+    have hxV := M.mem_V_of_S1_sq x.2 hx2
+    have hyV := M.mem_V_of_S1_sq y.2 hy2
+    have hne : ∀ (v : G) (hv : v ∈ ruV M.L), orderOf v = 2 →
+        Multiplicative.toAdd (M.ψV ⟨v, hv⟩) ≠ 0 := by
+      intro v hv hv2 h0
+      have : M.ψV ⟨v, hv⟩ = 1 := Multiplicative.toAdd.injective h0
+      have h1 := congrArg Subtype.val (M.ψV.injective (this.trans (map_one M.ψV).symm))
+      have : orderOf v = 1 := by rw [show v = 1 from h1, orderOf_one]
+      omega
+    obtain ⟨k, hk⟩ := SL3.c0_trans_vec _ _
+      ⟨hne _ hxV (by rw [Subgroup.orderOf_coe]; exact hx),
+        hne _ hyV (by rw [Subgroup.orderOf_coe]; exact hy)⟩
+    refine ⟨M.conjS1 ^ k.val, Subgroup.npow_mem_zpowers _ _, Subtype.ext ?_⟩
+    rw [M.conjS1_pow_apply]
+    have hw : (M.cel : G) ^ k.val * (x : G) * ((M.cel : G) ^ k.val)⁻¹ ∈ ruV M.L :=
+      M.toRuData.conj_mem_V (M.cel ^ k.val).2 hxV
+    have e := M.ψV_conj_cel_pow k.val ⟨x, hxV⟩ hw
+    rw [← hk] at e
+    have := M.ψV.injective (Multiplicative.toAdd.injective e)
+    exact congrArg Subtype.val this
 
 theorem θ_mem_of_comm {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) {l : M.L}
     (hl : (l : G) * s = s * l) : ∃ k : Fin 7, M.θ l = SL3.c0 ^ k.val := by
@@ -744,6 +831,23 @@ theorem lemma_J23_3 {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) :
         Nat.Prime.factorization_self Nat.prime_two]
     exact ⟨Sylow.ofCard _ hc, rfl⟩
 
+theorem lemma_J23_4 {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) :
+    M.B ≤ Subgroup.normalizer ((ruS M.L ⊓ Subgroup.centralizer ({s} : Set G) : Subgroup G) :
+        Set G) ∧
+      M.B ≤ Subgroup.normalizer (M.S0 : Set G) ∧
+      M.B ≤ Subgroup.normalizer
+        ((⁅ruS M.L ⊓ Subgroup.centralizer ({s} : Set G), M.B7⁆ : Subgroup G) : Set G) := by
+  rw [M.centralizer_eq_S3 hs hs1, ← M.centralizer_eq_S3 hs hs1, M.commutator_eq_S1 hs hs1,
+    M.centralizer_eq_S3 hs hs1]
+  refine ⟨?_, ?_, ?_⟩ <;> rw [Subgroup.zpowers_le] <;> refine mem_normalizer_of_conj_mem ?_
+  · exact fun x hx => M.bel_conj_S3 hx
+  · exact fun x hx => M.bel_conj_S0 hx
+  · exact fun x hx => M.bel_conj_S1 hx
+
+theorem lemma_J23_5 {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) :
+    CFSG.GroupTheory.IsSuzukiTwoGroup ↥⁅ruS M.L ⊓ Subgroup.centralizer ({s} : Set G), M.B7⁆ := by
+  rw [M.commutator_eq_S1 hs hs1]
+  exact M.S1_suzuki
 
 end RuDataM
 

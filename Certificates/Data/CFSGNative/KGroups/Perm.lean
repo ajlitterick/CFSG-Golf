@@ -38,5 +38,8 @@ open CFSG.Monster.B.Co2.Native
 @[expose] def centLenA (n : Nat) (LP : List (Array Nat)) (t : Array Nat) : Nat :=
   (LP.filter fun g => eqA n (compA n g t) (compA n t g)).length
 
+@[expose] def centInA (n : Nat) (LA LS : List (Array Nat)) : Bool :=
+  LA.all fun s =>
+    !(LS.all fun q => eqA n (compA n s q) (compA n q s)) || LS.any fun q => eqA n s q
 
 end CFSG.KGroups.Native

@@ -29,6 +29,26 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G]
 
+theorem card_mulAut_le_six_of_card_four {V : Type*} [Group V] [Finite V] (hV : Nat.card V = 4) :
+    Nat.card (MulAut V) ≤ 6 ∧ Finite (MulAut V) := by
+  classical
+  let f : MulAut V → Equiv.Perm {v : V // v ≠ 1} := fun a =>
+    Equiv.Perm.subtypePerm a.toEquiv (by intro v; simp)
+  have hf : Function.Injective f := by
+    intro a b hab
+    ext v
+    by_cases hv : v = 1
+    · simp [hv]
+    · exact congrArg Subtype.val (DFunLike.congr_fun hab ⟨v, hv⟩)
+  have : Fintype V := Fintype.ofFinite V
+  have hthree : Nat.card {v : V // v ≠ 1} = 3 := by
+    rw [Nat.card_eq_fintype_card, Fintype.card_subtype_compl]
+    have hone : Fintype.card {v : V // v = 1} = 1 := by simp
+    rw [hone, ← Nat.card_eq_fintype_card, hV]
+  refine ⟨?_, Finite.of_injective f hf⟩
+  calc Nat.card (MulAut V) ≤ Nat.card (Equiv.Perm {v : V // v ≠ 1}) :=
+        Nat.card_le_card_of_injective f hf
+    _ = 6 := by rw [Nat.card_perm, hthree]; rfl
 
 variable [Finite G] {T M L : Subgroup G}
 
@@ -159,10 +179,22 @@ theorem VZ_cases (h : Hyp1281Two G T M L) {z a : G} (hzZ : z ∈ quasithinOmegaO
   · exact Or.inr (Or.inr (Or.inl (congrArg Subtype.val he)))
   · exact Or.inr (Or.inr (Or.inr (congrArg Subtype.val he)))
 
+theorem card_OTwoQuot (h : Hyp1281Two G T M L) : Nat.card (OTwoQuot (L ⊔ T)) = 6 := by
+  obtain ⟨e⟩ := h.sThree
+  rw [Nat.card_congr e.toEquiv, Nat.card_perm, Nat.card_eq_fintype_card, Fintype.card_fin]
+  rfl
 
 theorem LT_le_normalizer_VZ (h : Hyp1281Two G T M L) :
     L ⊔ T ≤ Subgroup.normalizer (VZ T M : Set G) :=
   (sup_le h.le h.inM.2).trans h.isTwoReducedIn.1.2.1
+
+theorem card_autOn_LT (h : Hyp1281Two G T M L) : Nat.card (autOn (L ⊔ T) (VZ T M)) = 6 := by
+  rw [card_autOn_eq_relIndex h.LT_le_normalizer_VZ, h.centralizer]
+  have hsub : (pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T) = CFSG.Open.pCore 2 ↥(L ⊔ T) :=
+    map_subtype_subgroupOf' (CFSG.Open.pCore 2 ↥(L ⊔ T))
+  show ((pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T)).index = 6
+  rw [hsub]
+  exact h.card_OTwoQuot
 
 
 theorem conj_eq_of_not_centralizes (h : Hyp1281Two G T M L) {z a x : G}

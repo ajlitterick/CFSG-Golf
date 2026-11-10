@@ -30,6 +30,8 @@ set_option compiler.extract_closed false
 @[expose] def burnsideF48t_g23Norm (v : Array ℕ) : Array ℕ :=
   if v.find? (· != 0) == some 2 then v.map fun x => 2 * x % 3 else v
 
+@[expose] def burnsideF48t_g23Unit (j : ℕ) : Array ℕ :=
+  Array.ofFn (n := 14) fun i => if i.val = j then 1 else 0
 
 @[expose] def burnsideF48t_g23Pts (_ : Unit := ()) : Array (Array ℕ) :=
   let b := burnsideF48t_g23PtsStr.toUTF8

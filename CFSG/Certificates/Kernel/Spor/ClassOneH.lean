@@ -15,6 +15,23 @@ open CFSG.EvenSporadicStandard.HypOne CFSG.EvenSporadicStandard.RuStd
 
 variable {n : Nat}
 
+theorem hashIndex_foldl (L : Array Table) (k : UInt64) :
+    ∀ m : Nat, ((List.range m).foldl (fun mp i => mp.insert (hkey n L[i]!) i)
+      (∅ : Std.HashMap UInt64 Nat))[k]? = none ∨
+      ∃ i < m, hkey n L[i]! = k ∧
+        ((List.range m).foldl (fun mp i => mp.insert (hkey n L[i]!) i)
+          (∅ : Std.HashMap UInt64 Nat))[k]? = some i
+  | 0 => Or.inl (by simp)
+  | m + 1 => by
+    rw [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil,
+      Std.HashMap.getElem?_insert]
+    by_cases e : (hkey n L[m]! == k) = true
+    · rw [if_pos e]
+      exact Or.inr ⟨m, by omega, beq_iff_eq.1 e, rfl⟩
+    · rw [if_neg e]
+      rcases hashIndex_foldl L k m with h | ⟨i, hi, hk, h⟩
+      · exact Or.inl h
+      · exact Or.inr ⟨i, by omega, hk, h⟩
 
 theorem hashIndex_get {L : Array Table}
     (hd : ∀ a < L.size, ∀ b < L.size, hkey n L[a]! = hkey n L[b]! → a = b) {i : Nat}

@@ -31,6 +31,11 @@ theorem aimg_symm_delta {Y : Subgroup G} (hY : aimg S₀ α.symm Y ≤ Q₀) :
     aimg S₀ α.symm (delta S₀ α h Y) = cj (aimg S₀ α.symm Y) h :=
   aimg_symm_aimg (cj_aimg_symm_le hQ α h hY)
 
+theorem aimg_symm_delta_le {Y : Subgroup G} (hY : aimg S₀ α.symm Y ≤ Q₀) :
+    aimg S₀ α.symm (delta S₀ α h Y) ≤ Q₀ := by
+  rw [aimg_symm_delta hQ α h hY]
+  have := cj_mono (g := h) hY
+  rwa [cj_eq_self_of_normal (Y := Q₀)] at this
 
 theorem delta_commutator {Y Y' : Subgroup G} (hY : Y ≤ S₀) (hY' : Y' ≤ S₀)
     (hYQ : aimg S₀ α.symm Y ≤ Q₀) (hYQ' : aimg S₀ α.symm Y' ≤ Q₀) :

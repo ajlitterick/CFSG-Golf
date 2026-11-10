@@ -52,6 +52,10 @@ theorem act_of_rows {s : ℕ} (hs : s < 2) {R : Array ℕ}
   rw [vecMulN_eq_vmul hR, ← (get_rep hr (by rw [V_size]; exact hi)).2]
   rfl
 
+open CFSG.KC.Enum CFSG.KS.Co2M CertificateChecks.KernelSporSch.Co2M in
+theorem bad_rowsA : Bool.not (allN 22 (fun k => Nat.beq (pg 22 M22 (Nat.xor (SR 0) 1) k)
+    ((transposeRows 22 RA)[k]?.getD 0))) = true := by
+  quickRfl
 
 theorem actA : ∀ i < 2300, vecMulN 22 (transposeRows 22 RA) co2PackedVecs[i]! =
     co2PackedVecs[(co2OrigArrs[0]!)[i]!]! := act_of_rows (by decide) rowsA_ok

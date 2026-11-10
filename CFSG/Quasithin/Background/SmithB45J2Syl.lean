@@ -382,6 +382,8 @@ theorem card_fixM_inf_le {a y : M6} {x : V6} (hx : x ∈ fixM a) (hy : y *ᵥ x 
   zero_mem' := fun b _ => Matrix.mulVec_zero _
   smul_mem' := fun c {v} hv b hb => by rw [Matrix.mulVec_smul, hv b hb]
 
+theorem mem_mFix {B : Subgroup GL6} {v : V6} : v ∈ mFix B ↔ ∀ b ∈ B, (b : M6) *ᵥ v = v :=
+  Iff.rfl
 
 theorem mFix_le_fixM {B : Subgroup GL6} {b : GL6} (hb : b ∈ B) : mFix B ≤ fixM b :=
   fun _ hv => mem_fixM.mpr (hv b hb)
@@ -405,6 +407,9 @@ theorem card_range_mul_card_fixM (a : M6) :
   rw [card_V6] at h1
   rw [fixM, ← h2, mul_comm, ← h1]
 
+theorem units_eq_of_toMat {x y : GL6} {m : BM} (hx : (x : M6) = m.toMat) (hy : (y : M6) = m.toMat) :
+    x = y :=
+  Units.ext (hx.trans hy.symm)
 
 theorem idx_ne {x y : GL6} {d e : InvD} (hx : (x : M6) = (sEl d.idx).toMat)
     (hy : (y : M6) = (sEl e.idx).toMat) (hne : x ≠ y) : d.idx ≠ e.idx := by

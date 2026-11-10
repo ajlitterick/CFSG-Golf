@@ -19,6 +19,10 @@ namespace CFSG.Certificates.RawSchreierDatum
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
+theorem levelStabilizerEquiv_val {n : ℕ} (Q : RawSchreierDatum n)
+    (hQ : ValidSchreier Q) (i : Fin Q.baseCount)
+    (g : MulAction.stabilizer (Q.levelSubgroup i.val) (Q.base.get i)) :
+    (Q.levelStabilizerEquiv hQ i g : Equiv.Perm (Fin n)) = g.val.val := rfl
 
 theorem level_card_eq_orbit_mul_next {n : ℕ} (Q : RawSchreierDatum n)
     (hQ : ValidSchreier Q) (i : Fin Q.baseCount) :

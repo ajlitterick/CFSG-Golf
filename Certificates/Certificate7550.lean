@@ -24,5 +24,11 @@ end CertificateChecks.PresLetters7550
 
 namespace Certificates
 
+open CertificateChecks.PresLetters7550 in
+open CFSG CFSG.ASVolI CFSG.CosetTable in
+theorem certificate7550 : ∀ k < 32, Finite (PG 5 (burnsideF48s_sp43eWs k)) ∧
+    Nat.card (PG 5 (burnsideF48s_sp43eWs k)) ≤ (if k % 4 = 0 then 40 else 1) * 1296 := fun k hk =>
+  TableFact.card_restrict (burnsideF48s_sp43eWs k) (by norm_num) (subsetOf 5 [0, 1, 2, 4])
+    (by decide) (idx k hk) (res k hk)
 
 end Certificates

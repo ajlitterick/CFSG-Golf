@@ -517,6 +517,13 @@ section Anisotropic
 variable [CharP F 2] (h : Hyp G R) (hS : Skel R Ψ) (hP : PtHyp R Ψ)
 include h hS hP
 
+theorem eq_one_of_Lc_eq_one {u : G} (hu : u ∈ hU R Ψ) (hL : Lc R Ψ u = 1) : u = 1 := by
+  refine eq_one_of_commutator_mem h hS hP (xs_mem ne13 1) ?_ hu ?_
+  · intro e
+    have := xs_injective hS ne13 (e.trans (xs_zero ne13).symm)
+    exact one_ne_zero this
+  · rw [commutator_eq_xs_mul_Lc (R := R) u, hL, mul_one]
+    exact xs_mem _ _
 
 theorem eq_one_of_Qc_eq_zero {u : G} (hu : u ∈ hU R Ψ) (hQ : Qc R Ψ u = 0) : u = 1 := by
   have hR := h.root

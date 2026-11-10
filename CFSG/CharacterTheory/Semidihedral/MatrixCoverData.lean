@@ -26,6 +26,8 @@ abbrev C2 := Multiplicative (ZMod 2)
 
 theorem exponent_lt_two (e : C2) : exponent e < 2 := ZMod.val_lt _
 
+theorem exponent_mul (e d : C2) :
+    exponent (e * d) = (exponent e + exponent d) % 2 := ZMod.val_add _ _
 
 @[expose] def J (a : Fˣ) : GL2 F :=
   GeneralLinearGroup.mkOfDetNeZero !![0, -(a : F); 1, 0] (by
@@ -138,12 +140,32 @@ theorem action_toGL (a : Fˣ) (e : C2) (X : SL F) :
 
 abbrev M (a : Fˣ) := SemidirectProduct (SL F) C2 (action F a)
 
+theorem multiplication (a : Fˣ) (X Y : SL F) (e d : C2) :
+    (⟨X, e⟩ : M F a) * ⟨Y, d⟩ = ⟨X * action F a e Y, e * d⟩ := rfl
+
+theorem multiplication_matrix (a : Fˣ) (x y : M F a) :
+    ((x * y).left : Matrix (Fin 2) (Fin 2) F) =
+      (x.left : Matrix (Fin 2) (Fin 2) F) *
+        ((J F a) ^ exponent x.right : GL2 F) *
+        (y.left : Matrix (Fin 2) (Fin 2) F) *
+        (((J F a) ^ exponent x.right)⁻¹ : GL2 F) := by
+  have h : (action F a x.right y.left : Matrix (Fin 2) (Fin 2) F) =
+      ((J F a) ^ exponent x.right : GL2 F) *
+        (y.left : Matrix (Fin 2) (Fin 2) F) *
+        (((J F a) ^ exponent x.right)⁻¹ : GL2 F) :=
+    congrArg Units.val (action_toGL F a x.right y.left)
+  change (x.left : Matrix (Fin 2) (Fin 2) F) * (action F a x.right y.left :
+    Matrix (Fin 2) (Fin 2) F) = _
+  rw [h]
+  simp only [Matrix.mul_assoc]
 
 @[expose] def inclusion (a : Fˣ) : SL F →* M F a := SemidirectProduct.inl
 
 theorem inclusion_injective (a : Fˣ) : Function.Injective (inclusion F a) :=
   SemidirectProduct.inl_injective
 
+theorem inclusion_pair (a : Fˣ) (X : SL F) :
+    inclusion F a X = ⟨X, Multiplicative.ofAdd (0 : ZMod 2)⟩ := rfl
 
 @[expose] def u (a : Fˣ) : M F a :=
   SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2))
@@ -223,6 +245,30 @@ theorem pi_u (a : Fˣ) : pi F a (u F a) = jProjective F a := by
     QuaternionAutomorphismLifting.coordinatePowerHom_natCast 2
       (jProjective F a) (jProjective_square F a) 1
 
+theorem nonsquare_involution_linear_two_cover_data (a : Fˣ) :
+    (J F a : Matrix (Fin 2) (Fin 2) F) = !![0, -(a : F); 1, 0] ∧
+    GeneralLinearGroup.det (J F a) = a ∧
+    (J F a) ^ 2 = GeneralLinearGroup.scalar (Fin 2) (-a) ∧
+    (∀ X : SL F, (beta F a X : Matrix (Fin 2) (Fin 2) F) =
+      (J F a : Matrix (Fin 2) (Fin 2) F) * (X : Matrix (Fin 2) (Fin 2) F) *
+        ((J F a)⁻¹ : GL2 F)) ∧
+    (beta F a) ^ 2 = 1 ∧
+    (∀ x y : M F a, (x * y).right = x.right * y.right ∧
+      ((x * y).left : Matrix (Fin 2) (Fin 2) F) =
+        (x.left : Matrix (Fin 2) (Fin 2) F) *
+          ((J F a) ^ exponent x.right : GL2 F) *
+          (y.left : Matrix (Fin 2) (Fin 2) F) *
+          (((J F a) ^ exponent x.right)⁻¹ : GL2 F)) ∧
+    Function.Injective (inclusion F a) ∧
+    (∀ X : SL F, inclusion F a X = ⟨X, Multiplicative.ofAdd (0 : ZMod 2)⟩) ∧
+    u F a = ⟨1, Multiplicative.ofAdd (1 : ZMod 2)⟩ ∧
+    (∀ x : M F a, (pi F a x : Equiv.Perm (Omega F)) = coordinatePGLAction F
+      (Matrix.ProjGenLinGroup.mk
+        (SpecialLinearGroup.toGL x.left * (J F a) ^ exponent x.right))) := by
+  exact ⟨J_matrix F a, J_det F a, J_square F a,
+    slConjugation_matrix F (J F a), beta_square F a,
+    fun x y => ⟨rfl, multiplication_matrix F a x y⟩,
+    inclusion_injective F a, inclusion_pair F a, u_pair F a, pi_coordinate F a⟩
 
 end
 

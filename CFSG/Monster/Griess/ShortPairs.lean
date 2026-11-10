@@ -78,6 +78,8 @@ theorem alphaS_mem {c d : ShortIdx} (hcd : c ≠ d) :
   (rootless_short_sums hL hL_symm hL_min (alphaS_self c) (alphaS_self d)
     (uL_ne_of_ne hcd).1 (uL_ne_of_ne hcd).2).1
 
+theorem isShortCoord_iff_exists (p : C × Cocode) :
+    IsShortCoord p ↔ ∃ w ∈ minVecs, classOf w = phi0 p := Iff.rfl
 
 theorem two_smul_codeLattice {t : Fin 24 → ℤ} (ht : t ∈ codeLattice C) :
     (2 : ℤ) • t ∈ codeLattice C := (codeLatticeSubgroup allOnes_mem_C).zsmul_mem ht 2

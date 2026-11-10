@@ -60,6 +60,7 @@ theorem vecAut_one : vecAut (1 : GL (Fin n) (ZMod 2)) = 1 := vecHom.map_one
 theorem vecAut_mul (A B : GL (Fin n) (ZMod 2)) : vecAut (A * B) = vecAut A * vecAut B :=
   vecHom.map_mul A B
 
+theorem vecAut_inv (A : GL (Fin n) (ZMod 2)) : vecAut A⁻¹ = (vecAut A)⁻¹ := vecHom.map_inv A
 
 theorem vecAut_mul_apply (A B : GL (Fin n) (ZMod 2)) (x : Vec n) :
     vecAut (A * B) x = vecAut A (vecAut B x) := by
@@ -96,6 +97,7 @@ theorem vecHom_surjective : Function.Surjective (vecHom (n := n)) := by
 @[expose] noncomputable def vecEquiv : GL (Fin n) (ZMod 2) ≃* MulAut (Vec n) :=
   MulEquiv.ofBijective vecHom ⟨vecHom_injective, vecHom_surjective⟩
 
+theorem vecEquiv_apply (A : GL (Fin n) (ZMod 2)) : vecEquiv A = vecAut A := rfl
 
 theorem vecAut_symm (f : MulAut (Vec n)) : vecAut (vecEquiv.symm f) = f :=
   vecEquiv.apply_symm_apply f
@@ -131,6 +133,8 @@ theorem eq_one_of_forall_commute_mulAut {S : Type*} [Group S]
   map_one' := MulEquiv.ext fun _ => Subtype.ext rfl
   map_mul' _ _ := MulEquiv.ext fun _ => Subtype.ext rfl
 
+theorem resAut_apply {W : Type} [CommGroup W] (U : Subgroup W) (l : ↥(stabV U)) (u : ↥U) :
+    ((resAut U l u : ↥U) : W) = (l : MulAut W) u := rfl
 
 variable {W : Type} [CommGroup W] {M L T : Subgroup (MulAut W)} {W₁ W₂ : Subgroup W}
 

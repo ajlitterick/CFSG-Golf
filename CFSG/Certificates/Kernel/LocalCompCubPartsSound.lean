@@ -558,6 +558,13 @@ private theorem ksCP_not_beq_of_ne {a b : Nat} (h : a ≠ b) : (!Nat.beq a b) = 
   | false => rfl
   | true => exact absurd (Nat.eq_of_beq_eq_true hb) h
 
+private theorem ksCP_map_range_get {α β : Type} (l : List α) (f : α → β) (d : α) :
+    l.map f = (List.range l.length).map (fun i => f (l.getD i d)) := by
+  apply List.ext_getElem
+  · simp
+  · intro i h1 h2
+    rw [List.getElem_map, List.getElem_map, List.getElem_range]
+    rw [List.getD_eq_getElem _ _ (by simpa using h1)]
 
 private theorem ksCP_commsModK_of {c : Lay} {T : Nat} {xs : List Nat}
     (h : ∀ i j, i < xs.length → i < j → j < xs.length →

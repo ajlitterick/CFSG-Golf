@@ -26,12 +26,18 @@ set_option compiler.extract_closed false
 
 @[expose] def bpForm : Array (Array Nat) := matOfDigits (formDigitsTxt.replace "\n" "")
 
+@[expose] def bpOrbit (_ : Unit) : KOrbit := bfsPar tabA tabB bpRootKey nPts 4096 4
 
 @[expose] def bpRootChecks (_ : Unit) : Bool :=
   bpRootKey.size == 276 && allIn 0 276 (fun q => (bpRootKey.get! q).toNat < 125) &&
     rrefOK (keyRows bpRootKey) #[0, 1, 2, 3, 4, 5, 6] &&
     mul7 (keyS bpRootKey) (inv7 (keyS bpRootKey)) == id7
 
+@[expose] def formCertificate (_ : Unit) : Bool :=
+  bpRootChecks () && bpRootArr.size == 826 && allIn 0 826 (fun p => bpRootArr[p]! < 5) &&
+    bpForm.size == 111 && (bpForm.all fun r => r.size == 111) &&
+    allIn 0 111 (fun i => allIn 0 111 fun j => bpForm[i]![j]! % 5 == 4 * formF[i]![j]! % 5) &&
+    mulM 5 111 formF (invM 5 111 formF) == idM 111
 
 @[inline, expose] def orbitDiscPos (O : KOrbit) (k : Nat) : Nat := 2 * ap O.par k + (ap O.lab k - 1)
 
@@ -58,10 +64,23 @@ set_option compiler.extract_closed false
 @[expose] def maskOf (n : Nat) (xs : Array Nat) : Array Bool :=
   xs.foldl (fun m x => m.set! x true) (Array.replicate n false)
 
+@[expose] def fixedSetOK (n : Nat) (alpha : Table) (fi : Array Nat) : Bool :=
+  let m := maskOf n fi
+  fi.size == 2772 && allIn 0 (fi.size - 1) (fun k => fi[k]! < fi[k + 1]!) &&
+    allIn 0 fi.size (fun k => fi[k]! < n) &&
+    allIn 0 n (fun i => (ap alpha i == i) == m[i]!)
+
+@[inline, expose] def seedTab (alpha beta betaInv : Table) (l : Int) : Table :=
+  if 0 < l then (if l.toNat - 1 = 0 then alpha else beta)
+  else (if (-l).toNat - 1 = 0 then alpha else betaInv)
 
 @[expose] def wordAp (tab : Int → Table) (w : List Int) (x : Nat) : Nat :=
   w.foldr (fun l y => ap (tab l) y) x
 
+@[expose] def seedPermOK (tab : Int → Table) (fi : Array Nat) (p : Nat → Array Nat)
+    (w : Nat → List Int) : Bool :=
+  allIn 0 2 fun j => (p j).size == fi.size && allIn 0 fi.size fun k =>
+    (p j)[k]! < fi.size && wordAp tab (w j) fi[k]! == fi[(p j)[k]!]!
 
 @[expose] def transTree (m : Nat) (p : Nat → Array Nat) : Array Nat × Array Nat × Array Nat :=
   Id.run do
@@ -98,5 +117,13 @@ set_option compiler.extract_closed false
   let T := transTree 2772 fixedPerm
   treeReachOK 2772 fixedPerm T.1 T.2.1 T.2.2 (posOf 2772 T.1)
 
+@[expose] def orbitCertificate (_ : Unit) : Bool :=
+  let O := bpOrbit ()
+  let bi := invT nPts O.beta
+  let tab := seedTab O.alpha O.beta bi
+  orbitOK tabA tabB bpRootKey O 3 && O.keys.size == nPts && invOK nPts O.beta bi &&
+    bfsOrderOK O && fixedSetOK nPts O.alpha fixedIdx &&
+    seedPermOK tab fixedIdx fixedPerm seedWord && transOK () &&
+    wordAp tab transporterWord 0 == fixedIndex && ap O.alpha fixedIndex == fixedIndex
 
 end CFSG.Sporadic.LySchreier.Native

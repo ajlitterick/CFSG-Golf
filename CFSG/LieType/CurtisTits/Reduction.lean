@@ -107,6 +107,11 @@ theorem posLift_mem (S : Subgroup G) (hS : ∀ i, f i ∈ S) (w : W) : posLift c
     obtain ⟨i, -, rfl⟩ := List.mem_map.mp hx
     exact hS i
 
+theorem map_posLift {G' : Type*} [Group G'] (g : G →* G')
+    (hf' : ∀ i j, ((braidWord M i j).map (g ∘ f)).prod = ((braidWord M j i).map (g ∘ f)).prod)
+    (w : W) : g (posLift cs f hf w) = posLift cs (g ∘ f) hf' w := by
+  obtain ⟨ω, hω, rfl⟩ := cs.exists_isReduced w
+  rw [posLift_wordProd cs f hf hω, posLift_wordProd cs _ hf' hω, map_list_prod, List.map_map]
 
 end PositiveLift
 
@@ -435,6 +440,14 @@ private theorem nh_sq_mem_Hhat (j : I) : nh n φ j ^ 2 ∈ Hhat H φ := by
   rw [this]
   exact fam_mem_Hhat (hK.sq_mem j)
 
+include hφ hK in
+private theorem nh_inv_conj_mem_Hhat (j : I) {g : G} (hg : g ∈ Hhat H φ) :
+    (nh n φ j)⁻¹ * g * nh n φ j ∈ Hhat H φ := by
+  have hsq := nh_sq_mem_Hhat (φ := φ) hK j
+  have : (nh n φ j)⁻¹ * g * nh n φ j =
+      (nh n φ j ^ 2)⁻¹ * (nh n φ j * g * (nh n φ j)⁻¹) * nh n φ j ^ 2 := by group
+  rw [this]
+  exact mul_mem (mul_mem (inv_mem hsq) (nh_conj_mem_Hhat hφ hK j hg)) hsq
 
 private theorem nt_conj_mem_Hhat (w : W) {g : G} (hg : g ∈ Hhat H φ) :
     nt hφ hK w * g * (nt hφ hK w)⁻¹ ∈ Hhat H φ := by

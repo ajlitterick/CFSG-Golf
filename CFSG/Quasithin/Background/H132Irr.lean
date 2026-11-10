@@ -101,6 +101,31 @@ section Endo
 
 variable {V : Type*} [CommGroup V]
 
+theorem endo_eq_zero_or_id [Finite V] {L : Subgroup (MulAut V)} (hirr : IrredAct L)
+    (hC : Subgroup.centralizer (L : Set (MulAut V)) = ⊥) (θ : V →* V)
+    (hθ : ∀ g ∈ L, ∀ v, θ (g v) = g (θ v)) : θ = 1 ∨ θ = MonoidHom.id V := by
+  have hker : ∀ g ∈ L, ∀ u ∈ θ.ker, g u ∈ θ.ker := by
+    intro g hg u hu
+    rw [MonoidHom.mem_ker] at hu ⊢
+    rw [hθ g hg, hu, map_one]
+  rcases hirr θ.ker hker with h0 | h0
+  · right
+    have hinj : Function.Injective θ := (MonoidHom.ker_eq_bot_iff θ).1 h0
+    have hbij : Function.Bijective θ := Finite.injective_iff_bijective.1 hinj
+    let e : MulAut V := MulEquiv.ofBijective θ hbij
+    have he : e ∈ Subgroup.centralizer (L : Set (MulAut V)) := by
+      rw [Subgroup.mem_centralizer_iff]
+      intro h hh
+      refine MulEquiv.ext fun v => ?_
+      exact (hθ h hh v).symm
+    rw [hC, Subgroup.mem_bot] at he
+    refine MonoidHom.ext fun v => ?_
+    have := congrArg (fun f : MulAut V => f v) he
+    exact this
+  · left
+    refine MonoidHom.ext fun v => ?_
+    have : v ∈ θ.ker := by rw [h0]; trivial
+    exact this
 
 end Endo
 
@@ -116,6 +141,15 @@ private theorem toLin'_mulAutMat (n : ℕ) (f : MulAut (Multiplicative (Fin n �
   rw [Matrix.toLin'_toMatrix']
   rfl
 
+private theorem irredAct_rhoC11_autPerm :
+    IrredAct (rhoC11 AutPerm le_rfl).range := by
+  refine irredAct_of_gens _ (fun z => rhoC11 AutPerm le_rfl (m24g z)) (fun z => ⟨_, rfl⟩) ?_
+  intro U hU
+  refine irredPair_m24Std (t := 1) (by norm_num) U ?_
+  intro z (u : Fin 11 → ZMod 2) hu
+  show lin 11 (m24Std 1 z) u ∈ U
+  rw [lin_m24Std_code z, toLin'_mulAutMat]
+  exact hU z u hu
 
 private theorem irredAct_rho11_autPerm :
     IrredAct (rho11 AutPerm le_rfl).range := by
@@ -127,11 +161,75 @@ private theorem irredAct_rho11_autPerm :
   rw [lin_m24Std_cocode z, toLin'_mulAutMat]
   exact hU z u hu
 
+private theorem irredAct_rhoC11_mog23 :
+    IrredAct (rhoC11 mog23 inf_le_left).range := by
+  refine irredAct_of_gens _ (fun z => rhoC11 mog23 inf_le_left (m23g z)) (fun z => ⟨_, rfl⟩) ?_
+  intro U hU
+  refine irredPair_m23Std (t := 1) (by norm_num) U ?_
+  intro z (u : Fin 11 → ZMod 2) hu
+  show lin 11 (m23Std 1 z) u ∈ U
+  rw [lin_m23Std_code z, toLin'_mulAutMat]
+  exact hU z u hu
+
+private theorem irredAct_rho11_mog23 :
+    IrredAct (rho11 mog23 inf_le_left).range := by
+  refine irredAct_of_gens _ (fun z => rho11 mog23 inf_le_left (m23g z)) (fun z => ⟨_, rfl⟩) ?_
+  intro U hU
+  refine irredPair_m23Std (t := 2) (by norm_num) U ?_
+  intro z (u : Fin 11 → ZMod 2) hu
+  show lin 11 (m23Std 2 z) u ∈ U
+  rw [lin_m23Std_cocode z, toLin'_mulAutMat]
+  exact hU z u hu
+
+private theorem irredAct_rhoC10_mog22 :
+    IrredAct (rhoC10 mog22 mog22_le_mog22plus).range := by
+  refine irredAct_of_gens _ (fun g => rhoC10 mog22 mog22_le_mog22plus (psiS22 g))
+    (fun g => ⟨_, rfl⟩) ?_
+  intro U hU
+  let S : Subrepresentation (matrixBaseChange (RingHom.id (ZMod 2)) rep10b) :=
+    ⟨U, fun g u hu => by
+      have h1 : (rep10b g).map (RingHom.id (ZMod 2)) = rep10b g := by
+        ext i j
+        rfl
+      rw [matrixBaseChange_apply, h1, rep10b_apply, ← Matrix.toLin'_apply, toLin'_mulAutMat]
+      exact hU g u hu⟩
+  haveI := isIrreducible_rep10b (RingHom.id (ZMod 2))
+  rcases IsSimpleOrder.eq_bot_or_eq_top S with h0 | h0
+  · exact Or.inl (congrArg Subrepresentation.toSubmodule h0)
+  · exact Or.inr (congrArg Subrepresentation.toSubmodule h0)
+
+private theorem irredAct_rho10_mog22 :
+    IrredAct (rho10 mog22 mog22_le_mog22plus).range := by
+  refine irredAct_of_gens _ (fun g => rho10 mog22 mog22_le_mog22plus (psiS22 g))
+    (fun g => ⟨_, rfl⟩) ?_
+  intro U hU
+  let S : Subrepresentation (matrixBaseChange (RingHom.id (ZMod 2)) rep10a) :=
+    ⟨U, fun g u hu => by
+      have h1 : (rep10a g).map (RingHom.id (ZMod 2)) = rep10a g := by
+        ext i j
+        rfl
+      rw [matrixBaseChange_apply, h1, rep10a_apply, ← Matrix.toLin'_apply, toLin'_mulAutMat]
+      exact hU g u hu⟩
+  haveI := isIrreducible_rep10a (RingHom.id (ZMod 2))
+  rcases IsSimpleOrder.eq_bot_or_eq_top S with h0 | h0
+  · exact Or.inl (congrArg Subrepresentation.toSubmodule h0)
+  · exact Or.inr (congrArg Subrepresentation.toSubmodule h0)
 
 end Std
 
 section Facts
 
+theorem centralizer_eq_bot_of_code23
+    {V : Type*} [CommGroup V] {H : Subgroup (MulAut V)} (h : MathieuCode23 H ⊤ ⊥) :
+    Subgroup.centralizer (H : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := code23_std h
+  exact centralizer_eq_bot_of_map e (by rw [he]; exact centralizer_rhoC11_mog23)
+
+theorem centralizer_eq_bot_of_cocode23
+    {V : Type*} [CommGroup V] {H : Subgroup (MulAut V)}
+    (h : MathieuCocode23 H ⊤ ⊥) : Subgroup.centralizer (H : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := cocode23_std h
+  exact centralizer_eq_bot_of_map e (by rw [he]; exact centralizer_rho11_mog23)
 
 theorem centralizer_eq_bot_of_cocode22
     {V : Type*} [CommGroup V] {H : Subgroup (MulAut V)}
@@ -141,6 +239,40 @@ theorem centralizer_eq_bot_of_cocode22
 
 variable {V : Type} [CommGroup V] {L : Subgroup (MulAut V)}
 
+theorem code22_facts
+    (h : MathieuCode22 L ⊤ ⊥) :
+    Nat.card V = 2 ^ 10 ∧ IrredAct L ∧ Subgroup.centralizer (L : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := code22_std h
+  exact ⟨(stmtH13Card V L).2.2 (Or.inr h), irredAct_of_map e he irredAct_rhoC10_mog22,
+    centralizer_eq_bot_of_code22 h⟩
+
+theorem cocode22_facts
+    (h : MathieuCocode22 L ⊤ ⊥) :
+    Nat.card V = 2 ^ 10 ∧ IrredAct L ∧ Subgroup.centralizer (L : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := cocode22_std h
+  exact ⟨(stmtH13Card V L).2.2 (Or.inl h), irredAct_of_map e he irredAct_rho10_mog22,
+    centralizer_eq_bot_of_cocode22 h⟩
+
+theorem code23_facts
+    (h : MathieuCode23 L ⊤ ⊥) :
+    Nat.card V = 2 ^ 11 ∧ IrredAct L ∧ Subgroup.centralizer (L : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := code23_std h
+  exact ⟨(stmtH13Card V L).2.1 (Or.inr h), irredAct_of_map e he irredAct_rhoC11_mog23,
+    centralizer_eq_bot_of_code23 h⟩
+
+theorem cocode23_facts
+    (h : MathieuCocode23 L ⊤ ⊥) :
+    Nat.card V = 2 ^ 11 ∧ IrredAct L ∧ Subgroup.centralizer (L : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := cocode23_std h
+  exact ⟨(stmtH13Card V L).2.1 (Or.inl h), irredAct_of_map e he irredAct_rho11_mog23,
+    centralizer_eq_bot_of_cocode23 h⟩
+
+theorem code24_facts
+    (h : MathieuCode24 L ⊤ ⊥) :
+    Nat.card V = 2 ^ 11 ∧ IrredAct L ∧ Subgroup.centralizer (L : Set (MulAut V)) = ⊥ := by
+  obtain ⟨e, he⟩ := code24_std h
+  exact ⟨(stmtH13Card V L).1 (Or.inr h), irredAct_of_map e he irredAct_rhoC11_autPerm,
+    centralizer_eq_bot_of_code24 h⟩
 
 theorem cocode24_facts
     (h : MathieuCocode24 L ⊤ ⊥) :

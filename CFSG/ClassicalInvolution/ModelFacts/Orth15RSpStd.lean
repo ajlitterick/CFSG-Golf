@@ -84,6 +84,7 @@ theorem blk_mem (A B : SL(2, F)) : blk F A B ∈ R0 F ⊔ R0' F :=
 
 theorem u0_mem : u0 F ∈ R0 F ⊔ R0' F := blk_mem _ _
 
+theorem x0_mem_R0 : x0 F ∈ R0 F := ⟨-1, rfl⟩
 
 theorem u0_eq_blk : u0 F = blk F r0 r0 := rfl
 
@@ -372,6 +373,9 @@ theorem t0_eq_blk : t0 F = blk F (-r0) r0 := by
 theorem t0_eq_blk' : t0 F = blk F r0⁻¹ r0 := by
   rw [t0_eq_blk, r0_inv]
 
+theorem t0_mem : t0 F ∈ R0 F ⊔ R0' F := by
+  rw [t0_eq_blk]
+  exact blk_mem _ _
 
 theorem exists_conj_t0 [Finite F] (h2 : (2 : F) ≠ 0) :
     ∃ g' : StatedSp 2 F, g' * u0 F * g'⁻¹ = t0 F ∧ g' * x0 F * g'⁻¹ = x0 F := by

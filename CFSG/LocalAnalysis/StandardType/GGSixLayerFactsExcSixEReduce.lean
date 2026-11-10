@@ -237,6 +237,10 @@ theorem GGInduces.unique (hπ : Function.Surjective π) {c : G}
     rintro _ ⟨e, he, h⟩
     exact ⟨e⁻¹, E.inv_mem he, h.inv⟩
 
+theorem mem_inducedAut {hker : ψ.ker ≤ π.ker} {E : Subgroup G}
+    {hEN : E ≤ Subgroup.normalizer (ψ.range : Set G)} {α : MulAut C} :
+    α ∈ inducedAut hker E hEN ↔ ∃ e ∈ E, GGInduces π ψ e α :=
+  Iff.rfl
 
 end Induced
 

@@ -25,6 +25,7 @@ theorem aCNt : ascK (tot5 TitsN.LR) CNtC 0 = true := by quickRfl
 
 theorem lCNt : Nat.beq CNtC.length 1536 = true := by quickRfl
 
+theorem negCNt : (Nat.beq (maskOf (CNtC.take 100)) TitsMN.M).not = true := by quickRfl
 
 end CertificateChecks.KernelEvenBN
 

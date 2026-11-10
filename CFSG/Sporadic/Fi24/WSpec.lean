@@ -246,6 +246,7 @@ theorem W.val_zero (j : ℕ) : W.zero.val j = 0 := by
 
 theorem W.wf_zero : W.zero.wf = true := by decide
 
+theorem W.default_eq : (default : W) = W.zero := rfl
 
 @[expose] def bitOf (j : ℕ) : UInt64 := (1 : UInt64) <<< (j &&& 63).toUInt64
 

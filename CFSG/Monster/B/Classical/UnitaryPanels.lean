@@ -22,6 +22,11 @@ variable {p f : ℕ} (h : UnitaryFieldData p f K) [FiniteDimensional K V]
       Equiv.Perm (Submodule K V) :=
   QuotientGroup.lift _ (MulAction.toPermHom _ _) (center_le_ker_toPermHom h hB hBl hV)
 
+theorem psuSubspaceAction_mk (g : sesqSpecialUnitaryGroup B) (W : Submodule K V) :
+    psuSubspaceAction h hB hBl hV (g : sesqSpecialUnitaryGroup B ⧸
+        Subgroup.center (sesqSpecialUnitaryGroup B)) W =
+      W.map ((g : LinearMap.GeneralLinearGroup K V) : V →ₗ[K] V) :=
+  rfl
 
 @[expose] noncomputable def psuFlagStabilizer (R H T : Submodule K V) :
     Subgroup (sesqSpecialUnitaryGroup B ⧸ Subgroup.center (sesqSpecialUnitaryGroup B)) :=

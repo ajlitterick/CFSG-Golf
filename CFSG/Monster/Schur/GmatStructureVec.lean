@@ -32,6 +32,10 @@ theorem vecQ_mul (a b : Qmat) : vecQ (a * b) = vecQ a + vecQ b := by
   unfold vecQ
   rw [qN_mul, QuotientGroup.mk_mul, ofMul_mul, map_add]
 
+theorem vecQ_one : vecQ 1 = 0 := by
+  have := vecQ_mul 1 1
+  rw [mul_one] at this
+  exact left_eq_add.1 this
 
 theorem rhoN_zQ_ne_one : rhoN zQ ≠ 1 := fun h => by
   have h1 := congrArg (fun a : rhoQvis => ((a : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB)) h

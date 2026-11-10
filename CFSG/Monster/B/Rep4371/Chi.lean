@@ -44,12 +44,16 @@ theorem mem_Vst_of_mem_Cgen
     change (g : SpaceB ≃ₗ[ℚ] SpaceB) (((g⁻¹ : Cgen) : SpaceB ≃ₗ[ℚ] SpaceB) v) = v
     rw [Subgroup.coe_inv, LinearEquiv.coe_inv, LinearEquiv.apply_symm_apply])
 
+theorem coe_resV_apply (g : Cgen) (v : Vst) :
+    ((resV g v : Vst) : SpaceB) = (g : SpaceB ≃ₗ[ℚ] SpaceB) v := rfl
 
 @[expose] noncomputable def chiC : Cgen →* (Vst ≃ₗ[ℚ] Vst) where
   toFun := resV
   map_one' := LinearEquiv.ext fun _ => rfl
   map_mul' _ _ := LinearEquiv.ext fun _ => rfl
 
+theorem coe_chiC_apply (g : Cgen) (v : Vst) :
+    ((chiC g v : Vst) : SpaceB) = (g : SpaceB ≃ₗ[ℚ] SpaceB) v := rfl
 
 theorem tAxis_apply_of_eigen4 (a v : SpaceB) (hv : gmul a v = (4 : ℚ) • v) : tAxis a v = v := by
   have h16 : (gmul a - (16 : ℚ) • 1) v = (-12 : ℚ) • v := by
@@ -77,6 +81,7 @@ theorem Zstar_le_ker_chiC : Zstar ≤ chiC.ker := by
 @[expose] noncomputable def chi : Cbar →* (Vst ≃ₗ[ℚ] Vst) :=
   QuotientGroup.lift Zstar chiC Zstar_le_ker_chiC
 
+theorem chi_kappa (g : Cgen) : chi (kappa g) = chiC g := rfl
 
 theorem coe_chi_kappa_apply (g : Cgen) (v : Vst) :
     ((chi (kappa g) v : Vst) : SpaceB) = (g : SpaceB ≃ₗ[ℚ] SpaceB) v := rfl

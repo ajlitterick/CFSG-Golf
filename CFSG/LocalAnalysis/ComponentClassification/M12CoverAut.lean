@@ -72,6 +72,9 @@ theorem pairs_fst_mem {x y : Equiv.Perm (Fin 12)} (h : (x, y) ∈ m12Pairs) :
   rw [← m12Pairs_fst]
   exact ⟨(x, y), h, rfl⟩
 
+theorem pairs_snd_mem {x y : Equiv.Perm (Fin 12)} (h : (x, y) ∈ m12Pairs) :
+    y ∈ NativeSporadic.M12 :=
+  pairs_fst_mem (pairs_swap h)
 
 theorem m12EquivD_proj (p : m12Pairs) : (m12EquivD (m12Proj p) : Equiv.Perm (Fin 24)) =
     blockHom p := by
@@ -328,6 +331,8 @@ theorem beta_m12a : beta m12a = m12a :=
 theorem beta_m12b : (beta m12b : Equiv.Perm (Fin 12)) = m12bp :=
   beta_apply_of_mem (Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl))
 
+theorem m12bp_apply : ∀ i, m12bp i = ![5, 8, 1, 0, 7, 3, 10, 9, 2, 4, 11, 6] i := by
+  decide
 
 theorem beta_mul_self : beta * beta = 1 := by
   rw [beta, ← map_mul, sigmaModel_mul_self, map_one]
@@ -353,6 +358,15 @@ theorem beta_not_mem_inner : beta ∉ inner NativeSporadic.M12 := by
 theorem m12_closure_eq_top : Subgroup.closure {m12a, m12b} = ⊤ :=
   closure_pair_eq_top m12_eq _ _
 
+theorem eq_beta_of_apply (α : MulAut NativeSporadic.M12) (ha : α m12a = m12a)
+    (hb : (α m12b : Equiv.Perm (Fin 12)) = m12bp) : α = beta := by
+  apply MulEquiv.toMonoidHom_injective
+  apply MonoidHom.eq_of_eqOn_dense m12_closure_eq_top
+  intro g hg
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hg
+  rcases hg with rfl | rfl
+  · simp only [MulEquiv.coe_toMonoidHom, ha, beta_m12a]
+  · exact Subtype.ext (by simp only [MulEquiv.coe_toMonoidHom, hb, beta_m12b])
 
 theorem autModelEquiv_symm_beta : autModelEquiv.symm beta = sigmaModel := by
   rw [beta, MulEquiv.symm_apply_apply]
@@ -383,6 +397,37 @@ theorem exists_conj_or_conj_mul_beta (α : MulAut NativeSporadic.M12) :
       rw [hg, mul_assoc, sigmaModel_mul_self, mul_one]
     rw [this, map_mul, autModelEquiv_iota, beta]
 
+theorem exists_unique_conj_mul_beta_pow (α : MulAut NativeSporadic.M12) :
+    ∃! p : NativeSporadic.M12 × Fin 2, α = MulAut.conj p.1 * beta ^ (p.2 : ℕ) := by
+  obtain ⟨g, hg | hg⟩ := exists_conj_or_conj_mul_beta α
+  · refine ⟨(g, 0), by simpa using hg, ?_⟩
+    rintro ⟨h, e⟩ he
+    simp only at he
+    fin_cases e
+    · simp only [pow_zero, mul_one] at he
+      rw [hg] at he
+      rw [conj_injective he.symm]
+      rfl
+    · exfalso
+      simp only [pow_one] at he
+      apply beta_not_mem_inner
+      refine ⟨h⁻¹ * g, ?_⟩
+      rw [map_mul, map_inv, ← hg, he]
+      group
+  · refine ⟨(g, 1), by simpa using hg, ?_⟩
+    rintro ⟨h, e⟩ he
+    simp only at he
+    fin_cases e
+    · exfalso
+      simp only [pow_zero, mul_one] at he
+      apply beta_not_mem_inner
+      refine ⟨g⁻¹ * h, ?_⟩
+      rw [map_mul, map_inv, ← he, hg]
+      group
+    · simp only [pow_one] at he
+      rw [hg] at he
+      rw [conj_injective (mul_right_cancel he).symm]
+      rfl
 
 theorem card_mulAut : Nat.card (MulAut NativeSporadic.M12) = 190080 := by
   rw [← Nat.card_congr autModelEquiv.toEquiv, card_autModel]
@@ -396,20 +441,71 @@ theorem card_outer : Nat.card (Outer NativeSporadic.M12) = 2 := by
   change Nat.card (MulAut NativeSporadic.M12 ⧸ inner NativeSporadic.M12) = 2
   omega
 
+@[expose] noncomputable def outerEquiv : Outer NativeSporadic.M12 ≃* Multiplicative (ZMod 2) :=
+  mulEquivOfPrimeCardEq card_outer (by rw [Nat.card_eq_fintype_card]; rfl)
 
 theorem orderOf_beta : orderOf beta = 2 :=
   orderOf_eq_prime (by rw [sq, beta_mul_self]) beta_ne_one
 
+theorem mem_zpowers_beta (γ : MulAut NativeSporadic.M12) :
+    γ ∈ Subgroup.zpowers beta ↔ γ = 1 ∨ γ = beta := by
+  classical
+  rw [mem_zpowers_iff_mem_range_orderOf, orderOf_beta]
+  simp only [Finset.mem_image, Finset.mem_range]
+  constructor
+  · rintro ⟨n, hn, rfl⟩
+    interval_cases n
+    · exact Or.inl (pow_zero _)
+    · exact Or.inr (pow_one _)
+  · rintro (rfl | rfl)
+    · exact ⟨0, by norm_num, pow_zero _⟩
+    · exact ⟨1, by norm_num, pow_one _⟩
 
 theorem card_zpowers_beta : Nat.card (Subgroup.zpowers beta) = 2 := by
   rw [Nat.card_zpowers, orderOf_beta]
 
+abbrev AutSemidirect : Type :=
+  NativeSporadic.M12 ⋊[(Subgroup.zpowers beta).subtype] Subgroup.zpowers beta
 
 theorem conj_apply_eq (γ : MulAut NativeSporadic.M12) (g : NativeSporadic.M12) :
     MulAut.conj (γ g) = γ * MulAut.conj g * γ⁻¹ := by
   ext x
   simp only [MulAut.conj_apply, MulAut.mul_apply, map_mul, MulAut.apply_inv_self, map_inv]
 
+@[expose] noncomputable def autSemidirectHom : AutSemidirect →* MulAut NativeSporadic.M12 :=
+  SemidirectProduct.lift MulAut.conj (Subgroup.zpowers beta).subtype fun γ => by
+    ext g x
+    simp only [MonoidHom.coe_comp, MulEquiv.coe_toMonoidHom, Function.comp_apply,
+      Subgroup.coe_subtype, conj_apply_eq]
+    rfl
+
+theorem autSemidirectHom_apply (p : AutSemidirect) :
+    autSemidirectHom p = MulAut.conj p.left * (p.right : MulAut NativeSporadic.M12) :=
+  rfl
+
+theorem autSemidirectHom_bijective : Function.Bijective autSemidirectHom := by
+  refine Function.Injective.bijective_of_nat_card_le ?_ ?_
+  · rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
+    intro p hp
+    rw [MonoidHom.mem_ker, autSemidirectHom_apply] at hp
+    rcases (mem_zpowers_beta _).1 p.right.2 with h | h
+    · rw [h, mul_one] at hp
+      have hl : p.left = 1 := conj_injective (by rw [hp, map_one])
+      have hr : p.right = 1 := Subtype.ext h
+      exact Subgroup.mem_bot.2 (SemidirectProduct.ext hl hr)
+    · exfalso
+      rw [h] at hp
+      apply beta_not_mem_inner
+      refine ⟨p.left⁻¹, ?_⟩
+      rw [map_inv, inv_eq_iff_mul_eq_one]
+      simpa using hp
+  · rw [card_mulAut]
+    have : Nat.card AutSemidirect = Nat.card (NativeSporadic.M12 × Subgroup.zpowers beta) :=
+      Nat.card_congr SemidirectProduct.equivProd
+    rw [this, Nat.card_prod, m12_card, card_zpowers_beta]
+
+@[expose] noncomputable def autSemidirectEquiv : AutSemidirect ≃* MulAut NativeSporadic.M12 :=
+  MulEquiv.ofBijective autSemidirectHom autSemidirectHom_bijective
 
 theorem mem_fixSub_beta_iff (g : NativeSporadic.M12) :
     g ∈ fixSub beta ↔ (m12EquivD g : Equiv.Perm (Fin 24)) ∈ centralizerIn blockGroup m12Sigma := by
@@ -470,5 +566,25 @@ theorem card_fixSub_beta : Nat.card (fixSub beta) = 120 := by
   rw [← Subgroup.card_map_of_injective hinj, hmap, centralizerIn_blockGroup_sigma,
     ← m12SigmaCentQ.orderCertificate_eq_card m12_sigma_cent.1, m12_sigma_cent.2.1]
 
+theorem ctuc_mathieu_m12_full_automorphism_model :
+    (∃! β : MulAut NativeSporadic.M12, β m12a = m12a ∧
+      ∀ i, (β m12b : Equiv.Perm (Fin 12)) i = ![5, 8, 1, 0, 7, 3, 10, 9, 2, 4, 11, 6] i) ∧
+    beta m12a = m12a ∧
+    (∀ i, (beta m12b : Equiv.Perm (Fin 12)) i = ![5, 8, 1, 0, 7, 3, 10, 9, 2, 4, 11, 6] i) ∧
+    beta ^ 2 = 1 ∧ beta ∉ inner NativeSporadic.M12 ∧
+    (∀ α : MulAut NativeSporadic.M12,
+      ∃! p : NativeSporadic.M12 × Fin 2, α = MulAut.conj p.1 * beta ^ (p.2 : ℕ)) ∧
+    (∀ p : AutSemidirect, autSemidirectEquiv p = MulAut.conj p.left * (p.right : MulAut _)) ∧
+    Nat.card (MulAut NativeSporadic.M12) = 190080 ∧
+    Nonempty (Outer NativeSporadic.M12 ≃* Multiplicative (ZMod 2)) := by
+  have hb : ∀ i, (beta m12b : Equiv.Perm (Fin 12)) i =
+      ![5, 8, 1, 0, 7, 3, 10, 9, 2, 4, 11, 6] i := by
+    rw [beta_m12b]
+    exact m12bp_apply
+  refine ⟨⟨beta, ⟨beta_m12a, hb⟩, fun α ⟨ha, hα⟩ => eq_beta_of_apply α ha ?_⟩, beta_m12a, hb,
+    by rw [sq, beta_mul_self], beta_not_mem_inner, exists_unique_conj_mul_beta_pow,
+    fun _ => rfl, card_mulAut, ⟨outerEquiv⟩⟩
+  ext i
+  rw [hα, m12bp_apply]
 
 end CFSG.ComponentClassification.M12Cover

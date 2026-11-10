@@ -65,5 +65,16 @@ theorem mem_embStab_of_apply {ι : β → α} {g : Equiv.Perm α} (σ : Equiv.Pe
   · rintro ⟨b, rfl⟩
     exact ⟨σ b, (h b).symm⟩
 
+theorem embPos_eq_of_apply (ι : β → α) (hι : Function.Injective ι) (g : embStab ι)
+    (σ : Equiv.Perm β) (h : ∀ b, (g : Equiv.Perm α) (ι b) = ι (σ b)) : embPos ι hι g = σ :=
+  embPos_ext ι hι fun b => by rw [embPos_apply ι hι, h]
+
+theorem embPos_eq_one_iff (ι : β → α) (hι : Function.Injective ι) (g : embStab ι) :
+    embPos ι hι g = 1 ↔ ∀ b, (g : Equiv.Perm α) (ι b) = ι b := by
+  constructor
+  · intro h b
+    rw [← embPos_apply ι hι g b, h, Equiv.Perm.one_apply]
+  · intro h
+    exact embPos_eq_of_apply ι hι g 1 fun b => by rw [h, Equiv.Perm.one_apply]
 
 end CFSG.Sporadic.FischerOddCore

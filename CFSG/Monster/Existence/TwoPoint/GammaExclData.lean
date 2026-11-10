@@ -86,6 +86,7 @@ namespace CFSG.Monster.Existence
 termination_by j
 decreasing_by exact h.2
 
+theorem gxNodes_length : gxNodes.length = 23 := by decide
 
 theorem gxParent_lt_aux : ∀ j, j < 23 → 0 < j → gxParent j < j := by decide
 
@@ -113,5 +114,26 @@ theorem gxSigma_lt (c : Nat) : gxSigma c < 10 := by
       List.getElem?_eq_none (by simp only [List.length_cons, List.length_nil]; omega)]
     decide
 
+theorem gxXList_lt (j : Nat) : ∀ k ∈ gxXList j, k < 11 := by
+  induction j using Nat.strongRecOn with
+  | _ j ih =>
+    by_cases h : 0 < j ∧ gxParent j < j
+    · rw [gxXList, dite_eq_left h]
+      intro k hk
+      rcases List.mem_append.1 hk with hk | hk
+      · exact ih _ h.2 k hk
+      · rcases List.mem_append.1 hk with hk | hk
+        · rcases List.mem_append.1 hk with hk | hk
+          · obtain ⟨c, _, rfl⟩ := List.mem_map.1 hk
+            have := gxSigma_lt c
+            omega
+          · have := List.mem_singleton.1 hk
+            omega
+        · obtain ⟨c, _, rfl⟩ := List.mem_map.1 (List.mem_reverse.1 hk)
+          have := gxSigma_lt c
+          omega
+    · rw [gxXList, dite_eq_right h]
+      intro k hk
+      simp at hk
 
 end CFSG.Monster.Existence

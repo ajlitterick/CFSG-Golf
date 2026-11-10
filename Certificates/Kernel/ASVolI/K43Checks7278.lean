@@ -11,6 +11,14 @@ namespace CertificateChecks.KernelASVolI
 
 open CFSG.KS.ASVolI CertificateChecks.KernelHMathieu
 
+theorem k43_sylK : sylK T24.E = true := by
+  decide +kernel
+
+theorem k43_classK : classK T24.E = true := by
+  decide +kernel
+
+theorem k43_modK : modK T24.E = true := by
+  decide +kernel
 
 end CertificateChecks.KernelASVolI
 

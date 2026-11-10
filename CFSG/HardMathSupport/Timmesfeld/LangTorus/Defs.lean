@@ -180,6 +180,13 @@ end Kind
       ¬ Nat.Coprime p (Nat.card (rationalComponent S.ρ S.Γ (rootCharHom a) i)) →
       CFSG.IsQuasisimple (rationalComponent S.ρ S.Γ (rootCharHom a) i)
 
+@[expose] def LangGeneration (P : ℕ → Prop) : Prop :=
+  ∀ (τ : Tag) (L : Type) [Field L] [IsAlgClosed L] (p : ℕ) (S : LangSetup τ L p), P p →
+    ∀ (D₁ : Subgroup (ModGL τ L)), D₁ ≤ S.E → Nat.card D₁ = p ^ 2 →
+    S.Γ ≤ Subgroup.closure {x | ∃ a : Fin τ.rank → Lˣ, rootDiagUnit τ a ∈ D₁ ∧
+      rootDiagUnit τ a ≠ 1 ∧ ∃ i : KernelComponent (rootCharHom a),
+        ¬ Nat.Coprime p (Nat.card (rationalComponent S.ρ S.Γ (rootCharHom a) i)) ∧
+        x ∈ rationalComponent S.ρ S.Γ (rootCharHom a) i}
 
 @[expose] def excTag : LieFamily → Tag
   | .E6 | .twistedE6 => .E6
@@ -190,5 +197,24 @@ end Kind
   | .trialityD4 => .D4
   | _ => .G2
 
+@[expose] def LangTorusAt (k : LieFamily) (R : ℕ → ℕ → Prop) : Prop :=
+  IsExceptionalFam k → ∀ (q : TauCeti.PrimePower) (hv : (excIndex k q).Valid) (p : ℕ),
+    p.Prime → R p q.card → p ≠ q.p →
+    ∃ (L : Type) (_ : Field L) (_ : IsAlgClosed L) (S : LangSetup (excTag k) L p),
+      S.D.q = q.card ∧
+      (∃ S₀ : Sylow p S.Γ, (S₀ : Subgroup S.Γ) ≤ S.D.torus.subgroupOf S.Γ) ∧
+      Nonempty (CatT ⟨excIndex k q, hv⟩ ≃* S.Γ)
+
+@[expose] def LangTorusAtP (k : LieFamily) (e : ℕ) (R : ℕ → Prop) : Prop :=
+  LangTorusAt k fun p c => R p ∧ orderOf ((c : ℕ) : ZMod p) = e
+
+structure LangPieces (P : ℕ → Prop) : Prop where
+  frobenius : FrobeniusOnRoots
+  subnormal : LangSubnormal
+  generation : LangGeneration P
+  inner : LangComponentsQuasisimple .inner
+  suN : LangComponentsQuasisimple .suN
+  twoD : LangComponentsQuasisimple .twoD
+  exc : LangComponentsQuasisimple .exc
 
 end CFSG.HardMathSupport.Timmesfeld.LangTorus

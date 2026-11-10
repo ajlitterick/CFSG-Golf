@@ -20,6 +20,7 @@ attribute [local irreducible] CFSG.Monster.B.Co2.Native.genRecords
 
 noncomputable abbrev kvM (k : Kstab v0) : Matrix (Fin 22) (Fin 22) (ZMod 2) := kvMat qbWBasis k
 
+theorem quotRows_eq (i : Fin 24) : quotRows i = genQuotMatrix i := rfl
 
 theorem repr_decW (c : ℕ) (s : Fin 22) :
     qbWBasis.repr (decW c) s = toVecD 22 c s := by
@@ -226,6 +227,12 @@ theorem uGrp_eq_top :
   refine Subgroup.eq_top_of_le_card _ (le_of_eq ?_)
   rw [natCard_Kv, ← natCard_co2J, ← uGrp_map, Subgroup.card_map_of_injective phiHom_injective]
 
+theorem closure_U_eq_Kv :
+    Subgroup.closure {bridgeU1, bridgeU2} = Kstab v0 := by
+  have h := congrArg (Subgroup.map (Kstab v0).subtype) uGrp_eq_top
+  rw [MonoidHom.map_closure, ← MonoidHom.range_eq_map, Subgroup.range_subtype] at h
+  rw [← h, Set.image_insert_eq, Set.image_singleton]
+  rfl
 
 theorem phiHom_range :
     phiHom.range = co2J := by
@@ -249,6 +256,43 @@ theorem co2CatalogEquiv_val
   rw [← co2MatEquiv_val, co2CatalogEquiv, MulEquiv.trans_apply, MulEquiv.apply_symm_apply,
     kvEquivJ_val, coe_phiHom]
 
+theorem kvEquivJ_U1 :
+    kvEquivJ ⟨bridgeU1, bridgeU1_mem⟩ =
+    (⟨co2GL1, Subgroup.subset_closure (Set.mem_insert _ _)⟩ : co2J)⁻¹ := by
+  apply Subtype.ext
+  rw [kvEquivJ_val, phiHom_U1, Subgroup.coe_inv]
+
+theorem kvEquivJ_U2 :
+    kvEquivJ ⟨bridgeU2, bridgeU2_mem⟩ =
+    (⟨co2GL2, Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)⟩ : co2J)⁻¹ := by
+  apply Subtype.ext
+  rw [kvEquivJ_val, phiHom_U2, Subgroup.coe_inv]
+
+theorem co2CatalogEquiv_U1 :
+    co2CatalogEquiv ⟨bridgeU1, bridgeU1_mem⟩ = co2SeedA⁻¹ := by
+  rw [co2CatalogEquiv, MulEquiv.trans_apply, kvEquivJ_U1, map_inv]
+  rfl
+
+theorem co2CatalogEquiv_U2 :
+    co2CatalogEquiv ⟨bridgeU2, bridgeU2_mem⟩ = co2SeedB⁻¹ := by
+  rw [co2CatalogEquiv, MulEquiv.trans_apply, kvEquivJ_U2, map_inv]
+  rfl
+
+theorem co2CatalogEquiv_U1_val :
+    (co2CatalogEquiv ⟨bridgeU1, bridgeU1_mem⟩).val.val = co2A1⁻¹ := by
+  rw [co2CatalogEquiv_val, bridgeC_inv_mul _ _ kvM_U1_mul_C, ← Matrix.transpose_nonsing_inv,
+    transpose_transpose]
+
+theorem co2CatalogEquiv_U2_val :
+    (co2CatalogEquiv ⟨bridgeU2, bridgeU2_mem⟩).val.val = co2A2⁻¹ := by
+  rw [co2CatalogEquiv_val, bridgeC_inv_mul _ _ kvM_U2_mul_C, ← Matrix.transpose_nonsing_inv,
+    transpose_transpose]
+
+theorem nonempty_kstab_co2
+    {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :
+    Nonempty (Kstab (classOf u) ≃* Blueprint.NativeSporadic.Co2) := by
+  obtain ⟨e⟩ := nonempty_kstabEquiv hu
+  exact ⟨e.trans co2CatalogEquiv⟩
 
 @[expose] noncomputable def jbarQuotEquiv :
     Jbar ⧸ Ebar.subgroupOf Jbar ≃* Blueprint.NativeSporadic.Co2 :=
@@ -256,5 +300,25 @@ theorem co2CatalogEquiv_val
     ((QuotientGroup.quotientKerEquivOfSurjective jbarToKv jbarToKv_surjective).trans
       ((MulEquiv.subgroupCongr (congrArg Kstab phi0_coordOf_rStar)).trans co2CatalogEquiv))
 
+theorem mon_native_short_stabilizer_catalog_co2_isomorphism :
+    IsUnit bridgeC ∧
+    kvM ⟨bridgeU1, bridgeU1_mem⟩ * bridgeC = bridgeC * co2A1ᵀ ∧
+    kvM ⟨bridgeU2, bridgeU2_mem⟩ * bridgeC = bridgeC * co2A2ᵀ ∧
+    kvM ⟨bridgeU1, bridgeU1_mem⟩ = bridgeNativeMat 0 ∧
+    kvM ⟨bridgeU2, bridgeU2_mem⟩ = bridgeNativeMat 1 ∧
+    co2A1ᵀ = bridgeCatalogMat 0 ∧ co2A2ᵀ = bridgeCatalogMat 1 ∧
+    Subgroup.closure {bridgeU1, bridgeU2} = Kstab v0 ∧
+    (∀ k : Kstab v0, (co2CatalogEquiv k).val.val = ((bridgeC⁻¹ * kvM k * bridgeC)⁻¹)ᵀ) ∧
+    co2CatalogEquiv ⟨bridgeU1, bridgeU1_mem⟩ = co2SeedA⁻¹ ∧
+    co2CatalogEquiv ⟨bridgeU2, bridgeU2_mem⟩ = co2SeedB⁻¹ ∧
+    (co2CatalogEquiv ⟨bridgeU1, bridgeU1_mem⟩).val.val = co2A1⁻¹ ∧
+    (co2CatalogEquiv ⟨bridgeU2, bridgeU2_mem⟩).val.val = co2A2⁻¹ ∧
+    co2SeedA.val.val = co2A1 ∧ co2SeedB.val.val = co2A2 ∧
+    (∀ u ∈ minVecs, Nonempty (Kstab (classOf u) ≃* Blueprint.NativeSporadic.Co2)) ∧
+    Nonempty (Jbar ⧸ Ebar.subgroupOf Jbar ≃* Blueprint.NativeSporadic.Co2) :=
+  ⟨isUnit_bridgeC, kvM_U1_mul_C, kvM_U2_mul_C, kvM_U1, kvM_U2, co2A1_transpose, co2A2_transpose,
+    closure_U_eq_Kv, co2CatalogEquiv_val, co2CatalogEquiv_U1, co2CatalogEquiv_U2,
+    co2CatalogEquiv_U1_val, co2CatalogEquiv_U2_val, co2SeedA_val, co2SeedB_val,
+    fun _ hu => nonempty_kstab_co2 hu, ⟨jbarQuotEquiv⟩⟩
 
 end CFSG.Monster.B.Co2Catalog

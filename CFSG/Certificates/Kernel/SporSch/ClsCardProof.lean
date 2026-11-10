@@ -51,6 +51,14 @@ theorem clsCard_proved (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS 
   rw [card_isConj_eq_ncard]
   exact hc.2.1
 
+theorem clsCard_sound (_hsz : szOK n w = true) {tA tB : List Nat} (hA : imageList gA = tA)
+    (hB : imageList gB = tB) (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (htA : tA = (unpack n w (PS 0)).toList) (htB : tB = (unpack n w (PS 1)).toList)
+    (hnd : base.toList.Nodup) {mx cap : Nat} {d : ClsD} (hcls : ClsOK n w tA tB mx cap [d])
+    (r : gen2 gA gB) (hR : imageList (r : Equiv.Perm (Fin n)) = (unpack n w d.R).toList) :
+    #(univ.filter fun x : gen2 gA gB => IsConj r x) = d.c := by
+  subst htA htB
+  exact clsCard_proved hQ hA hB hnd hcls r hR
 
 end CFSG.KS.SporSch.MBT
 

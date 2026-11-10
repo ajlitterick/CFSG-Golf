@@ -30,6 +30,7 @@ theorem intVec_neg (u : Fin 24 → ℤ) : intVec K (-u) = -intVec K u := by
   funext i
   simp [intVec]
 
+theorem intVec_rat (u : Fin 24 → ℤ) : intVec ℚ u = ratVec u := rfl
 
 theorem uQ_eq_intVec (c : ShortIdx) : uQ c = intVec ℚ (uvec c) := rfl
 
@@ -225,5 +226,44 @@ theorem exists_latticeO (hf : IsParityAut f) :
 
 end IsParityAut
 
+theorem sgn_eq_one_or_neg_one (t : ZMod 2) : sgn t = 1 ∨ sgn t = -1 := by
+  unfold sgn
+  split_ifs
+  · exact Or.inl rfl
+  · exact Or.inr rfl
+
+theorem parity_centralizer_recovers_lattice (f : SpaceB ≃ₗ[ℚ] SpaceB)
+    (hmul : ∀ u v, f (gmul u v) = gmul (f u) (f v))
+    (hiso : ∀ u v, bform (f u) (f v) = bform u v) (hcomm : ∀ u, f (xB u) = xB (f u)) :
+    ∃ g : latticeO,
+      (∀ A : symMat, f (A, 0, 0) = (thetaA (mat g) A, 0, 0)) ∧
+      (∀ (r : Q) (hr : IsShortCoord (coordOf r)), ∃ (t : Q) (ht : IsShortCoord (coordOf t)) (ε : ℚ),
+        (ε = 1 ∨ ε = -1) ∧ f (0, Xlift r, 0) = (0, ε • Xlift t, 0) ∧
+        (uQ ⟨coordOf r, hr⟩ ᵥ* mat g = uQ ⟨coordOf t, ht⟩ ∨
+          uQ ⟨coordOf r, hr⟩ ᵥ* mat g = -uQ ⟨coordOf t, ht⟩)) ∧
+      (∀ g' : Matrix (Fin 24) (Fin 24) ℚ, g' ∈ orthogonalGroup (Fin 24) ℚ →
+        (∀ A : symMat, f (A, 0, 0) = (thetaA g' A, 0, 0)) → g' = mat g ∨ g' = -mat g) ∧
+      ∀ i j, ∃ k : ℤ, mat g i j = k / 8 := by
+  have hf : IsParityAut f := ⟨hmul, hiso, hcomm⟩
+  obtain ⟨g, hA, hu, h8⟩ := hf.exists_latticeO
+  have hfA : ∀ A : symMat, f (A, 0, 0) = (thetaA (mat g) A, 0, 0) := fun A => by
+    rw [← hA]
+    exact hf.apply_inA A
+  refine ⟨g, hfA, fun r hr => ?_, fun g' hg' h' => ?_, h8⟩
+  · set c : ShortIdx := ⟨coordOf r, hr⟩
+    have ht : IsShortCoord (coordOf (rep (hf.lineMap c).1)) := isShortCoord_rep _
+    have e : (⟨coordOf (rep (hf.lineMap c).1), ht⟩ : ShortIdx) = hf.lineMap c :=
+      Subtype.ext (coordOf_rep _)
+    refine ⟨rep (hf.lineMap c).1, ht, sgn (centralCoord r) * hf.lineSign c, ?_,
+      hf.apply_Xlift hr, ?_⟩
+    · rcases sgn_eq_one_or_neg_one (centralCoord r) with h1 | h1 <;>
+        rcases hf.lineSign_eq c with h2 | h2 <;> rw [h1, h2] <;> norm_num
+    · rw [e]
+      exact hu c
+  · have hg'' : g' * g'ᵀ = 1 := (mem_orthogonalGroup_iff _ _).1 hg'
+    refine eq_or_eq_neg_of_conj_eq_rat (mat_mul_transpose g) hg'' fun A => ?_
+    have h1 := congrArg (fun w : SpaceB => ((w.1 : symMat) : Matrix (Fin 24) (Fin 24) ℚ))
+      ((hfA A).symm.trans (h' A))
+    simpa only [coe_thetaA] using h1
 
 end CFSG.Monster.Parity

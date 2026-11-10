@@ -106,6 +106,13 @@ theorem pairW_one
   rw [add_comm, twoΩCls_add_pairCls h.ne]
   rfl
 
+theorem pairW_add_one
+    {x y : Fin 24} (h : OffPair x y) (b : ZMod 2) :
+    pairW x y h (b + 1) = pairW x y h b + wFr := by
+  rcases (by decide : ∀ t : ZMod 2, t = 0 ∨ t = 1) b with rfl | rfl
+  · rw [zero_add, pairW_one]
+  · rw [show (1 : ZMod 2) + 1 = 0 by decide, pairW_one, add_assoc, ← two_smul (ZMod 2) wFr,
+      show (2 : ZMod 2) = 0 by decide, zero_smul, add_zero]
 
 theorem pairW_ne_zero
     {x y : Fin 24} (h : OffPair x y) (b : ZMod 2) : pairW x y h b ≠ 0 := by

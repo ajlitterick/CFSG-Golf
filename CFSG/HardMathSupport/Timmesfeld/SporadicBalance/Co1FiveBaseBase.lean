@@ -368,6 +368,10 @@ theorem planeOK_parts {rs : List Rows} (h : planeOK rs = true) :
   · obtain ⟨⟨a, b⟩, c, d⟩ := h3 τ hτ
     exact ⟨a, b, c, d⟩
 
+@[expose] noncomputable def gensGL (hG : GOK) (τ : ℕ) : List GL24 :=
+  [((φ hG (Multiplicative.ofAdd (vec3 (repA.getD τ 0))) : ↥GA) : GL24),
+    ((φ hG (Multiplicative.ofAdd (vec3 (repB.getD τ 0))) : ↥GA) : GL24)] ++
+    (idxH.getD τ []).map (fun k => gElts.getD k 1)
 
 @[expose] noncomputable def g1 (hG : GOK) (τ : ℕ) : ↥GA :=
   φ hG (Multiplicative.ofAdd (vec3 (repA.getD τ 0)))

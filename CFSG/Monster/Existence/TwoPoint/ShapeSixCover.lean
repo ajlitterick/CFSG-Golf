@@ -131,5 +131,9 @@ theorem isBabyCover_natCover
         · exact self_mem_cent tGriess
       exact ⟨⟨y, hyc⟩, (natCover_eq_one_iff hG ⟨y, hyc⟩).2 hy, rfl⟩
 
+theorem exists_isBabyCover_tGriess
+    (hcard : Nat.card MGriess = CFSG.Open.monsterOrder) :
+    ∃ φ : ↥(cent tGriess) →* CFSG.Blueprint.NativeSporadic.B, IsBabyCover tGriess φ :=
+  ⟨natCover (Gmat_eq_AutO hcard), isBabyCover_natCover (Gmat_eq_AutO hcard)⟩
 
 end CFSG.Monster.Existence

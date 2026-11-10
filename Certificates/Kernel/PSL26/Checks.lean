@@ -75,6 +75,15 @@ theorem c7044R : (Nat.beq (pw 26 5 (P26.S 0) 13) idP && !Nat.beq (P26.S 0) idP &
     Nat.beq (cm 26 5 (P26.S 2) (P26.S 1)) (cm 26 5 (P26.S 1) (P26.S 2))) = true := by
   quickRfl
 
+theorem c7044N1 : Nat.beq (pw 26 5 (cm 26 5 (cm 26 5 (trP 0 1) (trP 1 0)) (trP 2 0)) 5) idP =
+    false := by
+  decide +kernel
+
+theorem c7044N2 : Nat.beq (rcnt (P26.LR 1)) 26 = false := by decide +kernel
+
+theorem c7044N3 : clK (P26.S 2) 0 = false := by decide +kernel
+
+theorem c7044N4 : Nat.beq (pw 26 5 (P26.S 0) 2) idP = false := by decide +kernel
 
 end CertificateChecks.KernelPSL26
 

@@ -362,6 +362,12 @@ theorem IsPiece.nondegOn_sup (hA : MaxElemAb p A) (hy : IsPiece h p A X y)
     (hX : NondegOn (stdHermForm h n) X) : NondegOn (stdHermForm h n) (X ⊔ rng y) :=
   SUTB.nondegOn_sup hX (hy.nondegOn hA) hy.orth
 
+theorem IsPiece.inv_sup (hA : MaxElemAb p A) (hy : IsPiece h p A X y)
+    (hXA : ∀ a ∈ A, ∀ v ∈ X, lin a v ∈ X) : ∀ a ∈ A, ∀ v ∈ X ⊔ rng y, lin a v ∈ X ⊔ rng y := by
+  intro a ha v hv
+  obtain ⟨b, hb, c, hc, rfl⟩ := Submodule.mem_sup.mp hv
+  rw [map_add]
+  exact Submodule.add_mem_sup (hXA a ha b hb) (rng_inv hA hy.mem ha c hc)
 
 theorem IsPiece.finrank_sup (hy : IsPiece h p A X y) (hX : NondegOn (stdHermForm h n) X) :
     finrank K ↥(X ⊔ rng y) = finrank K X + finrank K (rng y) := by

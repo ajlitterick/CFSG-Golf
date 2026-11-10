@@ -124,6 +124,11 @@ theorem suzV_sq :
 theorem suzV_inv : suzV⁻¹ = suzV := by
   rw [inv_eq_iff_mul_eq_one, suzV_sq]
 
+theorem suzV_ne_one : suzV ≠ 1 := by
+  intro h
+  have h0 := rep_v 0
+  rw [h, Equiv.Perm.one_apply] at h0
+  exact smallChain_check.2.2.2.1 h0
 
 theorem suzV_not_mem :
     suzV ∉ suzM := by
@@ -149,6 +154,18 @@ theorem suzV_conj_mem
     · exact suzV_conj_b1
   exact hle hm
 
+theorem suzV_conj_eq :
+    suzM.map (MulAut.conj suzV).toMonoidHom = suzM := by
+  apply le_antisymm
+  · rintro _ ⟨m, hm, rfl⟩
+    exact suzV_conj_mem hm
+  · intro m hm
+    refine ⟨suzV⁻¹ * m * suzV, ?_, ?_⟩
+    · have := suzV_conj_mem hm
+      rw [suzV_inv] at this ⊢
+      exact this
+    · simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
+      group
 
 theorem mem_suzT_of_mem_suzM {m : Equiv.Perm (Fin 1782)} (hm : m ∈ suzM) : m ∈ suzT :=
   Subgroup.subset_closure (Set.mem_insert_of_mem _ hm)

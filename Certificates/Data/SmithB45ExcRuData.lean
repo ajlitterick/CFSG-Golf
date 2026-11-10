@@ -651,5 +651,30 @@ structure DblWit where
 
 @[expose] def ruTab : InvTab 4060 := InvTab.build 4060 ru2AInv [0, 1]
 
+@[expose] def ru2AIndex : Std.HashMap (List ℕ) ℕ :=
+  (List.range ru2AInv.size).foldl (fun h i => h.insert [(ru2AInv[i]!)[0]!, (ru2AInv[i]!)[1]!] i) ∅
+
+@[expose] def ru2AMem (t : Array ℕ) : Bool :=
+  match ru2AIndex.get? [t[0]!, t[1]!] with
+  | some i => decide (i < ru2AInv.size) && eqA 4060 t ru2AInv[i]!
+  | none => false
+
+@[expose] def ruListCheck : Bool :=
+  all2 4060 ruLevS fun t =>
+    !(allLt 4060 fun i => t[t[i]!]! == i) || fixCountA 4060 t != 92 || ru2AMem t
+
+@[expose] def ruX (i : ℕ) : PArr := (ruTab.elt i, ruTab.elt i)
+
+@[expose] def dblY (w : DblWit) : PArr :=
+  let G := pWord 4060 ruGens w.g
+  pMul 4060 (pMul 4060 (pMul 4060 (ruX w.e[0]!) (pConj 4060 G (ruX w.e[1]!))) (ruX w.e[2]!))
+    (pConj 4060 G (ruX w.e[3]!))
+
+@[expose] def dblWitOK (w : DblWit) : Bool :=
+  w.e.length == 4 && w.e.all (· < ruTab.m) && orderCheck 4060 29 (dblY w)
+
+@[expose] def ruPred (l : List ℕ) : Bool :=
+  let S := ruTab.subprodsI l
+  ruDblWits.any fun w => w.e.all S.contains
 
 end CFSG.Quasithin.B45Exc.Ru

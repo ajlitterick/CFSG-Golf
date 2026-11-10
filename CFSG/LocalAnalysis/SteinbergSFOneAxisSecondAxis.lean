@@ -164,6 +164,9 @@ theorem diagTorus_conj_antiUnipotent {δ : antiSp K} (hδ : δ ∈ diagTorus K) 
   rw [h]
   exact ⟨a', b', c', d', rfl⟩
 
+theorem uElt_eq_mul (a b c d : K) : uElt a b c d = uElt 0 0 0 d * uElt a b c 0 := by
+  rw [uElt_mul]
+  congr 1 <;> ring
 
 theorem uElt_eq_mul' (a b c : K) : uElt a b c 0 = uElt 0 b (c + a * b) 0 * uElt a 0 0 0 := by
   have h2 : (2 : K) = 0 := CharTwo.two_eq_zero
@@ -1714,5 +1717,124 @@ open Subgroup GomiFusion RootAxisTwoCore OneAxisRadical OneAxisSecond OneAxisHei
 open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.RankThree.PartOne.KCRootAxis
 open scoped Pointwise
 
+theorem standard_symplectic_four_given_first_overgroup_second_axis_structure
+    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
+    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
+    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
+    (T : Sylow 2 (centralizer (L : Set G)))
+    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
+    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
+    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
+    (P : Sylow 2 L) (φ : L ≃* antiSp K)
+    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) (w : antiSp K)
+    (hw : glMat (w : GL (Fin 4) K) = !![1, 0, 0, 0; 0, 0, 1, 0; 0, 1, 0, 0; 0, 0, 0, 1])
+    (M : Subgroup G) :
+    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
+    let PG := (P : Subgroup L).map L.subtype
+    let Q := PG ⊔ TG
+    let ZP := (center PG).map PG.subtype
+    let U₁ := ((rootU K Axis.one).comap φ.toMonoidHom).map L.subtype
+    let U₂ := ((rootU K Axis.two).comap φ.toMonoidHom).map L.subtype
+    let A₁ := ((rootA K Axis.one).comap φ.toMonoidHom).map L.subtype
+    let A₂ := ((rootA K Axis.two).comap φ.toMonoidHom).map L.subtype
+    let B₁ := zpowers (t : G) ⊔ A₁
+    let B₂ := zpowers (t : G) ⊔ A₂
+    let N₁ := normalizer (B₁ : Set G)
+    let N₂ := normalizer (B₂ : Set G)
+    let D₁ := (CFSG.pCore 2 N₁).map N₁.subtype
+    let D₂ := (CFSG.pCore 2 N₂).map N₂.subtype
+    let R := Q ⊔ D₁
+    let S := Q ⊔ D₂
+    let J₀ := ((diagTorus K).comap φ.toMonoidHom).map L.subtype
+    let w₂ : G := ((φ.symm w : L) : G)
+    let Mw := M.map (MulAut.conj w₂⁻¹).toMonoidHom
+    let M₁ := M ⊔ A₁
+    let M₀ := M ⊔ A₂
+    let M₂ := M ⊔ Mw
+    let E := M ⊔ PG
+    let V := M₁ ⊔ M₂
+    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ u ∈ U₁, x = t * u} →
+    J₀ ≤ normalizer (M : Set G) → M ≤ D₁ ⊓ D₂ → IsElementaryAbelian 2 M →
+    Nat.card M = (2 ^ n) ^ 3 → ZP ≤ M → IsElementaryAbelian 2 M₁ →
+    Nat.card M₁ = (2 ^ n) ^ 4 → (M₁ ≤ S ∧ (M₁.subgroupOf S).Normal) →
+    (M₁ ≤ D₁ ∧ (M₁.subgroupOf D₁).Normal ∧ M₁ ⊓ zpowers (t : G) = ⊥ ∧
+      M₁ ⊔ zpowers (t : G) = D₁) →
+      ((M : Set G) * A₁ = M₁ ∧ (M : Set G) * A₂ = M₀ ∧ (M : Set G) * Mw = M₂ ∧
+        (M : Set G) * PG = E ∧ (M₁ : Set G) * M₂ = V) ∧
+      (J₀ ≤ normalizer (M₀ : Set G) ∧ J₀ ≤ normalizer (M₂ : Set G) ∧
+        J₀ ≤ normalizer (E : Set G) ∧ J₀ ≤ normalizer (V : Set G)) ∧
+      Nat.card M₀ = (2 ^ n) ^ 4 ∧ M₀ ⊓ M₀.map (MulAut.conj w₂⁻¹).toMonoidHom = A₂ ∧
+      M ⊓ Mw = U₂ ∧ Nat.card M₂ = (2 ^ n) ^ 5 ∧ M₂ ⊓ B₂ = A₂ ∧ M₁ ⊓ M₂ = M ∧
+      (M₂ ≤ D₂ ∧ (M₂.subgroupOf D₂).Normal ∧ M₂ ⊓ zpowers (t : G) = ⊥ ∧
+        M₂ ⊔ zpowers (t : G) = D₂) ∧
+      Nat.card E = (2 ^ n) ^ 5 ∧ (E ≤ S ∧ (E.subgroupOf S).Normal) ∧
+      (E ≤ R ∧ (E.subgroupOf R).Normal ∧ E ⊓ zpowers (t : G) = ⊥ ∧ E ⊔ zpowers (t : G) = R) ∧
+      (∃ _ : (U₂.subgroupOf E).Normal, center (↥E ⧸ U₂.subgroupOf E) =
+        (M.subgroupOf E).map (QuotientGroup.mk' (U₂.subgroupOf E))) ∧
+      (∃ _ : (U₂.subgroupOf M₂).Normal, IsElementaryAbelian 2 (↥M₂ ⧸ U₂.subgroupOf M₂) ∧
+        Nat.card (↥M₂ ⧸ U₂.subgroupOf M₂) = (2 ^ n) ^ 4) ∧
+      (M₂.subgroupOf D₂).Characteristic ∧ (M₂ ≤ S ∧ (M₂.subgroupOf S).Normal) ∧
+      (⁅M₂, M₂⁆ = U₂ ∧ closure {x : G | ∃ y ∈ M₂, x = y * y} = U₂ ∧
+        (center M₂).map M₂.subtype = U₂) ∧
+      (∃ _ : (U₂.subgroupOf D₂).Normal, ∀ F : Subgroup (↥D₂ ⧸ U₂.subgroupOf D₂),
+        Maximal (fun F' : Subgroup (↥D₂ ⧸ U₂.subgroupOf D₂) => IsElementaryAbelian 2 F') F ↔
+          F = (B₂.subgroupOf D₂).map (QuotientGroup.mk' (U₂.subgroupOf D₂)) ∨
+          F = (M₂.subgroupOf D₂).map (QuotientGroup.mk' (U₂.subgroupOf D₂))) ∧
+      (normalizer (B₂ : Set G) = normalizer (D₂ : Set G) ∧
+        normalizer (D₂ : Set G) ≤ normalizer (M₂ : Set G)) ∧
+      Nat.card V = (2 ^ n) ^ 6 ∧ (V ≤ S ∧ (V.subgroupOf S).Normal) ∧
+      (V ⊓ zpowers (t : G) = ⊥ ∧ V ⊔ zpowers (t : G) = S) ∧ E ≤ V ∧ V ⊓ R = E ∧ V ⊓ D₂ = M₂ ∧
+      (∃ _ : (M₁.subgroupOf V).Normal, IsElementaryAbelian 2 (↥V ⧸ M₁.subgroupOf V) ∧
+        Nat.card (↥V ⧸ M₁.subgroupOf V) = (2 ^ n) ^ 2) := by
+  intro TG PG Q ZP U₁ U₂ A₁ A₂ B₁ B₂ N₁ N₂ D₁ D₂ R S J₀ w₂ Mw M₁ M₀ M₂ E V hone
+  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
+  have hT' := hS.T_eq_zpowers hO hLn
+  have hS2 : TwoCoreSetup L K n (t : G) :=
+    { two_le := hn
+      card_K := hK
+      t_mul_t := hS.t_mul_t
+      L_le := hS.L_le
+      cent_le := hS.cent_le
+      cent_inf := hS.cent_inf.trans hT'
+      not_conj := hS.conj_not_mem_L hO hLn }
+  have hPG : PG = pull φ (antiUnipotent K) := by
+    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
+    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
+  have hQ : Q = pull φ (antiUnipotent K) ⊔ TG := by
+    show PG ⊔ TG = _
+    rw [hPG]
+  have hZP : ZP = pull φ (antiUnipotentCenter K) := by
+    have h := center_pull_antiUnipotent (G := G) φ
+    rw [← hPG] at h
+    exact h
+  have hH : Hyp L K n φ TG t := ⟨hS, hS2, hT', by rw [← hQ]; exact hone⟩
+  have hNQ := hH.normalizer_Q_le
+  have hNC := (hS.orbits hO hLn).2.2.2.2
+  have hmove : ∃ g ∈ N₂, g * t ≠ t * g := by
+    obtain ⟨m, hm, hmC⟩ := Set.not_subset.mp hNC
+    exact ⟨m, (hNQ hm).2, fun hmt => hmC (mem_centralizer_singleton_iff.mpr hmt)⟩
+  have h2 : SecondHyp L K n φ (t : G) := ⟨hS2, hH.fus_two.1, hmove⟩
+  obtain ⟨-, -, -, -, -, -, -, -, -, hinf₁, -, _, e, he, -, -, -⟩ :=
+    standard_symplectic_four_one_axis_radical_fusion_normalizers hO hL hLn hn hK T hT htT ht
+      hcore P φ hφP hone
+  have hh : HeisHyp L K n φ TG t :=
+    { hyp := hH
+      sec := h2
+      normQ := hNQ
+      inf₁ := hinf₁
+      conj₁ := fun d hd => by
+        rw [← he ⟨d, hd⟩]
+        exact (e (⟨d, hd⟩ : D₁)).2
+      mul₁ := fun d hd d' hd' => by
+        have h1 := he (⟨d, hd⟩ * ⟨d', hd'⟩)
+        rw [QuotientGroup.mk_mul, map_mul, Subgroup.coe_mul, he, he] at h1
+        exact h1.symm
+      surj₁ := fun u hu => by
+        obtain ⟨x, hx⟩ := QuotientGroup.mk_surjective (e.symm ⟨u, hu⟩)
+        refine ⟨x, x.2, ?_⟩
+        have h1 := he x
+        rw [hx, MulEquiv.apply_symm_apply] at h1
+        exact h1.symm }
+  exact OneAxisSecondAxis.main hh Q ZP PG hPG rfl hZP w hw M
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

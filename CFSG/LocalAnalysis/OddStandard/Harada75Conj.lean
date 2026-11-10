@@ -120,6 +120,8 @@ theorem phi_comp_inv (t : Vsub ι) : (D.phi t⁻¹).comp (D.phi t) = MonoidHom.i
   ⟨linPerm (D.phi t) (D.phi t⁻¹) (D.phi_inv_comp t) (D.phi_comp_inv t) (D.phi_z t)
       (D.phi_z t⁻¹), isIsom_lin (D.phi t) (D.phi_z t) (D.phi_E t)⟩
 
+theorem psiFun_apply (t : Vsub ι) (w : W₀) :
+    ((D.psiFun t : Isom) : Equiv.Perm W₀) w = lin (D.phi t) w := rfl
 
 @[expose] noncomputable def psi : Vsub ι →* Isom :=
   MonoidHom.mk' D.psiFun (fun s t => by

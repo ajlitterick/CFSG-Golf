@@ -198,5 +198,10 @@ theorem generated_group_two_involution_classes :
           (c : SpaceB ≃ₗ[ℚ] SpaceB)⁻¹) * d := by group
       _ = xmat := by rw [hcr', ← hdx]; group
 
+theorem generated_group_two_involution_classes_distinct :
+    orderOf xGmat = 2 ∧ ¬ IsConj xGmat tGmat ∧
+      LinearMap.trace ℚ SpaceB (xmat : SpaceB →ₗ[ℚ] SpaceB) = 276 ∧
+      LinearMap.trace ℚ SpaceB (tStar : SpaceB →ₗ[ℚ] SpaceB) = 4372 :=
+  ⟨orderOf_xGmat, not_isConj_xGmat_tGmat, trace_xmat', trace_tStar⟩
 
 end CFSG.Monster.Existence.Census

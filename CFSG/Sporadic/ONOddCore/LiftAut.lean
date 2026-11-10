@@ -86,6 +86,9 @@ theorem liftAut_eq_liftFun
     {k : ℕ} (hk : k < 12) {e : LiftEntry} (he : e ∈ (recK k).lifts) :
     ⇑(liftAut hk he) = liftFun e := liftHom_eq_liftFun hk he
 
+theorem liftAut_q
+    {k : ℕ} (hk : k < 12) {e : LiftEntry} (he : e ∈ (recK k).lifts) :
+    liftAut hk he qM = qM ^ e.power := liftHom_q hk he
 
 theorem digit_mk {a₀ a₁ a₂ : ℕ} (_h₀ : a₀ < 4) (h₁ : a₁ < 4) (h₂ : a₂ < 4) :
     digit (16 * a₀ + 4 * a₁ + a₂) 0 = a₀ ∧ digit (16 * a₀ + 4 * a₁ + a₂) 1 = a₁ ∧

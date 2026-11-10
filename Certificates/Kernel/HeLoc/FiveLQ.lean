@@ -18,6 +18,7 @@ theorem kNF : allN 13 (fun k => bAnd(nfValidK 5 HeC.LR (NF5.getD k 0), Nat.blt (
     true := by
   quickRfl
 
+theorem kN : Nat.beq Q.N 25 = true := by quickRfl
 
 theorem kTree : allN 25 (fun i => bIf(Nat.beq i 0, true, treeAtK 2 Q.P Q.L i)) = true := by
   quickRfl

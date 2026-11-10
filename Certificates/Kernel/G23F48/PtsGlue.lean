@@ -172,6 +172,13 @@ theorem pts_gen {k i : ℕ} (hk : k < 4) (hi : i < 728) :
     have := hlt r hr
     omega
 
+theorem frameIdx_lt : ∀ i < 15, frameIdx[i]! < 728 := by
+  decide
+
+theorem pts_frame : ∀ i < 15, (burnsideF48t_g23Pts ())[frameIdx[i]!]! = frameVecs[i]! := by
+  intro i hi
+  rw [pts_eq (frameIdx_lt i hi)]
+  exact (arrBind_sound (allN_spec frame_bind i hi)).symm
 
 end CFSG.KC.G23F48
 

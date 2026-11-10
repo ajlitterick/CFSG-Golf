@@ -50,6 +50,7 @@ open Native Finset
 
 @[expose] def dgt (x l : ℕ) : ℕ := x / 256 ^ l % 256
 
+theorem dgt_lt (x l : ℕ) : dgt x l < 256 := Nat.mod_lt _ (by norm_num)
 
 theorem dgt_succ (x l : ℕ) : dgt x (l + 1) = dgt (x / 256) l := by
   unfold dgt
@@ -217,6 +218,8 @@ theorem lane_packW {f : ℕ → ℕ} (hf : ∀ i < 112, f i < 256) {i : ℕ} (hi
   congr 1
   omega
 
+theorem lane_lt (a : W14) (i : ℕ) : a.lane i < 256 := by
+  rw [lane_eq]; exact dgt_lt _ _
 
 end W14
 
@@ -274,6 +277,7 @@ theorem digits_fold (a : W14) : ∀ n ≤ 14,
       rw [W14.lane_eq, byteOf_eq _ hl, show (8 * n + l) / 8 = n by omega,
         show (8 * n + l) % 8 = l by omega]
 
+theorem W14.digits_size (a : W14) : a.digits.size = 112 := (digits_fold a 14 le_rfl).1
 
 theorem W14.digits_get (a : W14) {j : ℕ} (hj : j < 112) :
     (a.digits.get! j).toNat = a.lane j % 5 := (digits_fold a 14 le_rfl).2 j hj

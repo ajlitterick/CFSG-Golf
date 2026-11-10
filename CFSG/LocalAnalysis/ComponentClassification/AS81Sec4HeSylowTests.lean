@@ -105,5 +105,6 @@ open CFSG.RankThree.Native
     !(inL Q (mul16 s (pow16 r 3))) &&
     uniqQOK X Q z && uniqEOK X E F
 
+@[expose] def heSylowCheck : Bool := sylCheck8330 && sylCheckRestrict && sylCheck16
 
 end CFSG.ComponentClassification.AS81.HeSylow

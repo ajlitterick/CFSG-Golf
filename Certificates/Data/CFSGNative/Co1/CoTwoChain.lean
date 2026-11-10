@@ -49,8 +49,22 @@ def orbitTreeBFS (rr : Nat → Array Nat) (lv : List Nat) (b : Nat) : OTree := I
   let T := orbitTreeBFS rr lv b
   if otreeOK rr lv b T then T.pts.size else 0
 
+@[expose] def levelSel (rr : Nat → Array Nat) (sel base : List Nat) (i : Nat) : List Nat :=
+  sel.filter fun s => (List.range i).all fun t =>
+    actN (rr s) (base.getD t 0) == base.getD t 0
+
+@[expose] def levelSize (rr : Nat → Array Nat) (sel base : List Nat) (i : Nat) : Nat :=
+  treeSize rr (levelSel rr sel base i) (base.getD i 0)
+
+@[expose] def chainOK (rr : Nat → Array Nat) (sel base : List Nat) (target : Nat) : Bool :=
+  decide (target ≤ ((List.range base.length).map (levelSize rr sel base)).prod)
 
 @[expose] def fixOK (rr : Nat → Array Nat) (x s : Nat) : Bool := actN (rr s) x == x
 
+@[expose] def invOK (rr : Nat → Array Nat) (a ia : Nat) : Bool :=
+  mulRows 24 (rr a) (rr ia) == idRows 24
+
+@[expose] def commOK (rr : Nat → Array Nat) (c ia ib a b : Nat) : Bool :=
+  rr c == mulRows 24 (mulRows 24 (mulRows 24 (rr ia) (rr ib)) (rr a)) (rr b)
 
 end CFSG.Sporadic.Co1.CoTwoNative

@@ -56,6 +56,9 @@ theorem act_eq_one_iff {g : G} (hg : g ∈ C) : act hKN g = 1 ↔ g ∈ CMK C K 
   rw [MonoidHom.mem_ker, Subgroup.mem_subgroupOf] at h
   exact h
 
+theorem act_mem_inn (hKC : K ≤ C) {k : G} (hk : k ∈ K) : act hKN k ∈ innAut (kBar K) := by
+  rw [act_of_mem_K hKN hKC hk]
+  exact ⟨_, rfl⟩
 
 theorem eq_of_act_eq_of_mem_K (hKC : K ≤ C)
     (hcen : Function.Injective (MulAut.conj : kBar K →* MulAut (kBar K))) {k₁ k₂ : G} (h₁ : k₁ ∈ K)
@@ -249,6 +252,8 @@ theorem mem_PQ_iff [Finite G] {t : G} :
 include H in
 theorem Q_le_T : H.Q ≤ T := inf_le_left
 
+include H in
+theorem PQ_le_T : (T ⊓ K) ⊔ H.Q ≤ T := sup_le inf_le_left H.Q_le_T
 
 include H in
 theorem act_Q {q : G} (hq : q ∈ H.Q) : act H.KN q = 1 := ((H.mem_Q).1 hq).2

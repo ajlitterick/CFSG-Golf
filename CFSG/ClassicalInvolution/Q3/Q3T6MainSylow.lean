@@ -20,6 +20,12 @@ section Basic
 
 variable {G : Type} [Group G] [Finite G] {K : Subgroup G} {z : G}
 
+theorem le_sec19X_of_mem {A : Subgroup G}
+    (hA : A ∈ USet (CoreAssembly.conjClass K) ∨ A ∈ RSet (CoreAssembly.conjClass K))
+    (hAz : A ≤ Subgroup.centralizer ({z} : Set G)) : A ≤ sec19X K z :=
+  le_iSup₂ (f := fun B (_ : B ∈ {A : Subgroup G | (A ∈ USet (CoreAssembly.conjClass K) ∨
+    A ∈ RSet (CoreAssembly.conjClass K)) ∧ A ≤ Subgroup.centralizer ({z} : Set G)}) => B) A
+    ⟨hA, hAz⟩
 
 namespace TightStd3
 
@@ -50,6 +56,13 @@ theorem centralizer_le_normalizer_member (ht : TightStd3 K z) {J : Subgroup G}
   rw [mem_normalizer_iff_conjSub_eq, ← conjSub_mul, show v * a = a * (a⁻¹ * v * a) by group,
     conjSub_mul, conjSub_eq_of_mem_normalizer hva]
 
+theorem not_le_centralizer_of_mem_rSet (ht : TightStd3 K z) {J₁ J₂ : Subgroup G}
+    (h₁ : J₁ ∈ CoreAssembly.conjClass K) (h₂ : J₂ ∈ CoreAssembly.conjClass K) (hne : J₁ ≠ J₂)
+    {u : G} (hu : IsUniqueInvolution J₂ u) {R₁ : Subgroup G}
+    (hR₁ : R₁ ∈ RSet (CoreAssembly.conjClass K)) (hR₁J : R₁ ≤ J₁) :
+    ¬ R₁ ≤ Subgroup.centralizer ({u} : Set G) := fun hC =>
+  S1911.not_le_normalizer_of_mem_rSet ht.edgeless h₁ h₂ hne hR₁ hR₁J
+    (hC.trans (ht.centralizer_le_normalizer_member h₂ hu))
 
 end TightStd3
 
@@ -81,6 +94,8 @@ theorem isSylow2In_inf : IsSylow2In ((S : Subgroup G) ⊓ K) K :=
 theorem inf_mem_rSet : (S : Subgroup G) ⊓ K ∈ RSet (CoreAssembly.conjClass K) :=
   mem_RSet_of_isSylow2In (CoreAssembly.mem_conjClass_self K) hd.isSylow2In_inf
 
+theorem le_sec19X_inf : (S : Subgroup G) ⊓ K ≤ sec19X K z :=
+  le_sec19X_of_mem (Or.inr hd.inf_mem_rSet) (inf_le_left.trans hd.hSz)
 
 theorem mem_S : z ∈ (S : Subgroup G) := by
   have hzK := hd.tight.isUniqueInvolution
@@ -99,6 +114,20 @@ theorem mem_S : z ∈ (S : Subgroup G) := by
 
 theorem mem_inf : z ∈ (S : Subgroup G) ⊓ K := ⟨hd.mem_S, hd.tight.isUniqueInvolution.mem⟩
 
+theorem mem_sec19X : z ∈ sec19X K z := hd.le_sec19X_inf hd.mem_inf
+
+theorem mem_sec19Y : z ∈ sec19Y K z := by
+  have hzK := hd.tight.isUniqueInvolution
+  have hzN : z ∈ Subgroup.normalizer (K : Set G) := Subgroup.le_normalizer hzK.mem
+  refine ⟨hd.mem_sec19X, hzN, mem_normalizer_oddCoreOf_of_mem_normalizer hzN, fun l hl => ?_⟩
+  have hc : z * l = l * z :=
+    (Subgroup.mem_centralizer_singleton_iff.mp (hd.tight.le_centralizer hl)).symm
+  rw [commutatorElement_def, hc, mul_inv_cancel_right, mul_inv_cancel]
+  exact (oddCoreOf K).one_mem
+
+theorem le_normalizer_sec19X :
+    (S : Subgroup G) ≤ Subgroup.normalizer ((sec19X K z : Subgroup G) : Set G) :=
+  hd.hSz.trans (Hall196.centralizer_le_normalizer_sec19X K z)
 
 end Sec19Data3
 
@@ -108,9 +137,37 @@ variable {S : Sylow 2 G} {W L : Subgroup G} {t : G} {V : Subgroup G}
   (hd : Sec19DataT3 K z S W L t V)
 include hd
 
+theorem member_ne : L ≠ K := by
+  intro h
+  apply hd.ne
+  exact (h ▸ hd.invL).eq hd.tight.isUniqueInvolution
 
 theorem htS : t ∈ (S : Subgroup G) := hd.hWS (hd.leW hd.memT)
 
+theorem not_mem_centralizer_inf :
+    t ∉ Subgroup.centralizer (((S : Subgroup G) ⊓ K : Subgroup G) : Set G) := by
+  intro hC
+  refine hd.tight.not_le_centralizer_of_mem_rSet (CoreAssembly.mem_conjClass_self K) hd.memL
+    hd.member_ne.symm hd.invL hd.toSec19Data3.inf_mem_rSet inf_le_right ?_
+  intro r hr
+  rw [Subgroup.mem_centralizer_singleton_iff]
+  exact Subgroup.mem_centralizer_iff.mp hC r hr
+
+theorem le_sec19X_V : V ≤ sec19X K z :=
+  le_sec19X_of_mem (Or.inl hd.memV) (hd.leW.trans (hd.hWS.trans hd.hSz))
+
+theorem isCyclic_V : IsCyclic ↥V := by
+  obtain ⟨R, -, -, hcyc, -⟩ := hd.memV
+  exact hcyc
+
+theorem isPGroup_V : IsPGroup 2 V := S.isPGroup'.to_le (hd.leW.trans hd.hWS)
+
+theorem four_le_card_V : 4 ≤ Nat.card V := by
+  obtain ⟨R, hR, hVR, -, hidx⟩ := hd.memV
+  have h8 := hd.tight.natCard_rSet hR
+  have h1 := Subgroup.relIndex_mul_card (H := V) (K := R)
+  rw [inf_eq_left.mpr hVR, hidx] at h1
+  omega
 
 theorem htN : t ∈ Subgroup.normalizer (((S : Subgroup G) ⊓ K : Subgroup G) : Set G) := by
   have hN := hd.hSN hd.htS
@@ -128,6 +185,41 @@ theorem htN : t ∈ Subgroup.normalizer (((S : Subgroup G) ⊓ K : Subgroup G) :
       hd.htS
     simpa [mul_assoc] using this
 
+theorem inf_sec19Y_eq_bot : V ⊓ sec19Y K z = ⊥ := by
+  rw [eq_bot_iff]
+  intro x hx
+  rw [Subgroup.mem_bot]
+  by_contra hx1
+  have hx2 : IsPGroup 2 (Subgroup.zpowers x) :=
+    hd.isPGroup_V.to_le (Subgroup.zpowers_le.mpr hx.1)
+  obtain ⟨m, hm⟩ := hx2.exists_card_eq
+  have hm0 : m ≠ 0 := by
+    rintro rfl
+    rw [pow_zero, Nat.card_zpowers, orderOf_eq_one_iff] at hm
+    exact hx1 hm
+  have h2dvd : 2 ∣ Nat.card (Subgroup.zpowers x) := by
+    rw [hm]
+    exact dvd_pow_self 2 hm0
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨⟨w, hwx⟩, hw2⟩ := exists_prime_orderOf_dvd_card' 2 h2dvd
+  have hw2' : orderOf w = 2 := by rw [← Subgroup.orderOf_mk w hwx]; exact hw2
+  have hwV : w ∈ V := (Subgroup.zpowers_le.mpr hx.1) hwx
+  have hwsq : w * w = 1 := by rw [← sq, ← hw2', pow_orderOf_eq_one]
+  have hw1 : w ≠ 1 := by
+    intro h
+    rw [h, orderOf_one] at hw2'
+    omega
+  have hwt : w = t :=
+    S1916.eq_of_mul_self_eq_one_of_isCyclic hd.isCyclic_V hwV hd.memT hwsq hd.invL.sq hw1
+      hd.invL.ne_one
+  have htY : t ∈ sec19Y K z := by
+    have : w ∈ sec19Y K z := (Subgroup.zpowers_le.mpr hx.2) hwx
+    rwa [hwt] at this
+  apply hd.not_mem_centralizer_inf
+  rw [Subgroup.mem_centralizer_iff]
+  intro y hy
+  exact (S1916.commute_of_mem_centralizerModOdd htY inf_le_right
+    (S.isPGroup'.to_le inf_le_left) hd.htN hy).symm
 
 end Sec19DataT3
 

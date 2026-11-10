@@ -73,6 +73,8 @@ theorem sign_of_fixCard {x : Equiv.Perm (Fin 8330)} (h2 : x ^ 2 = 1) {f : ℕ}
 @[expose] def heOuterInvs : Set (Equiv.Perm (Fin 8330)) :=
   {x | x ∈ heAutGroup ∧ x ∉ heP ∧ orderOf x = 2}
 
+theorem mem_heOuterInvs {x : Equiv.Perm (Fin 8330)} :
+    x ∈ heOuterInvs ↔ x ∈ heAutGroup ∧ x ∉ heP ∧ orderOf x = 2 := Iff.rfl
 
 theorem heOuterInvs_conj {x : Equiv.Perm (Fin 8330)} (hx : x ∈ heOuterInvs)
     {h : Equiv.Perm (Fin 8330)} (hh : h ∈ heP) : h * x * h⁻¹ ∈ heOuterInvs := by

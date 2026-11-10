@@ -32,6 +32,9 @@ theorem getD_map_range {α : Type} {m k : ℕ} (f : ℕ → α) (d : α) (hk : k
     ((Array.range m).map f).getD k d = f k := by
   simp [Array.getD_eq_getD_getElem?, hk]
 
+theorem size_compA (n : ℕ) (t u : Array ℕ) : (compA n t u).size = n := by simp [compA]
+
+theorem size_idA (n : ℕ) : (idA n).size = n := by simp [idA]
 
 variable {np : ℕ} {gs : Array (Array ℕ)} {ps : List ℕ} {c : ArrCert}
 

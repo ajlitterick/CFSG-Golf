@@ -14,5 +14,11 @@ namespace CFSG.YGroups.Y443
 
 open CFSG.Monster.AxisCount
 
+theorem p2_w :
+    wordLin (rhoWord ++ rhoWord) = 1 ∧
+      (∀ s ∈ rhoGens, wordLin (Lw s ++ rhoWord) = wordLin (rhoWord ++ Lw (armSwapL s))) ∧
+      wordLin (omegaWord ++ mWord) = wordLin (rhoWord ++ omegaWord) ∧
+      wordLin (zmWord ++ qWord) = wordLin (qWord ++ tWord) :=
+  Certificates.certificate10122
 
 end CFSG.YGroups.Y443

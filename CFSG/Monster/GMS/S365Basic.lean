@@ -177,6 +177,10 @@ theorem isKlein_of_isLineTriple (ha : orderOf a = 2) (h : IsLineTriple a x y) : 
     mul_comm_of_mul_self_eq_one (sq_of_isConj_a ha h.1) (sq_of_isConj_a ha h.2.1)
       (sq_of_isConj_a ha h.2.2)⟩
 
+theorem ne_of_isLineTriple (ha : orderOf a = 2) (h : IsLineTriple a x y) : x ≠ y := by
+  intro hxy
+  have h1 : x * y = 1 := by rw [← hxy]; exact sq_of_isConj_a ha h.1
+  exact ne_one_of_isConj_a ha h.2.2 h1
 
 end Basic
 
@@ -292,6 +296,7 @@ theorem exists_subgroup_card_eight [Finite G] {x y u : G} (hxx : x * x = 1)
   · rcases hA₃ e he with h | ⟨a₂, ha₂, rfl⟩
     · rcases hA₂' e h with h | h | h | h <;> simp [h]
     · rcases hA₂' a₂ ha₂ with rfl | rfl | rfl | rfl <;> simp
+
 
 
 end Eight

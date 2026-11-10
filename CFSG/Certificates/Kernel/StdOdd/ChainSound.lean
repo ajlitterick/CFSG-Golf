@@ -483,9 +483,86 @@ theorem lenN_stepAux (ms U : List ℕ) (o : ℕ) : ∀ (V Ms : List ℕ),
 
 theorem lenN_stepL (Ms ms U : List ℕ) : lenN (stepL Ms ms U) = lenN U := lenN_stepAux _ _ _ _ _
 
+theorem stepL_sound {Ms ms U : List ℕ} (hl : lenN U = 156) (hlen : lenN ms = lenN Ms)
+    (hd : disjL ms = true) (i : ℕ) :
+    ptB (stepL Ms ms U) i = ptB U i ∨
+      ∃ l < lenN Ms, ptB (stepL Ms ms U) i = matB (nthN Ms l) *ᵥ ptB U i := by
+  have hd' := disjL_sound hd i
+  by_cases hex : ∃ l < lenN ms, (nthN ms l).testBit i = true
+  · obtain ⟨l, hlt, hb⟩ := hex
+    refine Or.inr ⟨l, by omega, ?_⟩
+    funext c
+    rw [ptB_eq, ← rowX_bit hl (nthN Ms l) c i, stepL, stepAux_nth ms U _ U Ms c (by rw [hl]; exact c.2),
+      Nat.testBit_xor, andNot_testBit, (orL_testBit i ms).2 ⟨l, hlt, hb⟩, Bool.not_true,
+      Bool.and_false,
+      Bool.false_xor, letterSum_bit U i (shiftN Ms c) ms (by rw [lenN_shiftN]; omega) hd' l hlt hb,
+      nthN_shiftN]
+  · refine Or.inl ?_
+    funext c
+    have ho : (orL ms).testBit i = false := by
+      cases h : (orL ms).testBit i
+      · rfl
+      · exact (hex ((orL_testBit i ms).1 h)).elim
+    rw [ptB_eq, ptB_eq, stepL, stepAux_nth ms U _ U Ms c (by rw [hl]; exact c.2), Nat.testBit_xor,
+      andNot_testBit, ho, Bool.not_false, Bool.and_true,
+      letterSum_bit_zero U i _ ms (fun l hl h => hex ⟨l, hl, h⟩), Bool.xor_false]
+
+@[expose] noncomputable def letterMon (Ms : List ℕ) : Submonoid (Matrix (Fin 156) (Fin 156) (ZMod 2)) :=
+  Submonoid.closure {A | ∃ l < lenN Ms, A = matB (nthN Ms l)}
+
+theorem forestPlane_sound {Ms : List ℕ} {k : List ℕ → Bool} : ∀ (S : List (List ℕ)) (U : List ℕ),
+    lenN U = 156 → walkK Ms S U k = true →
+    ∃ V, k V = true ∧ lenN V = 156 ∧ ∀ i, ∃ g ∈ letterMon Ms, ptB V i = g *ᵥ ptB U i
+  | [], U, hl, h => ⟨U, h, hl, fun i => ⟨1, Submonoid.one_mem _, by rw [Matrix.one_mulVec]⟩⟩
+  | ms :: S, U, hl, h => by
+    change andB (andB (Nat.beq (lenN ms) (lenN Ms)) (disjL ms))
+      (forceLB (stepL Ms ms U) fun U => walkK Ms S U k) = true at h
+    rw [andB_eq, andB_eq, Bool.and_eq_true, Bool.and_eq_true, forceLB_eq] at h
+    obtain ⟨⟨hlen, hd⟩, hw⟩ := h
+    have hl' : lenN (stepL Ms ms U) = 156 := by rw [lenN_stepL, hl]
+    obtain ⟨V, hk, hV, hpt⟩ := forestPlane_sound S _ hl' hw
+    refine ⟨V, hk, hV, fun i => ?_⟩
+    obtain ⟨g, hg, e⟩ := hpt i
+    rcases stepL_sound hl (Nat.eq_of_beq_eq_true hlen) hd i with h1 | ⟨l, hlt, h1⟩
+    · exact ⟨g, hg, by rw [e, h1]⟩
+    · refine ⟨g * matB (nthN Ms l), Submonoid.mul_mem _ hg
+        (Submonoid.subset_closure ⟨l, hlt, rfl⟩), ?_⟩
+      rw [e, h1, Matrix.mulVec_mulVec]
 
 @[expose] noncomputable def vecB (v : ℕ) : Fin 156 → ZMod 2 := fun c => bz (v.testBit c)
 
+@[expose] noncomputable def replA (w : ℕ) : ℕ → ℕ → List ℕ :=
+  Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+    (fun _ ih v => List.cons (Nat.mul (Nat.land v 1) (full w)) (ih (Nat.shiftRight v 1)))
+
+theorem lenN_replA (w : ℕ) : ∀ n v, lenN (replA w n v) = n
+  | 0, _ => rfl
+  | n + 1, v => by
+    change lenN (replA w n (v >>> 1)) + 1 = n + 1
+    rw [lenN_replA w n]
+
+theorem nthN_replA (w i : ℕ) (hi : i < w) : ∀ n v c, c < n →
+    (nthN (replA w n v) c).testBit i = v.testBit c
+  | 0, _, c, h => absurd h (Nat.not_lt_zero c)
+  | n + 1, v, 0, _ => by
+    change ((v &&& 1) * full w).testBit i = _
+    rw [Nat.and_one_is_mod]
+    rcases Nat.mod_two_eq_zero_or_one v with h | h
+    · rw [h, Nat.zero_mul, Nat.zero_testBit, Nat.testBit_zero, h]
+      rfl
+    · rw [h, Nat.one_mul, testBit_full, Nat.testBit_zero, h]
+      simp [hi]
+  | n + 1, v, c + 1, h => by
+    change (nthN (replA w n (v >>> 1)) c).testBit i = _
+    rw [nthN_replA w i hi n _ c (by omega), Nat.testBit_shiftRight, Nat.add_comm]
+
+theorem lenN_repl (v w : ℕ) : lenN (repl v w) = 156 := lenN_replA w 156 v
+
+theorem repl_sound (v w i : ℕ) (hi : i < w) : ptB (repl v w) i = vecB v := by
+  funext c
+  rw [ptB_eq, vecB]
+  change bz ((nthN (replA w 156 v) c).testBit i) = _
+  rw [nthN_replA w i hi 156 v c c.2]
 
 theorem neqV_aux (F i : ℕ) : ∀ (U : List ℕ) (v acc : ℕ),
     (List.rec (motive := fun _ => Nat → Nat → Nat) (fun _ acc => Nat.land F acc)
@@ -585,6 +662,42 @@ theorem neqPt_aux (F i k : ℕ) : ∀ (U FP : List ℕ) (acc : ℕ), lenN U = le
     rw [hv]
     cases acc.testBit i <;> cases x.testBit i <;> cases y.testBit k <;> cases F.testBit i <;> simp
 
+theorem memMask_aux (U FP : List ℕ) (F i : ℕ) (h : lenN U = lenN FP) : ∀ (s acc : ℕ),
+    (Nat.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
+      (fun k ih acc => forceN (Nat.lor acc (andNot F (neqPt U FP k F))) ih) s acc).testBit i =
+      (acc.testBit i || (List.range s).any fun k => F.testBit i &&
+        !(List.range (lenN U)).any fun c =>
+          (nthN U c).testBit i != ((nthN FP c).testBit k && F.testBit i))
+  | 0, acc => by simp
+  | s + 1, acc => by
+    change (forceN (acc ||| andNot F (neqPt U FP s F)) _).testBit i = _
+    rw [forceN_eq]
+    change (Nat.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
+      (fun k ih acc => forceN (Nat.lor acc (andNot F (neqPt U FP k F))) ih) s
+        (acc ||| andNot F (neqPt U FP s F))).testBit i = _
+    rw [memMask_aux U FP F i h s, Nat.testBit_or, andNot_testBit, neqPt, neqPt_aux F i s U FP 0 h,
+      Nat.zero_testBit, Bool.false_or, List.range_succ, List.any_append, List.any_cons,
+      List.any_nil, Bool.or_false]
+    cases acc.testBit i <;> simp [Bool.or_comm]
+
+theorem memMask_sound {U FP : List ℕ} (hU : lenN U = 156) (hF : lenN FP = 156) (s w i : ℕ) :
+    (memMask U FP s w).testBit i = true ↔ i < w ∧ ∃ k < s, ptB U i = ptB FP k := by
+  unfold memMask
+  rw [forceN_eq, memMask_aux U FP _ i (by rw [hU, hF]), Nat.zero_testBit, Bool.false_or,
+    testBit_full, hU]
+  by_cases hi : i < w
+  · simp only [hi, decide_true, Bool.true_and, Bool.and_true, List.any_eq_true, List.mem_range,
+      Bool.not_eq_true', List.any_eq_false, bne_iff_ne, ne_eq, not_not, true_and]
+    constructor
+    · rintro ⟨k, hk, hall⟩
+      refine ⟨k, hk, funext fun c => ?_⟩
+      rw [ptB_eq, ptB_eq, hall c c.2]
+    · rintro ⟨k, hk, e⟩
+      refine ⟨k, hk, fun c hc => ?_⟩
+      have := congrFun e ⟨c, hc⟩
+      rw [ptB_eq, ptB_eq] at this
+      exact bz_inj this
+  · simp [hi]
 
 theorem land_sub_one (x : ℕ) (hx : x ≠ 0) :
     ∃ t, x.testBit t = true ∧ x &&& (x - 1) = x ^^^ 2 ^ t := by
@@ -812,6 +925,27 @@ theorem walkElt_spread (Ms : List ℕ) (r k i j : ℕ) (hj : j < r) (hi : i < k)
       | cons m ms ih => exact congrArg (List.cons (spread m r k)) ih
     rw [e, walkElt, walkElt, selM_spread r k i j hj hi, walkElt_spread Ms r k i j hj hi S]
 
+theorem selM_mem (Ms : List ℕ) (i : ℕ) : ∀ ms : List ℕ, selM Ms ms i ∈ letterMon Ms := by
+  suffices h : ∀ (Ns ms : List ℕ), (∀ l < lenN Ns, ∃ l' < lenN Ms, nthN Ns l = nthN Ms l') →
+      selM Ns ms i ∈ letterMon Ms from fun ms => h Ms ms fun l hl => ⟨l, hl, rfl⟩
+  intro Ns
+  induction Ns with
+  | nil => intro ms _; simp [selM]
+  | cons M Ns ih =>
+    intro ms hN
+    cases ms with
+    | nil => simp [selM]
+    | cons m ms =>
+      rw [selM]
+      split_ifs
+      · obtain ⟨l', hl', e⟩ := hN 0 (by rw [lenN_cons]; omega)
+        rw [nthN_cons_zero] at e
+        exact Submonoid.subset_closure ⟨l', hl', by rw [e]⟩
+      · exact ih ms fun l hl => hN (l + 1) (by rw [lenN_cons]; omega)
+
+theorem walkElt_mem (Ms : List ℕ) (i : ℕ) : ∀ S, walkElt Ms S i ∈ letterMon Ms
+  | [] => Submonoid.one_mem _
+  | ms :: S => Submonoid.mul_mem _ (walkElt_mem Ms i S) (selM_mem Ms i ms)
 
 theorem forceNL_eq (y : ℕ) (k : ℕ → List ℕ) : forceNL y k = k y := by
   cases y <;> rfl
@@ -840,6 +974,77 @@ theorem ptB_chunkPl (U : List ℕ) (off w i : ℕ) (hi : i < w) :
   rw [ptB_eq, ptB_eq, nthN_chunkPl, Nat.testBit_and, testBit_full, Nat.testBit_shiftRight,
     decide_eq_true hi, Bool.and_true, Nat.add_comm off i]
 
+theorem lenN_catPl (Es : List (List ℕ)) (r : ℕ) : lenN (catPl Es r) = 156 := by
+  have : ∀ n c, lenN (Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+      (fun _ ih c => List.cons (catRow Es r c) (ih (Nat.succ c))) n c) = n := by
+    intro n
+    induction n with
+    | zero => intro c; rfl
+    | succ n ih => intro c; exact congrArg Nat.succ (ih _)
+  exact this 156 0
+
+theorem nthN_catPl (Es : List (List ℕ)) (r c : ℕ) (hc : c < 156) :
+    nthN (catPl Es r) c = catRow Es r c := by
+  have : ∀ n c0 c, c < n → nthN (Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+      (fun _ ih c => List.cons (catRow Es r c) (ih (Nat.succ c))) n c0) c = catRow Es r (c0 + c) := by
+    intro n
+    induction n with
+    | zero => intro c0 c h; omega
+    | succ n ih =>
+      intro c0 c h
+      cases c with
+      | zero => rfl
+      | succ c =>
+        change nthN (Nat.rec (motive := fun _ => Nat → List Nat) (fun _ => List.nil)
+          (fun _ ih c => List.cons (catRow Es r c) (ih (Nat.succ c))) n (c0 + 1)) c = _
+        rw [ih (c0 + 1) c (by omega)]
+        congr 1
+        omega
+  exact (this 156 0 c hc).trans (by rw [Nat.zero_add])
+
+@[expose] noncomputable def catA (r c : ℕ) (Es : List (List ℕ)) (i0 : ℕ) : ℕ :=
+  List.rec (motive := fun _ => Nat → Nat) (fun _ => nat_lit 0)
+    (fun E _ ih i => Nat.lor (Nat.shiftLeft (Nat.land (nthN E c) (full r)) (Nat.mul i r))
+      (ih (Nat.succ i))) Es i0
+
+theorem catA_cons (r c : ℕ) (E : List ℕ) (Es : List (List ℕ)) (i0 : ℕ) :
+    catA r c (E :: Es) i0 = ((nthN E c &&& full r) <<< (i0 * r)) ||| catA r c Es (i0 + 1) := rfl
+
+theorem catA_testBit (r c j : ℕ) (hj : j < r) : ∀ (Es : List (List ℕ)) (i0 i : ℕ),
+    (catA r c Es i0).testBit (i * r + j) =
+      (decide (i0 ≤ i ∧ i < i0 + Es.length) && (nthN (Es.getD (i - i0) []) c).testBit j)
+  | [], i0, i => by
+    change (0 : ℕ).testBit _ = _
+    rw [Nat.zero_testBit]
+    simp
+  | E :: Es, i0, i => by
+    rw [catA_cons, Nat.testBit_or, testBit_blk, catA_testBit r c j hj Es (i0 + 1) i]
+    by_cases hii : i0 = i
+    · subst hii
+      have h1 : i0 * r ≤ i0 * r + j := by omega
+      simp [h1, hj]
+    · rw [blk_false ((blk_iff r i i0 j hj).not.2 hii), Bool.false_or]
+      by_cases hle : i0 + 1 ≤ i
+      · have e : i - i0 = (i - (i0 + 1)) + 1 := by omega
+        rw [e, List.getD_cons_succ, List.length_cons]
+        congr 1
+        simp only [decide_eq_decide]
+        omega
+      · have h5 : decide (i0 + 1 ≤ i ∧ i < i0 + 1 + Es.length) = false := by
+          simp only [decide_eq_false_iff_not]
+          omega
+        have h6 : decide (i0 ≤ i ∧ i < i0 + (E :: Es).length) = false := by
+          simp only [decide_eq_false_iff_not, List.length_cons]
+          omega
+        rw [h5, h6, Bool.false_and, Bool.false_and]
+
+theorem ptB_catPl (Es : List (List ℕ)) (r i j : ℕ) (hj : j < r) (hi : i < Es.length) :
+    ptB (catPl Es r) (i * r + j) = ptB (Es.getD i []) j := by
+  funext c
+  rw [ptB_eq, ptB_eq, nthN_catPl Es r c c.2]
+  change bz ((catA r c Es 0).testBit (i * r + j)) = _
+  rw [catA_testBit r c j hj Es 0 i, Nat.sub_zero]
+  simp [hi]
 
 theorem profAll_sound (X : ℕ) {U : List ℕ} (hl : lenN U = 156) (w FP : ℕ) (BL : List ℕ)
     (i : ℕ) : ∀ (ks ts : List ℕ), lenN ks = lenN ts →

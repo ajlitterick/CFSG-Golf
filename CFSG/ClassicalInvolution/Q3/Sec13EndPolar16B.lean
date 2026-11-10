@@ -918,6 +918,102 @@ theorem card_nbr_eq [Finite V] (hB : SympForm B) (hS : PointSet B S a) (hSec : S
     rw [hEp, Set.ncard_insert_of_notMem hnot, Set.ncard_pair hsy_su]
   omega
 
+theorem card_points_eq [Finite V] (hB : SympForm B) (hS : PointSet B S a) (hSec : Sections B S 𝓔)
+    (hcard : Nat.card V = 64) (hmem : ∃ p ∈ S, ∃ e ∈ 𝓔, ∃ e' ∈ 𝓔, e ≠ e' ∧ p ∈ sigma B S e ∧
+      p ∈ sigma B S e') : S.ncard = 35 := by
+  have ha := card_nbr_eq hB hS hSec hcard hmem
+  subst ha
+  obtain ⟨p, hp, -⟩ := hmem
+  have hE : ∀ q ∈ S, {e | e ∈ 𝓔 ∧ q ∈ sigma B S e}.ncard = 3 := fun q hq => by
+    have := card_centres_of_mem hB hS hSec hq
+    omega
+  exact (p16b_count hB hS hSec hp hE).2
+
+theorem closure_nbr_eq [Finite V] (hB : SympForm B) (hS : PointSet B S 9) (hSec : Sections B S 𝓔)
+    (hcard : Nat.card V = 64) {z : V} (hz : z ∈ S) :
+    (Subgroup.closure (insert z (nbr B S z)) : Set V) = {x : V | B z x = 0} := by
+  classical
+  have hz1 : z ≠ 1 := fun h => hS.one_notMem (h ▸ hz)
+  let χ : V →* Multiplicative (ZMod 2) :=
+    { toFun := fun x => Multiplicative.ofAdd (B x z)
+      map_one' := by
+        show Multiplicative.ofAdd (B 1 z) = 1
+        rw [Sp4.B_one_left hB z]
+        rfl
+      map_mul' := fun x y => by
+        show Multiplicative.ofAdd (B (x * y) z) =
+          Multiplicative.ofAdd (B x z) * Multiplicative.ofAdd (B y z)
+        rw [hB.mul_left, ofAdd_add] }
+  have hker : χ.ker = p16bPerp hB z := by
+    ext x
+    rw [MonoidHom.mem_ker]
+    show Multiplicative.ofAdd (B x z) = 1 ↔ B x z = 0
+    exact ofAdd_eq_one
+  obtain ⟨f, hf⟩ := p16b_exists_pair hB hz1
+  have hf' : B f z = 1 := (hB.symm f z).trans hf
+  have hrange : χ.range = ⊤ := by
+    apply MonoidHom.range_eq_top_of_surjective
+    intro y
+    have hy : y = Multiplicative.ofAdd (Multiplicative.toAdd y) := rfl
+    rcases (by decide : ∀ c : ZMod 2, c = 0 ∨ c = 1) (Multiplicative.toAdd y) with h | h
+    · refine ⟨1, ?_⟩
+      rw [hy, h]
+      show Multiplicative.ofAdd (B 1 z) = Multiplicative.ofAdd 0
+      rw [Sp4.B_one_left hB z]
+    · refine ⟨f, ?_⟩
+      rw [hy, h]
+      show Multiplicative.ofAdd (B f z) = Multiplicative.ofAdd 1
+      rw [hf']
+  have hcardZ : Nat.card (p16bPerp hB z) = 32 := by
+    rw [← hker]
+    have h := Subgroup.card_ker_mul_card_range χ
+    have h2 : Nat.card (Multiplicative (ZMod 2)) = 2 := by
+      rw [Nat.card_congr Multiplicative.toAdd, Nat.card_zmod]
+    rw [hrange, Subgroup.card_top, h2, hcard] at h
+    omega
+  have hsubZ : ∀ x, x ∈ p16bPerp hB z ↔ B z x = 0 := fun x => by
+    show B x z = 0 ↔ B z x = 0
+    rw [hB.symm]
+  set E := Subgroup.closure (insert z (nbr B S z)) with hE
+  have hleE : E ≤ p16bPerp hB z := by
+    rw [hE, Subgroup.closure_le]
+    intro x hx
+    rcases hx with rfl | hx
+    · exact (hsubZ x).mpr (hB.alt x)
+    · exact (hsubZ x).mpr hx.2.2
+  have hcardE : 20 ≤ Nat.card E := by
+    have hz_notin : z ∉ nbr B S z := fun h => h.2.1 rfl
+    have h1_notin : (1 : V) ∉ insert z (nbr B S z) := by
+      rintro (h | h)
+      · exact hz1 h.symm
+      · exact hS.one_notMem h.1
+    have hsub : ((insert 1 (insert z (nbr B S z))) : Set V) ⊆ (E : Set V) := by
+      intro x hx
+      rcases hx with rfl | hx
+      · exact E.one_mem
+      · rcases hx with rfl | hx
+        · exact Subgroup.subset_closure (Set.mem_insert _ _)
+        · exact Subgroup.subset_closure (Set.mem_insert_of_mem _ hx)
+    have h1 := Set.ncard_le_ncard hsub (Set.toFinite _)
+    have h2 : (insert 1 (insert z (nbr B S z)) : Set V).ncard = 20 := by
+      rw [Set.ncard_insert_of_notMem h1_notin, Set.ncard_insert_of_notMem hz_notin,
+        hS.card_nbr z hz]
+    have h3 : Nat.card E = (E : Set V).ncard := Nat.card_coe_set_eq _
+    omega
+  have hdvd : Nat.card E ∣ Nat.card (p16bPerp hB z) := Subgroup.card_dvd_of_le hleE
+  rw [hcardZ] at hdvd
+  have hEeq : Nat.card E = 32 := by
+    obtain ⟨k, hk⟩ := hdvd
+    have hk1 : k < 2 := by
+      by_contra hc
+      push Not at hc
+      have : 20 * 2 ≤ Nat.card E * k := Nat.mul_le_mul hcardE hc
+      omega
+    interval_cases k <;> omega
+  have hEZ : E = p16bPerp hB z := Subgroup.eq_of_le_of_card_ge hleE (by omega)
+  rw [hEZ]
+  ext x
+  exact hsubZ x
 
 theorem card_centres_eq [Finite V] (hB : SympForm B) (hS : PointSet B S a) (hSec : Sections B S 𝓔)
     (hcard : Nat.card V = 64) (hmem : ∃ p ∈ S, ∃ e ∈ 𝓔, ∃ e' ∈ 𝓔, e ≠ e' ∧ p ∈ sigma B S e ∧

@@ -23,6 +23,12 @@ theorem full_K : fullK JA.M JB.M KernelSpor.J3K.PJ 20520 CFSG.RankThree.Asc83Tab
     true := by
   quickRfl
 
+theorem range_neg : (!rangeK { CFSG.RankThree.Asc83Table.J3.j3Cert with nregs := 3 }) = true := by
+  quickRfl
+
+theorem moved_neg : (!Nat.beq (movedL (tF (idF 80))
+    (lanesP KernelSpor.J3K.PJ 4) (onesL 4)) (onesL 4)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelJ3L
 

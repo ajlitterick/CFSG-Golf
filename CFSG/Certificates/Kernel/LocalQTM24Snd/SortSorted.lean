@@ -151,6 +151,12 @@ theorem mergeK_sorted {xs ys : List ℕ} (hx : xs.Pairwise (· ≤ ·)) (hy : ys
     (mergeK xs ys).Pairwise (· ≤ ·) :=
   aux_suba_mergeK_sorted xs ys hx hy
 
+theorem passK_length (rs : List (List ℕ)) : (passK rs).length = (rs.length + 1) / 2 :=
+  (aux_suba_passGoT_length rs).1
+
+theorem passK_sorted (rs : List (List ℕ)) (h : ∀ r ∈ rs, r.Pairwise (· ≤ ·)) :
+    ∀ r ∈ passK rs, r.Pairwise (· ≤ ·) :=
+  (aux_suba_passGoT_sorted rs h).1
 
 theorem sortN_sorted (l : List ℕ) (hl : l.length ≤ 131072) : (sortN l).Pairwise (· ≤ ·) :=
   aux_suba_main l hl (fun i => Nat.rec (motive := fun _ => List (List ℕ))

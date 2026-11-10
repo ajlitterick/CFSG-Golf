@@ -93,6 +93,10 @@ theorem exists_not_mem_conjSub (h : IsUniqueMaxSub H X L₀) {S : Subgroup G}
 end IsUniqueMaxSub
 
 
+theorem pCoreOf_conjSub (H : Subgroup G) (g : G) :
+    pCoreOf 2 (B6.conjSub g H) = B6.conjSub g (pCoreOf 2 H) :=
+  CFSG.LieType.BorelTits.pCoreOf_map_mulEquiv 2 (MulAut.conj g) H
+
 end CFSG.Quasithin.MS09
 
 end

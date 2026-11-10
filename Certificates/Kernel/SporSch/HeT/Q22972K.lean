@@ -32,6 +32,11 @@ namespace CertificateChecks.KernelSporSch.HeQ17
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch.MOC CFSG.KS.SporSch.ChainCls
 
+theorem kCC : bAnd(Nat.ble (ordK QC.LR 4) (Nat.mul QCC.CS.length 2048), Nat.beq QCC.CS.sum 3) =
+    true := by quickRfl
+
+theorem negCC : (Nat.beq (commCntK 98 7 (mask 7) (98 * 7) (pidn 98 7) QC.LR QC.TR 4 QD.S 3
+    (ordK QC.LR 4) 0 2048) (QCC.CS.getD 0 0 + 1)).not = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HeQ17
 

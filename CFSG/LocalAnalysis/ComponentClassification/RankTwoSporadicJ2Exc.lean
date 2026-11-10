@@ -21,6 +21,22 @@ deriving Inhabited
       !(allLt nodes[i]!.basis.size fun k => commA n cS.pts[p]! nodes[i]!.basis[k]!) ||
       memA n cN[i]! cS.pts[p]! || childOK n nodes cN i cS.pts[p]! nodes[i]!.children[p]!
 
+@[expose] def excOK (n : ℕ) (ps : List ℕ) (fuel : ℕ) (inW : Array ℕ → Bool)
+    (e0 : Array (Array ℕ)) (cN : Array ArrCert) (excs : List ExcRef) (i : ℕ) : Bool :=
+  let c0 := enumBfs n e0 ps fuel
+  enumOK n e0 ps c0 && excs.any fun r => r.node == i && validA n r.w && inW r.w &&
+    (allLt e0.size fun j => memA n cN[i]! (conjA n r.w e0[j]!)) &&
+      c0.pts.size == cN[i]!.pts.size
+
+@[expose] def censusExcOK (n : ℕ) (ps : List ℕ) (fuel : ℕ) (inX outX inW : Array ℕ → Bool)
+    (allowPW allowInX allowU : Bool) (sGens : Array (Array ℕ)) (roots : Array ℕ)
+    (nodes : Array Node) (e0 : Array (Array ℕ)) (excs : List ExcRef) : Bool :=
+  let cS := enumBfs n sGens ps fuel
+  let cN := nodes.map fun nd => enumBfs n nd.basis ps fuel
+  enumOK n sGens ps cS && (allLt cS.pts.size fun p => rootOK n nodes cN cS.pts[p]! roots[p]!) &&
+    allLt nodes.size fun i => nodeOK n ps fuel inX outX allowPW allowInX allowU cS nodes cN i ||
+      (enumOK n nodes[i]!.basis ps cN[i]! && excOK n ps fuel inW e0 cN excs i &&
+        childrenOK n cS nodes cN i)
 
 section Soundness
 

@@ -149,6 +149,8 @@ theorem Iso.symm {L L' : Subgroup Q} (hL : IsInv A L) (h : Iso A L L') : Iso A L
     rw [← h3, MulEquiv.symm_apply_apply]
   exact congrArg Subtype.val h4
 
+theorem isHomComp_self {L : Subgroup Q} (hL : IsIrr A L) : IsHomComp A L L :=
+  ⟨hL, le_rfl, fun _ hL' _ _ => hL'⟩
 
 theorem commOf_sup_eq_of_le_fixed {L C : Subgroup Q} (hC : C ≤ fixed A ⊤) :
     commOf A (L ⊔ C) = commOf A L := by
@@ -236,6 +238,29 @@ theorem inv_smul_smul_conj (g x : G) (q : V) : g⁻¹ • x • q = (g⁻¹ * x 
   congr 1
   group
 
+theorem fixes_iff_of_mem_normalizer (hg : g ∈ Subgroup.normalizer (X : Set G)) (q : V) :
+    (∀ x : X, x • g⁻¹ • q = g⁻¹ • q) ↔ ∀ x : X, x • q = q := by
+  constructor
+  · intro h x
+    have h1 := h ⟨g⁻¹ * x * g, inv_conj_mem_of_mem_normalizer hg x.2⟩
+    have h2 : (g⁻¹ * (x : G) * g) • g⁻¹ • q = g⁻¹ • q := h1
+    show (x : G) • q = q
+    have h3 := smul_smul_conj g (x : G) (g⁻¹ • q)
+    rw [smul_inv_smul, h2, smul_inv_smul] at h3
+    exact h3
+  · intro h x
+    have h1 := h ⟨g * x * g⁻¹, conj_mem_of_mem_normalizer hg x.2⟩
+    have h2 : (g * (x : G) * g⁻¹) • q = q := h1
+    show (x : G) • g⁻¹ • q = g⁻¹ • q
+    have h3 := smul_smul_conj g⁻¹ (x : G) q
+    rw [inv_inv, h2] at h3
+    exact h3
+
+theorem smul_modFix (hg : g ∈ Subgroup.normalizer (X : Set G)) (W : Subgroup V) :
+    g • modFix X W = modFix X (g • W) := by
+  ext q
+  rw [Subgroup.mem_pointwise_smul_iff_inv_smul_mem, XMod.mem_fixed, XMod.mem_fixed,
+    Subgroup.mem_pointwise_smul_iff_inv_smul_mem, fixes_iff_of_mem_normalizer hg]
 
 theorem isModInv_smul (hg : g ∈ Subgroup.normalizer (X : Set G)) {W : Subgroup V}
     (hW : IsModInv X W) : IsModInv X (g • W) := by

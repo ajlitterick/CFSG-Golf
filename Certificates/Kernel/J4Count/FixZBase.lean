@@ -66,6 +66,7 @@ theorem recElt_val (i : ℕ) : (recElt i : J) = η orb1.1[i]! := by
 
 end Class
 
+theorem SZ_inj : ∀ l < 7, ∀ l' < 7, SZ.getD l 0 = SZ.getD l' 0 → l = l' := by decide
 
 end CertificateChecks.KernelJ4Count
 

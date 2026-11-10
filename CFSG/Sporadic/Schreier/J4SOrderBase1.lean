@@ -71,6 +71,10 @@ theorem conj_mem_K_inf_N
     {k d : J} (hk : k ∈ K) (hd : d ∈ K ⊓ N) : k * d * k⁻¹ ∈ K ⊓ N :=
   ⟨K.mul_mem (K.mul_mem hk hd.1) (K.inv_mem hk), conj_mem_N_of_mem_K hk hd.2⟩
 
+theorem conj_inv_mem_K_inf_N
+    {k d : J} (hk : k ∈ K) (hd : k * d * k⁻¹ ∈ K ⊓ N) : d ∈ K ⊓ N := by
+  have := conj_mem_K_inf_N (K.inv_mem hk) hd
+  rwa [show k⁻¹ * (k * d * k⁻¹) * k⁻¹⁻¹ = d by group] at this
 
 theorem card_ge_of_pts
     {D : Subgroup J} {pts : Array ℕ} {m : ℕ} (hlt : ∀ i < m, pts[i]! < 2048)

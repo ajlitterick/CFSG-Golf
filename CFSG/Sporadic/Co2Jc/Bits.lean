@@ -139,5 +139,13 @@ theorem bsum_xorList (n : ℕ) (l : List ℕ) (v : ℕ → ZMod 2) :
       (List.map (fun m => bsum n m v) l).sum
     rw [ih]
 
+theorem bsum_xorList_eq_zero {n : ℕ} {l : List ℕ} {v : ℕ → ZMod 2}
+    (h : ∀ m ∈ l, bsum n m v = 0) : bsum n (xorList l) v = 0 := by
+  induction l with
+  | nil => simp [xorList, bsum_zero]
+  | cons a l ih =>
+    rw [xorList, List.foldr_cons, bsum_xor]
+    change bsum n a v + bsum n (xorList l) v = 0
+    rw [h a (by simp), ih (fun m hm => h m (by simp [hm])), zero_add]
 
 end CFSG.Sporadic.Co2Jc

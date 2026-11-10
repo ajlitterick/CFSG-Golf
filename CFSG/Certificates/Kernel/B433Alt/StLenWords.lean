@@ -118,6 +118,12 @@ theorem stL_mem_wList {w c : ℕ} : c ∈ wList w ↔ ∃ i < wLen w, wAt w i = 
 
 theorem stL_wList_zero : wList 0 = [] := by simp [wList, stL_wLen_zero]
 
+theorem stL_wList_ext {v w : ℕ} (hl : wLen v = wLen w) (ha : ∀ i < wLen w, wAt v i = wAt w i) :
+    wList v = wList w := by
+  apply List.ext_getElem (by simp [stL_length_wList, hl])
+  intro i h1 h2
+  rw [stL_getElem_wList, stL_getElem_wList]
+  exact ha i (by simpa [stL_length_wList] using h2)
 
 theorem stL_wInH_iff (w : ℕ) : wInH w = true ↔ wOK w = true ∧ ∀ i < wLen w, wAt w i < 10 := by
   show andB (wOK w) (Nat.rec (motive := fun _ => Bool) true
@@ -130,6 +136,9 @@ theorem stL_wOK_of_wInH {w : ℕ} (h : wInH w = true) : wOK w = true := ((stL_wI
 theorem stL_wAt_lt_of_wInH {w : ℕ} (h : wInH w = true) : ∀ i < wLen w, wAt w i < 10 :=
   ((stL_wInH_iff w).1 h).2
 
+theorem stL_lt_of_mem_wList {w c : ℕ} (h : wInH w = true) (hc : c ∈ wList w) : c < 10 := by
+  obtain ⟨i, hi, rfl⟩ := stL_mem_wList.1 hc
+  exact stL_wAt_lt_of_wInH h i hi
 
 theorem stL_thm_lt {c : ℕ} (hc : c < 16) (h : fld THM (4 * c) 15 < 10) : c < 10 ∧ c ≠ 7 := by
   have key : ∀ c < 16, fld THM (4 * c) 15 < 10 → c < 10 ∧ c ≠ 7 := by decide +kernel
@@ -139,6 +148,9 @@ theorem stL_thm_lt16 (c : ℕ) : fld THM (4 * c) 15 < 16 := by
   rw [show (15 : ℕ) = 2 ^ 4 - 1 by norm_num, stL_fld_eq]
   exact Nat.mod_lt _ (by norm_num)
 
+theorem stL_thm_of_lt {c : ℕ} (hc : c < 10) (h7 : c ≠ 7) : fld THM (4 * c) 15 < 10 := by
+  have key : ∀ c < 10, c ≠ 7 → fld THM (4 * c) 15 < 10 := by decide +kernel
+  exact key c hc h7
 
 theorem stL_wInT_iff (w : ℕ) :
     wInT w = true ↔ wOK w = true ∧ ∀ i < wLen w, fld THM (4 * wAt w i) 15 < 10 := by
@@ -364,6 +376,10 @@ theorem stL_wLen_hWord (J : ℕ) : wLen (hWord J) < 2 ^ 16 := by
   rw [hWord_eq, stL_wLen_wMk _ (by omega)]
   exact h
 
+theorem stL_wOK_hWord (J : ℕ) : wOK (hWord J) = true := by
+  have h : J % 2 ^ 16 < 2 ^ 32 := lt_of_lt_of_le (Nat.mod_lt _ (by positivity)) (by norm_num)
+  rw [stL_wOK_iff, hWord_eq, stL_wStr_wMk _ h, stL_wLen_wMk _ h]
+  exact Nat.mod_lt _ (by positivity)
 
 section
 variable {G : Type*} [Group G]

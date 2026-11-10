@@ -59,6 +59,41 @@ set_option compiler.extract_closed false
     | some o => if verifyO P o P.bound then some o else none
     | none => none
 
+@[expose] def classifyRep (P0 : Pt) (r : Refl) : Option RKind :=
+  match findPos ⟨withExtra P0 [r], 0⟩ with
+  | some (.order o) => some (.bad o)
+  | some (.weyl c) => some (.good c)
+  | _ => none
+
+@[expose] def buildStage2 (P0 : Pt) (cand : List Refl) (r : Refl) : List Root × List Rep2 × List OEnt × Bool :=
+  let Pj := withExtra P0 [r]
+  let roots := rootsOf Pj 20000
+  let rd := roots.map (·.r)
+  let ext := cand.filter fun c => !(rd.any (reqb c)) && !(asymAny Pj rd c)
+  let ot := orbitTable Pj Pj.gens.length 20000 ext
+  let bad := ot.1.mapIdx fun j q => (j, q, orderWit (withExtra P0 [r, q]))
+  let reps2 := (bad.filterMap fun b => match b.2.2 with | some o => some (b.1, (⟨b.2.1, o⟩ : Rep2)) | none => none)
+  let keep := reps2.map (·.1)
+  let ent := ot.2.filterMap fun e =>
+    match keep.idxOf? e.j with
+    | some j' => some (⟨e.e, e.w, j'⟩ : OEnt)
+    | none => none
+  (roots, reps2.map (·.2), ent, decide (keep.length = ot.1.length))
+
+@[expose] def buildTables (P0 : Pt) : Option Tables :=
+  let roots := rootsOf P0 20000
+  let cand := candList P0 (roots.map (·.r))
+  let ot := orbitTable P0 P0.gens.length 20000 (movingOf P0 cand)
+  let reps? := ot.1.mapM fun r =>
+    match classifyRep P0 r with
+    | some (.bad o) => some (⟨r, .bad o, true, [], [], []⟩ : Rep)
+    | some (.good c) =>
+      let s2 := buildStage2 P0 cand r
+      some (⟨r, .good c, s2.2.2.2, s2.1, s2.2.1, s2.2.2.1⟩ : Rep)
+    | none => none
+  match reps? with
+  | some reps => some ⟨roots, ot.2, reps⟩
+  | none => none
 
 @[expose] def Rep.isGoodMax (rp : Rep) : Bool :=
   match rp.kind with
@@ -112,6 +147,10 @@ set_option compiler.extract_closed false
   (let cand := candOf P0 T
    vCover P0 T cand && T.orb1.all (entryOK P0 T) && T.reps.all (verifyRep P0 T cand))
 
+@[expose] def checkFrame (P0 : Pt) : Bool :=
+  match buildTables P0 with
+  | some T => verifyAll P0 T
+  | none => false
 
 @[expose, reducible] def unitV (D k : Nat) : Vec := (List.range D).map fun j => if j = k then 1 else 0
 
@@ -121,6 +160,7 @@ set_option compiler.extract_closed false
       ⟨row i ++ (if D = n + 1 then [if i = 0 then s else 0] else []), unitV D i⟩,
     x := xl ++ (if D = n + 1 then [0] else []),
     bound := bound }
+
 
 
 end CFSG.ReflExt

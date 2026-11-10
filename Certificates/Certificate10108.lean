@@ -7,5 +7,8 @@ public section
 
 namespace Certificates
 
+open CFSG.Monster.AxisCount CFSG.YGroups.Y443 in
+theorem certificate10108 : wordLin (wcWord ++ omegaWord) = wordLin (omegaWord ++ tWord) :=
+  CertificateChecks.KernelKDense.Y443.c10108
 
 end Certificates

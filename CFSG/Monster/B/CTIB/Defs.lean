@@ -72,6 +72,12 @@ theorem iotaS_beta
 
 @[expose] noncomputable def toShat (s : Sbp) : Shat := ⟨iotaD s.unop, s.unop, rfl⟩
 
+@[expose] def centWord (k j : ℕ) : List ℤ :=
+  (Native.parseWords Native.centWordStr).getD ((if k = 6 then 0 else if k = 8 then 15 else 30) + j)
+    []
+
+@[expose] def deltaVal (k j : ℕ) : ℕ :=
+  Native.deltaVals.getD ((if k = 6 then 0 else if k = 8 then 15 else 30) + j) 0
 
 theorem native_involution_certificate_data :
     IsExplicitBinary Dyadic.betaS ∧

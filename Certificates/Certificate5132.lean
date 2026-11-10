@@ -31,5 +31,15 @@ namespace Certificates
 
 open CertificateChecks
 
+set_option compiler.extract_closed false in
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.KGroups in
+open CFSG.GH74.KGroups.TwoM12 in
+open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Sporadic.Mathieu CFSG.Blueprint Subgroup in
+open CFSG.ComponentClassification CFSG.ComponentClassification.M12Cover in
+open CFSG.GH74.E2 (Shape2M12) in
+theorem certificate5132 : Q27.check = true ∧ Q27.orderCertificate = 27 := by
+  exact CertificateChecks.Batch5132.Q27_valid_0
 
 end Certificates

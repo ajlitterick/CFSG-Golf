@@ -339,6 +339,16 @@ private lemma sch5_eq (x : Fin 23) (i : Fin 4) (hx : R x) :
   ·     exact sch5_21 i
   ·     exact sch5_22 i
 
+lemma S6_closure : Subgroup.closure (Set.range S6) = ⊤ := by
+  have hsch : ∀ x ∈ MulAction.orbit H5 (5 : Fin 23), ∀ i,
+      (t5 (S5 i • x))⁻¹ * S5 i * t5 x ∈
+        Subgroup.map H6.subtype (Subgroup.closure (Set.range S6)) := by
+    intro x hx i
+    rw [sch5_eq x i (orbit_H5_R hx)]
+    exact Subgroup.one_mem _
+  exact closure_stabilizer_eq_top_of_schreier
+    (G := H5) (X := Fin 23) S5 S5_closure (5 : Fin 23) t5 t5_one
+      (fun x hx ↦ t5_maps x (orbit_H5_R hx)) S6 hsch
 
 lemma H6_subsingleton : Subsingleton H6 :=
   stabilizer_subsingleton_of_schreier

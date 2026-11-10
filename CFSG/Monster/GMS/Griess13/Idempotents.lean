@@ -231,11 +231,23 @@ theorem exists_dot_ne_zero {w : F3Vec} (hw : w ≠ 0) : ∃ v, w ⬝ᵥ v ≠ 0 
 theorem zmod_smul_eq_nsmul (c : ZMod 3) (v : F3Vec) : c • v = c.val • v := by
   rw [← Nat.cast_smul_eq_nsmul (ZMod 3), ZMod.natCast_zmod_val]
 
+theorem Nonprop.ne_smul {w w' : F3Vec} (h : Nonprop w w') (c : ZMod 3) : w' ≠ c • w := by
+  intro hc
+  have := (h c (-1) (by rw [hc, neg_smul, one_smul, add_neg_cancel])).2
+  exact absurd this (by decide)
 
 theorem isUnit_of_mul_eq_one_matrix {A B : Matrix (Fin 6) (Fin 6) (ZMod 3)} (h : A * B = 1) :
     IsUnit A :=
   (Matrix.isUnit_iff_isUnit_det A).mpr (Matrix.isUnit_det_of_right_inverse h)
 
+theorem nonprop_of_ne_smul {w w' : F3Vec} (hw : w ≠ 0) (hw' : ∀ c : ZMod 3, w' ≠ c • w) :
+    Nonprop w w' := by
+  intro s t hst
+  by_cases ht : t = 0
+  · subst ht
+    simp only [zero_smul, add_zero] at hst
+    exact ⟨smul_eq_zero_of_coord hw hst, rfl⟩
+  · exact absurd (eq_smul_of_smul_add_eq_zero ht hst) (hw' _)
 
 instance (w w' : F3Vec) : Decidable (Nonprop w w') := by
   unfold Nonprop
@@ -310,6 +322,8 @@ theorem commute_θ_sumH (c w : F3Vec) : Commute (θ c) (sumH θ w) :=
 theorem commute_θ_sumE (c : F3Vec) : Commute (θ c) (sumE θ) :=
   Commute.sum_right _ _ _ fun v _ => θ_comm θ c v
 
+theorem commute_sumH_sumH (w w' : F3Vec) : Commute (sumH θ w) (sumH θ w') :=
+  Commute.sum_left _ _ _ fun v _ => commute_θ_sumH θ v w'
 
 theorem commute_sumH_sumE (w : F3Vec) : Commute (sumH θ w) (sumE θ) :=
   Commute.sum_left _ _ _ fun v _ => commute_θ_sumE θ v
@@ -547,6 +561,9 @@ theorem decompMap_bijective (hid : ∀ i, e i * e i = e i)
     V ≃ₗ[K] ((i : κ) → LinearMap.range (e i)) :=
   LinearEquiv.ofBijective (decompMap e) (decompMap_bijective e hid horth hsum)
 
+theorem decompEquiv_apply (hid : ∀ i, e i * e i = e i)
+    (horth : ∀ i j, i ≠ j → e i * e j = 0) (hsum : ∑ i, e i = 1) (x : V) (i : κ) :
+    ((decompEquiv e hid horth hsum x i : LinearMap.range (e i)) : V) = e i x := rfl
 
 theorem finrank_eq_sum_finrank_range [FiniteDimensional K V] (hid : ∀ i, e i * e i = e i)
     (horth : ∀ i j, i ≠ j → e i * e j = 0) (hsum : ∑ i, e i = 1) :
@@ -598,6 +615,17 @@ theorem piH_mul_self (w : F3Vec) : piH ρ ι w * piH ρ ι w = piH ρ ι w :=
 
 theorem piH_mul_piE (w : F3Vec) : piH ρ ι w * piE ρ ι = piE ρ ι := sumH_mul_sumE (rhoChar ρ ι) w
 
+theorem piE_mul_piH (w : F3Vec) : piE ρ ι * piH ρ ι w = piE ρ ι := sumE_mul_sumH (rhoChar ρ ι) w
+
+theorem piH_mul_piH_of_nonprop {w w' : F3Vec} (h : Nonprop w w') :
+    piH ρ ι w * piH ρ ι w' = piE ρ ι :=
+  sumH_mul_sumH_of_nonprop (rhoChar ρ ι) h
+
+theorem piH_comm (w w' : F3Vec) : piH ρ ι w * piH ρ ι w' = piH ρ ι w' * piH ρ ι w :=
+  (commute_sumH_sumH (rhoChar ρ ι) w w').eq
+
+theorem piH_comm_piE (w : F3Vec) : piH ρ ι w * piE ρ ι = piE ρ ι * piH ρ ι w :=
+  (commute_sumH_sumE (rhoChar ρ ι) w).eq
 
 theorem eK_mul_self (w : F3Vec) : eK ρ ι w * eK ρ ι w = eK ρ ι w :=
   sumEK_mul_self (rhoChar ρ ι) w
@@ -803,6 +831,15 @@ theorem ConjAct.bijective {ι : AddChar F3Vec Γ} {g : Γ} {A : Matrix (Fin 6) (
     (h : ConjAct ι g A) : Function.Bijective A.mulVec :=
   (Finite.injective_iff_bijective).mp (Matrix.mulVec_injective_iff_isUnit.mpr h.isUnit)
 
+theorem hyp_smul {w : F3Vec} {c : ZMod 3} (hc : c ≠ 0) : hyp (c • w) = hyp w := by
+  ext v
+  simp [mem_hyp, smul_dotProduct, hc]
+
+theorem piH_smul {w : F3Vec} {c : ZMod 3} (hc : c ≠ 0) : piH ρ ι (c • w) = piH ρ ι w := by
+  simp only [piH_def, hyp_smul hc]
+
+theorem eK_smul {w : F3Vec} {c : ZMod 3} (hc : c ≠ 0) : eK ρ ι (c • w) = eK ρ ι w := by
+  simp only [eK_def, piH_smul ρ ι hc]
 
 variable {ι}
 

@@ -432,6 +432,7 @@ theorem Qv_irreducible [Finite F] [CharP F 2] (X : Subgroup SL(3, F)) (hXQ : X �
       refine ⟨a⁻¹, ?_⟩
       rw [inv_smul_eq_iff, smul_comm A a⁻¹ v, ha, smul_smul, inv_mul_cancel₀ ha0, one_smul]
 
+theorem mem_Pt {v : Fin 3 → F} {A : SL(3, F)} : A ∈ Pt v ↔ ∃ c : F, A • v = c • v := Iff.rfl
 
 theorem Qv_le_Pt (v : Fin 3 → F) : Qv v ≤ Pt v := fun A hA => ⟨1, by rw [hA.1, one_smul]⟩
 
@@ -1023,6 +1024,23 @@ theorem card_Ug : Nat.card (Ug F) = Nat.card F ^ 3 := by
   rw [h, Nat.card_prod, Nat.card_prod]
   ring
 
+theorem Ug_isPGroup [CharP F 2] : IsPGroup 2 (Ug F) := by
+  intro A
+  obtain ⟨a, b, c, hA⟩ := mem_Ug.1 A.2
+  refine ⟨2, ?_⟩
+  apply Subtype.ext
+  have h2 : (A : SL(3, F)) ^ 2 = ug 0 (a * c) 0 := by
+    rw [← hA, pow_two, ug_mul, CharTwo.add_self_eq_zero, CharTwo.add_self_eq_zero]
+    congr 1
+    rw [add_assoc, add_comm (a * c) b, ← add_assoc, CharTwo.add_self_eq_zero, zero_add]
+  have h4 : (A : SL(3, F)) ^ 4 = 1 := by
+    rw [show (4 : ℕ) = 2 * 2 from rfl, pow_mul, h2, pow_two, ug_mul]
+    have h5 : a * c + 0 * 0 + a * c = 0 := by
+      rw [zero_mul, add_zero]
+      exact CharTwo.add_self_eq_zero _
+    rw [h5, add_zero]
+    exact ug_zero
+  simpa using h4
 
 theorem card_SL3 [Finite F] :
     Nat.card SL(3, F) = Nat.card F ^ 3 * ((Nat.card F ^ 3 - 1) * (Nat.card F ^ 2 - 1)) := by

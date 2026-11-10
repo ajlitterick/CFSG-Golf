@@ -32,6 +32,9 @@ set_option maxHeartbeats 0 in
 theorem local3_K : local3K 22 SA.M SB.M MS.chars co3Local3 co3Root = true := by
   decide +kernel
 
+theorem local3_neg :
+    (!local3K 22 SA.M SB.M MS.chars { co3Local3 with ords := [4, 4, 4] } co3Root) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelLocal3.Co3
 

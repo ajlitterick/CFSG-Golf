@@ -61,6 +61,9 @@ theorem parT_eq (ch : Char) : parT ch.toNat = valC ch % 2 := by
       · rfl
       · exact absurd ⟨Nat.le_of_ble_eq_true h1, Nat.le_of_ble_eq_true h2⟩ hn
 
+theorem parT_lt (ch : Char) : parT ch.toNat < 2 := by
+  rw [parT_eq]
+  exact Nat.mod_lt _ (by decide)
 
 theorem testBit_par (ch : Char) (j c : Nat) :
     (Nat.shiftLeft (parT ch.toNat) j).testBit c = (decide (c = j) && (valC ch % 2 == 1)) := by
@@ -113,6 +116,7 @@ theorem thPayRun_cons (R : Nat → Nat) (ch : Char) (cs : List Char) (ph i j acc
 
 theorem strictB_e (y : Nat) (k : Nat → Bool) : strictB y k = k y := by cases y <;> rfl
 
+theorem strictN_e (y : Nat) (k : Nat → Nat) : strictN y k = k y := by cases y <;> rfl
 
 theorem band_t {a b : Bool} (h : Bool.rec (motive := fun _ => Bool) false b a = true) :
     a = true ∧ b = true := by

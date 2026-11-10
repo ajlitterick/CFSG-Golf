@@ -406,6 +406,7 @@ theorem mkCtx_find (hG : KeysGood) {p : ℕ} (hp : p < 98280) :
 
 theorem mkCtx_th : (Native.mkCtx ()).th = Native.thetaTab () := rfl
 
+theorem mkCtx_tau : (Native.mkCtx ()).tau = Native.mkTauTab () := rfl
 
 theorem kn_xiT (a : ℕ) : conjXiN (false, a, 0) = (false, a &&& 4032, gammaLowN (a % 64)) := by
   simp only [conjXiN, Pauli.s, Pauli.a, Pauli.d, Nat.zero_mod, kn_parN_zero, Bool.false_eq_true,

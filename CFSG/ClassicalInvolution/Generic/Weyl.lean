@@ -32,6 +32,9 @@ variable (Fr : ToralFrame F Ω E S)
 theorem coe_act_apply (n : Subgroup.normalizer (E : Set G)) (K : ↥S) :
     ((Fr.act n K : ↥S) : Subgroup G) = conjSub (n : G) (K : Subgroup G) := rfl
 
+theorem act_apply_eq_iff {n : Subgroup.normalizer (E : Set G)} {K L : ↥S} :
+    Fr.act n K = L ↔ conjSub (n : G) (K : Subgroup G) = L :=
+  Subtype.ext_iff
 
 theorem act_eq_one_of_forall {n : Subgroup.normalizer (E : Set G)}
     (h : ∀ K ∈ S, conjSub (n : G) K = K) : Fr.act n = 1 :=
@@ -186,6 +189,11 @@ theorem act_mul_rho_mul_act_inv (hT : CentTrivial E S) (n : Subgroup.normalizer 
   rw [h3, map_mul, map_mul, map_inv]
   rfl
 
+theorem rho_mul_rho_mul_rho (hT : CentTrivial E S) (K L : ↥S) :
+    Fr.rho L * Fr.rho K * Fr.rho L = Fr.rho (Fr.rho L K) := by
+  have h := Fr.act_mul_rho_mul_act_inv hT ⟨Fr.w L, Fr.w_mem_normalizer L⟩ K
+  change Fr.rho L * Fr.rho K * (Fr.rho L)⁻¹ = Fr.rho (Fr.rho L K) at h
+  rwa [Fr.rho_inv] at h
 
 theorem rho_apply_of_isLine (hT : CentTrivial E S) {K L : ↥S} (hKL : K ≠ L)
     (h : IsLine E (K : Subgroup G) (L : Subgroup G)) :
@@ -430,10 +438,35 @@ theorem rho_apply_eq_iff (hA2 : A2Dichotomy E S) (K L : ↥S) :
     · exact Fr.rho_apply_self L
     · exact Fr.rho_apply_of_commutes h
 
+theorem closedNbhd_eq_of_rho_eq (hA2 : A2Dichotomy E S) {K L : ↥S} (h : Fr.rho K = Fr.rho L)
+    (M : ↥S) : (M = K ∨ Commutes (K : Subgroup G) (M : Subgroup G)) ↔
+      (M = L ∨ Commutes (L : Subgroup G) (M : Subgroup G)) := by
+  rw [← Fr.rho_apply_eq_iff hA2, ← Fr.rho_apply_eq_iff hA2, h]
 
 @[expose] noncomputable def transvection (K : ↥S) : MulAut ↥E :=
   E.normalizerMonoidHom ⟨Fr.w K, Fr.w_mem_normalizer K⟩
 
+theorem transvection_eq (K : ↥S) {w : G} (hw : w ∈ normPart (K : Subgroup G) E)
+    (hw' : w ∉ centPart (K : Subgroup G) E) :
+    E.normalizerMonoidHom ⟨w, (mem_normPart_iff.mp hw).2⟩ = Fr.transvection K := by
+  have hc := (Fr.inSigma K.2).inv_mul_mem_centPart Fr.odd (Fr.w_mem K) (Fr.w_not_mem K) hw hw'
+  have hcN : (Fr.w K)⁻¹ * w ∈ Subgroup.normalizer (E : Set G) :=
+    (mem_normPart_iff.mp (centPart_le_normPart _ _ hc)).2
+  have h2 : (⟨w, (mem_normPart_iff.mp hw).2⟩ : Subgroup.normalizer (E : Set G)) =
+      ⟨Fr.w K, Fr.w_mem_normalizer K⟩ * ⟨(Fr.w K)⁻¹ * w, hcN⟩ :=
+    Subtype.ext (by simp)
+  have h3 : E.normalizerMonoidHom ⟨(Fr.w K)⁻¹ * w, hcN⟩ = 1 := by
+    refine MulEquiv.ext fun e => Subtype.ext ?_
+    have h4 := (mem_centPart_iff.mp hc).2 e e.2
+    show (Fr.w K)⁻¹ * w * e * ((Fr.w K)⁻¹ * w)⁻¹ = e
+    rw [← h4]
+    group
+  rw [h2, map_mul, h3, mul_one]
+  rfl
+
+theorem transvection_apply_of_mem_axis (K : ↥S) {e : ↥E} (he : (e : G) ∈ axisSub E (K : Subgroup G)) :
+    ((Fr.transvection K e : ↥E) : G) = e :=
+  InSigma.conj_eq_of_mem_axis (normPart_le_left _ _ (Fr.w_mem K)) he
 
 theorem transvection_apply_of_not_mem_axis (K : ↥S) {z : G}
     (hz : IsUniqueInvolution (K : Subgroup G) z) {e : ↥E}
@@ -522,9 +555,87 @@ theorem NtoMu_ker_le (hA2 : A2Dichotomy E S) :
   MonoidHom.liftOfSurjective (Fr.NtoMu hA2) (Fr.NtoMu_surjective hA2)
     ⟨E.normalizerMonoidHom.comp (weylN E S).subtype, Fr.NtoMu_ker_le hA2⟩
 
+theorem muAct_NtoMu (hA2 : A2Dichotomy E S) (n : ↥(weylN E S)) (e : ↥E) :
+    ((Fr.muAct hA2 (Fr.NtoMu hA2 n) e : ↥E) : G) = ((n : Subgroup.normalizer (E : Set G)) : G) * e *
+      ((n : Subgroup.normalizer (E : Set G)) : G)⁻¹ := by
+  simp only [muAct, MonoidHom.liftOfRightInverse_comp_apply]
+  rfl
+
+theorem muAct_rhoMu (hA2 : A2Dichotomy E S) (K : ↥S) (e : ↥E) :
+    ((Fr.muAct hA2 (Fr.rhoMu K) e : ↥E) : G) = Fr.w K * e * (Fr.w K)⁻¹ := by
+  have hK : Fr.rhoMu K = Fr.NtoMu hA2
+      ⟨⟨Fr.w K, Fr.w_mem_normalizer K⟩, Subgroup.subset_closure ⟨K, K.2, Fr.w_mem K⟩⟩ := rfl
+  rw [hK, muAct_NtoMu]
+
+theorem muAct_rhoMu_eq_transvection (hA2 : A2Dichotomy E S) (K : ↥S) :
+    Fr.muAct hA2 (Fr.rhoMu K) = Fr.transvection K := by
+  refine MulEquiv.ext fun e => Subtype.ext ?_
+  rw [Fr.muAct_rhoMu hA2 K e]
+  rfl
+
+theorem muAct_rhoMu_of_mem_axis (hA2 : A2Dichotomy E S) (K : ↥S) {e : ↥E}
+    (he : (e : G) ∈ axisSub E (K : Subgroup G)) : ((Fr.muAct hA2 (Fr.rhoMu K) e : ↥E) : G) = e := by
+  rw [Fr.muAct_rhoMu hA2 K e]
+  exact InSigma.conj_eq_of_mem_axis (normPart_le_left _ _ (Fr.w_mem K)) he
+
+theorem muAct_rhoMu_of_not_mem_axis (hA2 : A2Dichotomy E S) (K : ↥S) {z : G}
+    (hz : IsUniqueInvolution (K : Subgroup G) z) {e : ↥E}
+    (he : (e : G) ∉ axisSub E (K : Subgroup G)) :
+    ((Fr.muAct hA2 (Fr.rhoMu K) e : ↥E) : G) = e * z := by
+  rw [Fr.muAct_rhoMu hA2 K e]
+  exact (Fr.inSigma K.2).conj_eq_mul_of_not_mem_axis Fr.odd hz (Fr.w_mem K) (Fr.w_not_mem K) e.2 he
 
 @[expose] noncomputable def M0 (hA2 : A2Dichotomy E S) : Subgroup ↥Fr.mu := (Fr.muAct hA2).ker
 
+theorem rhoMu_not_mem_M0 (hA2 : A2Dichotomy E S) (K : ↥S) : Fr.rhoMu K ∉ Fr.M0 hA2 := by
+  intro h
+  obtain ⟨a, haE, ha⟩ := (Fr.inSigma K.2).exists_mem_not_mem_axis
+  obtain ⟨z, hz⟩ := Fr.exists_isUniqueInvolution K.2
+  have h1 := Fr.muAct_rhoMu_of_not_mem_axis hA2 K hz (e := ⟨a, haE⟩) ha
+  have h2 : Fr.muAct hA2 (Fr.rhoMu K) = 1 := h
+  rw [h2] at h1
+  have h3 : a = a * z := h1
+  exact hz.ne_one (by simpa using h3.symm)
+
+theorem M0_sq (hA2 : A2Dichotomy E S) (hfib : FibreLE2 S) {m : ↥Fr.mu} (hm : m ∈ Fr.M0 hA2) :
+    m * m = 1 := by
+  obtain ⟨n, hn, hnm⟩ := (Fr.mem_mu_iff hA2).mp m.2
+  have hmn : m = Fr.NtoMu hA2 ⟨n, hn⟩ := Subtype.ext hnm.symm
+  have hfix : ∀ e : G, e ∈ E → (n : G) * e * (n : G)⁻¹ = e := by
+    intro e he
+    have h1 : Fr.muAct hA2 m = 1 := hm
+    have h2 := Fr.muAct_NtoMu hA2 ⟨n, hn⟩ ⟨e, he⟩
+    rw [← hmn, h1] at h2
+    exact h2.symm
+  have hK : ∀ K : ↥S, Fr.act n (Fr.act n K) = K := by
+    intro K
+    obtain ⟨z, hz⟩ := Fr.exists_isUniqueInvolution K.2
+    have hzE := Fr.mem_of_isUniqueInvolution K.2 hz
+    have hz1 : IsUniqueInvolution (Fr.act n K : Subgroup G) z := by
+      have := hz.conj (n : G)
+      rwa [hfix z hzE] at this
+    have hz2 : IsUniqueInvolution (Fr.act n (Fr.act n K) : Subgroup G) z := by
+      have := hz1.conj (n : G)
+      rwa [hfix z hzE] at this
+    rcases hfib z K K.2 _ (Fr.act n K).2 _ (Fr.act n (Fr.act n K)).2 hz hz1 hz2 with h | h | h
+    · have h1 : Fr.act n K = K := (Subtype.ext h).symm
+      rw [h1, h1]
+    · exact (Subtype.ext h).symm
+    · have h1 : Fr.act n K = Fr.act n (Fr.act n K) := Subtype.ext h
+      have h2 : K = Fr.act n K := (Fr.act n).injective h1
+      exact h1.symm.trans h2.symm
+  refine Subtype.ext ?_
+  show (m : Equiv.Perm ↥S) * m = 1
+  rw [← hnm]
+  exact Equiv.ext fun K => hK K
+
+theorem M0_mul_comm (hA2 : A2Dichotomy E S) (hfib : FibreLE2 S) {a b : ↥Fr.mu}
+    (ha : a ∈ Fr.M0 hA2) (hb : b ∈ Fr.M0 hA2) : a * b = b * a := by
+  have hab : a * b * (a * b) = 1 := Fr.M0_sq hA2 hfib ((Fr.M0 hA2).mul_mem ha hb)
+  have ha' : a⁻¹ = a := inv_eq_of_mul_eq_one_right (Fr.M0_sq hA2 hfib ha)
+  have hb' : b⁻¹ = b := inv_eq_of_mul_eq_one_right (Fr.M0_sq hA2 hfib hb)
+  have : a * b = (a * b)⁻¹ := (inv_eq_of_mul_eq_one_right hab).symm
+  rw [this, _root_.mul_inv_rev, ha', hb']
 
 end ToralFrame
 

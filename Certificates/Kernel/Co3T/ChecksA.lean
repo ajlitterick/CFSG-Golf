@@ -14,6 +14,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KC.Misc.ArrEnum CFSG.KC.Misc.ChainTai
 open CFSG.KC.Co3TK CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3T
 open CertificateChecks.KernelSpor
 
+theorem kLines : Nat.beq TT.lines 36 = true := by quickRfl
 
 theorem kPerm : allN 36 (fun k => permB 276 9 (TT.L k)) = true := by quickRfl
 

@@ -175,6 +175,13 @@ theorem P1_mulAut_eq_inner_beta
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
+theorem coe_edgeFixEquivP1
+    (x : cEdgeFix) :
+    ((edgeFixEquivP1 x : P1) : Dfull) = ((x : Shat) : Dfull) := rfl
+
+theorem coe_edgeFixEquivP1_symm
+    (g : P1) :
+    (((edgeFixEquivP1.symm g : cEdgeFix) : Shat) : Dfull) = g := rfl
 
 theorem edgeFixEquivP1_lamV0 :
     edgeFixEquivP1 lamV0 = cP1 := Subtype.ext coe_lamV0
@@ -206,6 +213,17 @@ theorem center_cEdgeFix_le_commutator :
     rw [coe_lamW0]
     exact N1.mul_mem cQ_mem_N1 xhat_mem_N1
 
+theorem mul_self_of_mem_center_cEdgeFix
+    {w : cEdgeFix} (hw : w ∈ Subgroup.center cEdgeFix) :
+    w * w = 1 := by
+  rcases mem_center_cEdgeFix_iff.1 hw with rfl | rfl | rfl | rfl
+  · exact mul_one 1
+  · exact lamV0_mul_self
+  · exact lamW0_mul_self
+  · calc lamV0 * lamW0 * (lamV0 * lamW0) = lamV0 * lamW0 * (lamW0 * lamV0) :=
+          congrArg (lamV0 * lamW0 * ·) lamV0_mul_comm
+      _ = lamV0 * (lamW0 * lamW0) * lamV0 := by simp only [mul_assoc]
+      _ = 1 := by rw [lamW0_mul_self, mul_one, lamV0_mul_self]
 
 open scoped _root_.Classical in
 theorem cEdgeFix_mulAut_eq_inner_beta
@@ -234,6 +252,18 @@ theorem cEdgeFix_mulAut_eq_inner_beta
     symm_mem_center_of_mulEquiv edgeFixEquivP1 hwZ,
     mulAut_transport_beta edgeFixEquivP1 τ fun y => hτ y⟩
 
+open scoped _root_.Classical in
+theorem exists_cEdgeFix_beta
+    (w : cEdgeFix) (hw : w ∈ Subgroup.center cEdgeFix) :
+    ∃ β : cEdgeFix ≃* cEdgeFix,
+      (∀ x, β x = x * (if x ∈ commutator cEdgeFix then 1 else w)) ∧ β lamV0 = lamV0 ∧
+        β lamW0 = lamW0 := by
+  have h := exists_beta_mulEquiv cEdgeFix_commutator_index (Subgroup.mem_center_iff.1 hw)
+    (mul_self_of_mem_center_cEdgeFix hw) (center_cEdgeFix_le_commutator hw)
+  obtain ⟨β, hβ⟩ := h
+  refine ⟨β, hβ, ?_, ?_⟩
+  · rw [hβ, ite_eq_left (center_cEdgeFix_le_commutator lamV0_mem_center), mul_one]
+  · rw [hβ, ite_eq_left (center_cEdgeFix_le_commutator lamW0_mem_center), mul_one]
 
 open scoped _root_.Classical in
 theorem cEdgeFix_beta_not_inner :

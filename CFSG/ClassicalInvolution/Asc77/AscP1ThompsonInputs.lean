@@ -40,6 +40,10 @@ variable (p f : ℕ) [Fact p.Prime]
   muDeltaOf Ω W {T | T ∈ DSet Ω W ∧ T ≤ Subgroup.centralizer ({x} : Set G)}
 
 
+@[expose] def ThompsonGraph : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), PartIHyp p f Ω →
+    ∀ K ∈ Ω, dComp Ω K ≠ dstarComp Ω K → ∃ W ∈ WSet Ω, ¬ DbarConnected Ω W
+
 variable {p f}
 
 namespace Thompson
@@ -150,5 +154,22 @@ theorem l7_10_of_inputs (h1 : ThompsonCube p f) (h2 : ThompsonStar p f)
   · exact Or.inr (Or.inl ⟨e⟩)
   · exact Or.inr (Or.inr h)
 
+theorem l7_17_of_inputs (h710 : L7_10 p f) (h752 : L7_5_2 p f) (h5 : ThompsonGraph p f) :
+    L7_17 p f := by
+  intro G _ _ Ω hP K hK
+  by_cases h : dComp Ω K = dstarComp Ω K
+  · exact Or.inl h
+  · right
+    obtain ⟨W₀, hW₀, hnc⟩ := h5 G Ω hP K hK h
+    have hmu := h710 G Ω hP W₀ hW₀ hnc
+    intro W hW
+    obtain ⟨e⟩ := h752 hP.1 hP.2.1 G Ω hP.2.2.1 W₀ hW₀ W hW
+    rcases hmu with h' | h' | h'
+    · obtain ⟨e'⟩ := h'
+      exact Or.inl ⟨e.symm.trans e'⟩
+    · obtain ⟨e'⟩ := h'
+      exact Or.inr (Or.inl ⟨e.symm.trans e'⟩)
+    · obtain ⟨e'⟩ := h'
+      exact Or.inr (Or.inr ⟨e.symm.trans e'⟩)
 
 end CFSG.ClassicalInvolution.Asc77

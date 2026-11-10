@@ -26,6 +26,9 @@ theorem ch431009q0x : rowsK 3510 12 3 Q0X.F (fun k => KQ (Nat.succ k)) = true :=
 
 theorem ch431009q1x : rowsK 3510 12 3 Q1X.F (fun k => KQ1 (Nat.succ k)) = true := by quickRfl
 
+theorem n431009q0x :
+    Bool.not (rowsK 3510 12 3 Q0X.F (fun k => Nat.xor (KQ (Nat.succ k)) 1)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelFi22Twist
 

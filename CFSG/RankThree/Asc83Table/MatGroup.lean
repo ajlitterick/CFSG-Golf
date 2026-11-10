@@ -87,6 +87,9 @@ theorem E9Facts.hasOrd {e : ℕ} {w : Word} (hw : ∀ q ∈ w, q.1 = rx ∨ q.1 
     (regUnit_ne_pow' Sp hC hF.hyx2 (hF.hasOrd (e := 0) (by simp) rfl)
       (hF.hasOrd (e := 0) (by simp) rfl))
 
+theorem E9Facts.basis_a : (hF.basis Sp hC).a = regUnit Sp hC rx := rfl
+
+theorem E9Facts.basis_b : (hF.basis Sp hC).b = regUnit Sp hC ry := rfl
 
 theorem E9Facts.mem_range {g o pp q r s : ℕ} {M : GL23} (hg : MFact.ord g o ∈ C.facts)
     (h₁ : MFact.conj g [(rx, 1)] [(rx, pp), (ry, r)] ∈ C.facts)

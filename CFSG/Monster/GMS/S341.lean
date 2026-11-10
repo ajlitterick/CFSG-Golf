@@ -262,6 +262,11 @@ theorem x_mem_centralizer (C : TableVICtx a z₀ b₀ z u x b φ) :
     x ∈ Subgroup.centralizer ({b} : Set G) :=
   Subgroup.mem_centralizer_singleton_iff.mpr C.comm
 
+theorem x_ne_b (C : TableVICtx a z₀ b₀ z u x b φ) : x ≠ b := by
+  intro hxb
+  have h := orderOf_eq_of_isConj C.mem_nbr.2
+  rw [← hxb, C.xx, orderOf_one, C.two.orderOf_a] at h
+  omega
 
 theorem x_nbr (C : TableVICtx a z₀ b₀ z u x b φ) : x ∈ twoANbr a b :=
   ⟨C.isConj_x, by rw [← C.comm]; exact C.mem_nbr.2⟩

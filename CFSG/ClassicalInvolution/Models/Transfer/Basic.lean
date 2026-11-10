@@ -201,6 +201,18 @@ theorem commutatorElement_mem_subgroup (M : Subgroup G) {a b : G} (ha : a ∈ M)
   rw [commutatorElement_def]
   exact M.mul_mem (M.mul_mem (M.mul_mem ha hb) (M.inv_mem ha)) (M.inv_mem hb)
 
+theorem le_of_map_le_map (hker : θ.ker ≤ Subgroup.center G) {L M : Subgroup G}
+    (hperf : ⁅L, L⁆ = L) (h : L.map θ ≤ M.map θ) : L ≤ M := by
+  rw [← hperf]
+  refine Subgroup.commutator_le.mpr fun x hx y hy => ?_
+  obtain ⟨m, hm, hxm⟩ := h ⟨x, hx, rfl⟩
+  obtain ⟨m', hm', hym⟩ := h ⟨y, hy, rfl⟩
+  rw [commutatorElement_eq_of_map_eq hker hxm.symm hym.symm]
+  exact commutatorElement_mem_subgroup M hm hm'
+
+theorem eq_of_map_eq_map (hker : θ.ker ≤ Subgroup.center G) {L M : Subgroup G}
+    (hL : ⁅L, L⁆ = L) (hM : ⁅M, M⁆ = M) (h : L.map θ = M.map θ) : L = M :=
+  le_antisymm (le_of_map_le_map hker hL h.le) (le_of_map_le_map hker hM h.ge)
 
 theorem mem_centralizer_of_map (hker : θ.ker ≤ Subgroup.center G) {L : Subgroup G}
     (hperf : ⁅L, L⁆ = L) {g : G}
@@ -281,6 +293,18 @@ section Dichotomy
 
 variable {θ} {H : Type*} [Group H]
 
+theorem mem_centralizer_map_iff (hker : θ.ker ≤ Subgroup.center G) {L₁ L₂ : Subgroup G}
+    (hperf : ⁅L₁, L₁⁆ = L₁) {i₂ : G} (hi₂ : i₂ ∈ L₂)
+    (h : i₂ ∈ Subgroup.centralizer (L₁ : Set G) ↔ ∀ x ∈ L₁, ∀ y ∈ L₂, x * y = y * x) :
+    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
+      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
+  constructor
+  · intro hmem
+    have hcomm := h.mp (mem_centralizer_of_map hker hperf hmem)
+    rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩
+    rw [← map_mul, ← map_mul, hcomm x hx y hy]
+  · intro hcomm
+    exact Subgroup.mem_centralizer_iff.mpr fun x hx => hcomm x hx (θ i₂) ⟨i₂, hi₂, rfl⟩
 
 theorem dichotomy_map (hker : θ.ker ≤ Subgroup.center G) {L₁ L₂ : Subgroup G}
     (hperf : ⁅L₁, L₁⁆ = L₁) {i₂ : G} (B₁ B₂ : Subgroup H)

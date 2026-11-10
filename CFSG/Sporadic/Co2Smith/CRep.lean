@@ -45,6 +45,8 @@ theorem RepC.eq_iff
   · rintro rfl
     exact h.eq h'
 
+theorem repC_one : RepC 1 (idRows 22) :=
+  ⟨validM_idRows, by rw [Subgroup.coe_one, val_val_one, rowsMatrix_idRows]⟩
 
 theorem cE_injOn
     {e e' n n' : ℕ} (he : e < 512) (he' : e' < 512) (hn : n < 1451520)

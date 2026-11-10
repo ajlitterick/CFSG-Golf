@@ -348,6 +348,23 @@ theorem regCertM {L : List (List ℕ)} {tab : List Ent} {wl : List ℕ}
     List.getD_eq_getElem _ _ (by simpa using hk'), List.getElem_map]
   rfl
 
+example : pwOK [(0, [0], some 1, [])] [] [(0, 0, 1), (1, 0, 2)] = true := by decide
+example : pwOK [(0, [0], some 1, [])] [] [(0, 0, 1), (1, 0, 3)] = false := by decide
+example : pwOK [(0, [0], some 1, [])] [] [(1, 0, 2), (0, 0, 1)] = false := by decide
+example : ordsOK [(0, [1], none, [])] [(0, 0, 1), (1, 0, 2)] [(0, 3)] = true := by decide
+example : ordsOK [(0, [1], none, [])] [(0, 0, 1), (1, 0, 2)] [(0, 2)] = false := by decide
+example : ruleOKP [] [(0, 0, 1), (1, 0, 2)] [(0, 3)] (1, 0, none) = true := by decide
+example : ruleOKP [] [(0, 0, 1), (1, 0, 2)] [(0, 3)] (1, 1, some 0) = true := by decide
+example : ruleOKP [] [(0, 0, 1), (1, 0, 2)] [(0, 3)] (1, 1, none) = false := by decide
+example : ruleOKP [] [(0, 0, 1), (1, 0, 2)] [] (0, 0, some 1) = true := by decide
+example : ruleOKP [] [(0, 0, 1), (1, 0, 2)] [] (1, 0, none) = false := by decide
+example : powOK [(0, 0, 1), (1, 0, 2)] [(0, 3)] 0 1 5 = true := by decide
+example : powOK [(0, 0, 1), (1, 0, 2)] [(0, 3)] 0 1 4 = false := by decide
+example : powOK [(0, 0, 1), (1, 0, 2)] [] 0 1 5 = false := by decide
+example : runOKP [] [[0], [1]] [] [(0, 0, 1), (1, 0, 2)] [] [.pwr 2 1 3] [([1], 0)]
+    (init0 [(1, some 0)] false) = true := by decide
+example : runOKP [] [[0], [1]] [] [(0, 0, 1), (1, 0, 2)] [] [.pwr 3 1 3] [([1], 0)]
+    (init0 [(1, some 0)] false) = false := by decide
 
 end CFSG.KC.BM.Reg
 

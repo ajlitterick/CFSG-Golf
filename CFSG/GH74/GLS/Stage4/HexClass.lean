@@ -18,6 +18,16 @@ namespace CFSG.GH74.GLS.Stage4.Hex
     ∀ i : ℤ, 1 ≤ i → i ≤ 6 → IsMulCommutative (root i) ∧ ∀ x ∈ root i, x ^ p = 1
 
 
+@[expose] def HexMatchD4p :
+    Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (D : RankTwoSystem G 6) (p q : ℕ)
+    (hq : 3 ≤ q), p.Prime → Odd q →
+    (∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card (D.root i) = if i % 2 = 1 then q ^ 3 else q) →
+      PStruct p D.U D.root →
+      ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K →+* K) (hK : Nat.card K = q ^ 3)
+        (hσq : ∀ c, σ c = c ^ q), UMatch (d4ModelSystem σ (by omega) hK hσq) D
+
+
 theorem lieModel_g2_of_match
     {G : Type} [Group G] [Finite G] [IsSimpleGroup G]
     (D : RankTwoSystem G 6) {q : ℕ} (hq : 3 ≤ q)
@@ -51,6 +61,17 @@ theorem lieModel_d4_of_match
     · exact h
   exact ⟨p, f, hp, hf1, hf.symm, lieModel_d4_of_rankTwoData hp hf1 hf ⟨D, hm⟩⟩
 
+
+@[expose] def HexMatchD4s :
+    Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (H : Subgroup G) (r₁ r₂ : G)
+    (U : Subgroup G) (root : ℤ → Subgroup G) (R : RGD2 6 H r₁ r₂ U root)
+    (hgen : (H ⊔ U) ⊔ R.N = ⊤) (p q : ℕ) (hq : 3 ≤ q), p.Prime → Odd q →
+      RootOrdersD4 root q → PStruct p U root → SL2At H R.N root 1 → SL2At H R.N root 4 →
+      ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K →+* K) (hK : Nat.card K = q ^ 3)
+        (hσq : ∀ c, σ c = c ^ q),
+        UMatch (d4ModelSystem σ (by omega) hK hσq) (R.toPre hgen).toSystemOfSimple ∨
+          UMatch (d4ModelSystem σ (by omega) hK hσq) (R.toPre hgen).toSystemOfSimple.rev
 
 theorem lieModel_d4_of_match_or
     {G : Type} [Group G] [Finite G] [IsSimpleGroup G]

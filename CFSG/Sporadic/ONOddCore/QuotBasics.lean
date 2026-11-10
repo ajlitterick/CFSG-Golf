@@ -103,6 +103,32 @@ instance XR_normal :
 @[expose] def XREquiv :
     XR ≃* onX := Subgroup.subgroupOfEquivOfLe onX_le_RM
 
+@[expose] def iotaR :
+    RM →* MulAut onX :=
+  (MulAut.congr XREquiv).toMonoidHom.comp MulAut.conjNormal
+
+theorem iotaR_apply
+    (r : RM) (x : onX) :
+    ((iotaR r x : onX) : Equiv.Perm (Fin 120)) = r * x * (r : Equiv.Perm (Fin 120))⁻¹ := rfl
+
+theorem mem_centralizer_of_iotaR
+    {r : RM} (hr : iotaR r = 1) :
+    (r : Equiv.Perm (Fin 120)) ∈ Subgroup.centralizer (onX : Set (Equiv.Perm (Fin 120))) := by
+  rw [Subgroup.mem_centralizer_iff]
+  intro x hx
+  have h := congrArg (fun α : MulAut onX => ((α ⟨x, hx⟩ : onX) : Equiv.Perm (Fin 120))) hr
+  simp only [iotaR_apply, MulAut.one_apply] at h
+  calc x * r = r * x * (r : Equiv.Perm (Fin 120))⁻¹ * r := by rw [h]
+    _ = r * x := by group
+
+theorem iotaR_injective :
+    Function.Injective iotaR := by
+  rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
+  intro r hr
+  have h : (r : Equiv.Perm (Fin 120)) ∈ RM ⊓ Subgroup.centralizer (onX : Set _) :=
+    ⟨r.2, mem_centralizer_of_iotaR hr⟩
+  rw [RM_inf_centralizer, Subgroup.mem_bot] at h
+  exact Subgroup.mem_bot.2 (Subtype.ext h)
 
 theorem XR_eq_commutator :
     XR = ⁅(⊤ : Subgroup RM), ⊤⁆ := by

@@ -26,6 +26,27 @@ local notation "MatB" => Matrix (Fin 4370) (Fin 4370) (ZMod 2)
 @[expose] noncomputable def eE (i : Fin 22) : Ebar :=
   ⟨(eS gSeq i).unop, eS_mem gSeq gSeq_zero_mem gSeq_mem_Jbar i⟩
 
+theorem pinned_B_max2_native_certificate_data
+    (ι : NativeSporadic.B →* Sbp) :
+    max2Prog = [(1, 2, 3), (3, 2, 4), (3, 3, 5), (5, 5, 3), (3, 4, 2), (2, 2, 3), (2, 3, 4),
+      (4, 4, 5), (5, 5, 3), (3, 3, 4), (1, 4, 3), (3, 3, 1)] ∧
+    cB = progRegs bA₁ bA₂ 1 ∧ dB = progRegs bA₁ bA₂ 2 ∧ KB = Subgroup.closure {cB, dB} ∧
+    zS ι = ι (dB ^ 24) ∧
+    (∀ i, eS gSeq i = (wordS gSeq (basisWord.take (basisLens.getD i 0)))⁻¹ * op (gSeq 0) *
+      wordS gSeq (basisWord.take (basisLens.getD i 0))) ∧
+    WS gSeq = wordS gSeq parityWord24 ∧
+    zqS gSeq = op xbar * (Dyadic.bridgeZE.map (eS gSeq)).prod ∧
+    uS gSeq ι = ι (wordTwo cB dB bridgeU * (wordTwo cB dB bridgeV)⁻¹) *
+      (WS gSeq * ((WS gSeq)⁻¹ * zS ι * WS gSeq * op xbar) ^ 3 * zqS gSeq) ∧
+    (∀ s, etaS gSeq ι s = (uS gSeq ι)⁻¹ * ι s * uS gSeq ι) ∧ LB ι = KB.map (etaS gSeq ι) ∧
+    (∀ i j : Fin 22, Max2.decMat CFSG.Monster.B.gramRows i j =
+      if (CFSG.Monster.B.gramRows[(i : ℕ)]!).testBit j then 1 else 0) ∧
+    ((Max2.R1u : GL (Fin 22) (ZMod 2)) : Matrix (Fin 22) (Fin 22) (ZMod 2)) =
+      Max2.decMat Max2.Native.r1Rows ∧
+    ((Max2.R2u : GL (Fin 22) (ZMod 2)) : Matrix (Fin 22) (Fin 22) (ZMod 2)) =
+      Max2.decMat Max2.Native.r2Rows :=
+  ⟨rfl, rfl, rfl, rfl, rfl, fun _ => rfl, rfl, rfl, rfl, etaS_apply gSeq ι, rfl,
+    fun i j => by rw [Max2.decMat, Matrix.of_apply, Code.bvec_apply], Max2.coe_R1u, Max2.coe_R2u⟩
 
 theorem pauliQ_zero : pauliQ (false, 0, 0) = 1 := by
   have h : toSC (false, 0, 0) = ⟨0, 0, 0⟩ := SpinCoord.ext rfl toC_zero toD_zero
@@ -320,6 +341,61 @@ theorem pinned_B_max2_native_centralizer_and_quotient_action :
       (eta_dB_mem_Jbar β hinj gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar ι hιβ) hc2r,
     file_eta hβ ι hιβ, file_xconj hβ ι hιβ⟩
 
+include hβ hιβ in
+theorem pinned_B_max2_quotient_exact_order :
+    (∀ k : Kstab (phi0 (coordOf rStar)), ∃ g : Jbar, (g : Cbar) ∈ (LB ι).unop ∧ jbarToKv g = k) ∧
+    ∃ b : Module.Basis (Fin 22) (ZMod 2) (Wv (phi0 (coordOf rStar))),
+      (∀ i, b i = Multiplicative.toAdd (psiBar (eE i))) ∧ Function.Injective (kvGL b) ∧
+      (kvGL b).range = Subgroup.closure {Max2.R1u, Max2.R2u} ∧
+      Nat.card (Subgroup.closure ({Max2.R1u, Max2.R2u} : Set (GL (Fin 22) (ZMod 2)))) =
+        42305421312000 := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, hc1r, hc2r, -⟩ := max2_matrix_facts (Qn_isUnit β gSeq hβ.gen)
+  have hinj := hβ.injective
+  have hηc := betaRow_eta_cB β gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar ι hιβ
+  have hηd := betaRow_eta_dB β gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar ι hιβ
+  have hcJ := eta_cB_mem_Jbar β hinj gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar ι hιβ
+  have hdJ := eta_dB_mem_Jbar β hinj gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar ι hιβ
+  set e : Fin 22 → Cbar := fun i => (eS gSeq i).unop with he_def
+  have he : ∀ i, e i ∈ Ebar := fun i => eS_mem gSeq gSeq_zero_mem gSeq_mem_Jbar i
+  have hind := linearIndependent_eE hβ
+  set a' : Cbar := (etaS gSeq ι cB).unop⁻¹ with ha'
+  set b' : Cbar := (etaS gSeq ι dB).unop⁻¹ with hb'
+  have haJ : a' ∈ Jbar := Jbar.inv_mem hcJ
+  have hbJ : b' ∈ Jbar := Jbar.inv_mem hdJ
+  have haL : a' ∈ (LB ι).unop := by
+    show op a' ∈ KB.map (etaS gSeq ι)
+    rw [ha', op_inv, op_unop, ← map_inv]
+    exact Subgroup.mem_map_of_mem _ (KB.inv_mem (Subgroup.subset_closure (Set.mem_insert _ _)))
+  have hbL : b' ∈ (LB ι).unop := by
+    show op b' ∈ KB.map (etaS gSeq ι)
+    rw [hb', op_inv, op_unop, ← map_inv]
+    exact Subgroup.mem_map_of_mem _
+      (KB.inv_mem (Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)))
+  have hR1 := conj_rows β gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar (etaS gSeq ι cB) _
+    Max2.Native.r1Rows quotRows1 r1Rows_eq hηc haJ hc1r
+  have hR2 := conj_rows β gSeq hβ.gen gSeq_zero_mem gSeq_mem_Jbar (etaS gSeq ι dB) _
+    Max2.Native.r2Rows quotRows2 r2Rows_eq hηd hbJ hc2r
+  rw [← Max2.coe_R1u] at hR1
+  rw [← Max2.coe_R2u] at hR2
+  have honto := jbarToKv_onto_of_max2 (LB ι).unop haL hbL haJ hbJ e he hind hR1 hR2
+  refine ⟨honto, psiBasis e he hind, psiBasis_apply e he hind, kvGL_injective
+    KvAct_injective_rStar _, ?_⟩
+  have h1 : kvGL (psiBasis e he hind) (jbarToKv ⟨a', haJ⟩) = Max2.R1u :=
+    Units.ext (by rw [coe_kvGL, kvMat_of_conj e he hind haJ _ hR1])
+  have h2 : kvGL (psiBasis e he hind) (jbarToKv ⟨b', hbJ⟩) = Max2.R2u :=
+    Units.ext (by rw [coe_kvGL, kvMat_of_conj e he hind hbJ _ hR2])
+  have hle : Subgroup.closure ({Max2.R1u, Max2.R2u} : Set (GL (Fin 22) (ZMod 2))) ≤
+      (kvGL (psiBasis e he hind)).range := by
+    rw [Subgroup.closure_le]
+    rintro y (rfl | hy)
+    · exact ⟨_, h1⟩
+    · rw [Set.mem_singleton_iff.1 hy]
+      exact ⟨_, h2⟩
+  have hcard : Nat.card (kvGL (psiBasis e he hind)).range = 42305421312000 := by
+    rw [MonoidHom.range_eq_map, Subgroup.card_map_of_injective
+      (kvGL_injective KvAct_injective_rStar _), Subgroup.card_top, natCard_Kstab_rStar]
+  have heq := Subgroup.eq_of_le_of_card_ge hle (by rw [hcard]; exact Max2.card_closure_R12_ge)
+  exact ⟨heq.symm, by rw [heq, hcard]⟩
 
 include hβ hιβ in
 theorem pinned_B_max2_full_native_centralizer_and_two_part :

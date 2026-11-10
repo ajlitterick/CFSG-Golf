@@ -72,5 +72,32 @@ theorem exists_prime_order_mem_subgroup (N : Subgroup G) (hN : N ≠ ⊥) :
   exact ⟨p, x, hp, hdiv.trans (Subgroup.card_subgroup_dvd_card N), x.property,
     by simpa only [Subgroup.orderOf_coe] using hx⟩
 
+theorem prime_order_normal_test [Nontrivial G] (representatives : Set G)
+    (hprime : ∀ r ∈ representatives, (orderOf r).Prime)
+    (hcover : ∀ x : G, (orderOf x).Prime →
+      ∃ r ∈ representatives, ∃ g : G,
+        Subgroup.zpowers x = (Subgroup.zpowers r).map (MulAut.conj g).toMonoidHom)
+    (hgenerate : ∀ r ∈ representatives, Subgroup.normalClosure ({r} : Set G) = ⊤) :
+    IsSimpleGroup G := by
+  constructor
+  intro N hnormal
+  by_cases hN : N = ⊥
+  · exact Or.inl hN
+  · right
+    obtain ⟨p, x, hp, _, hx, horder⟩ := exists_prime_order_mem_subgroup N hN
+    obtain ⟨r, hr, g, heq⟩ := hcover x (by rwa [horder])
+    have hzp : Subgroup.zpowers x ≤ N := Subgroup.zpowers_le.mpr hx
+    have hconj : g * r * g⁻¹ ∈ N := by
+      apply hzp
+      rw [heq]
+      exact Subgroup.mem_map.mpr ⟨r, Subgroup.mem_zpowers r, rfl⟩
+    have hrN : r ∈ N := by
+      have h := hnormal.conj_mem (g * r * g⁻¹) hconj g⁻¹
+      have he : g⁻¹ * (g * r * g⁻¹) * (g⁻¹)⁻¹ = r := by group
+      rwa [he] at h
+    have hle : Subgroup.normalClosure ({r} : Set G) ≤ N :=
+      Subgroup.normalClosure_le_normal (by simpa using hrN)
+    rw [hgenerate r hr] at hle
+    exact top_le_iff.mp hle
 
 end CFSG.Certificates

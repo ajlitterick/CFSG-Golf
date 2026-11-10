@@ -42,6 +42,9 @@ variable (K) in
     rintro _ ⟨B, C, D, E, F, rfl⟩
     exact ⟨_, _, _, _, _, g2N_zero_inv B C D E F⟩
 
+theorem mem_g2LongRadical {g : ModGL .G2 K} :
+    g ∈ g2LongRadical K ↔ ∃ B C D E F : K, g = g2N 0 B C D E F :=
+  Iff.rfl
 
 theorem g2N_mem_g2LongRadical (B C D E F : K) : g2N 0 B C D E F ∈ g2LongRadical K :=
   ⟨B, C, D, E, F, rfl⟩

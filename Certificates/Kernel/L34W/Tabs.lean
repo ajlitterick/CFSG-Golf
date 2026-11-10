@@ -24,6 +24,8 @@ open CFSG.KC.Enum CFSG.KC.L34W
 
 theorem bounds_k : boundsOK T1X.F AlX.F = true := by decide +kernel
 
+theorem bounds_neg : (!boundsOK (patchT T1X.F 0 (Nat.lor (T1X.F 0) 4095)) AlX.F) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34W
 

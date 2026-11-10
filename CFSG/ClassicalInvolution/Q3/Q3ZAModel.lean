@@ -39,6 +39,7 @@ theorem lsl_zero : lsl 0 = 1 := by
 
 theorem usl_one : usl 1 = uSL := rfl
 
+theorem lsl_one : lsl 1 = lSL := rfl
 
 theorem usl_inv (t : F3) : (usl t)⁻¹ = usl (-t) := by
   rw [inv_eq_iff_mul_eq_one, ← usl_add, add_neg_cancel, usl_zero]
@@ -153,6 +154,8 @@ theorem wSL_mul_self : wSL * wSL = -1 := by
 theorem weyl₁_mul_self : weyl₁ * weyl₁ = longInv F3 2 1 := by
   rw [weyl₁, longInv, ← map_mul, wSL_mul_self]
 
+theorem weyl₀_mul_self : weyl₀ * weyl₀ = longInv F3 2 0 := by
+  rw [weyl₀, longInv, ← map_mul, wSL_mul_self]
 
 theorem w1_e0 : mat 2 F3 weyl₁ *ᵥ bE0 = bE0 :=
   lb_mulVec_other 1 wSL (by simp [coords])

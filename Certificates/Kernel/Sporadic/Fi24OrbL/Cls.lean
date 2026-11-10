@@ -30,6 +30,9 @@ theorem b_inv : b⁻¹ = b * b := by
 
 theorem sN (y : ℕ) (k : ℕ → ℕ) : CFSG.KC.Loop.strictN y k = k y := by cases y <;> rfl
 
+theorem nIf_true {t e : ℕ} : Bool.rec (motive := fun _ => ℕ) e t true = t := rfl
+
+theorem nIf_false {t e : ℕ} : Bool.rec (motive := fun _ => ℕ) e t false = e := rfl
 
 theorem beq_ne {k : ℕ} (hk : k ≠ 0) : Nat.beq k 0 = false := by
   cases h : Nat.beq k 0

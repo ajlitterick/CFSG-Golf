@@ -50,6 +50,16 @@ open CFSG.KC.Y333
 @[expose] noncomputable def stepOK (RD RW MS : Nat → Nat) (j g E E' : Nat) : Bool :=
   andB (genOK RD j g) (Nat.beq (Nat.lor E (appW MS (RW g) E)) E')
 
+@[expose] noncomputable def appSeg (MS : Nat → Nat) (w a n X : Nat) : Nat :=
+  sN (wLen w) (fun len =>
+    Nat.rec (motive := fun _ => Nat) X
+      (fun j acc => sN acc (fun x => netApp MS (wAt w (Nat.sub (Nat.sub len (nat_lit 1)) (Nat.add a j))) x)) n)
+
+@[expose] noncomputable def segOK (RD RW MS : Nat → Nat) (j g a n X X' : Nat) : Bool :=
+  andB (genOK RD j g) (andB (Nat.ble (Nat.add a n) (wLen (RW g))) (Nat.beq (appSeg MS (RW g) a n X) X'))
+
+@[expose] noncomputable def segEnd (RW : Nat → Nat) (g a E X E' : Nat) : Bool :=
+  andB (Nat.beq a (wLen (RW g))) (Nat.beq (Nat.lor E X) E')
 
 end CFSG.KC.B4A
 

@@ -31,9 +31,33 @@ theorem co3Idx6_lt (c : Fin 3 ⊕ Fin 3) : co3Idx6 c < 6 := by
 theorem co3Coord6_idx6 (c : Fin 3 ⊕ Fin 3) : co3Coord6 ⟨co3Idx6 c, co3Idx6_lt c⟩ = c := by
   rcases c with i | i <;> simp [co3Coord6, co3Idx6]
 
+theorem co3Vec6_injective {n m : ℕ} (hn : n < 64) (hm : m < 64) (h : co3Vec6 n = co3Vec6 m) :
+    n = m := by
+  apply Nat.eq_of_testBit_eq
+  intro k
+  by_cases hk : k < 6
+  · have := congrFun h (co3Coord6 ⟨k, hk⟩)
+    simp only [co3Vec6, co3Idx6_coord6] at this
+    cases hn' : n.testBit k <;> cases hm' : m.testBit k <;> simp_all
+  · have hle : 2 ^ 6 ≤ 2 ^ k := Nat.pow_le_pow_right (by norm_num) (by omega)
+    rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le hn hle),
+      Nat.testBit_lt_two_pow (lt_of_lt_of_le hm hle)]
+
+theorem co3Vec6_bijective :
+    Function.Bijective fun n : Fin 64 => co3Vec6 n := by
+  rw [Fintype.bijective_iff_injective_and_card]
+  refine ⟨fun n m h => Fin.ext (co3Vec6_injective n.2 m.2 h), ?_⟩
+  simp [ZMod.card]
+
+@[expose] def co3Vec6Equiv : Fin 64 ≃ Co3V6 := Equiv.ofBijective _ co3Vec6_bijective
+
+theorem exists_co3Vec6 (x : Co3V6) : ∃ n < 64, co3Vec6 n = x := by
+  obtain ⟨n, hn⟩ := co3Vec6_bijective.2 x
+  exact ⟨n, n.2, hn⟩
 
 @[expose] def co3Sp6X : Set (Co3V6 → ZMod 2) := {q | ∃ r < 36, co3Sp6Form (co3A.getD r 0) = q}
 
+theorem co3A_length : co3A.length = 36 := rfl
 
 theorem co3Sp6Form_single (a : ℕ) (c : Fin 3 ⊕ Fin 3) :
     co3Sp6Form a (Pi.single c 1) = if a.testBit (co3Idx6 c) then 1 else 0 := by
@@ -409,6 +433,8 @@ theorem card_statedSp_three_two : Nat.card (StatedSp 3 (ZMod 2)) = 1451520 := by
     (K := ZMod 2) 2 2 (Nat.card_zmod 2) (r := 3) (by norm_num)).1]
   decide
 
+theorem co3TransvLin_eq (k : Fin 63) :
+    co3TransvLin k = Matrix.GeneralLinearGroup.toLin (co3TransvGL k) := rfl
 
 @[expose] def co3SpLin : Subgroup Co3GL6 :=
   (StatedSp 3 (ZMod 2)).map Matrix.GeneralLinearGroup.toLin.toMonoidHom
@@ -441,6 +467,30 @@ theorem co3Sp6G_eq :
   (co3SpLinEquiv.trans (MulEquiv.subgroupCongr co3Sp6G_eq.symm)).trans
       ((MonoidHom.ofInjective co3Sp6Rho_injective).trans (MulEquiv.subgroupCongr co3Sp6Rho_range))
 
+theorem co3Sp6Equiv_apply
+    (s : StatedSp 3 (ZMod 2)) :
+    ((co3Sp6Equiv s : co3X36) : Equiv.Perm (Fin 36)) =
+      co3Sp6Rho ⟨Matrix.GeneralLinearGroup.toLin (s : GL (Fin 3 ⊕ Fin 3) (ZMod 2)),
+        co3Sp6G_eq.symm ▸ ⟨s, s.2, rfl⟩⟩ := rfl
+
+theorem co3Sp6_toLin_inv_apply (s : GL (Fin 3 ⊕ Fin 3) (ZMod 2)) (x : Co3V6) :
+    (((Matrix.GeneralLinearGroup.toLin s)⁻¹ : Co3GL6) : Co3V6 →ₗ[ZMod 2] Co3V6) x =
+      ((s⁻¹ : GL (Fin 3 ⊕ Fin 3) (ZMod 2)) : Matrix _ _ (ZMod 2)) *ᵥ x := by
+  rw [← map_inv]
+  exact Matrix.GeneralLinearGroup.toLin_apply _ x
+
+theorem co3Sp6Equiv_spec
+    (s : StatedSp 3 (ZMod 2)) (r : Fin 36) (x : Co3V6) :
+    co3Sp6Form (co3A.getD (((co3Sp6Equiv s : co3X36) : Equiv.Perm (Fin 36)) r) 0) x =
+      co3Sp6Form (co3A.getD r 0)
+        ((((s : GL (Fin 3 ⊕ Fin 3) (ZMod 2))⁻¹ : GL (Fin 3 ⊕ Fin 3) (ZMod 2)) :
+          Matrix _ _ (ZMod 2)) *ᵥ x) := by
+  rw [co3Sp6Equiv_apply, co3Sp6Form_rho, funAct, ← co3Sp6_toLin_inv_apply]
+
+theorem co3Sp36_orbitSizes :
+    (List.finRange co3Sp36Chain.baseCount).map co3Sp36Chain.orbitSize = [36, 35, 18, 8, 4, 2] := by
+  rw [orbitSizes_eq_of_valid (by rfl)
+    (validSchreier_of_chainOK co3Sp36Arrays (by norm_num) co3Sp36_check.1).2, co3Sp36_check.2.1]
 
 theorem co3X36_orbit_zero :
     MulAction.orbit co3X36 (0 : Fin 36) = Set.univ := by
@@ -492,5 +542,38 @@ theorem co3X36_classicalModel :
   simp only at this
   omega
 
+theorem card_zeros (a : ℕ) : Nat.card {x : Co3V6 // co3Sp6Form a x = 0} =
+    (Finset.univ.filter fun n : Fin 64 => co3Sp6Form a (co3Vec6 n) = 0).card := by
+  rw [← Fintype.card_subtype, ← Nat.card_eq_fintype_card]
+  exact Nat.card_congr (co3Vec6Equiv.subtypeEquiv fun n => Iff.rfl).symm
+
+theorem co3_neg_one : (-1 : Matrix (Fin 3) (Fin 3) (ZMod 2)) = 1 := by
+  ext i j
+  rw [Matrix.neg_apply, Matrix.one_apply]
+  split_ifs <;> decide
+
+theorem co3J6_eq : co3J6 = Matrix.fromBlocks 0 1 1 0 := by
+  rw [co3J6, co3_neg_one]
+
+theorem AT_Co3_standard_Sp6_quadratic_action :
+    co3J6 = Matrix.fromBlocks 0 1 1 0 ∧
+    (∀ s : GL (Fin 3 ⊕ Fin 3) (ZMod 2), s ∈ StatedSp 3 (ZMod 2) ↔
+      (s : Matrix (Fin 3 ⊕ Fin 3) (Fin 3 ⊕ Fin 3) (ZMod 2))ᵀ * co3J6 * s = co3J6) ∧
+    (∀ a ∈ co3A, a < 64) ∧
+    (∀ a < 64, a ∈ co3A ↔ Nat.card {x : Co3V6 // co3Sp6Form a x = 0} = 36) ∧
+    co3A.length = 36 ∧ co3A.Nodup ∧ 0 ∈ co3A ∧ (∀ i < 6, 2 ^ i ∈ co3A) ∧
+    (∀ (s : StatedSp 3 (ZMod 2)) (r : Fin 36) (x : Co3V6),
+      co3Sp6Form (co3A.getD (((co3Sp6Equiv s : co3X36) : Equiv.Perm (Fin 36)) r) 0) x =
+        co3Sp6Form (co3A.getD r 0)
+          ((((s : GL (Fin 3 ⊕ Fin 3) (ZMod 2))⁻¹ : GL (Fin 3 ⊕ Fin 3) (ZMod 2)) :
+            Matrix _ _ (ZMod 2)) *ᵥ x)) ∧
+    Nat.card co3X36 = 1451520 ∧ Subgroup.center co3X36 = ⊥ ∧
+    StatedClassicalModel co3X36 .PSp 3 2 1 := by
+  refine ⟨co3J6_eq,
+    fun s => CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeyl.mem_statedSp_iff,
+    co3Sp6A_check.2.2.2, fun a ha => ?_, co3A_length, co3Sp6A_check.1, co3Sp6A_check.2.1,
+    co3Sp6A_check.2.2.1, co3Sp6Equiv_spec, card_co3X36, co3X36_center, co3X36_classicalModel⟩
+  rw [card_zeros]
+  exact decide_eq_decide.1 (co3Sp6Zeros_check a ha)
 
 end CFSG.Sporadic.Schreier.Co3

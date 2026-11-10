@@ -148,6 +148,12 @@ theorem act_injective
   have := congrArg (fun x => R.act x g⁻¹) h
   simpa only [act_act_inv] using this
 
+theorem act_eq_iff
+    (ω ω' : Option (k × k × k)) (g : G) :
+    R.act ω g = ω' ↔ ω = R.act ω' g⁻¹ := by
+  constructor
+  · rintro rfl; rw [act_act_inv]
+  · rintro rfl; rw [act_inv_act]
 
 @[expose] noncomputable def perm
     (g : G) : Equiv.Perm (Option (k × k × k)) where
@@ -185,6 +191,9 @@ theorem act_none_ι
     (n : ThompsonN k σ) : R.act none (R.ι n) = none := by
   rw [act_none_eq_none_iff]; exact R.ι_mem n
 
+theorem act_none_of_mem
+    {g : G} (hg : g ∈ R.N) : R.act none g = none :=
+  (R.act_none_eq_none_iff g).mpr hg
 
 theorem act_none_K :
     R.act none R.K = some (0, 0, 0) := by

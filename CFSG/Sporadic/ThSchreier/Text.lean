@@ -55,5 +55,24 @@ theorem v4OfNat_wf {n : ℕ} (hn : n < 2 ^ 248) : (v4OfNat n).wf = true := by
 theorem v4OfNat_toNat_of_lt {n : ℕ} (hn : n < 2 ^ 248) : (v4OfNat n).toNat = n := by
   rw [v4OfNat_toNat, Nat.mod_eq_of_lt (lt_trans hn (by norm_num))]
 
+theorem toVec_eq_rowOfNat (a : V4) : a.toVec = rowOfNat a.toNat := by
+  funext j
+  rw [V4.toVec_apply, rowOfNat, V4.testBit_toNat _ (by omega)]
+
+theorem rowOfNat_injective {n m : ℕ} (hn : n < 2 ^ 248) (hm : m < 2 ^ 248)
+    (h : rowOfNat n = rowOfNat m) : n = m := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  by_cases hj : j < 248
+  · have := congrFun h ⟨j, hj⟩
+    simp only [rowOfNat] at this
+    cases hn' : n.testBit j <;> cases hm' : m.testBit j <;> simp_all
+  · have h248 : (2 : ℕ) ^ 248 ≤ 2 ^ j := Nat.pow_le_pow_right two_pos (by omega)
+    rw [Nat.testBit_eq_false_of_lt (lt_of_lt_of_le hn h248),
+      Nat.testBit_eq_false_of_lt (lt_of_lt_of_le hm h248)]
+
+theorem rowOfNat_zero : rowOfNat 0 = 0 := by
+  funext j
+  simp [rowOfNat]
 
 end CFSG.Sporadic.ThSchreier

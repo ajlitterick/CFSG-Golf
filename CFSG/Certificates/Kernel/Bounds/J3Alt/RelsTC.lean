@@ -14,6 +14,7 @@ theorem rels_eq : TauCeti.Sporadic.j3Presentation.relatorLetters = rels := by
     TauCeti.Sporadic.j3Presentation_transcribed]
   simp [FreeGroup.invRev, rels]
 
+theorem list_bind : eqL list (encList rels) = true := by quickRfl
 
 end CFSG.KC.J3A
 

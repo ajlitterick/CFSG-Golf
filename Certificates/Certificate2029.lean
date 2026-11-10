@@ -14,6 +14,8 @@ open CFSG.ComponentClassification.WittDesign
 theorem hexad0_card_0 : hexad0.card = 6 := by
   decide +kernel
 
+example : ¬ hexad0.card = 5 := by
+  decide +kernel
 
 end CertificateChecks.Batch2029
 

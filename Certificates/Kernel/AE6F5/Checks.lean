@@ -18,6 +18,11 @@ namespace CFSG.KD.AE6F5
 
 open CFSG.KC.AE6F5K
 
+theorem ch517508_negTree : (!treeOK 216 CT CP GN 6) = true := by decide +kernel
+
+theorem ch517508_negRec : (!piOK GN CT HT FP FS 0 (D.getD 1 0)) = true := by decide +kernel
+
+theorem ch517508_negW1 : (!w1K (el GN 2)) = true ∧ (!w1K (el GN 0)) = true := by decide +kernel
 
 end CFSG.KD.AE6F5
 

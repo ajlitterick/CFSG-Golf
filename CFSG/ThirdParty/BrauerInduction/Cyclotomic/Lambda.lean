@@ -214,6 +214,63 @@ lemma one_is_primitive
   rw [mul_comm] at h_zm_Z
   exact IsUnit.of_mul_eq_one z h_zm_Z
 
+lemma rootsOfUnity_orderOf_mem_Lambda
+    {k : Type u} [CommRing k] [Finite G]
+    (a : G) (ζ : rootsOfUnity (orderOf a) k) :
+    (((ζ : kˣ) : k)) ∈ Lambda k G := by
+
+  have hdiv : orderOf a ∣ Nat.card G := by
+    simpa using orderOf_dvd_natCard a
+
+  rcases hdiv with ⟨m, hm⟩
+
+  let η : rootsOfUnity (Nat.card G) k :=
+    ⟨(ζ : kˣ), by
+      calc
+        ((ζ : kˣ) ^ Nat.card G)
+            = ((ζ : kˣ) ^ orderOf a) ^ m := by
+                rw [hm, pow_mul]
+        _ = 1 := by
+                rw [ζ.property, one_pow]⟩
+
+  change (((ζ : kˣ) : k)) ∈
+    Subring.closure (Set.range (fun x : rootsOfUnity (Nat.card G) k => ((x.val : kˣ) : k)))
+
+  exact Subring.subset_closure ⟨η, rfl⟩
+
+/--
+The value of a linear character of a subgroup of `G` lies in Bernstein's
+coefficient ring `Λ` formed using the ambient group `G`.
+-/
+lemma linearChar_apply_mem_Lambda
+    {k : Type u} [CommRing k] [Finite G]
+    (χ : G →* kˣ) (g : G) :
+    ((χ g : kˣ) : k) ∈ Lambda k G := by
+  letI : Fintype G := Fintype.ofFinite G
+
+  have hg : g ^ Fintype.card G = 1 := by exact pow_card_eq_one
+
+  have hχ_card : χ g ^ Fintype.card G = 1 := by
+    calc
+      χ g ^ Fintype.card G = χ (g ^ Fintype.card G) := by
+        exact (map_pow χ g (Fintype.card G)).symm
+      _ = χ 1 := by
+        exact congrArg χ hg
+      _ = 1 := by
+        exact map_one χ
+
+  have hχ : χ g ^ Nat.card G = 1 := by
+    simpa [Nat.card_eq_fintype_card] using hχ_card
+
+  let η : rootsOfUnity (Nat.card G) k :=
+    ⟨χ g, hχ⟩
+
+  change ((χ g : kˣ) : k) ∈
+    Subring.closure
+      (Set.range
+        (fun x : rootsOfUnity (Nat.card G) k => ((x.val : kˣ) : k)))
+
+  exact Subring.subset_closure ⟨η, rfl⟩
 
 lemma linearChar_subgroup_apply_mem_Lambda
     {k : Type u} [CommRing k] [Finite G]
@@ -312,6 +369,27 @@ lemma character [CharZero k]
   intro i
   exact Lambda.char_coeffs B U i
 
+/--
+Class functions with `Λ`-coordinates are closed under integer scalar
+multiplication.
+-/
+lemma zsmul
+    (B : ClassFun.IrrepCharBasis k G)
+    (z : ℤ) {f : ClassFun k G}
+    (hf : HasLambdaCoords B f) :
+    HasLambdaCoords B (z • f) := by
+  intro i
+  have h_zsmul_f :
+      z • f = (z : k) • f :=
+    Eq.symm (Int.cast_smul_eq_zsmul k z f)
+  rw [h_zsmul_f, LinearEquiv.map_smul]
+  change (z : k) * (B.b.repr f i) ∈ ClassFun.Lambda k G
+  have h_mul_to_zsmul :
+      (z : k) * (B.b.repr f i) =
+        z • (B.b.repr f i) := by
+    exact Eq.symm (zsmul_eq_mul (B.b.repr f i) z)
+  rw [h_mul_to_zsmul]
+  exact Subring.zsmul_mem (ClassFun.Lambda k G) (hf i) z
 
 /--
 Class functions with `Λ`-coordinates are closed under scalar multiplication

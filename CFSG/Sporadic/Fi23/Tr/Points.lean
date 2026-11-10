@@ -61,6 +61,11 @@ theorem smul_val_of_rep
     (g • i).val = ap T i.val := by
   rw [hT i.val i.2, idx_of_lt g i.2]
 
+theorem ap_lt_of_rep
+    {g : J} {T : Table} (hT : Rep 31671 T g) {i : ℕ} (hi : i < 31671) :
+    ap T i < 31671 := by
+  rw [hT i hi]
+  exact idx_lt g hi
 
 theorem image_pset
     {T : Table} {g : J} (hT : Rep 31671 T g) {A B : PBits}
@@ -131,6 +136,13 @@ theorem conjPt_mem_trRoot
     conjPt x ∈ Subtype.val '' trRoot :=
   ⟨ptD23 ⟨x, hx⟩, (ptD23_mem_trRoot' hx).2 hB, rfl⟩
 
+theorem cRoot_subset_trRoot :
+    cRoot ⊆ trRoot := by
+  intro x hx
+  rw [← ptD23.apply_symm_apply x] at hx ⊢
+  rw [ptD23_mem_cRoot] at hx
+  rw [ptD23_mem_trRoot]
+  exact ((trGensOK_spec tr_parts.2.2.2.2.2.1).2.2.2.2 _ (ptD23.symm x).2).2.2 hx
 
 theorem tauAct_eq_act23
     (k m : ℕ) : tauAct orb dT biT k m = act23 k m := rfl
@@ -166,6 +178,14 @@ theorem conjPt_commute_iff
   rw [← Pair.mul_mul_eq_self_iff pair_J (conjPt_mem_D23 hk), conjPt_mul_conjPt hk hm]
   exact ⟨fun h => conjPt_injOn (act23_lt hm) hm h, fun h => by rw [h]⟩
 
+theorem ptD23_commute_iff (i j : Fin 31671) :
+    (ptD23 i : J) * ptD23 j = ptD23 j * ptD23 i ↔ act23 i.val j.val = j.val :=
+  conjPt_commute_iff i.2 j.2
+
+theorem act23_comm
+    {k m : ℕ} (hk : k < 31671) (hm : m < 31671) (h : act23 k m = m) :
+    act23 m k = k :=
+  (conjPt_commute_iff hm hk).1 ((conjPt_commute_iff hk hm).2 h).symm
 
 theorem tv_ptD23 (i j : Fin 31671) :
     (pairModel pair_J).tv (ptD23 i) (ptD23 j) = ptD23 ⟨act23 i.val j.val, act23_lt j.2⟩ := by

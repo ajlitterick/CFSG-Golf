@@ -266,6 +266,8 @@ theorem mem_normalizer_of_conj_mem {G : Type*} [Group G] [Finite G] {H : Subgrou
 @[expose] def res0Fun (g : stab0) (j : Fin 120) : Fin 120 :=
   ⟨((g : Equiv.Perm (Fin 360)) ⟨j, by omega⟩ : ℕ), (g.2 ⟨j, by omega⟩).1 j.2⟩
 
+theorem res0Fun_val (g : stab0) (j : Fin 120) :
+    ((res0Fun g j : Fin 120) : ℕ) = ((g : Equiv.Perm (Fin 360)) ⟨j, by omega⟩ : ℕ) := rfl
 
 theorem res0Fun_inv (g : stab0) (j : Fin 120) : res0Fun g⁻¹ (res0Fun g j) = j := by
   apply Fin.ext

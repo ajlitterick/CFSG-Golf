@@ -42,6 +42,11 @@ open CFSG.HardMathSupport.Solomon.LocalBalance (barAut autBar barOf innerAut loc
 @[expose] def Alt19_16 (p k : ℕ) (K : Type) [Group K] [Finite K] (B : Subgroup (MulAut K)) : Prop :=
   (∃ (m r : ℕ), Alt19_16a p k K B m r) ∨ Alt19_16b p k K ∨ Alt19_16c p k K B
 
+@[expose] def Input19_16 : Prop :=
+  ∀ (K : Type) [Group K] [Finite K], CFSG.Open.IsQuasisimple K →
+    ∀ (p : ℕ), p.Prime → p ≠ 2 → GLAPPrimeCore p K = ⊥ →
+    ∀ (k : ℕ), 2 ≤ k → ∀ B : Subgroup (MulAut K), IsEkIn p k ⊤ B →
+      IsLocallyOTwoBalanced p k B ∨ Alt19_16 p k K B
 
 section Transport
 
@@ -159,6 +164,17 @@ end Transport
       ∃ (b : G) (B1 : Subgroup G), IIHardPrinted B L D hN hd b B1 ∧
         IIHardSetupData B L D d (bStarOf B L D b) (s1Of B L D d b B1)
 
+@[expose] def IIHardCases : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (m : ℕ) {B M E A D T L : Subgroup G} (h : Cex134 G m 3 B M E A D T L)
+    (hN : D ≤ Subgroup.normalizer (L : Set G)) {d : G} (hd : d ∈ D) (hd1 : d ≠ 1),
+    pCoreOf 2 (fixSub (barAut 3 L ⟨d, hN hd⟩)) ≠ ⊥ →
+    ∀ (b : G) (B1 : Subgroup G), IIHardPrinted B L D hN hd b B1 →
+    IIHardSetupData B L D d (bStarOf B L D b) (s1Of B L D d b B1) →
+    ∀ (r : ℕ), 2 ≤ r → IsEkIn 3 r (Cg d) (bStarOf B L D b) →
+    ∀ (K : Subgroup G), GLAPComponent 3 (Cg d) K →
+      ¬ ⁅K, s1Of B L D d b B1⁆ ≤ GLAPPrimeCoreOf 3 (Cg d) →
+      bStarOf B L D b ≤ Subgroup.normalizer (K : Set G) → centBar 3 (bStarOf B L D b) K = ⊥ →
+      ¬ Alt19_16 3 r (barOf 3 K) (autBar 3 (bStarOf B L D b) K)
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Lemma136c
 

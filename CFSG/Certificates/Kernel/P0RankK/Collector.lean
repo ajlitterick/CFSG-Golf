@@ -134,6 +134,12 @@ theorem lp_congr {s s' n : ℕ} (h : ∀ i < n, s.testBit i = s'.testBit i) : lp
   intro i hi
   rw [h i (List.mem_range.1 hi)]
 
+theorem lp_mem (s n : ℕ) : lp s n ∈ Lgrp := by
+  refine Subgroup.list_prod_mem _ fun x hx => ?_
+  obtain ⟨j, _, rfl⟩ := List.mem_map.1 hx
+  split_ifs
+  · exact lD_mem_Lgrp _
+  · exact Lgrp.one_mem
 
 theorem lp_sixteen (s : ℕ) : lp s 16 = lD s := (lD_eq_prod s).symm
 

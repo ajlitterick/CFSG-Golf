@@ -40,12 +40,20 @@ abbrev ruCover : List (List (Fin gc × Bool)) := coverWords W0 ruCommWord
 @[expose] def ruTInAbc : List (Fin 3 × Bool) :=
   wordOfCodes 3 [3, 0, 5, 3, 4, 2, 0, 3, 4, 3, 5, 2, 0, 5]
 
+@[expose] def natWord (w : List (Fin gc × Bool)) : List (ℕ × Bool) := w.map fun l => (l.1.val, l.2)
 
 @[expose] def ruTabWords : List (List (Fin gc × Bool)) :=
   (List.finRange gc).map (fun i => (i, false) :: ruCommWord i) ++
     titsOneWords.map (substWord ruAbc) ++
     [ruW [1] ++ substWord ruAbc ruUInAbc, ruW [5] ++ substWord ruAbc ruTInAbc]
 
+@[noinline, expose] def ruTabCheck : Bool :=
+  let D := CFSG.Sporadic.Ru.Native.ruData
+  let O := D.orbit ()
+  let G := #[O.alpha, invT D.n O.alpha, O.beta, invT D.n O.beta]
+  let I := ruSpec.imgWords.map (wordT D.n (baseLetter G))
+  let Iv := I.map (invT D.n)
+  ruTabWords.all fun w => wordT D.n (imgLetter I Iv) ((natWord w).map letterOf) == idT D.n
 
 @[expose] def ruRhoArrs : Array (Array ℕ) :=
   #[hexTable 4 16240 0 ruRhoText, hexTable 4 16240 16240 ruRhoText,

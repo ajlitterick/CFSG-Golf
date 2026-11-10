@@ -80,6 +80,13 @@ theorem code_rep_inv (i : ℕ) : code (rep i)⁻¹ = autRepsInv.getD i cid := by
   · rw [rep, List.getD_eq_default _ _ (by simp [autRepsP]; omega),
       List.getD_eq_default _ _ (by simp [Core.autRepsInv]; omega), inv_one, code_one]
 
+theorem rep_mem_autA6 (i : ℕ) : rep i ∈ A6Models.autA6 := by
+  rw [A6Models.autA6.mem_carrier.symm]
+  rcases (show i < 4 ∨ 4 ≤ i by omega) with hi | hi
+  · rw [autA6_eq, rep, List.getD_eq_getElem _ _ (by simpa [autRepsP] using hi)]
+    exact autReps_mem_closure _ (List.getElem_mem _)
+  · rw [rep, List.getD_eq_default _ _ (by simp [autRepsP]; omega)]
+    exact Subgroup.one_mem _
 
 variable {X : Subgroup P10}
 

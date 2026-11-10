@@ -27,6 +27,31 @@ namespace CFSG.KS.S1277Grp
 
 open CFSG.Quasithin.H13.S127.Mod Certificates.Data.S1277Struct
 
+theorem bitV_xor (u v i x : ℕ) : bitV (u ^^^ v) i x = bitV u i x ^^^ bitV v i x := by
+  unfold bitV
+  rw [Nat.testBit_xor]
+  cases u.testBit i <;> cases v.testBit i <;> simp
+
+theorem app_xor (B : B6) (u v : ℕ) : B.app (u ^^^ v) = B.app u ^^^ B.app v := by
+  simp only [B6.app, bitV_xor]
+  ac_rfl
+
+theorem app_zero (B : B6) : B.app 0 = 0 := by
+  simp [B6.app, bitV]
+
+theorem app_bitV (B : B6) (v i x : ℕ) : B.app (bitV v i x) = bitV v i (B.app x) := by
+  unfold bitV
+  cases v.testBit i <;> simp [app_zero]
+
+theorem comp_app (B C : B6) (v : ℕ) : (B.comp C).app v = B.app (C.app v) := by
+  rw [B6.app.eq_1 C v, app_xor, app_xor, app_xor, app_xor, app_xor, app_bitV, app_bitV, app_bitV,
+    app_bitV, app_bitV, app_bitV, B6.app.eq_1 (B.comp C) v]
+  rfl
+
+theorem comp_assoc (B C D : B6) : (B.comp C).comp D = B.comp (C.comp D) := by
+  rw [B6.comp.eq_1 (B.comp C) D]
+  simp only [comp_app]
+  rfl
 
 theorem bitV_lt (v i x : ℕ) (hx : x < 64) : bitV v i x < 2 ^ 6 := by
   unfold bitV
@@ -116,6 +141,14 @@ theorem div_mulN {x y : ℕ} (hx : x < G0.length * 64) (hy : y < G0.length * 64)
   rw [hd, hm, hkdef, getD_idxOf hX]
   exact ⟨rfl, rfl⟩
 
+theorem mulN_assoc {x y z : ℕ} (hx : x < G0.length * 64) (hy : y < G0.length * 64)
+    (hz : z < G0.length * 64) :
+    mulN (mkTab G0) (mulN (mkTab G0) x y) z = mulN (mkTab G0) x (mulN (mkTab G0) y z) := by
+  have hxy := mulN_lt hval hcl hx hy
+  have hyz := mulN_lt hval hcl hy hz
+  rw [mulN_eq hxy hz, mulN_eq hx hyz, (div_mulN hval hcl hx hy).1, (div_mulN hval hcl hx hy).2,
+    (div_mulN hval hcl hy hz).1, (div_mulN hval hcl hy hz).2, comp_assoc, app_xor, comp_app,
+    Nat.xor_assoc]
 
 end Tab
 

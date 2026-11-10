@@ -39,6 +39,15 @@ def stabReps : Array Nat :=
 
 @[expose] def stabRep (c : Nat) : Nat := stabReps[c]!
 
+def stabTree : Array Nat × Array Nat × Array Nat :=
+  treeBFS 365211 (Array.range stabGens.size) (fun g v => tvImg stabGens[g]! v) stabReps.toList
+
+@[expose] def chkStabTree : Bool :=
+  stabReps.size == 6 &&
+  (List.range 6).all (fun c => decide (stabRep c < 365211) && stabCls (stabRep c) == c) &&
+  stabGens.all (fun g => decide (g < 365211) && tvImg g 0 == 0) &&
+  treeOK 365211 stabGens.size (fun v => v == stabRep (stabCls v))
+    (fun g p v => stabCls p == stabCls v && tvImg stabGens[g]! p == v) stabTree
 
 @[expose] def chkStabCard : Bool :=
   (List.range 6).all fun c => ((List.range 365211).filter fun a => stabCls a == c).length ==

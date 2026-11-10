@@ -282,6 +282,7 @@ theorem exists_restrict_hom {G : Type*} [Group G] {Y : Type*} [MulAction G Y] {m
       map_mul' := fun g h => Equiv.ext (hmul g h) }
   exact ⟨ρ, fun g k => (hf g k).symm⟩
 
+theorem HP_smul_def (g : HP) (x : X) : g • x = (g : Equiv.Perm X) x := rfl
 
 theorem exists_rhoH :
     ∃ ρ : HP →* Equiv.Perm (Fin 462), ∀ g k, xPt (ρ g k) = g • xPt k :=
@@ -522,6 +523,13 @@ theorem xVec_injective
   rw [xVec_eq, xVec_eq] at h
   exact xPt_injective (vL_injective h)
 
+theorem h1J_xVec
+    (k : Fin 462) : matJ h1J *ᵥ xVec k = xVec (lIdx1 k) := by
+  rw [xVec_eq, xVec_eq, ← hJ_zero, mat_vL, smul_eq_hPerm, hPerm0_xPt]
+
+theorem h2J_xVec
+    (k : Fin 462) : matJ h2J *ᵥ xVec k = xVec (lIdx2 k) := by
+  rw [xVec_eq, xVec_eq, ← hJ_one, mat_vL, smul_eq_hPerm, hPerm1_xPt]
 
 theorem HJ_xVec
     (h : HJ) (k : Fin 462) :
@@ -533,5 +541,18 @@ theorem thetaJ_equivariant
     labPart (rhoH (hjEquiv h) k) = (thetaJ h : Equiv.Perm (Fin 12)) • labPart k :=
   thetaP_equivariant (hjEquiv h) k
 
+theorem local_point_stabilizer :
+    HJ = vStabJ ∧ Nat.card HJ = 239500800 ∧
+    (∀ k k' : Fin 462, xVec k = xVec k' → k = k') ∧
+    (∀ k : Fin 462, matJ h1J *ᵥ xVec k = xVec LocalData.lperm1[k.val]! ∧
+      matJ h2J *ᵥ xVec k = xVec LocalData.lperm2[k.val]!) ∧
+    ∃ θ : HJ ≃* alternatingGroup (Fin 12),
+      (θ ⟨h1J, h1J_mem⟩ : Equiv.Perm (Fin 12)) = natPerm1 ∧
+      (θ ⟨h2J, h2J_mem⟩ : Equiv.Perm (Fin 12)) = natPerm2 ∧
+      ∀ (h : HJ) (k : Fin 462), ∃ k' : Fin 462,
+        matJ h *ᵥ xVec k = xVec k' ∧ labPart k' = (θ h : Equiv.Perm (Fin 12)) • labPart k :=
+  ⟨HJ_eq_vStabJ, card_HJ, fun _ _ h => xVec_injective h,
+    fun k => ⟨h1J_xVec k, h2J_xVec k⟩,
+    thetaJ, thetaJ_h1, thetaJ_h2, fun h k => ⟨_, HJ_xVec h k, thetaJ_equivariant h k⟩⟩
 
 end CFSG.Sporadic.HNSchreier

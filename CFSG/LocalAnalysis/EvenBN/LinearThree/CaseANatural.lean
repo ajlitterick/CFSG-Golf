@@ -447,6 +447,11 @@ theorem kappa_mem (w : WData d Vi q) (x : Additive w.WN) : w.kappa x ∈ w.Vsub 
   rw [mem_Vsub, coeW_kappa]
   exact w.comm_mem _ (w.coeW_mem x)
 
+theorem exists_kappa_eq (w : WData d Vi q) {v : Additive w.WN} (hv : v ∈ w.Vsub) :
+    ∃ x, w.kappa x = v := by
+  obtain ⟨y, hy, hyv⟩ := w.comm_onto _ hv
+  obtain ⟨x, rfl⟩ := w.exists_coeW_eq hy
+  exact ⟨x, w.coeW_injective (by rw [coeW_kappa, hyv]; rfl)⟩
 
 theorem act_tbar_eq_iff (w : WData d Vi q) (x : Additive w.WN) :
     w.act w.tbar x = x ↔ x ∈ w.Vsub := by
@@ -1162,6 +1167,23 @@ theorem seitz31
   exact ⟨C, C.exists_natural_coord hf hR hW hKc, ⟨X, hXE, hWX, hdec⟩,
     fun S hS => C.nonempty_sylow_equiv_unipAll hf hR hW hKc hS⟩
 
+theorem seitz31_of_seitz27
+    (hG : CFSG.CGT.Timmesfeld75.Goldschmidt1974)
+    (hGMS : GMSK.GMSLinearStandardLayerListKRankOneStatement) (hL3 : LinearThreeExclusion27)
+    (hG23 : G2ThreeExclusion27) (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
+    (h : Hyp G A f) (d : Datum A) {V₁ V₂ Vi : Subgroup G} (hR : Radicals d.V V₁ V₂ (2 ^ f))
+    (hW : Vi = V₁ ∨ Vi = V₂) (w : WData d Vi (2 ^ f)) {K : Type} [Field K] [Finite K]
+    (D : LeviData A Vi K) (hKc : Nat.card K = 2 ^ f) (hA : w.CaseA f D.lev.range) :
+    ∃ C : CaseACoord f w D.lev.range,
+      (∃ ι : Multiplicative (Fin 2 → C.F) →* G, Function.Injective ι ∧ ι.range = w.W ∧
+        ∀ (n : w.N) (hn : w.projBar n ∈ w.Ebar D.lev.range) (v : Multiplicative (Fin 2 → C.F)),
+          (n : G) * ι v * (n : G)⁻¹ = ι (Multiplicative.ofAdd
+            ((C.ψ ⟨_, hn⟩ : Matrix (Fin 2) (Fin 2) C.F).mulVec (Multiplicative.toAdd v)))) ∧
+      (∃ X : Subgroup G, X ≤ w.Ehat D.lev.range ∧ w.W ⊓ X = ⊥ ∧
+        ∀ e ∈ w.Ehat D.lev.range, ∃ a ∈ w.W, ∃ x ∈ X, e = a * x) ∧
+      ∀ S : Subgroup G, IsSylowOf 2 S (w.Ehat D.lev.range) → Nonempty (S ≃* unipAll C.F) :=
+  seitz31 h.three_le d hR hW (h.normalizer_adj_le d hR hW) w D hKc hA
+    (h.commutator_oddCore_Ebar hG hGMS hL3 hG23 hK d hR hW w D hKc)
 
 end Hyp
 

@@ -63,6 +63,14 @@ theorem el16_xor
   simp only [List.all_eq_true, List.mem_finRange, decide_eq_true_eq] at h
   exact h i trivial j trivial
 
+theorem idx16_mul
+    {r s : Amb 5} (hr : r ∈ Rm) (hs : s ∈ Rm) :
+    idx16 (r * s) = xor16 (idx16 r) (idx16 s) := by
+  have h1 : r * s ∈ Rm := Rm.mul_mem hr hs
+  have e : el16 (idx16 (r * s)) = el16 (xor16 (idx16 r) (idx16 s)) := by
+    rw [el16_idx16 h1, el16_xor, el16_idx16 hr, el16_idx16 hs]
+  have := congrArg idx16 e
+  rwa [idx16_el16, idx16_el16] at this
 
 theorem yy5_mem_check : T5b yy5 = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
@@ -168,6 +176,13 @@ theorem emb48_mul1_chk : allT5.all (fun s => allT5.all fun t =>
     decide (emb48 tr1 yHat1 (s * t) = emb48 tr1 yHat1 s * emb48 tr1 yHat1 t)) = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
+theorem emb48_inj0_chk : allT5.all (fun s => allT5.all fun t =>
+    imp (decide (emb48 tr16 yHat s = emb48 tr16 yHat t)) (decide (s = t))) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem emb48_inj1_chk : allT5.all (fun s => allT5.all fun t =>
+    imp (decide (emb48 tr1 yHat1 s = emb48 tr1 yHat1 t)) (decide (s = t))) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem emb48_mem0_chk :
     allT5.all (fun t => decide (emb48 tr16 yHat t ∈ Sh0L)) = true :=
@@ -177,6 +192,22 @@ theorem emb48_mem1_chk :
     allT5.all (fun t => decide (emb48 tr1 yHat1 t ∈ Sh1L)) = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
+theorem S0L0_length : S0L0.length = 64 :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem S0L1_length : S0L1.length = 64 :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem R1L_sub_S0L0 :
+    R1L.all (fun s => decide (s ∈ S0L0)) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem R1L_length : R1L.length = 16 :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+
+theorem RhatL0_sub :
+    RhatL0.all (fun s => decide (s ∈ S0L0)) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem RhatL1_sub :
     RhatL1.all (fun s => decide (s ∈ S0L1)) = true :=
@@ -222,6 +253,17 @@ theorem emb48_mul1 {s t : Amb 5} (hs : s ∈ T5) (ht : t ∈ T5) :
   simp only [List.all_eq_true, decide_eq_true_eq] at h
   exact h s (mem_allT5.2 hs) t (mem_allT5.2 ht)
 
+theorem emb48_inj0 {s t : Amb 5} (hs : s ∈ T5) (ht : t ∈ T5)
+    (h : emb48 tr16 yHat s = emb48 tr16 yHat t) : s = t := by
+  have h1 := emb48_inj0_chk
+  simp only [List.all_eq_true, imp_eq_true, decide_eq_true_eq] at h1
+  exact h1 s (mem_allT5.2 hs) t (mem_allT5.2 ht) h
+
+theorem emb48_inj1 {s t : Amb 5} (hs : s ∈ T5) (ht : t ∈ T5)
+    (h : emb48 tr1 yHat1 s = emb48 tr1 yHat1 t) : s = t := by
+  have h1 := emb48_inj1_chk
+  simp only [List.all_eq_true, imp_eq_true, decide_eq_true_eq] at h1
+  exact h1 s (mem_allT5.2 hs) t (mem_allT5.2 ht) h
 
 @[expose] def embHom0 : ↥T5 →* ↥Sh0 where
   toFun t := ⟨emb48 tr16 yHat t, emb48_mem0 t.2⟩
@@ -233,6 +275,13 @@ theorem emb48_mul1 {s t : Amb 5} (hs : s ∈ T5) (ht : t ∈ T5) :
   map_one' := Subtype.ext emb48_one1
   map_mul' s t := Subtype.ext (emb48_mul1 s.2 t.2)
 
+theorem embHom0_injective :
+    Function.Injective embHom0 := fun s t h =>
+  Subtype.ext (emb48_inj0 s.2 t.2 (congrArg Subtype.val h))
+
+theorem embHom1_injective :
+    Function.Injective embHom1 := fun s t h =>
+  Subtype.ext (emb48_inj1 s.2 t.2 (congrArg Subtype.val h))
 
 theorem one_mem_RhatL0 :
     (1 : Perm (Fin 16)) ∈ RhatL0 :=
@@ -242,6 +291,8 @@ theorem one_mem_RhatL1 :
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem one_mem_R1L : (1 : Perm (Fin 16)) ∈ R1L :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+theorem one_mem_S0L0 : (1 : Perm (Fin 16)) ∈ S0L0 :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem one_mem_S0L1 : (1 : Perm (Fin 16)) ∈ S0L1 :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
@@ -261,6 +312,10 @@ theorem R1L_mul_chk : mulClosedChkP R1L = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem R1L_inv_chk : invClosedChkP R1L = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+theorem S0L0_mul_chk : mulClosedChkP S0L0 = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+theorem S0L0_inv_chk : invClosedChkP S0L0 = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem S0L1_mul_chk : mulClosedChkP S0L1 = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem S0L1_inv_chk : invClosedChkP S0L1 = true :=
@@ -275,6 +330,8 @@ theorem S0L1_inv_chk : invClosedChkP S0L1 = true :=
 @[expose] def R1subP :
     Subgroup (Perm (Fin 16)) := lsubP R1L one_mem_R1L R1L_mul_chk R1L_inv_chk
 
+@[expose] def S0subP0 :
+    Subgroup (Perm (Fin 16)) := lsubP S0L0 one_mem_S0L0 S0L0_mul_chk S0L0_inv_chk
 
 @[expose] def S0subP1 :
     Subgroup (Perm (Fin 16)) := lsubP S0L1 one_mem_S0L1 S0L1_mul_chk S0L1_inv_chk
@@ -285,12 +342,20 @@ theorem mem_RsubP1
     {p : Perm (Fin 16)} : p ∈ RsubP1 ↔ p ∈ RhatL1 := Iff.rfl
 theorem mem_R1subP
     {p : Perm (Fin 16)} : p ∈ R1subP ↔ p ∈ R1L := Iff.rfl
+theorem mem_S0subP0
+    {p : Perm (Fin 16)} : p ∈ S0subP0 ↔ p ∈ S0L0 := Iff.rfl
 theorem mem_S0subP1
     {p : Perm (Fin 16)} : p ∈ S0subP1 ↔ p ∈ S0L1 := Iff.rfl
 
+theorem RsubP0_le_Sh0_chk :
+    RhatL0.all (fun p => decide (p ∈ Sh0L)) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem RsubP1_le_Sh1_chk :
     RhatL1.all (fun p => decide (p ∈ Sh1L)) = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+theorem S0subP0_le_Sh0_chk :
+    S0L0.all (fun p => decide (p ∈ Sh0L)) = true :=
+  Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 theorem S0subP1_le_Sh1_chk :
     S0L1.all (fun p => decide (p ∈ Sh1L)) = true :=
   Certificates.certificate5051.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1

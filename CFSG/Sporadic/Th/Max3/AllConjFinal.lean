@@ -25,5 +25,9 @@ theorem th_involutions_conjugate :
     ∀ u : Blueprint.NativeSporadic.Th, orderOf u = 2 → IsConj (thEquivJ.symm a) u :=
   th_involutions_conjugate_of_card (by rw [Nat.card_congr thEquivJ.toEquiv]; exact natCard_J)
 
+theorem th_involutions_isConj
+    {u v : Blueprint.NativeSporadic.Th} (hu : orderOf u = 2)
+    (hv : orderOf v = 2) : IsConj u v :=
+  (th_involutions_conjugate u hu).symm.trans (th_involutions_conjugate v hv)
 
 end CFSG.Sporadic.Th.Max3

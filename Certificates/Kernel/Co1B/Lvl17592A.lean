@@ -19,6 +19,14 @@ open CFSG.KC.Co1BBoundP CFSG.KLie.CT
   lvlChunkP 3 CertificateChecks.KernelCo1B.Bound17591.XB KD.T KD.CFs KD.NP
     CertificateChecks.KernelCo1B.CV.F KD.CNs n
 
+theorem negChunk17592Up : notB (lvlChunkP 3 CertificateChecks.KernelCo1B.Bound17591.XB KD.T KD.CFs
+    KD.NP CertificateChecks.KernelCo1B.CV.F (KD.CNs.map fun l => l.map (· + 1)) 9) = true := by
+  quickRfl
+
+theorem negChunk17592Down : notB (lvlChunkP 3 CertificateChecks.KernelCo1B.Bound17591.XB KD.T
+    KD.CFs KD.NP CertificateChecks.KernelCo1B.CV.F (KD.CNs.map fun l => l.map (· - 1)) 0) =
+    true := by
+  quickRfl
 
 end CertificateChecks.KernelCo1B.Bound17592
 

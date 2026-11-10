@@ -49,6 +49,10 @@ theorem betaM_mul (A B : Matrix (Fin 6) (Fin 6) F4) : betaM (A * B) = betaM A * 
   rw [coe_barHom] at this
   exact this
 
+theorem betaM_one : betaM 1 = 1 := by
+  ext i j
+  rw [betaM, Matrix.map_apply, Matrix.one_apply]
+  split_ifs <;> simp
 
 theorem betaM_betaM (A : Matrix (Fin 6) (Fin 6) F4) : betaM (betaM A) = A := by
   ext i j

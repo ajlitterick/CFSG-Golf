@@ -30,6 +30,24 @@ namespace M6
   | 4, 0 => x.a40 | 4, 1 => x.a41 | 4, 2 => x.a42 | 4, 3 => x.a43 | 4, 4 => x.a44 | 4, 5 => x.a45
   | 5, 0 => x.a50 | 5, 1 => x.a51 | 5, 2 => x.a52 | 5, 3 => x.a53 | 5, 4 => x.a54 | 5, 5 => x.a55
 
+@[expose] def ofFun (f : Fin 6 → Fin 6 → ℕ) : M6 :=
+  ⟨f 0 0, f 0 1, f 0 2, f 0 3, f 0 4, f 0 5,
+    f 1 0, f 1 1, f 1 2, f 1 3, f 1 4, f 1 5,
+    f 2 0, f 2 1, f 2 2, f 2 3, f 2 4, f 2 5,
+    f 3 0, f 3 1, f 3 2, f 3 3, f 3 4, f 3 5,
+    f 4 0, f 4 1, f 4 2, f 4 3, f 4 4, f 4 5,
+    f 5 0, f 5 1, f 5 2, f 5 3, f 5 4, f 5 5⟩
+
+theorem toFun_ofFun (f : Fin 6 → Fin 6 → ℕ) (i j : Fin 6) : (ofFun f).toFun i j = f i j := by
+  fin_cases i <;> fin_cases j <;> rfl
+
+theorem ofFun_toFun (x : M6) : ofFun x.toFun = x := rfl
+
+theorem ext_toFun {x y : M6} (h : ∀ i j, x.toFun i j = y.toFun i j) : x = y := by
+  rw [← ofFun_toFun x, ← ofFun_toFun y]
+  congr 1
+  funext i j
+  exact h i j
 
 @[expose, inline] def dot6 (a0 a1 a2 a3 a4 a5 b0 b1 b2 b3 b4 b5 : ℕ) : ℕ :=
   (a0 * b0 + a1 * b1 + a2 * b2 + a3 * b3 + a4 * b4 + a5 * b5) % 3
@@ -95,6 +113,47 @@ theorem toFun_one (i j : Fin 6) : (1 : M6).toFun i j = if i = j then 1 else 0 :=
 
 end M6
 
+@[expose] def enc6 (g : GL6F3) : M6 :=
+  M6.ofFun fun i j => ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) i j).val
+
+theorem enc6_toFun (g : GL6F3) (i j : Fin 6) :
+    (enc6 g).toFun i j = ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) i j).val := by
+  simp only [enc6, M6.toFun_ofFun]
+
+theorem dot6_val (a0 a1 a2 a3 a4 a5 b0 b1 b2 b3 b4 b5 : ZMod 3) :
+    (a0 * b0 + a1 * b1 + a2 * b2 + a3 * b3 + a4 * b4 + a5 * b5).val =
+      M6.dot6 a0.val a1.val a2.val a3.val a4.val a5.val b0.val b1.val b2.val b3.val b4.val
+        b5.val := by
+  have h : a0 * b0 + a1 * b1 + a2 * b2 + a3 * b3 + a4 * b4 + a5 * b5 =
+      ((a0.val * b0.val + a1.val * b1.val + a2.val * b2.val + a3.val * b3.val + a4.val * b4.val +
+        a5.val * b5.val : ℕ) : ZMod 3) := by
+    push_cast
+    simp only [ZMod.natCast_zmod_val]
+  rw [h, ZMod.val_natCast]
+  rfl
+
+theorem enc6_mul (g h : GL6F3) : enc6 (g * h) = enc6 g * enc6 h := by
+  refine M6.ext_toFun fun i j => ?_
+  rw [M6.toFun_mul]
+  simp only [enc6_toFun, Units.val_mul, Matrix.mul_apply, Fin.sum_univ_six, dot6_val]
+
+theorem enc6_one : enc6 (1 : GL6F3) = 1 := by
+  refine M6.ext_toFun fun i j => ?_
+  rw [enc6_toFun, M6.toFun_one]
+  by_cases hij : i = j
+  · subst hij
+    simp only [Units.val_one, Matrix.one_apply_eq, if_true]
+    rfl
+  · simp [hij, Matrix.one_apply_ne hij]
+
+theorem enc6_inj : Function.Injective enc6 := by
+  intro g h hgh
+  refine Units.ext (Matrix.ext fun i j => ?_)
+  apply ZMod.val_injective
+  have := congrArg (fun x : M6 => x.toFun i j) hgh
+  simpa only [enc6_toFun] using this
+
+theorem isEnc_enc6 : IsEnc enc6 := ⟨enc6_inj, enc6_mul, enc6_one⟩
 
 @[expose] def M6.toMat (x : M6) : Matrix (Fin 6) (Fin 6) (ZMod 3) :=
   fun i j => ((⟨x.toFun i j % 3, Nat.mod_lt _ (by decide)⟩ : Fin 3) : ZMod 3)
@@ -364,5 +423,19 @@ theorem M6.toMat_one : (1 : M6).toMat = 1 := by
   sizes := [128, 384, 384, 1152, 1920, 51840]
   msize := 51840
 
+@[expose] def f5Gens (j : ℕ) : List GL6F3 := (f5LatCert.tGens :: f5LatCert.lat).getD j []
+
+@[expose] def f5LatIncl : List (GL6F3 × ℕ × List ℕ) :=
+  [(f5XA, 3, [5, 7, 6, 7, 6]),
+   (f5XB, 3, [5, 7, 7, 3, 7, 7]),
+   (f5XB, 4, [0, 7, 5, 7, 4]),
+   (f5XM1, 5, [6, 7, 6, 2, 7, 7, 2, 7]),
+   (f5XM2, 5, [0, 4, 7, 2, 5, 6, 7, 2])]
+
+@[expose] def f5LatNotIncl : List (GL6F3 × ℕ) := [(f5XA, 2)]
+
+@[expose] def f5LatInclOK : Bool :=
+  f5LatIncl.all (fun p => evalW ((f5Gens p.2.1).map enc6) p.2.2 == enc6 p.1) &&
+  f5LatNotIncl.all fun p => !(elts enc6 f5LatCert.depth (f5Gens p.2)).contains (enc6 p.1)
 
 end CFSG.Quasithin.SimsF5Lat

@@ -41,6 +41,8 @@ theorem lift_parts :
   rw [← hRegs_eq, ← hStrongArr_eq, cTab_eq] at h
   exact h
 
+theorem gTabs_size : gTabs.size = 11 := by
+  simp [gTabs, genTabs, row4_parts.2.2.2.1]
 
 theorem gTabs_get {j : ℕ} (hj : j < 9) :
     gTabs[j]! = pword hnsData.n hStrongArr (pinvs hnsData.n hStrongArr) InvData.c4Words[j]! := by

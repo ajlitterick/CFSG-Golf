@@ -48,6 +48,16 @@ theorem mono (hJ : J ⊆ J₂) (h : IsJGallery X J e γ) : IsJGallery X J₂ e �
 theorem mem_residue (h : IsJGallery X J e γ) : galleryEnd e γ ∈ X.residue J e :=
   ⟨γ, h.1, h.2, rfl⟩
 
+theorem of_append_left (h : IsJGallery X J e (γ ++ η)) : IsJGallery X J e γ :=
+  ⟨h.1.of_append_left, fun j hj => h.2 j (by simp [galleryType_append, hj])⟩
+
+theorem of_append_right (h : IsJGallery X J e (γ ++ η)) :
+    IsJGallery X J (galleryEnd e γ) η :=
+  ⟨h.1.of_append_right, fun j hj => h.2 j (by simp [galleryType_append, hj])⟩
+
+theorem append_iff : IsJGallery X J e (γ ++ η) ↔
+    IsJGallery X J e γ ∧ IsJGallery X J (galleryEnd e γ) η :=
+  ⟨fun h => ⟨h.of_append_left, h.of_append_right⟩, fun h => h.1.append h.2⟩
 
 end IsJGallery
 
@@ -80,6 +90,14 @@ variable (F : Fib X Γ)
 
 variable {F}
 
+theorem lift_nil_iff {x : V} {e : C} {γ : List (I × C)} :
+    F.Lift (.nil : Γ.Walk x x) e γ ↔ F.P e = x ∧ IsJGallery X F.J' e γ := Iff.rfl
+
+theorem lift_cons_iff {x x' y : V} (h : Γ.Adj x x') (w : Γ.Walk x' y) {e : C}
+    {γ : List (I × C)} :
+    F.Lift (.cons h w) e γ ↔ F.P e = x ∧ ∃ (ρ : List (I × C)) (f : C) (δ : List (I × C)),
+        γ = ρ ++ (F.a, f) :: δ ∧ IsJGallery X F.J' e ρ ∧ X.adj F.a (galleryEnd e ρ) f ∧
+          F.Lift w f δ := Iff.rfl
 
 theorem Lift.start_eq {x y : V} {w : Γ.Walk x y} {e : C} {γ : List (I × C)}
     (h : F.Lift w e γ) : F.P e = x := by

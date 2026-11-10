@@ -65,6 +65,8 @@ private theorem push_get_lt {a : Array Nat} {y i : Nat} (h : i < a.size) :
     (a.push y)[i]! = a[i]! := by
   rw [getElem!_pos (a.push y) i (by simp; omega), Array.getElem_push_lt h, getElem!_pos a i h]
 
+private theorem push_get_eq {a : Array Nat} {y : Nat} : (a.push y)[a.size]! = y := by
+  rw [getElem!_pos (a.push y) a.size (by simp), Array.getElem_push_eq]
 
 private structure Core (n : Nat) (Row : Nat → List Nat) (nbr : Array (List Nat))
     (seen : Array Bool) (queue : Array Nat) : Prop where

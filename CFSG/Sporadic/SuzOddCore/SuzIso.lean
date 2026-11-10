@@ -107,11 +107,99 @@ theorem suzJEquivP_apply
     CFSG.Sporadic.Suz.mB (CFSG.Sporadic.Suz.det_mA_ne_zero CFSG.Sporadic.Suz.matrixFacts)
     (CFSG.Sporadic.Suz.det_mB_ne_zero CFSG.Sporadic.Suz.matrixFacts)
 
+theorem suzSeedEquiv_val (u : Blueprint.NativeSporadic.Suz) :
+    ((suzSeedEquiv u : Matrix.GeneralLinearGroup (Fin 64) (ZMod 3)) :
+      Matrix (Fin 64) (Fin 64) (ZMod 3)) = u.val.val :=
+  Blueprint.NativeSporadic.matrixSeedEquiv_val 3 64 _ _ _ _ _ u
+
+@[expose] def suzSeedA :
+    Blueprint.NativeSporadic.Suz := suzSeedEquiv.symm CFSG.Sporadic.Suz.a
+
+@[expose] def suzSeedB :
+    Blueprint.NativeSporadic.Suz := suzSeedEquiv.symm CFSG.Sporadic.Suz.b
+
+theorem suzSeedA_val :
+    (suzSeedA : Matrix (Fin 64) (Fin 64) (ZMod 3)) =
+    Blueprint.NativeSporadic.decode 3 64 1 Blueprint.NativeSporadic.SuzSeed1 := by
+  have h := suzSeedEquiv_val suzSeedA
+  rw [suzSeedA, MulEquiv.apply_symm_apply] at h
+  rw [suzSeedA, ← h]
+  exact CFSG.Sporadic.Suz.a_val
+
+theorem suzSeedB_val :
+    (suzSeedB : Matrix (Fin 64) (Fin 64) (ZMod 3)) =
+    Blueprint.NativeSporadic.decode 3 64 1 Blueprint.NativeSporadic.SuzSeed2 := by
+  have h := suzSeedEquiv_val suzSeedB
+  rw [suzSeedB, MulEquiv.apply_symm_apply] at h
+  rw [suzSeedB, ← h]
+  exact CFSG.Sporadic.Suz.b_val
+
+theorem closure_suzSeeds :
+    Subgroup.closure ({suzSeedA, suzSeedB} : Set Blueprint.NativeSporadic.Suz) = ⊤ := by
+  rw [eq_top_iff]
+  intro x _
+  have key : ∀ y : CFSG.Sporadic.Suz.J,
+      suzSeedEquiv.symm y ∈ Subgroup.closure ({suzSeedA, suzSeedB} : Set _) := by
+    intro y
+    have hy : y ∈ Subgroup.closure
+        ({CFSG.Sporadic.Suz.a, CFSG.Sporadic.Suz.b} : Set CFSG.Sporadic.Suz.J) := by
+      rw [CFSG.Sporadic.Suz.closure_ab]
+      exact Subgroup.mem_top y
+    induction hy using Subgroup.closure_induction with
+    | mem y hy =>
+      rcases hy with rfl | rfl
+      · exact Subgroup.subset_closure (Set.mem_insert _ _)
+      · exact Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_singleton _))
+    | one => rw [map_one]; exact Subgroup.one_mem _
+    | mul y z _ _ hy hz => rw [map_mul]; exact Subgroup.mul_mem _ hy hz
+    | inv y _ hy => rw [map_inv]; exact Subgroup.inv_mem _ hy
+  have := key (suzSeedEquiv x)
+  rwa [MulEquiv.symm_apply_apply] at this
 
 @[expose] def suzEquivP :
 
     Blueprint.NativeSporadic.Suz ≃* suzP := suzSeedEquiv.trans suzJEquivP
 
+theorem suzEquivP_seedA :
+    suzEquivP suzSeedA = suzA0P := by
+  apply Subtype.ext
+  rw [suzEquivP, MulEquiv.trans_apply, suzSeedA, MulEquiv.apply_symm_apply, suzA0P,
+    suzJEquivP_apply, psiJ_a]
+
+theorem suzEquivP_seedB :
+    suzEquivP suzSeedB = suzA1P := by
+  apply Subtype.ext
+  rw [suzEquivP, MulEquiv.trans_apply, suzSeedB, MulEquiv.apply_symm_apply, suzA1P,
+    suzJEquivP_apply, psiJ_b]
+
+theorem suz_hom_ext
+    {G : Type*} [Group G] {f g : Blueprint.NativeSporadic.Suz →* G}
+    (hA : f suzSeedA = g suzSeedA) (hB : f suzSeedB = g suzSeedB) : f = g := by
+  have h : Subgroup.closure ({suzSeedA, suzSeedB} : Set _) ≤ f.eqLocus g := by
+    rw [Subgroup.closure_le]
+    rintro x (rfl | rfl)
+    · exact hA
+    · exact hB
+  rw [closure_suzSeeds] at h
+  ext x
+  exact h (Subgroup.mem_top x)
+
+theorem suzEquivP_unique
+    (e : Blueprint.NativeSporadic.Suz ≃* suzP)
+    (hA : e suzSeedA = suzA0P) (hB : e suzSeedB = suzA1P) : e = suzEquivP := by
+  apply MulEquiv.ext
+  intro x
+  have hx : x ∈ Subgroup.closure ({suzSeedA, suzSeedB} : Set Blueprint.NativeSporadic.Suz) := by
+    rw [closure_suzSeeds]
+    exact Subgroup.mem_top x
+  induction hx using Subgroup.closure_induction with
+  | mem y hy =>
+    rcases hy with rfl | rfl
+    · rw [hA, suzEquivP_seedA]
+    · rw [hB, suzEquivP_seedB]
+  | one => rw [map_one, map_one]
+  | mul y z _ _ hy hz => rw [map_mul, map_mul, hy, hz]
+  | inv y _ hy => rw [map_inv, map_inv, hy]
 
 theorem suzP_card :
     Nat.card suzP = 448345497600 := by

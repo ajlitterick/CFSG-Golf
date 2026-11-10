@@ -40,6 +40,7 @@ theorem Xlin_apply (v : Vm 3 F) : D.Xlin v = D.Xmat v := rfl
   map_add' := D.Hs_add
   map_smul' r X := D.Hs_smul r X
 
+theorem HsLin_apply (X : Matrix (Fin 4) (Fin 4) K) : D.HsLin X = D.Hs X := rfl
 
 theorem Hs_Xmat (v : Vm 3 F) :
     D.Hs (D.Xmat v) =

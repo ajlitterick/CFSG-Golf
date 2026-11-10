@@ -51,6 +51,8 @@ theorem mX2_mul' : mX2 ^ 4 * mX2 = 1 := by rw [← pow_succ]; exact mX2_pow
 @[expose] noncomputable def lY1i : Vec ≃ₗ[K2] Vec := linOf mY1i mY1 mY1_inv_mul mY1_mul_inv
 @[expose] noncomputable def lY2i : Vec ≃ₗ[K2] Vec := linOf mY2i mY2 mY2_inv_mul mY2_mul_inv
 
+theorem lX1_apply (v : Vec) : lX1 v = mX1.mulVec v := rfl
+theorem lX2_apply (v : Vec) : lX2 v = mX2.mulVec v := rfl
 theorem lY1_apply (v : Vec) : lY1 v = mY1.mulVec v := rfl
 theorem lY2_apply (v : Vec) : lY2 v = mY2.mulVec v := rfl
 theorem lY1i_apply (v : Vec) : lY1i v = mY1i.mulVec v := rfl
@@ -184,6 +186,8 @@ theorem E₀_le_Ω : E₀ ≤ orthDerived Qf := by
 theorem card_E₀Ω : Nat.card E₀Ω = 25 := by
   rw [E₀Ω, Nat.card_congr (Subgroup.subgroupOfEquivOfLe E₀_le_Ω).toEquiv, card_E₀]
 
+theorem map_E₀Ω : E₀Ω.map (orthDerived Qf).subtype = E₀ :=
+  Subgroup.map_subgroupOf_eq_of_le E₀_le_Ω
 
 @[expose] noncomputable def H : Subgroup (Vec ≃ₗ[K2] Vec) := orthCentralizerSpan Qf E₀Ω
 

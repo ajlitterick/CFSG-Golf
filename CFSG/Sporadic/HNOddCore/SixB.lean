@@ -44,6 +44,37 @@ theorem mem_arrGen_iff_sift {n : ℕ} (hn : 1 ≤ n) {O : Array (Array ℕ)} {W 
   rw [← hQ]
   exact siftA_iff_mem_originalSubgroup hA (by norm_num) h3 (fun x => ht x)
 
+theorem reach_of_orbitCert {n : ℕ} {gens : Array (Array ℕ)} {gs : ℕ → Perm (Fin n)}
+    (hg : ∀ s < gens.size, PRep n gens[s]! (gs s)) {L pos par lab : Array ℕ}
+    (h : orbitCertOK n gens L pos par lab = true) :
+    ∀ k (hk : k < L.size), ∃ g ∈ Subgroup.closure (Set.range fun s : Fin gens.size => gs s),
+      g ⟨L[0]!, ((pointsOK_spec (orbitCertOK_spec h).2.1).2 0 (orbitCertOK_spec h).1).1⟩ =
+        ⟨L[k]!, ((pointsOK_spec (orbitCertOK_spec h).2.1).2 k hk).1⟩ := by
+  obtain ⟨h0, hpts, htree, -⟩ := orbitCertOK_spec h
+  intro k
+  induction k using Nat.strong_induction_on with
+  | _ k ih =>
+    intro hk
+    by_cases hk0 : k = 0
+    · subst hk0
+      exact ⟨1, Subgroup.one_mem _, rfl⟩
+    · obtain ⟨hpar, hlab, hstep⟩ := htree k hk (Nat.pos_of_ne_zero hk0)
+      obtain ⟨g, hgK, hge⟩ := ih _ hpar (lt_trans hpar hk)
+      refine ⟨gs lab[k]! * g, Subgroup.mul_mem _ (Subgroup.subset_closure ⟨⟨_, hlab⟩, rfl⟩) hgK, ?_⟩
+      rw [Perm.mul_apply, hge]
+      apply Fin.ext
+      rw [← hg _ hlab]
+      exact hstep
+
+theorem idPts (n : ℕ) : PtList n (Array.range n) where
+  lt k hk := by
+    rw [Array.size_range] at hk
+    rw [getElem!_pos _ k (by simpa using hk), Array.getElem_range]
+    exact hk
+  inj k hk l hl he := by
+    rw [Array.size_range] at hk hl
+    rwa [getElem!_pos _ k (by simpa using hk), getElem!_pos _ l (by simpa using hl),
+      Array.getElem_range, Array.getElem_range] at he
 
 theorem isSolvable_of_card_two {G : Type*} [Group G] (h : Nat.card G = 2) : Group.IsSolvable G := by
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩

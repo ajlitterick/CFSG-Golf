@@ -606,6 +606,15 @@ theorem k0_conj_txyG {j : ℕ} (hj : j < 5) :
   have hr := (words_range_tr h).2.2 _ hmem
   exact (tblEq_iff_eq h1 (rep_wordT_txy h hr)).1 (hk.2 j hj)
 
+theorem wordG_txyLetG_mem {w : List ℤ} (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 5) :
+    wordG txyLetG w ∈ Txy0 :=
+  Subgroup.list_prod_mem _ fun x hx => by
+    obtain ⟨l, hl, rfl⟩ := List.mem_map.1 hx
+    obtain ⟨hl0, hl5⟩ := hw l hl
+    unfold txyLetG
+    split_ifs with hpos
+    · exact txyG_mem_Txy0 h (by omega)
+    · exact inv_mem (txyG_mem_Txy0 h (by omega))
 
 end Facts
 

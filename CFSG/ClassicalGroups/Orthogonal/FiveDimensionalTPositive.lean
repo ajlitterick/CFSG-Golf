@@ -172,6 +172,13 @@ abbrev tPositiveDerived (F : FrameData Q) :
   (extendHom (isCompl_Wplus F)).codRestrict (TauCeti.QuadraticMap.orthogonalGroup Q)
     (fun g => extendHom_mem (isCompl_Wplus F) g)
 
+theorem tPositiveEmbedding_injective (F : FrameData Q) :
+    Function.Injective (tPositiveEmbedding F) := by
+  intro g h hgh
+  apply extendHom_injective (isCompl_Wplus F)
+  have := congrArg (fun x : TauCeti.QuadraticMap.orthogonalGroup Q =>
+    (x : V ≃ₗ[K] V)) hgh
+  simpa [tPositiveEmbedding] using this
 
 theorem tPositiveDerived_eq_map_commutator (F : FrameData Q) :
     tPositiveDerived F =
@@ -319,6 +326,20 @@ theorem resPlus_tPositiveEmbedding (F : FrameData Q) :
   change (extendHom (isCompl_Wplus F) g) (w : V) = ((g : Wplus F ≃ₗ[K] Wplus F) w : V)
   exact extendHom_apply_mem (isCompl_Wplus F) g w
 
+
+theorem resPlus_surjective (F : FrameData Q) :
+    Function.Surjective (resPlus F) := by
+  intro h
+  let e := positiveOrthogonalCentralizerEquiv Q (tOp F) 1 one_ne_zero F.two_ne_zero
+    (tOp_mul_self F) (tOp_selfAdjoint F)
+  refine ⟨(C0toOperatorEquiv F).symm (e.symm (h, 1)), ?_⟩
+  change (orthogonalCentralizerRestriction Q (tOp F) 1)
+    ((C0toOperatorEquiv F) ((C0toOperatorEquiv F).symm (e.symm (h, 1)))) = h
+  rw [MulEquiv.apply_symm_apply]
+  have h2 := congrArg Prod.fst (MulEquiv.apply_symm_apply e (h, 1))
+  change (orthogonalCentralizerRestriction Q (tOp F) 1) (e.symm (h, 1)) = h
+  simpa [e, positiveOrthogonalCentralizerEquiv, splitOrthogonalRestriction,
+    orthogonalCentralizerRestriction] using h2
 
 @[expose] def detC0 (F : FrameData Q) : C0 F →* Kˣ :=
   LinearEquiv.det.comp ((TauCeti.QuadraticMap.orthogonalGroup Q).subtype.comp (C0 F).subtype)
@@ -518,6 +539,9 @@ theorem rho_eq_one_iff (F : FrameData Q) (hodd : Odd (Nat.card K))
 theorem eta_apply (F : FrameData Q) (hodd : Odd (Nat.card K)) (g : C0 F) :
     eta F hodd g = rho F hodd (resPlus F g) := rfl
 
+theorem eta_surjective (F : FrameData Q) (hodd : Odd (Nat.card K)) :
+    Function.Surjective (eta F hodd) :=
+  (rho_surjective F hodd).comp (resPlus_surjective F)
 
 theorem eta_tPositiveEmbedding (F : FrameData Q) (hodd : Odd (Nat.card K))
     (g : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (Wplus F).subtype)) :
@@ -860,6 +884,9 @@ theorem tPositiveDerived_not_isMulCommutative (F : FrameData Q) (hodd : Odd (Nat
 end Simplicity
 
 
+
+
+
 section CommonCentralizer
 
 variable [Finite K] (hodd : Odd (Nat.card K)) (h3 : 3 < Nat.card K)
@@ -1008,6 +1035,7 @@ theorem tPositive_common_centralizer_eq_one (F : FrameData Q)
   simpa using h
 
 end CommonCentralizer
+
 
 
 end CFSG.ClassicalGroups.Orthogonal.FiveDimensionalTPositive

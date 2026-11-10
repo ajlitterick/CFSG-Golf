@@ -28,5 +28,7 @@ theorem rel_5121K : sR ^ 8 = 1 ∧ sT ^ 2 = 1 ∧ sT * sR * sT⁻¹ = sR ^ 3 ∧
 theorem le_5121K : (QS.original.toList.all fun g => siftP QP g 0) = true := by
   decide +kernel
 
+theorem neg5121K : smallCheck (elemsV QS) t0 = false := by
+  decide +kernel
 
 end CertificateChecks.KernelKGroupsE

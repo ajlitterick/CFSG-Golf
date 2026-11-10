@@ -26,6 +26,16 @@ variable {G : Type} [Group G]
 @[expose] def dStarIn (A : Subgroup G) : Set (Subgroup.closure (dStar A)) :=
   {x | (x : MulAut A) ∈ dStar A}
 
+@[expose] def Item2131 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
+    Sec21Pair G A E U c L → Nat.card A = 3 ^ 3 →
+      (∃ f : Multiplicative (Fin 3 → ZMod 3) ≃* A,
+          (wStar A).map (coordGL f) ≤ KFacts.KP14.monomial ∧
+          ∃ G₀ : Subgroup (MulAut A), G₀ ≤ wStar A ∧
+            Nonempty (G₀ ≃* alternatingGroup (Fin 4))) ∧
+      ((∃ n : ℕ, 0 < n ∧ Even n ∧ (Nonempty (lBar L ≃* projSp 2 (GaloisField 2 n)) ∨
+          Nonempty (lBar L ≃* projSU 4 2 n) ∨ Nonempty (lBar L ≃* SL3 n))) ∨
+        Nonempty (lBar L ≃* projSU 5 2 2))
 
 @[expose] def Item2131One : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
@@ -99,6 +109,10 @@ variable {G : Type} [Group G]
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
     Sec21Pair G A E U c L → Odd (Nat.card (Subgroup.centralizer (A : Set G)))
 
+@[expose] def Item225 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
+    Sec21Pair G A E U c L → Nonempty (lBar L ≃* SL3 2) →
+      inSubgroup (aschbacherSolvableCore 3) L = ⊥
 
 @[expose] def Item226 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),

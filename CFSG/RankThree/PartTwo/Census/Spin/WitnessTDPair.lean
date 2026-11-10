@@ -191,6 +191,135 @@ section Blocks
 
 variable {hn} {F : (rootData n hn K).G →* (rootData n hn K).G} {L : Subfield K}
 
+theorem three_witness_blocks (hchar : (2 : K) = 0) {β : Type*} [Fintype β] [DecidableEq β]
+    (i j : β → Fin n) (hij : ∀ b, (i b).val + 1 = (j b).val)
+    (hdisj : ∀ b b', b ≠ b' → i b ≠ i b' ∧ i b ≠ j b' ∧ j b ≠ i b' ∧ j b ≠ j b')
+    (hD : ∀ b, (rootData n hn K).x (i b) 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ ∧
+      (rootData n hn K).y (i b) 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆)
+    (MP NP : β → Matrix (Fin (dimension n)) (Fin (dimension n)) ℤ)
+    (hMP : ∀ b, IsIntOp n (crD n (i b) * crD n (j b)) (MP b))
+    (hNP : ∀ b, IsIntOp n (anD n (j b) * anD n (i b)) (NP b))
+    (hMPR : ∀ b, (rootData n hn K).RootOpIn ⁅fixedSubgroup F, fixedSubgroup F⁆ L
+      (intMap K (MP b)))
+    (hNPR : ∀ b, (rootData n hn K).RootOpIn ⁅fixedSubgroup F, fixedSubgroup F⁆ L
+      (intMap K (NP b)))
+    {k k' : Fin n} (hkk : k.val + 1 = k'.val) (hkd : ∀ b, k ≠ i b ∧ k ≠ j b ∧ k' ≠ i b ∧ k' ≠ j b)
+    (hkD : (rootData n hn K).x k 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ ∧
+      (rootData n hn K).y k 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆) :
+    HasWitness (DerivedCentralQuotient (fixedSubgroup F)) 3 (Fintype.card β * 2) := by
+  have h11 : (1 : K) + 1 = 0 := by rw [one_add_one_eq_two]; exact hchar
+  have hne : ∀ b, i b ≠ j b := fun b => fin_ne (by have := hij b; omega)
+  have hlt : ∀ b, i b < j b := fun b => by rw [Fin.lt_def]; have := hij b; omega
+  choose gP hgPD hgP using fun b => (hMPR b).memD 1 L.one_mem
+  choose gN hgND hgN using fun b => (hNPR b).memD 1 L.one_mem
+  let MX : β × Fin 2 → Matrix (Fin (dimension n)) (Fin (dimension n)) ℤ :=
+    fun p => ![rootIntMatrix n hn (.inl (i p.1)), MP p.1] p.2
+  let MY : β × Fin 2 → Matrix (Fin (dimension n)) (Fin (dimension n)) ℤ :=
+    fun p => ![rootIntMatrix n hn (.inr (i p.1)), NP p.1] p.2
+  let sX : Fin 2 → Bool := ![false, true]
+  let sY : Fin 2 → Bool := ![true, false]
+  let cX : β × Fin 2 → Cl n := fun p =>
+    gen (polarizationBasis n) true (i p.1) * gen (polarizationBasis n) (sX p.2) (j p.1)
+  let cY : β × Fin 2 → Cl n := fun p =>
+    gen (polarizationBasis n) (sY p.2) (j p.1) * gen (polarizationBasis n) false (i p.1)
+  let gx : β × Fin 2 → (rootData n hn K).G := fun p => ![(rootData n hn K).x (i p.1) 1, gP p.1] p.2
+  let gy : β × Fin 2 → (rootData n hn K).G := fun p => ![(rootData n hn K).y (i p.1) 1, gN p.1] p.2
+  have hMX : ∀ p, IsIntOp n (cX p) (MX p) := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact isIntOp_chainE hn (hij b)
+    · exact hMP b
+  have hMY : ∀ p, IsIntOp n (cY p) (MY p) := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact isIntOp_chainF hn (hij b)
+    · exact hNP b
+  have hgx : ∀ p, (rootData n hn K).mat (gx p) = 1 + (1 : K) • intMap K (MX p) := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact mat_x' _ _
+    · exact hgP b
+  have hgy : ∀ p, (rootData n hn K).mat (gy p) = 1 + (1 : K) • intMap K (MY p) := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact mat_y' _ _
+    · exact hgN b
+  have hpair : ∀ p, SqZeroPair (intMap K (MX p)) (intMap K (MY p)) := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact (rootData n hn K).sqZero (i b)
+    · exact pair_sqZeroPair (hne b) (hMP b) (hNP b) (hMPR b).sq (hNPR b).sq
+  have hX0 : ∀ p, intMap K (MX p) ≠ 0 := by
+    rintro ⟨b, s⟩
+    fin_cases s
+    · exact (rootData n hn K).E_ne_zero (i b)
+    · exact pair_ne_zero (hlt b) (hMP b)
+  have hXX : ∀ p p', p ≠ p' → Commute (cX p) (cX p') := by
+    rintro ⟨b, s⟩ ⟨b', s'⟩ hpp
+    by_cases hbb : b = b'
+    · subst hbb
+      have hc := block_commute (hne b)
+      fin_cases s <;> fin_cases s'
+      · exact absurd rfl hpp
+      · exact hc.1
+      · exact hc.1.symm
+      · exact absurd rfl hpp
+    · obtain ⟨h1, h2, h3, h4⟩ := hdisj b b' hbb
+      exact commute_gens _ _ _ _ h1 h2 h3 h4
+  have hXY : ∀ p p', p ≠ p' → Commute (cX p) (cY p') := by
+    rintro ⟨b, s⟩ ⟨b', s'⟩ hpp
+    by_cases hbb : b = b'
+    · subst hbb
+      have hc := block_commute (hne b)
+      fin_cases s <;> fin_cases s'
+      · exact absurd rfl hpp
+      · exact hc.2.1
+      · exact hc.2.2.1
+      · exact absurd rfl hpp
+    · obtain ⟨h1, h2, h3, h4⟩ := hdisj b b' hbb
+      exact commute_gens _ _ _ _ h2 h1 h4 h3
+  have hYY : ∀ p p', p ≠ p' → Commute (cY p) (cY p') := by
+    rintro ⟨b, s⟩ ⟨b', s'⟩ hpp
+    by_cases hbb : b = b'
+    · subst hbb
+      have hc := block_commute (hne b)
+      fin_cases s <;> fin_cases s'
+      · exact absurd rfl hpp
+      · exact hc.2.2.2
+      · exact hc.2.2.2.symm
+      · exact absurd rfl hpp
+    · obtain ⟨h1, h2, h3, h4⟩ := hdisj b b' hbb
+      exact commute_gens _ _ _ _ h4 h3 h2 h1
+  have hkE : IsIntOp n (gen (polarizationBasis n) true k * gen (polarizationBasis n) false k')
+      (rootIntMatrix n hn (.inl k)) := isIntOp_chainE hn hkk
+  have hkc : ∀ p, Commute (gen (polarizationBasis n) true k * gen (polarizationBasis n) false k')
+      (cX p) ∧ Commute (gen (polarizationBasis n) true k * gen (polarizationBasis n) false k')
+      (cY p) := fun p => by
+    obtain ⟨h1, h2, h3, h4⟩ := hkd p.1
+    exact ⟨commute_gens _ _ _ _ h1 h2 h3 h4, commute_gens _ _ _ _ h2 h1 h4 h3⟩
+  have ht2 : (rootData n hn K).x k 1 ^ 2 = 1 := by
+    rw [pow_two, ← x_add, h11, x_zero]
+  have htz : ∃ g ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆,
+      (rootData n hn K).x k 1 * g ≠ g * (rootData n hn K).x k 1 := by
+    refine ⟨(rootData n hn K).y k 1, hkD.2, fun h => (one_ne_zero : (1 : K) ≠ 0) ?_⟩
+    exact (rootData n hn K).eq_zero_of_commute_sqZeroPair ((rootData n hn K).sqZero k)
+      ((rootData n hn K).E_ne_zero k) (mat_x' _ _) (by rw [mat_y', one_smul]) h
+  have h := RootData.three_witness_pairs (R := rootData n hn K) hchar (F := F)
+    (X := fun p => intMap K (MX p)) (Y := fun p => intMap K (MY p)) hpair hX0 gx gy
+    (fun p => by rw [hgx, one_smul]) (fun p => by rw [hgy, one_smul])
+    (by rintro ⟨b, s⟩; fin_cases s; exacts [(hD b).1, hgPD b])
+    (by rintro ⟨b, s⟩; fin_cases s; exacts [(hD b).2, hgND b])
+    (fun p p' hpp => intMap_commute_of (hMX p) (hMX p') (hXX p p' hpp).eq)
+    (fun p p' hpp => intMap_commute_of (hMX p) (hMY p') (hXY p p' hpp).eq)
+    (fun p p' hpp => intMap_commute_of (hMY p) (hMY p') (hYY p p' hpp).eq)
+    ((rootData n hn K).x k 1) hkD.1 ht2 htz
+    (fun p => (rootData n hn K).commute_of_mat (by
+      rw [mat_x', hgx]
+      exact commute_one_add_smul (intMap_commute_of hkE (hMX p) (hkc p).1.eq) 1 1))
+    (fun p => (rootData n hn K).commute_of_mat (by
+      rw [mat_x', hgy]
+      exact commute_one_add_smul (intMap_commute_of hkE (hMY p) (hkc p).2.eq) 1 1))
+  rwa [Fintype.card_prod, Fintype.card_fin] at h
 
 end Blocks
 
@@ -364,9 +493,58 @@ theorem exists_pairOps (hF : (rootData n hn K).IsTwistedFrobenius σ π F)
     (fin_ne (by omega) : k2 ≠ k3) (fin_ne (by omega) : k2 ≠ k4)
   exact pairOps_move h34 (hDj k3 (by omega)) m4.1 m4.2 q3
 
+theorem hasWitness_pair_gen (hF : (rootData n hn K).IsTwistedFrobenius σ π F)
+    (hπ : ∀ i : Fin n, i.val < n - 2 → π i = i) (hπA : π (forkA n hn) = forkB n hn)
+    (hπB : π (forkB n hn) = forkA n hn) {c : Kˣ}
+    (hc : ∀ k : ℤ, k ≠ 0 → -4 ≤ k → k ≤ 4 → c ^ k ≠ 1) (hchar : (2 : K) = 0) (h7 : 7 ≤ n) :
+    HasWitness (DerivedCentralQuotient (fixedSubgroup F)) 3 4 := by
+  obtain ⟨⟨M45, N45, hM45, hN45, hM45R, hN45R⟩, ⟨M23, N23, hM23, hN23, hM23R, hN23R⟩⟩ :=
+    exists_pairOps hF hπ hπA hπB hc (by omega)
+  have h1 : σ 1 = 1 := map_one σ
+  have hfix : ∀ i : Fin n, i.val < n - 2 →
+      (rootData n hn K).x i 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ ∧
+        (rootData n hn K).y i 1 ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ := fun i hi =>
+    fixed_mem_commutator hF hπ hc i hi h1
+  let I : Fin 2 → Fin n := ![⟨n - 5, by omega⟩, ⟨n - 3, by omega⟩]
+  let J : Fin 2 → Fin n := ![⟨n - 4, by omega⟩, forkA n hn]
+  have hIv : ∀ b, (I b).val = n - 5 + 2 * b.val := fun b => by
+    fin_cases b <;> simp [I]
+    omega
+  have hJv : ∀ b, (J b).val = n - 4 + 2 * b.val := fun b => by
+    fin_cases b <;> simp [J, forkA]
+    omega
+  have h := three_witness_blocks hchar I J (fun b => by rw [hIv, hJv]; omega)
+    (fun b b' hbb => by
+      have hv : b.val ≠ b'.val := fun h => hbb (Fin.ext h)
+      have hb := b.isLt
+      have hb' := b'.isLt
+      exact ⟨fin_ne (by simp only [hIv]; omega), fin_ne (by simp only [hIv, hJv]; omega),
+        fin_ne (by simp only [hIv, hJv]; omega), fin_ne (by simp only [hJv]; omega)⟩)
+    (fun b => hfix (I b) (by rw [hIv]; have := b.isLt; omega))
+    ![M23, M45] ![N23, N45] (fun b => by fin_cases b; exacts [hM23, hM45])
+    (fun b => by fin_cases b; exacts [hN23, hN45]) (fun b => by fin_cases b; exacts [hM23R, hM45R])
+    (fun b => by fin_cases b; exacts [hN23R, hN45R]) (k := ⟨n - 7, by omega⟩)
+    (k' := ⟨n - 6, by omega⟩) (by simp only; omega)
+    (fun b => by
+      have := b.isLt
+      exact ⟨fin_ne (by simp only [hIv]; omega), fin_ne (by simp only [hJv]; omega),
+        fin_ne (by simp only [hIv]; omega), fin_ne (by simp only [hJv]; omega)⟩)
+    (hfix _ (by simp only; omega))
+  rwa [Fintype.card_fin] at h
 
 end Generic
 
+variable (d : TypeTwistedDLieIndex)
+
+theorem hasWitness_pair (h2 : d.1.characteristic = 2) (h7 : 7 ≤ d.1.rank) :
+    HasWitness d.Group 3 4 := by
+  have hchar : (2 : d.1.Closure) = 0 := by
+    have h := (congrArg (Nat.cast : ℕ → d.1.Closure) h2).symm.trans
+      (CharP.cast_eq_zero d.1.Closure d.1.characteristic)
+    exact_mod_cast h
+  obtain ⟨c, hc⟩ := CarrierD.exists_unit_order_seven d.1 h2
+  exact hasWitness_pair_gen (isTwistedFrobenius d) (fun i hi => perm_of_lt d hi) (perm_forkA d)
+    (perm_forkB d) hc hchar h7
 
 end CarrierTD
 

@@ -147,6 +147,40 @@ private theorem diffS_cover {xs ys : List Nat} {x : Nat} (hx : x ∈ xs) :
           · exact Or.inl (he.symm ▸ hr)
           · exact Or.inr (hsub x hr)
 
+private theorem mem_dedupS {xs : List Nat} {x : Nat} : x ∈ dedupS xs ↔ x ∈ xs := by
+  let go : List Nat → Option Nat → List Nat := fun l =>
+    List.rec (motive := fun _ => Option Nat → List Nat) (fun _ => [])
+      (fun y _ ih o => Option.rec (y :: ih (some y))
+        (fun a => Bool.rec (y :: ih (some y)) (ih (some y)) (Nat.beq y a)) o) l
+  have hgo : ∀ l o, (x ∈ go l o ∨ o = some x) ↔ (x ∈ l ∨ o = some x) := by
+    intro l
+    induction l with
+    | nil => intro o; simp [go]
+    | cons y ys ih =>
+      intro o
+      have ht := ih (some y)
+      simp only [Option.some.injEq] at ht
+      have hxy : x = y ↔ y = x := eq_comm
+      cases o with
+      | none =>
+        change (x ∈ y :: go ys (some y) ∨ (none : Option Nat) = some x) ↔
+          (x ∈ y :: ys ∨ (none : Option Nat) = some x)
+        simp only [List.mem_cons, reduceCtorEq, or_false]
+        tauto
+      | some a =>
+        change (x ∈ Bool.rec (motive := fun _ => List Nat) (y :: go ys (some y)) (go ys (some y)) (Nat.beq y a) ∨
+          some a = some x) ↔ (x ∈ y :: ys ∨ some a = some x)
+        cases hb : Nat.beq y a with
+        | false =>
+          simp only [List.mem_cons, Option.some.injEq]
+          tauto
+        | true =>
+          have hya : y = a := Nat.eq_of_beq_eq_true hb
+          simp only [List.mem_cons, Option.some.injEq]
+          subst a
+          tauto
+  change x ∈ go xs none ↔ x ∈ xs
+  simpa only [reduceCtorEq, or_false] using hgo xs none
 
 theorem inSK_sound {pc SP : List Nat} (h : inSK pc SP = true) :
     ∀ x ∈ pc, x ∈ SP := by
@@ -224,5 +258,19 @@ theorem checked_points_spec {Pch SPch : List (List Nat)} {cap : Nat}
   have hnP : Pch.flatten.Nodup := hp.nodup_iff.1 hn
   exact ⟨hp.symm, hnP, (List.toFinset_card_of_nodup hnP).trans hlen⟩
 
+theorem clK_sound {Rs : List (List Nat)} {pc SP : List Nat}
+    (h : clK Rs pc SP = true) :
+    ∀ x ∈ pc, ∀ rs ∈ Rs, vecLJ x rs ∈ SP := by
+  have he : diffS (dedupS (sortN (imgsK Rs pc))) SP = [] := eqLK_sound h
+  intro x hx rs hrs
+  have himg : vecLJ x rs ∈ imgsK Rs pc := by
+    exact List.mem_flatten.2 ⟨Rs.map (fun rs => vecLJ x rs),
+      List.mem_map.2 ⟨x, hx, rfl⟩, List.mem_map.2 ⟨rs, hrs, rfl⟩⟩
+  have hd : vecLJ x rs ∈ dedupS (sortN (imgsK Rs pc)) :=
+    mem_dedupS.2 ((mem_sortN _ _).2 himg)
+  rcases diffS_cover (ys := SP) hd with hd | hp
+  · rw [he] at hd
+    exact (List.not_mem_nil hd).elim
+  · exact hp
 
 end CFSG.KC.J4Q.VOrbTree

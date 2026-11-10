@@ -82,6 +82,11 @@ theorem exists_actP1_Tsp
   obtain ⟨g, -, -, h⟩ := exists_actP1_flag hR hH hS hRH hHS
   exact ⟨g, h⟩
 
+theorem exists_actP1_Hsp
+    {S : Submodule F4 V6} (hS : UIso 2 S) : ∃ g : Pc 0, actP1 g Hsp = S := by
+  obtain ⟨R, T, hR, hT, hRS, hST⟩ := exists_flag_of_two hS
+  obtain ⟨g, -, h, -⟩ := exists_actP1_flag hR hS hT hRS hST
+  exact ⟨g, h⟩
 
 theorem exists_actP1_Rsp
     {S : Submodule F4 V6} (hS : UIso 1 S) : ∃ g : Pc 0, actP1 g Rsp = S := by
@@ -89,6 +94,43 @@ theorem exists_actP1_Rsp
   obtain ⟨g, h, -, -⟩ := exists_actP1_flag hS hH hT hSH hHT
   exact ⟨g, h⟩
 
+theorem exists_cosetEquiv
+    {A : Subgroup (Pc 0)} {O : Submodule F4 V6} {d : ℕ}
+    (hstab : ∀ g, actP1 g O = O ↔ g ∈ A) (hO : UIso d O)
+    (htrans : ∀ S, UIso d S → ∃ g, actP1 g O = S) :
+    ∃ e : Pc 0 ⧸ A ≃ {S : Submodule F4 V6 // UIso d S},
+      (∀ g : Pc 0, (e (g : Pc 0 ⧸ A) : Submodule F4 V6) = actP1 g O) ∧
+        ∀ (h : Pc 0) (q : Pc 0 ⧸ A), (e (h • q) : Submodule F4 V6) = actP1 h (e q) := by
+  let f : Pc 0 ⧸ A → {S : Submodule F4 V6 // UIso d S} :=
+    Quotient.lift (s := QuotientGroup.leftRel A) (fun g => ⟨actP1 g O, hO.actP1 g⟩)
+      (fun a b hab => by
+        apply Subtype.ext
+        have h := (hstab (a⁻¹ * b)).2 (QuotientGroup.leftRel_apply.1 hab)
+        change actP1 a O = actP1 b O
+        calc actP1 a O = actP1 a (actP1 (a⁻¹ * b) O) := by rw [h]
+          _ = actP1 b O := by rw [← actP1_mul, mul_inv_cancel_left])
+  have hf : ∀ g : Pc 0, f (g : Pc 0 ⧸ A) = ⟨actP1 g O, hO.actP1 g⟩ := fun _ => rfl
+  have hinj : Function.Injective f := by
+    intro q q' h
+    induction q using QuotientGroup.induction_on with
+    | H a =>
+      induction q' using QuotientGroup.induction_on with
+      | H b =>
+        rw [hf, hf] at h
+        have h' : actP1 a O = actP1 b O := congrArg Subtype.val h
+        rw [QuotientGroup.eq]
+        apply (hstab _).1
+        rw [actP1_mul, ← h', actP1_inv_actP1]
+  have hsurj : Function.Surjective f := by
+    rintro ⟨S, hS⟩
+    obtain ⟨g, hg⟩ := htrans S hS
+    exact ⟨g, Subtype.ext hg⟩
+  refine ⟨Equiv.ofBijective f ⟨hinj, hsurj⟩, fun g => rfl, fun h q => ?_⟩
+  induction q using QuotientGroup.induction_on with
+  | H g =>
+    change (f (h • (g : Pc 0 ⧸ A)) : Submodule F4 V6) = actP1 h (f (g : Pc 0 ⧸ A))
+    rw [MulAction.Quotient.smul_mk, smul_eq_mul, hf, hf]
+    exact actP1_mul h g O
 
 theorem actP1_eq_of_mem
     {A : Subgroup (Pc 0)} {O : Submodule F4 V6}
@@ -135,6 +177,12 @@ theorem incidence_iff
       · apply (hB _).1
         rw [actP1_mul, actP1_mul, hzO', ← actP1_mul g, mul_inv_cancel_left, actP1_inv_actP1]
 
+theorem htr_TH
+    (g : Pc 0) (hg : actP1 g Hsp ≤ Tsp) :
+    ∃ z : Pc 0, actP1 z Tsp = Tsp ∧ actP1 z Hsp = actP1 g Hsp := by
+  obtain ⟨R, hR, hRS⟩ := exists_one_le_two (uIso_Hsp.actP1 g)
+  obtain ⟨z, -, h2, h3⟩ := exists_actP1_flag hR (uIso_Hsp.actP1 g) uIso_Tsp hRS hg
+  exact ⟨z, h3, h2⟩
 
 theorem htr_TR
     (g : Pc 0) (hg : actP1 g Rsp ≤ Tsp) :
@@ -143,6 +191,40 @@ theorem htr_TR
   obtain ⟨z, h1, -, h3⟩ := exists_actP1_flag (uIso_Rsp.actP1 g) hH uIso_Tsp hSH hHT
   exact ⟨z, h3, h1⟩
 
+theorem htr_HR
+    (g : Pc 0) (hg : actP1 g Rsp ≤ Hsp) :
+    ∃ z : Pc 0, actP1 z Hsp = Hsp ∧ actP1 z Rsp = actP1 g Rsp := by
+  obtain ⟨z, h1, h2, -⟩ := exists_actP1_flag (uIso_Rsp.actP1 g) uIso_Hsp uIso_Tsp hg Hsp_le_Tsp
+  exact ⟨z, h2, h1⟩
+
+theorem coset_flag_transitive
+    (g₁ g₂ g₃ : Pc 0)
+    (h12 : (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+      g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty)
+    (_h13 : (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+      g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty)
+    (h23 : (g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+      g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty) :
+    (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+      g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty := by
+  have hconv : ∀ {A B : Subgroup (Pc 0)} {a b : Pc 0},
+      (a • (A : Set (Pc 0)) ∩ b • (B : Set (Pc 0))).Nonempty →
+        ∃ x : Pc 0, a⁻¹ * x ∈ A ∧ b⁻¹ * x ∈ B := by
+    intro A B a b h
+    obtain ⟨x, hx1, hx2⟩ := h
+    exact ⟨x, (mem_leftCoset_iff _).1 hx1, (mem_leftCoset_iff _).1 hx2⟩
+  have hHT := le_of_incident actP1_Tsp_iff actP1_Hsp_iff Hsp_le_Tsp (hconv h12)
+  have hRH := le_of_incident actP1_Hsp_iff actP1_Rsp_iff Rsp_le_Hsp (hconv h23)
+  obtain ⟨x, hR, hH, hT⟩ := exists_actP1_flag (uIso_Rsp.actP1 g₃) (uIso_Hsp.actP1 g₂)
+    (uIso_Tsp.actP1 g₁) hRH hHT
+  refine ⟨x, ⟨(mem_leftCoset_iff _).2 ?_, (mem_leftCoset_iff _).2 ?_⟩, (mem_leftCoset_iff _).2 ?_⟩
+  · apply (actP1_Tsp_iff _).1
+    rw [actP1_mul, hT, actP1_inv_actP1]
+  · apply (actP1_Hsp_iff _).1
+    rw [actP1_mul, hH, actP1_inv_actP1]
+  · apply (actP1_Rsp_iff _).1
+    rw [actP1_mul, hR, actP1_inv_actP1]
 
 instance Nc_zero_subgroupOf_normal :
     ((Nc 0).subgroupOf (Pc 0)).Normal :=
@@ -174,5 +256,84 @@ theorem normalCore_Pc_one :
   have h' := congrArg (actP1 c) h
   rwa [← actP1_mul c c⁻¹, mul_inv_cancel, actP1_one] at h'
 
+theorem iInf_normalCore :
+    (⨅ (j : Fin 4) (_ : j ≠ 0), ((Pc j).subgroupOf (Pc 0)).normalCore) =
+    (Nc 0).subgroupOf (Pc 0) := by
+  refine le_antisymm ?_ (le_iInf₂ fun j _ => Subgroup.normal_le_normalCore.2
+    (Nc_zero_subgroupOf_le j))
+  rw [← normalCore_Pc_one]
+  exact iInf₂_le 1 (by decide)
+
+theorem fix_all_iff
+    (g : Pc 0) :
+    (∀ S : Submodule F4 V6, (UIso 1 S ∨ UIso 2 S ∨ UIso 3 S) → actP1 g S = S) ↔
+      (g : Dfull) ∈ Nc 0 := by
+  constructor
+  · intro h
+    exact mem_Nc_zero_of_fix fun S hS => h S (Or.inr (Or.inr hS))
+  · intro hg S _
+    have h1 : g ∈ rhoP1.ker := by
+      rw [ker_rhoP1]
+      exact hg
+    rw [MonoidHom.mem_ker] at h1
+    rw [actP1, h1, inv_one, sigmaAct_one]
+
+theorem short_first_centralizer_unitary_flag :
+    (∀ g : Pc 0, rhoP1 g = phiU (p1Proj ⟨g, g.2⟩)) ∧ Function.Surjective rhoP1 ∧
+    rhoP1.ker = (Nc 0).subgroupOf (Pc 0) ∧
+    UIso 1 Rsp ∧ UIso 2 Hsp ∧ UIso 3 Tsp ∧ Rsp ≤ Hsp ∧ Hsp ≤ Tsp ∧
+    (Pc 1).subgroupOf (Pc 0) = (sigStab Tsp).comap rhoP1 ∧
+    (Pc 2).subgroupOf (Pc 0) = (sigStab Hsp).comap rhoP1 ∧
+    (Pc 3).subgroupOf (Pc 0) = (sigStab Rsp).comap rhoP1 ∧
+    (⨅ (j : Fin 4) (_ : j ≠ 0), ((Pc j).subgroupOf (Pc 0)).normalCore) =
+      (Nc 0).subgroupOf (Pc 0) ∧
+    (∀ g : Pc 0, (∀ S : Submodule F4 V6, (UIso 1 S ∨ UIso 2 S ∨ UIso 3 S) → actP1 g S = S) ↔
+      (g : Dfull) ∈ Nc 0) ∧
+    (∀ (g h : Pc 0) (S : Submodule F4 V6), actP1 (g * h) S = actP1 g (actP1 h S)) ∧
+    (∃ e : Pc 0 ⧸ (Pc 1).subgroupOf (Pc 0) ≃ {S : Submodule F4 V6 // UIso 3 S},
+      (∀ g : Pc 0, (e (g : Pc 0 ⧸ (Pc 1).subgroupOf (Pc 0)) : Submodule F4 V6) = actP1 g Tsp) ∧
+      ∀ (h : Pc 0) (q : Pc 0 ⧸ (Pc 1).subgroupOf (Pc 0)),
+        (e (h • q) : Submodule F4 V6) = actP1 h (e q)) ∧
+    (∃ e : Pc 0 ⧸ (Pc 2).subgroupOf (Pc 0) ≃ {S : Submodule F4 V6 // UIso 2 S},
+      (∀ g : Pc 0, (e (g : Pc 0 ⧸ (Pc 2).subgroupOf (Pc 0)) : Submodule F4 V6) = actP1 g Hsp) ∧
+      ∀ (h : Pc 0) (q : Pc 0 ⧸ (Pc 2).subgroupOf (Pc 0)),
+        (e (h • q) : Submodule F4 V6) = actP1 h (e q)) ∧
+    (∃ e : Pc 0 ⧸ (Pc 3).subgroupOf (Pc 0) ≃ {S : Submodule F4 V6 // UIso 1 S},
+      (∀ g : Pc 0, (e (g : Pc 0 ⧸ (Pc 3).subgroupOf (Pc 0)) : Submodule F4 V6) = actP1 g Rsp) ∧
+      ∀ (h : Pc 0) (q : Pc 0 ⧸ (Pc 3).subgroupOf (Pc 0)),
+        (e (h • q) : Submodule F4 V6) = actP1 h (e q)) ∧
+    (∀ g h : Pc 0, (g • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        h • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty ↔
+      (actP1 g Tsp ≤ actP1 h Hsp ∨ actP1 h Hsp ≤ actP1 g Tsp)) ∧
+    (∀ g h : Pc 0, (g • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        h • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty ↔
+      (actP1 g Tsp ≤ actP1 h Rsp ∨ actP1 h Rsp ≤ actP1 g Tsp)) ∧
+    (∀ g h : Pc 0, (g • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        h • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty ↔
+      (actP1 g Hsp ≤ actP1 h Rsp ∨ actP1 h Rsp ≤ actP1 g Hsp)) ∧
+    (∀ R H T : Submodule F4 V6, UIso 1 R → UIso 2 H → UIso 3 T → R ≤ H → H ≤ T →
+      ∃ g : Pc 0, actP1 g Rsp = R ∧ actP1 g Hsp = H ∧ actP1 g Tsp = T) ∧
+    (∀ g₁ g₂ g₃ : Pc 0,
+      (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty →
+      (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty →
+      (g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty →
+      (g₁ • ((Pc 1).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+        g₂ • ((Pc 2).subgroupOf (Pc 0) : Set (Pc 0)) ∩
+          g₃ • ((Pc 3).subgroupOf (Pc 0) : Set (Pc 0))).Nonempty) :=
+  ⟨rhoP1_apply, rhoP1_surjective, ker_rhoP1, uIso_Rsp, uIso_Hsp, uIso_Tsp, Rsp_le_Hsp, Hsp_le_Tsp,
+    Pc_one_subgroupOf, Pc_two_subgroupOf, Pc_three_subgroupOf, iInf_normalCore, fix_all_iff,
+    actP1_mul, exists_cosetEquiv actP1_Tsp_iff uIso_Tsp fun _ => exists_actP1_Tsp,
+    exists_cosetEquiv actP1_Hsp_iff uIso_Hsp fun _ => exists_actP1_Hsp,
+    exists_cosetEquiv actP1_Rsp_iff uIso_Rsp fun _ => exists_actP1_Rsp,
+    incidence_iff actP1_Tsp_iff actP1_Hsp_iff Hsp_le_Tsp (by rw [finrank_Hsp, uIso_Tsp.1]; omega)
+      htr_TH,
+    incidence_iff actP1_Tsp_iff actP1_Rsp_iff (Rsp_le_Hsp.trans Hsp_le_Tsp)
+      (by rw [finrank_Rsp, uIso_Tsp.1]; omega) htr_TR,
+    incidence_iff actP1_Hsp_iff actP1_Rsp_iff Rsp_le_Hsp (by rw [finrank_Rsp, finrank_Hsp]; omega)
+      htr_HR,
+    fun _ _ _ hR hH hT hRH hHT => exists_actP1_flag hR hH hT hRH hHT, coset_flag_transitive⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

@@ -216,6 +216,14 @@ theorem exists_unique_extend_cvTriangle
   · exact MonoidHom.ext fun x => hf'.1 _ x.1.2 _
   · exact MonoidHom.ext fun x => hf'.2 _ x.1.2 _
 
+theorem exists_triangle_swaps
+    (h : IsCTriangle v w u) :
+    ∃ a b : Shat, (cvMul v a = v ∧ cvMul w a = u ∧ cvMul u a = w) ∧
+      (cvMul v b = w ∧ cvMul w b = v ∧ cvMul u b = u) := by
+  obtain ⟨b, hb⟩ := exists_swap_of_isCTriangle h
+  obtain ⟨a, haw, hau, hav⟩ := exists_swap_of_isCTriangle
+    (⟨h.2.2, h.1.symm, h.2.1.symm⟩ : IsCTriangle w u v)
+  exact ⟨a, b, ⟨hav, haw, hau⟩, hb⟩
 
 end Triangle
 

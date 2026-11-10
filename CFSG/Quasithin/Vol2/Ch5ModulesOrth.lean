@@ -296,6 +296,13 @@ theorem f4Herm_smul_of_ne_zero (h4 : ∀ x : K, x ^ 4 = x) {c : K} (hc : c ≠ 0
     (v : Fin 2 → K) : f4Herm (c • v) = f4Herm v := by
   rw [f4Herm_smul, f4_cube h4 hc, one_smul]
 
+theorem f4Herm_herm (h4 : ∀ x : K, x ^ 4 = x) (v : Fin 2 → K) :
+    ((f4Herm v).map (fun x => x ^ 2))ᵀ = f4Herm v := by
+  ext i j
+  simp only [f4Herm, Matrix.transpose_apply, Matrix.map_apply, Matrix.vecMulVec_apply]
+  have := h4 (v i)
+  calc (v j * v i ^ 2) ^ 2 = v j ^ 2 * v i ^ 4 := by ring
+    _ = v i * v j ^ 2 := by rw [this]; ring
 
 variable [CharP K 2]
 
@@ -371,6 +378,8 @@ theorem f4Theta_add (ω : K) (x y : Fin 5 → ZMod 2) :
     f4Theta ω (x + y) = f4Theta ω x + f4Theta ω y := by
   simp only [f4Theta, Pi.add_apply, map_add, add_smul, Finset.sum_add_distrib]
 
+theorem f4Theta_zero (ω : K) : f4Theta ω 0 = 0 := by
+  simp [f4Theta]
 
 theorem f4Theta_apply {ω : K} (hω : ω ^ 2 + ω + 1 = 0) (x : Fin 5 → ZMod 2) :
     f4Theta ω x 0 0 = f4c K (x 0 + x 2 + x 3 + x 4) ∧

@@ -48,6 +48,11 @@ theorem glHom_dc (g : Γ12) (c : ℕ) :
   simp only [dc, toAdd_ofAdd]
   rw [mulVec_vecN]
 
+theorem colsN_tU (w : List ℕ) : colsN ((tU w : Γ12) : Matrix (Fin 12) (Fin 12) (ZMod 2)) = tW w := by
+  rw [tU_val, colsN_decN (validN_evalW gG validN_gG w)]
+
+theorem glHom_tU (w : List ℕ) (c : ℕ) : glHom (tU w) (dc c) = dc (mvN (tW w) c) := by
+  rw [glHom_dc, colsN_tU]
 
 @[expose] def gmv (g : Γ12) (c : ℕ) : ℕ := mvN (colsN (g : Matrix (Fin 12) (Fin 12) (ZMod 2))) c
 
@@ -67,6 +72,8 @@ theorem gmv_mul (g h : Γ12) (c : ℕ) : gmv (g * h) c = gmv g (gmv h c) := by
 theorem gmv_xor (g : Γ12) (a b : ℕ) : gmv g (a ^^^ b) = gmv g a ^^^ gmv g b := by
   simp only [gmv, mvN_xor]
 
+theorem gmv_tU (w : List ℕ) (c : ℕ) : gmv (tU w) c = mvN (tW w) c := by
+  rw [gmv, colsN_tU]
 
 private theorem gmv_gU (i c : ℕ) : gmv (gU i) c = mvN (gG.getD i one12) c := by
   rw [gmv, gU_val, colsN_decN (validN_getD validN_gG i)]
@@ -110,6 +117,12 @@ theorem smulSub_mul (g h : Γ12) (P : Subgroup Vec12) :
   rw [smulSub, smulSub, smulSub, map_mul, Subgroup.map_map]
   congr 1
 
+theorem card_smulSub (g : Γ12) (P : Subgroup Vec12) : Nat.card (smulSub g P) = Nat.card P := by
+  rw [smulSub]
+  exact Subgroup.card_map_of_injective (glHom g).injective
+
+theorem smulSub_eq_of_le (g : Γ12) (P : Subgroup Vec12) (h : smulSub g P ≤ P) : smulSub g P = P :=
+  Subgroup.eq_of_le_of_card_ge h (le_of_eq (card_smulSub g P).symm)
 
 theorem mem_ptStab_iff (X : Subgroup Γ12) (P : Subgroup Vec12) (g : Γ12) :
     g ∈ ptStab glHom X P ↔ g ∈ X ∧ smulSub g P = P := by
@@ -424,6 +437,13 @@ theorem omega_cube {c : ℕ} (hc : c < 4096) : mvN z12 (mvN z12 (mvN z12 c)) = c
   have := (List.all_eq_true.mp h) c (List.mem_range.mpr hc)
   simpa using this
 
+theorem omega_ne {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) : mvN z12 c ≠ c := by
+  have h : (List.range 4096).all (fun c => mvN z12 c != c || c == 0) = true := by decide +kernel
+  have hc' := (List.all_eq_true.mp h) c (List.mem_range.mpr hc)
+  simp only [Bool.or_eq_true, bne_iff_ne, beq_iff_eq] at hc'
+  rcases hc' with hne | h0
+  · exact hne
+  · omega
 
 private theorem ptSub_hb {c : ℕ} (hc : c < 4096) : ∀ x ∈ [c, mvN z12 c], x < 4096 := by
   intro x hx
@@ -453,6 +473,10 @@ theorem spanN_ptSub {c : ℕ} (hc : c < 4096) :
     simp only [hc0', Bool.false_eq_true, if_false, lineOf, List.mem_cons, List.not_mem_nil,
       or_false, or_assoc]
 
+theorem mem_ptSub_iff {c : ℕ} (hc : c < 4096) (v : Vec12) :
+    v ∈ ptSub c ↔ cd v = 0 ∨ cd v ∈ lineOf c := by
+  rw [ptSub, mem_spanSub_iff (ptSub_hb hc) v]
+  exact spanN_ptSub hc (cd v)
 
 theorem card_ptSub {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) : Nat.card (ptSub c) = 4 := by
   rw [ptSub, card_spanSub (ptSub_hb hc)]
@@ -567,5 +591,237 @@ theorem mem_vecStab_iff {c : ℕ} (hc : c < 4096) (g : Γ12) :
 
 theorem vecStab_le_G0 (c : ℕ) : vecStab c ≤ G0 := inf_le_left
 
+theorem vecStab_five : vecStab 5 = H12Cert.S0 := by
+  apply le_antisymm
+  · intro x hx
+    rw [mem_vecStab_iff (by norm_num) x] at hx
+    obtain ⟨hxG, hx5⟩ := hx
+    obtain ⟨uw, huw, s, hs, rfl⟩ := decomp hxG
+    have hs5 : gmv s 5 = 5 := by
+      have h := S0_fix hs
+      rw [v0, mulVec_vecN] at h
+      exact vecN_inj (gmv_lt s 5) (by norm_num) h
+    have huwv : uw.1 = v0 := by
+      have h1 := orbB_spec.2.2.2 uw huw
+      rw [v0] at h1
+      rw [gmv_mul, hs5, gmv_tU, h1] at hx5
+      simpa [v0] using hx5
+    have huw' : uw = (v0, []) := orbL_ext huw v0_mem huwv
+    rw [huw']
+    simpa [tU] using hs
+  · intro s hs
+    rw [mem_vecStab_iff (by norm_num) s]
+    refine ⟨S0_le hs, ?_⟩
+    have h := S0_fix hs
+    rw [v0, mulVec_vecN] at h
+    exact vecN_inj (gmv_lt s 5) (by norm_num) h
+
+theorem center_G0 (hZ : Nat.card ↥(Subgroup.center ↥G0) = 3) :
+    (Subgroup.center ↥G0).map G0.subtype = Subgroup.zpowers zU := by
+  have hzU : zU ∈ (Subgroup.center ↥G0).map G0.subtype := by
+    refine ⟨⟨zU, zU_mem⟩, ?_, rfl⟩
+    apply Subgroup.mem_center_iff.mpr
+    intro x
+    apply Subtype.ext
+    exact zU_comm x.2
+  have hle : Subgroup.zpowers zU ≤ (Subgroup.center ↥G0).map G0.subtype :=
+    Subgroup.zpowers_le.mpr hzU
+  have hcard : Nat.card ((Subgroup.center ↥G0).map G0.subtype) = 3 := by
+    rw [Subgroup.card_map_of_injective (Subgroup.subtype_injective G0), hZ]
+  have hcard2 : Nat.card (Subgroup.zpowers zU) = 3 := by
+    rw [Nat.card_zpowers, orderOf_zU]
+  exact (Subgroup.eq_of_le_of_card_ge hle (by rw [hcard2, hcard])).symm
+
+private theorem gmv_zU (x : ℕ) : gmv zU x = mvN z12 x := by
+  rw [gmv, zU_val, colsN_decN validN_z12]
+
+private theorem gmv_zU_inv_zU (x : ℕ) (hx : x < 4096) : gmv zU⁻¹ (gmv zU x) = x := by
+  rw [← gmv_mul, inv_mul_cancel, gmv_one hx]
+
+private theorem omega2_ne {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    mvN z12 (mvN z12 c) ≠ c := by
+  intro h
+  have hh := congrArg (mvN z12) h
+  rw [omega_cube hc] at hh
+  exact omega_ne hc0 hc hh.symm
+
+private theorem zU_mem_ptStab_aux {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    zU ∈ ptStab glHom G0 (ptSub c) := by
+  rw [mem_ptStab_iff]
+  refine ⟨zU_mem, ?_⟩
+  rw [smulSub_ptSub zU_mem hc, gmv_zU c]
+  exact (ptSub_eq_of_mem hc0 hc (by simp [lineOf])).symm
+
+private theorem ptStab_mem_prod {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) {n : Γ12}
+    (hn : n ∈ ptStab glHom G0 (ptSub c)) :
+    ∃ x ∈ vecStab c, ∃ z ∈ Subgroup.zpowers zU, x * z = n := by
+  rw [mem_ptStab_iff] at hn
+  obtain ⟨hnG, hnsmul⟩ := hn
+  have hnc : gmv n c ∈ lineOf c := by
+    have h : ptSub (gmv n c) = ptSub c := by
+      rw [← smulSub_ptSub hnG hc]; exact hnsmul
+    exact (ptSub_eq_iff hc0 hc (gmv_lt n c)).mp h.symm
+  simp only [lineOf, List.mem_cons, List.not_mem_nil, or_false] at hnc
+  rcases hnc with h1 | h2 | h3
+  · exact ⟨n, (mem_vecStab_iff hc n).mpr ⟨hnG, h1⟩, 1, (Subgroup.zpowers zU).one_mem,
+      by simp⟩
+  · have hx : zU⁻¹ * n ∈ vecStab c := by
+      rw [mem_vecStab_iff hc]
+      refine ⟨G0.mul_mem (G0.inv_mem zU_mem) hnG, ?_⟩
+      rw [gmv_mul, h2, ← gmv_zU c, gmv_zU_inv_zU c hc]
+    have heq : (zU⁻¹ * n) * zU = n := by
+      rw [mul_assoc, zU_comm hnG, ← mul_assoc, inv_mul_cancel, one_mul]
+    exact ⟨zU⁻¹ * n, hx, zU, Subgroup.mem_zpowers zU, heq⟩
+  · have hx : (zU * zU)⁻¹ * n ∈ vecStab c := by
+      rw [mem_vecStab_iff hc]
+      refine ⟨G0.mul_mem (G0.inv_mem (G0.mul_mem zU_mem zU_mem)) hnG, ?_⟩
+      rw [gmv_mul, h3, ← gmv_zU (mvN z12 c), ← gmv_zU c, ← gmv_mul, ← gmv_mul,
+        show (zU * zU)⁻¹ * zU * zU = 1 by rw [mul_assoc, inv_mul_cancel], gmv_one hc]
+    have hnz : n * (zU * zU) = (zU * zU) * n := by
+      rw [← mul_assoc, zU_comm hnG, mul_assoc, zU_comm hnG, ← mul_assoc]
+    have heq : ((zU * zU)⁻¹ * n) * (zU * zU) = n := by
+      rw [mul_assoc, hnz, ← mul_assoc, inv_mul_cancel, one_mul]
+    exact ⟨(zU * zU)⁻¹ * n, hx, zU * zU,
+      (Subgroup.zpowers zU).mul_mem (Subgroup.mem_zpowers zU) (Subgroup.mem_zpowers zU), heq⟩
+
+private theorem ptStab_le_sup_aux {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    ptStab glHom G0 (ptSub c) ≤ vecStab c ⊔ Subgroup.zpowers zU := by
+  intro n hn
+  obtain ⟨x, hx, z, hz, rfl⟩ := ptStab_mem_prod hc0 hc hn
+  exact (vecStab c ⊔ Subgroup.zpowers zU).mul_mem (Subgroup.mem_sup_left hx)
+    (Subgroup.mem_sup_right hz)
+
+private theorem sup_le_ptStab_aux {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    vecStab c ⊔ Subgroup.zpowers zU ≤ ptStab glHom G0 (ptSub c) := by
+  refine sup_le ?_ ?_
+  · intro x hx
+    rw [mem_vecStab_iff hc x] at hx
+    obtain ⟨hxG, hxc⟩ := hx
+    rw [mem_ptStab_iff]
+    exact ⟨hxG, by rw [smulSub_ptSub hxG hc, hxc]⟩
+  · exact Subgroup.zpowers_le.mpr (zU_mem_ptStab_aux hc0 hc)
+
+private theorem commute_vecStab_zpowers {c : ℕ} {x : Γ12} (hx : x ∈ vecStab c) {z : Γ12}
+    (hz : z ∈ Subgroup.zpowers zU) : x * z = z * x := by
+  have hcomm : Commute x zU := zU_comm (vecStab_le_G0 c hx)
+  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hz
+  exact hcomm.zpow_right k
+
+private theorem inf_vecStab_zpowers_eq_bot {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    vecStab c ⊓ Subgroup.zpowers zU = ⊥ := by
+  refine le_antisymm ?_ bot_le
+  intro x hx
+  rw [Subgroup.mem_inf] at hx
+  obtain ⟨hxX, hxZ⟩ := hx
+  rw [Subgroup.mem_bot]
+  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hxZ
+  rw [mem_vecStab_iff hc x] at hxX
+  obtain ⟨hxG, hxc⟩ := hxX
+  rw [← hk] at hxc ⊢
+  have hk3 : zU ^ (3 : ℤ) = 1 := by rw [zpow_ofNat]; exact zU_pow_three
+  have hmod : zU ^ k = zU ^ (k % 3) := zpow_eq_zpow_emod k hk3
+  rw [hmod] at hxc ⊢
+  have hrem : k % 3 = 0 ∨ k % 3 = 1 ∨ k % 3 = 2 := by
+    have h1 : 0 ≤ k % 3 := Int.emod_nonneg k (by norm_num)
+    have h2 : k % 3 < 3 := Int.emod_lt_of_pos k (by norm_num)
+    omega
+  rcases hrem with h0 | h1 | h2
+  · rw [h0, zpow_zero]
+  · exfalso
+    rw [h1, zpow_one, gmv_zU] at hxc
+    exact omega_ne hc0 hc hxc
+  · exfalso
+    rw [h2, zpow_ofNat, pow_two, gmv_mul, gmv_zU, gmv_zU] at hxc
+    exact omega2_ne hc0 hc hxc
+
+theorem isIntDirect_ptStab {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    IsIntDirect (ptStab glHom G0 (ptSub c)) (vecStab c) (Subgroup.zpowers zU) := by
+  have hsup : vecStab c ⊔ Subgroup.zpowers zU ≤ ptStab glHom G0 (ptSub c) :=
+    sup_le_ptStab_aux hc0 hc
+  refine ⟨le_trans le_sup_left hsup, le_trans le_sup_right hsup,
+    fun x hx z hz => commute_vecStab_zpowers hx hz, inf_vecStab_zpowers_eq_bot hc0 hc, ?_⟩
+  exact le_antisymm hsup (ptStab_le_sup_aux hc0 hc)
+
+theorem card_ptStab {c : ℕ} (hc0 : 0 < c) (hc : c < 4096) :
+    Nat.card (ptStab glHom G0 (ptSub c)) = 3 * Nat.card (vecStab c) := by
+  have hsup : ptStab glHom G0 (ptSub c) = vecStab c ⊔ Subgroup.zpowers zU :=
+    le_antisymm (ptStab_le_sup_aux hc0 hc) (sup_le_ptStab_aux hc0 hc)
+  rw [hsup]
+  have hZcard : Nat.card (Subgroup.zpowers zU) = 3 := by
+    rw [Nat.card_zpowers, orderOf_zU]
+  let f : vecStab c × Subgroup.zpowers zU → ↥(vecStab c ⊔ Subgroup.zpowers zU) := fun p =>
+    ⟨p.1.1 * p.2.1,
+      (vecStab c ⊔ Subgroup.zpowers zU).mul_mem (Subgroup.mem_sup_left p.1.2)
+        (Subgroup.mem_sup_right p.2.2)⟩
+  have hf : Function.Bijective f := by
+    refine ⟨?_, ?_⟩
+    · rintro ⟨⟨x1, hx1⟩, ⟨z1, hz1⟩⟩ ⟨⟨x2, hx2⟩, ⟨z2, hz2⟩⟩ h
+      have h1 : x1 * z1 = x2 * z2 := by simpa [f] using congrArg Subtype.val h
+      have hx : x1⁻¹ * x2 = z1 * z2⁻¹ := by
+        have h2 := congrArg (fun t => x1⁻¹ * t * z2⁻¹) h1
+        simpa [mul_assoc] using h2.symm
+      have hmem : x1⁻¹ * x2 ∈ vecStab c ⊓ Subgroup.zpowers zU := by
+        refine Subgroup.mem_inf.mpr ⟨vecStab c |>.mul_mem ((vecStab c).inv_mem hx1) hx2, ?_⟩
+        rw [hx]
+        exact (Subgroup.zpowers zU).mul_mem hz1 ((Subgroup.zpowers zU).inv_mem hz2)
+      rw [inf_vecStab_zpowers_eq_bot hc0 hc, Subgroup.mem_bot] at hmem
+      have hxeq : x1 = x2 := by
+        have h2 := congrArg (fun t => x1 * t) hmem
+        simpa [mul_assoc] using h2.symm
+      have hzeq : z1 = z2 := by
+        rw [hxeq] at h1
+        exact mul_left_cancel h1
+      exact Prod.ext (Subtype.ext hxeq) (Subtype.ext hzeq)
+    · rintro ⟨n, hn⟩
+      rw [← hsup] at hn
+      obtain ⟨x, hx, z, hz, rfl⟩ := ptStab_mem_prod hc0 hc hn
+      exact ⟨(⟨x, hx⟩, ⟨z, hz⟩), rfl⟩
+  have hcard : Nat.card (vecStab c × Subgroup.zpowers zU) =
+      Nat.card ↥(vecStab c ⊔ Subgroup.zpowers zU) := Nat.card_congr (Equiv.ofBijective f hf)
+  rw [← hcard, Nat.card_prod, hZcard]
+  ring
+
+theorem card_mul_le_of_orbit {H : Subgroup Γ12} (P : Subgroup Vec12) (l : List (Subgroup Vec12))
+    (hnd : l.Nodup) (hl : ∀ Q ∈ l, ∃ h ∈ H, smulSub h P = Q) :
+    l.length * Nat.card (ptStab glHom H P) ≤ Nat.card H := by
+  classical
+  let K : Subgroup Γ12 := ptStab glHom H P
+  have hKH : K ≤ H := inf_le_left
+  let K' : Subgroup ↥H := K.subgroupOf H
+  let w : {Q // Q ∈ l} → Γ12 := fun Q => Classical.choose (hl Q.1 Q.2)
+  have hwH : ∀ Q, w Q ∈ H := fun Q => (Classical.choose_spec (hl Q.1 Q.2)).1
+  have hwP : ∀ Q, smulSub (w Q) P = Q.1 := fun Q => (Classical.choose_spec (hl Q.1 Q.2)).2
+  let g : {Q // Q ∈ l} → ↥H ⧸ K' := fun Q => QuotientGroup.mk ⟨w Q, hwH Q⟩
+  have hg : Function.Injective g := by
+    intro Q Q' h
+    have hmem' : (⟨w Q, hwH Q⟩ : ↥H)⁻¹ * ⟨w Q', hwH Q'⟩ ∈ K' := QuotientGroup.eq.mp h
+    have hmem : (w Q)⁻¹ * w Q' ∈ K := by
+      have hh := Subgroup.mem_subgroupOf.mp hmem'
+      simpa using hh
+    have hfix : smulSub ((w Q)⁻¹ * w Q') P = P := ((mem_ptStab_iff H P _).mp hmem).2
+    have hww : w Q' = w Q * ((w Q)⁻¹ * w Q') := by group
+    have h1 : smulSub (w Q') P = smulSub (w Q) P := by
+      rw [hww, smulSub_mul, hfix]
+    apply Subtype.ext
+    rw [← hwP Q, ← hwP Q']
+    exact h1.symm
+  have hlen : Nat.card {Q // Q ∈ l} = l.length := by
+    rw [Nat.card_congr (Equiv.subtypeEquivRight fun x => (List.mem_toFinset (l := l) (a := x)).symm),
+      Nat.card_eq_fintype_card, Fintype.card_coe, List.toFinset_card_of_nodup hnd]
+  have hidx : K'.index = K.relIndex H := by
+    change (K.subgroupOf H).index = K.relIndex H
+    rw [← Subgroup.comap_subtype K H, Subgroup.index_comap, Subgroup.range_subtype]
+  have hle : l.length ≤ K.relIndex H := by
+    rw [← hidx, Subgroup.index_eq_card, ← hlen]
+    exact Nat.card_le_card_of_injective g hg
+  have hKcard : Nat.card ↥K' = Nat.card K :=
+    Nat.card_congr (Subgroup.subgroupOfEquivOfLe hKH).toEquiv
+  calc l.length * Nat.card K
+      = l.length * Nat.card K' := by rw [hKcard]
+    _ ≤ K.relIndex H * Nat.card K' := Nat.mul_le_mul_right _ hle
+    _ = Nat.card H := by
+        rw [hKcard]
+        have h := Subgroup.relIndex_mul_card K H
+        rwa [inf_eq_left.mpr hKH] at h
 
 end CFSG.Quasithin.AppendixH.H12.Model

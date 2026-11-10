@@ -23,6 +23,9 @@ variable {F : Type} [Field F] [CharP F 2]
     rw [zP_add]
     rfl
 
+omit [CharP F 2] in
+theorem mem_zornO0 {x : Multiplicative (quasithinZorn F)} :
+    x ∈ zornO0 F ↔ cayleyTr (Multiplicative.toAdd x) = 0 := Iff.rfl
 
 omit [CharP F 2] in
 @[expose] noncomputable def secEquivOfHom (D : FFModel) {M : Type*} [CommGroup M]

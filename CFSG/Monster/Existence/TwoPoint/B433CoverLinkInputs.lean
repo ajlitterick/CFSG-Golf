@@ -43,5 +43,7 @@ namespace CFSG.Monster.Existence.B433Cover
 
 open CFSG.YGroups.DCE.B433Native
 
+@[expose] def nodeArr : Array (Nat × Array Nat) :=
+  (nodeData.map fun w => (w.1, w.2.toArray)).toArray
 
 end CFSG.Monster.Existence.B433Cover

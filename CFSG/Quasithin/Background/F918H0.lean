@@ -37,6 +37,12 @@ structure D36Norm {W : Type} [CommGroup W] [Finite W] (M Mp T L : Subgroup (MulA
     D3Std M Mp T L V → V < orbSup T V →
     (∀ g ∈ Mp, (∀ v ∈ V, g v = v) → ∀ x ∈ Mp, g * x = x * g) → D35Concl Mp T L V
 
+@[expose] def D36Acts : Prop :=
+  ∀ (W : Type) [CommGroup W] [Finite W] (M Mp T L : Subgroup (MulAut W)) (V : Subgroup W)
+    (t : MulAut W), D36Norm M Mp T L V t →
+    ∀ A : Subgroup (MulAut W), A ≤ T →
+      autSub A (orbSup T V) ∈ QhatStar (autSub T (orbSup T V)) →
+      A ≤ stabSub (commSub (orbSup T V) L)
 
 @[expose] def D36A38 : Prop :=
   ∀ (W : Type) [CommGroup W] (L : Subgroup (MulAut W)) (V : Subgroup W),

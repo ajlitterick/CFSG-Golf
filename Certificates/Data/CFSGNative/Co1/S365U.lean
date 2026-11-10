@@ -45,5 +45,25 @@ open CFSG.Sporadic.SmallF2.Native CFSG.Sporadic.Co1.OddNative
       | _, _ => none
     else none
 
+@[expose] def verifyWit (Qt pts : Array Nat) (pos : Array UInt32) (n : Nat) (Rt St Tt : Array Nat)
+    (v p1 p2 p3 : Nat) : Bool :=
+  decide (v < 2 ^ 24) && decide (p1 < 2 ^ 24) && decide (p2 < 2 ^ 24) && decide (p3 < 2 ^ 24) &&
+    (onePlus Rt p1 == v) && (onePlus St p2 == v) && (onePlus Tt p3 == v) &&
+    type4N Qt pts pos n v
+
+@[expose] def uPair (Qt pts : Array Nat) (pos : Array UInt32) (n : Nat) (R S : Array Nat) : Bool :=
+  match witness Qt pts pos n (transposeRows 24 R) (transposeRows 24 S)
+      (transposeRows 24 (mulRows 24 R S)) with
+  | none => false
+  | some (v, p1, p2, p3) =>
+    verifyWit Qt pts pos n (transposeRows 24 R) (transposeRows 24 S)
+      (transposeRows 24 (mulRows 24 R S)) v p1 p2 p3
+
+@[expose] def uScan (Qt pts : Array Nat) (pos : Array UInt32) (n : Nat) (R : Array Nat)
+    (Pts : Array (Array Nat)) : Bool :=
+  let set : Std.HashSet (Array Nat) := Std.HashSet.ofList Pts.toList
+  Pts.all fun S =>
+    !(mulRows 24 R S == mulRows 24 S R && set.contains (mulRows 24 R S)) ||
+      uPair Qt pts pos n R S
 
 end CFSG.Sporadic.Co1.S365UNative

@@ -204,6 +204,10 @@ theorem cycleHomotopic_insert_null (E : ∀ x : V, Set (G.Walk x x)) {u x v : V}
   have := (hc.append_right q).append_left p
   simpa using this.symm
 
+theorem cycleTrivial_iff_homotopic (E : ∀ x : V, Set (G.Walk x x)) :
+    CycleTrivial E ↔ ∀ (u v : V) (p q : G.Walk u v), CycleHomotopic E p q := by
+  refine ⟨fun hG u v p q => ?_, fun h u p => h u u p .nil⟩
+  exact cycleHomotopic_of_append_reverse E (hG u (p.append q.reverse))
 
 section Lasso
 

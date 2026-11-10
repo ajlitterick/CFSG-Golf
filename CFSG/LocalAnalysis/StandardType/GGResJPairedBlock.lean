@@ -77,6 +77,33 @@ variable {G : Type} [Group G] [Finite G]
   {A₀ : Matrix.SpecialLinearGroup (Fin n) K}
   (hC : (CoordSL.rootMat g).det = 1) (hCp : CoordSL.rootMat g ^ 3 = 1)
 
+omit [Finite G] in
+theorem exists_flip
+    (hJ : φ.range = J)
+    (hgd : g ∣ cyclotomic 3 K) (hpK : ¬ 3 ∣ Nat.card K - 1)
+    (hζ : AdjoinRoot.root g ^ 3 = 1)
+    (hrange : (CoordSL.frameHom φ A₀ ε hC hCp).range = Bs) (i : Fin s) :
+    ∃ w ∈ J, ∃ (hw : w ∈ Subgroup.normalizer (Bs : Set G)),
+      (∀ t : Fin s → ZMod 3,
+        w⁻¹ * CoordSL.frameHom φ A₀ ε hC hCp (ofAdd t) * w =
+          CoordSL.frameHom φ A₀ ε hC hCp (ofAdd fun j => (flipSign i j : ZMod 3) * t j)) ∧
+      ggConjAut Bs hw ∈ ggAutomizer J Bs := by
+  have hη : ∀ j, flipSign i j ∈ CoordSL.galExp g hζ := by
+    intro j
+    by_cases h : j = i
+    · subst h
+      rw [flipSign_self]
+      exact galExp_neg_one g hgd hpK hζ
+    · rw [flipSign_of_ne h]
+      exact (CoordSL.galExp g hζ).one_mem
+  obtain ⟨w, hw, hwconj⟩ :=
+    CoordSL.exists_move_mem (g := g) φ A₀ ε hC hCp hζ hrange (Equiv.refl (Fin s))
+      (flipSign i) hη
+  obtain ⟨hwJ, hwN⟩ := Subgroup.mem_inf.mp hw
+  have hwJ' : w ∈ J := hJ ▸ hwJ
+  refine ⟨w, hwJ', hwN, ?_, ggConjAut_mem_ggAutomizer hwJ' hwN⟩
+  intro t
+  simpa using hwconj t
 
 variable (hBs : IsElemAbelian 3 Bs)
   (hSC : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
@@ -201,6 +228,21 @@ theorem frameHom_psi_apply (t : Fin s → ZMod 3) :
   rw [CoordSL.frameHom_apply]
   rfl
 
+omit [Finite G] [Finite K] [CharP K 2] in
+private theorem frameHom_psi_comm (t u : Fin s → ZMod 3) :
+    CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd t) *
+        CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd u) =
+      CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd u) *
+        CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd t) := by
+  calc CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd t) *
+        CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd u)
+      = CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd t * ofAdd u) :=
+        (map_mul _ _ _).symm
+    _ = CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd (t + u)) := by rw [ofAdd_add]
+    _ = CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd (u + t)) := by rw [add_comm]
+    _ = CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd u * ofAdd t) := by rw [ofAdd_add]
+    _ = CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd u) *
+        CoordSL.frameHom (psi φ) A₀ ε hC hCp (ofAdd t) := map_mul _ _ _
 
 omit [Finite G] [Finite K] [CharP K 2] in
 theorem isElemAbelian_gammaRange
@@ -1084,6 +1126,7 @@ private theorem commute_of_slLift_hpK
     _ = v * u := by rw [hz_one]; group
 
 
+
 omit [Finite G] in
 theorem exists_frame_range_eq_gamma
     (hBs : IsElemAbelian 3 Bs)
@@ -1326,6 +1369,7 @@ private theorem not_lineJDatum_A3_actualA_of_boundary
     (hframeA := hrange) (hA2 := hA2) hD
 
 
+
 theorem not_lineJDatum_A2_of_paired_gl_action
     (hBs : IsElemAbelian 3 Bs)
     (hSC : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
@@ -1549,6 +1593,57 @@ theorem exists_actual_oppositeLinear_cover_of_marking
 section OriginalConfigurationCertificates
 
 
+
+theorem not_lineJDatum_A2_of_GGResHyp_of_paired_gl_action_of_root_data
+    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {Ksub : Subgroup G}
+    (hH : GGResHyp 3 B Bs x L D J y Ksub)
+    (φ : Matrix.SpecialLinearGroup (Fin n) K →* ↥J)
+    (hφ : Function.Surjective φ)
+    (hker : φ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K))
+    (hn3 : 3 ≤ n) (hpK : ¬ 3 ∣ Nat.card K - 1)
+    (hC : (CoordSL.rootMat g).det = 1) (hCp : (CoordSL.rootMat g) ^ 3 = 1)
+    (hgd : g ∣ cyclotomic 3 K) (hζ : AdjoinRoot.root g ^ 3 = 1)
+    (hYact : ∀ b : ↥Bs, ∃ Y : Matrix.GeneralLinearGroup (Fin n) K,
+      ∀ h : Matrix.SpecialLinearGroup (Fin n) K,
+        (b : G) * ((φ h : ↥J) : G) * (b : G)⁻¹ =
+          ((φ (CatalogueBHigherLinearAction.slConjugation n K Y h) : ↥J) : G))
+    (hD : GGResLineJDatum 3 Bs J .A2) : False := by
+  have hN : Bs ≤ Subgroup.normalizer (J : Set G) := GGResHyp.Bs_le_normalizer_J hH
+  exact not_lineJDatum_A2_of_paired_gl_action (hN := hN)
+    (hBs := hH.1.2.1.2.1) (hSC := hH.1.2.1.2.2.2) (hNoTr := hH.2.2.2.1)
+    (hZ := GGResHyp.card_bstar_inf_center_J_le hH)
+    (φ := φ) (hφ := hφ) (hker := hker) (hn3 := hn3) (hpK := hpK)
+    (hC := hC) (hCp := hCp) (hgd := hgd) (hζ := hζ)
+    (hYact := hYact) (hCardA := card_gamma_nine_of_GGResHyp hN hH) (hD := hD)
+
+
+theorem not_lineJDatum_A2_of_GGResHyp_of_paired_gl_action
+    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {Ksub : Subgroup G}
+    (hH : GGResHyp 3 B Bs x L D J y Ksub)
+    (φ : Matrix.SpecialLinearGroup (Fin n) K →* ↥J)
+    (hφ : Function.Surjective φ)
+    (hker : φ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K))
+    (hn3 : 3 ≤ n) (hpK : ¬ 3 ∣ Nat.card K - 1)
+    (hYact : ∀ b : ↥Bs, ∃ Y : Matrix.GeneralLinearGroup (Fin n) K,
+      ∀ h : Matrix.SpecialLinearGroup (Fin n) K,
+        (b : G) * ((φ h : ↥J) : G) * (b : G)⁻¹ =
+          ((φ (CatalogueBHigherLinearAction.slConjugation n K Y h) : ↥J) : G))
+    (hD : GGResLineJDatum 3 Bs J .A2) : False := by
+  obtain ⟨g', hg', hgd'⟩ := LineL2.exists_irreducible_factor_cyclotomic_three K
+  let : Fact (Irreducible g') := ⟨hg'⟩
+  have hp3 : ((3 : ℕ) : K) ≠ 0 :=
+    TableBSymp.natCast_ne_zero_of_charTwo Nat.prime_three (by norm_num)
+  have hC' : (CoordSL.rootMat g').det = 1 :=
+    CoordSL.det_rootMat Nat.prime_three hpK hp3 hgd'
+  have hCp' : CoordSL.rootMat g' ^ 3 = 1 :=
+    CoordSL.rootMat_pow_eq_one Nat.prime_three hp3 hgd'
+  have hζ' : AdjoinRoot.root g' ^ 3 = 1 :=
+    (CoordSL.root_isPrimitiveRoot Nat.prime_three hp3 hgd').pow_eq_one
+  exact not_lineJDatum_A2_of_GGResHyp_of_paired_gl_action_of_root_data
+    (g := g') (hC := hC') (hCp := hCp') (hgd := hgd') (hζ := hζ')
+    (hH := hH) (φ := φ) (hφ := hφ) (hker := hker) (hn3 := hn3)
+    (hpK := hpK) (hYact := hYact) (hD := hD)
+
 theorem not_lineJDatum_A3_of_GGResHyp_of_paired_gl_action_of_root_data
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {Ksub : Subgroup G}
     (hH : GGResHyp 3 B Bs x L D J y Ksub)
@@ -1657,6 +1752,7 @@ theorem _root_.CFSG.StandardType.GGResHyp.actual_J_not_oppositeLinear_for_A3
   letI : CharP F 2 := hFchar
   exact CFSG.StandardType.ResJPairedBlock.ActualA.not_lineJDatum_A3_of_GGResHyp_of_paired_gl_action
     (K := F) (n := rank + 1) hH φ hφsurj hkerφ (by omega) hFsign hYact hD
+
 
 
 end OriginalConfigurationCertificates

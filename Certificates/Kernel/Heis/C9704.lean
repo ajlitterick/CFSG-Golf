@@ -19,5 +19,13 @@ theorem heis5_k :
     (fkP 5).heisN 5 5 rawGens5 words1_5 (decodeL W9704.chars) = true := by
   decide +kernel
 
+theorem heis5_neg_gen :
+    (fkP 5).heisN 5 5 ([1, 0, 0, 0, 5, 0, 0, 0, 5] :: rawGens5.tail) words1_5
+      (decodeL W9704.chars) = false := by
+  decide +kernel
+
+theorem heis5_neg_dup :
+    (fkP 5).heisN 5 5 rawGens5 words1_5 ((decodeL W9704.chars).dropLast ++ [[]]) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelHeis

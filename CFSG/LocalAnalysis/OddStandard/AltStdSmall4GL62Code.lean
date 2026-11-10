@@ -45,6 +45,7 @@ theorem mul_eq (a b : ℕ) : mul a b = pack (act a (col b 0)) (act a (col b 1))
 
 @[expose] def one : ℕ := 34630287489
 
+theorem one_eq_pack : one = pack 1 2 4 8 16 32 := rfl
 
 theorem bitZ_xor (a b k : ℕ) : bitZ (a ^^^ b) k = bitZ a k + bitZ b k := by
   unfold bitZ
@@ -168,6 +169,25 @@ theorem mat_one : mat one = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> decide
 
+theorem mat_apply_col (m : ℕ) (i j : Fin 6) : mat m i j = bitZ (col m j) i :=
+  (bitZ_col m j i.isLt).symm
+
+theorem col_pack {c₀ c₁ c₂ c₃ c₄ c₅ : ℕ} (h₀ : c₀ < 64) (h₁ : c₁ < 64) (h₂ : c₂ < 64)
+    (h₃ : c₃ < 64) (h₄ : c₄ < 64) (h₅ : c₅ < 64) (j : Fin 6) :
+    col (pack c₀ c₁ c₂ c₃ c₄ c₅) j = ![c₀, c₁, c₂, c₃, c₄, c₅] j := by
+  have hj : ![c₀, c₁, c₂, c₃, c₄, c₅] j < 2 ^ 6 := by
+    fin_cases j <;> simpa
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < 6
+  · rw [← testBit_pack h₀ h₁ h₂ h₃ h₄ j hi]
+    unfold col
+    rw [Nat.testBit_and, Nat.testBit_shiftRight, show (63 : ℕ) = 2 ^ 6 - 1 by norm_num,
+      Nat.testBit_two_pow_sub_one]
+    simp [hi]
+  · have h6 : 2 ^ 6 ≤ 2 ^ i := Nat.pow_le_pow_right (by norm_num) (by omega)
+    rw [Nat.testBit_lt_two_pow (by have := col_lt (pack c₀ c₁ c₂ c₃ c₄ c₅) j; omega),
+      Nat.testBit_lt_two_pow (by omega)]
 
 theorem mat_mul_eq_one {m m' : ℕ} (h : mul m m' = one) : mat m * mat m' = 1 := by
   rw [← mat_mul, h, mat_one]

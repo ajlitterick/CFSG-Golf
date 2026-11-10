@@ -497,6 +497,8 @@ theorem xi₁_bijective (e : V₁) (he : e ≠ 1) : Function.Bijective (hV.xi₁
   have : Finite V₁ := Nat.finite_of_card_ne_zero (by rw [hV.card₁]; exact Nat.card_pos.ne')
   exact (hV.xi₁_injective e he).bijective_of_nat_card_le (by rw [hV.card₁])
 
+theorem xi₂_bijective (e : V₁) (he : e ≠ 1) : Function.Bijective (hV.xi₂ e) :=
+  (hV.lamEquiv 1).symm.bijective.comp (hV.xi₁_bijective e he)
 
 end IsRootModule
 

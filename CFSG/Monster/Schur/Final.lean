@@ -20,6 +20,14 @@ theorem natCard_Gmat_eq :
   rw [CFSG.Monster.AxisCount.HS.natCard_Gmat, CFSG.Monster.AxisCount.Baby.natCard_Cgen,
     CFSG.Monster.AxisCount.natCard_Jstar]
 
+theorem noPerfectDoubleCover_iff_not_exists (G : Type*) [Group G] :
+    NoPerfectDoubleCover G ↔ ¬ ∃ (E : Type) (_ : Group E) (π : E →* G),
+      Function.Surjective π ∧ Group.IsPerfect E ∧ Nat.card π.ker = 2 := by
+  constructor
+  · rintro h ⟨E, _, π, hπ, hE, hk⟩
+    exact h E π hπ hE hk
+  · intro h E _ π hπ hE hk
+    exact h ⟨E, inferInstance, π, hπ, hE, hk⟩
 
 theorem noPerfectDoubleCover_Gmat
     (hM24 : M24NoPerfectDoubleCover) :

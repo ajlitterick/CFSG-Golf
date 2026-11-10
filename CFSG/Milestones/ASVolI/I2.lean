@@ -2407,6 +2407,9 @@ section I2b
 
 variable {V : Type} [CommGroup V]
 
+@[expose] def SpDerivedNatural (H : Subgroup (MulAut V)) (U Z : Subgroup V) (a : ℕ) : Prop :=
+  ∃ (K : Type) (_ : Field K) (_ : Finite K), Nat.card K = 2 ^ a ∧
+    (FFModel.nat ⁅StatedSp 2 K, StatedSp 2 K⁆).Realizes H U Z
 
 @[expose] def zornO0F (F : Type) [Field F] : Submodule F (quasithinZorn F) where
   carrier := {x | x.1 + x.2.2.2 = 0}
@@ -2418,6 +2421,15 @@ variable {V : Type} [CommGroup V]
     simp only [Set.mem_ofPred_eq, Prod.smul_fst, Prod.smul_snd, smul_eq_mul] at hx ⊢
     rw [← mul_add, hx, mul_zero]
 
+@[expose] def IsEndStableMod (L : Subgroup (MulAut V)) (W0 U : Subgroup V) : Prop :=
+  ∀ φ : (V ⧸ W0) →* (V ⧸ W0),
+    (∀ g ∈ L, ∀ v w : V, φ (QuotientGroup.mk v) = QuotientGroup.mk w →
+      φ (QuotientGroup.mk (g v)) = QuotientGroup.mk (g w)) →
+    ∀ u ∈ U, ∃ w ∈ U, φ (QuotientGroup.mk u) = QuotientGroup.mk w
+
+@[expose] def IsTInvFSub (L T : Subgroup (MulAut V)) (W0 : Subgroup V) (n i : ℕ) (U : Subgroup V) : Prop :=
+  W0 ≤ U ∧ (∀ t ∈ T, ∀ u ∈ U, t u ∈ U) ∧ IsEndStableMod L W0 U ∧
+    Nat.card ↥U = Nat.card ↥W0 * (2 ^ n) ^ i
 
 abbrev I23Holomorph (V : Type) [CommGroup V] :=
   SemidirectProduct V (MulAut V) (MonoidHom.id (MulAut V))
@@ -2433,6 +2445,10 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
     centerOf (pCoreOf 2
       (i23Extension G ⊓ Subgroup.normalizer (i23ModuleSubgroup U : Set (I23Holomorph V))))
 
+@[expose] def I23CentralCoreCompatibility : Prop :=
+  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
+    ∀ (G : Subgroup (MulAut V)) (U : Subgroup V),
+      I23LiteralCentralCore G U ↔ pCoreOf 2 (G ⊓ stabSub U) ≤ centSub U
 
 @[expose] def i23NaturalModel (m : ℕ) (F : Type) [Field F] : FFModel :=
   match m with
@@ -2536,6 +2552,18 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
     ∃ θ : V →* V', Function.Surjective θ ∧ (∀ (g : ↥G) (v : V), θ ((g : MulAut V) v) = ρ' g (θ v)) ∧
       ∀ v : V, ψ' (θ v) = QuotientGroup.mk v
 
+@[expose] def I23RelativeUniversalLift (G L : Subgroup (MulAut V))
+    (W0 : Subgroup V) : Prop :=
+  ∃ (hLG : L ≤ G) (U : Type) (_ : CommGroup U) (_ : Finite U)
+    (ρ : ↥G →* MulAut U) (K : Subgroup U) (θ : U →* V),
+    (∀ u : U, u ^ 2 = 1) ∧
+    IsUniversalCovering (ρ.comp (Subgroup.inclusion hLG)).range K ∧
+    Function.Surjective θ ∧ K = W0.comap θ ∧
+    ∀ (g : ↥G) (u : U), θ (ρ g u) = (g : MulAut V) (θ u)
+
+@[expose] def I23Case (m n : ℕ) (L : Subgroup (MulAut V)) (W0 : Subgroup V) : Prop :=
+  (m = 1 ∧ 1 < n ∧ BinaryNaturalSL L ⊤ W0 2 n) ∨ (m = 2 ∧ SpDerivedNatural L ⊤ W0 n) ∨
+    (m = 3 ∧ G2NaturalDerived L ⊤ W0 n)
 
 @[expose] def IsFSubspaceVia {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W]
     (ψ : V ≃* Multiplicative W) (U : Subgroup V) (k : ℕ) : Prop :=
@@ -2560,6 +2588,27 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
     (∀ x ∈ D ⊓ V1, Q (Multiplicative.toAdd (ψ x)) = 0) ∧
     V1 = (D ⊓ V1) ⊔ fixV L
 
+@[expose] def OrthConcl {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W] (Q : W → F)
+    (m n : ℕ) (ψ : V ≃* Multiplicative W) (L T R : Subgroup (MulAut V)) (V1 V2 : Subgroup V) : Prop :=
+  ((∀ v : V, v ∈ fixV L ↔ ∀ w : W, polarOf Q (Multiplicative.toAdd (ψ v)) w = 0) ∧
+      Nat.card ↥(fixV L) = 2 ^ n) ∧
+  (V1 = fixV (T ⊓ L) ∧
+    ∃! P : Subgroup V, IsFSubspaceVia (F := F) ψ P 1 ∧
+      (∀ v ∈ P, Q (Multiplicative.toAdd (ψ v)) = 0) ∧ V1 = P ⊔ fixV L ∧ P ⊓ fixV L = ⊥) ∧
+  (m ≠ 3 ∧ (m ≠ 2 ∨ n ≠ 1) →
+    (∀ r ∈ R, r ≠ 1 →
+      (IsFSubspaceVia (F := F) ψ (commV (Subgroup.zpowers r)) 1 ∧
+        (∃ v ∈ commV (Subgroup.zpowers r), Q (Multiplicative.toAdd (ψ v)) ≠ 0) ∧
+        commV (Subgroup.zpowers r) ≤ V1 ∧ commV (Subgroup.zpowers r) ≠ fixV L) ∧
+      (1 < n → ∀ s ∈ R, s ∉ Subgroup.zpowers r →
+        commV (Subgroup.zpowers r) ⊓ commV (Subgroup.zpowers s) = ⊥)) ∧
+    (1 < n → V1 = commV R ∧ commV R ≤ fixV R)) ∧
+  (m = 2 ∧ n = 1 → R = ⊥ ∧ I23SmallSymplecticConcl Q ψ L T V1 V2) ∧
+  (m = 3 →
+    (IsFSubspaceVia (F := F) ψ (commV (omegaOne (centerOf (T ⊓ L)))) 2 ∧
+      (∀ v ∈ commV (omegaOne (centerOf (T ⊓ L))), Q (Multiplicative.toAdd (ψ v)) = 0) ∧
+      commV (omegaOne (centerOf (T ⊓ L))) ⊓ fixV L = ⊥ ∧
+      commV (omegaOne (centerOf (T ⊓ L))) ⊔ fixV L = V2))
 
 @[expose] def OrthConclMarked {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W] (Q : W → F)
     (m n : ℕ) (ψ : V ≃* Multiplicative W) (L T R S : Subgroup (MulAut V)) (V1 V2 : Subgroup V) : Prop :=
@@ -2694,6 +2743,40 @@ open CFSG.Quasithin CFSG.QuasithinUnique
 open CFSG.ASVolI.ChIJK CFSG.Quasithin CFSG.QuasithinUnique CFSG.Open
 open scoped MatrixGroups
 
+@[expose] def I_2_3_legacyUnmarked : Prop :=
+  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
+  ∀ (G L T : Subgroup (MulAut V)) (W0 : Subgroup V) (m n : ℕ),
+    L = quasithinGenFitting G → G = L ⊔ T → IsSylowTwoOf T G →
+    (∀ g ∈ G, ∀ w ∈ W0, g w ∈ W0) → W0 ≤ fixV L → commV L = ⊤ →
+    I23Case m n L W0 →
+    ∀ V1 V2 : Subgroup V, IsTInvFSub L T W0 n 1 V1 → IsTInvFSub L T W0 n 2 V2 →
+    (∀ U : Subgroup V, IsTInvFSub L T W0 n 1 U → U = V1) →
+    (∀ U : Subgroup V, IsTInvFSub L T W0 n 2 U → U = V2) →
+    ∀ R : Subgroup (MulAut V), R = i23TransvectionRoot L W0 V1 →
+      (IsUniversalCovering L W0 →
+        ∀ (F : Type) [Field F] [Finite F], Nat.card F = 2 ^ n →
+          ((m = 1 ∨ m = 2) →
+            ∃ (ψ : V ≃* Multiplicative (Fin m ⊕ Fin m ⊕ Unit → F))
+              (π : ↥(StatedOmega (StatedQuadOdd m F)) →* ↥L),
+              Function.Surjective π ∧
+              (∀ (γ : ↥(StatedOmega (StatedQuadOdd m F))) (v : V),
+                ψ ((π γ : MulAut V) v) = Multiplicative.ofAdd
+                  (((γ : Matrix.GeneralLinearGroup (Fin m ⊕ Fin m ⊕ Unit) F) :
+                    Matrix (Fin m ⊕ Fin m ⊕ Unit) (Fin m ⊕ Fin m ⊕ Unit) F).mulVec
+                    (Multiplicative.toAdd (ψ v)))) ∧
+              OrthConcl (StatedQuadOdd m F) m n ψ L T R V1 V2) ∧
+          (m = 3 →
+            ∃ (ψ : V ≃* Multiplicative ↥(zornO0F F))
+              (π : ↥⁅quasithinG2 F, quasithinG2 F⁆ →* ↥L),
+              Function.Surjective π ∧
+              (∀ (γ : ↥⁅quasithinG2 F, quasithinG2 F⁆) (v : V),
+                ((Multiplicative.toAdd (ψ ((π γ : MulAut V) v)) : ↥(zornO0F F)) : quasithinZorn F) =
+                  (γ : quasithinZorn F ≃ₗ[F] quasithinZorn F)
+                    ((Multiplicative.toAdd (ψ v) : ↥(zornO0F F)) : quasithinZorn F)) ∧
+              OrthConcl (fun x : ↥(zornO0F F) => zornNorm F (x : quasithinZorn F)) m n ψ L T R V1 V2)) ∧
+      (¬ (fixV T ⊓ V1 ≤ fixV L) ∧
+        pCoreOf 2 (G ⊓ stabSub V1) ≤ centSub V1 ∧ pCoreOf 2 (G ⊓ stabSub V2) ≤ centSub V2) ∧
+      (1 < n → fixV L ≤ V1 ∧ (m ≠ 3 → V1 = commV R ∧ commV R ≤ fixV R))
 
 @[expose] def I_2_3 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →

@@ -148,6 +148,14 @@ theorem cj_cj_inv (g : Gp n) (A : Subgroup (Gp n)) : cj g (cj g⁻¹ A) = A := b
   simp only [mem_cj]
   simp [mul_assoc]
 
+theorem isOffG_cj_iff {k : Mod} {A : Subgroup (Gp n)} (g : Gp n) :
+    IsOffG n k (cj g A) ↔ IsOffG n k A := by
+  refine ⟨fun h => ?_, fun h => h.cj g⟩
+  have := h.cj g⁻¹
+  have e : cj g⁻¹ (cj g A) = A := by
+    have := cj_cj_inv g⁻¹ A
+    simpa using this
+  rwa [e] at this
 
 @[expose] noncomputable def cN (n : ℕ) (k : Mod) : ℕ := Nat.card ↥(k.N n ⊓ k.W n)
 

@@ -19,6 +19,8 @@ theorem hh_rels_checks : relsOK BC LyBS.A LyBS.B LyBS.B4 hhVals hhRels = true :=
 
 theorem hh_nes_checks : nesOK BC LyBS.A LyBS.B LyBS.B4 hhVals hhNe = true := by quickRfl
 
+theorem neg_hh : notB (nesOK BC LyBS.A LyBS.B LyBS.B4 hhVals [([5], [5], 0)]) = true := by
+  quickRfl
 
 end CFSG.KD.LyOm
 

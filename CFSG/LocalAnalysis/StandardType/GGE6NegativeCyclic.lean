@@ -157,6 +157,9 @@ private def kerVec (a1 a2 : ZMod 3) : Fin 6 → ZMod 3 :=
 private def preY (a1 a2 : ZMod 3) : Fin 6 → ZMod 9 :=
   fun j => (a1.val : ZMod 9) * y1 j + (a2.val : ZMod 9) * y2 j
 
+private theorem beta_kerVec :
+    ∀ a1 a2 : ZMod 3, (∑ i, beta i * kerVec a1 a2 i) = 0 := by
+  decide +kernel
 
 private def lift3 (z : ZMod 3) : ZMod 9 := (z.val : ZMod 9)
 

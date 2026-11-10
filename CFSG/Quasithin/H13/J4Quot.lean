@@ -82,6 +82,10 @@ theorem phiM_of_ge {i : Fin 112} (hi : 12 ≤ (i : ℕ)) (j : Fin 112) : phiM i 
     show phiRows[(i : ℕ)]? = none from Array.getElem?_eq_none (by simp [phiRows]; omega)]
   exact congrFun V2.toVec_zero j
 
+theorem eM_of_ge (i : Fin 112) {j : Fin 112} (hj : 12 ≤ (j : ℕ)) : eM i j = 0 := by
+  rw [eM, Matrix.transpose_apply, rowsMatrix_apply,
+    show eCols[(j : ℕ)]? = none from Array.getElem?_eq_none (by simp [eCols]; omega)]
+  exact congrFun V2.toVec_zero i
 
 @[expose] def c12 : Fin 12 → Fin 112 := Fin.castLE (by norm_num)
 
@@ -202,6 +206,9 @@ theorem coordInv_coordMap (q : QT) :
   LinearEquiv.ofLinearMap coordMap coordInv (LinearMap.ext coordMap_coordInv)
     (LinearMap.ext coordInv_coordMap)
 
+theorem finrank_QT :
+    Module.finrank (ZMod 2) QT = 12 := by
+  rw [coordEquiv.finrank_eq, Module.finrank_fin_fun]
 
 @[expose] def rho : W →* LinearMap.GeneralLinearGroup (ZMod 2) QT :=
   quotAction.comp (Subgroup.inclusion W_le_centralizer)

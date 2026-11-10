@@ -102,6 +102,12 @@ theorem torusGroup_apply_single
     rw [← e]
     exact hc
 
+theorem isUnit_natMat_torusGroup
+    {g : (Module.End R (RootModule τ R))ˣ}
+    (hg : g ∈ torusGroup τ R) (i : Fin (nLab τ)) : IsUnit (natMat τ R g i i) := by
+  obtain ⟨c, hc⟩ := torusGroup_apply_single hg ((posEquiv τ).symm i)
+  rw [natMat_apply, hc, Finsupp.smul_apply, Finsupp.single_eq_same, smul_eq_mul, mul_one]
+  exact c.isUnit
 
 theorem natMat_torusGroup
     {g : (Module.End R (RootModule τ R))ˣ} (hg : g ∈ torusGroup τ R)

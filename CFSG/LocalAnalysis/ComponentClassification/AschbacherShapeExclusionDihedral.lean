@@ -56,6 +56,8 @@ variable {T : Subgroup X} {r u e : X} {n : ℕ}
 theorem u_inv (h : Data T r u e n) : u⁻¹ = u := by
   rw [inv_eq_iff_mul_eq_one, ← pow_two, h.u2]
 
+theorem e_inv (h : Data T r u e n) : e⁻¹ = e := by
+  rw [inv_eq_iff_mul_eq_one, ← pow_two, h.e2]
 
 theorem u_mul_u (h : Data T r u e n) : u * u = 1 := by rw [← pow_two, h.u2]
 

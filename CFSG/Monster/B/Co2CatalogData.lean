@@ -9,6 +9,222 @@ namespace CFSG.Monster.B.Co2Catalog
 
 open Lean (Json)
 
+@[expose] def bridgeText : String :=
+  "{\n\
+  \x20 \"purpose\": \"Original exact native-to-catalog Co2 matrix bridge proposal; no independen\
+  t review.\",\n\
+  \x20 \"native_a_word\": [\n\
+  \x20   15\n\
+  \x20 ],\n\
+  \x20 \"native_b_word\": [\n\
+  \x20   -2,\n\
+  \x20   -3,\n\
+  \x20   -9,\n\
+  \x20   -8,\n\
+  \x20   -9,\n\
+  \x20   -13,\n\
+  \x20   -11,\n\
+  \x20   -16,\n\
+  \x20   -21,\n\
+  \x20   -8,\n\
+  \x20   -9,\n\
+  \x20   -22,\n\
+  \x20   -24,\n\
+  \x20   -4,\n\
+  \x20   -2,\n\
+  \x20   -1,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   14,\n\
+  \x20   23,\n\
+  \x20   2,\n\
+  \x20   9,\n\
+  \x20   9,\n\
+  \x20   21,\n\
+  \x20   24,\n\
+  \x20   18,\n\
+  \x20   17,\n\
+  \x20   13,\n\
+  \x20   5,\n\
+  \x20   15,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   14,\n\
+  \x20   23,\n\
+  \x20   2,\n\
+  \x20   9,\n\
+  \x20   9,\n\
+  \x20   21,\n\
+  \x20   24,\n\
+  \x20   18,\n\
+  \x20   17,\n\
+  \x20   13,\n\
+  \x20   5,\n\
+  \x20   15,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   2,\n\
+  \x20   14,\n\
+  \x20   14,\n\
+  \x20   23,\n\
+  \x20   2,\n\
+  \x20   9,\n\
+  \x20   9,\n\
+  \x20   21,\n\
+  \x20   24,\n\
+  \x20   18,\n\
+  \x20   17,\n\
+  \x20   13,\n\
+  \x20   5,\n\
+  \x20   15,\n\
+  \x20   1,\n\
+  \x20   2,\n\
+  \x20   4,\n\
+  \x20   24,\n\
+  \x20   22,\n\
+  \x20   9,\n\
+  \x20   8,\n\
+  \x20   21,\n\
+  \x20   16,\n\
+  \x20   11,\n\
+  \x20   13,\n\
+  \x20   9,\n\
+  \x20   8,\n\
+  \x20   9,\n\
+  \x20   3,\n\
+  \x20   2\n\
+  \x20 ],\n\
+  \x20 \"native_rows\": [\n\
+  \x20   [\n\
+  \x20     12318,\n\
+  \x20     12317,\n\
+  \x20     4,\n\
+  \x20     12311,\n\
+  \x20     12303,\n\
+  \x20     442400,\n\
+  \x20     1800256,\n\
+  \x20     454815,\n\
+  \x20     747807,\n\
+  \x20     455199,\n\
+  \x20     748575,\n\
+  \x20     1060891,\n\
+  \x20     1058843,\n\
+  \x20     1054747,\n\
+  \x20     1079300,\n\
+  \x20     1095684,\n\
+  \x20     1128452,\n\
+  \x20     1193988,\n\
+  \x20     1325060,\n\
+  \x20     1587204,\n\
+  \x20     14363,\n\
+  \x20     3160068\n\
+  \x20   ],\n\
+  \x20   [\n\
+  \x20     1574232,\n\
+  \x20     2813096,\n\
+  \x20     786461,\n\
+  \x20     2210002,\n\
+  \x20     2317639,\n\
+  \x20     1107934,\n\
+  \x20     1472506,\n\
+  \x20     1623393,\n\
+  \x20     3233574,\n\
+  \x20     145096,\n\
+  \x20     1046142,\n\
+  \x20     2147565,\n\
+  \x20     1889377,\n\
+  \x20     1070516,\n\
+  \x20     3391670,\n\
+  \x20     665745,\n\
+  \x20     3025201,\n\
+  \x20     1670464,\n\
+  \x20     1890518,\n\
+  \x20     3198194,\n\
+  \x20     2410223,\n\
+  \x20     3404192\n\
+  \x20   ]\n\
+  \x20 ],\n\
+  \x20 \"catalog_transpose_rows\": [\n\
+  \x20   [\n\
+  \x20     2114050,\n\
+  \x20     2114049,\n\
+  \x20     1048584,\n\
+  \x20     1048580,\n\
+  \x20     415936,\n\
+  \x20     3150720,\n\
+  \x20     415888,\n\
+  \x20     128,\n\
+  \x20     3150496,\n\
+  \x20     512,\n\
+  \x20     1024,\n\
+  \x20     2048,\n\
+  \x20     4096,\n\
+  \x20     3473408,\n\
+  \x20     16384,\n\
+  \x20     917504,\n\
+  \x20     3416064,\n\
+  \x20     131072,\n\
+  \x20     262144,\n\
+  \x20     425984,\n\
+  \x20     1048576,\n\
+  \x20     2097152\n\
+  \x20   ],\n\
+  \x20   [\n\
+  \x20     2097280,\n\
+  \x20     2097154,\n\
+  \x20     2097283,\n\
+  \x20     3047424,\n\
+  \x20     2621572,\n\
+  \x20     3014664,\n\
+  \x20     655360,\n\
+  \x20     2621584,\n\
+  \x20     2883584,\n\
+  \x20     3014688,\n\
+  \x20     2228288,\n\
+  \x20     2359552,\n\
+  \x20     3015168,\n\
+  \x20     2753536,\n\
+  \x20     2361344,\n\
+  \x20     3018752,\n\
+  \x20     2097152,\n\
+  \x20     2760704,\n\
+  \x20     802816,\n\
+  \x20     2621440,\n\
+  \x20     2686976,\n\
+  \x20     1048576\n\
+  \x20   ]\n\
+  \x20 ],\n\
+  \x20 \"change_of_basis_rows\": [\n\
+  \x20   2495974,\n\
+  \x20   472725,\n\
+  \x20   2177759,\n\
+  \x20   823366,\n\
+  \x20   3635269,\n\
+  \x20   3623954,\n\
+  \x20   5507,\n\
+  \x20   2109435,\n\
+  \x20   2710470,\n\
+  \x20   1032327,\n\
+  \x20   3267302,\n\
+  \x20   1170103,\n\
+  \x20   2972347,\n\
+  \x20   2142667,\n\
+  \x20   3505457,\n\
+  \x20   3222369,\n\
+  \x20   1270289,\n\
+  \x20   3351486,\n\
+  \x20   2379581,\n\
+  \x20   2232114,\n\
+  \x20   1774027,\n\
+  \x20   24222\n\
+  \x20 ],\n\
+  \x20 \"intertwiner_dimension\": 1,\n\
+  \x20 \"attempt\": 21\n\
+  }\n"
 
 structure BridgeFile where
   purpose : String
@@ -21,6 +237,23 @@ structure BridgeFile where
   attempt : Nat
   deriving DecidableEq, Inhabited
 
+@[expose] def BridgeFile.ofJson (j : Json) : Except String BridgeFile := do
+  pure
+    { purpose := ← j.getObjValAs? String "purpose"
+      nativeAWord := ← j.getObjValAs? (List Int) "native_a_word"
+      nativeBWord := ← j.getObjValAs? (List Int) "native_b_word"
+      nativeRows := ← j.getObjValAs? (List (List Nat)) "native_rows"
+      catalogTransposeRows := ← j.getObjValAs? (List (List Nat)) "catalog_transpose_rows"
+      changeOfBasisRows := ← j.getObjValAs? (List Nat) "change_of_basis_rows"
+      intertwinerDimension := ← j.getObjValAs? Nat "intertwiner_dimension"
+      attempt := ← j.getObjValAs? Nat "attempt" }
+
+@[expose] def bridgeKeys : Except String (List String) := do
+  let o ← (← Json.parse bridgeText).getObj?
+  pure (o.toArray.map (·.1)).toList
+
+@[expose] def bridgeFile : Except String BridgeFile := do
+  BridgeFile.ofJson (← Json.parse bridgeText)
 
 @[expose] def bridgeRec : BridgeFile where
   purpose := "Original exact native-to-catalog Co2 matrix bridge proposal; no independent review."

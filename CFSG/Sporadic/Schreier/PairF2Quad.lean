@@ -91,6 +91,8 @@ theorem quadM_eq_sym (M : Matrix (Fin d) (Fin d) (ZMod 2)) (v : Fin d → ZMod 2
   · simp
   · simp [not_le.2 h, not_lt.2 h.le]
 
+theorem pairIdx_eq {i j : ℕ} : pairIdx d i j = pairIdx d i i + (j - i) := by
+  simp [pairIdx]
 
 theorem rowsMatrix_triRowsZ (z : ℕ) : rowsMatrix d (triRowsZ d z) = triMatZ d z := by
   ext i j

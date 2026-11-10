@@ -49,6 +49,11 @@ theorem galleryMap_galleryMap (f : C → D) (g : D → E) (γ : List (I × C)) :
 @[simp] theorem galleryMap_id (γ : List (I × C)) : galleryMap id γ = γ := by
   simp [galleryMap]
 
+theorem galleryMap_galleryReverse (f : C → D) (x : C) (γ : List (I × C)) :
+    galleryMap f (galleryReverse x γ) = galleryReverse (f x) (galleryMap f γ) := by
+  induction γ generalizing x with
+  | nil => rfl
+  | cons p γ ih => simp [ih]
 
 theorem galleryEnd_galleryMap' (f : C → D) {x : C} {y : D} (h : f x = y) (γ : List (I × C)) :
     galleryEnd y (galleryMap f γ) = f (galleryEnd x γ) := by
@@ -115,6 +120,11 @@ theorem IsGallery.reverse {x : C} {γ : List (I × C)} (hγ : X.IsGallery x γ) 
     rw [galleryEnd_cons, galleryReverse_cons, isGallery_concat, galleryEnd_galleryReverse]
     exact ⟨ih h2, adj_symm h1⟩
 
+theorem isGallery_reverse_iff {x : C} {γ : List (I × C)} :
+    X.IsGallery (galleryEnd x γ) (galleryReverse x γ) ↔ X.IsGallery x γ := by
+  refine ⟨fun h => ?_, IsGallery.reverse⟩
+  have := h.reverse
+  rwa [galleryEnd_galleryReverse, galleryReverse_galleryReverse] at this
 
 theorem IsGallery.mem_residue {J : Set I} {x : C} {γ : List (I × C)} (hγ : X.IsGallery x γ)
     (hJ : ∀ i ∈ galleryType γ, i ∈ J) : ∀ p ∈ γ, p.2 ∈ X.residue J x := by
@@ -559,6 +569,31 @@ theorem galleryEnd_liftGallery {d : D} {γ : List (I × C)} (hγ : X.IsGallery (
   conv_rhs => rw [← (isGallery_liftGallery hq hγ).2]
   rw [galleryEnd_galleryMap]
 
+theorem galleryEnd_liftGallery_eq (hinj : ∀ J : Set I, J.encard ≤ 2 → ∀ d,
+      Set.InjOn q (Y.residue J d)) {d : D} {γ γ' : List (I × C)}
+    (h : X.TwoHomotopic (q d) γ γ') (hγ : X.IsGallery (q d) γ) :
+    galleryEnd d (liftGallery Y q d γ) = galleryEnd d (liftGallery Y q d γ') := by
+  rw [TwoHomotopic.iff_reflTransGen] at h
+  induction h with
+  | refl => rfl
+  | @tail γ₁ γ₂ h12 hm ih =>
+    rw [ih]
+    have hγ₁ : X.IsGallery (q d) γ₁ :=
+      (TwoHomotopic.iff_reflTransGen.mpr h12).isGallery_iff.mp hγ
+    clear ih h12
+    obtain ⟨α, η, η', β, J, hJ, hη, hη', hηJ, hη'J, hend⟩ := hm
+    rw [List.append_assoc] at hγ₁
+    have hα := hγ₁.of_append_left
+    set e := galleryEnd d (liftGallery Y q d α) with he
+    have hqe : q e = galleryEnd (q d) α := galleryEnd_liftGallery hq hα
+    rw [← hqe] at hη hη' hend
+    obtain ⟨hl1, hl2⟩ := isGallery_liftGallery hq hη
+    obtain ⟨hl1', hl2'⟩ := isGallery_liftGallery hq hη'
+    have key : galleryEnd e (liftGallery Y q e η) = galleryEnd e (liftGallery Y q e η') := by
+      refine hinj J hJ e (galleryEnd_mem_residue hl1 (by simpa using hηJ))
+        (galleryEnd_mem_residue hl1' (by simpa using hη'J)) ?_
+      rw [galleryEnd_liftGallery hq hη, galleryEnd_liftGallery hq hη', hend]
+    simp only [liftGallery_append, galleryEnd_append, ← he, key]
 
 end Lift
 

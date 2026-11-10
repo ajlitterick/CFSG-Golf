@@ -89,6 +89,34 @@ theorem IsSL2Comp.of_isCompC {I : Subgroup G} {w₁ e : G} (hI : IsCompC I e)
   exact ⟨hIC, isComponent_subgroupOf_of_le hIC hCe hI.2, he, hF⟩
 
 
+theorem ncard_image_mul_two_of_fibres {α β : Type*} (T : Set α) (hT : T.Finite) (f : α → β)
+    (hf : ∀ a ∈ T, {b ∈ T | f b = f a}.ncard = 2) : (f '' T).ncard * 2 = T.ncard := by
+  classical
+  have hTf : T = ↑hT.toFinset := by simp
+  have himg : (f '' T).Finite := hT.image f
+  let t : Finset β := himg.toFinset
+  have hmaps : ∀ a ∈ hT.toFinset, f a ∈ t := by
+    intro a ha
+    simp only [t, Set.Finite.mem_toFinset] at ha ⊢
+    exact Set.mem_image_of_mem f ha
+  have h := Finset.card_eq_sum_card_fiberwise (f := f) (s := hT.toFinset) (t := t) hmaps
+  have h2 : ∀ b ∈ t, (hT.toFinset.filter fun a => f a = b).card = 2 := by
+    intro b hb
+    simp only [t, Set.Finite.mem_toFinset, Set.mem_image] at hb
+    obtain ⟨a, ha, rfl⟩ := hb
+    have := hf a ha
+    rw [← this, ← Set.ncard_coe_finset]
+    congr 1
+    ext x
+    simp [Set.Finite.mem_toFinset]
+  rw [Finset.sum_congr rfl h2, Finset.sum_const, smul_eq_mul] at h
+  have hc1 : (f '' T).ncard = t.card := by
+    simp only [t]
+    exact Set.ncard_eq_toFinset_card _ himg
+  have hc2 : T.ncard = hT.toFinset.card := Set.ncard_eq_toFinset_card _ hT
+  rw [hc1, hc2, h]
+
+
 structure Count23Setup (V : Subgroup G) (w : G) : Prop where
   card_V : Nat.card ↥V = 4
   V_comm : ∀ a ∈ V, ∀ b ∈ V, a * b = b * a
@@ -112,6 +140,30 @@ theorem Wset_inv_mul {g h : G} (hg : g ∈ Wset V w) (hh : h ∈ Wset V w) : g�
   have := V.mul_mem (V.inv_mem hg) hh
   have e : (w * g)⁻¹ * (w * h) = g⁻¹ * h := by group
   rwa [e] at this
+
+theorem ncard_Wset (hs : Count23Setup V w) : (Wset V w).ncard = 4 := by
+  have : Wset V w = (fun a => w * a) '' (V : Set G) := by
+    ext g
+    constructor
+    · intro hg
+      refine ⟨w * g, hg, ?_⟩
+      show w * (w * g) = g
+      rw [← mul_assoc, hs.w_sq, one_mul]
+    · rintro ⟨a, ha, rfl⟩
+      show w * (w * a) ∈ V
+      rw [← mul_assoc, hs.w_sq, one_mul]
+      exact ha
+  rw [this, Set.ncard_image_of_injective _ (mul_right_injective w)]
+  have h : Nat.card ↥V = (V : Set G).ncard := Nat.card_coe_set_eq (V : Set G)
+  rw [← h, hs.card_V]
+
+theorem ncard_Vsharp (hs : Count23Setup V w) : (Vsharp V).ncard = 3 := by
+  have : Vsharp V = (V : Set G) \ {1} := by
+    ext a
+    simp [Vsharp]
+  rw [this, Set.ncard_sdiff_singleton_of_mem (V.one_mem)]
+  have h : Nat.card ↥V = (V : Set G).ncard := Nat.card_coe_set_eq (V : Set G)
+  rw [← h, hs.card_V]
 
 
 section Layers
@@ -177,6 +229,117 @@ theorem S23_eq_image (huniq : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∃! J 
     ext <;> simp [this]
   · rintro ⟨⟨w₁, e⟩, ⟨h1, h2⟩, rfl⟩
     exact ⟨h1, h2, (hJf w₁ h1 e h2).1⟩
+
+theorem S23_ncard (hs : Count23Setup V w)
+    (huniq : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∃! J : Subgroup G, IsSL2Comp F w₁ e J) :
+    (S23 F V w).ncard = 12 := by
+  obtain ⟨Jf, -, hS⟩ := S23_eq_image huniq
+  rw [hS, Set.ncard_image_of_injective, Set.ncard_prod, ncard_Wset hs, ncard_Vsharp hs]
+  intro p q hpq
+  simp only [Prod.mk.injEq] at hpq
+  exact Prod.ext hpq.1 hpq.2.1
+
+
+theorem S23_fibre_set (hs : Count23Setup V w)
+    (hD : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∀ J : Subgroup G, IsSL2Comp F w₁ e J →
+      ∀ e' ∈ Vsharp V, e' ≠ e → ∃ j ∈ J, j * e' ≠ e' * j)
+    {t : G × G × Subgroup G} (ht : t ∈ S23 F V w) :
+    {s | s ∈ S23 F V w ∧ s.2.2 = t.2.2} = {t, (t.1 * t.2.1, t.2.1, t.2.2)} ∧
+      t ≠ (t.1 * t.2.1, t.2.1, t.2.2) := by
+  obtain ⟨h1, h2, h3⟩ := ht
+  refine ⟨?_, ?_⟩
+  · ext s
+    constructor
+    · rintro ⟨⟨hs1, hs2, hs3⟩, hs4⟩
+      have hP' : IsSL2Comp F s.1 s.2.1 t.2.2 := hs4 ▸ hs3
+      obtain ⟨he, hw⟩ := S23_fibre hs hD h1 h2 h3 hs1 hs2 hP'
+      rcases hw with hw | hw
+      · left
+        ext <;> simp [hw, he, hs4]
+      · right
+        ext <;> simp [hw, he, hs4]
+    · rintro (rfl | rfl)
+      · exact ⟨⟨h1, h2, h3⟩, rfl⟩
+      · exact ⟨⟨Wset_mul h1 h2.1, h2, h3.mul⟩, rfl⟩
+  · intro h
+    have h' : t.1 = t.1 * t.2.1 := congrArg Prod.fst h
+    have : t.2.1 = 1 := by
+      have := mul_left_cancel (a := t.1) (b := t.2.1) (c := 1) (by rw [mul_one]; exact h'.symm)
+      exact this
+    exact h2.2 this
+
+theorem S23_finite (huniq : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∃! J : Subgroup G, IsSL2Comp F w₁ e J)
+    (hs : Count23Setup V w) : (S23 F V w).Finite := by
+  have : (S23 F V w).ncard ≠ 0 := by
+    rw [S23_ncard hs huniq]; norm_num
+  exact Set.finite_of_ncard_ne_zero this
+
+theorem S23_components_ncard (hs : Count23Setup V w)
+    (huniq : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∃! J : Subgroup G, IsSL2Comp F w₁ e J)
+    (hD : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∀ J : Subgroup G, IsSL2Comp F w₁ e J →
+      ∀ e' ∈ Vsharp V, e' ≠ e → ∃ j ∈ J, j * e' ≠ e' * j) :
+    ((fun t : G × G × Subgroup G => t.2.2) '' S23 F V w).ncard = 6 := by
+  have h := ncard_image_mul_two_of_fibres (S23 F V w) (S23_finite huniq hs)
+    (fun t : G × G × Subgroup G => t.2.2) (fun a ha => by
+      obtain ⟨hfib, hne⟩ := S23_fibre_set hs hD ha
+      show {b | b ∈ S23 F V w ∧ b.2.2 = a.2.2}.ncard = 2
+      rw [hfib]
+      exact Set.ncard_pair hne)
+  rw [S23_ncard hs huniq] at h
+  omega
+
+theorem S23_components_at (hs : Count23Setup V w)
+    (huniq : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∃! J : Subgroup G, IsSL2Comp F w₁ e J)
+    (hD : ∀ w₁ ∈ Wset V w, ∀ e ∈ Vsharp V, ∀ J : Subgroup G, IsSL2Comp F w₁ e J →
+      ∀ e' ∈ Vsharp V, e' ≠ e → ∃ j ∈ J, j * e' ≠ e' * j)
+    {e : G} (he : e ∈ Vsharp V) :
+    {J : Subgroup G | ∃ w₁ ∈ Wset V w, IsSL2Comp F w₁ e J}.ncard = 2 := by
+  obtain ⟨Jf, hJf, -⟩ := S23_eq_image huniq
+  let T : Set (G × G × Subgroup G) := {t | t ∈ S23 F V w ∧ t.2.1 = e}
+  have hT : T = (fun w₁ : G => (w₁, e, Jf w₁ e)) '' Wset V w := by
+    ext t
+    constructor
+    · rintro ⟨⟨h1, h2, h3⟩, h4⟩
+      refine ⟨t.1, h1, ?_⟩
+      have := (hJf t.1 h1 t.2.1 h2).2 t.2.2 h3
+      ext <;> simp [this, h4]
+    · rintro ⟨w₁, h1, rfl⟩
+      exact ⟨⟨h1, he, (hJf w₁ h1 e he).1⟩, rfl⟩
+  have hTcard : T.ncard = 4 := by
+    rw [hT, Set.ncard_image_of_injective, ncard_Wset hs]
+    intro a b hab
+    simp only [Prod.mk.injEq] at hab
+    exact hab.1
+  have hTfin : T.Finite := Set.finite_of_ncard_ne_zero (by rw [hTcard]; norm_num)
+  have hfib : ∀ a ∈ T, {b ∈ T | b.2.2 = a.2.2}.ncard = 2 := by
+    intro a ha
+    obtain ⟨hfib, hne⟩ := S23_fibre_set hs hD ha.1
+    have : {b ∈ T | b.2.2 = a.2.2} = {a, (a.1 * a.2.1, a.2.1, a.2.2)} := by
+      rw [← hfib]
+      ext b
+      constructor
+      · rintro ⟨⟨hb, -⟩, hb'⟩
+        exact ⟨hb, hb'⟩
+      · rintro ⟨hb, hb'⟩
+        refine ⟨⟨hb, ?_⟩, hb'⟩
+        have hP : IsSL2Comp F a.1 a.2.1 a.2.2 := ha.1.2.2
+        have hP' : IsSL2Comp F b.1 b.2.1 a.2.2 := hb' ▸ hb.2.2
+        have := (S23_fibre hs hD ha.1.1 ha.1.2.1 hP hb.1 hb.2.1 hP').1
+        rw [this]
+        exact ha.2
+    rw [this]
+    exact Set.ncard_pair hne
+  have h := ncard_image_mul_two_of_fibres T hTfin (fun t : G × G × Subgroup G => t.2.2) hfib
+  have himg : (fun t : G × G × Subgroup G => t.2.2) '' T =
+      {J : Subgroup G | ∃ w₁ ∈ Wset V w, IsSL2Comp F w₁ e J} := by
+    ext J
+    constructor
+    · rintro ⟨t, ⟨⟨h1, h2, h3⟩, h4⟩, rfl⟩
+      exact ⟨t.1, h1, h4 ▸ h3⟩
+    · rintro ⟨w₁, h1, h2⟩
+      exact ⟨(w₁, e, J), ⟨⟨h1, he, h2⟩, rfl⟩, rfl⟩
+  rw [himg, hTcard] at h
+  omega
 
 
 theorem lemma23_A3 [Finite G] (hs : Count23Setup V w)

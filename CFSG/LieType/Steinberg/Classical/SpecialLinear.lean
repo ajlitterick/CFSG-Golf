@@ -881,5 +881,10 @@ theorem presentationB [Finite F] (hm : 2 ≤ m) :
     (fun O C hC => chevalleyExtras hm O C hC)
     (bijective_stPi_of (isCTGroupDatum m F) (steinbergExtras m F)).2
 
+theorem redundantR2 [Finite F] (hm : 2 ≤ m) :
+    RedundantR2 (Φ (m := m) (F := F)) (rootDatum m F).rootGroup :=
+  redundantR2_of rfl (fun O => ⟨commC (m := m), commutatorFormula O⟩)
+    (fun O C hC => chevalleyExtras hm O C hC)
+    (bijective_stPi_of (isCTGroupDatum m F) (steinbergExtras m F)).2
 
 end CFSG.LieType.Steinberg.SL

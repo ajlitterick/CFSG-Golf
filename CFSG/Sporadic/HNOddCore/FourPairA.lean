@@ -34,6 +34,10 @@ theorem f4_size : InvData.f4Arr.size = 800 := data_parts.2.1
     C4 →* Perm (Fin 800) :=
   (Equiv.permCongrHom (finCongr f4_size)).toMonoidHom.comp (resHom hC4)
 
+theorem rho4_apply_val
+    (x : C4) (k : Fin 800) :
+    (rho4 x k : ℕ) = (resHom hC4 x ((finCongr f4_size).symm k) : ℕ) := by
+  simp [rho4, Equiv.permCongrHom, Equiv.permCongr_apply]
 
 theorem pt_rho4
     (x : C4) (k : Fin 800) :
@@ -105,6 +109,24 @@ theorem prep_rho_gC
       rw [e]
       exact prep_cRec
 
+theorem rho4_range :
+    rho4.range = arrGen 800 InvData.s4Perms := by
+  rw [range_eq_closure rho4 closure_gC4]
+  have hO : ∀ k < InvData.s4Perms.size, PRep 800 InvData.s4Perms[k]!
+      (if h : k < 11 then rho4 (gC4 ⟨k, h⟩) else 1) := by
+    intro k hk
+    have hk' : k < 11 := by rw [← row4_parts.2.2.1]; exact hk
+    rw [dite_eq_left hk']
+    exact prep_rho_gC ⟨k, hk'⟩
+  rw [arrGen_eq hO]
+  congr 1
+  ext σ
+  constructor
+  · rintro ⟨s, rfl⟩
+    exact ⟨⟨s, by rw [row4_parts.2.2.1]; exact s.2⟩, by dsimp only; rw [dite_eq_left s.2]⟩
+  · rintro ⟨⟨k, hk⟩, rfl⟩
+    have hk' : k < 11 := by rw [← row4_parts.2.2.1]; exact hk
+    exact ⟨⟨k, hk'⟩, by simp only [dite_eq_left hk']⟩
 
 @[expose] def gv
     (s : Fin 10) : C4 := if h : (s : ℕ) < 9 then gC4 ⟨s, by omega⟩ else gC4 10

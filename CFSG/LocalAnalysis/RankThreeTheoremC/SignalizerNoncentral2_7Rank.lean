@@ -132,6 +132,8 @@ theorem R_comm_U {y x : G} (hy : y ∈ R P U) (hx : x ∈ U) : y * x = x * y :=
       exact commutator_mul_aux_7 (R_comm_U (U := U) y.2 hb)
         (hc.U_comm hg' hb)) }
 
+theorem psi_apply {d : G} (hdD : d ∈ D) (y : ↥(R P U)) :
+    ((hc.psi hdD y : U) : G) = (y : G) * d * (y : G)⁻¹ * d⁻¹ := rfl
 
 theorem psi_eq_one_iff {d : G} (hdD : d ∈ D) (hdU : d ∉ U) (y : ↥(R P U)) :
     hc.psi hdD y = 1 ↔ (y : G) ∈ centralizer (D : Set G) := by
@@ -176,6 +178,8 @@ omit hc in
 abbrev D2 (P : Sylow p G) (D : Subgroup G) : Subgroup G :=
   (P : Subgroup G) ⊓ centralizer (D : Set G)
 
+theorem D2_le_R : D2 P D ≤ R P U := fun _ ha =>
+  ⟨ha.1, mem_centralizer_iff.mpr fun x hx => mem_centralizer_iff.mp ha.2 x (hc.U_le_D hx)⟩
 
 theorem PD2 : (P : Subgroup G) ≤ normalizer (D2 P D : Set G) :=
   (le_inf le_normalizer (hc.PD.trans (normalizer_le_normalizer_centralizer D))).trans
@@ -430,6 +434,36 @@ theorem card_B : Nat.card (omegaOneOf p (R P U)) = p ^ 3 := by
 omit [Finite G] hc in
 theorem B_le_P : omegaOneOf p (R P U) ≤ (P : Subgroup G) := B_le_R.trans inf_le_left
 
+theorem normalizer_le_of_le_R {X : Subgroup G} (hXR : X ≤ R P U)
+    (hX2 : 2 ≤ CFSG.Open.pRank p X) : normalizer (X : Set G) ≤ M := by
+  classical
+  have hprime := hc.prime
+  have : Fact p.Prime := ⟨hprime⟩
+  have hB := hc.isElemAbelian_B
+  set X₁ : Subgroup G := omegaOneOf p X with hX₁
+  have hX₁B : X₁ ≤ omegaOneOf p (R P U) := by
+    refine (closure_le _).2 fun x hx => mem_B (hXR hx.1) hx.2
+  have hX₁P : X₁ ≤ (P : Subgroup G) := hX₁B.trans B_le_P
+  obtain ⟨E, hEX, hE, hEc⟩ := pRank_attained p X (by omega)
+  have hX₁2 : 2 ≤ CFSG.Open.pRank p X₁ := by
+    have hEX₁ : E ≤ X₁ := le_omegaOneOf_of_isElemAbelian hEX hE
+    have : CFSG.Open.pRank p X ≤ CFSG.Open.pRank p X₁ := by
+      unfold CFSG.Open.pRank
+      exact le_csSup (pRank_set_bddAbove p hprime.one_lt _) ⟨E, hEX₁, hE, hEc⟩
+    omega
+  have hBC : omegaOneOf p (R P U) ≤ (P : Subgroup G) ⊓ centralizer (X₁ : Set G) := by
+    refine le_inf B_le_P fun b hb => mem_centralizer_iff.mpr fun x hx => ?_
+    exact congrArg Subtype.val (hB.1.is_comm.comm ⟨x, hX₁B hx⟩ ⟨b, hb⟩)
+  have hB3 : 3 ≤ CFSG.Open.pRank p (omegaOneOf p (R P U)) := by
+    unfold CFSG.Open.pRank
+    refine (Nat.le_refl 3).trans (le_csSup (pRank_set_bddAbove p hprime.one_lt _)
+      ⟨_, le_rfl, hB, ?_⟩)
+    exact hc.card_B
+  have hX₁3 : 3 ≤ CFSG.Open.pRank p (X₁ ⊔ ((P : Subgroup G) ⊓ centralizer (X₁ : Set G))) :=
+    hB3.trans (pRank_mono p hprime.one_lt (hBC.trans le_sup_right))
+  exact (normalizer_le_normalizer_omegaOneOf p X).trans
+    ((aschCore_normalizer_le 2 p (P : Subgroup G) X₁ hX₁P hX₁2 hX₁3).trans
+      hc.ext.obstruction.1.2)
 
 theorem commutator_mem_centralizer_D {y y' : G} (hy : y ∈ R P U) (hy' : y' ∈ R P U) :
     y * y' * y⁻¹ * y'⁻¹ ∈ centralizer (D : Set G) := by

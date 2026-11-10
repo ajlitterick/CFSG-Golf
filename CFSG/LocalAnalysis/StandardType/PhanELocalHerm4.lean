@@ -87,11 +87,18 @@ theorem gram_smul_right (c : K) (u v : Fin 4 → K) :
   simp only [gram, hh_apply, Pi.smul_apply, smul_eq_mul, map_mul]
   ring
 
+theorem gram_smul_left (c : K) (u v : Fin 4 → K) :
+    gram f (c • u) v = sg K f c * c * gram f u v := by
+  simp only [gram, hh_apply, Pi.smul_apply, smul_eq_mul, map_mul]
+  ring
 
 theorem gram_add_smul_right (u v : Fin 4 → K) (c : K) : gram f u (v + c • u) = gram f u v := by
   simp only [gram, hh_apply, Pi.add_apply, Pi.smul_apply, smul_eq_mul, map_add, map_mul]
   ring
 
+theorem gram_eq_zero_of_smul {u v : Fin 4 → K} (c : K) (h : v = c • u) : gram f u v = 0 := by
+  subst h
+  rw [gram_smul_right, gram_self, mul_zero]
 
 theorem hh_comb (a b : Fin 4 → K) (s : K) :
     hh f (s • a + b) (s • a + b) =
@@ -146,6 +153,10 @@ theorem aniso_single_one : Aniso f (Pi.single (1 : Fin 4) (1 : K)) := by
   rw [hh_apply]
   simp [Pi.single_apply]
 
+theorem aniso_single_two : Aniso f (Pi.single (2 : Fin 4) (1 : K)) := by
+  unfold Aniso
+  rw [hh_apply]
+  simp [Pi.single_apply]
 
 theorem gram_single_one_two :
     gram f (Pi.single (1 : Fin 4) (1 : K)) (Pi.single (2 : Fin 4) (1 : K)) ≠ 0 := by

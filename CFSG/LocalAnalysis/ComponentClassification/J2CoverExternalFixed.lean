@@ -58,6 +58,14 @@ theorem elemCheck_parts :
     and_assoc] at h
   exact h
 
+theorem lamCheck_parts :
+    (∀ i < 4725, fusionP[i]! < 128 ∧ fusionI[i]! < 4725 ∧
+      eqA 315 (compA 315 Models.repArrs[i]! fusionArr)
+        (compA 315 Models.eltArrs[fusionP[i]!]! Models.repArrs[fusionI[i]!]!) = true) ∧
+    Models.xorFold 4725 fusionBit = true := by
+  have h := lamCheck_eq
+  simp only [lamCheck, Bool.and_eq_true, allLt_iff, decide_eq_true_eq, and_assoc] at h
+  exact h
 
 @[expose] noncomputable def chainC : RawSchreierDatum 315 :=
   RawSchreierDatum.ofArrays 315 (by norm_num) fixCStrong 2 (by decide) [0, 1] (by decide)
@@ -94,6 +102,7 @@ theorem chainC_valid : ValidSchreier chainC := ofArrays_valid (by norm_num) chai
 
 theorem chainD_valid : ValidSchreier chainD := ofArrays_valid (by norm_num) chainD_ok
 
+theorem chainW_valid : ValidSchreier chainW := ofArrays_valid (by norm_num) chainW_ok
 
 theorem card_QC : Nat.card chainC.originalSubgroup = 336 := by
   rw [chainC, ofArrays_card (by norm_num) chainC_ok, fixCBase_eq, chainCheck_parts.2.1]
@@ -350,6 +359,35 @@ theorem orderOf_permX_mul_permY :
     (rep_arrTable (by norm_num) rep_permY) (by norm_num) (by norm_num) orderOf_permX
     orderOf_permY (by norm_num) (by norm_num)).1 tableCheck_parts.2.2.1
 
+theorem card_pairs_eq {n : ℕ} (hn : n < 2 ^ 32) (Q : RawSchreierDatum n) (hQ : ValidSchreier Q)
+    {mx my r : ℕ} (hmx : 0 < mx) (hmy : 0 < my) (hr : 0 < r) :
+    Nat.card {p : Q.originalSubgroup × Q.originalSubgroup // orderOf p.1 = mx ∧
+      orderOf p.2 = my ∧ orderOf (p.1 * p.2) = r} =
+      pairCount (orderTables Q mx) (orderTables Q my) (fun x y => ordW n [x, y] r) := by
+  set L := enumeration Q
+  have hcoe : ∀ p : Q.originalSubgroup × Q.originalSubgroup,
+      (orderOf p.1 = mx ∧ orderOf p.2 = my ∧ orderOf (p.1 * p.2) = r) ↔
+      (orderOf (p.1 : Equiv.Perm (Fin n)) = mx ∧ orderOf (p.2 : Equiv.Perm (Fin n)) = my ∧
+        orderOf ((p.1 : Equiv.Perm (Fin n)) * p.2) = r) := fun p => by
+    simp only [← Subgroup.orderOf_coe, Subgroup.coe_mul]
+  rw [Nat.card_congr (Equiv.subtypeEquivRight hcoe),
+    card_pairs_eq_sum Q.originalSubgroup L (enumeration_nodup Q hQ) (mem_enumeration_iff Q hQ)
+      (fun h => orderOf h = mx) (fun h => orderOf h = my) (fun x y => orderOf (x * y) = r),
+    pairCount_spec (forall₂_orderTables hn Q hmx) (forall₂_orderTables hn Q hmy)
+      (R := fun x y => orderOf (x * y) = r) ?_,
+    List.map_reverse, List.sum_reverse]
+  · congr 1
+    refine List.map_congr_left fun x _ => ?_
+    rw [List.countP_reverse]
+  · intro x xg y yg hx hy _ _
+    rw [ordW_iff perm_faithful (List.Forall₂.cons hx (List.Forall₂.cons hy List.Forall₂.nil)) hr]
+    simp
+
+theorem card_pairs_QD : Nat.card {p : chainD.originalSubgroup × chainD.originalSubgroup //
+    orderOf p.1 = 2 ∧ orderOf p.2 = 3 ∧ orderOf (p.1 * p.2) = 7} = 336 := by
+  rw [card_pairs_eq (by norm_num) chainD chainD_valid (by norm_num) (by norm_num) (by norm_num),
+    orderTables_chainD, orderTables_chainD]
+  exact tableCheck_parts.2.2.2.2.2.1
 
 theorem card_pairs_QD' : Nat.card {p : chainD.originalSubgroup × chainD.originalSubgroup //
     orderOf p.1 = 2 ∧ orderOf p.2 = 3 ∧ orderOf (p.1 * p.2) = 7 ∧
@@ -358,6 +396,10 @@ theorem card_pairs_QD' : Nat.card {p : chainD.originalSubgroup × chainD.origina
     (by norm_num) (by norm_num), orderTables_chainD, orderTables_chainD]
   exact tableCheck_parts.2.2.2.2.2.2.1
 
+theorem card_involutions_QD :
+    Nat.card {x : chainD.originalSubgroup // orderOf x = 2} = 21 := by
+  rw [card_orderOf_eq (by norm_num) chainD chainD_valid (by norm_num), orderTables_chainD]
+  exact tableCheck_parts.2.2.2.1
 
 theorem tblFix_eq {T : Table} {g : Equiv.Perm (Fin 315)} (h : CFSG.Sporadic.Th.Rep 315 T g) :
     tblFix T = Models.fixCount g := by

@@ -31,6 +31,9 @@ theorem hp_mulVec_left {x y : Fin n → K} (hxx : hf h x x = 0) (hxy : hf h x y 
   rw [hp, add_mulVec, rk_mulVec, rk_mulVec, hf_swap_eq_one h hxy, hxx, one_smul, zero_smul,
     add_zero]
 
+theorem hp_mulVec_right {x y : Fin n → K} (hyy : hf h y y = 0) (hxy : hf h x y = 1) :
+    hp h x y *ᵥ y = y := by
+  rw [hp, add_mulVec, rk_mulVec, rk_mulVec, hyy, hxy, zero_smul, one_smul, zero_add]
 
 theorem det_one_add_smul_hp {x y : Fin n → K} (hyy : hf h y y = 0) (hxy : hf h x y = 1)
     (c : K) : (1 + c • hp h x y).det = (1 + c) ^ 2 := by

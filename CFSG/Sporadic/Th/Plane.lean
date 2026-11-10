@@ -45,6 +45,11 @@ theorem b_smul_planeAt :
     _ = planeAt (βIdx i) := by
       rw [planeAt, planeAt, hk, keyPlane_imageKey]
 
+theorem orbit_W_eq :
+    MulAction.orbit J W = planeAt '' Set.Iio nX := by
+  rw [← planeAt_zero hF]
+  exact orbit_eq_image closure_ab hF.pos planeAt (a_smul_planeAt hF) (b_smul_planeAt hF)
+    parIdx labIdx hF.tree
 
 @[expose] noncomputable def planeEquiv :
     Fin nX ≃ MulAction.orbit J (planeAt 0) :=

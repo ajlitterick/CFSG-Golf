@@ -134,5 +134,13 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
 end Perfect
 
+theorem eq_one_of_forall_commute_GL {B : GL (Fin n) (ZMod 2)} (hn : 2 ≤ n)
+    (h : ∀ X : GL (Fin n) (ZMod 2), B * X = X * B) : B = 1 := by
+  have hB : B ∈ Subgroup.center (GL (Fin n) (ZMod 2)) :=
+    Subgroup.mem_center_iff.mpr fun X => (h X).symm
+  rw [Matrix.GeneralLinearGroup.center_eq_range_scalar] at hB
+  obtain ⟨c, rfl⟩ := hB
+  have : Subsingleton (ZMod 2)ˣ := ⟨by decide⟩
+  rw [Subsingleton.elim c 1, map_one]
 
 end CFSG.ASVolI.ChH

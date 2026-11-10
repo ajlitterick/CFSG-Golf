@@ -41,5 +41,10 @@ theorem invol_k : ((List.range 256).all fun s =>
     (s == 0) || !(Nat.beq (mulL s s) 0) || subs.contains (pairOf s)) = true := by
   decide +kernel
 
+theorem off_neg : (!Nat.beq (PT 1) (CFSG.KC.M1F2.mulF 10 (PT 0) (PT 0)) &&
+    !decide ((subs.getD 0 []).length *
+      ((List.range 1024).filter fun m => (andM (subs.getD 0 [])).testBit m).length ≤ 1)) =
+      true := by
+  decide +kernel
 
 end CertificateChecks.KernelCo2Jc

@@ -160,6 +160,9 @@ theorem torusAdj_mul (t t' : Fin τ.rank → Kˣ) :
     torusAdj K (t * t') = torusAdj K t * torusAdj K t' :=
   Subtype.ext (map_mul _ _ _)
 
+theorem torusAdj_commute (t t' : Fin τ.rank → Kˣ) : Commute (torusAdj K t) (torusAdj K t') := by
+  change torusAdj K t * torusAdj K t' = torusAdj K t' * torusAdj K t
+  rw [← torusAdj_mul, ← torusAdj_mul, mul_comm]
 
 theorem torusAdj_mulSingle (k : Fin τ.rank) (s : Kˣ) :
     torusAdj K (Pi.mulSingle k s) = torusElement τ K k s :=

@@ -139,5 +139,53 @@ theorem orderOf_a1 :
     orderOf (fi22GenPerm 1) = 13 :=
   orderOf_of_check (rep_fi22Gen (by norm_num)) fi22Orders_check.2.2.1 fi22Orders_check.2.2.2.1
 
+theorem orderOf_a0a1 :
+    orderOf (fi22GenPerm 0 * fi22GenPerm 1) = 11 :=
+  orderOf_of_check rep_fi22Gen01 fi22Orders_check.2.2.2.2.1 fi22Orders_check.2.2.2.2.2
+
+theorem fi22C0_mul_C1 :
+    fi22C0 * fi22C1 = fi22GenPerm 1 := by
+  have h2 : fi22GenPerm 0 * fi22GenPerm 0 = 1 := by
+    rw [← pow_two, ← orderOf_a0, pow_orderOf_eq_one]
+  rw [fi22C0, fi22C1, ← mul_assoc, h2, one_mul]
+
+theorem fi22P_eq_closure_C : Subgroup.closure {fi22C0, fi22C1} = fi22P := by
+  rw [fi22P_eq]
+  apply le_antisymm
+  · rw [Subgroup.closure_le]
+    rintro _ (rfl | rfl)
+    · exact Subgroup.subset_closure ⟨0, rfl⟩
+    · exact Subgroup.mul_mem _ (Subgroup.subset_closure ⟨0, rfl⟩)
+        (Subgroup.subset_closure ⟨1, rfl⟩)
+  · rw [Subgroup.closure_le]
+    rintro _ ⟨k, rfl⟩
+    fin_cases k
+    · exact Subgroup.subset_closure (Set.mem_insert _ _)
+    · have : fi22GenPerm 1 = fi22C0⁻¹ * fi22C1 := by
+        rw [fi22C0, fi22C1, inv_mul_cancel_left]
+      change fi22GenPerm 1 ∈ _
+      rw [this]
+      exact Subgroup.mul_mem _ (Subgroup.inv_mem _ (Subgroup.subset_closure (Set.mem_insert _ _)))
+        (Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl))
+
+theorem Fi22_order_coprime_generators :
+    ValidSchreier fi22Chain ∧ fi22Chain.base.toList.map Fin.val = [0, 1, 2, 3, 6, 4] ∧
+    (List.finRange fi22Chain.baseCount).map fi22Chain.orbitSize = [3510, 2816, 567, 720, 8, 2] ∧
+    Nat.card fi22P = 64561751654400 ∧ MulAction.IsPretransitive fi22P (Fin 3510) ∧
+    Nat.card (MulAction.stabilizer fi22P (0 : Fin 3510)) = 18393661440 ∧
+    orderOf (fi22GenPerm 0) = 2 ∧ orderOf (fi22GenPerm 1) = 13 ∧
+    orderOf (fi22GenPerm 0 * fi22GenPerm 1) = 11 ∧
+    Subgroup.closure {fi22C0, fi22C1} = fi22P ∧
+    orderOf fi22C0 = 2 ∧ orderOf fi22C1 = 11 ∧ orderOf (fi22C0 * fi22C1) = 13 ∧
+    Nat.gcd (orderOf fi22C0) (orderOf fi22C1) = 1 ∧
+    Nat.gcd (orderOf (fi22C0 * fi22C1)) (Nat.card (MulAction.stabilizer fi22P (0 : Fin 3510))) = 1 ∧
+    Nat.card Blueprint.NativeSporadic.Fi22 = 64561751654400 := by
+  have hc0 : orderOf fi22C0 = 2 := orderOf_a0
+  have hc1 : orderOf fi22C1 = 11 := orderOf_a0a1
+  have hc01 : orderOf (fi22C0 * fi22C1) = 13 := by rw [fi22C0_mul_C1, orderOf_a1]
+  refine ⟨fi22Chain_valid.1, fi22Chain_base, fi22Chain_orbitSizes, card_fi22P, fi22P_transitive,
+    card_fi22P_stabilizer, orderOf_a0, orderOf_a1, orderOf_a0a1, fi22P_eq_closure_C, hc0, hc1,
+    hc01, by rw [hc0, hc1]; norm_num, by rw [hc01, card_fi22P_stabilizer]; norm_num, ?_⟩
+  rw [Nat.card_congr fi22PermEquiv.toEquiv, card_fi22P]
 
 end CFSG.Monster.B.Fischer

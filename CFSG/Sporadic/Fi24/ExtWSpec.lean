@@ -66,6 +66,10 @@ theorem zeroFrom_mulW {d : ℕ} {X Y : Array W} (hX : RowsWF X) (hY : RowsWF Y)
   rw [val_mulW hX hY]
   exact Finset.sum_eq_zero fun j _ => by rw [hz j k hk, mul_zero]
 
+theorem canonRows_mulW' {r : ℕ} {X Y : Array W} (hXs : X.size = r) (hX : RowsWF X)
+    (hY : canonRows 781 Y = true) : canonRows r (mulW X Y) = true :=
+  canonRows_of (by rw [mulW_size, hXs]) (RowsWF.mulW hX (RowsWF.of_canonRows hY))
+    (zeroFrom_mulW hX (RowsWF.of_canonRows hY) (zeroFrom_of_canonRows hY))
 
 theorem pw_addW {X Y : Array W} (hX : RowsWF X) (hY : RowsWF Y) :
     matW 781 781 (addW 781 X Y) = matW 781 781 X + matW 781 781 Y := matW_addW hX hY
@@ -94,6 +98,9 @@ theorem zeroFrom_transposeW (R : Array W) : ZeroFrom 253 (transposeW 253 781 R) 
   · rw [rowW_transposeW R i hi, ofTrits_val (by norm_num), if_neg (by omega)]
   · rw [rowW_ge (by rw [transposeW_size]; omega), W.val_zero]
 
+theorem canonRows_transposeW (R : Array W) : canonRows 781 (transposeW 253 781 R) = true :=
+  canonRows_of (transposeW_size _ _ _) (RowsWF.transposeW (by norm_num) _ _)
+    ((zeroFrom_transposeW R).mono (by norm_num))
 
 @[expose] def pad (A : Matrix (Fin 253) (Fin 253) (ZMod 3)) : Matrix (Fin 781) (Fin 781) (ZMod 3) :=
   fun i j => if h : i.val < 253 ∧ j.val < 253 then A ⟨i.val, h.1⟩ ⟨j.val, h.2⟩ else 0

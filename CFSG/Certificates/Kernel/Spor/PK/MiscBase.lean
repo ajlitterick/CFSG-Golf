@@ -90,6 +90,13 @@ theorem lenN_misc_eq (l : List Nat) : CFSG.KC.Misc.lenN l = l.length := by
   | cons x xs ih =>
     rw [lenN_cons_eq, ih, List.length_cons]
 
+theorem nodupN_eq (l : List Nat) : nodupN l = decide l.Nodup := by
+  induction l with
+  | nil => rfl
+  | cons z t ih =>
+    show andB (notB (memN z t)) (nodupN t) = decide (z :: t).Nodup
+    rw [andB_eq, notB_eq, memN_eq, ih, Bool.eq_iff_iff]
+    simp [List.nodup_cons]
 
 private theorem allLL_cons_eq (f : List Nat → Bool) (x : List Nat) (xs : List (List Nat)) :
     allLL (x :: xs) f = andB (f x) (allLL xs f) := rfl
@@ -108,6 +115,23 @@ theorem allLL_iff {L : List (List Nat)} {f : List Nat → Bool} :
     · intro h
       exact ⟨h x (by simp), fun y hy => h y (List.mem_cons_of_mem _ hy)⟩
 
+private theorem anyLL_cons_eq (f : List Nat → Bool) (x : List Nat) (xs : List (List Nat)) :
+    anyLL (x :: xs) f = orB (f x) (anyLL xs f) := rfl
+
+theorem anyLL_iff {L : List (List Nat)} {f : List Nat → Bool} :
+    anyLL L f = true ↔ ∃ x ∈ L, f x = true := by
+  induction L with
+  | nil => show false = true ↔ _; simp
+  | cons x xs ih =>
+    rw [anyLL_cons_eq, orB_eq, Bool.or_eq_true, ih]
+    constructor
+    · rintro (h | ⟨y, hy, h⟩)
+      · exact ⟨x, by simp, h⟩
+      · exact ⟨y, List.mem_cons_of_mem _ hy, h⟩
+    · rintro ⟨y, hy, h⟩
+      rcases List.mem_cons.mp hy with rfl | hy'
+      · exact Or.inl h
+      · exact Or.inr ⟨y, hy', h⟩
 
 theorem eqLN_eq (a b : List Nat) : eqLN a b = decide (a = b) := by
   induction a generalizing b with

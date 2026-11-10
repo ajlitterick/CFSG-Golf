@@ -86,6 +86,11 @@ theorem oddCore_locH3 :
     eq_bot_of_odd_normal locQu_le_H3 (hMn := locQu_normal_H3) (m := 10)
       (by rw [card_locQu]; norm_num) (le_of_eq locH3_inf_centralizer_Qu) N hodd
 
+theorem CTUC_Co2_third_centralizer_odd_normal_exclusion
+    (N : Subgroup locH3) (hN : N.Normal)
+    (hodd : Odd (Nat.card N)) : N = ⊥ :=
+  eq_bot_of_odd_normal locQu_le_H3 (hMn := locQu_normal_H3) (m := 10)
+    (by rw [card_locQu]; norm_num) (le_of_eq locH3_inf_centralizer_Qu) N (hN := hN) hodd
 
 theorem centralizer_uP :
     Subgroup.centralizer ({uP} : Set co2P) = locH3.subgroupOf co2P := by

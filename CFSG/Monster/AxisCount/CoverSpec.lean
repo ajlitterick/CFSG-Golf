@@ -42,6 +42,33 @@ theorem countBelow_eq (p : ℕ → Bool) (n : ℕ) :
     countBelow p n = ((Finset.range n).filter fun i => p i = true).card := by
   rw [countBelow, countGo_eq, zero_add]
 
+theorem parAll_spec {n chunks : ℕ} {p : ℕ → Bool} (hc : 0 < chunks)
+    (h : parAll n chunks p = true) : ∀ i < n, p i = true := by
+  intro i hi
+  unfold parAll at h
+  simp only [List.all_map, List.all_eq_true, List.mem_range, Function.comp_apply] at h
+  set sz := n / chunks + 1 with hsz
+  have hsz0 : 0 < sz := Nat.succ_pos _
+  have hj : i / sz < chunks := by
+    rw [Nat.div_lt_iff_lt_mul hsz0]
+    have h1 := Nat.div_add_mod n chunks
+    have h2 := Nat.mod_lt n hc
+    have : chunks * sz = chunks * (n / chunks) + chunks := by rw [hsz]; ring
+    rw [this]
+    generalize chunks * (n / chunks) = A at h1 ⊢
+    omega
+  have hstep := h (i / sz) hj
+  change allFrom p (i / sz * sz) (min sz (n - i / sz * sz)) = true at hstep
+  have e : i / sz * sz + i % sz = i := by
+    rw [mul_comm]
+    exact Nat.div_add_mod i sz
+  have hmod := Nat.mod_lt i hsz0
+  have hlt : i % sz < min sz (n - i / sz * sz) := by
+    refine lt_min hmod ?_
+    generalize i / sz * sz = A at e ⊢
+    omega
+  have := (allFrom_iff p _ _).1 hstep (i % sz) hlt
+  rwa [e] at this
 
 theorem actGo_lt (rows : Array ℕ) (v : ℕ) (hr : ∀ i < 24, rows[i]! < 2 ^ 24) :
     ∀ n acc, n ≤ 24 → acc < 2 ^ 24 → actGo rows v n acc < 2 ^ 24
@@ -71,6 +98,34 @@ structure CoverFacts (T : CoverTables) (rows : Array (Array ℕ)) (seeds sizes :
   card_label : ∀ r < seeds.size, (labelSet T (r + 1)).card = sizes[r]!
   seed : ∀ r < seeds.size, seeds[r]! < 2 ^ 24 ∧ rd8 T.lab seeds[r]! = r + 1
 
+theorem coverFacts_of_check {T : CoverTables} {rows : Array (Array ℕ)} {seeds sizes : Array ℕ}
+    {chunks : ℕ} (hc : 0 < chunks) (h : coverCheck T rows seeds sizes chunks = true) :
+    CoverFacts T rows seeds sizes := by
+  simp only [coverCheck, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨hrows, hall⟩, hsz⟩, -⟩, hpar⟩, hcount⟩, hsizes⟩, hseeds⟩ := h
+  have hlt : ∀ g < 2, ∀ i < 24, (rows[g]!)[i]! < 2 ^ 24 := by
+    intro g hg i hi
+    have hg' : g < rows.size := by omega
+    have h1 := Array.all_eq_true.1 hall g hg'
+    simp only [Bool.and_eq_true, beq_iff_eq] at h1
+    obtain ⟨hs, h2⟩ := h1
+    have hi' : i < rows[g].size := by omega
+    have h3 := Array.all_eq_true.1 h2 i hi'
+    simp only [decide_eq_true_eq] at h3
+    rw [getElem!_pos rows g hg', getElem!_pos rows[g] i hi']
+    exact h3
+  refine ⟨hrows, hlt, hsz, parAll_spec hc hpar, ?_, ?_, ?_⟩
+  · rw [← hcount, countBelow_eq, foundSet]
+    simp
+  · intro r hr
+    have := parAll_spec hc hsizes r hr
+    rw [beq_iff_eq] at this
+    rw [← this, countBelow_eq, labelSet]
+    simp
+  · intro r hr
+    have := (allFrom_iff _ 0 seeds.size).1 hseeds r hr
+    rw [zero_add] at this
+    simpa using this
 
 theorem cvOK_spec {T : CoverTables} {rows : Array (Array ℕ)} {seeds : Array ℕ} {v : ℕ}
     (h : cvOK T rows seeds v = true) (hl : rd8 T.lab v ≠ 0) :
@@ -125,6 +180,9 @@ theorem mem_orbit (hF : CoverFacts T rows seeds sizes)
       exact CFSG.Monster.VisCert.smul_mem_orbit_closure (S := gens '' Set.Iio 2)
         (Set.mem_image_of_mem gens (Set.mem_Iio.2 hg)) ihp
 
+theorem lab_le (hF : CoverFacts T rows seeds sizes) {v : ℕ} (hv : v < 2 ^ 24)
+    (hl : rd8 T.lab v ≠ 0) : rd8 T.lab v ≤ seeds.size :=
+  (cvOK_spec (hF.point v hv) hl).1
 
 theorem cvImg_mem_labelSet (hF : CoverFacts T rows seeds sizes) {o v : ℕ} (ho : o ≠ 0)
     (hv : v ∈ labelSet T o) {j : ℕ} (hj : j < 2) : cvImg rows j v ∈ labelSet T o := by
@@ -140,6 +198,15 @@ theorem seed_mem_labelSet (hF : CoverFacts T rows seeds sizes) {r : ℕ} (hr : r
   simp only [labelSet, Finset.mem_filter, Finset.mem_range]
   exact ⟨h1, h2⟩
 
+theorem labelSet_subset_foundSet (o : ℕ) (ho : o ≠ 0) : labelSet T o ⊆ foundSet T := by
+  intro v hv
+  simp only [labelSet, foundSet, Finset.mem_filter] at hv ⊢
+  exact ⟨hv.1, by rw [hv.2]; exact ho⟩
+
+theorem mem_labelSet_of_mem_foundSet {v : ℕ} (hv : v ∈ foundSet T) :
+    v ∈ labelSet T (rd8 T.lab v) := by
+  simp only [labelSet, foundSet, Finset.mem_filter, Finset.mem_range] at hv ⊢
+  exact ⟨hv.1, trivial⟩
 
 theorem injOn_dec (hdec : ∀ a b, a < 2 ^ 24 → b < 2 ^ 24 → dec a = dec b → a = b)
     (s : Finset ℕ) (hs : s ⊆ Finset.range (2 ^ 24)) : Set.InjOn dec (s : Set ℕ) :=
@@ -172,6 +239,26 @@ theorem ncard_orbit (hF : CoverFacts T rows seeds sizes)
     (injOn_dec hdec (labelSet T (r + 1)) (Finset.filter_subset _ _)).ncard_image,
     Set.ncard_coe_finset, hF.card_label r hr]
 
+theorem image_foundSet_eq_iUnion (hF : CoverFacts T rows seeds sizes)
+    (hk : ∀ g < 2, ∀ p, dec (cvImg rows g p) = gens g • dec p) :
+    dec '' (foundSet T : Set ℕ) = ⋃ r ∈ Set.Iio seeds.size,
+      MulAction.orbit (Subgroup.closure (gens '' Set.Iio 2)) (dec seeds[r]!) := by
+  ext x
+  simp only [Set.mem_image, Set.mem_iUnion, Set.mem_Iio, exists_prop]
+  constructor
+  · rintro ⟨v, hv, rfl⟩
+    have hv' : v ∈ foundSet T := hv
+    have hm := mem_labelSet_of_mem_foundSet hv'
+    simp only [foundSet, Finset.mem_filter, Finset.mem_range] at hv'
+    obtain ⟨hv24, hl⟩ := hv'
+    have hle := hF.lab_le hv24 hl
+    refine ⟨rd8 T.lab v - 1, by omega, ?_⟩
+    rw [hF.orbit_eq hk (by omega), Nat.sub_add_cancel (Nat.pos_of_ne_zero hl)]
+    exact ⟨v, hm, rfl⟩
+  · rintro ⟨r, hr, hx⟩
+    rw [hF.orbit_eq hk hr] at hx
+    obtain ⟨v, hv, rfl⟩ := hx
+    exact ⟨v, labelSet_subset_foundSet _ (Nat.succ_ne_zero r) hv, rfl⟩
 
 theorem disjoint_orbit (hF : CoverFacts T rows seeds sizes)
     (hk : ∀ g < 2, ∀ p, dec (cvImg rows g p) = gens g • dec p)
@@ -188,10 +275,29 @@ theorem disjoint_orbit (hF : CoverFacts T rows seeds sizes)
   subst this
   exact hne (by omega)
 
+theorem ncard_image_foundSet (hF : CoverFacts T rows seeds sizes)
+    (hdec : ∀ a b, a < 2 ^ 24 → b < 2 ^ 24 → dec a = dec b → a = b) :
+    (dec '' (foundSet T : Set ℕ)).ncard = deltaCount := by
+  rw [(injOn_dec hdec (foundSet T) (Finset.filter_subset _ _)).ncard_image, Set.ncard_coe_finset,
+    hF.card_found]
 
 end CoverFacts
 
 end Orbits
 
+theorem orbitCheck_spec {cA cB : List Gen} {hs : List (List Gen)} {lams sizes : List ℕ}
+    (h : orbitCheck cA cB hs lams sizes = true) :
+    (∀ g ∈ cA, g.isVis = true) ∧ (∀ g ∈ cB, g.isVis = true) ∧
+      (∀ w ∈ hs, ∀ g ∈ w, g.isVis = true) ∧ hs.length = lams.length ∧
+      lams.length = sizes.length ∧ (∀ x ∈ hs.zip lams, l2Word x.1 x.2 = seedF) ∧
+      ∃ T, CoverFacts T #[wordRows cA, wordRows cB] lams.toArray sizes.toArray := by
+  unfold orbitCheck at h
+  simp only [Bool.and_eq_true, beq_iff_eq, List.all_eq_true] at h
+  obtain ⟨⟨⟨⟨⟨⟨hA, hB⟩, hH⟩, hl1⟩, hl2⟩, hz⟩, hcov⟩ := h
+  refine ⟨hA, hB, fun w hw g hg => ?_, hl1, hl2, fun x hx => ?_,
+    _, coverFacts_of_check (by norm_num) hcov⟩
+  · exact hH w hw g hg
+  · have := hz x hx
+    simpa using this
 
 end CFSG.Monster.AxisCount.Native.Cover

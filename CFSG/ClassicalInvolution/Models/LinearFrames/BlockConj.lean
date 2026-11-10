@@ -29,4 +29,11 @@ theorem diagonal_conj_blockMat_two (hn : 2 ≤ n) {d : Fin n → K} (hd : ∀ a,
 @[expose] def signUnit (x : K) (hx : x * x = 1) : Kˣ := ⟨x, x, hx, hx⟩
 
 
+theorem diagonal_two_conj_self {a : K} (ha : a * a = 1) (s : Matrix (Fin 2) (Fin 2) K) :
+    Matrix.diagonal ![a, a] * s * Matrix.diagonal ![a, a] = s := by
+  ext i j
+  rw [Matrix.mul_diagonal, Matrix.diagonal_mul]
+  fin_cases i <;> fin_cases j <;> simp <;> linear_combination (s _ _) * ha
+
+
 end CFSG.ClassicalInvolution.Models

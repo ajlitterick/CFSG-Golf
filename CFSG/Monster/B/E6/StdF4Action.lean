@@ -259,6 +259,8 @@ theorem two_le_card_stabilizer_groupPerm :
   exact groupPerm_torusGenG_ne_one (congrArg (fun x => ((x : groupPerm.range) :
     Equiv.Perm stdChamber)) (congrArg Subtype.val h)).symm
 
+theorem finite_stdChamber' :
+    Finite stdChamber := inferInstance
 
 theorem oppPairs_ncard_pos :
     0 < oppPairs.ncard :=

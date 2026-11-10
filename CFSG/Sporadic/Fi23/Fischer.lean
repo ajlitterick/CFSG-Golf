@@ -134,5 +134,11 @@ theorem existence_carrier :
   rw [carrierGroup_one]
   exact existence_native
 
+theorem fischer_existence_one :
+    Subgroup.center (Carrier 1) = ⊥ ∧ IsSimpleGroup (commutator (Carrier 1)) ∧
+      ∃ D : Set (Carrier 1), HasType 1 (Carrier 1) D ∧
+        (∀ E : Set (Carrier 1), Pair (Carrier 1) E → E = D) ∧ LocalStructure 1 D := by
+  obtain ⟨h1, h2, h3, h4, h5⟩ := existence_carrier
+  exact ⟨h1, h2, D23c, h3, h4, h5⟩
 
 end CFSG.Sporadic.Fi23

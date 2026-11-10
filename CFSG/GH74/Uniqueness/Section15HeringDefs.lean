@@ -72,6 +72,28 @@ theorem isPretransitive_of_normal [FaithfulSMul G Ω] (h2 : IsMultiplyPretransit
   rw [one_smul]
   exact hx ⟨n, hn⟩
 
+theorem hasRegularNormal_of_abelian [FaithfulSMul G Ω] (N : Subgroup G) [hN : N.Normal]
+    (htr : IsPretransitive N Ω) (hab : ∀ a ∈ N, ∀ b ∈ N, a * b = b * a) :
+    HasRegularNormal G Ω := by
+  refine ⟨N, hN, fun x y => ?_⟩
+  obtain ⟨n, hn⟩ := htr.exists_smul_eq x y
+  refine ⟨n, hn, fun n' hn' => ?_⟩
+  have hfix : ∀ z : Ω, ((n⁻¹ * n' : N) : G) • z = z := by
+    intro z
+    obtain ⟨c, rfl⟩ := htr.exists_smul_eq x z
+    have hc : ((n⁻¹ * n' : N) : G) * (c : G) = (c : G) * ((n⁻¹ * n' : N) : G) :=
+      hab _ (n⁻¹ * n').2 _ c.2
+    change ((n⁻¹ * n' : N) : G) • ((c : G) • x) = (c : G) • x
+    rw [smul_smul, hc, mul_smul]
+    congr 1
+    rw [Subgroup.coe_mul, mul_smul, hn', ← hn, Subgroup.coe_inv]
+    change (n : G)⁻¹ • ((n : G) • x) = x
+    exact inv_smul_smul _ _
+  have h1 : ((n⁻¹ * n' : N) : G) = 1 :=
+    FaithfulSMul.eq_of_smul_eq_smul (α := Ω) (fun z => by rw [hfix, one_smul])
+  have : n⁻¹ * n' = 1 := Subtype.ext h1
+  rw [inv_mul_eq_one] at this
+  exact this.symm
 
 structure EndHyp (G Ω : Type*) [Group G] [MulAction G Ω] (p : ℕ) (ω : Ω) (K P : Subgroup G) :
     Prop where
@@ -192,6 +214,8 @@ structure Hyp (G F : Type*) [Group G] [Field F] [MulAction G F] (m : ℕ) : Prop
 
 variable {G : Type*} [Group G] [MulAction G F] {m : ℕ}
 
+theorem mem_mulSubgroup {g : G} : g ∈ mulSubgroup G F ↔ ∃ a : Fˣ, ∀ x : F, g • x = a * x :=
+  Iff.rfl
 
 theorem mem_stab01 {g : G} : g ∈ stab01 G F ↔ g • (0 : F) = 0 ∧ g • (1 : F) = 1 :=
   Iff.rfl
@@ -355,6 +379,8 @@ theorem card_mulSubgroup [Finite F] (hG : Hyp G F m) : Nat.card (mulSubgroup G F
   rw [Nat.card_congr (MulEquiv.ofBijective _ (mulSubgroupHom_bijective hG)).toEquiv,
     Nat.card_units, hG.card]
 
+theorem isCyclic_mulSubgroup [Finite F] (hG : Hyp G F m) : IsCyclic (mulSubgroup G F) :=
+  isCyclic_of_injective mulSubgroupHom (mulSubgroupHom_bijective hG).1
 
 theorem semilinPart_injOn_stab01 (hG : Hyp G F m) {g h : G} (hg : g ∈ stab01 G F)
     (hh : h ∈ stab01 G F) (he : semilinPart F g = semilinPart F h) : g = h := by

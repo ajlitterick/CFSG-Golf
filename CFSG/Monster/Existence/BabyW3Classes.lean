@@ -50,6 +50,9 @@ theorem rank_phiB_y3Bar_sub_one :
   rw [← betaStd_eq_betaS] at h0 h1
   exact h1.symm.trans (h0.trans (by decide))
 
+theorem babyInv_two_phiB_y3Bar :
+    CFSG.Monster.GMS.BabyInv 2 (phiB y3Bar) :=
+  ⟨orderOf_phiB_y3Bar, natCard_centralizer_babyW3⟩
 
 theorem isConj_rep_three_of_rank
     {X : NativeSporadic.B} (hX : orderOf X = 2)
@@ -74,6 +77,11 @@ theorem isConj_phiB_y3Bar_of_rank
   (isConj_rep_three_of_rank hX hr).trans
     (isConj_rep_three_of_rank orderOf_phiB_y3Bar rank_phiB_y3Bar_sub_one).symm
 
+theorem isConj_of_rank_2168
+    {X Y : NativeSporadic.B} (hX : orderOf X = 2)
+    (hXr : Matrix.rank (X.val.val - 1) = 2168) (hY : orderOf Y = 2)
+    (hYr : Matrix.rank (Y.val.val - 1) = 2168) : IsConj X Y :=
+  (isConj_phiB_y3Bar_of_rank hX hXr).trans (isConj_phiB_y3Bar_of_rank hY hYr).symm
 
 theorem natCard_centralizer_of_rank_2168
     {X : NativeSporadic.B} (hX : orderOf X = 2)

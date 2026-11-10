@@ -179,6 +179,107 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
 open CFSG.Quasithin.H13.A6 (g5G1 cA6)
 
+private noncomputable def a6Mod (i : Fin 4) : FMod ↥(alternatingGroup (Fin 6)) where
+  carrier := Fin (![1, 4, 4, 16] i) → ZMod 2
+  ρ := CFSG.CharacterTheory.SteinbergBY.a6BinaryRep i
+
+private noncomputable def stMod : FMod (Equiv.Perm (Fin 6)) where
+  carrier := Fin 16 → ZMod 2
+  ρ := CFSG.Quasithin.H13.A6.G52.Mrep 3
+
+private theorem a6Mod_isIrred (i : Fin 4) : (a6Mod i).IsIrred :=
+  CFSG.Quasithin.RonanG51.a6_irred i
+
+private theorem a6Mod_card (i : Fin 4) :
+    Nat.card (a6Mod i).carrier = 2 ^ (![1, 4, 4, 16] i) :=
+  CFSG.Quasithin.RonanG51.card_D i
+
+private theorem a6Mod_not_iso {i j : Fin 4} (h : i ≠ j) : ¬ (a6Mod i).Iso (a6Mod j) :=
+  CFSG.Quasithin.RonanG51.a6_not_iso i j h
+
+private theorem a6Mod_complete (N : FMod ↥(alternatingGroup (Fin 6))) (hN : N.IsIrred) :
+    ∃ i, N.Iso (a6Mod i) := by
+  obtain ⟨hnt, hS⟩ := hN
+  haveI := hnt
+  exact CFSG.Quasithin.RonanG51.a6_complete N.ρ hS
+
+private theorem stMod_isSteinberg : IsSteinbergModule stMod :=
+  ⟨CFSG.Quasithin.RonanG51.mrep_irred 3, (CFSG.Quasithin.RonanG51.card_D 3).trans (by decide),
+    CFSG.Quasithin.RonanG52.projective_of_equiv_St
+      (τ := stMod.ρ) (Representation.Equiv.refl CFSG.Quasithin.H13.A6.G52.St)⟩
+
+theorem as_G_5_1 : G_5_1 := by
+  intro T G₁ G₂ hyp
+  obtain ⟨sylow, -, -, -, -, index₁, index₂, -, only⟩ := hyp
+  obtain ⟨c, hcA, hc⟩ := CFSG.Quasithin.RonanG52.exists_conj_g5G1_cA6_iff sylow index₁ index₂ only
+  set c' : ↥(alternatingGroup (Fin 6)) := ⟨c, hcA⟩ with hc'
+  have hcoe : ∀ g : ↥(alternatingGroup (Fin 6)),
+      ((c' * g * c'⁻¹ : ↥(alternatingGroup (Fin 6))) : Equiv.Perm (Fin 6)) =
+        c * (g : Equiv.Perm (Fin 6)) * c⁻¹ := fun g => rfl
+  have hpt : ∀ (G : Subgroup (Equiv.Perm (Fin 6))) (X : Subgroup (Equiv.Perm (Fin 6))),
+      (∀ g, g ∈ G ↔ c * g * c⁻¹ ∈ X) → ∀ i : Fin 4,
+      (∃ v : (a6Mod i).carrier, v ≠ 0 ∧ ∀ g : ↥(alternatingGroup (Fin 6)),
+        (g : Equiv.Perm (Fin 6)) ∈ X → (a6Mod i).ρ g v = v) →
+      (a6Mod i).FixesPoint (inG G) := by
+    intro G X hG i ⟨v, hv, hfix⟩
+    exact CFSG.Quasithin.RonanG51.fixesPoint_conj (a6Mod i).ρ c' (inG G)
+      {g | (g : Equiv.Perm (Fin 6)) ∈ X} (fun g => by
+        show (g : Equiv.Perm (Fin 6)) ∈ G ↔ ((c' * g * c'⁻¹ : ↥(alternatingGroup (Fin 6))) :
+          Equiv.Perm (Fin 6)) ∈ X
+        rw [hcoe]
+        exact hG _) v hv fun g hg => hfix g hg
+  have hln : ∀ (G : Subgroup (Equiv.Perm (Fin 6))) (X : Subgroup (Equiv.Perm (Fin 6))),
+      (∀ g, g ∈ G ↔ c * g * c⁻¹ ∈ X) → ∀ i : Fin 4,
+      (∃ L : AddSubgroup (a6Mod i).carrier, Nat.card L = 4 ∧ ∀ g : ↥(alternatingGroup (Fin 6)),
+        (g : Equiv.Perm (Fin 6)) ∈ X → ∀ l ∈ L, (a6Mod i).ρ g l ∈ L) →
+      (a6Mod i).FixesLine (inG G) := by
+    intro G X hG i ⟨L, hL, hst⟩
+    exact CFSG.Quasithin.RonanG51.fixesLine_conj (a6Mod i).ρ c' (inG G)
+      {g | (g : Equiv.Perm (Fin 6)) ∈ X} (fun g => by
+        show (g : Equiv.Perm (Fin 6)) ∈ G ↔ ((c' * g * c'⁻¹ : ↥(alternatingGroup (Fin 6))) :
+          Equiv.Perm (Fin 6)) ∈ X
+        rw [hcoe]
+        exact hG _) L hL fun g hg => hst g hg
+  obtain ⟨i, j, hij, hpi, hli, hpj, hlj⟩ : ∃ i j : Fin 4, (i = 1 ∧ j = 2 ∨ i = 2 ∧ j = 1) ∧
+      (a6Mod i).FixesPoint (inG G₁) ∧ (a6Mod i).FixesLine (inG G₂) ∧
+      (a6Mod j).FixesPoint (inG G₂) ∧ (a6Mod j).FixesLine (inG G₁) := by
+    rcases hc with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩
+    · exact ⟨1, 2, Or.inl ⟨rfl, rfl⟩,
+        hpt G₁ g5G1 h₁ 1 CFSG.Quasithin.RonanG51.a6_4a_fixesPoint,
+        hln G₂ cA6 h₂ 1 CFSG.Quasithin.RonanG51.a6_4a_fixesLine,
+        hpt G₂ cA6 h₂ 2 CFSG.Quasithin.RonanG51.a6_4b_fixesPoint,
+        hln G₁ g5G1 h₁ 2 CFSG.Quasithin.RonanG51.a6_4b_fixesLine⟩
+    · exact ⟨2, 1, Or.inr ⟨rfl, rfl⟩,
+        hpt G₁ cA6 h₂ 2 CFSG.Quasithin.RonanG51.a6_4b_fixesPoint,
+        hln G₂ g5G1 h₁ 2 CFSG.Quasithin.RonanG51.a6_4b_fixesLine,
+        hpt G₂ g5G1 h₁ 1 CFSG.Quasithin.RonanG51.a6_4a_fixesPoint,
+        hln G₁ cA6 h₂ 1 CFSG.Quasithin.RonanG51.a6_4a_fixesLine⟩
+  have hdim : ![1, 4, 4, 16] i = 4 ∧ ![1, 4, 4, 16] j = 4 := by
+    rcases hij with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;> exact ⟨rfl, rfl⟩
+  have hi0 : (0 : Fin 4) ≠ i := by rcases hij with ⟨rfl, -⟩ | ⟨rfl, -⟩ <;> decide
+  have hj0 : (0 : Fin 4) ≠ j := by rcases hij with ⟨-, rfl⟩ | ⟨-, rfl⟩ <;> decide
+  have hi3 : i ≠ (3 : Fin 4) := by rcases hij with ⟨rfl, -⟩ | ⟨rfl, -⟩ <;> decide
+  have hj3 : j ≠ (3 : Fin 4) := by rcases hij with ⟨-, rfl⟩ | ⟨-, rfl⟩ <;> decide
+  have hij' : i ≠ j := by rcases hij with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;> decide
+  refine ⟨a6Mod 0, a6Mod i, a6Mod j, a6Mod 3, ⟨a6Mod_isIrred 0,
+    CFSG.Quasithin.RonanG51.a6_trivial, by simpa using a6Mod_card 0⟩,
+    ⟨a6Mod_isIrred i, by rw [a6Mod_card, hdim.1]⟩, ⟨a6Mod_isIrred j, by rw [a6Mod_card, hdim.2]⟩,
+    ⟨a6Mod_isIrred 3, by simpa using a6Mod_card 3⟩, a6Mod_not_iso hi0, a6Mod_not_iso hj0,
+    a6Mod_not_iso (by decide), a6Mod_not_iso hij', a6Mod_not_iso hi3, a6Mod_not_iso hj3,
+    fun N hN => ?_, ⟨hpi, hli⟩, ⟨hpj, hlj⟩, ?_⟩
+  · obtain ⟨k, hk⟩ := a6Mod_complete N hN
+    have hall : ∀ k : Fin 4, k = 0 ∨ k = i ∨ k = j ∨ k = 3 := by
+      rcases hij with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;> decide
+    rcases hall k with h | h | h | h <;> rw [h] at hk
+    · exact Or.inl hk
+    · exact Or.inr (Or.inl hk)
+    · exact Or.inr (Or.inr (Or.inl hk))
+    · exact Or.inr (Or.inr (Or.inr hk))
+  · refine ⟨stMod, stMod_isSteinberg, ?_, ?_⟩
+    · obtain ⟨f, hf⟩ := CFSG.Quasithin.RonanG51.a6_three_iso_mrep
+      exact ⟨f, hf⟩
+    · exact CFSG.Quasithin.RonanG51.f4_decomposition (V := stMod.carrier)
+        (LinearEquiv.refl (ZMod 2) _) stMod.ρ (fun g v => rfl)
 
 end G51Cert
 
@@ -191,6 +292,18 @@ end G51Cert
 
 section G52Cert
 
+theorem as_G_5_2 : G_5_2 := by
+  intro T G₁ G₂ hyp V hV hL₁ hL₂
+  obtain ⟨hnt, hS⟩ := hV
+  obtain ⟨L₁, h₁, hL₁⟩ := hL₁
+  obtain ⟨L₂, h₂, hL₂⟩ := hL₂
+  obtain ⟨sylow, le₁, le₂, T_le₁, T_le₂, index₁, index₂, ne, only⟩ := hyp
+  have hτ : Representation.IsIrreducible V.ρ :=
+    CFSG.Quasithin.RonanG51.isIrreducible_of_addSubgroup_bot_or_top V.ρ hS
+  obtain ⟨hcard, hproj⟩ := CFSG.Quasithin.RonanG52.steinberg_of_fixesLines V.ρ hτ sylow le₁ le₂
+    T_le₁ T_le₂ index₁ index₂ ne only L₁ L₂ h₁ h₂
+    (fun g hg l hl => hL₁ ⟨g, le₁ hg⟩ hg l hl) (fun g hg l hl => hL₂ ⟨g, le₂ hg⟩ hg l hl)
+  exact ⟨⟨hnt, hS⟩, hcard, hproj⟩
 
 end G52Cert
 
@@ -244,6 +357,30 @@ section G53Cert
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
+theorem as_G_5_3 : G_5_3 := by
+  intro T G₁ G₂ hyp V₁ V₂ h₁ h₂ B hB1 hB2 hB3
+  obtain ⟨sylow, -, -, -, -, index₁, index₂, -, only⟩ := hyp
+  obtain ⟨c, hcA, hc⟩ := CFSG.Quasithin.RonanG52.exists_conj_g5G1_cA6_iff sylow index₁ index₂ only
+  let toMd : ∀ {X : Type} [Group X], FMod X → CFSG.Quasithin.ShultG53.Md X :=
+    fun V => ⟨V.carrier, V.ρ⟩
+  let ofMd : ∀ {X : Type} [Group X], CFSG.Quasithin.ShultG53.Md X → FMod X :=
+    fun V => ⟨V.carrier, V.ρ⟩
+  have bridge : ∀ (U V : CFSG.Quasithin.ShultG53.Md ↥(alternatingGroup (Fin 6))),
+      U.IsFiveDimCover V → (ofMd U).IsFiveDimCover (ofMd V) := by
+    intro U V h
+    obtain ⟨⟨hcov, huniv⟩, hcard⟩ := h
+    refine ⟨⟨hcov, fun W hW => ?_⟩, hcard⟩
+    obtain ⟨π, hπ⟩ := huniv (toMd W) hW
+    exact ⟨π, hπ⟩
+  have hm := CFSG.Quasithin.ShultG53.g53_main G₁ G₂ c hcA hc (toMd V₁) (toMd V₂) h₁ h₂ B hB1 hB2
+    hB3
+  obtain ⟨p1, p2, ⟨p31, C3, π3, hs3, hk3, he3, hc3⟩, p4, ⟨C5, π5, hs5, hk5, he5, hc5⟩, p6⟩ := hm
+  refine ⟨p1, p2, ⟨p31, ofMd C3, π3, hs3, hk3, he3, bridge _ _ hc3⟩, p4,
+    ⟨ofMd C5, π5, hs5, hk5, he5, bridge _ _ hc5⟩, ?_⟩
+  intro W hW
+  rcases p6 (toMd W) hW with h | h
+  · exact Or.inl h
+  · exact Or.inr (bridge _ _ h)
 
 end G53Cert
 

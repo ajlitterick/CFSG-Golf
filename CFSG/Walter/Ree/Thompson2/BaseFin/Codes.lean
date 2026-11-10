@@ -116,6 +116,8 @@ theorem pe_eq_of_codes {i : ℕ} {p : Equiv.Perm (Fin 9)}
   ext x
   rw [pe_apply, h]
 
+theorem pg_zero : pg 0 = 1 :=
+  Subtype.ext (pe_eq_of_codes (i := 0) (p := 1) (by decide +kernel))
 
 theorem pg_one : pg 1 = PGammaL28.j :=
   Subtype.ext (pe_eq_of_codes (i := 1) (p := pglJ) (by decide +kernel))

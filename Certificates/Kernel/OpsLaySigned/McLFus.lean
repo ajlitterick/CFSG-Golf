@@ -20,6 +20,7 @@ theorem fus5105_seedB : mclFus.seedB = String.ofList LB := LB_eq
 
 theorem fus5105_K : gkfFusK lay A B mclFus = true := by decide +kernel
 
+theorem fus5105_neg : (!gkfFusK lay B A mclFus) = true := by decide +kernel
 
 end CertificateChecks.KernelOpsLaySigned.McL
 

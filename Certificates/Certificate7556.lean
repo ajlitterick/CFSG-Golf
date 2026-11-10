@@ -11,5 +11,7 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG CFSG.ASVolI in
+theorem certificate7556 : burnsideF48s_u42eCheckClass () = true := KernelF48S.checkClass
 
 end Certificates

@@ -26,6 +26,10 @@ theorem inv_mulVec_mulVec (g : GL (Fin 3) (ZMod 2)) (v : V3) :
       ((g : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v) = v := by
   rw [Matrix.mulVec_mulVec, ← Units.val_mul, inv_mul_cancel, Units.val_one, Matrix.one_mulVec]
 
+theorem mulVec_inv_mulVec (g : GL (Fin 3) (ZMod 2)) (v : V3) :
+    (g : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+      (((g⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v) = v := by
+  rw [Matrix.mulVec_mulVec, ← Units.val_mul, mul_inv_cancel, Units.val_one, Matrix.one_mulVec]
 
 @[expose] def gl3Act : GL (Fin 3) (ZMod 2) →* MulAut PermV where
   toFun g :=
@@ -319,6 +323,18 @@ private theorem line_unique (P : (Fin 3 → ZMod 2) → Prop) [DecidablePred P] 
     rw [key]
   simpa using hv
 
+private theorem card_of_rk_two {A : Type} [CommGroup A] [Finite A] (hA : ∀ a : A, a ^ 2 = 1)
+    (W : Subgroup A) (h : CFSG.Quasithin.rk ↥W = 2) : Nat.card W = 4 := by
+  have hP : IsPGroup 2 W := fun w => ⟨1, Subtype.ext (by simpa using hA (w : A))⟩
+  obtain ⟨n, hn⟩ := (IsPGroup.iff_card).1 hP
+  unfold CFSG.Quasithin.rk at h
+  rw [hn, padicValNat.prime_pow] at h
+  rw [hn, h]
+  rfl
+
+private theorem natCard_toAddSubgroup {A : Type} [CommGroup A] (W : Subgroup A) :
+    Nat.card ↥(W.toAddSubgroup) = Nat.card ↥W :=
+  Nat.card_congr (Equiv.subtypeEquiv Additive.ofMul (fun a => Iff.rfl))
 
 private theorem mem_Lpt (k : GL (Fin 3) (ZMod 2)) (p : Fin 3 → ZMod 2) :
     k ∈ Lpt p ↔ ∀ v ∈ ({p} : Set (Fin 3 → ZMod 2)), (k : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v = v :=
@@ -430,12 +446,102 @@ section H54
 open CFSG.Quasithin.MS93 Matrix
 
 
+private theorem conj_data54 (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3)
+    (hyp : HypH5 T p l) :
+    ∃ c : GL (Fin 3) (ZMod 2), (∀ y ∈ B0, c * y * c⁻¹ ∈ T) ∧
+      (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec e1 = p ∧
+      (∀ v : V3, (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v ∈ l ↔ v 2 = 0) := by
+  obtain ⟨-, hTp, hTi⟩ := hyp.sylow
+  rw [Subgroup.relIndex_top_right] at hTi
+  obtain ⟨c, hc⟩ := sylow_conj T hTp hTi
+  have hconjT : ∀ y ∈ B0, c * y * c⁻¹ ∈ T := by
+    intro y hy
+    refine (hc _).2 ?_
+    rw [show c⁻¹ * (c * y * c⁻¹) * c = y by group]
+    exact hy
+  have hcinv : ∀ w : V3,
+      ((c⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+        ((c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec w) = w := by
+    intro w; rw [← mulVec_gl, inv_mul_cancel, Units.val_one, Matrix.one_mulVec]
+  have hcc : ∀ w : V3,
+      (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+        (((c⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec w) = w := by
+    intro w; rw [← mulVec_gl, mul_inv_cancel, Units.val_one, Matrix.one_mulVec]
+  obtain ⟨q, hq⟩ : ∃ q : V3,
+      ((c⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec p = q := ⟨_, rfl⟩
+  have hpq : (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec q = p := by rw [← hq, hcc]
+  have hfixq : ∀ y ∈ B0, (y : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec q = q := by
+    intro y hy
+    have h1 := hyp.p_fix _ (hconjT y hy)
+    rw [mulVec_gl, mulVec_gl, hq] at h1
+    calc (y : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec q
+        = ((c⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+            ((c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec ((y : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec q)) :=
+          (hcinv _).symm
+      _ = q := by rw [h1, hq]
+  have hq0 : q = e1 := by
+    rcases fixB0 q hfixq with h | h
+    · exfalso
+      apply hyp.p_ne
+      rw [← hpq, h, Matrix.mulVec_zero]
+    · exact h
+  have hpc : (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec e1 = p := by rw [← hq0, hpq]
+  have hline : ∀ v : V3, (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v ∈ l ↔ v 2 = 0 := by
+    classical
+    have hfr : Module.finrank (ZMod 2) l = 2 := hyp.l_line
+    have hcardl : Nat.card l = 4 := natCard_of_finrank_two l hfr
+    refine line_unique (fun v => (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v ∈ l) ?_ ?_ ?_ ?_ ?_
+    · simp
+    · intro a b ha hb
+      rw [Matrix.mulVec_add]
+      exact l.add_mem ha hb
+    · let e' : (Fin 3 → ZMod 2) ≃ (Fin 3 → ZMod 2) :=
+        { toFun := fun v => (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v
+          invFun := fun w => ((c⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec w
+          left_inv := hcinv
+          right_inv := hcc }
+      have h1 : (Finset.univ.filter (fun v : Fin 3 → ZMod 2 =>
+            (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v ∈ l)).card =
+          (Finset.univ.filter (fun w : Fin 3 → ZMod 2 => w ∈ l)).card :=
+        Finset.card_equiv e' (fun i => by simp [e'])
+      rw [h1, ← Fintype.card_subtype]
+      have := hcardl
+      rw [Nat.card_eq_fintype_card] at this
+      exact this
+    · intro v hv
+      have h := hyp.l_inv _ (hconjT _ tG_mem) _ hv
+      rw [mulVec_gl, mulVec_gl, hcinv] at h
+      show (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+        ((!![1, 1, 0; 0, 1, 0; 0, 0, 1] : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v) ∈ l
+      rw [← tG_mat]
+      exact h
+    · intro v hv
+      have h := hyp.l_inv _ (hconjT _ uG_mem) _ hv
+      rw [mulVec_gl, mulVec_gl, hcinv] at h
+      show (c : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
+        ((!![1, 0, 0; 0, 1, 1; 0, 0, 1] : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v) ∈ l
+      rw [← uG_mat]
+      exact h
+  exact ⟨c, hconjT, hpc, hline⟩
+
+
 end H54
 
 section H5Lin
 
 set_option synthInstance.maxSize 4096
 set_option synthInstance.maxHeartbeats 800000
+
+
+private theorem sum_V3 {M : Type*} [AddCommMonoid M] (g : V3 → M) :
+    ∑ v : V3, g v = g ![0, 0, 0] + g ![1, 0, 0] + g ![0, 1, 0] + g ![1, 1, 0] +
+      g ![0, 0, 1] + g ![1, 0, 1] + g ![0, 1, 1] + g ![1, 1, 1] := by
+  have h : (Finset.univ : Finset V3) = {![0, 0, 0], ![1, 0, 0], ![0, 1, 0], ![1, 1, 0],
+      ![0, 0, 1], ![1, 0, 1], ![0, 1, 1], ![1, 1, 1]} := by decide
+  rw [h, Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+    Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+    Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_singleton]
+  abel
 
 
 private def D3 (a b c : V3) : ZMod 2 :=

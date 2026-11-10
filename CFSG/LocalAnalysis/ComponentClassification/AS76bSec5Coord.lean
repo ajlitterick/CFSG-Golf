@@ -107,6 +107,7 @@ omit hd in
 omit hd in
 @[expose] noncomputable def cW (hd : Decomp R U W) (v : V) : W := (hd.equiv.symm v).2.2
 
+theorem equiv_apply (p : R × U × W) : hd.equiv p = (p.1 : V) + p.2.1 + p.2.2 := rfl
 
 theorem coord_sum (v : V) : (hd.cR v : V) + hd.cU v + hd.cW v = v :=
   hd.equiv.apply_symm_apply v
@@ -132,6 +133,12 @@ theorem cR_add (v v' : V) : hd.cR (v + v') = hd.cR v + hd.cR v' := by
 theorem cU_add (v v' : V) : hd.cU (v + v') = hd.cU v + hd.cU v' := by
   simp only [cU, map_add, Prod.fst_add, Prod.snd_add]
 
+theorem cW_add (v v' : V) : hd.cW (v + v') = hd.cW v + hd.cW v' := by
+  simp only [cW, map_add, Prod.snd_add]
+
+theorem ext_coord {v v' : V} (h1 : hd.cR v = hd.cR v') (h2 : hd.cU v = hd.cU v')
+    (h3 : hd.cW v = hd.cW v') : v = v' := by
+  rw [← hd.coord_sum v, ← hd.coord_sum v', h1, h2, h3]
 
 theorem cW_eq_zero_iff (v : V) : hd.cW v = 0 ↔ v ∈ R ⊔ U := by
   constructor
@@ -204,6 +211,11 @@ omit hd in
 @[expose] noncomputable def pat (hd : Decomp R U W) (v : V) : Bool × Bool × Bool :=
   (nz (hd.cR v), nz (hd.cU v), nz (hd.cW v))
 
+theorem pat_fst (v : V) : (hd.pat v).1 = true ↔ hd.cR v ≠ 0 := nz_eq_true
+
+theorem pat_snd_fst (v : V) : (hd.pat v).2.1 = true ↔ hd.cU v ≠ 0 := nz_eq_true
+
+theorem pat_snd_snd (v : V) : (hd.pat v).2.2 = true ↔ hd.cW v ≠ 0 := nz_eq_true
 
 theorem pat_eq_iff (v v' : V) : hd.pat v = hd.pat v' ↔
     ((hd.cR v = 0 ↔ hd.cR v' = 0) ∧ (hd.cU v = 0 ↔ hd.cU v' = 0) ∧

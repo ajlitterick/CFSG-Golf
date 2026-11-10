@@ -97,6 +97,9 @@ theorem exists_tab_eq {t : Tab} (h : isTab n t = true) : ∃ σ : Gp n, tab σ =
   · intro i h1 h2
     simp [tab, f]
 
+theorem tab_getElem_lt (σ : Gp n) (i : ℕ) (h : i < (tab σ).length) : (tab σ)[i] < n := by
+  rw [getElem_tab]
+  exact (σ _).isLt
 
 end tabLemmas
 

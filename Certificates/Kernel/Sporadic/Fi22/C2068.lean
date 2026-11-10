@@ -75,6 +75,9 @@ theorem dp_val {t : Nat} (ht : t < 6) : (Dp t ht : Nat) = Db t := by
   rw [Dp, ← fi22ExtDArr_get, Fi22X.dArr_get hb]
   rfl
 
+theorem db_lt {t : Nat} (ht : t < 6) : Db t < 3510 := by
+  rw [← dp_val ht]
+  exact Fin.isLt _
 
 theorem sepS {x y : fi22ExtS}
     (h : ∀ t (ht : t < 6), (((x : Equiv.Perm (Fin 3510)) (Dp t ht) : Fin 3510) : Nat) =

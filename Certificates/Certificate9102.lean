@@ -43,5 +43,6 @@ namespace Certificates
 
 open CertificateChecks
 
+theorem certificate9102 : Finite TauCeti.SporadicName.Co2.Group := KernelCo2.co2.1
 
 end Certificates

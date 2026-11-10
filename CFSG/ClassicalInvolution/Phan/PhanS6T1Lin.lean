@@ -31,6 +31,12 @@ theorem bf_sub_left (x y z : Vec K) : bf M (x - y) z = bf M x z - bf M y z := by
 theorem bf_sub_right (x y z : Vec K) : bf M x (y - z) = bf M x y - bf M x z := by
   rw [bf_comm, bf_sub_left, bf_comm, bf_comm M z]
 
+theorem bf_neg_left (x y : Vec K) : bf M (-x) y = -bf M x y := by
+  have := bf_smul_left M (-1) x y
+  simpa using this
+
+theorem bf_neg_right (x y : Vec K) : bf M x (-y) = -bf M x y := by
+  rw [bf_comm, bf_neg_left, bf_comm]
 
 @[expose] def bfB : LinearMap.BilinForm K (Vec K) :=
   LinearMap.mk₂ K (bf M) (bf_add_left M) (bf_smul_left M) (bf_add_right M)

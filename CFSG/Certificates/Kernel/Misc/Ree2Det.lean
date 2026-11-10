@@ -77,6 +77,12 @@ theorem LogEnv.upd_le (E : LogEnv q1 hf ZT γ) {lp a akj : ℕ} (hlp : lp ≤ q1
   · exact ha
   · exact (E.subL_spec ha (E.mulL_spec hlp hakj).1).1
 
+theorem LogEnv.nv_le (E : LogEnv q1 hf ZT γ) {ip l a akj : ℕ} (hip : ip ≤ q1) (hl : l ≤ q1)
+    (ha : a ≤ q1) (hakj : akj ≤ q1) : nv q1 hf ZT ip l a akj ≤ q1 := by
+  unfold nv
+  split_ifs
+  · exact ha
+  · exact E.upd_le (E.mulL_spec hl hip).1 ha hakj
 
 theorem LogEnv.phi_nv (E : LogEnv q1 hf ZT γ) {ip l a akj : ℕ} (hip : ip ≤ q1) (hl : l ≤ q1)
     (ha : a ≤ q1) (hakj : akj ≤ q1) : phi q1 γ (nv q1 hf ZT ip l a akj) =

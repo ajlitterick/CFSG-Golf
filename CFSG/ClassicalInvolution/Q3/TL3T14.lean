@@ -458,6 +458,11 @@ theorem tightCaseE64Leaf_holds (n : ℕ) : TightCaseE64Leaf n := by
     (hS.oddCore_pSpan_conj hOK g)⟩
 
 
+variable {n : ℕ} in
+theorem tightIndepLeaf_of_thmD3' (hD : TC.Thin.TightThmD3) (h29 : TightCase29Leaf n) :
+    TightIndepLeaf n :=
+  tightIndepLeaf_of_thmD3 hD (tightCaseE64Leaf_holds n) h29
+
 end Cit3
 
 end CFSG.ClassicalInvolution.Q3

@@ -349,6 +349,23 @@ theorem eInv1_ne_eInv2 {r : ℕ} (hr3 : ¬ 3 ∣ r) (hr2 : 2 ∣ r) (h2 : (2 : F
   apply h2
   linear_combination this
 
+theorem eInv1_ne_eInv3 {r : ℕ} (hr3 : ¬ 3 ∣ r) (hr2 : 2 ∣ r) (h2 : (2 : F) ≠ 0) :
+    (eInv1 : projectiveSL 3 F) ≠ eInv3 := by
+  intro h
+  have := (proj_diagSL_inj hr3 (r := r) (a := 1) (b := -1) (c := -1) (a' := -1) (b' := -1) (c' := 1) (by ring)
+    (by ring) (one_pow r) (Even.neg_one_pow (even_iff_two_dvd.2 hr2))
+    (Even.neg_one_pow (even_iff_two_dvd.2 hr2)) (Even.neg_one_pow (even_iff_two_dvd.2 hr2)) h).1
+  apply h2
+  linear_combination this
+
+theorem eInv2_ne_eInv3 {r : ℕ} (hr3 : ¬ 3 ∣ r) (hr2 : 2 ∣ r) (h2 : (2 : F) ≠ 0) :
+    (eInv2 : projectiveSL 3 F) ≠ eInv3 := by
+  intro h
+  have := (proj_diagSL_inj hr3 (r := r) (a := -1) (b := 1) (c := -1) (a' := -1) (b' := -1) (c' := 1) (by ring)
+    (by ring) (Even.neg_one_pow (even_iff_two_dvd.2 hr2)) (one_pow r)
+    (Even.neg_one_pow (even_iff_two_dvd.2 hr2)) (Even.neg_one_pow (even_iff_two_dvd.2 hr2)) h).2.1
+  apply h2
+  linear_combination this
 
 theorem Jexp_invol {r : ℕ} (hr3 : ¬ 3 ∣ r) {j : projectiveSL 3 F} (hj : j ∈ Jexp (F := F) r)
     (hjj : j * j = 1) : j = 1 ∨ j = eInv1 ∨ j = eInv2 ∨ j = eInv3 := by

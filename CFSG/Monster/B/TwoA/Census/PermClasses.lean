@@ -515,6 +515,16 @@ theorem seedPerm_ne_one {j : ℕ} (hj : j = 1 ∨ j = 2) : seedPerm j ≠ 1 := b
     rw [h, fixCount_one] at this
     omega
 
+theorem conj_mem_involutions {g p : Equiv.Perm (Fin 24)} (hg : g ∈ AutPerm) (hp : p ∈ AutPerm)
+    (hpp : p * p = 1) (hp1 : p ≠ 1) :
+    g * p * g⁻¹ ∈ {t | t ∈ AutPerm ∧ t * t = 1 ∧ t ≠ 1} := by
+  refine ⟨AutPerm.mul_mem (AutPerm.mul_mem hg hp) (AutPerm.inv_mem hg), ?_, ?_⟩
+  · calc g * p * g⁻¹ * (g * p * g⁻¹) = g * (p * p) * g⁻¹ := by group
+      _ = 1 := by rw [hpp]; group
+  · intro h
+    apply hp1
+    calc p = g⁻¹ * (g * p * g⁻¹) * g := by group
+      _ = 1 := by rw [h]; group
 
 theorem centGen_zero_zero : centGen 0 0 = bridgePA := by
   rw [centGen, show centGenArrs 0 = centGenArr0 from rfl, ← getElem!_toArray_eq_getD]
@@ -524,5 +534,48 @@ theorem centGen_zero_one : centGen 0 1 = bridgePB := by
   rw [centGen, show centGenArrs 0 = centGenArr0 from rfl, ← getElem!_toArray_eq_getD]
   exact decode_abGens_one
 
+theorem code_permutation_involution_classes :
+    ((∀ k : Fin 10, sylowGen k ∈ AutPerm) ∧ sylowSub ≤ AutPerm ∧ Nat.card sylowSub = 1024 ∧
+      (∃ P : Sylow 2 AutPerm, (P : Subgroup AutPerm) = sylowSub.subgroupOf AutPerm) ∧
+      {x | x ∈ sylowSub ∧ x * x = 1 ∧ x ≠ 1}.ncard = 191) ∧
+    (∀ j, j = 1 ∨ j = 2 → seedPerm j ∈ AutPerm ∧ seedPerm j * seedPerm j = 1 ∧ seedPerm j ≠ 1) ∧
+    {t | t ∈ AutPerm ∧ t * t = 1 ∧ t ≠ 1} = conjClass (seedPerm 1) ∪ conjClass (seedPerm 2) ∧
+    Disjoint (conjClass (seedPerm 1)) (conjClass (seedPerm 2)) ∧
+    (conjClass (seedPerm 1)).ncard = 11385 ∧ (conjClass (seedPerm 2)).ncard = 31878 ∧
+    fixCount (seedPerm 1) = 8 ∧ fixCount (seedPerm 2) = 0 ∧
+    ((centGenArrs 1).length = 5 ∧
+      Subgroup.closure (Set.range fun k : Fin 5 => centGen 1 k) =
+        AutPerm ⊓ Subgroup.centralizer {seedPerm 1} ∧
+      Nat.card (AutPerm ⊓ Subgroup.centralizer {seedPerm 1} : Subgroup _) = 21504) ∧
+    ((centGenArrs 2).length = 5 ∧
+      Subgroup.closure (Set.range fun k : Fin 5 => centGen 2 k) =
+        AutPerm ⊓ Subgroup.centralizer {seedPerm 2} ∧
+      Nat.card (AutPerm ⊓ Subgroup.centralizer {seedPerm 2} : Subgroup _) = 7680) ∧
+    ((centGenArrs 0).length = 2 ∧ centGen 0 0 = bridgePA ∧ centGen 0 1 = bridgePB ∧
+      AutPerm = Subgroup.closure {bridgePA, bridgePB}) := by
+  have hinv : ∀ j, j = 1 ∨ j = 2 →
+      seedPerm j ∈ AutPerm ∧ seedPerm j * seedPerm j = 1 ∧ seedPerm j ≠ 1 := fun j hj =>
+    ⟨seedPerm_mem (by omega), seedPerm_sq hj, seedPerm_ne_one hj⟩
+  refine ⟨⟨sylowGen_mem, sylowSub_le, sylowSub_facts.1, ⟨sylowP, coe_sylowP⟩,
+    ncard_sylowSub_involutions⟩, hinv, ?_, ?_, ?_, ?_, fixCount_seed_one, fixCount_seed_two,
+    ⟨centGenArrs_length (Or.inl rfl), closure_centGen_one, card_centralizer_one⟩,
+    ⟨centGenArrs_length (Or.inr rfl), closure_centGen_two, card_centralizer_two⟩,
+    ⟨rfl, centGen_zero_zero, centGen_zero_one, AutPerm_eq_closure⟩⟩
+  · ext t
+    constructor
+    · rintro ⟨ht, htt, ht1⟩
+      exact involution_mem_conjClass ht htt ht1
+    · rintro (⟨g, hg, rfl⟩ | ⟨g, hg, rfl⟩)
+      · obtain ⟨h1, h2, h3⟩ := hinv 1 (Or.inl rfl)
+        exact conj_mem_involutions hg h1 h2 h3
+      · obtain ⟨h1, h2, h3⟩ := hinv 2 (Or.inr rfl)
+        exact conj_mem_involutions hg h1 h2 h3
+  · rw [Set.disjoint_left]
+    intro x h1 h2
+    have := (fixCount_of_mem_conjClass h1).symm.trans (fixCount_of_mem_conjClass h2)
+    rw [fixCount_seed_one, fixCount_seed_two] at this
+    omega
+  · rw [ncard_conjClass orb1Cert_ok, orb1Cert_size]
+  · rw [ncard_conjClass orb2Cert_ok, orb2Cert_size]
 
 end CFSG.Monster.B.TwoA.Census

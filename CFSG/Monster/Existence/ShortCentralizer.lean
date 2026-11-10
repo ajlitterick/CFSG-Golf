@@ -232,5 +232,11 @@ theorem isSimpleGroup_DA :
     (hPJ.trans JhatA_le_ShatA)
     ((normalizer_le_centralizer_of_center orderOf_xhatA hZ).trans hC)
 
+theorem odd_index_ShatA : Odd ShatA.index := by
+  obtain ⟨P, hPJ, -⟩ := exists_sylow_DA
+  have h1 := P.not_dvd_index
+  have h2 : ShatA.index ∣ (P : Subgroup DA).index := Subgroup.index_dvd_of_le
+    (hPJ.trans JhatA_le_ShatA)
+  exact Nat.odd_iff.2 (Nat.two_dvd_ne_zero.1 fun h => h1 (h.trans h2))
 
 end CFSG.Monster.Existence

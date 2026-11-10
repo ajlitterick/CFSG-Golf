@@ -36,6 +36,17 @@ instance : Inhabited DVec := ⟨⟨0, #[]⟩⟩
 
 @[expose] def DVec.ofList (l : List (Nat × Int)) : DVec := DVec.ofListE 0 l
 
+@[expose] def rndEntry (seed k : Nat) : Int :=
+  let x := seed * 1000003 + k + 88172645463325252
+  let x := (x ^^^ (x >>> 30)) * 13787848793156543929 % 2 ^ 64
+  let x := (x ^^^ (x >>> 27)) * 10723151780598845931 % 2 ^ 64
+  let x := x ^^^ (x >>> 31)
+  ((x % 7 : Nat) : Int) - 3
+
+@[expose] def randDVec (seed : Nat) : DVec :=
+  ⟨0, Array.ofFn (n := 196884) fun k => rndEntry seed k.val⟩
+
+@[expose] def aStarDVec (_ : Unit) : DVec := DVec.ofList [(0, 1), (1, 1), (24, -1), (300, -2)]
 
 structure GD where
   latS : Nat
@@ -77,6 +88,7 @@ inductive Gen where
   | .xi => ⟨1, xiG, tabT conjXiN, tabD conjXiN, 6, xiRows ()⟩
   | .tau => ⟨0, #[], #[], #[], 0, #[]⟩
 
+@[expose] def Gen.xiPow (e : Nat) : List Gen := List.replicate e Gen.xi
 
 @[expose] def Gen.tauPow (e : Nat) : List Gen := List.replicate e Gen.tau
 
@@ -131,11 +143,18 @@ inductive Gen where
 @[expose, noinline] def checkWordC (c : Ctx) (w : List Gen) (v v' : DVec) : Bool :=
   w.all (fun g => g.validB) && (evalWordC c w v).eqv v'
 
+@[expose] def checkWord (w : List Gen) (v v' : DVec) : Bool := checkWordC (mkCtx ()) w v v'
 
 @[expose, noinline] def checkWordsC (c : Ctx) (ws : List (List Gen × DVec × DVec)) : Bool :=
   ws.all fun x => checkWordC c x.1 x.2.1 x.2.2
 
 @[expose] def checkWords (ws : List (List Gen × DVec × DVec)) : Bool := checkWordsC (mkCtx ()) ws
 
+@[expose, noinline] def checkEqsC (c : Ctx) (vs : Array DVec) (items : List (List Gen × Nat × Nat)) :
+    Bool :=
+  items.all fun x => checkWordC c x.1 vs[x.2.1]! vs[x.2.2]!
+
+@[expose] def checkEqs (vs : Array DVec) (items : List (List Gen × Nat × Nat)) : Bool :=
+  checkEqsC (mkCtx ()) vs items
 
 end CFSG.Monster.AxisCount.Native

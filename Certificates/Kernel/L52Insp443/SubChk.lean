@@ -37,6 +37,16 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM CFSG.KC.L52I
 #kc_each ch725109sk 0 6
 #kc_each ch725109sc 0 12
 
+theorem ch725109n_ebas :
+    notB (ebasK (List.cons (D.zB.getD 0 [] |>.getD 0 0) (D.zB.getD 0 []))) = true := by
+  quickRfl
+
+theorem ch725109n_sub : notB (subKOK (D.k2B.getD 0 []) (D.zB.getD 0 [])) = true := by
+  quickRfl
+
+theorem ch725109n_irr : notB (irrK D.x7p D.x7q (D.k2B.getD 0 []) (wC (D.k2w.getD 0 0))
+    (DI.irr2.getD 1 [])) = true := by
+  quickRfl
 
 end CertificateChecks.KernelL52I
 

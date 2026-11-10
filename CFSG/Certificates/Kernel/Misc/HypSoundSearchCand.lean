@@ -146,6 +146,9 @@ private theorem extK'_or (L : Nat) (l : List Nat) (S : Nat) :
     rw [ih]
     exact extBit_or L a S (extK' L t 0)
 
+private theorem extK'_or_base (L : Nat) (l : List Nat) (S d : Nat) :
+    extK' L l (S ||| d) = S ||| extK' L l d := by
+  rw [extK'_or L l (S ||| d), extK'_or L l d, Nat.or_assoc]
 
 theorem hypCand_extK_or (LB : Nat → Nat) (NL : Nat → List Nat) (x j S : Nat) :
     extK LB NL x j S = S ||| extK LB NL x j 0 := by
@@ -263,6 +266,15 @@ private theorem testBit_foldl_or (l : List Nat) (g : Nat → Nat) (S p : Nat) :
   | cons a t ih =>
     rw [List.foldl_cons, ih, Nat.testBit_or, List.any_cons, Bool.or_assoc]
 
+private theorem testBit_foldl_or' (l : List Nat) (g : Nat → Bool) (S p : Nat) :
+    (l.foldl (fun acc y => if g y then acc else acc ||| 2 ^ y) S).testBit p
+      = (S.testBit p || l.any (fun y => (!g y && decide (y = p)))) := by
+  rw [show (fun acc y => if g y then acc else acc ||| 2 ^ y)
+      = (fun acc y => acc ||| (if g y then 0 else 2 ^ y)) from by
+        funext acc y; by_cases h : g y = true <;> simp [h]]
+  rw [testBit_foldl_or]
+  congr 1
+  exact List.any_congr rfl (fun y => testBit_ite_zero_two_pow (g y) y p)
 
 private theorem any_congr_mem (l : List Nat) {p q : Nat → Bool} (h : ∀ y ∈ l, p y = q y) :
     l.any p = l.any q := by

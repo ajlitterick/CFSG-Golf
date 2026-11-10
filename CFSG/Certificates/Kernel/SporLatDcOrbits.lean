@@ -66,6 +66,15 @@ theorem sep_lt {p : ℕ} (hp : p ∈ P.D.sep) : p < n := by
   rw [← P.hn]
   exact h
 
+private theorem osz_length : P.D.osz.length = P.D.obase.length := by
+  have h := (global_parts P).2.2.2.2.2.1
+  rw [Nat.beq_eq] at h
+  exact h
+
+private theorem K_length : P.D.K.length = P.D.obase.length := by
+  have h := (global_parts P).2.2.2.2.2.2.1
+  rw [Nat.beq_eq] at h
+  exact h
 
 theorem mw_length_pos : 0 < P.D.mw.length := by
   have h := (global_parts P).2.2.2.2.2.2.2.1
@@ -85,6 +94,10 @@ private theorem Rc_pos : 0 < P.D.Rc.length := by
   rw [Nat.blt_eq] at h
   exact h
 
+private theorem csz_pos : 0 < P.D.csz := by
+  have h := (global_parts P).2.2.2.2.2.2.2.2.2.2.2.1
+  rw [Nat.blt_eq] at h
+  exact h
 
 theorem msum_length : P.D.msum.length = P.D.Rc.length := by
   have h := (global_parts P).2.2.2.2.2.2.2.2.2.2.2.2.1
@@ -221,6 +234,13 @@ private theorem pcz_pos (hn : 0 < n) : 0 < P.D.pcz := by
     omega
   · exact h
 
+private theorem npc_pos (hn : 0 < n) : 0 < P.D.npc := by
+  rcases Nat.eq_zero_or_pos P.D.npc with h | h
+  · have h1 := n_le P
+    rw [h, Nat.zero_mul] at h1
+    have h3 := P.hn
+    omega
+  · exact h
 
 private theorem ptOK_of_lt {p : ℕ} (hp : p < n) : ptOK P.C P.D p = true := by
   have hmem : p ∈ List.range' ((p / P.D.pcz) * P.D.pcz) P.D.pcz := by

@@ -22,6 +22,8 @@ variable {K : Type*} [Field K] {d : ℕ} {Q : QuadraticForm K (Fin d → K)} {a 
 @[expose] def subW (K : Type*) [Field K] (a a' b b' : Fin d) : Submodule K (Fin d → K) :=
   perpSub K a a' ⊓ perpSub K b b'
 
+theorem mem_subW {v : Fin d → K} :
+    v ∈ subW K a a' b b' ↔ (v a = 0 ∧ v a' = 0) ∧ v b = 0 ∧ v b' = 0 := Iff.rfl
 
 theorem piW_apply_of_ne {i : Fin d} (h1 : i ≠ a) (h2 : i ≠ a') (h3 : i ≠ b) (h4 : i ≠ b')
     (v : Fin d → K) : piW a a' b b' v i = v i := by
@@ -194,6 +196,8 @@ variable {K : Type*} [Field K] {d : ℕ} {Q : QuadraticForm K (Fin d → K)} {a 
 theorem IsHypCoord.polar_comm_left (h : IsHypCoord Q a a') (x : Fin d → K) :
     polar Q x (Pi.single a 1) = x a' := by rw [polar_comm, h.polar_left]
 
+theorem IsHypCoord.polar_comm_right (h : IsHypCoord Q a a') (x : Fin d → K) :
+    polar Q x (Pi.single a' 1) = x a := by rw [polar_comm, h.polar_right]
 
 @[expose] noncomputable def eichlerTriple (Q : QuadraticForm K (Fin d → K)) (a b : Fin d)
     (w₁ w₂ : Fin d → K) (c : K) : (Fin d → K) ≃ₗ[K] (Fin d → K) :=

@@ -293,6 +293,28 @@ theorem toVM_idW {d : ℕ} (hd : d ≤ 256) : toVM (idW d) = idM d := by
   rw [Nat.one_shiftLeft]
   exact Nat.pow_lt_pow_right (by norm_num) (by omega)
 
+theorem toVM_powW {d : ℕ} (hd : d ≤ 256) (M : Array W) (e : ℕ) :
+    toVM (powW d M e) = powM d (toVM M) e := by
+  induction e with
+  | zero => exact toVM_idW hd
+  | succ e ih => rw [powW, powM, toVM_mulW, ih]
+
+theorem toVM_prodW {d : ℕ} (hd : d ≤ 256) (mats : Array (Array W)) (word : List ℕ) :
+    toVM (prodW d mats word) = prodM d (mats.map toVM) word := by
+  unfold prodW prodM
+  rw [← toVM_idW hd]
+  generalize idW d = M
+  induction word generalizing M with
+  | nil => rfl
+  | cons x w ih =>
+    rw [List.foldl_cons, List.foldl_cons, ih, toVM_mulW]
+    congr 2
+    by_cases hx : x < mats.size
+    · rw [getElem!_pos (mats.map toVM) x (by simpa using hx), Array.getElem_map,
+        getElem!_pos mats x hx]
+    · rw [getElem!_neg (mats.map toVM) x (by simpa using hx), getElem!_neg mats x hx]
+      show toVM #[] = #[]
+      simp [toVM]
 
 theorem W.wf_spec {a : W} (h : a.wf = true) : a.toV.wf = true := by
   unfold W.wf at h

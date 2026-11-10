@@ -89,6 +89,11 @@ theorem closure_res_list {m : ℕ} {M : Type*} [Group M] (f : ruC →* M)
     refine ⟨⟨l[i], List.getElem_mem hi'⟩, ?_⟩
     rw [List.getD_eq_getElem l 1 hi', hf' _ (hl _ (List.getElem_mem hi'))]
 
+theorem rep_ruResF'
+    {t : Array ℕ} {g : Equiv.Perm (Fin 4060)} (ht : Rep 4060 t g)
+    (hg : g ∈ ruC) : Rep 1920 (resA ruF ruFPos t) (ruResF ⟨g, hg⟩) := by
+  rw [← ruResFPerm_of_mem hg]
+  exact rep_ruResF ht hg
 
 theorem chain1920_original
     {f k : ℕ} {l : List (Equiv.Perm (Fin 4060))}

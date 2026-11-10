@@ -488,6 +488,50 @@ private theorem p0_pointEmbedding
   rw [pointEmbedding_val, hraw', ← pointEmbedding_val]
   exact hP0get
 
+private theorem p0_initial_finite_spec
+    (hcheck : PermutationNative.bridgeCheck
+      (CFSG.LieType.Multipliers.L34.coverWs.map
+        (List.map CFSG.Certificates.schreierLetterCode))
+      (CFSG.LieType.Multipliers.L34.zThree.map
+        CFSG.Certificates.schreierLetterCode) = true) :
+    (∀ i : Fin 9,
+      (FreeGroup.lift ksIn)
+        (FreeGroup.mk (CFSG.Monster.B.Co2.toLetters 2
+          (PermutationNative.inputs ()).pw[i.val]!)) = p0In hcheck i) ∧
+    (P0 hcheck).map Khat.subtype = Subgroup.closure (Set.range p0Perm) ∧
+    Nat.card P0448 = 1024 ∧
+    (∀ i : Fin 9, ∃ q : Fin 256,
+      q.val = (PermutationNative.inputs ()).inn[i.val]! ∧
+      MulAut.conj (p0In hcheck i) = PermutationActions.alpha hcheck q) ∧
+    (P0 hcheck).map (MulAut.conj : Khat →* MulAut Khat) ≤ PermutationActions.T hcheck := by
+  refine ⟨?_, p0_ambient_map hcheck, card_P0448 hcheck, ?_, p0_conj_image_le_T hcheck⟩
+  · intro i
+    apply Subtype.ext
+    simpa [D, p0In] using p0_lift_coe hcheck i
+  · intro i
+    exact ⟨innerIndex hcheck i, rfl, inner_action_eq hcheck i⟩
+
+theorem original_p0_finite_spec
+    (hcheck : PermutationNative.bridgeCheck
+      (CFSG.LieType.Multipliers.L34.coverWs.map
+        (List.map CFSG.Certificates.schreierLetterCode))
+      (CFSG.LieType.Multipliers.L34.zThree.map
+        CFSG.Certificates.schreierLetterCode) = true) :
+    (∀ i : Fin 9,
+      (FreeGroup.lift ksIn)
+        (FreeGroup.mk (CFSG.Monster.B.Co2.toLetters 2
+          (PermutationNative.inputs ()).pw[i.val]!)) = p0In hcheck i) ∧
+    (P0 hcheck).map Khat.subtype = Subgroup.closure (Set.range p0Perm) ∧
+    (∀ (i : Fin 9) (x : Fin 448),
+      pointEmbedding hcheck (restrictedP0Perm i x) =
+        p0Perm i (pointEmbedding hcheck x)) ∧
+    Nat.card P0448 = 1024 ∧
+    (∀ i : Fin 9, ∃ q : Fin 256,
+      q.val = (PermutationNative.inputs ()).inn[i.val]! ∧
+      MulAut.conj (p0In hcheck i) = PermutationActions.alpha hcheck q) ∧
+    (P0 hcheck).map (MulAut.conj : Khat →* MulAut Khat) ≤ PermutationActions.T hcheck := by
+  obtain ⟨hmem, hamb, hcard, hinner, hle⟩ := p0_initial_finite_spec hcheck
+  exact ⟨hmem, hamb, p0_pointEmbedding hcheck, hcard, hinner, hle⟩
 
 private theorem factorization_two_322560 : (322560 : ℕ).factorization 2 = 10 := by
   rw [show (322560 : ℕ) = 2 ^ 10 * 315 by norm_num,

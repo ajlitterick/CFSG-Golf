@@ -17,6 +17,11 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.SporSch.M24 CFSG.Sporadic.SmallF2.Native
 theorem ptK_lt (T : Nat → Nat) (k : Nat) : ptK T k < 2 ^ 24 :=
   lt_of_le_of_lt (Nat.and_le_right (n := recK T k) (m := 16777215)) (by norm_num)
 
+theorem iaK_le (T : Nat → Nat) (k : Nat) : iaK T k ≤ 131071 :=
+  Nat.and_le_right
+
+theorem ibK_le (T : Nat → Nat) (k : Nat) : ibK T k ≤ 131071 :=
+  Nat.and_le_right
 
 theorem imgStep_ok {T : Nat → Nat} {w i c : Nat} (h : imgStep T w i c < failC) :
     i ≤ c ∧ ptK T i = w ∧ imgStep T w i c = if i = c then c + 1 else c := by

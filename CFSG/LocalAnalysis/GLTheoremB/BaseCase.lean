@@ -218,6 +218,12 @@ theorem lemma91_i (hS : GLStanding G m p) {B M : Subgroup G} (hB : IsBOneMax p B
   exact (Subgroup.centralizer_le_normalizer _).trans
     (normalizer_le_of_hyperplane hS hB hM hK.1 hK.2)
 
+theorem lemma91_iff : Lemma91 ↔ Lemma91ii := by
+  constructor
+  · intro h G _ _ m p hS B M hB hM b hb hb1
+    exact (h G m p hS B M hB hM b hb hb1).2
+  · intro h G _ _ m p hS B M hB hM b hb hb1
+    exact ⟨lemma91_i hS hB hM hb, h G m p hS B M hB hM b hb hb1⟩
 
 theorem pCoreOf_inf_centralizer_le (h91 : Lemma91ii) (hS : GLStanding G m p) {B M : Subgroup G}
     (hB : IsBOneMax p B) (hM : IsPreUniquenessTwoLocal p B M) {b : G} (hb : b ∈ B) (hb1 : b ≠ 1) :
@@ -351,6 +357,41 @@ theorem lemma94_of_lemma91ii_lemma92 (h91 : Lemma91ii) (h92 : Lemma92) : Lemma94
       hOSig, (sigmaOf_le_sigmaStar D).trans hSS⟩
   exact ⟨(hinf _ hSig).2.2.1, (hinf _ hSig).2.2.2⟩
 
+@[expose] def TheoremTwoBase : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (m p : ℕ), GLStanding G m p →
+    ∀ B M : Subgroup G, IsBOneMax p B → IsPreUniquenessTwoLocal p B M →
+      ∀ D : Subgroup G, IsPPlane p D → D ≤ B →
+        IsPGroup 2 (gammaStar p D) ∧
+          (∀ g : G, gammaStar p (GLBConj g D) = GLBConj g (gammaStar p D)) ∧
+          (D ≤ M → IsTwoConnectedIn p M D B →
+            pCoreOf 2 M ≤ gammaStar p D ∧ gammaStar p D ≤ M ∧
+              ∀ T : Subgroup G, pCoreOf 2 M ≤ T → T ≤ gammaStar p D →
+                Subgroup.normalizer (T : Set G) ≤ M)
+
+theorem isTwoConnectedIn_of_plane_le (hS : GLStanding G m p) {B M D : Subgroup G}
+    (hB : IsBOneMax p B) (hM : IsPreUniquenessTwoLocal p B M) (hD : IsPPlane p D) (hDB : D ≤ B) :
+    D ≤ M ∧ IsTwoConnectedIn p M D B := by
+  have hp := hS.prime
+  have : Fact p.Prime := ⟨hp⟩
+  have hBM := le_of_isPreUniquenessTwoLocal hS hB hM
+  have hm4 := hS.four_le
+  have hBc : p ^ 2 ≤ Nat.card B := by
+    rw [hS.card_eq hB]
+    exact Nat.pow_le_pow_right hp.pos (by omega)
+  exact ⟨hDB.trans hBM, isTwoConnectedIn_of_le
+    ⟨hDB.trans hBM, hD.1, not_isCyclic_of_isElemAbelian hD.1 (hD.2 ▸ le_rfl)⟩
+    ⟨hBM, hB.1.1, not_isCyclic_of_isElemAbelian hB.1.1 hBc⟩ hDB⟩
+
+theorem theoremTwoBase_of_prop98 (h : Prop98) : TheoremTwoBase := by
+  intro G _ _ m p hS B M hB hM D hD hDB
+  obtain ⟨-, h98⟩ := h G m p hS B M hB hM
+  have hDeq : gammaStar p D = pCoreOf 2 M := h98 D hDB hD
+  refine ⟨isPGroup_gammaStar p D, fun g => gammaStar_gLBConj p g D, fun _ _ => ?_⟩
+  refine ⟨hDeq.symm.le, hDeq.le.trans (CFSG.LieType.BorelTits.pCoreOf_le 2 M), ?_⟩
+  intro T hT1 hT2
+  have hTeq : T = pCoreOf 2 M := le_antisymm (hDeq ▸ hT2) hT1
+  rw [hTeq]
+  exact (normalizer_pCoreOf_eq_of_isMaxTwoLocal hM.1).le
 
 end Setting
 

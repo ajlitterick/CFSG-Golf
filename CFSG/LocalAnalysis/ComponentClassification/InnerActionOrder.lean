@@ -32,5 +32,19 @@ theorem centerless_card (G : Type*) [Group G] (hcenter : Subgroup.center G = ⊥
   rw [inner_card, hcenter]
   exact Nat.card_congr (QuotientGroup.quotientBot (G := G)).toEquiv
 
+theorem image_card {G : Type*} [Group G] (image : Subgroup (MulAut G))
+    (hinner : OuterAutomorphisms.inner G ≤ image) :
+    Nat.card image = Nat.card (OuterAutomorphisms.inner G) *
+      Nat.card (((QuotientGroup.mk' (OuterAutomorphisms.inner G)).comp image.subtype).range) := by
+  let quotient := (QuotientGroup.mk' (OuterAutomorphisms.inner G)).comp image.subtype
+  have hkernel : quotient.ker = (OuterAutomorphisms.inner G).subgroupOf image := by
+    ext automorphism
+    exact QuotientGroup.eq_one_iff automorphism.val
+  have hkernelCard : Nat.card quotient.ker = Nat.card (OuterAutomorphisms.inner G) := by
+    rw [hkernel]
+    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe hinner).toEquiv
+  have hcard := quotient.ker.card_mul_index
+  rw [Subgroup.index_ker, hkernelCard] at hcard
+  exact hcard.symm
 
 end CFSG.ComponentClassification.InnerActionOrder

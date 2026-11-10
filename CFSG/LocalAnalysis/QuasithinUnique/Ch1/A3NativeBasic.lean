@@ -88,5 +88,12 @@ theorem A36CoreCat.toStrong {G : Type} [Group G] {L : Subgroup G} (h : A36CoreCa
     ∀ T : Subgroup X, CFSG.QuasithinUnique.IsSylowTwoOf T ⊤ → ∀ B ∈ lFamily T, B ≠ ⊤ →
       A312Case B ⊤
 
+structure A3CoreFactsCat : Prop where
+  a134 : A134RankOneFact
+  schreier : SchreierFactListCat
+  a312list : A312ListFactsCat
+  threeCover : ThreeCoverFactCat
+
+abbrev A3FactsCat : Prop := A3CoreFactsCat
 
 end CFSG.QuasithinUnique.Vol2Native

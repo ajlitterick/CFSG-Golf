@@ -19,6 +19,8 @@ open CFSG.KLie.CT (anyN sumN andB orB notB pw2 bit)
 
 @[expose] noncomputable def linK (w : Nat) (imgs : List Nat) : Nat := pmk 64 w fun x => linVK imgs x
 
+@[expose] noncomputable def presK (w : Nat) (oval : List (List Nat)) (t : Nat) : Bool :=
+  oval.all fun L => oval.any fun L' => L.all fun x => L'.contains (pgC 64 w t x)
 
 @[expose] noncomputable def memK (L : List Nat) (y : Nat) : Bool :=
   List.rec (motive := fun _ => Bool) false (fun a _ ih => orB (Nat.beq a y) ih) L

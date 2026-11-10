@@ -104,6 +104,10 @@ theorem gramForm_single (i j : Fin 78) :
     (ρ : sliceGroup lab Y →* stdGroup) : sliceGroup lab Y →* Equiv.Perm fixedL :=
   actStar.comp ((SemidirectProduct.inl : stdGroup →* GStar).comp ρ)
 
+theorem actH_apply
+    {S V : Type*} [Group S] {lab : V → S} {Y : Set V}
+    (ρ : sliceGroup lab Y →* stdGroup) (h : sliceGroup lab Y) (u : fixedL) :
+    actH ρ h u = actStar (SemidirectProduct.inl (ρ h)) u := rfl
 
 theorem actH_eq_gL
     {S V : Type*} [Group S] {lab : V → S} {Y : Set V}

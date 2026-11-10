@@ -28,6 +28,12 @@ theorem z73_canon : canonL R73 = true := by quickRfl
 theorem z73_t1 : andB (Nat.blt 168617 182919) (andB (Nat.beq (valF 576 (S73tab 168617))
     (getL 0 R73 86)) (Nat.beq (clsA (A73tab 168617)) 5)) = true := by quickRfl
 
+theorem z73_neg : (!chunksK (act73 R73) 14 (getL 0 R73 86) S73tab 182919 576 4 18 64 2691 1 &&
+    !allN 1 (fun c => auxRun73 R73 S73tab (fun i => A73tab (i + 1)) 576 4 18 (c * 64) 64) &&
+    !faithK (trK 24 (getL 0 R73 27)) (trK 24 (getL 0 R73 76)) Z2P (FV2.set 5 (FV2.getD 4 0 + 1)) &&
+    !treeOK71 Z0G Z0P Z0Par Z0Lab 383 &&
+    !allN 4 (fun c => Nat.beq (preA (A73tab 182919) c) (getL 0 [7168, 2048, 28671, 759] c))) =
+    true := by quickRfl
 
 end CFSG.KD.Co1M
 

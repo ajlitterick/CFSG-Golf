@@ -26,6 +26,7 @@ theorem thirdFacts : ThirdFacts := by
   obtain ⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩, h7⟩, h8⟩ := h
   exact ⟨h1, h2, h3, h4, h5, h6, h7, h8⟩
 
+theorem thB_size : thB.size = 13 := beq_iff_eq.1 thirdFacts.base_size
 
 theorem thB_lt {j : ℕ} (hj : j < 13) : thB[j]! < 2300 := by
   have := allLt_iff.1 thirdFacts.base_lt j hj
@@ -179,5 +180,54 @@ theorem exists_thT_inv_mul_mem
   rw [← h1, inv_mul_cancel_left]
   exact s'.2
 
+theorem prodFrom_mem
+    {k : ℕ → ℕ} : ∀ (f j : ℕ), j + f = 13 →
+    (∀ i, j ≤ i → i < 13 → k i < tsz i) → prodFrom k f j ∈ stabB j
+  | 0, j, hj, _ => by
+    rw [prodFrom]
+    exact (stabB j).one_mem
+  | f + 1, j, hj, hk => by
+    rw [prodFrom]
+    exact (stabB j).mul_mem (thT_mem_stabB (by omega) (hk j le_rfl (by omega)))
+      (stabB_succ_le j (prodFrom_mem f (j + 1) (by omega) fun i hi hi' => hk i (by omega) hi'))
+
+theorem exists_prodFrom :
+    ∀ (f j : ℕ), j + f = 13 → ∀ s ∈ stabB j,
+    ∃ k : ℕ → ℕ, (∀ i, j ≤ i → i < 13 → k i < tsz i) ∧ s = prodFrom k f j
+  | 0, j, hj, s, hs => by
+    have h13 : j = 13 := by omega
+    subst h13
+    rw [stabB_thirteen, Subgroup.mem_bot] at hs
+    exact ⟨fun _ => 0, fun i hi hi' => by omega, by rw [hs, prodFrom]⟩
+  | f + 1, j, hj, s, hs => by
+    obtain ⟨k0, hk0, hs'⟩ := exists_thT_inv_mul_mem (by omega) hs
+    obtain ⟨k', hk', he⟩ := exists_prodFrom f (j + 1) (by omega) _ hs'
+    refine ⟨Function.update k' j k0, fun i hi hi' => ?_, ?_⟩
+    · rcases eq_or_lt_of_le hi with rfl | hlt
+      · rw [Function.update_self]
+        exact hk0
+      · rw [Function.update_of_ne (by omega)]
+        exact hk' i hlt hi'
+    · rw [prodFrom, Function.update_self, prodFrom_congr f (j + 1) (k' := k')
+        fun i hi => Function.update_of_ne (by omega) _ _, ← he, mul_inv_cancel_left]
+
+theorem prodFrom_inj :
+    ∀ (f j : ℕ), j + f = 13 → ∀ (k k' : ℕ → ℕ),
+    (∀ i, j ≤ i → i < 13 → k i < tsz i) → (∀ i, j ≤ i → i < 13 → k' i < tsz i) →
+    prodFrom k f j = prodFrom k' f j → ∀ i, j ≤ i → i < 13 → k i = k' i
+  | 0, j, hj, _, _, _, _, _, i, hi, hi' => by omega
+  | f + 1, j, hj, k, k', hk, hk', h, i, hi, hi' => by
+    rw [prodFrom, prodFrom] at h
+    have hm := prodFrom_mem f (j + 1) (by omega) fun i hi hi' => hk i (by omega) hi'
+    have hm' := prodFrom_mem f (j + 1) (by omega) fun i hi hi' => hk' i (by omega) hi'
+    have h2 := congrArg (fun g : Equiv.Perm (Fin 2300) => g (bpt j)) h
+    simp only [Equiv.Perm.mul_apply, hm.2 j (by omega), hm'.2 j (by omega)] at h2
+    have hkj : k j = k' j := thT_inj (by omega) (hk j le_rfl (by omega))
+      (hk' j le_rfl (by omega)) h2
+    rcases eq_or_lt_of_le hi with rfl | hlt
+    · exact hkj
+    · rw [hkj] at h
+      exact prodFrom_inj f (j + 1) (by omega) k k' (fun i hi hi' => hk i (by omega) hi')
+        (fun i hi hi' => hk' i (by omega) hi') (mul_left_cancel h) i hlt hi'
 
 end CFSG.Sporadic.Co2Schreier

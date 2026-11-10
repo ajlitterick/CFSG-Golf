@@ -34,6 +34,9 @@ variable (m)
 
 variable {m}
 
+theorem kappa_injective : Function.Injective (kappa m) := by
+  intro B B' h
+  exact levi_injective (pairActN_injective (congrArg Subtype.val h))
 
 theorem exists_eq_kappa_or (g : Mv m) :
     (∃ B : GL (Fin m) (ZMod 2), g = kappa m B) ∨
@@ -59,5 +62,58 @@ instance kappa_range_normal : (kappa m).range.Normal where
       rw [map_mul, map_mul, map_inv, ← swapElt_mul_kappa_mul_inv]
       group
 
+variable (m)
+
+noncomputable def conjAction : Mv m →* MulAut (GL (Fin m) (ZMod 2)) :=
+  (MulAut.congr (MonoidHom.ofInjective (kappa_injective (m := m))).symm).toMonoidHom.comp
+    MulAut.conjNormal
+
+variable {m}
+
+theorem kappa_conjAction (g : Mv m) (X : GL (Fin m) (ZMod 2)) :
+    kappa m (conjAction m g X) = g * kappa m X * g⁻¹ := by
+  simp [conjAction, MonoidHom.apply_ofInjective_symm, MulAut.conjNormal_apply,
+    MonoidHom.ofInjective_apply]
+
+theorem conjAction_kappa (B X : GL (Fin m) (ZMod 2)) :
+    conjAction m (kappa m B) X = B * X * B⁻¹ := by
+  apply kappa_injective
+  rw [kappa_conjAction]
+  simp only [map_mul, map_inv]
+
+theorem conjAction_kappa_mul_swapElt (B X : GL (Fin m) (ZMod 2)) :
+    conjAction m (kappa m B * swapElt m) X = B * dualGLn m X * B⁻¹ := by
+  apply kappa_injective
+  rw [kappa_conjAction, map_mul, map_mul, map_inv, ← swapElt_mul_kappa_mul_inv]
+  group
+
+theorem conjAction_injective (hm : 3 ≤ m) : Function.Injective (conjAction m) := by
+  rw [injective_iff_map_eq_one]
+  intro g hg
+  have key : ∀ X, conjAction m g X = X := fun X => by rw [hg]; rfl
+  rcases exists_eq_kappa_or g with ⟨B, rfl⟩ | ⟨B, rfl⟩
+  · have hB : B = 1 := eq_one_of_forall_commute_GL (by omega) fun X => by
+      have h := key X
+      rw [conjAction_kappa] at h
+      calc B * X = B * X * B⁻¹ * B := by group
+        _ = X * B := by rw [h]
+    rw [hB, map_one]
+  · exfalso
+    refine dualGLn_not_inner hm ⟨B⁻¹, fun X => ?_⟩
+    have h := key X
+    rw [conjAction_kappa_mul_swapElt] at h
+    calc dualGLn m X = B⁻¹ * (B * dualGLn m X * B⁻¹) * B := by group
+      _ = B⁻¹ * X * B⁻¹⁻¹ := by rw [h]; group
+
+theorem conjAction_surjective (hm : 3 ≤ m) : Function.Surjective (conjAction m) := by
+  intro α
+  obtain ⟨B, hB | hB⟩ := exists_aut_form_GL_two hm α
+  · refine ⟨kappa m B, MulEquiv.ext fun X => ?_⟩
+    rw [conjAction_kappa, hB]
+  · refine ⟨kappa m B * swapElt m, MulEquiv.ext fun X => ?_⟩
+    rw [conjAction_kappa_mul_swapElt, hB]
+
+noncomputable def mulEquivAut (hm : 3 ≤ m) : Mv m ≃* MulAut (GL (Fin m) (ZMod 2)) :=
+  MulEquiv.ofBijective (conjAction m) ⟨conjAction_injective hm, conjAction_surjective hm⟩
 
 end CFSG.ASVolI.ChH.AutPair

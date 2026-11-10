@@ -99,6 +99,19 @@ theorem cv_reps : RK.all (fun r => pairCondK S0sL S0nL r.1 r.2) = true := by dec
 
 theorem cv_wit : PW.all (cwOK RK) = true := by decide +kernel
 
+theorem cv_s0s_neg : (!swapsKK K1c K2c oneK) = true := by decide +kernel
+
+theorem cv_s0n_neg : (!normKK K1c 409405) = true := by decide +kernel
+
+theorem cv_pairs_neg : (!pairCondK S0sL (S0nL.eraseIdx 5) 409405 81126) = true := by decide +kernel
+
+theorem cv_pairs_neg2 : (!pairCondK S0sL S0nL 409405 79254) = true := by decide +kernel
+
+theorem cv_wit_neg : (!(PW.set 0 (409405, 81126, 0, 18781)).all (cwOK RK)) = true := by decide +kernel
+
+theorem cv_wit_neg2 : (!(PW.set 0 (409405, 81126, 1, 18780)).all (cwOK RK)) = true := by decide +kernel
+
+theorem cv_wit_neg3 : (!cwOK RK (409405, 81126, 0, 409405)) = true := by decide +kernel
 
 end CertificateChecks.FiveStd
 

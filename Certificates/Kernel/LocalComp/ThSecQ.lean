@@ -14,6 +14,7 @@ open CFSG.KC.OpsF2K CFSG.SectionRank.Native CertificateChecks.Th8
 
 theorem sec_Q : secQ 248 SA.M SB.M thSec = true := by decide +kernel
 
+theorem sec_negQ : (!secQ 248 SB.M SA.M thSec) = true := by decide +kernel
 
 end CertificateChecks.KernelLC.ThSec
 

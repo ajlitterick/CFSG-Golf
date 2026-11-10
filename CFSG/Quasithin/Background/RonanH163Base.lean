@@ -13,6 +13,9 @@ open CFSG.Open CFSG.Quasithin CFSG.Monster.Code CFSG.Quasithin.RonanH143 CFSG.Qu
 
 noncomputable abbrev R : ↥mog22plus →* MulAut W10 := rhoC10 mog22plus le_rfl
 
+theorem R_toW (σ : ↥mog22plus) {a : Array ℕ} (ha : HasArr (σ : P24) a) (m : ℕ) :
+    R σ (toW 10 m) = toW 10 (actC10 a m) :=
+  rhoC10_toW mog22plus le_rfl σ ha m
 
 @[expose] def nq2Tab : List (Array ℕ) :=
   [#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],

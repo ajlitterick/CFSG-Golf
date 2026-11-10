@@ -76,6 +76,9 @@ theorem reflectWeight_eq_add_of_eq_neg_one {i : Fin τ.rank} {μ : Fin τ.rank �
     (h : μ i = -1) : reflectWeight i μ = μ + toWeight (Pi.single i 1) := by
   rw [reflectWeight, h, neg_one_smul, sub_neg_eq_add]
 
+theorem reflectWeight_eq_sub_of_eq_one {i : Fin τ.rank} {μ : Fin τ.rank → ℤ}
+    (h : μ i = 1) : reflectWeight i μ = μ + toWeight (-Pi.single i 1) := by
+  rw [reflectWeight, h, one_smul, toWeight_neg, sub_eq_add_neg]
 
 theorem reflectWeight_eq_self_of_eq_zero {i : Fin τ.rank} {μ : Fin τ.rank → ℤ}
     (h : μ i = 0) : reflectWeight i μ = μ := by
@@ -200,6 +203,8 @@ theorem wt_injective : Function.Injective fun a : Fin D.d => D.wt a := by
     hV.weights_and.2.1.getElem_inj_iff] at hab
   exact Fin.ext hab
 
+theorem wt_inj {a b : Fin D.d} : D.wt a = D.wt b ↔ a = b :=
+  ⟨fun h => hV.wt_injective h, fun h => h ▸ rfl⟩
 
 theorem weylTable_and (a : Fin D.d) (i : Fin τ.rank) :
     D.weyl a i < D.d ∧ D.wt (D.weyl a i) = reflectWeight i (D.wt a) := by

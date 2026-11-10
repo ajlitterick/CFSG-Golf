@@ -226,6 +226,9 @@ theorem ev_eq_of_nfEq {u v : List ℕ} (e : nfEq m p D u v = true) : ev q u = ev
 
 end Cfg
 
+theorem test_pos : nfEq 2 3 (fun _ _ => 1) [0, 1] [1, 0, 2] = true := by decide
+
+theorem test_neg : nfEq 2 3 (fun _ _ => 1) [0, 1] [1, 0] = false := by decide
 
 end CFSG.KC.ClassTwo
 

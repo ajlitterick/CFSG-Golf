@@ -163,6 +163,9 @@ theorem odd_support_of_norm_eq_card {B D : Finset ι} {V : ι → ℤ} (hDB : D 
   · exact mul_self_eq_zero.mp
       ((Finset.sum_eq_zero_iff_of_nonneg hnn).mp hR y (Finset.mem_sdiff.mpr ⟨hy, hyD⟩))
 
+theorem sum_mul_single {B : Finset ι} (f : ι → ℤ) {x : ι} (hx : x ∈ B) :
+    ∑ y ∈ B, f y * (Pi.single x 1 : ι → ℤ) y = f x := by
+  simp [Pi.single_apply, hx]
 
 theorem sum_single_mul {B : Finset ι} (f : ι → ℤ) {x : ι} (hx : x ∈ B) :
     ∑ y ∈ B, (Pi.single x 1 : ι → ℤ) y * f y = f x := by

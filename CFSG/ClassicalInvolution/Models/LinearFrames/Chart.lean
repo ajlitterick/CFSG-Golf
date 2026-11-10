@@ -219,6 +219,12 @@ variable {K : Type} [Field K] {n : ℕ}
 theorem coe_transvec2 : ((transvec2 : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = !![1, 1; 0, 1] := rfl
 
 
+theorem neg_eq_iff_not_eq_of_sign (h2 : (2 : K) ≠ 0) {x y : K} (hx : x = 1 ∨ x = -1)
+    (hy : y = 1 ∨ y = -1) : -x = y ↔ ¬ x = y := by
+  have h2' : (-1 : K) ≠ 1 := fun h => h2 (by linear_combination -h)
+  rcases hx with rfl | rfl <;> rcases hy with rfl | rfl <;> simp [h2', h2'.symm]
+
+
 end DiagDataSection
 
 section Sigma

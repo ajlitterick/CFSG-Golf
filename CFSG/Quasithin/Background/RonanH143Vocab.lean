@@ -78,5 +78,27 @@ abbrev P24 : Type := Equiv.Perm (Fin 24)
 @[expose] def M2ab (a b : Fin 24) : Subgroup P24 :=
   AutPerm ⊓ MulAction.stabilizer P24 ({a, b} : Finset (Fin 24))
 
+@[expose] def H143Concl (a b : Fin 24) (O : Finset (Fin 24)) (S : Finset (Finset (Fin 24)))
+    (B : Finset (Fin 24)) (T₀ Γ : Subgroup P24) : Prop :=
+  (KY Γ (S.erase B) ⊓ M22g a b ≠ KY Γ ((O.erase a).erase b) ∧
+      (∀ A : Subgroup P24, (A ≤ T₀ ⊓ M22g a b ∧ IsE2k 4 A) ↔
+        (A = KY Γ (S.erase B) ⊓ M22g a b ∨ A = KY Γ ((O.erase a).erase b))) ∧
+      (Γ ≠ M22g a b → ∀ A : Subgroup P24, (A ≤ T₀ ⊓ Γ ∧ IsE2k 5 A) ↔ A = KY Γ (S.erase B))) ∧
+    ((∃ (K : Type) (_ : Field K), Nat.card K = 4 ∧
+        ConjIsoModel (perfectCore (MY Γ (S.erase B) ⊓ M22g a b)) (KY Γ (S.erase B) ⊓ M22g a b)
+          (Multiplicative (Fin 2 → K))
+          ((natSub 2 K (CFSG.Open.StatedSL 2 K) : Subgroup (MulAut (Multiplicative (Fin 2 → K)))) :
+            Set (MulAut (Multiplicative (Fin 2 → K))))) ∧
+      (Γ ≠ M22g a b →
+        (∃ π : ↥(MY Γ (S.erase B)) →* Equiv.Perm (Fin 5), π.range = ⊤ ∧
+          π.ker = (KY Γ (S.erase B)).subgroupOf (MY Γ (S.erase B))) ∧
+        Nat.card ↥(KY Γ (S.erase B)) = 32 ∧
+        ∀ W₁ W₂ : Subgroup P24, W₁ ≤ KY Γ (S.erase B) → W₂ ≤ KY Γ (S.erase B) →
+          (∀ g ∈ MY Γ (S.erase B), conjSubg g W₁ = W₁) →
+          (∀ g ∈ MY Γ (S.erase B), conjSubg g W₂ = W₂) →
+          W₁ ⊔ W₂ = KY Γ (S.erase B) → W₁ ⊓ W₂ = ⊥ → W₁ = ⊥ ∨ W₂ = ⊥)) ∧
+    ((Γ = M22g a b → ConjSymNatural (MY Γ ((O.erase a).erase b)) (KY Γ ((O.erase a).erase b)) 6
+        (alternatingGroup (Fin 6))) ∧
+      (Γ ≠ M22g a b → ConjSymNatural (MY Γ ((O.erase a).erase b)) (KY Γ ((O.erase a).erase b)) 6 ⊤))
 
 end CFSG.Quasithin.RonanH143

@@ -96,4 +96,16 @@ theorem lift_mk_eq_of_wordProd {G : Type*} [Group G] (x : ℕ → G) {w : List (
   simpa [mul_inv_eq_one] using h
 
 
+private theorem card_finite_of_orderCheck {ws : List (List (Fin m × Bool))} {k cap n fuel : ℕ}
+    {words : List (List (Fin m × Bool) × ℕ)} (h : orderCheck ws [] k cap n words fuel = true) :
+    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n := by
+  have hS : subsetOf m [] = [] := by simp [subsetOf]
+  have : Finite (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) := by
+    rw [hS]; exact (inferInstance : Finite (PG 0 _))
+  have hc : Nat.card (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) = 1 := by
+    rw [hS]; exact card_PG_zero _
+  have := card_le_of_subsetCheckShortC ws [] (subsetCheckShortC_of_orderCheck h)
+  rwa [hc, mul_one] at this
+
+
 end CFSG.LieType.Multipliers

@@ -14,5 +14,9 @@ namespace CertificateChecks.KernelSmithEK
 
 open CFSG.SmithE.K
 
+theorem c21115neg_id : pqChk ((List.range 20).map fun m =>
+      tp.C.getD m 0 - fld 1 (tp.C.getD m 0) * 2 ^ 20 + 2 ^ m * 2 ^ 20)
+    (pts.L.set 1 (pts.L.getD 0 0)) 1 1 = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSmithEK

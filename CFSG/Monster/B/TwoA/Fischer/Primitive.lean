@@ -190,6 +190,14 @@ theorem eq_bot_of_normal_of_isSolvable {R : Subgroup (sliceGroup lab Y)} (hR : R
   obtain ⟨n, hn⟩ := (Group.isSolvable_def R).1 hsol
   exact key n R hR (by rw [iterate_commutator_eq_map, hn, Subgroup.map_bot])
 
+theorem primitive_and_radical_free :
+    (letI := hS.mulAction; MulAction.IsPreprimitive (sliceGroup lab Y) Y) ∧
+    (∀ N : Subgroup (sliceGroup lab Y), N.Normal → N ≠ ⊥ →
+      ∀ y ∈ Y, ∀ z ∈ Y, ∃ n ∈ N, act (n : S) y = z) ∧
+    (∀ N : Subgroup (sliceGroup lab Y), N.Normal → Group.IsSolvable N → N = ⊥) ∧
+    ∀ p : ℕ, p.Prime → CFSG.pCore p (sliceGroup lab Y) = ⊥ :=
+  ⟨hS.isPreprimitive, fun _ hN hNbot _ hy _ hz => hS.exists_mem_normal_act_eq hN hNbot hy hz,
+    fun _ hN hsol => hS.eq_bot_of_normal_of_isSolvable hN hsol, fun _ hp => hS.pCore_eq_bot hp⟩
 
 end IsFischerSlice
 

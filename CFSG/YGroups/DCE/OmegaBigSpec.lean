@@ -57,6 +57,7 @@ theorem rowAux_eq_of_le (O : BigOmega) (hv : ∀ q < O.N, q ≠ 0 → O.parAt q 
       simp only [hq0', ↓reduceIte]
       rw [ih (O.parAt q) hp (lt_trans hp hq) f f' (by omega) (by omega)]
 
+theorem row_zero (O : BigOmega) : O.row 0 = O.X0 := rfl
 
 theorem row_succ (O : BigOmega) (hv : ∀ q < O.N, q ≠ 0 → O.parAt q < q) {p : ℕ} (hp : p < O.N)
     (hp0 : p ≠ 0) :
@@ -517,6 +518,14 @@ theorem bigFacts {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
     rw [himg, Nat.mod_eq_of_lt (find_lt (of_decide_eq_true h3) _)] at hscan
     exact hscan
 
+theorem parAt_lt_of_bigOK {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
+    (h : bigOK O letters fix = true) {p : ℕ} (hp : p < O.N) (hp0 : p ≠ 0) : O.parAt p < p :=
+  ((bigFacts h).tree p hp hp0).1
+
+theorem row_succ_of_bigOK {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
+    (h : bigOK O letters fix = true) {p : ℕ} (hp : p < O.N) (hp0 : p ≠ 0) :
+    O.row p = (O.row (O.parAt p)).map fun x => bget (O.tg[O.labAt p]!) x :=
+  row_succ O (fun _ hq hq0 => parAt_lt_of_bigOK h hq hq0) hp hp0
 
 theorem fix_lt_of_bigOK {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
     (h : bigOK O letters fix = true) {l : ℕ} (hl : l ∈ fix) : l < letters.size :=
@@ -533,6 +542,20 @@ theorem rowFinset_zero {n : ℕ} {O : BigOmega} {letters : Array ByteArray} {fix
   · rintro ⟨k, hk, hkx⟩
     exact ⟨k, F.m_eq ▸ hk, by rw [row_zero_entry]; exact hkx⟩
 
+theorem act_tree {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
+    (h : bigOK O letters fix = true) {p : ℕ} (hp : p < O.N) (hp0 : p ≠ 0) :
+    O.act (O.tg[O.labAt p]!) (O.parAt p) = p := by
+  have F := bigFacts h
+  have hv : ∀ q < O.N, q ≠ 0 → O.parAt q < q := fun q hq hq0 => (F.tree q hq hq0).1
+  have himg : O.imgHash (O.tg[O.labAt p]!) (O.parAt p) = O.rowHash p := by
+    show sumMod O.m (fun k => O.R[bget (O.tg[O.labAt p]!) (O.row (O.parAt p))[k]!]!) =
+      sumMod O.m (fun k => O.R[(O.row p)[k]!]!)
+    rw [sumMod_eq_sum_range, sumMod_eq_sum_range]
+    refine Finset.sum_congr rfl fun k hk => ?_
+    rw [row_entry O hv hp hp0 (F.m_eq ▸ Finset.mem_range.1 hk)]
+  unfold act
+  rw [himg]
+  exact F.find_spec p hp
 
 section Rows
 
@@ -617,6 +640,11 @@ theorem rowFinset_mem_orbit :
     ∀ p < O.N, rowFinset n O p ∈ MulAction.orbit Γ (listFinset n O.X0) :=
   fun p hp => (row_good Γ g hg h hn p hp).2.2
 
+theorem rowFinset_succ {p : ℕ} (hp : p < O.N) (hp0 : p ≠ 0) :
+    rowFinset n O p = (⟨g (O.labAt p), (hg _ ((bigFacts h).tree p hp hp0).2).1⟩ : Γ) •
+      rowFinset n O (O.parAt p) :=
+  rowFinset_succ_of_lt Γ g hg h hp hp0
+    (row_good Γ g hg h hn _ (lt_trans ((bigFacts h).tree p hp hp0).1 hp)).1
 
 theorem rowFinset_injOn :
     ∀ p < O.N, ∀ q < O.N, rowFinset n O p = rowFinset n O q → p = q := by
@@ -706,8 +734,29 @@ theorem fix_smul_listFinset {n : ℕ} {O : BigOmega} {letters : Array ByteArray}
   exact Finset.eq_of_subset_of_card_le hsub (by rw [Finset.card_smul_finset])
 
 
+theorem u32Entry_actAll {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
+    (h : bigOK O letters fix = true) (σ : ByteArray) {chunk : ℕ} (hc : 0 < chunk) {p : ℕ}
+    (hp : p < O.N) : u32Entry (O.actAll σ chunk) p = O.act σ p := by
+  rw [actAll_spec_mod (bigFacts h).toTreeFacts σ hc hp]
+  exact Nat.mod_eq_of_lt (find_lt (bigFacts h).N_lt _)
+
 section ActAll
 
+variable {n : ℕ} {O : BigOmega} {letters : Array ByteArray} {fix : List ℕ}
+  (Γ : Subgroup (Equiv.Perm (Fin n))) (g : ℕ → Equiv.Perm (Fin n))
+  (hg : ∀ l < O.tg.size, g l ∈ Γ ∧ RepB n O.tg[l]! (g l))
+  (h : bigOK O letters fix = true) (hn : O.n = n)
+
+include hg h hn
+
+theorem actAll_spec (hcard : (MulAction.orbit Γ (listFinset n O.X0)).ncard ≤ O.N)
+    {σ : ByteArray} {e : Γ} (hσ : RepB n σ (e : Equiv.Perm (Fin n))) {chunk : ℕ} (hc : 0 < chunk)
+    {p : ℕ} (hp : p < O.N) :
+    u32Entry (O.actAll σ chunk) p = O.act σ p ∧ u32Entry (O.actAll σ chunk) p < O.N ∧
+      rowFinset n O (u32Entry (O.actAll σ chunk) p) = e • rowFinset n O p := by
+  obtain ⟨h1, h2⟩ := act_spec Γ g hg h hn hcard hσ hp
+  rw [u32Entry_actAll h σ hc hp]
+  exact ⟨rfl, h1, h2⟩
 
 end ActAll
 

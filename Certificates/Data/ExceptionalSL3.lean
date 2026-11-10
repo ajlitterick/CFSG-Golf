@@ -17,6 +17,8 @@ instance : Fact (Nat.Prime 3) := ⟨by decide⟩
 @[expose] abbrev ExceptionalSL3 :=
   Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)
 
+@[expose] def exceptionalSL3Y : ExceptionalSL3 :=
+  ⟨!![1, 0; 1, 1], by decide⟩
 
 @[expose] def exceptionalSL3Z5 : ExceptionalSL5 :=
   ⟨!![1, 1; 3, 4], by decide⟩

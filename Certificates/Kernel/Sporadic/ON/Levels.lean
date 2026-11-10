@@ -75,6 +75,11 @@ theorem steps_get' {i j x : Nat} (hi : i < 29) (hj : j < Nat.mul 2 (len i)) (hx 
   rw [qon_SA]
   exact steps_get hi hj hx
 
+theorem steps_size' {i : Nat} (hi : i < 29) :
+    ((allSteps CFSG.ONSchreier.qonStrongArrs (pinvs 245520 CFSG.ONSchreier.qonStrongArrs)
+      CFSG.ONSchreier.Data.baseList.toArray)[i]!).size = Nat.mul 2 (len i) := by
+  rw [qon_SA]
+  exact steps_size hi
 
 theorem invSteps_get' {i j x : Nat} (hi : i < 29) (hj : j < Nat.mul 2 (len i)) (hx : x < 245520) :
     (((allInvSteps CFSG.ONSchreier.qonStrongArrs (pinvs 245520 CFSG.ONSchreier.qonStrongArrs)
@@ -82,6 +87,11 @@ theorem invSteps_get' {i j x : Nat} (hi : i < 29) (hj : j < Nat.mul 2 (len i)) (
   rw [qon_SA]
   exact invSteps_get hi hj hx
 
+theorem invSteps_size' {i : Nat} (hi : i < 29) :
+    ((allInvSteps CFSG.ONSchreier.qonStrongArrs (pinvs 245520 CFSG.ONSchreier.qonStrongArrs)
+      CFSG.ONSchreier.Data.baseList.toArray)[i]!).size = Nat.mul 2 (len i) := by
+  rw [qon_SA]
+  exact invSteps_size hi
 
 end CertificateChecks.KernelSpor.ON
 

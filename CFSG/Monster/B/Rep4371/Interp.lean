@@ -65,6 +65,13 @@ theorem interp_append (D : ℚ) (v w : List (Model.Key × ℤ)) :
 theorem coeffOf_cons (κ : Model.Key) (e : Model.Key × ℤ) (v : List (Model.Key × ℤ)) :
     Model.coeffOf κ (e :: v) = (if e.1 = κ then e.2 else 0) + Model.coeffOf κ v := rfl
 
+theorem coeffOf_eq_zero {κ : Model.Key} :
+    ∀ {v : List (Model.Key × ℤ)}, κ ∉ v.map Prod.fst → Model.coeffOf κ v = 0
+  | [], _ => rfl
+  | e :: v, h => by
+    rw [coeffOf_cons, coeffOf_eq_zero (fun h' => h (List.mem_cons_of_mem _ h'))]
+    rw [List.map_cons, List.mem_cons, not_or] at h
+    rw [ite_eq_right (fun h' => h.1 h'.symm), add_zero]
 
 theorem interp_eq_sum (D : ℚ) (S : Finset Model.Key) :
     ∀ v : List (Model.Key × ℤ), (∀ e ∈ v, e.1 ∈ S) →

@@ -242,6 +242,33 @@ theorem repElt_smul_x0 (i : Fin 7) : repElt i • x0 = repPt i := by
   rw [smul_val_of_rep (rep_repElt i) x0, x0_val, repPt_val]
   exact ((distOK_spec geomFacts.dist_ok).2.2 i.val i.isLt).1
 
+theorem Δ_adj_x0_iff_mem_gamma (v : Ω) :
+    Δ.Adj x0 v ↔ ∃ c ∈ gTrees[1]!.pts, c.toNat = v.val := by
+  rw [Δ_adj_x0_iff, mem_orbit_x1_iff]
+  constructor
+  · rintro ⟨k, hk, hkv⟩
+    exact ⟨gTrees[1]!.pts[k], Array.getElem_mem hk, by rw [← ap_getElem _ hk, hkv]⟩
+  · rintro ⟨c, hc, hcv⟩
+    obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 hc
+    exact ⟨k, hk, by rw [ap_getElem _ hk, hcv]⟩
+
+theorem Δ_adj_repPt_iff (i : Fin 7) (v : Ω) :
+    Δ.Adj (repPt i) v ↔
+      ∃ c ∈ gTrees[1]!.pts, ap (repTabs (mTabs ()) gWords)[i.val]! c.toNat = v.val := by
+  rw [← repElt_smul_x0 i, Δ_adj_smul_x0_iff, mem_orbit_x1_iff]
+  constructor
+  · rintro ⟨k, hk, hkv⟩
+    refine ⟨gTrees[1]!.pts[k], Array.getElem_mem hk, ?_⟩
+    rw [← ap_getElem _ hk, hkv, ← smul_val_of_rep (rep_repElt i), smul_inv_smul]
+  · rintro ⟨c, hc, hcv⟩
+    obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 hc
+    have hlt : (gTrees[1]!.pts[k]).toNat < 920808 := by
+      have : ap gTrees[1]!.pts k < 920808 := (treeFacts 1).pts_lt k hk
+      rwa [ap_getElem _ hk] at this
+    have hv : v = repElt i • (⟨(gTrees[1]!.pts[k]).toNat, hlt⟩ : Ω) :=
+      Fin.ext (by rw [smul_val_of_rep (rep_repElt i), ← hcv])
+    refine ⟨k, hk, ?_⟩
+    rw [hv, inv_smul_smul, ap_getElem _ hk]
 
 theorem distLevel_hdown (r : Ω) (hr : r ∈ reps) (k : ℕ) (hk : distLevel r = k + 1) :
     ∃ n, Δ.Adj r n ∧ distLevel n = k := by

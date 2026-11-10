@@ -47,6 +47,8 @@ theorem ok122B_eq (I O S : List (CV 7)) :
   unfold ok122B ok122G
   simp only [forceCL_eq, forceC_eq, inVC_eq, cmC_eq, ← conj_fast, beq_val, Bool.or_assoc]
 
+theorem decide_ev_one (x : CV n) [Decidable (ev x = 1)] : decide (ev x = 1) = decide (x = 1) := by
+  simp only [one_eq_ev, ev_eq_iff]
 
 theorem sign_eq_one_iff (σ : Perm (Fin n)) : sign σ = 1 ↔ ¬ sign σ = -1 := by
   rcases Int.units_eq_one_or (sign σ) with h | h <;> rw [h] <;> decide

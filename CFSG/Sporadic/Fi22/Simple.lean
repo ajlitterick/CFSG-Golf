@@ -245,6 +245,7 @@ theorem treeFacts_two : TreeFacts 3510 T2 lv1 (pairG gs) subRoot :=
   treeOK_facts (fun l hl => rep_pairG_all l (levelLetters_lt hl))
     actionChecks_parts.2.2.2.2.2.2.2.2.2.1
 
+theorem lvl_one_eq : lettersGroup lv1 (pairG gs) = lvl 1 := rfl
 
 theorem T2_size :
     T2.pts.size = 693 := actionChecks_parts.2.2.2.2.2.2.2.2.2.2.1

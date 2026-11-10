@@ -17,5 +17,6 @@ theorem xGmat_eq_xmatG : xGmat = xmatG := Subtype.ext rfl
 
 theorem tGmat_eq_tStarG : tGmat = tStarG := Subtype.ext rfl
 
+variable {a : Gmat}
 
 end CFSG.Monster.Tri.Leech

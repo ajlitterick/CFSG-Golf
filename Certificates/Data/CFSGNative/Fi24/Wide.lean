@@ -171,5 +171,10 @@ deriving Inhabited, DecidableEq
     a.m7 &&& M.p7 == 0 && a.m8 &&& M.p8 == 0 && a.m9 &&& M.p9 == 0 && a.m10 &&& M.p10 == 0 &&
     a.m11 &&& M.p11 == 0 && a.m12 &&& M.p12 == 0
 
+@[inline, expose] def W.orP (a b : W) : W :=
+  ⟨a.p0 ||| b.p0, a.p1 ||| b.p1, a.p2 ||| b.p2, a.p3 ||| b.p3, a.p4 ||| b.p4, a.p5 ||| b.p5,
+    a.p6 ||| b.p6, a.p7 ||| b.p7, a.p8 ||| b.p8, a.p9 ||| b.p9, a.p10 ||| b.p10, a.p11 ||| b.p11,
+    a.p12 ||| b.p12, a.m0, a.m1, a.m2, a.m3, a.m4, a.m5, a.m6, a.m7, a.m8, a.m9, a.m10, a.m11,
+    a.m12⟩
 
 end CFSG.Sporadic.Fi24.Native

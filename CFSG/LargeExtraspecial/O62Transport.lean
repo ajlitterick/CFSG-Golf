@@ -30,6 +30,8 @@ variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V] {W : Type*} [AddCommGr
 theorem conjL_apply (L : V ≃ₗ[ZMod 2] W) (g : V ≃ₗ[ZMod 2] V) (x : W) :
     conjL L g x = L (g (L.symm x)) := rfl
 
+theorem conjL_symm_apply (L : V ≃ₗ[ZMod 2] W) (h : W ≃ₗ[ZMod 2] W) (v : V) :
+    (conjL L).symm h v = L.symm (h (L v)) := rfl
 
 variable {Q : QuadraticForm (ZMod 2) V} {Q' : QuadraticForm (ZMod 2) W}
 

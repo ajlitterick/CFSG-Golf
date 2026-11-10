@@ -21,5 +21,12 @@ open CFSG.Sporadic.SuzOddCore CFSG.Monster.B.Co2.Native CFSG.ComponentClassifica
   [-1, 4, -3, -1, -4, -4, -1, 2, 4, 3, 1, 4, 3, -4, 1, 3, 1, -4, -2, 1, 2, 3, 1, 3, -4, -4, 3, 4,
     1, -4, -2, 1, -4, -2, 1, 2, 4, 1, 2, 4, 1, 2, 4, 2, 4, 4, 2]
 
+@[noinline, expose] def suzCtrlGenOK : Bool :=
+  isInvA 1782 suzCtrlGens[0]! suzCtrlGensInv[0]! && isInvA 1782 suzCtrlGens[1]! suzCtrlGensInv[1]! &&
+    isInvA 1782 suzCtrlGens[2]! suzCtrlGensInv[2]! &&
+    isInvA 1782 suzCtrlGens[3]! suzCtrlGensInv[3]! &&
+    lettersOK 4 suzCtrlWordB0 && lettersOK 4 suzCtrlWordB1 &&
+    eqA 1782 (wordA 1782 suzCtrlGens suzCtrlGensInv suzCtrlWordB0) b0Arr &&
+    eqA 1782 (wordA 1782 suzCtrlGens suzCtrlGensInv suzCtrlWordB1) b1Arr
 
 end CFSG.ComponentClassification.GrSLit.L34Sec5S

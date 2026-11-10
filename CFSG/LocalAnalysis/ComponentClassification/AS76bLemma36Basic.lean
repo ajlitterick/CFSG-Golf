@@ -245,6 +245,10 @@ theorem mem_pairGroup_left {y : G} (hyB : y ∈ B₁) (hyV : y ∈ normalizer (V
     (hy : Odd (orderOf y)) : y ∈ pairGroup V B₁ B₂ :=
   mem_sup_left (subset_closure ⟨mem_inf.mpr ⟨hyB, hyV⟩, hy⟩)
 
+omit [Finite G] in
+theorem mem_pairGroup_right {y : G} (hyB : y ∈ B₂) (hyV : y ∈ normalizer (V : Set G))
+    (hy : Odd (orderOf y)) : y ∈ pairGroup V B₁ B₂ :=
+  mem_sup_right (subset_closure ⟨mem_inf.mpr ⟨hyB, hyV⟩, hy⟩)
 
 omit [Finite G] in
 theorem index_pairGroup_ne_two {X₀ : Subgroup G} :

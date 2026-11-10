@@ -15,6 +15,10 @@ section MinusField
 
 open Polynomial
 
+variable {F : Type} [Field F]
+
+@[expose] noncomputable def quadPoly (a : F) : F[X] := X ^ 2 + X + C a
+
 
 end MinusField
 

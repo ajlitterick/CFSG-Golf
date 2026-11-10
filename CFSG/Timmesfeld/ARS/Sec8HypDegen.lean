@@ -286,6 +286,25 @@ theorem commutatorElement_mem_normCl {E F : Subgroup G} (hE : E ∈ Δ) (hF : F 
   rw [e]
   exact inv_mem h
 
+omit [Finite G] hR hΔR hΔconj hiso hdeg in
+theorem commute_of_mem_normCl {E F : Subgroup G} (hZ : gen (cl Δ E) ⊓ gen (cl Δ F) = ⊥)
+    {n m : G} (hn : n ∈ normCl Δ E F) (hm : m ∈ normCl Δ F E) : Commute n m := by
+  obtain ⟨hnE, hnF⟩ := Subgroup.mem_inf.1 hn
+  obtain ⟨hmF, hmE⟩ := Subgroup.mem_inf.1 hm
+  have h1 : ⁅n, m⁆ ∈ gen (cl Δ F) := by
+    rw [commutatorElement_def]
+    refine mul_mem ?_ (inv_mem hmF)
+    have : n * m * n⁻¹ ∈ conjSub (gen (cl Δ F)) n := conj_mem_conjSub n hmF
+    rwa [conjSub_gen, mem_stabSet.1 hnF] at this
+  have h2 : ⁅n, m⁆ ∈ gen (cl Δ E) := by
+    rw [commutatorElement_def, mul_assoc, mul_assoc]
+    refine mul_mem hnE ?_
+    have : m * n⁻¹ * m⁻¹ ∈ conjSub (gen (cl Δ E)) m := conj_mem_conjSub m (inv_mem hnE)
+    rw [conjSub_gen, mem_stabSet.1 hmE] at this
+    rwa [← mul_assoc]
+  have h3 : ⁅n, m⁆ ∈ gen (cl Δ E) ⊓ gen (cl Δ F) := Subgroup.mem_inf.2 ⟨h2, h1⟩
+  rw [hZ, Subgroup.mem_bot] at h3
+  exact commutatorElement_eq_one_iff_mul_comm.1 h3
 
 include hiso in
 theorem eq_one_of_commute_of_mem_normCl {E F : Subgroup G} (hE : E ∈ Δ) (hF : F ∈ Δ)

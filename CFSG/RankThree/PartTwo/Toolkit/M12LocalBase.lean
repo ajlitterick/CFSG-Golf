@@ -36,6 +36,12 @@ theorem mem_of_idx {k : Idx} (hk : k ∈ E.L) : (⟨prodP k, prodP_mem k⟩ : G1
   rw [tbl_prodP]
   exact E.sound k hk
 
+theorem forall_tbl {Q : List ℕ → Prop} (hQ : ∀ k ∈ E.L, Q (prodT k))
+    {g : G12} (hg : g ∈ H) :
+    Q (tbl g.1) := by
+  obtain ⟨k, hk, hgk⟩ := E.exists_idx hg
+  rw [hgk, tbl_prodP]
+  exact hQ k hk
 
 theorem card : Nat.card H = E.L.length := by
   classical
@@ -96,6 +102,7 @@ theorem tbl_a' : tbl (x * y ^ 2).1 = a'T := by
 
 theorem card_P0 : Nat.card P0 = 27 := ex27_card x_cube y_cube z_comm_x z_comm_y z_ne_one
 
+theorem basisE_a : basisE.a = ⁅x, y⁆ := rfl
 
 theorem basisE_b : basisE.b = x := rfl
 

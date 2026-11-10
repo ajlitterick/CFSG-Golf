@@ -32,6 +32,9 @@ open CFSG.ASVolI CFSG.KC.F48S CFSG.KC.LQT.L
 
 theorem lettersSp43e_ok : lettersSp43e = true := by decide +kernel
 
+theorem gensSp43e_ok : burnsideF48s_sp43eCheckGens () = true := by decide +kernel
+
+theorem relsSp43e_ok : burnsideF48s_sp43eCheckRels () = true := by decide +kernel
 
 @[expose] noncomputable def closedSp43e : Bool :=
   decide ((wordsSp43e Sp43eP1.chars).length = 1296) &&
@@ -61,5 +64,15 @@ theorem closedSp43e_ok : closedSp43e = true := by decide +kernel
 
 theorem candSp43e_ok : candSp43e = true := by decide +kernel
 
+theorem neg_closedSp43e : CFSG.KC.Ord.notB (closedK 45
+    (setT ((wordsSp43e Sp43eP1.chars).map ekSp43e).tail) ((wordsSp43e Sp43eP1.chars).map ekSp43e).tail
+    ([0, 1, 2, 4].map (getK (burnsideF48s_sp43eLS.map encL)))) = true := by
+  decide +kernel
+
+theorem neg_candSp43e : CFSG.KC.Ord.notB (candK 45 (setT ((wordsSp43e Sp43eP1.chars).map ekSp43e))
+    (setT ((wordsSp43e Sp43eP2.chars).map ekSp43e))
+    ((wordsSp43e Sp43eP1.chars).map ekSp43e) ((wordsSp43e Sp43eP2.chars).map ekSp43e)
+    (burnsideF48s_sp43eKW.map ekSp43e) (burnsideF48s_sp43eTW.map ekSp43e) []) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelF48S

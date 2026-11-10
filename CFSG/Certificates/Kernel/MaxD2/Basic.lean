@@ -151,6 +151,13 @@ theorem inv_comp {p q : Nat} (h : permOK n w (mask w) (n * w) p q = true) :
   rw [getElem!_pos _ i (by simpa using hi)]
   simp
 
+theorem comp_inv {p q : Nat} (h : permOK n w (mask w) (n * w) p q = true) :
+    comp n (unpack n w p) (unpack n w q) = idTab n := by
+  refine tab_ext (comp_size _ _) (by simp [idTab]) fun i hi => ?_
+  rw [comp_get hi, get_u hi, get_u ((perm_spec h).2 i hi).1, ((perm_spec h).2 i hi).2]
+  unfold idTab
+  rw [getElem!_pos _ i (by simpa using hi)]
+  simp
 
 theorem pidn_canon (hn : szOK n w = true) : Cn n w (pidn n w) := by
   obtain ⟨h1, h2⟩ := CFSG.KS.Raw.Orb.szOK_facts hn

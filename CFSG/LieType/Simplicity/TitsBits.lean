@@ -592,5 +592,10 @@ theorem evalG_eq_evalG_iff
     evalG K w = evalG K w' ↔ evalB w % 2 ^ 2704 = evalB w' % 2 ^ 2704 :=
   (hasBits_evalG w).eq_iff (hasBits_evalG w')
 
+theorem eltElement_eq_evalG_iff
+    [CharP K 2] (α : Root ReeTag.F4.tag) (w : List Letter) :
+    (rootOperatorFamily ReeTag.F4.tag).eltElement α 1 = evalG K w ↔
+      pack (eltBits (rootPos α)) % 2 ^ 2704 = evalB w % 2 ^ 2704 :=
+  (hasBits_eltElement α).eq_iff (hasBits_evalG w)
 
 end CFSG.LieType.Simplicity.TitsBits

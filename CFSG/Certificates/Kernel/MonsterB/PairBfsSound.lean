@@ -51,6 +51,8 @@ theorem get_set {a : Array Nat} {i j v : Nat} (hi : i < a.size) :
     · omega
     · rfl
 
+theorem size_set {a : Array Nat} {i v : Nat} : (a.set! i v).size = a.size := by
+  simp
 
 @[expose] def InQ (Q : Array Nat) (x : Nat) : Prop := ∃ j < Q.size, Q[j]! = x
 

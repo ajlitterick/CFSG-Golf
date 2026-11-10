@@ -75,6 +75,15 @@ theorem pgHom_of (y : Fin n → G) (h : ∀ w ∈ ws, wprod y w = 1) (i : Fin n)
     pgHom y h (PresentedGroup.of i) = y i :=
   PresentedGroup.toGroup.of _
 
+theorem pgHom_mk (y : Fin n → G) (h : ∀ w ∈ ws, wprod y w = 1) (w : List (Fin n × Bool)) :
+    pgHom y h (PresentedGroup.mk {r : FreeGroup (Fin n) | r ∈ ws.map FreeGroup.mk}
+      (FreeGroup.mk w)) = wprod y w := by
+  show FreeGroup.lift y (FreeGroup.mk w) = _
+  exact lift_mk y w
+
+theorem pg_hom_ext {φ ψ : PG n ws →* G}
+    (h : ∀ i, φ (PresentedGroup.of i) = ψ (PresentedGroup.of i)) : φ = ψ :=
+  PresentedGroup.ext h
 
 end Presented
 
@@ -99,6 +108,15 @@ end Restrict
 
 section Index
 
+variable {m : ℕ}
+
+theorem index_le_of_subsetCheckCC (ws : List (List (Fin m × Bool))) (S : List ℕ) {cap n : ℕ}
+    (h : subsetCheckCC ws S cap n = true) :
+    (genSub {r : FreeGroup (Fin m) | r ∈ ws.map FreeGroup.mk} (subsetOf m S)).FiniteIndex ∧
+      (genSub {r : FreeGroup (Fin m) | r ∈ ws.map FreeGroup.mk} (subsetOf m S)).index ≤ n :=
+  index_le_of_check (goodColParams ws _ _ (genSub_words_mem ws (subsetOf m S)))
+    (by simpa [colParams, mkParams] using closure_colLetter ws)
+    (subsetCheckC_of_subsetCheckCC ws S h)
 
 end Index
 

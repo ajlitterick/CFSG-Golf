@@ -222,6 +222,14 @@ theorem TwinYInputs.twinSp2Linked (h : TwinYInputs p f) (hL : TwinYLinked p f) :
   have hty := h.typ G hnab K z S .PSp 2 hrow hshape T hcfg.twin hcfg.clsT e hP1
   exact hL.1 G hnab K z S hshape Λ K₂ hK₂ hK₂Λ w hw ⟨T, e, hcfg.twin, hcfg.clsT, hP1, hty⟩
 
+theorem TwinYInputs.twinSU4Linked (h : TwinYInputs p f) (hL : TwinYLinked p f) :
+    TwinSU4Linked p f := by
+  intro G _ _ _ hnab K z S hshape Λ K₂ hK₂ hK₂Λ w hw
+  have hrow : TwinRow .PSU 4 := Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨rfl, rfl, rfl⟩))))
+  obtain ⟨T, e, J, J', w', e', β, s, hcfg⟩ := h.partner G hnab K z S .PSU 4 hrow hshape
+  have hP1 := h.p1 G hnab K z S .PSU 4 hrow hshape T hcfg.twin hcfg.clsT e
+  have hty := h.typ G hnab K z S .PSU 4 hrow hshape T hcfg.twin hcfg.clsT e hP1
+  exact hL.2 G hnab K z S hshape Λ K₂ hK₂ hK₂Λ w hw ⟨T, e, hcfg.twin, hcfg.clsT, hP1, hty⟩
 
 end Assembly
 

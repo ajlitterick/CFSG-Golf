@@ -65,6 +65,23 @@ theorem zpowers_lab_le_sliceStab {u : V} (hu : u ∈ Y) :
 theorem card_zpowers_lab {u : V} (hu : u ∈ Y) : Nat.card (Subgroup.zpowers (lab u)) = 2 := by
   rw [Nat.card_zpowers, hS.orderOf_lab u hu]
 
+theorem fix_neighborSet_iff {u : V} (hu : u ∈ Y) {a : S} (ha : a ∈ sliceStab act lab Y u) :
+    (∀ z ∈ (sliceGraph lab Y).neighborSet u, act a z = z) ↔ a ∈ Subgroup.zpowers (lab u) := by
+  obtain ⟨L⟩ := hS.nonempty_localChart hu
+  constructor
+  · intro h
+    rw [← L.ker ⟨a, ha⟩]
+    apply projAct_injective
+    rw [map_one]
+    ext p
+    obtain ⟨z, rfl⟩ := L.τ.surjective p
+    rw [Equiv.Perm.one_apply, ← L.equivariant ⟨a, ha⟩ z z (h z z.2).symm]
+  · intro h z hz
+    obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 h
+    have h1 : act (lab u) z = z :=
+      (hS.act_lab_eq_iff hu (mem_of_mem_neighborSet hz)).2 hz.2.2.2
+    rw [map_zpow]
+    exact Equiv.Perm.zpow_apply_eq_self_of_apply_eq_self h1 k
 
 theorem card_sliceStab_eq_two_mul {u : V} (hu : u ∈ Y) :
     Nat.card (sliceStab act lab Y u) = 2 * Nat.card ProjSU := by
@@ -117,6 +134,20 @@ theorem card_sliceGroup : Nat.card (sliceGroup lab Y) = 64561751654400 := by
   obtain ⟨u, hu⟩ : Y.Nonempty := Set.nonempty_of_ncard_ne_zero (by rw [hS.ncard]; norm_num)
   rw [hS.card_sliceGroup_eq_mul hu, hS.ncard, hS.card_sliceStab hu]
 
+theorem exact_order {u : V} (hu : u ∈ Y) :
+    sliceStab act lab Y u = sliceGroup lab Y ⊓ Subgroup.centralizer {lab u} ∧
+    Subgroup.zpowers (lab u) ≤ sliceStab act lab Y u ∧
+    (∀ a ∈ sliceStab act lab Y u,
+      (∀ z ∈ (sliceGraph lab Y).neighborSet u, act a z = z) ↔ a ∈ Subgroup.zpowers (lab u)) ∧
+    Nat.card ProjSU = 9196830720 ∧
+    Nat.card (sliceStab act lab Y u) = 2 * Nat.card ProjSU ∧
+    Nat.card (sliceStab act lab Y u) = 18393661440 ∧
+    Nat.card (sliceGroup lab Y) = Y.ncard * Nat.card (sliceStab act lab Y u) ∧
+    Nat.card (sliceGroup lab Y) = 64561751654400 ∧
+    64561751654400 = 2 ^ 17 * 3 ^ 9 * 5 ^ 2 * 7 * 11 * 13 :=
+  ⟨hS.sliceStab_eq_inf_centralizer hu, hS.zpowers_lab_le_sliceStab hu,
+    fun _ ha => hS.fix_neighborSet_iff hu ha, card_projSU, hS.card_sliceStab_eq_two_mul hu,
+    hS.card_sliceStab hu, hS.card_sliceGroup_eq_mul hu, hS.card_sliceGroup, by norm_num⟩
 
 end IsFischerSlice
 

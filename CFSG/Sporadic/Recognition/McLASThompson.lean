@@ -32,5 +32,12 @@ theorem ThreeLocal.thompsonSubgroup_eq {G : Type*} [Group G] {x : G}
   change sSup (CFSG.thompsonAbelianSubgroups T) = A
   rw [h.thompsonAbelianSubgroups_eq, sSup_singleton]
 
+theorem mcl_thompson
+    (hrows : ThreeFacts) (hsyl : sylowThreeOK = true) (h : threeLocalCheck = true) :
+    ∃ (x : CFSG.Blueprint.NativeSporadic.McL) (R T A : Subgroup CFSG.Blueprint.NativeSporadic.McL),
+      ThreeLocalAut CFSG.Blueprint.NativeSporadic.McL x R T A ∧
+        CFSG.IsElementaryAbelian 3 ↥A ∧ Nat.card ↥A = 81 ∧ CFSG.thompsonSubgroup T = A := by
+  obtain ⟨x, R, T, A, hL⟩ := mcl_threeLocal hrows hsyl h
+  exact ⟨x, R, T, A, hL, hL.A_elementaryAbelian, hL.card_A, hL.toThreeLocal.thompsonSubgroup_eq⟩
 
 end CFSG.Sporadic.Recognition.McLAS

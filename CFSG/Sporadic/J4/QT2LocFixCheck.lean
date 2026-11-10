@@ -10,5 +10,7 @@ namespace CFSG.Sporadic.J4.QT2
 theorem chkFix2B_true : chkFix2B = true :=
   Certificates.certificate4005.1
 
+theorem chkFix2A_true : chkFix2A = true :=
+  Certificates.certificate4005.2
 
 end CFSG.Sporadic.J4.QT2

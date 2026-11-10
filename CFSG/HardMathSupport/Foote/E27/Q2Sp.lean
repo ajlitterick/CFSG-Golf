@@ -44,10 +44,18 @@ def spSub (n : ℕ) (K : Type) [Field K] : Subgroup (GL (Fin n ⊕ Fin n) K) whe
           simp only [Matrix.transpose_mul, Matrix.mul_assoc]
       _ = Jm n K := by rw [h2]; simp
 
+theorem mem_spSub {n : ℕ} {K : Type} [Field K] (A : GL (Fin n ⊕ Fin n) K) :
+    A ∈ spSub n K ↔ (mat A)ᵀ * Jm n K * mat A = Jm n K := Iff.rfl
 
 theorem statedSp_eq (n : ℕ) (K : Type) [Field K] : StatedSp n K = spSub n K := by
   unfold StatedSp
   exact Subgroup.closure_eq (spSub n K)
+
+theorem mem_statedSp {n : ℕ} {K : Type} [Field K] (A : GL (Fin n ⊕ Fin n) K) :
+    A ∈ StatedSp n K ↔
+      (A : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K)ᵀ * Jm n K *
+        (A : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) = Jm n K :=
+  CFSG.Open.StatedAPI.mem_statedSp_iff
 
 
 section Transport

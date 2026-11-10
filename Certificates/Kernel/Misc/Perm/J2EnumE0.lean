@@ -34,6 +34,7 @@ theorem chkE0_true : chkE0 = true := by
   rw [chkE0N_true, chkE0C_true]
   rfl
 
+theorem neg_inNE : (!memK 54 (lget NEP) V1) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.J2En
 

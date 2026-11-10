@@ -59,6 +59,12 @@ open Tables
 
 namespace Tables
 
+@[expose] def invSL (c : SL2) : SL2 :=
+  ⟨!![(c : 𝕄) 1 1, -(c : 𝕄) 0 1; -(c : 𝕄) 1 0, (c : 𝕄) 0 0], by
+    have h := c.det_coe
+    rw [Matrix.det_fin_two] at h
+    rw [Matrix.det_fin_two_of]
+    linear_combination h⟩
 
 @[expose] def conjSL (c M : SL2) : SL2 :=
   let p := (c : 𝕄) 0 0
@@ -97,12 +103,6 @@ end Tables
 @[expose] def classSwap : Fin 7 → Fin 7 := ![0, 2, 1, 3, 4, 5, 6]
 
 
-open Tables
-
-open Tables
-
-open Tables
-
 
 open Tables
 
@@ -110,7 +110,21 @@ open Tables
 
 open Tables
 
+
 open Tables
+
+open Tables
+
+open Tables
+
+open Tables
+@[expose] def orderFn (j : Fin 7) (t : F9) : ℕ :=
+  if j = 0 then (if t = 2 then 1 else 2)
+  else if j = 1 ∨ j = 2 then (if t = 2 then 3 else 6)
+  else if j = 3 then 4
+  else if j = 4 then 8
+  else if j = 5 then (if t = ⟨1, 2⟩ then 5 else 10)
+  else (if t = ⟨1, 1⟩ then 5 else 10)
 
 
 open Tables

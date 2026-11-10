@@ -117,6 +117,9 @@ theorem ruJ_le : ruJ ≤ ruP := closure_list_le fun g hg => by
   obtain ⟨w, -, rfl⟩ := List.mem_map.1 hg
   exact evalSigned_mem (pair_mem ruC0_mem ruC1_mem) w
 
+theorem ruR_le : ruR ≤ ruP := closure_list_le fun g hg => by
+  obtain ⟨w, -, rfl⟩ := List.mem_map.1 hg
+  exact evalSigned_mem ruSGens_mem w
 
 theorem ruE_subset : ruE ⊆ ruP := by
   rintro g (hg | ⟨m, hm, rfl⟩)
@@ -124,5 +127,87 @@ theorem ruE_subset : ruE ⊆ ruP := by
     exact ruP.one_mem
   · exact ruP.mul_mem (ruP.mul_mem (ruN_le hm) ruZ_mem) (ruP.inv_mem (ruN_le hm))
 
+theorem ruChain_counts :
+    ruChainC.originalCount = 2 ∧ ruChainC.strongCount = 7 ∧
+    ruChainN.originalCount = 2 ∧ ruChainN.strongCount = 6 ∧
+    ruChainJoin.originalCount = 4 ∧ ruChainJoin.strongCount = 18 ∧
+    ruChainCFaithful.originalCount = 2 ∧ ruChainCFaithful.strongCount = 7 ∧
+    ruChainCQuotient80.originalCount = 2 ∧ ruChainCQuotient80.strongCount = 8 ∧
+    ruChainS.originalCount = 4 ∧ ruChainS.strongCount = 7 ∧
+    ruChainK.originalCount = 8 ∧ ruChainK.strongCount = 10 ∧
+    ruChainJ.originalCount = 6 ∧ ruChainJ.strongCount = 10 ∧
+    ruChainR.originalCount = 5 ∧ ruChainR.strongCount = 7 := by
+  refine ⟨rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_, rfl, ?_⟩ <;>
+  simp [ruChainC, ruChainN, ruChainJoin, ruChainCFaithful, ruChainCQuotient80, ruChainS,
+    ruChainK, ruChainJ, ruChainR, RawSchreierDatum.ofArrays_strongCount, ruField4060, ruField1920,
+    ruField80, ruLines4060, ruLines1920]
+
+theorem ruChain_bases :
+    ruChainC.base.toList.map Fin.val = [0, 1, 2] ∧ ruChainN.base.toList.map Fin.val = [0, 1, 2] ∧
+    ruChainJoin.base.toList.map Fin.val = [0, 1, 2, 3] ∧
+    ruChainCFaithful.base.toList.map Fin.val = [0, 1] ∧
+    ruChainCQuotient80.base.toList.map Fin.val = [0, 1, 2, 4] ∧
+    ruChainS.base.toList.map Fin.val = [1, 0] ∧ ruChainK.base.toList.map Fin.val = [0, 1] ∧
+    ruChainJ.base.toList.map Fin.val = [0, 1] ∧ ruChainR.base.toList.map Fin.val = [0, 1] := by
+  simp only [ruChainC, ruChainN, ruChainJoin, ruChainCFaithful, ruChainCQuotient80, ruChainS,
+    ruChainK, ruChainJ, ruChainR, RawSchreierDatum.ofArrays_base_toList]
+  decide
+
+theorem AT_Ru_local_certificate_data :
+    (∀ L < 45, Rep 4060 (ruArr4060 L) (permOfArr 4060 (ruArr4060 L))) ∧
+    (∀ L < 41, Rep 1920 (ruArr1920 L) (permOfArr 1920 (ruArr1920 L))) ∧
+    (∀ L < 8, Rep 80 (ruArr80 L) (permOfArr 80 (ruArr80 L))) ∧
+    ruChainC.originalCount = 2 ∧ ruChainC.strongCount = 7 ∧
+    ruChainN.originalCount = 2 ∧ ruChainN.strongCount = 6 ∧
+    ruChainJoin.originalCount = 4 ∧ ruChainJoin.strongCount = 18 ∧
+    ruChainCFaithful.originalCount = 2 ∧ ruChainCFaithful.strongCount = 7 ∧
+    ruChainCQuotient80.originalCount = 2 ∧ ruChainCQuotient80.strongCount = 8 ∧
+    ruChainS.originalCount = 4 ∧ ruChainS.strongCount = 7 ∧
+    ruChainK.originalCount = 8 ∧ ruChainK.strongCount = 10 ∧
+    ruChainJ.originalCount = 6 ∧ ruChainJ.strongCount = 10 ∧
+    ruChainR.originalCount = 5 ∧ ruChainR.strongCount = 7 ∧
+    ruChainC.base.toList.map Fin.val = [0, 1, 2] ∧ ruChainN.base.toList.map Fin.val = [0, 1, 2] ∧
+    ruChainJoin.base.toList.map Fin.val = [0, 1, 2, 3] ∧
+    ruChainCFaithful.base.toList.map Fin.val = [0, 1] ∧
+    ruChainCQuotient80.base.toList.map Fin.val = [0, 1, 2, 4] ∧
+    ruChainS.base.toList.map Fin.val = [1, 0] ∧ ruChainK.base.toList.map Fin.val = [0, 1] ∧
+    ruChainJ.base.toList.map Fin.val = [0, 1] ∧ ruChainR.base.toList.map Fin.val = [0, 1] ∧
+    ruDerivOK ruCGenCount 7 ruCDerivations = true ∧ ruDerivOK ruNGenCount 6 ruNDerivations = true ∧
+    ruDerivOK ruJoinGenCount 18 ruJoinDerivations = true ∧
+    ruDerivOK ruCFaithfulGenCount 7 ruCFaithfulDerivations = true ∧
+    ruDerivOK ruCQuotient80GenCount 8 ruCQuotient80Derivations = true ∧
+    ruDerivOK ruSGenCount 7 ruSDerivations = true ∧ ruDerivOK ruKGenCount 10 ruKDerivations = true ∧
+    ruDerivOK ruJGenCount 10 ruJDerivations = true ∧ ruDerivOK ruRGenCount 7 ruRDerivations = true ∧
+    ((List.range 4).map fun i => (ruCOrbit i).size) = [1920, 2048, 80, 12] ∧
+    ((List.range 3).map fun i => (ruNOrbit i).size) = [3584, 448, 28] ∧
+    ruF.size = 1920 ∧ ruY.size = 80 ∧
+    (∀ f < 9, ∀ i < (ruPtsOffsets.getD f (0, 0)).2, (ruPtList f)[i]! < 4060) ∧
+    ruCSmallOrbit.length = 12 ∧ ruNSmallOrbit.length = 28 ∧
+    (∀ k < 12, ruCSmallPartition.getD k 0 < 6) ∧ (∀ k < 28, ruNSmallPartition.getD k 0 < 7) ∧
+    (∀ x ∈ ruCSmallOrbit, x < 4060) ∧ (∀ x ∈ ruNSmallOrbit, x < 4060) ∧
+    ruDerivedProvenance.length = 5 ∧ ruQuotientBits.length = 4 ∧ (∀ b ∈ ruQuotientBits, b < 8) ∧
+    ruBytesTree.size = 6 * (ruTreeCount - 1) ∧
+    ruC0 ∈ ruP ∧ ruC1 ∈ ruP ∧ ruN0 ∈ ruP ∧ ruN1 ∈ ruP ∧ ruZ ∈ ruP ∧ ruH ∈ ruP ∧
+    ruC ≤ ruP ∧ ruN ≤ ruP ∧ ruS ≤ ruP ∧ ruK ≤ ruP ∧ ruJ ≤ ruP ∧ ruR ≤ ruP ∧ ruE ⊆ ruP := by
+  obtain ⟨-, -, -, h4060, h1920, h80, -, hpts, htree, d1, d2, d3, d4, d5, d6, d7, d8, d9, hcp,
+    hnp, hco, -, hnl, -, hcx, hnx, hbits⟩ := ruEncoding_check
+  obtain ⟨c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18⟩ :=
+    ruChain_counts
+  obtain ⟨b1, b2, b3, b4, b5, b6, b7, b8, b9⟩ := ruChain_bases
+  refine ⟨fun L hL => (rep_permOfArr (h4060 L hL)).1, fun L hL => (rep_permOfArr (h1920 L hL)).1,
+    fun L hL => (rep_permOfArr (h80 L hL)).1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12,
+    c13, c14, c15, c16, c17, c18, b1, b2, b3, b4, b5, b6, b7, b8, b9, d1, d2, d3, d4, d5, d6, d7,
+    d8, d9, ?_, ?_, ?_, ?_, hpts, hco, hnl, hcp, hnp, hcx, hnx, rfl, rfl, hbits,
+    by rw [htree]; rfl, ruC0_mem,
+    ruC1_mem, ruN0_mem, ruN1_mem, ruZ_mem, ruH_mem, ruC_le, ruN_le, ruS_le, ruK_le, ruJ_le, ruR_le,
+    ruE_subset⟩
+  · simp only [ruCOrbit, ruPtList, Array.size_ofFn]
+    decide
+  · simp only [ruNOrbit, ruPtList, Array.size_ofFn]
+    decide
+  · simp only [ruF, ruPtList, Array.size_ofFn]
+    decide
+  · simp only [ruY, ruPtList, Array.size_ofFn]
+    decide
 
 end CFSG.Sporadic.RuSchreier

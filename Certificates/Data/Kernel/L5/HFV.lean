@@ -48,6 +48,8 @@ open Equiv Perm CFSG.Certificates.Kernel.PkCV CFSG.KC.Enum CFSG.Certificates.Ker
 @[expose] noncomputable def n24EntryV (GN : List Nat) (MP : Nat) (x : CV 16) : Bool :=
   !(n24PreV x.1) || n24ChkV GN MP x
 
+@[expose] noncomputable def fam1ChkN (c : CV 16) : Bool :=
+  fam1L.all fun V => decide (imgN c (pN V) ∈ fam1L.map pN)
 
 end CFSG.Certificates.Kernel.L5H
 

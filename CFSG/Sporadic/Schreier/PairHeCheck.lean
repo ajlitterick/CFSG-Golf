@@ -27,6 +27,8 @@ theorem word_orders :
       ordB bs (patW wA wB pat15) 15 = true :=
   Certificates.certificate2223.1
 
+theorem block_sizes : heBlocks.map Array.size = [8330, 4480, 108] :=
+  Certificates.certificate2223.2.1
 
 theorem classes :
     (∀ c ∈ cl, ordB bs c.1 2 = true) ∧

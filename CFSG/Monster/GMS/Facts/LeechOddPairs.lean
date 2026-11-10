@@ -58,6 +58,17 @@ variable {G : Type*} [Group G]
           s * s' = s' * s) →
           (s : G) = 1 ∨ (s : G) = z)
 
+@[expose] def LeechFiveAGenData (z : G) : Prop :=
+  ∀ t : G, IsLeechCentralLift z t →
+    ∀ y, (∃ g ∈ Subgroup.centralizer ({z} : Set G), g * t * g⁻¹ = y) →
+      HasCommonLeechFour z t y → LeechOddType z t y 2 →
+      Subgroup.closure {x : G | x ∈ Subgroup.centralizer ({z} : Set G) ⊓
+          Subgroup.centralizer {t} ⊓ Subgroup.centralizer {y} ∧ orderOf x = 2 ∧
+          ¬ (x ∈ leechQ z ∧ Nat.card ↥(Subgroup.centralizer ({z} : Set G) ⊓
+            Subgroup.centralizer {x}) = 2 ^ 42 * 3 ^ 6 * 5 ^ 3 * 7 * 11 * 23) ∧
+          ¬ ∃ g ∈ Subgroup.centralizer ({z} : Set G), g * t * g⁻¹ = x} =
+        Subgroup.centralizer ({z} : Set G) ⊓ Subgroup.centralizer {t} ⊓
+          Subgroup.centralizer {y}
 
 @[expose] def LeechOddPairStatement : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G), GMSLeechCentralizer z → LeechOddPairData z

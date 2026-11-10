@@ -79,9 +79,106 @@ theorem zip_getD (l1 l2 : List Nat) (h : l1.length = l2.length) (i : Nat) :
       | zero => rfl
       | succ i => simpa using ih l2 (by simpa using h) i
 
+theorem zip_set (l1 l2 : List Nat) (i x y : Nat) :
+    List.zip (l1.set i x) (l2.set i y) = (List.zip l1 l2).set i (x, y) := by
+  induction l1 generalizing l2 i with
+  | nil => simp
+  | cons a l1 ih =>
+    cases l2 with
+    | nil => cases i <;> simp
+    | cons b l2 =>
+      cases i with
+      | zero => simp
+      | succ i => simp [ih]
+
+theorem arr_set (a : Array Nat) (i x : Nat) : (a.set! i x).toList = a.toList.set i x := by
+  rcases a with ⟨l⟩
+  simp only [Array.set!, Array.setIfInBounds]
+  split
+  · simp
+  · rename_i h
+    simp only [List.size_toArray, not_lt] at h
+    simp [List.set_eq_of_length_le h]
+
+theorem set_getD_self (L : List (Nat × Nat)) (i : Nat) : L.set i (L.getD i (0, 0)) = L := by
+  induction L generalizing i with
+  | nil => simp
+  | cons x L ih =>
+    cases i with
+    | zero => rfl
+    | succ i => simp only [List.getD_cons_succ, List.set_cons_succ, ih]
 
 @[expose] def zA (s : Array Nat × Array Nat) : List (Nat × Nat) := List.zip s.1.toList s.2.toList
 
+theorem zA_getD (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) (i : Nat) :
+    (zA s).getD i (0, 0) = (s.1[i]!, s.2[i]!) := by
+  rw [zA, zip_getD _ _ (by simpa using h), arr_get, arr_get]
+
+theorem zA_set (s : Array Nat × Array Nat) (i x y : Nat) :
+    zA (s.1.set! i x, s.2.set! i y) = (zA s).set i (x, y) := by
+  simp only [zA, arr_set, zip_set]
+
+theorem pivA_eq (d c : Nat) (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) :
+    pivA d c s.1 = pivP d c (zA s) := by
+  unfold pivA pivP
+  congr 1
+  funext piv i
+  rw [zA_getD s h]
+
+theorem elimStep_eq (c ap rp i : Nat) (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) :
+    zA (elimStepA c ap rp s i) = elimStepP c ap rp (zA s) i ∧
+      (elimStepA c ap rp s i).1.size = (elimStepA c ap rp s i).2.size := by
+  unfold elimStepA elimStepP elimF
+  rw [zA_getD s h]
+  by_cases hc : (i != c && s.1[i]!.testBit c) = true
+  · simp only [hc, ite_true]
+    exact ⟨zA_set s i _ _, by simp [h]⟩
+  · simp only [hc, ite_false, Bool.false_eq_true]
+    refine ⟨?_, h⟩
+    rw [← zA_getD s h, set_getD_self]
+
+theorem elimA_eq (d c ap rp : Nat) (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) :
+    zA (elimA d c ap rp s) = elimP d c ap rp (zA s) ∧
+      (elimA d c ap rp s).1.size = (elimA d c ap rp s).2.size := by
+  unfold elimA elimP
+  generalize List.range' 0 d = l
+  induction l generalizing s with
+  | nil => exact ⟨rfl, h⟩
+  | cons i l ih =>
+    simp only [List.foldl_cons]
+    obtain ⟨h1, h2⟩ := elimStep_eq c ap rp i s h
+    rw [← h1]
+    exact ih _ h2
+
+theorem colA_eq (d c : Nat) (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) :
+    zA (colA d c s) = colP d c (zA s) ∧ (colA d c s).1.size = (colA d c s).2.size := by
+  unfold colA colP
+  rw [← pivA_eq d c s h]
+  split
+  · have hs : zA ((s.1.set! (pivA d c s.1) s.1[c]!).set! c s.1[pivA d c s.1]!,
+        (s.2.set! (pivA d c s.1) s.2[c]!).set! c s.2[pivA d c s.1]!) =
+        ((zA s).set (pivA d c s.1) ((zA s).getD c (0, 0))).set c
+          ((zA s).getD (pivA d c s.1) (0, 0)) := by
+      rw [zA_getD s h, zA_getD s h, ← zA_set s, ← zA_set]
+    have hsz : ((s.1.set! (pivA d c s.1) s.1[c]!).set! c s.1[pivA d c s.1]!).size =
+        ((s.2.set! (pivA d c s.1) s.2[c]!).set! c s.2[pivA d c s.1]!).size := by simp [h]
+    obtain ⟨e1, e2⟩ := elimA_eq d c s.1[pivA d c s.1]! s.2[pivA d c s.1]!
+      ((s.1.set! (pivA d c s.1) s.1[c]!).set! c s.1[pivA d c s.1]!,
+        (s.2.set! (pivA d c s.1) s.2[c]!).set! c s.2[pivA d c s.1]!) hsz
+    refine ⟨?_, e2⟩
+    rw [e1, hs, zA_getD s h (pivA d c s.1)]
+  · exact ⟨rfl, h⟩
+
+theorem fold_colA_eq (d : Nat) (l : List Nat) (s : Array Nat × Array Nat) (h : s.1.size = s.2.size) :
+    zA (l.foldl (fun s c => colA d c s) s) = l.foldl (fun L c => colP d c L) (zA s) ∧
+      (l.foldl (fun s c => colA d c s) s).1.size = (l.foldl (fun s c => colA d c s) s).2.size := by
+  induction l generalizing s with
+  | nil => exact ⟨rfl, h⟩
+  | cons c l ih =>
+    simp only [List.foldl_cons]
+    obtain ⟨h1, h2⟩ := colA_eq d c s h
+    rw [← h1]
+    exact ih _ h2
 
 theorem bit_eq (X i : Nat) : bit X i = X.testBit i := by
   rw [Nat.testBit_eq_decide_div_mod_eq]
@@ -282,6 +379,32 @@ theorem colK_eq (d c : Nat) (L : List (Nat × Nat)) (hL : L.length = d) (hc : c 
     rw [setPK_eq, setPK_eq, elimK_eq]
     simp [hL]
 
+theorem colP_length (d c : Nat) (L : List (Nat × Nat)) : (colP d c L).length = L.length := by
+  unfold colP elimP
+  split
+  · have : ∀ (ap rp : Nat) (l : List Nat) (L' : List (Nat × Nat)),
+        (l.foldl (elimStepP c ap rp) L').length = L'.length := by
+      intro ap rp l
+      induction l with
+      | nil => intro _; rfl
+      | cons j l ih =>
+        intro L'
+        rw [List.foldl_cons, ih]
+        simp [elimStepP]
+    rw [this]
+    simp
+  · rfl
+
+theorem fold_colK_eq (d : Nat) (L : List (Nat × Nat)) (hL : L.length = d) :
+    ∀ n c, c + n = d → (List.range' c n).foldl (fun L c => colK d c L) L =
+      (List.range' c n).foldl (fun L c => colP d c L) L := by
+  intro n
+  induction n generalizing L with
+  | zero => intro _ _; rfl
+  | succ n ih =>
+    intro c hc
+    rw [List.range'_succ, List.foldl_cons, List.foldl_cons, colK_eq d c L hL (by omega)]
+    exact ih _ (by rw [colP_length, hL]) (c + 1) (by omega)
 
 theorem eqLK_sound : ∀ {L L' : List (Nat × Nat)}, eqLK L L' = true → L = L'
   | [], [], _ => rfl
@@ -294,6 +417,61 @@ theorem eqLK_sound : ∀ {L L' : List (Nat × Nat)}, eqLK L L' = true → L = L'
       try exact absurd h Bool.false_ne_true
     rw [Nat.eq_of_beq_eq_true h1, Nat.eq_of_beq_eq_true h2, eqLK_sound h]
 
+theorem initGo_eq (d M : Nat) : ∀ n k, initGo d M n k =
+    (List.range' k n).map fun i => (rowF d M i, pw2 i) := by
+  intro n
+  induction n with
+  | zero => intro _; rfl
+  | succ n ih => intro k; rw [List.range'_succ, List.map_cons, ← ih]; rfl
+
+theorem initK_eq (d M : Nat) :
+    initK d M = List.zip (unpackP d M).toList (idRows d).toList := by
+  rw [initK, initGo_eq]
+  apply List.ext_getElem (by simp [unpackP, idRows])
+  intro j h1 h2
+  simp [unpackP, idRows, pw2, Nat.shiftLeft_eq]
+
+theorem finGo_sound (d X : Nat) : ∀ (L : List (Nat × Nat)) (i : Nat), finGo d X L i = true →
+    L.map Prod.snd = (List.range' i L.length).map (rowF d X) ∧ i + L.length = d := by
+  intro L
+  induction L with
+  | nil => intro i h; exact ⟨rfl, by simpa using Nat.eq_of_beq_eq_true h⟩
+  | cons p L ih =>
+    intro i h
+    obtain ⟨a, r⟩ := p
+    change Bool.rec (motive := fun _ => Bool) false (finGo d X L (i + 1)) (Nat.beq r (rowF d X i))
+      = true at h
+    cases h1 : Nat.beq r (rowF d X i) <;> rw [h1] at h
+    · exact absurd h Bool.false_ne_true
+    · obtain ⟨e1, e2⟩ := ih (i + 1) h
+      refine ⟨?_, by simp; omega⟩
+      rw [List.length_cons, List.range'_succ, List.map_cons, List.map_cons, e1,
+        Nat.eq_of_beq_eq_true h1]
+
+theorem run_step {d c n : Nat} {L L' R : List (Nat × Nat)} (h : eqLK (colK d c L) L' = true)
+    (h' : (List.range' (c + 1) n).foldl (fun L c => colK d c L) L' = R) :
+    (List.range' c (n + 1)).foldl (fun L c => colK d c L) L = R := by
+  rw [List.range'_succ, List.foldl_cons, eqLK_sound h, h']
+
+theorem invRowsF2_unpack {d M X : Nat} {L R : List (Nat × Nat)} (h0 : eqLK (initK d M) L = true)
+    (hrun : (List.range' 0 d).foldl (fun L c => colK d c L) L = R) (hR : finK d X R = true) :
+    invRowsF2 d (unpackP d M) = unpackP d X := by
+  have hf : finK d X ((List.range' 0 d).foldl (fun L c => colK d c L) L) = true := by rw [hrun]; exact hR
+  have hL := eqLK_sound h0
+  have hz : zA (unpackP d M, idRows d) = L := by rw [← hL, initK_eq]; rfl
+  have hlen : L.length = d := by rw [← hz]; simp [zA, unpackP, idRows]
+  have hA := fold_colA_eq d (List.range' 0 d) (unpackP d M, idRows d) (by simp [unpackP, idRows])
+  rw [fold_colK_eq d L hlen d 0 (by omega), ← hz, ← hA.1] at hf
+  rw [invRowsF2_fold]
+  have hsz := hA.2
+  generalize (List.range' 0 d).foldl (fun s c => colA d c s) (unpackP d M, idRows d) = s at hf hsz
+  obtain ⟨e1, e2⟩ := finGo_sound d X _ 0 hf
+  apply Array.ext'
+  have hs2 : s.2.toList = (zA s).map Prod.snd := (List.map_snd_zip (by simp [hsz])).symm
+  rw [hs2, e1]
+  apply List.ext_getElem (by simp [unpackP]; simpa using e2)
+  intro j h1 h2
+  simp [unpackP]
 
 end CFSG.KS.SporSch.PF2
 

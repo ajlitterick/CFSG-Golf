@@ -218,6 +218,7 @@ theorem inSa_iff : ∀ g : A, inSa g ↔ ∀ y : Fin 6, (y = (g : Perm (Fin 6)) 
   mul_mem' := fun {a b} ha hb => inSb_mul a ha b hb
   inv_mem' := fun {a} ha => inSb_inv a ha
 
+theorem mem_D0 {g : A} : g ∈ D0 ↔ inD0 g := Iff.rfl
 theorem mem_Sa {g : A} : g ∈ Sa ↔ inSa g := Iff.rfl
 theorem mem_Sb {g : A} : g ∈ Sb ↔ inSb g := Iff.rfl
 

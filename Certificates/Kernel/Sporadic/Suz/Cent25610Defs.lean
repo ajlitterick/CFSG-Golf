@@ -36,6 +36,7 @@ namespace CertificateChecks.KernelSpor.SuzCI
 
 open CFSG.EvenSporadicStandard.HypOne.Suz CFSG.EvenSporadicStandard.Solomon78
 
+meta def compM (p q : Array Nat) : Array Nat := q.map fun i => p[i]!
 
 meta def invM (p : Array Nat) : Array Nat := Id.run do
   let mut r := Array.replicate p.size 0

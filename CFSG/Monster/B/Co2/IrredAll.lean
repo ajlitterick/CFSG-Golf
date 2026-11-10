@@ -89,6 +89,24 @@ theorem irreducible_of_conj (g : OLq) (x : L2)
     have : w ∈ U.comap (trW g x) := by rw [h]; trivial
     exact this
 
+theorem kOp_injective (g : OLq) : Function.Injective (kOp g) := fun a b h => by
+  rw [← kOp_inv_apply g a, h, kOp_inv_apply]
+
+theorem trW_injective (g : OLq) (x : L2) : Function.Injective (trW g x) := by
+  rw [← LinearMap.ker_eq_bot, eq_bot_iff]
+  intro w hw
+  induction w using Submodule.Quotient.induction_on with
+  | H z =>
+    rw [LinearMap.mem_ker, trW_mk, Submodule.Quotient.mk_eq_zero] at hw
+    rw [Submodule.mem_bot, Submodule.Quotient.mk_eq_zero]
+    change (z : L2) ∈ vLineL x
+    have hw' : kOp g z ∈ vLineL (kOp g x) := hw
+    rw [mem_vLineL] at hw' ⊢
+    rcases hw' with h | h
+    · left
+      exact kOp_injective g (h.trans (map_zero _).symm)
+    · right
+      exact kOp_injective g h
 
 theorem native_short_stabilizer_irreducible
     {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :

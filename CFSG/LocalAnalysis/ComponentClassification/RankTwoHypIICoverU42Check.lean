@@ -43,8 +43,17 @@ open CFSG.ComponentClassification.CatFactsSmall.PSp43
 
 @[expose] def u42PS : List ℕ := [0, 1, 16, 3, 2, 4, 5, 6, 7]
 
+@[expose] def u42Fuel : ℕ := 2 ^ 12
 
 theorem u42PS_lt : ∀ p ∈ u42PS, p < 45 := by decide
 
+@[expose] def u42Check (sc : String) : Bool :=
+  let d := decodeCert 45 sc
+  rawChainOK 45 (u42S.extract 0 2) u42S u42Base
+      (CFSG.EvenSmallLie.OmegaEight.wordsOf 2 u42Words) 4 &&
+    censusOK 45 u42PS u42Fuel u42InX u42InX false true false d.sGens d.roots d.nodes &&
+    (allLt d.sGens.size fun k =>
+      u42InX d.sGens[k]! || u42InX (compA 45 (arr45 f45) d.sGens[k]!)) &&
+    (enumBfs 45 d.sGens u42PS u42Fuel).pts.size == 128
 
 end CFSG.ComponentClassification.RankTwoHypIICover.U42

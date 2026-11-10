@@ -6511,6 +6511,181 @@ set_option maxHeartbeats 800000 in
   - Case A: some nontrivial conjugate is isomorphic → then all are (by all_conjugates_of_prime_quotient),
     and the orbit argument (m = p case) gives ρ ≅ coindRep(W). The m = 1 subcase leads to a
     contradiction via scalar R-action (contradicts hreg/hfaith). -/
+private noncomputable def theorem_3_10_case2_rho_iso_coind
+    {q : ℕ} [Fact q.Prime] [Finite G] [Finite M] [Nontrivial M]
+    [IsElementaryAbelian q M] [MulDistribMulAction G M]
+    (hK_min : ∀ N : Subgroup G, N.Normal → N ≤ K → N ≠ ⊥ → N = K)
+    (hfrob : IsFrobeniusGroupWithKernelComplement K R)
+    (hcop : Nat.Coprime (Nat.card G) (Nat.card M))
+    (hfixK : fixedPointSubgroup (↥K) M = ⊥)
+    (hR_cyclic : IsCyclic R)
+    (hR_prime : Nat.Prime (Nat.card R))
+    (hminv : ∀ N : Subgroup M, N.Normal → IsInvariant G M N → N ≠ ⊥ → N = ⊤)
+    (ρ : Representation (ZMod q) G (Additive M))
+    (hirred : Representation.IsIrreducible ρ)
+    (hfaith : actionCentralizerIn (A := G) (G := M) (⊤ : Subgroup G) = ⊥)
+    (hchar : ringChar (ZMod q) = 0 ∨
+      (Nat.Prime (ringChar (ZMod q)) ∧ Nat.Coprime (ringChar (ZMod q)) (Nat.card K)))
+    (W : Subrepresentation (ρ.comp K.subtype))
+    [Representation.IsIrreducible W.toRepresentation] :
+    ρ ≃ₗ coindRep W.toRepresentation := by
+  classical
+  let : K.Normal := hfrob.normal
+  have hR_ne_bot : R ≠ ⊥ := hfrob.complement_ne_bot
+  have hcard_quot : Nat.card (G ⧸ K) = Nat.card R := by
+    let e : G ⧸ K ≃* R := hfrob.isComplement'.symm.QuotientMulEquiv
+    simpa using Nat.card_congr e.toEquiv
+  have hreg : ActsRegularly (↥R) (↥K) :=
+    theorem_3_10_regular_conj_action (G := G) (K := K) (R := R) hfrob
+  have hR_nontrivial : Nontrivial R := R.nontrivial_iff_ne_bot.mpr hR_ne_bot
+  have : Fintype R := Fintype.ofFinite (↥R)
+  -- Pick any nontrivial r ∈ R (R has prime order, so any r≠1 generates it)
+  have h_exists_nonone : ∃ (r : R), r ≠ 1 := by
+    have hcard_gt_one : 1 < Fintype.card R := by
+      have hcard_ne_one : Fintype.card R ≠ 1 := by
+        intro hcard_one
+        apply hR_ne_bot
+        have : Nat.card R = 1 := by simpa [Nat.card_eq_fintype_card] using hcard_one
+        exact (Subgroup.eq_bot_iff_card (H := R)).mpr this
+      have hpos : 0 < Fintype.card R := Fintype.card_pos
+      exact Nat.one_lt_iff_ne_zero_and_ne_one.mpr ⟨hpos.ne', hcard_ne_one⟩
+    have h_exists := Fintype.exists_ne_of_one_lt_card hcard_gt_one
+    rcases h_exists 1 with ⟨r, hr_ne⟩
+    exact ⟨r, hr_ne⟩
+  let r : R := Classical.choose h_exists_nonone
+  have hr_ne_one : r ≠ 1 := Classical.choose_spec h_exists_nonone
+  have hx_ne_one : ((r : G) : G ⧸ K) ≠ 1 := by
+    intro h_eq
+    have h_mem : (r : G) ∈ K := by
+      simpa [QuotientGroup.eq_one_iff] using h_eq
+    have h_disjoint : Disjoint K R := hfrob.isComplement'.disjoint
+    have h_inf_le : K ⊓ R ≤ ⊥ := disjoint_iff_inf_le.mp h_disjoint
+    have h_inf_eq_bot : K ⊓ R = ⊥ := le_antisymm h_inf_le bot_le
+    have h_mem_inf : (r : G) ∈ (K ⊓ R : Subgroup G) := Subgroup.mem_inf.mpr ⟨h_mem, r.2⟩
+    have h_mem_bot : (r : G) ∈ (⊥ : Subgroup G) := by
+      rw [← h_inf_eq_bot]
+      exact h_mem_inf
+    have h_one : (r : G) = 1 := by simpa using h_mem_bot
+    exact hr_ne_one (Subtype.ext h_one)
+  by_cases h_no_conj : ¬ Nonempty (W.toRepresentation ≃ₗ
+    Theory.Representation.conjugateRep W.toRepresentation (r : G))
+  · -- Case B: W ≇ W^r for a generator r. Then no nontrivial conjugate is isomorphic.
+    have hnconj : ∀ x : G, (x : G ⧸ K) ≠ 1 → ¬ Nonempty (W.toRepresentation ≃ₗ
+      Theory.Representation.conjugateRep W.toRepresentation x) := by
+      intro x hx_ne
+      intro h_nonempty
+      let e : W.toRepresentation ≃ₗ Theory.Representation.conjugateRep W.toRepresentation x :=
+        Classical.choice h_nonempty
+      have hall := all_conjugates_of_prime_quotient (ρ := W.toRepresentation)
+        hcard_quot hR_prime hx_ne e
+      exact h_no_conj ⟨hall (r : G)⟩
+    exact theorem_3_10_coindEquivOfNoNontrivialConj ρ hchar W hnconj
+  · -- Case A: W ≅ W^r. Then all conjugates are isomorphic.
+    have h_conj : Nonempty (W.toRepresentation ≃ₗ
+      Theory.Representation.conjugateRep W.toRepresentation (r : G)) := by
+      exact not_not.mp h_no_conj
+    let e : W.toRepresentation ≃ₗ Theory.Representation.conjugateRep W.toRepresentation (r : G) :=
+      Classical.choice h_conj
+    have hall : ∀ x : G, W.toRepresentation ≃ₗ Theory.Representation.conjugateRep W.toRepresentation x :=
+      all_conjugates_of_prime_quotient (ρ := W.toRepresentation) hcard_quot hR_prime hx_ne_one e
+    have hall_conj : ∀ x : G, Nonempty (W.toRepresentation ≃ₗ
+      Theory.Representation.conjugateRep W.toRepresentation x) :=
+      λ x => ⟨hall x⟩
+    -- Step 2: Construct φ and prove injectivity
+    let φ : ρ →ₗ coindRep W.toRepresentation := theorem_3_10_coindMapOfSubrep ρ hchar W
+    let : Nontrivial W.toSubmodule :=
+      Subrepresentation.irreducible_module_nontrivial W.toRepresentation
+    have hφ_ne_zero : φ ≠ 0 := by
+      obtain ⟨m0, hm0_ne⟩ := exists_ne (0 : W.toSubmodule)
+      intro hφ0
+      have h_eval : coindEval (ρ := W.toRepresentation) (1 : G) (φ m0) = m0 :=
+        theorem_3_10_coindMapOfSubrep_eval_one ρ hchar W m0
+      have h_zero : coindEval (ρ := W.toRepresentation) (1 : G) (φ m0) = 0 := by
+        simp [φ, hφ0]
+      exact hm0_ne (h_eval.symm.trans h_zero)
+    have hφ_inj : Function.Injective φ := by
+      let σ : Representation (ZMod q) G (Representation.coindV K.subtype W.toRepresentation) :=
+        Representation.coind K.subtype W.toRepresentation
+      rcases (Representation.IsIrreducible.injective_or_eq_zero
+        (ρ := ρ) (σ := σ) (f := φ)) with hφ_inj' | hφ0
+      · exact hφ_inj'
+      · exact False.elim (hφ_ne_zero hφ0)
+    -- Step 4: ρ|_K is W-isotypic with multiplicity m ≤ p
+    let V_coind := Representation.coindV K.subtype W.toRepresentation
+    have : Fintype (G ⧸ K) := Fintype.ofFinite (G ⧸ K)
+    have : FiniteDimensional (ZMod q) (Additive M) :=
+      finiteDimensional_of_irreducible_finite_group ρ hirred
+    have : FiniteDimensional (ZMod q) (W.toSubmodule) :=
+      finiteDimensional_of_irreducible_finite_group W.toRepresentation inferInstance
+    have h_card_quot_fintype : Fintype.card (G ⧸ K) = Nat.card R := by
+      rw [← Nat.card_eq_fintype_card, hcard_quot]
+    have h_finrank_rhoK_le : Module.finrank (ZMod q) (Additive M) ≤
+        (Nat.card R) * Module.finrank (ZMod q) (W.toSubmodule) := by
+      have h_finrank_inj : Module.finrank (ZMod q) (Additive M) ≤ Module.finrank (ZMod q) V_coind :=
+        LinearMap.finrank_le_finrank_of_injective (hφ_inj : Function.Injective φ.toLinearMap)
+      have h_finrank_coind : Module.finrank (ZMod q) V_coind =
+          Fintype.card (G ⧸ K) * Module.finrank (ZMod q) (W.toSubmodule) :=
+        finrank_coindRep_eq_card_mul (ρ := W.toRepresentation)
+      calc
+        Module.finrank (ZMod q) (Additive M) ≤ Module.finrank (ZMod q) V_coind := h_finrank_inj
+        _ = Fintype.card (G ⧸ K) * Module.finrank (ZMod q) (W.toSubmodule) := h_finrank_coind
+        _ = (Nat.card R) * Module.finrank (ZMod q) (W.toSubmodule) := by rw [h_card_quot_fintype]
+    -- Step 5-7: Multiplicity dichotomy and conclusion.
+    -- By the plan, either m = 1 (contradiction) or m = p (φ is an isomorphism).
+    let p := Nat.card R
+    have hp_prime : Nat.Prime p := hR_prime
+    have hp_gt_one : 1 < p := Nat.Prime.one_lt hp_prime
+    let U := W.toSubmodule
+    have h_card_quot_fintype' : Fintype.card (G ⧸ K) = p := by
+      rw [h_card_quot_fintype]
+    have h_finrank_coind : Module.finrank (ZMod q) V_coind = p * Module.finrank (ZMod q) U := by
+      calc
+        Module.finrank (ZMod q) V_coind = Fintype.card (G ⧸ K) * Module.finrank (ZMod q) U :=
+          finrank_coindRep_eq_card_mul (ρ := W.toRepresentation)
+        _ = p * Module.finrank (ZMod q) U := by rw [h_card_quot_fintype']
+    have : FiniteDimensional (ZMod q) V_coind := by
+      have h_equiv : V_coind ≃ₗ[ZMod q] ((G ⧸ K) → W.toSubmodule) :=
+        coindPiEquiv (ρ := W.toRepresentation)
+      have : FiniteDimensional (ZMod q) ((G ⧸ K) → W.toSubmodule) := by infer_instance
+      exact FiniteDimensional.of_injective (h_equiv : V_coind →ₗ[ZMod q] ((G ⧸ K) → W.toSubmodule))
+        h_equiv.injective
+    -- The finrank equality: either finrank(ρ) = finrank(W) (m = 1) or finrank(ρ) = p * finrank(W) (m = p).
+    -- If finrank(ρ) < p * finrank(W), then ρ|_K has multiplicity m < p.
+    -- The orbit argument shows that m must be 1 or p, so finrank(ρ) = finrank(W) in this case.
+    -- The plan (Step 6) shows the m = 1 case leads to a contradiction via the regular action.
+    -- Therefore finrank(ρ) = p * finrank(W) and φ is an isomorphism.
+    by_cases h_finrank_eq_p : Module.finrank (ZMod q) (Additive M) = p * Module.finrank (ZMod q) U
+    · -- Case m = p: finrank matches, so φ is an isomorphism.
+      have h_dim_eq : Module.finrank (ZMod q) (Additive M) = Module.finrank (ZMod q) V_coind := by
+        rw [h_finrank_coind, h_finrank_eq_p]
+      have h_φ_surj : Function.Surjective φ := by
+        have h_surj := (LinearMap.injective_iff_surjective_of_finrank_eq_finrank h_dim_eq
+          (f := φ.toLinearMap)).mp hφ_inj
+        exact h_surj
+      let e := LinearEquiv.ofBijective φ.toLinearMap ⟨hφ_inj, h_φ_surj⟩
+      refine Theory.Representation.RepEquiv.mk e ?_
+      intro g
+      apply LinearMap.ext
+      intro v
+      calc
+        e (ρ g v) = φ.toLinearMap (ρ g v) := by simp [e]
+        _ = φ (ρ g v) := rfl
+        _ = (coindRep W.toRepresentation g) (φ v) :=
+          Representation.IntertwiningMap.isIntertwining (ρ := ρ)
+            (σ := coindRep W.toRepresentation) φ g v
+        _ = (coindRep W.toRepresentation g) (φ.toLinearMap v) := rfl
+        _ = (coindRep W.toRepresentation g) (e v) := by simp [e]
+    · -- Case finrank(ρ) < p * finrank(W): orbit argument gives contradiction.
+      -- Step 7: Using coindProj_coindRep_comm and the R-transitivity on G/K,
+      -- one shows that the projection of im(φ) onto each coset summand C_q
+      -- is nonzero, hence all of C_q (by K-irreducibility).  Then im(φ) = V_coind,
+      -- giving finrank(ρ) = p·finrank(W), contradicting the case assumption.
+      -- The key lemmas coindProj_coindRep_comm and coindRep_restriction_decomp
+      -- are already in place above.  The remaining representation-theoretic
+      -- argument (showing that a G-submodule of V_coind projecting onto all
+      -- C_q must be the whole space) requires a detailed analysis of the
+      -- R-module structure of F[R] which is not yet formalized.
+      omitted
 
 -/
 

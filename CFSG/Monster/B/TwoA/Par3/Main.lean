@@ -17,6 +17,11 @@ open CFSG.Monster CFSG.Monster.B CFSG.Monster.B.TwoA CFSG.Monster.B.TwoA.Sp8
 
 open scoped IsMulCommutative
 
+theorem orderOf_of_mem_cE3
+    {d : Dfull} (hd : d ∈ cE3) : orderOf d = 2 := by
+  rw [← K3_class_eq] at hd
+  obtain ⟨k, -, rfl⟩ := hd
+  rw [show k * cQ * k⁻¹ = MulAut.conj k cQ from rfl, MulEquiv.orderOf_eq, orderOf_cQ]
 
 @[expose, instance_reducible] def kAction :
     MulAction K3 cE3 where
@@ -55,6 +60,9 @@ theorem natCard_cE3 :
   rw [cE3_eq_range, Nat.card_range_of_injective (fun e e' h => Subtype.ext (mul_left_cancel h)),
     natCard_E3]
 
+theorem ncard_cE3 :
+    cE3.ncard = 8 := by
+  rw [← Nat.card_coe_set_eq, natCard_cE3]
 
 attribute [local instance] kAction rAction
 
@@ -116,6 +124,9 @@ theorem eV_bE
     (x : E3) : eV (bE (Additive.ofMul x)) = x := by
   rw [eV, LinearEquiv.symm_apply_apply, toMul_ofMul]
 
+theorem eV_injective :
+    Function.Injective eV := fun _ _ h =>
+  bE.symm.injective (Additive.toMul.injective (Subtype.ext h))
 
 theorem cQ_mul_mem
     {d : Dfull} (hd : ∃ e ∈ E3, cQ * e = d) : cQ * d ∈ E3 := by
@@ -155,6 +166,25 @@ theorem eV_linK
 
 attribute [local instance] kAction rAction
 
+theorem index_P3 :
+    (P3.subgroupOf K3).index = 8 := by
+  have : MulAction.IsPretransitive K3 cE3 := ⟨fun x y => by
+    obtain ⟨r, hr, hxy⟩ := cE3_R3_transitive x.2 y.2
+    exact ⟨⟨r, R3_le_K3 hr⟩, Subtype.ext hxy⟩⟩
+  have hs : MulAction.stabilizer K3 (⟨cQ, cQ_mem_cE3⟩ : cE3) = P3.subgroupOf K3 := by
+    ext k
+    rw [MulAction.mem_stabilizer_iff, Subgroup.mem_subgroupOf, P3, Subgroup.mem_inf,
+      ← Subtype.coe_inj]
+    change (k : Dfull) * cQ * (k : Dfull)⁻¹ = cQ ↔ _
+    rw [stabilizer_iff]
+    exact ⟨fun h => ⟨k.2, h⟩, fun h => h.2⟩
+  rw [← hs, MulAction.index_stabilizer_of_transitive, natCard_cE3]
+
+theorem natCard_P3 :
+    Nat.card P3 = 86586540687360 := by
+  have h := (P3.subgroupOf K3).card_mul_index
+  rw [index_P3, Nat.card_congr (Subgroup.subgroupOfEquivOfLe P3_le_K3).toEquiv, natCard_K3] at h
+  omega
 
 theorem index_R3c :
 
@@ -214,6 +244,15 @@ theorem map_pCore_P3 :
   rw [← ker_sigP3_eq_pCore, ker_sigP3, Subgroup.subgroupOf_map_subtype,
     inf_eq_left.2 R3_inf_le_P3]
 
+@[expose] noncomputable def p3QuotK3 :
+    P3 ⧸ CFSG.pCore 2 P3 ≃* K3 ⧸ R3.subgroupOf K3 :=
+  (QuotientGroup.quotientMulEquivOfEq ker_sigP3_eq_pCore.symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective sigP3 sigP3_surjective)
+
+theorem exists_p3QuotEquiv :
+    Nonempty (P3 ⧸ CFSG.pCore 2 P3 ≃* GL (Fin 3) (ZMod 2) × Equiv.Perm (Fin 5)) := by
+  obtain ⟨e, -⟩ := exists_k3QuotProd
+  exact ⟨p3QuotK3.trans e⟩
 
 @[expose] def trK
     (k : K3) : Fin 3 → ZMod 2 :=
@@ -250,5 +289,58 @@ theorem conj_iotaC_alphaFun
       ← conj_iotaC_alphaFun, Subgroup.coe_mul]
     group))
 
+theorem conj_iotaC
+    (k : K3) (v : Fin 3 → ZMod 2) :
+    (k : Dfull) * iotaC v * (k : Dfull)⁻¹ = iotaC (alphaK k v) :=
+  conj_iotaC_alphaFun k v
+
+theorem alphaK_surjective :
+    Function.Surjective alphaK := by
+  intro f
+  obtain ⟨k₁, hk₁⟩ := conjE_E3_surjective
+    ((mulAutEquivLinear E3).symm (bE.trans (f.linear.trans bE.symm)))
+  have hL : ∀ v, linK k₁ v = f.linear v := fun v => by
+    rw [linK, LinearEquiv.trans_apply, LinearEquiv.trans_apply, hk₁, MulEquiv.apply_symm_apply,
+      LinearEquiv.trans_apply, LinearEquiv.apply_symm_apply, LinearEquiv.trans_apply,
+      LinearEquiv.apply_symm_apply]
+  obtain ⟨r, hr, hrc⟩ := exists_R3_translate (eV_mem (f 0 - trK k₁))
+  have hlin : ∀ w, linK ⟨r, R3_le_K3 hr⟩ w = w := fun w => eV_injective (by
+    rw [eV_linK]
+    change r * eV w * r⁻¹ = eV w
+    rw [← (Subgroup.mem_centralizer_iff.1 (R3_le_C3 hr) _ (eV_mem w)), mul_inv_cancel_right])
+  have htr : trK ⟨r, R3_le_K3 hr⟩ = f 0 - trK k₁ := eV_injective (by
+    rw [eV_trK]
+    change cQ * (r * cQ * r⁻¹) = eV (f 0 - trK k₁)
+    rw [hrc, ← mul_assoc, cQ_mul_self', one_mul])
+  refine ⟨⟨r, R3_le_K3 hr⟩ * k₁, AffineEquiv.ext fun v => ?_⟩
+  rw [map_mul, AffineEquiv.coe_mul, Function.comp_apply]
+  change trK ⟨r, R3_le_K3 hr⟩ + linK ⟨r, R3_le_K3 hr⟩ (trK k₁ + linK k₁ v) = f v
+  rw [hlin, htr, hL]
+  have hf : f v = f.linear v + f 0 := by
+    have h := f.map_vadd 0 v
+    rwa [vadd_eq_add, vadd_eq_add, add_zero] at h
+  rw [hf]
+  abel
+
+theorem short_third_parabolic_involution_centralizer :
+    CFSG.IsElementaryAbelian 2 (Subgroup.closure (insert cQ (E3 : Set Dfull))) ∧
+    Nat.card (Subgroup.closure (insert cQ (E3 : Set Dfull))) = 16 ∧
+    {d : Dfull | ∃ k ∈ K3, k * cQ * k⁻¹ = d} = {d | ∃ e ∈ E3, cQ * e = d} ∧
+    {d : Dfull | ∃ e ∈ E3, cQ * e = d}.ncard = 8 ∧
+    (∀ d ∈ {d : Dfull | ∃ e ∈ E3, cQ * e = d}, orderOf d = 2) ∧
+    (∃ (ι : (Fin 3 → ZMod 2) ≃ {d : Dfull // ∃ e ∈ E3, cQ * e = d})
+      (α : K3 →* ((Fin 3 → ZMod 2) ≃ᵃ[ZMod 2] (Fin 3 → ZMod 2))),
+      Function.Surjective α ∧
+        ∀ (k : K3) (v : Fin 3 → ZMod 2), (k : Dfull) * ι v * (k : Dfull)⁻¹ = ι (α k v)) ∧
+    P3 = K3 ⊓ Subgroup.centralizer {cQ} ∧
+    (P3.subgroupOf K3).index = 8 ∧
+    (CFSG.pCore 2 P3).map P3.subtype = R3 ⊓ Subgroup.centralizer {cQ} ∧
+    Nat.card ↥(R3 ⊓ Subgroup.centralizer {cQ}) = 2 ^ 32 ∧
+    Nonempty (P3 ⧸ CFSG.pCore 2 P3 ≃* GL (Fin 3) (ZMod 2) × Equiv.Perm (Fin 5)) ∧
+    Nat.card P3 = 86586540687360 := by
+  rw [closure_eq_E4]
+  exact ⟨isElementaryAbelian_E4, natCard_E4, K3_class_eq, ncard_cE3,
+    fun d hd => orderOf_of_mem_cE3 hd, ⟨iotaC, alphaK, alphaK_surjective, conj_iotaC⟩, rfl,
+    index_P3, map_pCore_P3, natCard_R3c, exists_p3QuotEquiv, natCard_P3⟩
 
 end CFSG.Monster.B.TwoA.Par3

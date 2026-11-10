@@ -13,6 +13,13 @@ theorem exists_pow_of_mem_zpowers {G : Type*} [Group G] [Finite G] {x y : G}
   rw [← mem_powers_iff_mem_zpowers] at h
   exact h
 
+theorem zpowers_eq_of_card_five {G : Type*} [Group G] {K : Subgroup G} (hK : Nat.card K = 5)
+    {x : G} (hxK : x ∈ K) (hx5 : x ^ 5 = 1) (hx1 : x ≠ 1) : Subgroup.zpowers x = K := by
+  have : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
+  have hle : Subgroup.zpowers x ≤ K := (Subgroup.zpowers_le).mpr hxK
+  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; norm_num)
+  refine Subgroup.eq_of_le_of_card_ge hle ?_
+  rw [hK, Nat.card_zpowers, orderOf_eq_prime hx5 hx1]
 
 theorem exists_gen_of_card_five {G : Type*} [Group G] {K : Subgroup G} (hK : Nat.card K = 5) :
     ∃ x ∈ K, x ^ 5 = 1 ∧ x ≠ 1 ∧ ∀ y ∈ K, ∃ n : ℕ, x ^ n = y := by

@@ -104,6 +104,10 @@ variable {p f : ℕ}
     rw [hinv, Matrix.transpose_map, hbb, Matrix.transpose_transpose, ← hinv, ← Units.val_mul,
       mul_inv_cancel, Units.val_one]
 
+theorem mem_guSubgroup (h : UnitaryFieldData p f K) {A : GL (Fin n) K} :
+    A ∈ guSubgroup h n ↔
+      ((A : Matrix (Fin n) (Fin n) K).map h.bar)ᵀ * (A : Matrix (Fin n) (Fin n) K) = 1 :=
+  Iff.rfl
 
 theorem glPi_false_eq (h : UnitaryFieldData p f K) : glPi false n (p ^ f) K = guSubgroup h n := by
   change Subgroup.closure _ = _

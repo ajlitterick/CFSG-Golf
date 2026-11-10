@@ -174,6 +174,8 @@ theorem fourInCentralizer_central [Finite C] (t s : C)
     exact congrArg (QuotientGroup.mk' N)
       (Subgroup.mem_centralizer_singleton_iff.mp x.property))
 
+theorem onCentralizer_coe (N : Subgroup C) [N.Normal] (s : C) (x : centralizer s) :
+    (onCentralizer N s x : C ⧸ N) = QuotientGroup.mk' N (x : C) := rfl
 
 theorem onCentralizer_ker (N : Subgroup C) [N.Normal] (s : C) :
     (onCentralizer N s).ker = centralizerKernel N s := by
@@ -286,6 +288,10 @@ theorem involution_zpowers_disjoint [Finite C] (t s : C)
     (Subgroup.subgroupOfEquivOfLe hsV).symm).trans
       (OddFieldLift.internalDirectEquiv T S hcentral hcomp)
 
+theorem fourProductEquiv_coe [Finite C] (t s : C)
+    (hc : t ∈ Subgroup.center C) (ht : orderOf t = 2) (hs : orderOf s = 2)
+    (hne : t ≠ s) (a : Subgroup.zpowers t) (b : Subgroup.zpowers s) :
+    (fourProductEquiv t s hc ht hs hne (a, b) : C) = (a : C) * b := rfl
 
 @[expose] def cyclicTwoEquiv (t : C) (ht : orderOf t = 2) :
     Multiplicative (ZMod 2) ≃* Subgroup.zpowers t := by
@@ -581,6 +587,8 @@ theorem centralizerDirectEquiv_coe [Finite C] (N : Subgroup C) [N.Normal]
     oddKernel s →* (C ⧸ N) :=
   (QuotientGroup.mk' N).comp ((centralizer s).subtype.comp (oddKernel s).subtype)
 
+theorem onOddKernel_apply (N : Subgroup C) [N.Normal] (s : C) (r : oddKernel s) :
+    onOddKernel N s r = QuotientGroup.mk' N ((r : centralizer s) : C) := rfl
 
 theorem oddKernel_image_le_quotientOdd [Finite C] (N : Subgroup C) [N.Normal]
     (hN : Odd (Nat.card N)) (t s : C)

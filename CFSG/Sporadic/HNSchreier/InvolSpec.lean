@@ -304,6 +304,9 @@ theorem matCx_sq :
   rw [toMat_mulM, toMat_rowsC, toMat_idM, ← matCx_eq_matC] at e
   exact e
 
+theorem matCx_ne_one : matCx ≠ 1 := by
+  rw [matCx_eq_matC, ← toMat_rowsC]
+  exact toMat_ne_one_of_notIdM invol_parts.2.2.2.2.2.1
 
 theorem toVec_rootVec : toVec 5 133 CFSG.Sporadic.HNSchreier.Native.rootVec = fixedVector := by
   funext j

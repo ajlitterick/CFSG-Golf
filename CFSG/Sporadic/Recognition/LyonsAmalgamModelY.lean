@@ -70,6 +70,8 @@ end Tables
 @[expose] noncomputable def letG (l : ℤ) : Perm (Fin deg) :=
   if 0 < l then ug (l.toNat - 1) else (ug ((-l).toNat - 1))⁻¹
 
+@[expose] noncomputable def abLetG (l : ℤ) : Perm (Fin deg) :=
+  if l = 1 then ug 0 else if l = 2 then ug 3 else if l = -1 then (ug 0)⁻¹ else (ug 3)⁻¹
 
 @[expose] noncomputable def txyG (j : ℕ) : Perm (Fin deg) := wordG letG txyWords[j]!
 
@@ -137,6 +139,13 @@ theorem words_range₄ : ∀ w ∈ erelWords ++ txyWords, ∀ l ∈ w, l ≠ 0 �
   intro w hw' l hl
   exact hw.1.1 w hw' l hl
 
+theorem words_range₂ : ∀ w ∈ genWords ++ autRelators ++ autWitnesses, ∀ l ∈ w,
+    l ≠ 0 ∧ l.natAbs ≤ 2 := by
+  have hw := tablesOK_words (yCheck_tables h)
+  simp only [wordsOK, Bool.and_eq_true, List.all_eq_true, bne_iff_ne, ne_eq, decide_eq_true_eq]
+    at hw
+  intro w hw' l hl
+  exact hw.1.2 w hw' l hl
 
 theorem words_range₅ : ∀ w ∈ sigmaTxyWords, ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 5 := by
   have hw := tablesOK_words (yCheck_tables h)
@@ -174,6 +183,83 @@ theorem wordG_mem_Y0 {w : List ℤ} (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 
     obtain ⟨l, hl, rfl⟩ := List.mem_map.1 hx
     exact letG_mem h (hw l hl)
 
+theorem rep_abLet {l : ℤ} (hl : l ≠ 0 ∧ l.natAbs ≤ 2) : Rep deg (abLet l) (abLetG l) := by
+  have ht := yCheck_tables h
+  have hsz := (tablesOK_sizes ht).1
+  have hget : ∀ i : ℕ, i < 4 → uInvTabs[i]! = invT deg uTabs[i]! := fun i hi => by
+    unfold uInvTabs
+    rw [getElem!_pos (uTabs.map (invT deg)) _ (by simp; omega), Array.getElem_map,
+      getElem!_pos uTabs _ (by omega)]
+  have hl2 : l = 1 ∨ l = 2 ∨ l = -1 ∨ l = -2 := by omega
+  unfold abLet abLetG
+  rcases hl2 with rfl | rfl | rfl | rfl
+  · simpa using rep_u ht (i := 0) (by norm_num)
+  · simpa using rep_u ht (i := 3) (by norm_num)
+  · simpa [hget 0 (by norm_num)] using rep_uInv ht (i := 0) (by norm_num)
+  · simpa [hget 3 (by norm_num)] using rep_uInv ht (i := 3) (by norm_num)
+
+theorem rep_wordT_ab {w : List ℤ} (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 2) :
+    Rep deg (wordT deg abLet w) (wordG abLetG w) :=
+  Rep.wordT deg_lt w fun l hl => rep_abLet h (hw l hl)
+
+theorem Y0_eq_ab : Y0 = genOf deg abTabs.toList := by
+  have ht := yCheck_tables h
+  have hsz := (tablesOK_sizes ht).1
+  have hgen := (yCheck_parts h).2.2.1
+  simp only [genOK, Bool.and_eq_true, beq_iff_eq] at hgen
+  obtain ⟨⟨hglen, hg1⟩, hg2⟩ := hgen
+  set Hab := genOf deg abTabs.toList with hHab
+  have hab0 : ug 0 ∈ Hab := by
+    refine tp_mem_genOf (g := uTabs[0]!) ?_
+    simp [abTabs]
+  have hab3 : ug 3 ∈ Hab := by
+    refine tp_mem_genOf (g := uTabs[3]!) ?_
+    simp [abTabs]
+  have hletab : ∀ l : ℤ, (l ≠ 0 ∧ l.natAbs ≤ 2) → abLetG l ∈ Hab := by
+    intro l hl
+    unfold abLetG
+    have hl2 : l = 1 ∨ l = 2 ∨ l = -1 ∨ l = -2 := by omega
+    rcases hl2 with rfl | rfl | rfl | rfl
+    · simpa using hab0
+    · simpa using hab3
+    · simpa using inv_mem hab0
+    · simpa using inv_mem hab3
+  have hwab : ∀ w : List ℤ, (∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 2) → wordG abLetG w ∈ Hab :=
+    fun w hw => Subgroup.list_prod_mem _ fun x hx => by
+      obtain ⟨l, hl, rfl⟩ := List.mem_map.1 hx
+      exact hletab l (hw l hl)
+  have hmem : ∀ k, k < 2 → genWords[k]! ∈ genWords := fun k hk => by
+    rw [getElem!_pos genWords k (by omega)]
+    exact List.getElem_mem _
+  have hr := fun w hw => words_range₂ h w (List.mem_append_left _ (List.mem_append_left _ hw))
+  have hu1 : ug 1 = wordG abLetG genWords[0]! :=
+    (tblEq_iff_eq (rep_u ht (i := 1) (by norm_num))
+      (rep_wordT_ab h (hr _ (hmem 0 (by norm_num))))).1 hg1
+  have hu2 : ug 2 = wordG abLetG genWords[1]! :=
+    (tblEq_iff_eq (rep_u ht (i := 2) (by norm_num))
+      (rep_wordT_ab h (hr _ (hmem 1 (by norm_num))))).1 hg2
+  apply le_antisymm
+  · refine (Subgroup.closure_le _).2 ?_
+    rintro _ ⟨T, hT, rfl⟩
+    have hT' : T ∈ uTabs := by simpa using hT
+    obtain ⟨i, hi, rfl⟩ := Array.getElem_of_mem hT'
+    have hi4 : i < 4 := by omega
+    have this : tp deg uTabs[i] = ug i := congrArg (tp deg) (getElem!_pos uTabs i hi).symm
+    have key : ug i ∈ Hab := by
+      interval_cases i
+      · exact hab0
+      · rw [hu1]; exact hwab _ (hr _ (hmem 0 (by norm_num)))
+      · rw [hu2]; exact hwab _ (hr _ (hmem 1 (by norm_num)))
+      · exact hab3
+    exact Eq.mpr (congrArg (· ∈ Hab) this) key
+  · refine (Subgroup.closure_le _).2 ?_
+    rintro _ ⟨T, hT, rfl⟩
+    have hT' : T ∈ abTabs.toList := by simpa using hT
+    have hlist : abTabs.toList = [uTabs[0]!, uTabs[3]!] := rfl
+    rw [hlist, List.mem_cons, List.mem_singleton] at hT'
+    rcases hT' with hT' | hT'
+    · rw [hT']; exact ug_mem h (by norm_num : 0 < 4)
+    · rw [hT']; exact ug_mem h (by norm_num : 3 < 4)
 
 theorem txyWords_length : txyWords.length = 5 := by
   have := (tablesOK_sizes (yCheck_tables h)).2
@@ -300,6 +386,17 @@ theorem sigma_conj_Txy0 : ∀ t ∈ Txy0, sigma0 * t * sigma0⁻¹ ∈ Txy0 := b
     rw [this]
     exact Subgroup.inv_mem _ ihx
 
+omit h in
+theorem abTabs_get₀ : abTabs[0]! = uTabs[0]! := by simp [abTabs]
+
+omit h in
+theorem abTabs_get₁ : abTabs[1]! = uTabs[3]! := by simp [abTabs]
+
+theorem rep_ab₀ : Rep deg abTabs[0]! (ug 0) := by
+  rw [abTabs_get₀]; exact rep_u (yCheck_tables h) (by norm_num)
+
+theorem rep_ab₁ : Rep deg abTabs[1]! (ug 3) := by
+  rw [abTabs_get₁]; exact rep_u (yCheck_tables h) (by norm_num)
 
 theorem exactEnum_txy : ExactEnum deg Txy0 txyEnum.1 :=
   (ExactEnum.of_enumOK deg_lt (fun g hg => (tablesOK_perm (yCheck_tables h) g (by

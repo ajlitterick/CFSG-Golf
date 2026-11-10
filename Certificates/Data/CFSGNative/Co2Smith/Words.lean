@@ -16,5 +16,6 @@ open CFSG.Sporadic.SmallF2.Native
 
 @[expose] def colActT (T : Array Nat) (v : Nat) : Nat := vecMulN 22 T v
 
+@[expose] def fixesT (T : Array Nat) (v : Nat) : Bool := vecMulN 22 T v == v
 
 end CFSG.Sporadic.Co2Smith.Native

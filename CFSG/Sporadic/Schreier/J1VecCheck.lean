@@ -13,6 +13,8 @@ open CFSG.ProperTwoGeneratedCore Matrix
 theorem j1_vectors_nodup : J1Certificate.vectors.Nodup :=
   Certificates.certificate2167.1
 
+theorem j1Vec_ne_zero : ∀ i : Fin 3080, j1Vec i ≠ 0 :=
+  Certificates.certificate2167.2.1
 
 theorem j1_first_mulVec :
     ∀ i : Fin 3080, j1_first_matrix *ᵥ j1Vec i = j1Vec (j1Idx j1A1List i) :=

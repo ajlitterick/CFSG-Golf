@@ -49,6 +49,8 @@ theorem sqtkHypCat_bar (hsq : SQTKGroup ↥H) : SQTKHypCat (↥H ⧸ CFSG.pCore 
     kgroup := h.kgroup
     o2 := h.o2 }
 
+theorem pCore_eq (X : Type) [Group X] : CFSG.pCore 2 X = CFSG.Open.pCore 2 X :=
+  CFSG.pCore_eq_open X 2
 
 theorem isSolvable_ker_barMap (H : Subgroup Γ) : Group.IsSolvable (barMap H).ker := by
   rw [QuotientGroup.ker_mk']

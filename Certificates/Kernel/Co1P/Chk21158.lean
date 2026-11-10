@@ -42,9 +42,11 @@ theorem treeAQ_ok :
     (CFSG.KC.TreeK.treePts (hisAct QG) 8 oneK (recsT CFSG.Sporadic.Co1Block.twoAQMasks)).2 = true := by
   quickRfl
 
+theorem recsAQ_len : (recsT CFSG.Sporadic.Co1Block.twoAQMasks).length = 511 := by decide
 
 theorem qae_chk : qaeK (wK 64) (wK 128) = true := by quickRfl
 
+theorem qae_neg : notB (qaeK oneK (wK 128)) = true := by quickRfl
 
 @[expose] noncomputable def conjEK (E : Nat) : Bool :=
   andB (andB (andB (canK E) (canK E)) (Nat.beq (mulK E E) oneK)) (allN 8 fun k =>
@@ -60,6 +62,8 @@ theorem qae_chk : qaeK (wK 64) (wK 128) = true := by quickRfl
 theorem edge_chk : edgeK (getL oneK GDS 94) (getL oneK GDIS 94) (getL oneK GDS 92)
     (getL oneK GDIS 92) = true := by quickRfl
 
+theorem edge_neg : notB (edgeK (getL oneK GDS 94) (getL oneK GDIS 94) (getL oneK GDS 94)
+    (getL oneK GDIS 94)) = true := by quickRfl
 
 theorem edge_small : (decide (1 ≤ y0Idx) && decide (y0Idx ≤ 190) &&
     uBasis.all (fun c => CFSG.Sporadic.Co1Patterson.TwistNative.colsApply eCols c == c) &&

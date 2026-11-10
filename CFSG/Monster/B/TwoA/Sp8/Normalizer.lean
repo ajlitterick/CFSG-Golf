@@ -144,6 +144,13 @@ theorem card_div2 {a b c : ℕ} (h : a * b = c) (hb : b = 47377612800)
   subst hc
   omega
 
+theorem natCard_V8 : Nat.card V8 = 256 := by
+  rw [Nat.card_fun, Nat.card_zmod, Nat.card_fin]
+  norm_num
+
+theorem subSp_smul
+    {P : Subgroup (TauCeti.BilinForm.isometryGroup b0)} (g : P) (v : V8) :
+    g • v = ((g : TauCeti.BilinForm.isometryGroup b0) : V8 ≃ₗ[ZMod 2] V8) v := rfl
 
 attribute [local instance] xAction
 
@@ -186,6 +193,24 @@ theorem natCard_Xgrp :
       ((Nat.card_congr (Subgroup.subgroupOfEquivOfLe H1_le_Xgrp).toEquiv).trans natCard_H1)
   exact card_mul255 hc hs hi'
 
+theorem nonempty_Sp_equiv :
+    Nonempty (TauCeti.BilinForm.isometryGroup b0 ≃*
+    CFSG.Assembly.LowTwoRank.StatedSp 4 (ZMod 2)) := by
+  obtain ⟨m, b, hm, hb⟩ :=
+    CFSG.ComponentClassification.CatalogueBAlternatingIsometry.exists_symplectic_basis b0 b0_isAlt
+      b0_nondegenerate
+  have hm4 : m = 4 := by
+    rw [finrank_V8] at hm
+    omega
+  subst hm4
+  exact ⟨(CFSG.ComponentClassification.CatalogueBAlternatingIsometry.isometryMatrixEquiv b b0
+    hb).trans
+      (MulEquiv.subgroupCongr CFSG.ClassicalGroups.Symplectic.statedSp_eq_GLSymplectic.symm)⟩
+
+theorem natCard_StatedSp8 :
+    Nat.card (CFSG.Assembly.LowTwoRank.StatedSp 4 (ZMod 2)) = 47377612800 := by
+  obtain ⟨e⟩ := nonempty_Sp_equiv
+  exact (Nat.card_congr e.toEquiv).symm.trans natCard_Sp
 
 theorem rhoXSp_surjective :
     Function.Surjective rhoXSp := by
@@ -256,6 +281,54 @@ theorem natCard_Lgrp :
       (Nat.card_congr (Subgroup.subgroupOfEquivOfLe Lgrp_le_Xgrp).toEquiv)
   exact hk.symm.trans (card_div2 h hr natCard_Xgrp)
 
+theorem pCore_Sp_eq_bot :
+    CFSG.pCore 2 (TauCeti.BilinForm.isometryGroup b0) = ⊥ := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  set P := CFSG.pCore 2 (TauCeti.BilinForm.isometryGroup b0)
+  have hP : IsPGroup 2 P := CFSG.pCore_isPGroup
+  have hN : P.Normal := CFSG.pCore_normal
+  have h0 : (0 : V8) ∈ MulAction.fixedPoints P V8 := fun g => by
+    rw [subSp_smul, map_zero]
+  obtain ⟨w, hw, hw0⟩ := hP.exists_fixed_point_of_prime_dvd_card_of_fixed_point V8
+    (by rw [natCard_V8]; norm_num) h0
+  have hfix : ∀ g : P, ∀ v : V8, g • v = v := by
+    intro g v
+    by_cases hv : v = 0
+    · rw [hv, subSp_smul, map_zero]
+    obtain ⟨s, rfl⟩ : v ∈ MulAction.orbit (TauCeti.BilinForm.isometryGroup b0) w := by
+      have hw' : w ∈ MulAction.orbit (TauCeti.BilinForm.isometryGroup b0) e0 := by
+        rw [orbit_Sp_e0]
+        exact Ne.symm hw0
+      have hv' : v ∈ MulAction.orbit (TauCeti.BilinForm.isometryGroup b0) e0 := by
+        rw [orbit_Sp_e0]
+        exact hv
+      rw [MulAction.orbit_eq_iff.2 hw']
+      exact hv'
+    have hc : s⁻¹ * (g : TauCeti.BilinForm.isometryGroup b0) * s ∈ P := by
+      have := hN.conj_mem _ g.2 s⁻¹
+      simpa using this
+    have hw2 : (s⁻¹ * (g : TauCeti.BilinForm.isometryGroup b0) * s) • w = w := hw ⟨_, hc⟩
+    have e : (g : TauCeti.BilinForm.isometryGroup b0) • (s • w) =
+        s • ((s⁻¹ * (g : TauCeti.BilinForm.isometryGroup b0) * s) • w) := by
+      rw [mul_smul, mul_smul, smul_inv_smul]
+    change (g : TauCeti.BilinForm.isometryGroup b0) • (s • w) = s • w
+    rw [e, hw2]
+  refine (Subgroup.eq_bot_iff_forall _).2 fun g hg => ?_
+  apply Subtype.ext
+  rw [OneMemClass.coe_one]
+  refine LinearEquiv.ext fun v => ?_
+  rw [LinearEquiv.coe_one, id]
+  exact (subSp_smul ⟨g, hg⟩ v).symm.trans (hfix ⟨g, hg⟩ v)
+
+theorem pCore_Xgrp :
+    (CFSG.pCore 2 Xgrp).map Xgrp.subtype = Lgrp := by
+  have hker : IsPGroup 2 rhoXSp.ker := by
+    have h := (congrArg (fun H : Subgroup Xgrp => Nat.card H) ker_rhoXSp).trans
+      ((Nat.card_congr (Subgroup.subgroupOfEquivOfLe Lgrp_le_Xgrp).toEquiv).trans natCard_Lgrp)
+    exact IsPGroup.of_card h
+  have h := ker_eq_pCore_of_surjective rhoXSp_surjective hker pCore_Sp_eq_bot
+  rw [← h, ker_rhoXSp, Subgroup.subgroupOf_map_subtype]
+  exact inf_of_le_left Lgrp_le_Xgrp
 
 theorem A8_le_Lgrp :
     A8 ≤ Lgrp := fun a ha => by
@@ -264,5 +337,43 @@ theorem A8_le_Lgrp :
   have := A8_comm ⟨b, hb⟩ ⟨a, ha⟩
   exact congrArg Subtype.val this
 
+theorem A8_le_center_Lgrp :
+    A8.subgroupOf Lgrp ≤ Subgroup.center Lgrp := by
+  intro a ha
+  rw [Subgroup.mem_subgroupOf] at ha
+  rw [Subgroup.mem_center_iff]
+  intro l
+  apply Subtype.ext
+  exact (Subgroup.mem_centralizer_iff.1 l.2 a ha).symm
+
+theorem full_short_symplectic_eight_normalizer :
+    Subgroup.normalizer (A8 : Set Dfull) = Xgrp ∧ Xgrp ≤ Shat ∧
+    Xgrp ⊓ Subgroup.centralizer {xhat} = H1 ∧
+    (∀ (x : Xgrp) (v : Fin 8 → ZMod 2), (aEquiv (Multiplicative.ofAdd
+      (((rhoXSp x : TauCeti.BilinForm.isometryGroup b0) : V8 ≃ₗ[ZMod 2] V8) v)) : Dfull) =
+        x * aEquiv (Multiplicative.ofAdd v) * (x : Dfull)⁻¹) ∧
+    Function.Surjective rhoXSp ∧ rhoXSp.ker = Lgrp.subgroupOf Xgrp ∧
+    Lgrp = Subgroup.centralizer (A8 : Set Dfull) ∧ Lgrp ≤ Xgrp ∧
+    (CFSG.pCore 2 Xgrp).map Xgrp.subtype = Lgrp ∧ Nat.card Lgrp = 2 ^ 25 ∧
+    Nat.card Xgrp = 1589728887019929600 ∧
+    Nat.card (TauCeti.BilinForm.isometryGroup b0) = 47377612800 ∧
+    Nonempty (TauCeti.BilinForm.isometryGroup b0 ≃*
+      CFSG.Assembly.LowTwoRank.StatedSp 4 (ZMod 2)) ∧
+    Nat.card (CFSG.Assembly.LowTwoRank.StatedSp 4 (ZMod 2)) = 47377612800 ∧
+    A8 ≤ Lgrp ∧ A8.subgroupOf Lgrp ≤ Subgroup.center Lgrp ∧
+    H1 = (Cr.comap jhatToKv0).map Jhat.subtype ∧ Nat.card H1 = 2 ^ 23 * 743178240 ∧
+    IsExtraspecialPGroup 2 Co2Inv.Qgrp ∧ Nat.card Co2Inv.Qgrp = 2 ^ 9 ∧
+    Function.Surjective Co2Inv.phiQ ∧ Co2Inv.phiQ.ker = Subgroup.center Co2Inv.Qgrp ∧
+    (∀ x : Co2Inv.Qgrp, x ^ 2 = Co2Inv.rQ ^ ((Multiplicative.toAdd (Co2Inv.phiQ x)).1 ⬝ᵥ
+      (Multiplicative.toAdd (Co2Inv.phiQ x)).2).val) ∧
+    (∀ x ∈ Co2Inv.Qgrp, ∃ k : Cr, ((k : Kstab v0) : CFSG.Monster.VisQuot.OLq) = x) ∧
+    ∃ π : Cr →* CFSG.Assembly.LowTwoRank.StatedSp 3 (ZMod 2), Function.Surjective π ∧
+      ∀ k : Cr, π k = 1 ↔ ((k : Kstab v0) : CFSG.Monster.VisQuot.OLq) ∈ Co2Inv.Qgrp := by
+  obtain ⟨-, -, -, -, -, -, -, -, hQC, -, hext, hQ9, -, -, -, hphi, hker, hsq, -, -, -, hex⟩ :=
+    native_Co2_central_involution_extraspecial_kernel
+  exact ⟨normalizer_A8_eq, Xgrp_le_Shat, Xgrp_inf_centralizer_xhat, aEquiv_rhoX,
+    rhoXSp_surjective, ker_rhoXSp, rfl, Lgrp_le_Xgrp, pCore_Xgrp, natCard_Lgrp, natCard_Xgrp,
+    natCard_Sp, nonempty_Sp_equiv, natCard_StatedSp8, A8_le_Lgrp, A8_le_center_Lgrp, rfl,
+    natCard_H1, hext, hQ9, hphi, hker, hsq, hQC, hex⟩
 
 end CFSG.Monster.B.TwoA.Sp8

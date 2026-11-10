@@ -92,6 +92,8 @@ theorem pCore_P₂ : CFSG.pCore 2 P₂ = ⊥ := by
 theorem phiH_apply
     (h : H2) : phiH h = twoCoreEquiv (QuotientGroup.mk (inclH h)) := rfl
 
+theorem phiH_fst
+    (h : H2) : (phiH h).1 = blockP (inclH h) := rfl
 
 theorem blockP_inclH_rest2
     (h : H2) : blockP (inclH h) • rest2 = rest2 := by
@@ -125,5 +127,26 @@ theorem R2_inf_le_H2 :
   ⟨j, fun h => by rw [h] at hj; exact absurd hj (by decide),
     fun h => by rw [h] at hj; exact absurd hj (by decide)⟩
 
+theorem two_le_rest (j : Rest) : (2 : Fin 24) ≤ j := by
+  rcases j with ⟨j, h0, h1⟩
+  change (2 : ℕ) ≤ (j : ℕ)
+  have h0' : (j : ℕ) ≠ 0 := fun h => h0 (Fin.ext h)
+  have h1' : (j : ℕ) ≠ 1 := fun h => h1 (Fin.ext h)
+  omega
+
+theorem blk_toRest (j : Fin 24) (hj : 2 ≤ j) :
+    blk (toRest j hj) = {d | ∃ v ∈ Vhat, dhat 0 j * v = d} := rfl
+
+theorem conjClass_eq' :
+    {d : Dfull | ∃ n ∈ Ntwo, n * cQ * n⁻¹ = d} =
+    {d | ∃ j : Fin 24, 2 ≤ j ∧ ∃ v ∈ Vhat, dhat 0 j * v = d} := by
+  change conjClass = _
+  rw [conjClass_eq]
+  ext d
+  constructor
+  · rintro ⟨j, v, hv, hd⟩
+    exact ⟨j, two_le_rest j, v, hv, hd⟩
+  · rintro ⟨j, hj, v, hv, hd⟩
+    exact ⟨toRest j hj, v, hv, hd⟩
 
 end CFSG.Monster.B.TwoA.Par2

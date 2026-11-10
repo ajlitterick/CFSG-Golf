@@ -43,5 +43,26 @@ theorem centralizer_FE_le_GmatGriess
     RE_le_centralizer_x RE_le_centralizer_FE isPGroup_RE RE_normalized (RE_hCR rankSpec)
     RE_hZR RE_hinv (hanch_FE hEb)
 
+theorem normalizer_FE_le_GmatGriess
+    (hcensus : ∀ y ∈ GmatGriess, IsConj xGriess y → ∃ g ∈ GmatGriess, g * xGriess * g⁻¹ = y)
+    (hEb : ∀ e ∈ Subgroup.centralizer (FE : Set MGriess) ⊓
+        Subgroup.centralizer ({xGriess} : Set MGriess),
+      e * e = 1 → e ∉ FE → ∃ f ∈ FE, IsConj xGriess (e * f)) :
+    Subgroup.normalizer (FE : Set MGriess) ≤ GmatGriess := by
+  intro n hn
+  have hxG : xGriess ∈ GmatGriess :=
+    centralizer_FE_le_GmatGriess hcensus hEb xGriess_mem_centralizer_FE
+  have hnx : n * xGriess * n⁻¹ ∈ Subgroup.centralizer (FE : Set MGriess) := by
+    rw [Subgroup.mem_centralizer_iff]
+    intro f hf
+    have hf' : n⁻¹ * f * n ∈ FE := by
+      have := (Subgroup.mem_normalizer_iff.1 (Subgroup.inv_mem _ hn) f).1 hf
+      simpa using this
+    have hc := Subgroup.mem_centralizer_iff.1 xGriess_mem_centralizer_FE _ hf'
+    calc f * (n * xGriess * n⁻¹) = n * ((n⁻¹ * f * n) * xGriess) * n⁻¹ := by group
+      _ = n * (xGriess * (n⁻¹ * f * n)) * n⁻¹ := by rw [hc]
+      _ = n * xGriess * n⁻¹ * f := by group
+  exact mem_of_isConj_of_conj_mem centralizer_xGriess_le hcensus (IsConj.refl xGriess) hxG
+    (centralizer_FE_le_GmatGriess hcensus hEb hnx)
 
 end CFSG.Monster.Existence

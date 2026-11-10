@@ -28,6 +28,9 @@ theorem k_le_size {cd : ChainData} (h : cd.check n = true) : cd.k ≤ cd.S.size 
   simp only [check, Bool.and_eq_true, decide_eq_true_eq] at h
   exact h.1.1.1.1.2
 
+theorem n_pos {cd : ChainData} (h : cd.check n = true) : 1 ≤ n := by
+  simp only [check, Bool.and_eq_true, decide_eq_true_eq] at h
+  exact h.1.1.1.1.1
 
 @[expose] def origsOK (H amb : ChainData) (ws : List (List ℤ)) : Bool :=
   decide (ws.length = H.k) && (List.range H.k).all fun i =>

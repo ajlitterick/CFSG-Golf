@@ -140,6 +140,12 @@ theorem nontrivial_two_dvd_griessHopfMultiplier_grp :
 
 variable {K : Type} [Field K]
 
+theorem nontrivial_griessHopfMultiplier (hK : Nat.card K = 4) :
+    Nontrivial (griessHopfMultiplier ↥(adjointGroup .G2 K)) := by
+  obtain ⟨σ⟩ := nonempty_ringEquiv_F4 hK
+  have := nontrivial_two_dvd_griessHopfMultiplier_grp.1
+  exact (CFSG.LieType.Steinberg.CentralExt.griessHopfMultiplierCongr
+    (adjointEquiv σ hK)).toEquiv.nontrivial
 
 theorem two_dvd_card_griessHopfMultiplier (hK : Nat.card K = 4) :
     2 ∣ Nat.card (griessHopfMultiplier ↥(adjointGroup .G2 K)) := by

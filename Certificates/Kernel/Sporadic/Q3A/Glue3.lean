@@ -11,6 +11,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.SuzRecog.Q3A.Check
 open CertificateChecks.KernelSpor CertificateChecks.KernelSpor.Q3AK
 open CertificateChecks.KernelSpor.SuzTwCF (P p_comp eqA_P pidn_P)
 
+theorem actK_le (hv : ∀ i < 22880, vtOK i = true) (G i : Nat) : actK G i ≤ 22880 := by
+  unfold actK
+  rcases searchK_cases hv (keyF (imgK G (Q3AF i))) with h | ⟨h, -⟩ <;> omega
 
 theorem adjK_iff {C v : Nat} : adjK C v = true ↔ actK C v < 22880 ∧ frootK (actK C v) = 10 := by
   unfold adjK

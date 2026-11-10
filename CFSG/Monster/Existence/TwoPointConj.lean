@@ -11,6 +11,9 @@ open CFSG CFSG.Blueprint
 
 variable {G G' : Type} [Group G] [Group G']
 
+theorem nonempty_mulEquiv_transport {X Y Z : Type} [Group X] [Group Y] [Group Z] (e : X ≃* Y)
+    (h : Nonempty (X ≃* Z)) : Nonempty (Y ≃* Z) :=
+  h.map fun f => e.symm.trans f
 
 theorem TwoPointShape.of_mulEquiv {H : Subgroup G} {H' : Subgroup G'} (e : H ≃* H') :
     ∀ {i : Fin 9}, TwoPointShape H i → TwoPointShape H' i

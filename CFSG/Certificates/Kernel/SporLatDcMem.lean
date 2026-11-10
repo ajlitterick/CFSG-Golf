@@ -34,6 +34,18 @@ private def wordEltList (E : List (List ℕ)) (u : List ℕ) : Γ :=
 private def wordOfE (E : List (List ℕ)) (u : List ℕ) : List ℕ :=
   u.flatMap fun i => E.getD i []
 
+private theorem wordOfE_letters {E : List (List ℕ)} (hE : ∀ w ∈ E, ∀ l ∈ w, l < 2 + P.C.ns)
+    {u : List ℕ} (hu : ∀ i ∈ u, i < E.length) :
+    ∀ l ∈ wordOfE E u, l < 2 + P.C.ns := by
+  intro l hl
+  rw [wordOfE, List.mem_flatMap] at hl
+  obtain ⟨i, -, hli⟩ := hl
+  rcases Nat.lt_or_ge i E.length with h | h
+  · exact hE (E.getD i []) (by
+      rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h]
+      exact List.getElem_mem h) l hli
+  · rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none h] at hli
+    exact absurd hli (by simp)
 
 private theorem wordE_act {E : List (List ℕ)} (hE : ∀ w ∈ E, ∀ l ∈ w, l < 2 + P.C.ns) :
     ∀ (u : List ℕ), (∀ i ∈ u, i < E.length) → ∀ p < n,

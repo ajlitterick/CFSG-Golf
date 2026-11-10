@@ -123,6 +123,9 @@ theorem subgroupOf_γ_one_le : (γ P 1).subgroupOf (γ P 0) ≤ commutator ↥(�
     rw [h1]
     exact conj_inv_mul_mem_γ P (γ_le P 0 y.2) hc
 
+theorem pairAux_apply (i : ℕ) (u : γ P i) (y : γ P 0) :
+    pairAux P i u y = lmk P (⟨⁅(u : E), (y : E)⁆, commutator_mem_γ P u.2 (γ_le P 0 y.2)⟩ :
+      γ P (i + 1)) := rfl
 
 theorem pairAux_ker (i : ℕ) (u : γ P i) : (γ P 1).subgroupOf (γ P 0) ≤ (pairAux P i u).ker :=
   (subgroupOf_γ_one_le P).trans (Abelianization.commutator_subset_ker _)

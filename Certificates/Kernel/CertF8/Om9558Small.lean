@@ -37,6 +37,9 @@ theorem ch9558eps : ∀ j : Fin 4, mulS6 (mulS6 (gK j.val) zK) (gK (j.val + 4)) 
     if j.val % 2 = 1 then mulS6 zK zK else zK := by
   decide +kernel
 
+theorem ch9558rev : ∀ j : Fin 4,
+    mulS6 (gK j.val) (gK (j.val + 4)) = idP ∧ mulS6 (gK (j.val + 4)) (gK j.val) = idP := by
+  decide +kernel
 
 theorem ch9558seedrev : ∀ k : Fin 4,
     mulS6 (wordS6 omSeedW[k.val]!) (wordS6 (omSeedW[k.val]!).reverse) = idP ∧

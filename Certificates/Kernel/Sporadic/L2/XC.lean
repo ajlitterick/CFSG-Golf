@@ -29,6 +29,8 @@ theorem kPerm : allN 9 (fun j => permOK 1782 11 (mask 11) (1782 * 11) (L2XC.S j)
 theorem kOrb : (List.range 5).map (fun i => rcnt (L2XC.LR i)) = [162, 105, 64, 3, 3] := by
   decide +kernel
 
+theorem negS : Bool.not (allN 9 (fun j => Nat.beq (Nat.xor (L2XC.S j) 1) (L2XS.F j))) = true := by
+  quickRfl
 
 theorem binds : Binds 1782 11 L2XC.S 9 5 L2XC.BP xStrongArrs xBase.toArray :=
   ⟨by norm_num, by norm_num, by norm_num, by simp [xStrongArrs],

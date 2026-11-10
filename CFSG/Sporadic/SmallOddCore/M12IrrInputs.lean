@@ -29,5 +29,9 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallOddCore.Native
 
 @[expose] def m12IrrSylowTbls : List Table := m12IrrSylowWords.map (wordTbl 24 m12IrrRGens)
 
+@[expose] def m12IrrSift (T : Table) : Bool := decide (ap T 0 < 12)
+
+@[expose] def m12IrrOK : Bool :=
+  m12IrrRGens.all (permOK 24) && irrSylowOK 24 200 128 m12IrrSylowTbls m12IrrSift []
 
 end CFSG.Sporadic.SmallOddCore

@@ -10,6 +10,7 @@ open Equiv CFSG.GH74.GLS.C3.Layer2.L5.Fus
 
 @[expose] def cget (P w a : Nat) : Nat := (P >>> (w * a)) % 2 ^ w
 
+@[expose] def packN (w : Nat) (L : List Nat) : Nat := L.foldr (fun x acc => x + (acc <<< w)) 0
 
 @[expose] def dg (c i : Nat) : Nat := (c >>> (4 * (15 - i))) % 16
 

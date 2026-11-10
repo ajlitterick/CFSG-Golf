@@ -63,6 +63,7 @@ open CFSG.GF2Type.Smith1979.IdxFour.Orb
     ((List.range 4096).filter inO1b).length == 693 &&
     ((List.range 4096).filter inO2b).length == 1386
 
+@[expose] def sevenPts (x y z : ℕ) : List ℕ := [x ^^^ y ^^^ z, x ^^^ y, x ^^^ z, y ^^^ z, x, y, z]
 
 @[expose] def pow256R (r : Array ℕ) : Array ℕ := (List.range 8).foldl (fun y _ => mulR y y) r
 

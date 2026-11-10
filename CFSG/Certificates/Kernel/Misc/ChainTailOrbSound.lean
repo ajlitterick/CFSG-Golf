@@ -141,6 +141,20 @@ theorem ptailBranchK_soundR {n w kS nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ
   rw [e] at h
   exact key m 1 (by omega) _ _ hp3 hag h
 
+theorem ptailBranchK_sound1 {n w kS nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ} {S : Array (Array ℕ)}
+    {base : Array ℕ} (hb : Binds n w PS kS nb BP S base)
+    (hp : allN kS (fun j => permOK n w (mask w) (n * w) (PS j) (PSI j)) = true)
+    (hl : LevelsOK n w PS PSI LR TR TRI kS nb BP) {x : Array ℕ} {X : ℕ}
+    (hx : x = unpack n w X) (hX : permB n w X = true) {xs : Array (Array ℕ)} {XP : ℕ → ℕ}
+    (hxs : ∀ e < xs.size, xs[e]! = unpack n w (XP e)) {rels : List (ℕ × ℕ × ℕ)}
+    (hrels : ∀ r ∈ rels, r.2.2 < xs.size) (hr0 : ∀ r ∈ rels, Nat.max r.1 r.2.1 ≠ 0)
+    {E : List (Array ℕ)} {NE : ℕ} {EP : ℕ → ℕ}
+    (hE : E = (List.range NE).map fun e => unpack n w (EP e))
+    (hEp : ∀ e < NE, permB n w (EP e) = true) (hnb : 0 < nb) {k : ℕ} (hk : k < rcnt (LR 0))
+    (h : ptailBranchK n w LR TR BP X XP rels NE EP nb k = true) :
+    ptailOK n (rawLevels n S base) base x xs rels E (nb - 1) 1
+      (compA n (idA n) ((rawLevels n S base)[0]!).tr[k]!) = true :=
+  ptailBranchK_soundR hb hp hl hx hX hxs hrels hE hEp hnb hk (relOKK0_of hr0 _ _) h
 
 end CFSG.KC.Misc.ChainTail
 

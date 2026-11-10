@@ -44,6 +44,12 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw
     allN m fun b => Nat.beq (pcomp (nat_lit 240) (nat_lit 8) (nat_lit 255) (FT b) G) (low (FT (Nat.add b m)))),
     commT FT (fun t => Nat.shiftLeft (nat_lit 1) t) (nat_lit 8))
 
+@[expose] noncomputable def homS (ST : Nat → Nat) : Bool :=
+  bAnd(allN (nat_lit 7) (fun k => strictB (Nat.shiftLeft (nat_lit 2) k) fun m =>
+    strictB (ST (Nat.add (nat_lit 1) m)) fun G => allN m fun b => bIf(evenB b,
+      Nat.beq (pcomp (nat_lit 240) (nat_lit 8) (nat_lit 255) (ST b) G)
+        (low (ST (Nat.xor b (Nat.add (nat_lit 1) m)))), true)),
+    commT ST (fun k => Nat.add (nat_lit 1) (Nat.shiftLeft (nat_lit 2) k)) (nat_lit 7))
 
 @[expose] noncomputable def distK (T : Nat → Nat) (p : Nat → Bool) : Bool :=
   allN (nat_lit 256) fun a => bIf(p a, strictB (low (T a)) fun A => allN a fun b =>

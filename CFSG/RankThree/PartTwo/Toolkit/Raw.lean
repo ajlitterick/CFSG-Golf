@@ -103,6 +103,22 @@ theorem mem_allR9 (r : R9) : r ∈ allR9 := by
 
 abbrev Tree : Type := Array (R9 × ℕ × ℕ)
 
+@[expose] def bfs (gs : List R9) : Tree := Id.run do
+  let gens := gs.toArray
+  let mut seen : Array Bool := Array.replicate 19683 false
+  let mut out : Tree := #[(rone, 0, 0)]
+  seen := seen.set! (code rone) true
+  let mut idx := 0
+  for _ in [0:19683] do
+    if idx < out.size then
+      let x := out[idx]!.1
+      for k in [0:gens.size] do
+        let y := rmul gens[k]! x
+        if !seen[code y]! then
+          seen := seen.set! (code y) true
+          out := out.push (y, idx, k)
+      idx := idx + 1
+  return out
 
 @[expose] def treeOK (gs : List R9) (T : Tree) : Bool :=
   decide (0 < T.size) && T[0]!.1 == rone &&
@@ -137,5 +153,66 @@ theorem tree_mem (gs : List G) {T : Tree} (hT : treeOK (gs.map f) T = true) :
 
 end Sound
 
+@[expose] def slCodes : List ℕ :=
+  ((allR9.filter fun r => rdet r == 1).map code).mergeSort fun m n => m ≤ n
+
+@[expose] def slCover (gs : List R9) : Bool :=
+  let T := bfs gs
+  treeOK gs T && ((T.toList.map fun e => code e.1).mergeSort fun m n => m ≤ n) == slCodes
+
+theorem exists_of_slCover {gs : List R9} (h : slCover gs = true) {r : R9} (hr : rdet r = 1) :
+    ∃ k < (bfs gs).size, (bfs gs)[k]!.1 = r := by
+  simp only [slCover, Bool.and_eq_true, beq_iff_eq] at h
+  have hc : code r ∈ slCodes := by
+    rw [slCodes, List.mem_mergeSort, List.mem_map]
+    exact ⟨r, List.mem_filter.2 ⟨mem_allR9 r, by simp [hr]⟩, rfl⟩
+  rw [← h.2, List.mem_mergeSort, List.mem_map] at hc
+  obtain ⟨e, he, hec⟩ := hc
+  obtain ⟨k, hk, rfl⟩ := List.mem_iff_getElem.1 he
+  rw [Array.length_toList] at hk
+  refine ⟨k, hk, code_injective ?_⟩
+  rw [← hec, Array.getElem_toList, getElem!_pos (bfs gs) k hk]
+
+theorem treeOK_of_slCover {gs : List R9} (h : slCover gs = true) : treeOK gs (bfs gs) = true := by
+  simp only [slCover, Bool.and_eq_true] at h
+  exact h.1
+
+theorem statedSL_le_closure (gs : List (GL (Fin 3) (ZMod 3)))
+    (h : slCover (gs.map fun x : GL (Fin 3) (ZMod 3) =>
+      ofMat (x : Matrix (Fin 3) (Fin 3) (ZMod 3))) = true) :
+    CFSG.Assembly.LowTwoRank.StatedSL 3 (ZMod 3) ≤ Subgroup.closure {y | y ∈ gs} := by
+  have hmul : ∀ x y : GL (Fin 3) (ZMod 3), ofMat ((x * y : GL (Fin 3) (ZMod 3)) :
+      Matrix (Fin 3) (Fin 3) (ZMod 3)) = rmul (ofMat x) (ofMat y) := fun x y => by
+    rw [Units.val_mul, ofMat_mul]
+  have hone : ofMat ((1 : GL (Fin 3) (ZMod 3)) : Matrix (Fin 3) (Fin 3) (ZMod 3)) = rone := by
+    rw [Units.val_one, ofMat_one]
+  rw [CFSG.Assembly.LowTwoRank.StatedSL, Subgroup.closure_le]
+  intro x hx
+  obtain ⟨k, hk, hkx⟩ := exists_of_slCover h (r := ofMat x) (by rw [rdet_ofMat]; exact hx)
+  obtain ⟨y, hy, hyx⟩ := tree_mem (fun x : GL (Fin 3) (ZMod 3) =>
+    ofMat (x : Matrix (Fin 3) (Fin 3) (ZMod 3))) hmul hone gs (treeOK_of_slCover h) k hk
+  have : y = x := Units.ext (ofMat_injective (hyx.trans hkx))
+  rw [← this]
+  exact hy
+
+theorem closure_eq_top_SL (gs : List (Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)))
+    (h : slCover (gs.map fun x : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3) =>
+      ofMat (x : Matrix (Fin 3) (Fin 3) (ZMod 3))) = true) :
+    Subgroup.closure {y | y ∈ gs} = ⊤ := by
+  have hmul : ∀ x y : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3),
+      ofMat ((x * y : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)) :
+        Matrix (Fin 3) (Fin 3) (ZMod 3)) = rmul (ofMat x) (ofMat y) := fun x y => by
+    rw [Matrix.SpecialLinearGroup.coe_mul, ofMat_mul]
+  have hone : ofMat ((1 : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)) :
+      Matrix (Fin 3) (Fin 3) (ZMod 3)) = rone := by
+    rw [Matrix.SpecialLinearGroup.coe_one, ofMat_one]
+  rw [eq_top_iff]
+  intro x _
+  obtain ⟨k, hk, hkx⟩ := exists_of_slCover h (r := ofMat x) (by rw [rdet_ofMat]; exact x.2)
+  obtain ⟨y, hy, hyx⟩ := tree_mem (fun x : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3) =>
+    ofMat (x : Matrix (Fin 3) (Fin 3) (ZMod 3))) hmul hone gs (treeOK_of_slCover h) k hk
+  have : y = x := Subtype.ext (ofMat_injective (hyx.trans hkx))
+  rw [← this]
+  exact hy
 
 end CFSG.RankThree.PartTwo.Toolkit.Raw

@@ -30,6 +30,18 @@ theorem basis_ok : allN 7 (basisOK BS PS) = true := by quickRfl
 
 theorem cnt_ok : allN 7 (fun l => Nat.beq (cntZ BS PS l) (getN 0 CZ l)) = true := by quickRfl
 
+theorem neg_basis : notB (basisOK [[], [1721], [], [], [], [], []] PS 1) = true := by quickRfl
+
+theorem neg_pivot : notB (basisOK BS [[], [], [], [], [8, 6, 9, 10], [], []] 4) = true := by
+  quickRfl
+
+theorem neg_size : notB (basisOK [[], [], [], [], [], [], [2, 29, 37, 64, 384, 525]]
+    [[], [], [], [], [], [], [1, 4, 5, 6, 8, 9]] 6) = true := by quickRfl
+
+theorem neg_cnt : notB (Nat.beq (cntZ BS PS 4) 16) = true := by quickRfl
+
+theorem neg_basis_z : notB (basisOK [[], [1], [], [], [], [], []] [[], [0], [], [], [], [], []] 1) =
+    true := by quickRfl
 
 end CertificateChecks.KernelJ4Count
 

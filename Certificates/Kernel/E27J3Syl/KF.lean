@@ -17,6 +17,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.PEnum CFSG.KS.MulH CFSG.KS.PEnumB
   slK SE.cnt (penumPtB 6156 13 (mask 13) bsC SE.GI 2 SE.cnt SE.T SE.PL SE.POS SE.SRT SE.SRI)
     (Nat.mul 16 k) 16
 
+@[expose] noncomputable def jHv (i : Nat) : Bool := Nat.beq (hkeyB 6156 13 (mask 13) (SE.T i)) (SEV i)
+
+@[expose] noncomputable def c131001Hv (k : Nat) : Bool := slK SE.cnt jHv (Nat.mul 16 k) 16
 
 @[expose] noncomputable def c131001Hsv : Bool := slK SE.cnt (hsortVK SE.cnt SEV SE.HS SE.HSI) 0 256
 

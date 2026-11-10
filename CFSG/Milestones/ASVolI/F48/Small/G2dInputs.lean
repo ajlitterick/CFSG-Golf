@@ -73,6 +73,11 @@ abbrev burnsideF48s_g2dWsB (j : ℕ) :=
     [10, 0, 12, 11, 18, 6, 22, 14, 25, 8, 1, 24, 26, 23, 20, 13, 27, 16, 21, 19, 7, 4, 5, 15, 3, 9, 2, 17],
     [10, 6, 22, 18, 23, 20, 13, 3, 5, 15, 12, 11, 0, 1, 24, 26, 4, 19, 7, 25, 8, 14, 27, 16, 21, 17, 9, 2]]
 
+@[expose] def burnsideF48s_g2dLetL (l : Fin 5 × Bool) : List ℕ :=
+  (if l.2 then burnsideF48s_g2dGL else burnsideF48s_g2dGLi).getD l.1 []
+
+@[expose] def burnsideF48s_g2dEvL (w : List (Fin 5 × Bool)) : List ℕ :=
+  w.foldl (fun acc l => compL acc (burnsideF48s_g2dLetL l)) (List.range 28)
 
 @[expose] def burnsideF48s_g2dTab : String :=
   "0001002003002cp3cp1cp0cp2033031030032ce3ce1ce0ce0041042043041cf0cf3cf2cf3012010011012cs3cs1cs0cs\
@@ -204,5 +209,69 @@ abbrev burnsideF48s_g2dWsB (j : ℕ) :=
     2us3us1us0us0f11f12f13f13ur2ur0ur1ur0fm1fm2fm3fm2fr3fr1fr0fr0um1um2um3um2up3up1up0up2f03f01f00f0\
     3uo2uo0uo1uo2fc3fc1fc0fc0un1un2un3un1f70f73f72f70uv1uv2uv3uv0f61f62f63f60uu1uu2uu3uu2f23f21f20f2"
 
+@[expose] def burnsideF48s_g2dDig (c : Char) : ℕ :=
+  if c.toNat < 58 then c.toNat - 48 else c.toNat - 87
+
+@[expose] def burnsideF48s_g2dTL (_ : Unit := ()) : List (List ℕ) :=
+  (List.range 32).map fun i => burnsideF48s_g2dEvL (burnsideF48s_g2dTelF i)
+
+@[expose] def burnsideF48s_g2dTiL (_ : Unit := ()) : List (List ℕ) :=
+  (List.range 32).map fun i => burnsideF48s_g2dEvL (burnsideF48s_invW (burnsideF48s_g2dTelF i))
+
+@[expose] def burnsideF48s_g2dAL (_ : Unit := ()) : List (List ℕ) :=
+  (List.range 64).map fun k => burnsideF48s_g2dEvL (burnsideF48s_g2dAF k)
+
+@[expose] def burnsideF48s_g2dBL (_ : Unit := ()) : List (List ℕ) :=
+  (List.range 64).map fun k => burnsideF48s_g2dEvL (burnsideF48s_g2dBF k)
+
+@[expose] def burnsideF48s_g2dVL (_ : Unit := ()) : List (List ℕ) :=
+  (List.range 4).map fun j => burnsideF48s_g2dEvL (u33Word (burnsideF48s_g2dCandV.getD j ""))
+
+@[expose] def burnsideF48s_g2dCheckGens (_ : Unit := ()) : Bool :=
+  (List.finRange 5).all fun i => decide (RepL (burnsideF48s_g2dGL.getD i []) (u33Img i)) &&
+    decide (RepL (burnsideF48s_g2dGLi.getD i []) (u33Img i)⁻¹)
+
+@[expose] def burnsideF48s_g2dCheckA (_ : Unit := ()) : Bool :=
+  let TL := burnsideF48s_g2dTL ()
+  let AL := burnsideF48s_g2dAL ()
+  let XL := burnsideF48s_g2dEvL (u33Word "X")
+  (List.range 32).all fun i₁ => (List.range 32).all fun i₂ =>
+    !(decide (compL (compL (compL (TL.getD i₁ []) XL) (TL.getD i₂ []))
+        (compL (compL (TL.getD i₁ []) XL) (TL.getD i₂ [])) = List.range 28)) ||
+      (List.range 8).any fun k =>
+        decide (compL (compL (TL.getD i₁ []) XL) (TL.getD i₂ []) = AL.getD k [])
+
+@[expose] def burnsideF48s_g2dCheckB (_ : Unit := ()) : Bool :=
+  let TL := burnsideF48s_g2dTL ()
+  let BL := burnsideF48s_g2dBL ()
+  let YL := burnsideF48s_g2dEvL (u33Word "Y")
+  (List.range 32).all fun i₁ => (List.range 32).all fun i₂ =>
+    (List.range 64).any fun k =>
+      decide (compL (compL (TL.getD i₁ []) YL) (TL.getD i₂ []) = BL.getD k [])
+
+@[expose] def burnsideF48s_g2dCheckCand (_ : Unit := ()) : Bool :=
+  let TL := burnsideF48s_g2dTL ()
+  let TiL := burnsideF48s_g2dTiL ()
+  let AL := burnsideF48s_g2dAL ()
+  let BL := burnsideF48s_g2dBL ()
+  let VL := burnsideF48s_g2dVL ()
+  let UL := burnsideF48s_g2dEvL (u33Word "Xs")
+  let YL := burnsideF48s_g2dEvL (u33Word "Y")
+  let cs := burnsideF48s_g2dTab.toList.toArray
+  (List.range 8).all fun a => (List.range 64).all fun b => (List.range 8).all fun c =>
+    decide (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c)) '0') < 4) &&
+    decide (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0') < 32) &&
+    decide (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 2) '0') < 32) &&
+    decide (compL (compL (TL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) [])
+        (AL.getD a [])) (TiL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) []) =
+      UL) &&
+    decide (compL (compL (compL (TL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) [])
+        (BL.getD b [])) (TiL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) []))
+        (TL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 2) '0')) []) = YL) &&
+    decide (compL (compL (TiL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 2) '0')) [])
+        (compL (compL (TL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) [])
+          (AL.getD c [])) (TiL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 1) '0')) [])))
+        (TL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c) + 2) '0')) []) =
+      VL.getD (burnsideF48s_g2dDig (cs.getD (3 * (512 * a + 8 * b + c)) '0')) [])
 
 end CFSG.ASVolI

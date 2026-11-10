@@ -162,6 +162,27 @@ theorem LT_le_normalizer_V (S : Setting V V₁ L T) : L ⊔ T ≤ Subgroup.norma
 theorem uA_le_normalizer_V (S : Setting V V₁ L T) : uA V V₁ ≤ Subgroup.normalizer (V : Set G) :=
   S.uA_le_T.trans S.base.T_le_normV
 
+omit [Finite G] in
+theorem card_OTwoQuot (S : Setting V V₁ L T) : Nat.card (OTwoQuot (L ⊔ T)) = 6 := by
+  obtain ⟨e⟩ := S.sThree
+  rw [Nat.card_congr e.toEquiv, Nat.card_perm, Nat.card_eq_fintype_card, Fintype.card_fin]
+  rfl
+
+omit [Finite G] in
+theorem card_autOn_LT (S : Setting V V₁ L T) : Nat.card (autOn (L ⊔ T) V) = 6 := by
+  rw [card_autOn_eq_relIndex S.LT_le_normalizer_V, S.centralizer]
+  have hsub : (pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T) = CFSG.Open.pCore 2 ↥(L ⊔ T) :=
+    map_subtype_subgroupOf' (CFSG.Open.pCore 2 ↥(L ⊔ T))
+  show ((pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T)).index = 6
+  rw [hsub]
+  exact S.card_OTwoQuot
+
+theorem autOn_LT_eq_top (S : Setting V V₁ L T) : autOn (L ⊔ T) V = ⊤ := by
+  obtain ⟨hcard, hfin⟩ := card_mulAut_le_six_of_card_four (V := ↥V) S.card_V
+  have h6 := S.card_autOn_LT
+  have := hfin
+  have hle := Subgroup.card_le_card_group (autOn (L ⊔ T) V)
+  exact Subgroup.eq_top_of_card_eq _ (by omega)
 
 theorem conj_eq_of_not_centralizes (S : Setting V V₁ L T) {z a x : G} (hzV₁ : z ∈ V₁)
     (hz1 : z ≠ 1) (haV : a ∈ V) (haV₁ : a ∉ V₁) (hx : x ∈ Subgroup.normalizer (V : Set G))
@@ -277,12 +298,51 @@ theorem not_isMulCommutative (S : Setting V V₁ L T) : ¬ IsMulCommutative ↥(
   intro v hv
   exact congrArg Subtype.val (hU.is_comm.comm (⟨v, le_uA V V₁ hv⟩ : uA V V₁) ⟨u, hu⟩)
 
+theorem commutator_uA_eq (S : Setting V V₁ L T) : ⁅uA V V₁, uA V V₁⁆ = V₁ := by
+  have hle : ⁅uA V V₁, uA V V₁⁆ ≤ V₁ := by
+    rw [Subgroup.commutator_le]
+    intro a ha b hb
+    exact S.commutator_mem ha hb
+  by_cases hbot : ⁅uA V V₁, uA V V₁⁆ = ⊥
+  · exfalso
+    apply S.not_isMulCommutative
+    refine ⟨⟨fun a b => ?_⟩⟩
+    obtain ⟨x, hx⟩ := a
+    obtain ⟨y, hy⟩ := b
+    refine Subtype.ext ?_
+    show x * y = y * x
+    have : ⁅x, y⁆ ∈ ⁅uA V V₁, uA V V₁⁆ := Subgroup.commutator_mem_commutator hx hy
+    rw [hbot, Subgroup.mem_bot, commutatorElement_def] at this
+    calc x * y = (x * y * x⁻¹ * y⁻¹) * y * x := by group
+      _ = y * x := by rw [this]; group
+  · have hcard : Nat.card ↥⁅uA V V₁, uA V V₁⁆ ∣ 2 := by
+      rw [← S.card_V₁]
+      exact Subgroup.card_dvd_of_le hle
+    have h1 : Nat.card ↥⁅uA V V₁, uA V V₁⁆ ≠ 1 := fun h1 => hbot (Subgroup.card_eq_one.mp h1)
+    have h2 : Nat.card ↥⁅uA V V₁, uA V V₁⁆ = 2 := by
+      rcases (Nat.dvd_prime Nat.prime_two).mp hcard with h | h
+      · exact absurd h h1
+      · exact h
+    exact Subgroup.eq_of_le_of_card_ge hle (by rw [h2, S.card_V₁])
 
 omit [Finite G] in
 theorem le_wA (S : Setting V V₁ L T) : V ≤ wA V V₁ :=
   le_inf (le_uA V V₁) fun _ hx => Subgroup.mem_centralizer_iff.mpr fun _ hy =>
     S.base.commV hy hx
 
+theorem uA_le_normalizer_wA (S : Setting V V₁ L T) :
+    uA V V₁ ≤ Subgroup.normalizer (wA V V₁ : Set G) := by
+  intro u hu
+  have h1 : u ∈ Subgroup.normalizer (Subgroup.centralizer (V : Set G) : Set G) :=
+    normalizer_le_normalizer_centralizer'' _ (S.uA_le_normalizer_V hu)
+  exact Subgroup.inf_normalizer_le_normalizer_inf ⟨Subgroup.le_normalizer hu, h1⟩
+
+theorem T_le_normalizer_wA (S : Setting V V₁ L T) :
+    T ≤ Subgroup.normalizer (wA V V₁ : Set G) := by
+  intro t ht
+  have h1 : t ∈ Subgroup.normalizer (Subgroup.centralizer (V : Set G) : Set G) :=
+    normalizer_le_normalizer_centralizer'' _ (S.base.T_le_normV ht)
+  exact Subgroup.inf_normalizer_le_normalizer_inf ⟨S.T_le_normalizer_uA ht, h1⟩
 
 theorem mem_wA_or_inv_mul_mem (S : Setting V V₁ L T) {u u' : G} (hu : u ∈ uA V V₁)
     (hu' : u' ∈ uA V V₁) (huW : u ∉ wA V V₁) : u' ∈ wA V V₁ ∨ u⁻¹ * u' ∈ wA V V₁ := by

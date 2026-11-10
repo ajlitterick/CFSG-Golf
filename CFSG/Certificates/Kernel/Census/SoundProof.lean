@@ -90,6 +90,11 @@ theorem unpackP_inj {p q : Nat} (hp : canon1 n w p = true) (hq : canon1 n w q = 
   eq_of_at' hp hq fun i _ => by
     rw [← unpackP_get_canon hp, ← unpackP_get_canon hq, h]
 
+theorem beq_unpack {p q : Nat} (hp : canon1 n w p = true) (hq : canon1 n w q = true) :
+    (unpackP n w p == unpackP n w q) = Nat.beq p q := by
+  apply Bool.eq_iff_iff.mpr
+  rw [beq_iff_eq, Nat.beq_eq]
+  exact ⟨unpackP_inj hp hq, fun h => h ▸ rfl⟩
 
 theorem eqA_unpack {p q : Nat} (hp : canon1 n w p = true) (hq : canon1 n w q = true) :
     eqA n (unpackP n w p) (unpackP n w q) = Nat.beq p q := by

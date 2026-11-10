@@ -91,6 +91,14 @@ theorem ch4193srch : searchK 143 mulT 6 [] 0 = true := by quickRfl
 theorem ch4193out : all5K 1755 (1755 * 11) TitsS.LR TitsS.TR
     (fun _ => outQ CertificateChecks.KernelMisc.TitsPi.P) = true := by quickRfl
 
+theorem ch4193negS : (searchK 143 mulT 2 [] 0).not = true := by quickRfl
+
+theorem ch4193negP : (allN 143 (fun j => pcK (fun _ _ => 143) 0 j)).not = true := by quickRfl
+
+theorem ch4193negW : (all5K 1755 (1755 * 11) TitsS.LR TitsS.TR
+    (fun _ => outQ (pidn 1755 11))).not = true := by quickRfl
+
+theorem ch4193negI : (Nat.beq (IT 1) (E32.SI.L.getD 0 0)).not = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.Rank4193
 

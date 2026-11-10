@@ -59,6 +59,8 @@ theorem quadM_eq_sym (M : Matrix (Fin 22) (Fin 22) (ZMod 2)) (v : Co3V) :
   · simp
   · simp [not_le.2 h, not_lt.2 h.le]
 
+theorem toVecD_testBit (x : ℕ) (j : Fin 22) :
+    toVecD 22 x j = if x.testBit j.val then 1 else 0 := rfl
 
 theorem rowsMatrix_triRows (t : ℕ) : rowsMatrix 22 (triRows t) = triMat t := by
   ext i j

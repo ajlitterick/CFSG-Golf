@@ -60,6 +60,10 @@ theorem s1_eq (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2) (h1 : FE1
   rw [eq_div_iff (D1_ne_zero ha haσ x)]
   exact s1_mul_of_ne ha h1 h2 hx hx1 hx2
 
+theorem s1_mul_eq (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2) (h1 : FE1C a S)
+    (h2 : FE2C σ d S) (h3 : GF3C d S) (x : k) :
+    (S x).1 * (x ^ a - (x ^ 2 - 1) ^ a) = (x - 1) ^ a - x ^ a := by
+  rw [s1_eq ha haσ h1 h2 h3 x, div_mul_cancel₀ _ (D1_ne_zero ha haσ x)]
 
 theorem fst_eq_s1F (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2) (h1 : FE1C a S)
     (h2 : FE2C σ d S) (h3 : GF3C d S) (x : k) : (S x).1 = s1F a x :=
@@ -140,11 +144,27 @@ theorem S_eq_sFormula (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2)
   funext fun x => Prod.ext (s1_eq ha haσ h1 h2 h3 x)
     (Prod.ext (s2_eq ha haσ h1 h2 h3 x) (s3_eq ha haσ h1 h2 h3 (hD3 x)))
 
+theorem S_eq_of (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2)
+    (hD3 : ∀ x : k, x ^ (2 + a) - (x ^ 2 - 1) ^ (2 + a) ≠ 0) {S S' : k → k × k × k}
+    (h : FE1C a S ∧ FE2C σ d S ∧ GF3C d S) (h' : FE1C a S' ∧ FE2C σ d S' ∧ GF3C d S') :
+    S = S' :=
+  (S_eq_sFormula ha haσ hD3 h.1 h.2.1 h.2.2).trans
+    (S_eq_sFormula ha haσ hD3 h'.1 h'.2.1 h'.2.2).symm
 
 theorem S_eq_sFormula_of_sigmaTwo (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2)
     (hσ2 : ∀ x : k, σ x * x ^ 2 = 1 → x = 1) (h1 : FE1C a S) (h2 : FE2C σ d S)
     (h3 : GF3C d S) : S = sFormula σ a d :=
   S_eq_sFormula ha haσ (D3_ne_zero ha haσ hσ2) h1 h2 h3
 
+theorem S_eq_sFormula_of_ree (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2)
+    (hσ : ∀ x : k, σ (σ x) = x ^ 3) (h1 : FE1C a S) (h2 : FE2C σ d S) (h3 : GF3C d S) :
+    S = sFormula σ a d :=
+  S_eq_sFormula_of_sigmaTwo ha haσ (sigmaTwo_of_ree hσ) h1 h2 h3
+
+theorem S_eq_of_ree (ha : Even a) (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2)
+    (hσ : ∀ x : k, σ (σ x) = x ^ 3) {S S' : k → k × k × k}
+    (h : FE1C a S ∧ FE2C σ d S ∧ GF3C d S) (h' : FE1C a S' ∧ FE2C σ d S' ∧ GF3C d S') :
+    S = S' :=
+  S_eq_of ha haσ (D3_ne_zero ha haσ (sigmaTwo_of_ree hσ)) h h'
 
 end CFSG.Walter.Ree.T2.Alg

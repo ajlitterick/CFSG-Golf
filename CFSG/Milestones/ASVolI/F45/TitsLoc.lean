@@ -25,6 +25,63 @@ structure burnsideF45_TitsData (c : α.Completion Y) : Prop where
   cardl : Nat.card (stv c c.lv) = 6144
 
 
+theorem burnsideF45_relIndex_stv (c : α.Completion Y) (H : Subgroup c.G0) (w : c.Γ) :
+    (stv c w).relIndex H = (MulAction.orbit H w).ncard := by
+  have h : (stv c w).subgroupOf H = MulAction.stabilizer H w := by
+    ext g
+    rw [Subgroup.mem_subgroupOf, MulAction.mem_stabilizer_iff, MulAction.mem_stabilizer_iff]
+    exact Iff.rfl
+  rw [Subgroup.relIndex, h, MulAction.index_stabilizer]
+
+@[expose] def burnsideF45_edge {V : Type*} {Γ : SimpleGraph V} {u w : V} (h : Γ.Adj u w) :
+    GPath Γ 1 :=
+  (GPath.triv u).snoc w h
+
+theorem burnsideF45_edge_zero {V : Type*} {Γ : SimpleGraph V} {u w : V} (h : Γ.Adj u w) :
+    burnsideF45_edge h 0 = u := rfl
+
+theorem burnsideF45_edge_one {V : Type*} {Γ : SimpleGraph V} {u w : V} (h : Γ.Adj u w) :
+    burnsideF45_edge h 1 = w := GPath.snoc_last _ _ _
+
+theorem burnsideF45_edge_mem {V : Type*} {Γ : SimpleGraph V} {u w : V} (h : Γ.Adj u w) :
+    burnsideF45_edge h ∈ GPath.nbPaths Γ u 1 :=
+  ⟨rfl, fun i hi => absurd hi (by omega)⟩
+
+
+theorem burnsideF45_adj_first {V : Type*} {Γ : SimpleGraph V} {a : V} {n : ℕ}
+    (hn : 1 ≤ n) {q : GPath Γ n} (hq : q ∈ GPath.nbPaths Γ a n) : Γ.Adj a (q 1) := by
+  have := q.adj 0 (by omega)
+  rwa [hq.1] at this
+
+
+theorem burnsideF45_eq_one_of_card_two {G V : Type*} [Group G] [MulAction G V] {K : Subgroup G}
+    (hK : Nat.card K = 2) {t g : G} (ht : t ∈ K) (hg : g ∈ K) {w : V} (htw : t • w ≠ w)
+    (hgw : g • w = w) : g = 1 := by
+  rw [Nat.card_eq_two_iff' (1 : K)] at hK
+  obtain ⟨y, -, huniq⟩ := hK
+  by_contra hg1
+  have e1 : (⟨g, hg⟩ : K) = y := huniq _ (fun h => hg1 (congrArg Subtype.val h))
+  have e2 : (⟨t, ht⟩ : K) = y := huniq _ (fun h => htw (by
+    have : t = 1 := congrArg Subtype.val h
+    rw [this, one_smul]))
+  have : g = t := congrArg Subtype.val (e1.trans e2.symm)
+  exact htw (this ▸ hgw)
+
+@[expose] def burnsideF45_dih (e b : ZMod 5) : DihedralGroup 5 :=
+  if e = 1 then DihedralGroup.r b else DihedralGroup.sr (-b)
+
+theorem burnsideF45_dih_mul : ∀ e₁ e₂ b₁ b₂ : ZMod 5, (e₁ = 1 ∨ e₁ = -1) → (e₂ = 1 ∨ e₂ = -1) →
+    burnsideF45_dih e₁ b₁ * burnsideF45_dih e₂ b₂ = burnsideF45_dih (e₁ * e₂) (e₁ * b₂ + b₁) := by
+  decide
+
+theorem burnsideF45_dih_inj : ∀ e₁ e₂ b₁ b₂ : ZMod 5, (e₁ = 1 ∨ e₁ = -1) → (e₂ = 1 ∨ e₂ = -1) →
+    burnsideF45_dih e₁ b₁ = burnsideF45_dih e₂ b₂ → e₁ = e₂ ∧ b₁ = b₂ := by
+  decide
+
+theorem burnsideF45_aff_iter : ∀ e b : ZMod 5, (fun i => e * i + b)^[10] 0 = 0 →
+    (fun i => e * i + b)^[10] 1 = 1 → e = 1 ∨ e = -1 := by
+  decide
+
 end Data
 
 namespace burnsideF45_TitsData

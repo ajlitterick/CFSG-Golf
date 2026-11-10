@@ -16,6 +16,12 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
 @[expose] noncomputable def eq22R (n x g : Nat) : Bool :=
   allN n (fun i => Nat.beq (pgR x (pgR g i)) (pgR g (pgR x i)))
 
+@[expose] noncomputable def okPw (S SI : Nat → Nat) (wd : List Int) : Bool :=
+  bAnd(lettersK (nat_lit 13) wd,
+    strictB (wordK 1755 11 (mask 11) (pidn 1755 11) S SI wd) (fun x =>
+    strictB (pinvS 1755 11 (mask 11) x) (fun xi =>
+      bAnd(canonK 1755 11 (mask 11) (1755 * 11) x, bAnd(canonK 1755 11 (mask 11) (1755 * 11) xi,
+        permOK 1755 11 (mask 11) (1755 * 11) x xi)))))
 
 @[expose] noncomputable def allA {α : Type} (f : α → Bool) (A : List α) : Bool :=
   List.rec (motive := fun _ => Bool) true (fun a _ ih => bAnd(f a, ih)) A
@@ -33,6 +39,12 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
       Nat.beq (pcomp 1755 11 (mask 11) (pcomp 1755 11 (mask 11) x
         (Bool.rec (motive := fun _ => Nat) T Z b)) (pinvS 1755 11 (mask 11) x)) y)) bw
 
+@[expose] noncomputable def exclB (S SI : Nat → Nat) (T : Nat) (pw : Nat × List Int) (y : Nat) :
+    Bool :=
+  Prod.rec (motive := fun _ => Bool) (fun _ wd =>
+    strictB (wordK 1755 11 (mask 11) (pidn 1755 11) S SI wd) (fun x =>
+      Nat.beq (pcomp 1755 11 (mask 11) (pcomp 1755 11 (mask 11) (pinvS 1755 11 (mask 11) x) T) x)
+        y)) pw
 
 @[expose] noncomputable def memN (p : Nat) (L : List Nat) : Bool :=
   List.rec (motive := fun _ => Bool) false (fun y _ ih => bIf(Nat.beq p y, true, ih)) L

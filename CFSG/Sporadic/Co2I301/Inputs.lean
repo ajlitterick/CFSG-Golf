@@ -774,10 +774,19 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Mathieu
 
 @[expose] def conj2300 (g gi t : Array ℕ) : Array ℕ := compA 2300 g (compA 2300 t gi)
 
+@[expose] def aInvs (D Z S : Array ℕ) : Array (Array ℕ) :=
+  Array.ofFn (n := 12) fun t => invCand 2300 (compA 2300 (powArr 2300 D (t.val % 3))
+    (compA 2300 (powArr 2300 Z (t.val / 3 % 2)) (powArr 2300 S (t.val / 6))))
 
 @[expose] def dzElts (D Z : Array ℕ) : Array (Array ℕ) :=
   Array.ofFn (n := 6) fun t => compA 2300 (powArr 2300 D (t.val % 3)) (powArr 2300 Z (t.val / 3))
 
+@[expose] def leafB (L0 : Array Level) (H Hi ZB K1 K2 : Array ℕ) (Ai E : Array (Array ℕ))
+    (a : Array ℕ) : Bool :=
+  !(comm2300 a ZB) ||
+    let b := conj2300 H Hi a
+    (anyLt Ai.size fun t => inK0 L0 (compA 2300 b Ai[t]!)) &&
+      (!(comm2300 b K1) || !(comm2300 b K2) || anyLt E.size fun t => eqA 2300 b E[t]!)
 
 @[expose] def sixCoord (x : ℕ) : ℕ :=
   ((List.range 64).find? fun m => CFSG.Sporadic.Co2Schreier.xorBits
@@ -794,10 +803,15 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Mathieu
   let c := sixCols t
   Array.ofFn (n := 63) fun p => CFSG.Sporadic.Co2Schreier.xorBits c (p.val + 1) - 1
 
+@[expose] def comm63 (t u : Array ℕ) : Bool := eqA 63 (compA 63 t u) (compA 63 u t)
 
 @[expose] def word63 (g : Array (Array ℕ)) (w : List ℕ) : Array ℕ :=
   w.foldl (fun acc i => compA 63 acc g[i]!) (idA 63)
 
+@[expose] def leaf63 (HL : Array (Array ℕ)) (a : Array ℕ) : Bool :=
+  !(eqA 63 (compA 63 a a) (idA 63)) || eqA 63 a (idA 63) ||
+    anyLt HL.size fun t =>
+      !(comm63 a (compA 63 HL[t]! (compA 63 a (invCand 63 HL[t]!))))
 
 @[expose] def smallCheck (_ : Unit := ()) : Bool :=
   let H := i301H (); let Hi := invCand 2300 H; let D := i301D (); let S := i301S ()
@@ -825,6 +839,13 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Mathieu
       K2[o6.getD j 0]! == o6.getD (sigma2.getD j 0) 0) &&
     sixColsOK K1 && sixColsOK K2 && sixColsOK D
 
+@[expose] def searchB (_ : Unit := ()) : Bool :=
+  let H := i301H (); let Hi := invCand 2300 H; let D := i301D (); let S := i301S ()
+  let Z := CFSG.Sporadic.Co2Schreier.zArr
+  let L0 := rawLevels 2300 (k0Arrs ()) k0Base
+  let Ai := aInvs D Z S; let E := dzElts D Z; let ZB := conj2300 Hi H Z
+  centNormMemOKP 3 2300 (co2ChainBArrs ()) co2ChainBBase (dElts ())[1]! co2RelsB #[]
+    (fun _ => true) (leafB L0 H Hi ZB (i301K1 ()) (i301K2 ()) Ai E)
 
 @[expose] def sixRec : ChainRecord := CFSG.Sporadic.Co2Schreier.witRec.wLocal.sixActionChain
 
@@ -832,5 +853,12 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Mathieu
   let g : Array (Array ℕ) := #[perm63Of (i301K1 ()), perm63Of (i301K2 ()), perm63Of (i301D ())]
   (hlWords.map (word63 g)).toArray
 
+@[expose] def search63 (_ : Unit := ()) : Bool :=
+  caseChainOK2P 63 sixRec.strongArrs sixRec.baseArr sixRec.wordArrs sixRec.origArrs[0]!
+      sixRec.origArrs[1]! &&
+    centNormMemOKP 3 63 sixRec.strongArrs sixRec.baseArr (idA 63) [] #[] (fun _ => true)
+      (leaf63 (hl63 ()))
+
+@[expose] def i301Check (_ : Unit := ()) : Bool := smallCheck () && searchB () && search63 ()
 
 end CFSG.Sporadic.Co2I301

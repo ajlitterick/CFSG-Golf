@@ -29,6 +29,7 @@ theorem demp_chk : dempChk dempData = true :=
   andB_tt slp_ok (andB_tt shape_ok (andB_tt levels_ok (andB_tt res0_ok (andB_tt res1_ok
     (andB_tt res2_ok (andB_tt res3_ok (andB_tt res4_ok res5_ok)))))))
 
+theorem rd_zero : BigS.regAt dempData.rd 0 = 1 := by decide +kernel
 
 theorem pkMat_SA :
     CFSG.KC.Th.Spec.pkMat dempData.SA = matA := by

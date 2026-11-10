@@ -26,5 +26,16 @@ theorem e8HS_Q : e8Q 20 SA.M SB.M hsE8Data = true := by decide +kernel
 
 theorem e8Ru_Q : e8Q 28 RA.M RB.M ruE8Data = true := by decide +kernel
 
+theorem mcert_negQ : (!mcertQ 20 SA.M SB.M { hsCert with facts := [MFact.ord 7 3] }) = true := by
+  decide +kernel
+
+theorem mcert_neg_eqQ :
+    (!mcertQ 20 SA.M SB.M { hsCert with facts := [MFact.eq [(5, 1)] [(6, 1)]] }) = true := by
+  decide +kernel
+
+theorem fus_negQ : (!fusQ 20 SA.M SB.M fusD2HSN fusD2HSProg { fusD2HS with rA := 1 }) = true := by
+  decide +kernel
+
+theorem e8_negQ : (!e8Q 20 SB.M SA.M hsE8Data) = true := by decide +kernel
 
 end CertificateChecks.KernelSRHS

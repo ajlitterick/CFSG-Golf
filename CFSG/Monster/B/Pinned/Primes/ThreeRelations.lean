@@ -26,6 +26,16 @@ theorem three_facts :
           zThree ^ threeDVec.getD i 0 :=
   Certificates.certificate3161
 
+theorem orderOf_xThree :
+    orderOf xThree = 40 := by
+  obtain ⟨h40, h20, h8, -⟩ := three_facts
+  exact orderOf_eq_of_exact (rs := [2, 5]) (by norm_num) h40 (by simpa using ⟨h20, h8⟩)
+    (by decide)
+
+theorem orderOf_hThree :
+    orderOf hThree = 8 := by
+  obtain ⟨-, -, -, h8, h4, -⟩ := three_facts
+  exact orderOf_eq_of_exact (rs := [2]) (by norm_num) h8 (by simpa using h4) (by decide)
 
 theorem orderOf_qThree
     (i : Fin 8) : orderOf (qThree i) = 3 := by
@@ -50,6 +60,15 @@ theorem bcomm_qThree
     (by exact Certificates.certificate16008.2.2.2.2.2.2.2.2.1)
     (by exact Certificates.certificate16008.2.2.2.2.2.2.2.2.2.1) hc i j
 
+theorem zThree_conj_x :
+    xThree⁻¹ * zThree * xThree = zThree ^ 2 := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, h, -⟩ := three_facts
+  rw [h, sq]
+
+theorem zThree_conj_h :
+    hThree⁻¹ * zThree * hThree = zThree ^ 2 := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, h, -⟩ := three_facts
+  rw [h, sq]
 
 theorem XThree_val (i j : Fin 8) :
     (XThree i j).val = (threeXRows.getD i []).getD j 0 :=
@@ -94,5 +113,23 @@ theorem isUnit_det_MThree : IsUnit MThree.det := by
   rw [Matrix.det_mul, Matrix.det_one] at h
   exact IsUnit.of_mul_eq_one _ h
 
+theorem isUnit_MThree :
+    IsUnit MThree := (Matrix.isUnit_iff_isUnit_det _).2 isUnit_det_MThree
+
+theorem rank_MThree : MThree.rank = 8 := by
+  rw [Matrix.rank_of_isUnit _ isUnit_MThree, Fintype.card_fin]
+
+theorem pinned_B_three_primary_exact_relations :
+    orderOf xThree = 40 ∧ orderOf hThree = 8 ∧ (∀ i, orderOf (qThree i) = 3) ∧
+      orderOf zThree = 3 ∧ (∀ i, bcomm (qThree i) zThree = 1) ∧
+      (∀ i j, bcomm (qThree i) (qThree j) = zThree ^ (MThree i j).val) ∧ MThree.rank = 8 ∧
+      xThree⁻¹ * zThree * xThree = zThree ^ 2 ∧ hThree⁻¹ * zThree * hThree = zThree ^ 2 ∧
+      (∀ i, xThree⁻¹ * qThree i * xThree =
+        (List.ofFn fun j => qThree j ^ (XThree i j).val).prod * zThree ^ (cThree i).val) ∧
+      ∀ i, hThree⁻¹ * qThree i * hThree =
+        (List.ofFn fun j => qThree j ^ (YThree i j).val).prod * zThree ^ (dThree i).val :=
+  ⟨orderOf_xThree, orderOf_hThree, orderOf_qThree, orderOf_zThree,
+    fun i => bcomm_eq_one_iff.2 (comm_qThree_zThree i), bcomm_qThree, rank_MThree,
+    zThree_conj_x, zThree_conj_h, conj_x_qThree, conj_h_qThree⟩
 
 end CFSG.Monster.B.Pinned

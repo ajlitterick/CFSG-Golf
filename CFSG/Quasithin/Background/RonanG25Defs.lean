@@ -138,6 +138,68 @@ inductive ChainCounts (F : Type) [Field F] (X : Subgroup G) (ord : Bool) :
   | other {A B C : Subgroup G} {a b : ℕ} (hord : ord = true) (hs : ChiefStep X A B)
       (h2 : ¬ FactorTwo A B) (rest : ChainCounts F X ord B C a b) : ChainCounts F X ord A C a b
 
+variable {F : Type} [Field F] {X : Subgroup G} {ord : Bool}
+
+theorem ChainCounts.le {A C : Subgroup G} {a b : ℕ} (h : ChainCounts F X ord A C a b) :
+    A ≤ C := by
+  induction h with
+  | refl A hA => exact le_rfl
+  | natural hs hn rest ih => exact hs.lt.le.trans ih
+  | additional hs habel hc hcard rest ih => exact hs.lt.le.trans ih
+  | central hs hc hp hcard rest ih => exact hs.lt.le.trans ih
+  | other hord hs h2 rest ih => exact hs.lt.le.trans ih
+
+theorem ChainCounts.invRight {A C : Subgroup G} {a b : ℕ} (h : ChainCounts F X ord A C a b) :
+    Inv X C := by
+  induction h with
+  | refl A hA => exact hA
+  | natural hs hn rest ih => exact ih
+  | additional hs habel hc hcard rest ih => exact ih
+  | central hs hc hp hcard rest ih => exact ih
+  | other hord hs h2 rest ih => exact ih
+
+theorem FactorNatural.not_central {F : Type} [Field F] [Finite F] {X A B : Subgroup G}
+    (hAB : A ≤ B)
+    (h : FactorNatural F X A B) : ¬ FactorCentral X A B := by
+  intro hc
+  obtain ⟨φ, β, hφs, hφk, hφe, h2, h3⟩ := h
+  have hfix : ∀ (x : ↥X) (w : Fin 2 → F),
+      ((β x : Matrix.GeneralLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F).mulVec w = w := by
+    intro x w
+    obtain ⟨y, hy⟩ := hφs (Multiplicative.ofAdd w)
+    have hcm : (x : G) * (y : G) * (x : G)⁻¹ * (y : G)⁻¹ ∈ A := hc x x.2 y y.2
+    have hmem : (x : G) * (y : G) * (x : G)⁻¹ ∈ B := by
+      have : (x : G) * (y : G) * (x : G)⁻¹ =
+          ((x : G) * (y : G) * (x : G)⁻¹ * (y : G)⁻¹) * (y : G) := by group
+      rw [this]
+      exact B.mul_mem (hAB hcm) y.2
+    have hker : φ ⟨(x : G) * (y : G) * (x : G)⁻¹ * (y : G)⁻¹, B.mul_mem hmem (B.inv_mem y.2)⟩ = 1 :=
+      (hφk _).2 hcm
+    have hy' : φ ⟨(x : G) * (y : G) * (x : G)⁻¹, hmem⟩ = φ y := by
+      have : (⟨(x : G) * (y : G) * (x : G)⁻¹, hmem⟩ : ↥B) =
+          ⟨(x : G) * (y : G) * (x : G)⁻¹ * (y : G)⁻¹, B.mul_mem hmem (B.inv_mem y.2)⟩ * y :=
+        Subtype.ext (by simp)
+      rw [this, map_mul, hker, one_mul]
+    have := hφe x y ⟨(x : G) * (y : G) * (x : G)⁻¹, hmem⟩ rfl
+    rw [hy', hy] at this
+    simpa using this.symm
+  have hone : ∀ x : ↥X, (β x : Matrix.GeneralLinearGroup (Fin 2) F) = 1 := by
+    intro x
+    refine Units.ext (Matrix.ext fun i j => ?_)
+    have := hfix x (Pi.single j 1)
+    have h' := congrFun this i
+    simp only [Matrix.mulVec_single_one] at h'
+    simpa [Matrix.one_apply, Pi.single_apply, eq_comm] using h'
+  by_cases hF : Nat.card F = 2
+  · exact h2 hF (MonoidHom.ext fun x => by simpa using hone x)
+  · have h2lt : 2 < Nat.card F := by
+      have : 1 < Nat.card F := Finite.one_lt_card
+      omega
+    obtain ⟨x, hx⟩ := h3 h2lt ⟨!![1, 1; 0, 1], by simp [Matrix.det_fin_two]⟩
+    have := hfix x ![0, 1]
+    rw [hx] at this
+    have h1 := congrFun this 0
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two] at h1
 
 end Chain
 

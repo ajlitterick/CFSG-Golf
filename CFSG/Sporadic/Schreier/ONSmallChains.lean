@@ -92,5 +92,18 @@ theorem card_onPSL120 :
 
 theorem card_onX : Nat.card onX = 20160 := card_onPSL120
 
+theorem at_on_small_chain_orders :
+    ValidSchreier onT32Chain ∧ ValidSchreier onM120Chain ∧ ValidSchreier onL120Chain ∧
+      ValidSchreier onPSL21Chain ∧ ValidSchreier onPSL120Chain ∧
+      Data.T32Chain.degree = 32 ∧ Data.M120Chain.degree = 120 ∧ Data.L120Chain.degree = 120 ∧
+      Data.PSL21Chain.degree = 21 ∧ Data.PSL120Chain.degree = 120 ∧
+      Nat.card onT32Chain.originalSubgroup = 512 ∧
+      Nat.card onM120Chain.originalSubgroup = 40320 ∧
+      Nat.card onL120Chain.originalSubgroup = 20160 ∧
+      Nat.card onPSL21Chain.originalSubgroup = 20160 ∧
+      Nat.card onPSL120Chain.originalSubgroup = 20160 :=
+  ⟨t32_facts.2.1, m120_facts.2.1, l120_facts.2.1, psl21_facts.2.1, psl120_facts.2.1,
+    t32_facts.1, m120_facts.1, l120_facts.1, psl21_facts.1, psl120_facts.1, card_onT32,
+    card_onM120, card_onL120, card_onPSL21, card_onPSL120⟩
 
 end CFSG.ONSchreier

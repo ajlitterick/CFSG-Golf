@@ -129,6 +129,13 @@ theorem lemma_F33_1 (hc : c.IsFaithful) (uh : α.Γhat) :
     (c.graphCovering hc).pathSetMap_bijOn_noBack uh,
     fun n => (c.graphCovering hc).bijOn_nbPaths uh n⟩
 
+theorem lemma_F33_2 (hc : c.IsFaithful) (uh : α.Γhat) :
+    ∃ q : PermQuasiEquiv (MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) uh) (PathSet α.graphHat uh)
+      (MulAction.stabilizer ↥(c.φ1.range ⊔ c.φ2.range) (c.Θ hc uh)) (PathSet c.graph (c.Θ hc uh)),
+      (∀ g, ((q.grp g : ↥(c.φ1.range ⊔ c.φ2.range)) : Y) = c.theta ((g : ↥(α.Ghat1 ⊔ α.Ghat2)) : α.Ghat)) ∧
+      ∀ p, q.set p = (c.graphCovering hc).pathSetMap uh p :=
+  ⟨GraphCovering.StabIso.quasiEquiv (c.graphCovering hc) (c.stabIso hc uh), fun _ => rfl,
+    fun _ => rfl⟩
 
 theorem lemma_F33_3 (hc : c.IsFaithful) (uh : α.Γhat) {n : ℕ} (p : GPath α.graphHat n)
     (hp : p 0 = uh) :

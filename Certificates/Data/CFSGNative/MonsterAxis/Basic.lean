@@ -11,6 +11,11 @@ open CFSG.Monster.B.Rep4371.Native
 
 set_option compiler.extract_closed false
 
+@[expose] def offX (_ : Unit := ()) : Nat := 300
+
+@[expose] def offW (_ : Unit := ()) : Nat := 98580
+
+@[expose] def nTot (_ : Unit := ()) : Nat := 196884
 
 @[expose] def pairIdx (i j : Nat) : Nat := i * (47 - i) / 2 + (j - i - 1)
 
@@ -90,6 +95,9 @@ structure Ctx where
 
 @[expose] def Ctx.find (c : Ctx) (a d : Nat) : Nat := c.pos.getD (keyCode a d) 98280
 
+@[expose] def ctxCheck (c : Ctx) : Bool :=
+  c.keys.size == 98280 && (List.range 98280).all fun p =>
+    c.keys[p]!.1 < 4096 && c.keys[p]!.2 < 4096 && c.find c.keys[p]!.1 c.keys[p]!.2 == p
 
 @[expose] def scatterAt (off n : Nat) (T : Nat → List (Nat × Int)) (D : Array Int) : Array Int :=
   (List.range n).foldl (fun out p =>

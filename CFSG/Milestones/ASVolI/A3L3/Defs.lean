@@ -44,5 +44,22 @@ open scoped Pointwise
     Q ≤ I → Q ≤ Subgroup.normalizer (U : Set X) → ¬ p ∣ Nat.card ↥Q →
     ∃ H : Subgroup X, CFSG.Quasithin.A315.IsCartan p U I H ∧ Q ≤ H
 
+@[expose] def burnsideA315y_ModelConclusion (X : Type) [Group X] (δ : Bool) (p : ℕ)
+    (L B S : Subgroup X) : Prop :=
+  (δ = true ∧ B ≤ L ∧ CFSG.Quasithin.IsElemAbelianOfRank p 2 ↥B ∧
+      S ≤ Subgroup.normalizer (B : Set X) ∧ B ≠ ⊥ ∧
+      ∀ C : Subgroup X, C ≤ B → S ≤ Subgroup.normalizer (C : Set X) → C = ⊥ ∨ C = B) ∨
+  (∃ K : Subgroup X, K ≤ L ∧ CFSG.Quasithin.IsSL2 p ↥K ∧
+      B = (B ⊓ K) ⊔ (B ⊓ Subgroup.centralizer (K : Set X)) ∧
+      IsCyclic ↥(B ⊓ K) ∧ IsCyclic ↥(B ⊓ Subgroup.centralizer (K : Set X)) ∧
+      (∃ H U : Subgroup X, CFSG.Quasithin.A315.IsSylowOf p U L ∧
+        CFSG.Quasithin.A315.IsCartan p U (L ⊔ B) H ∧ B ⊓ Subgroup.centralizer (K : Set X) ≤ H) ∧
+      Nat.card ↥(B ⊓ Subgroup.centralizer (K : Set X)) ∣ (if δ then p - 1 else p + 1) ∧
+      (((∃ ε : ℤ, (ε = 1 ∨ ε = -1) ∧ Int.ModEq 4 ε (p : ℤ) ∧
+          ((Nat.card ↥(B ⊓ K) : ℕ) : ℤ) ∣ (p : ℤ) - ε) ∧
+        CFSG.Quasithin.A315.InvertedIn (B ⊓ K) (S ⊓ K)) ∨
+       ((p % 8 = 3 ∨ p % 8 = 5) ∧ Nat.card ↥(B ⊓ K) = 3 ∧
+        CFSG.Quasithin.A315.InvertedIn (B ⊓ K) (S ⊓ Subgroup.normalizer (B : Set X) ⊓
+          Subgroup.centralizer ((B ⊓ Subgroup.centralizer (K : Set X) : Subgroup X) : Set X)))))
 
 end CFSG.ASVolI

@@ -48,6 +48,15 @@ structure RankFrame (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup 
   two_le : ∃ K ∈ S, ∃ L ∈ S, K ≠ L
   card : 8 ≤ Nat.card A
 
+theorem ToralFrame.toRankFrame {Ω : Set (Subgroup G)} {A : Subgroup G} {S : Set (Subgroup G)}
+    (Fr : ToralFrame F Ω A S) : RankFrame F Ω A S where
+  odd := Fr.odd
+  five := Fr.five
+  inv := Fr.inv
+  elem := Fr.elem
+  eq_sigma := Fr.eq_sigma
+  two_le := Fr.exists_ne
+  card := Fr.card
 
 namespace RankFrame
 
@@ -94,6 +103,15 @@ theorem exists_ne_one_mem_axisSub_inf_axisSub {K L : Subgroup G} (hK : K ∈ S) 
 
 end RankFrame
 
+@[expose] def RankLocalA2 (A : Subgroup G) (S : Set (Subgroup G)) : Prop :=
+  ∀ K ∈ S, ∀ L ∈ S, K ≠ L → ∀ x ∈ axisSub A K ⊓ axisSub A L, x ≠ 1 →
+    Commutes K L ∨ IsLine A K L
+
+theorem a2Dichotomy_of_rankFrame {Ω : Set (Subgroup G)} {A : Subgroup G}
+    {S : Set (Subgroup G)} (Fr : RankFrame F Ω A S) (h : RankLocalA2 A S) : A2Dichotomy A S :=
+  fun K hK L hL hKL => by
+    obtain ⟨x, hx, hx1⟩ := Fr.exists_ne_one_mem_axisSub_inf_axisSub hK hL
+    exact h K hK L hL hKL x hx hx1
 
 end RankFrame
 

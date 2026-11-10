@@ -31,6 +31,7 @@ namespace CFSG.KD.LyA
 
 open CFSG.KC.LyA.DceS
 
+theorem osn : Nat.beq (sortedCount (OS_0.acc 7)) NO = true := by quickRfl
 
 end CFSG.KD.LyA
 

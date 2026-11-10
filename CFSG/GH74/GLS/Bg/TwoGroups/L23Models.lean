@@ -406,6 +406,11 @@ theorem qmemS (t : (Vec × Vec × Vec) × UHc × UHc) (ht : t ∈ tabS) : t.2.2 
   (mkData eS1 eS2 t.2.1 t.2.2 t.1.1 t.1.2.1 t.1.2.2 (by simpa [EmbOK] using embOK_S)
     (by simpa [RelOK] using relOK_S t ht)).restrict sylSU3c embmemS (pmemS t ht) (qmemS t ht)
 
+theorem dataL_params (t : (Vec × Vec × Vec) × UT3 F4c × UT3 F4c) (ht : t ∈ tabL) :
+    ((dataL t ht).α, (dataL t ht).β, (dataL t ht).γ) = t.1 := rfl
+
+theorem dataS_params (t : (Vec × Vec × Vec) × UHc × UHc) (ht : t ∈ tabS) :
+    ((dataS t ht).α, (dataS t ht).β, (dataS t ht).γ) = t.1 := rfl
 
 end L23
 

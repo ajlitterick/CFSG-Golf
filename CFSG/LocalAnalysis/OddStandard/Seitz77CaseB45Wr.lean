@@ -108,6 +108,11 @@ instance : Group (Wr Q) where
 
 @[simp] theorem swap_e : (swap : Wr Q).e = true := rfl
 
+theorem swap_mul_swap : (swap : Wr Q) * swap = 1 := by
+  simp [swap, one_def]
+
+theorem swap_inv : (swap : Wr Q)⁻¹ = swap := by
+  simp [swap]
 
 theorem swap_mul_mul_swap (a b : Q) : (swap : Wr Q) * ⟨a, b, false⟩ * swap = ⟨b, a, false⟩ := by
   simp [swap]

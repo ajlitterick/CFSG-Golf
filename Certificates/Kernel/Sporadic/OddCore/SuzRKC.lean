@@ -28,6 +28,18 @@ theorem iA : invEqK 1782 11 (mask 11) (1782 * 11) (SuzRKG 0) (SuzRKG 2) = true :
 
 theorem iB : invEqK 1782 11 (mask 11) (1782 * 11) (SuzRKG 1) (SuzRKG 3) = true := by quickRfl
 
+theorem neg_elem : Bool.not (kenumPtK 1782 11 (mask 11) (1782 * 11) 2 4 3456 SuzRKG
+    (fun i => SuzRKT (Nat.add i (nat_lit 1))) SuzRKTI SuzRKPL SuzRKPOS SuzRKFP SuzRKSRT SuzRKSRI
+    0) = true := by
+  quickRfl
+
+theorem neg_pos : Bool.not (kenumPtK 1782 11 (mask 11) (1782 * 11) 2 4 3456 SuzRKG SuzRKT SuzRKTI
+    SuzRKPL (fun e => Nat.add (SuzRKPOS e) (nat_lit 1)) SuzRKFP SuzRKSRT SuzRKSRI 5) = true := by
+  quickRfl
+
+theorem neg_fp : Bool.not (kenumPtK 1782 11 (mask 11) (1782 * 11) 2 4 3456 SuzRKG SuzRKT SuzRKTI
+    SuzRKPL SuzRKPOS (fun i => SuzRKFP (Nat.sub i (nat_lit 1))) SuzRKSRT SuzRKSRI 7) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.SuzRKC
 

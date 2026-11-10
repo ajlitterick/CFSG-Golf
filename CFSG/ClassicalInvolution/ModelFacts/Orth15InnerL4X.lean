@@ -65,6 +65,7 @@ theorem x0_mul_u0 : x0 F * u0 F = u0 F * x0 F := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_four]
 
+theorem x0_inv : (x0 F)⁻¹ = x0 F := inv_eq_of_mul_eq_one_right x0_mul_self
 
 theorem coe_x0_eq_negBlock : ((x0 F : SL(4, F)) : Matrix (Fin 4) (Fin 4) F) = negBlock F 4 0 :=
   coe_rootInv _
@@ -278,6 +279,8 @@ theorem coe_t0 : ((t0 F : SL(4, F)) : Matrix (Fin 4) (Fin 4) F) =
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_four]
 
+theorem t0_mem : t0 F ∈ R0 F ⊔ R0' F :=
+  (R0 F ⊔ R0' F).mul_mem (Subgroup.mem_sup_left x0_mem_R0) u0_mem
 
 variable (F) in
 @[expose] def U1 : SL(4, F) :=

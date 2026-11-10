@@ -79,6 +79,13 @@ theorem cv_eq_of_cvId {w : List (Fin 2 × Bool)} {c₁ c₂ c₃ : ℕ}
     (h : cvId w c₁ c₂ c₃ = true) : cv w = z₁ ^ c₁ * z₂ ^ c₂ * z₃ ^ c₃ :=
   cv_eq_of_cvIdOK vt_k modelA modelB h
 
+theorem zz_eq :
+    cv (wpow zOne 2 ++ wpow zTwo 2) = z₁ ^ 2 * z₂ ^ 2 * z₃ ^ 0 :=
+  cv_eq_of_cvId zz_k
+
+theorem cover_eq :
+    cv ((0, false) :: commWords (coverPairs 0)) = z₁ ^ 0 * z₂ ^ 0 * z₃ ^ 0 :=
+  cv_eq_of_cvId cover_k.1
 
 end CertificateChecks.KernelL34Cov
 

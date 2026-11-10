@@ -18,6 +18,10 @@ theorem fc_moved : Bool.not (Nat.beq (tb G (nat_lit 43) (nat_lit 11504)) (nat_li
 
 theorem cs_pts : bAnd(domR H (nat_lit 71), domR H (nat_lit 92)) = true := by quickRfl
 
+theorem neg_fc_moved : Bool.not (Bool.not (Nat.beq (tb G (nat_lit 43) (tb H (nat_lit 0) (nat_lit 0)))
+    (tb H (nat_lit 0) (nat_lit 0)))) = true := by quickRfl
+
+theorem neg_cs_pts : Bool.not (domR H (nat_lit 37)) = true := by quickRfl
 
 end CFSG.KD.Fi23T
 

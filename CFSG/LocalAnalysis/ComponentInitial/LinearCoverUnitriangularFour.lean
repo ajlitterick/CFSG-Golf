@@ -700,6 +700,27 @@ theorem exists_sylow_mulEquiv_U4_of_lieModel {Q : Type} [Group Q]
     ((projUnitriangular 4 F).equivMapOfInjective f e.symm.injective).symm).trans
       (unitriangularEquivProj (K := F) 4).symm).trans (unitriangularRingEquiv σ.symm 4)
 
+theorem linear_four_cover_kernel_bound {P : Type*} {Q : Type} [Group P] [Group Q] [Finite P]
+    [Finite Q] [Group.IsPerfect P] (η : P →* Q) (hη : Function.Surjective η)
+    (hK : η.ker ≤ center P) (h2 : IsPGroup 2 η.ker) (hQ : CFSG.Blueprint.LieModel Q .PSL 4 2 1) :
+    IsElementaryAbelian 2 η.ker ∧ Nat.card η.ker ≤ 16 := by
+  obtain ⟨S, ⟨eS⟩⟩ := exists_sylow_mulEquiv_U4_of_lieModel hQ
+  exact perfect_cover_kernel_bound_of_sylow η hη hK h2 S eS
+
+theorem binary_unitriangular_four_stem_kernel_and_linear_four_cover_bound :
+    (∀ {T : Type*} [Group T] [Finite T] (ρ : T →* U4), Function.Surjective ρ →
+      ρ.ker ≤ center T ⊓ commutator T → IsElementaryAbelian 2 ρ.ker ∧ Nat.card ρ.ker ≤ 16) ∧
+    (∀ {P Q : Type*} [Group P] [Group Q] [Finite P] [Finite Q] [Group.IsPerfect P]
+      (η : P →* Q), Function.Surjective η → η.ker ≤ center P → IsPGroup 2 η.ker →
+      (∃ S : Sylow 2 Q, Nonempty ((S : Subgroup Q) ≃* U4)) →
+      IsElementaryAbelian 2 η.ker ∧ Nat.card η.ker ≤ 16) ∧
+    (∀ {P : Type*} {Q : Type} [Group P] [Group Q] [Finite P] [Finite Q] [Group.IsPerfect P]
+      (η : P →* Q), Function.Surjective η → η.ker ≤ center P → IsPGroup 2 η.ker →
+      CFSG.Blueprint.LieModel Q .PSL 4 2 1 →
+      IsElementaryAbelian 2 η.ker ∧ Nat.card η.ker ≤ 16) :=
+  ⟨fun ρ hρ hC => stem_kernel_bound ρ hρ hC,
+    fun η hη hK h2 ⟨S, ⟨eS⟩⟩ => perfect_cover_kernel_bound_of_sylow η hη hK h2 S eS,
+    fun η hη hK h2 hQ => linear_four_cover_kernel_bound η hη hK h2 hQ⟩
 
 end LinearCover
 

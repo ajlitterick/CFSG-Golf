@@ -19,6 +19,12 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.MulH CFSG.KS.PEnumB
 theorem ch7291hsv_ok : ch7291hsv = true := by
   quickRfl
 
+theorem ch7291hv_neg :
+    bIf(Nat.beq (hkeyU 11200 14 (mask 14) (TE.T 0)) (TEV 1), false, true) = true := by
+  quickRfl
+
+theorem ch7291hsv_neg : bIf(hsortVK TE.cnt (fun _ => 0) TE.HS TE.HSI 0, false, true) = true := by
+  quickRfl
 
 end CFSG.KD.TwoHS
 

@@ -31,6 +31,8 @@ variable (p : ℕ) [hp : Fact p.Prime]
     change ¬ p ∣ (-a).den
     rwa [Rat.neg_den]
 
+theorem mem_ratLocal {x : ℚ} : x ∈ ratLocal p ↔ ¬ p ∣ x.den :=
+  Iff.rfl
 
 theorem mem_ratLocal_iff {x : ℚ} :
     x ∈ ratLocal p ↔ ∃ a b : ℤ, b ≠ 0 ∧ ¬ (p : ℤ) ∣ b ∧ x = a / b := by
@@ -107,6 +109,9 @@ theorem ratLocalRed_apply (x : ratLocal p) :
     ratLocalRed p x = ((x : ℚ).num : ZMod p) * ((x : ℚ).den : ZMod p)⁻¹ :=
   rfl
 
+theorem ratLocalRed_eq (x : ratLocal p) {a b : ℤ} (hb : ¬ (p : ℤ) ∣ b) (hx : (x : ℚ) = a / b) :
+    ratLocalRed p x = (a : ZMod p) * (b : ZMod p)⁻¹ :=
+  SteinbergBQ.ratRedFun_eq p hb hx
 
 theorem ratLocalRed_eq_zero_iff (x : ratLocal p) : ratLocalRed p x = 0 ↔ ∃ y, x = p * y := by
   constructor

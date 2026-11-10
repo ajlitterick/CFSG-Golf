@@ -15,6 +15,8 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Mathieu
   CFSG.RankThree.PartTwo.KFacts.K426
 open CFSG.Monster.B.Co2 (allLt_iff)
 
+theorem caseChainOK_eq (n : ℕ) (S : Array (Array ℕ)) (base : Array ℕ) (W : Array (List ℤ))
+    (a b u : Array ℕ) : caseChainOK n S base W a b u = caseChainOK3 n S base W a b u := rfl
 
 theorem centOK_eq (n : ℕ) (S : Array (Array ℕ)) (base x : Array ℕ) (rels : List (ℕ × ℕ × ℕ))
     (gs : Array (Array ℕ)) (ps : List ℕ) (c : ArrCert) (N : ℕ) :
@@ -24,6 +26,15 @@ theorem normalOK_eq (n : ℕ) (gC gA : Array (Array ℕ)) (ps : List ℕ) (cC cA
     (PL : Array Level) (Pb : Array ℕ) :
     normalOK n gC gA ps cC cA N PL Pb = normalOKP 5 n gC gA ps cC cA N PL Pb := rfl
 
+theorem selfCentOK_eq (n : ℕ) (gA : Array (Array ℕ)) (cC cA : ArrCert) :
+    selfCentOK n gA cC cA = selfCentOKG n gA cC cA := rfl
+
+theorem zCentOK_eq (n : ℕ) (gA : Array (Array ℕ)) (cC cA : ArrCert) (x : Array ℕ) :
+    zCentOK n gA cC cA x = zCentOKP 5 n gA cC cA x := rfl
+
+theorem derivedOK_eq (n : ℕ) (gC gD : Array (Array ℕ)) (ps : List ℕ) (cC cD : ArrCert)
+    (c d x : Array ℕ) (PL : Array Level) (Pb : Array ℕ) :
+    derivedOK n gC gD ps cC cD c d x PL Pb = derivedOKP 5 60 n gC gD ps cC cD c d x PL Pb := rfl
 
 theorem allLt_eq_allN {m : ℕ} {f g : ℕ → Bool} (h : ∀ i < m, f i = g i) : allLt m f = allN m g := by
   apply Bool.eq_iff_iff.2

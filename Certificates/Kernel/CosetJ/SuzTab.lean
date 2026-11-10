@@ -62,6 +62,12 @@ theorem surj_eq : surjWords = SuzTabST.W.toArray := by
   rw [← SuzTabST.eq] at h
   exact h
 
+theorem img_forged_rejected : Act.notB (CFSG.KC.WordsT.wordsT SuzTabIT.chars
+    (((SuzTabIT.W.headD []).dropLast ++ [7]) :: SuzTabIT.W.tail)) = true := by
+  quickRfl
+
+theorem strict_rejects : Act.notB (CFSG.KC.SurjK.wordsK SuzTabST.chars SuzTabST.W) = true := by
+  quickRfl
 
 @[expose] def bL (j : Fin 2) : Fin 9 := ⟨j.val, by omega⟩
 

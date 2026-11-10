@@ -13,6 +13,11 @@ theorem b433_cover (g : B433) :
     ∃ l < 23, ∃ a ∈ psi.range, ∃ b ∈ psi.range, g = a * xB l * b :=
   Certificates.certificate6041 g
 
+theorem u433_cover (g : U433) :
+    ∃ l < 23, ∃ a ∈ psiU.range, ∃ b ∈ psiU.range,
+      ∃ f ∈ Subgroup.normalClosure ({F433 2 1 3, F433 3 1 2} : Set U433),
+        g = a * xU l * b * f :=
+  u433_cover_of_cover b433_cover g
 
 theorem exists_cover_image
     {G : Type*} [Group G] (φ : U433 →* G) (c : G)

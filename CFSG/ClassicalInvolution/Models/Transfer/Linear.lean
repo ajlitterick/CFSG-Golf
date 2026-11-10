@@ -153,6 +153,16 @@ theorem IsLongRootImage.eq_of_orderOf_eq_two (hodd : Odd (Nat.card K)) (hn3 : 3 
   exact eq_map_of_orderOf_eq_two (eq_one_of_mem_ker_of_isLongRootSL2 hodd hn3 hL hker)
     (fun _ htL ht2 => hL.eq_of_orderOf_eq_two (two_ne_zero_of_odd_natCard hodd) htL ht2) ht h2
 
+omit [Finite K] in
+theorem IsLongRootImage.eq_of_involution_eq (h2 : (2 : K) ≠ 0)
+    (hker : θ.ker ≤ Subgroup.center SL(n, K)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
+    {L₁' L₂' : Subgroup X} {i' : X} (h₁ : IsLongRootImage θ hn L₁' i')
+    (h₂ : IsLongRootImage θ hn L₂' i') : L₁' = L₂' := by
+  obtain ⟨L₁, i₁, h₁, rfl, hθ₁⟩ := h₁
+  obtain ⟨L₂, i₂, h₂, rfl, hθ₂⟩ := h₂
+  have := eq_of_map_eq_of_isLongRootSL2 h2 h₁ h₂ hker hlift (hθ₁.trans hθ₂.symm)
+  subst this
+  exact congrArg (Subgroup.map θ) ((h₁.eq_longRootGroup h2).trans (h₂.eq_longRootGroup h2).symm)
 
 theorem IsLongRootImage.isClassicalSL2 (hodd : Odd (Nat.card K)) (hn3 : 3 ≤ n)
     (hsurj : Function.Surjective θ) (hker : θ.ker ≤ Subgroup.center SL(n, K))
@@ -172,6 +182,12 @@ theorem centralizer_map_eq_of_isLongRootSL2 (h2 : (2 : K) ≠ 0)
     Subgroup.centralizer ({θ i} : Set X) = (Subgroup.centralizer ({i} : Set SL(n, K))).map θ :=
   centralizer_map_eq θ hsurj (kerConjFree_of_isLongRootSL2 h2 h hker hlift)
 
+omit [Finite K] in
+theorem map_mem_normalizer_of_isLongRootSL2 (h2 : (2 : K) ≠ 0) {L : Subgroup SL(n, K)}
+    {i : SL(n, K)} (h : IsLongRootSL2 hn L i) {g : SL(n, K)}
+    (hg : g ∈ Subgroup.centralizer ({i} : Set SL(n, K))) :
+    θ g ∈ Subgroup.normalizer ((L.map θ : Subgroup X) : Set X) :=
+  map_mem_normalizer θ ((h.isClassicalSL2 h2).centralizer_le_normalizer hg)
 
 omit [Finite K] in
 theorem IsLongRootImage.conj (hsurj : Function.Surjective θ) {L' : Subgroup X} {i' : X}
@@ -218,6 +234,28 @@ theorem lemma_6_5_map (hodd : Odd (Nat.card K)) (h5 : 5 ≤ Nat.card K) (hn3 : 3
     commute_and_ne_of_map (two_ne_zero_of_odd_natCard hodd) h₂ hker hlift hc hne
   exact lemma_6_5_map_of_commute hodd h5 hn3 hker h₁ h₂ hc' hne'
 
+theorem mem_centralizer_map_iff_forall_comm_of_commute (hodd : Odd (Nat.card K))
+    (h5 : 5 ≤ Nat.card K) (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center SL(n, K))
+    {L₁ L₂ : Subgroup SL(n, K)} {i₁ i₂ : SL(n, K)} (h₁ : IsLongRootSL2 hn L₁ i₁)
+    (h₂ : IsLongRootSL2 hn L₂ i₂) (hc : Commute i₁ i₂) (hne : i₁ ≠ i₂) :
+    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
+      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
+  have h2 := two_ne_zero_of_odd_natCard hodd
+  have hperf : ⁅L₁, L₁⁆ = L₁ :=
+    Subgroup.isPerfect_iff.mp ((h₁.isClassicalSL2 h2).isPerfect (by omega))
+  exact mem_centralizer_map_iff hker hperf h₂.mem
+    (mem_centralizer_iff_forall_comm h2 hn3 h₁ h₂ hc hne)
+
+theorem mem_centralizer_map_iff_forall_comm (hodd : Odd (Nat.card K)) (h5 : 5 ≤ Nat.card K)
+    (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center SL(n, K))
+    (hlift : n ≠ 4 ∨ KerInvolutionFree θ) {L₁ L₂ : Subgroup SL(n, K)} {i₁ i₂ : SL(n, K)}
+    (h₁ : IsLongRootSL2 hn L₁ i₁) (h₂ : IsLongRootSL2 hn L₂ i₂)
+    (hc : Commute (θ i₁) (θ i₂)) (hne : θ i₁ ≠ θ i₂) :
+    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
+      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
+  obtain ⟨hc', hne'⟩ :=
+    commute_and_ne_of_map (two_ne_zero_of_odd_natCard hodd) h₂ hker hlift hc hne
+  exact mem_centralizer_map_iff_forall_comm_of_commute hodd h5 hn3 hker h₁ h₂ hc' hne'
 
 theorem lemma_6_5_image (hodd : Odd (Nat.card K)) (h5 : 5 ≤ Nat.card K) (hn3 : 3 ≤ n)
     (hker : θ.ker ≤ Subgroup.center SL(n, K)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
@@ -230,6 +268,15 @@ theorem lemma_6_5_image (hodd : Odd (Nat.card K)) (h5 : 5 ≤ Nat.card K) (hn3 :
   obtain ⟨L₂, i₂, h₂, rfl, rfl⟩ := h₂
   exact lemma_6_5_map hodd h5 hn3 hker hlift h₁ h₂ hc hne
 
+theorem mem_centralizer_iff_forall_comm_image (hodd : Odd (Nat.card K)) (h5 : 5 ≤ Nat.card K)
+    (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center SL(n, K))
+    (hlift : n ≠ 4 ∨ KerInvolutionFree θ) {L₁' L₂' : Subgroup X} {i₁' i₂' : X}
+    (h₁ : IsLongRootImage θ hn L₁' i₁') (h₂ : IsLongRootImage θ hn L₂' i₂')
+    (hc : Commute i₁' i₂') (hne : i₁' ≠ i₂') :
+    i₂' ∈ Subgroup.centralizer (L₁' : Set X) ↔ ∀ x ∈ L₁', ∀ y ∈ L₂', x * y = y * x := by
+  obtain ⟨L₁, i₁, h₁, rfl, rfl⟩ := h₁
+  obtain ⟨L₂, i₂, h₂, rfl, rfl⟩ := h₂
+  exact mem_centralizer_map_iff_forall_comm hodd h5 hn3 hker hlift h₁ h₂ hc hne
 
 end Lemma65
 

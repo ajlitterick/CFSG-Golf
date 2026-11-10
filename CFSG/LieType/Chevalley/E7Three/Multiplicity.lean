@@ -46,6 +46,15 @@ theorem multiplicityWord_val (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
   change rootDiagUnit .E7 (cartanChar (cubeChar ζ multiplicityCochar)) = _
   rw [cartanChar_multiplicity ζ hζ]
 
+theorem multiplicityWord_mem_torusGroup (ζ : Kˣ) :
+    (multiplicityWord ζ : ModGL .E7 K) ∈ torusGroup .E7 K := by
+  rw [multiplicityWord, Subgroup.val_list_prod, List.map_map]
+  change ((List.finRange Tag.E7.rank).map fun i =>
+    torusElt .E7 K i (ζ ^ multiplicityCochar i)).prod ∈ _
+  refine Subgroup.list_prod_mem _ ?_
+  rintro x hx
+  obtain ⟨i, -, rfl⟩ := List.mem_map.1 hx
+  exact torusElt_mem_torusGroup i _
 
 theorem multiplicityWord_pow_three (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
     multiplicityWord ζ ^ 3 = 1 := by

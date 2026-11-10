@@ -60,6 +60,12 @@ theorem forest_all : ∀ r, 1 ≤ r → r < 306936 →
     (by rw [e]; exact hr)
   rwa [e] at this
 
+theorem inS_all : ∀ j < 31671, fComp (FD (CFSG.KD.Fi24Fix.S j)) = 2 := by
+  intro j hj
+  obtain ⟨e, hm⟩ := split_idx (b := 4096) (by decide) hj
+  have hc : j / 4096 < 8 := by omega
+  have := inSOK_spec (inSAll (j / 4096) hc) (j % 4096) hm (by rw [e]; exact hj)
+  rwa [e] at this
 
 theorem vt_all : ∀ r < 306936, walk CFSG.KD.Fi24Fix.TG VW r = VT r := by
   intro r hr

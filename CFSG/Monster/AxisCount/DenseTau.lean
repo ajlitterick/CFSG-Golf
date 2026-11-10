@@ -40,6 +40,10 @@ theorem pi0N_two_mul (t : ℕ) : Model.pi0N (2 * t) = 2 * t := by
 theorem coe_cc (t : ℕ) : ((cc t : C₀) : C) = toC (2 * t) := by
   rw [cc, coe_π₀_toC, pi0N_two_mul]
 
+theorem zmod2_cases' : ∀ c : ZMod 2, c = 0 ∨ c = 1 := by decide
+
+theorem sgn_mul_self_zmod (x : ZMod 2) : sgn x * sgn x = 1 := by
+  rcases zmod2_cases' x with rfl | rfl <;> norm_num [sgn]
 
 theorem sgn_cc (t i : ℕ) (hi : i < 24) :
     sgn (((cc t : C) : Fin 24 → ZMod 2) (finOf i)) =

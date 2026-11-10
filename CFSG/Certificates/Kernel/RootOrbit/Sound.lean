@@ -49,6 +49,9 @@ theorem reflL_eq (M : Matrix (Fin n) (Fin n) ℤ) (i : Fin n) {x : List ℤ} (hx
     · have : (⟨j, hn⟩ : Fin n) ≠ i := fun e => h (congrArg Fin.val e).symm
       simp [h, this]
 
+theorem length_reflectList (M : Matrix (Fin n) (Fin n) ℤ) (i : Fin n) (x : List ℤ) :
+    (reflectList M i x).length = n := by
+  simp [reflectList]
 
 theorem ofList_negL (x : List ℤ) : ofList (n := n) (negL x) = -ofList (n := n) x := by
   funext j

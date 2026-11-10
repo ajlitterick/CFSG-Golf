@@ -76,6 +76,10 @@ theorem exists_conj_pair_of_orbSize_eq
   · rw [← hcq]
     group
 
+theorem orderOf_le_two_of_commute
+    {p q : GStar} (hp : p * p = 1) (hq : q * q = 1)
+    (h : Commute p q) : orderOf (p * q) ∣ 2 :=
+  orderOf_dvd_of_pow_eq_one ((commute_iff_sq_eq_one hp hq).1 h)
 
 theorem commute_iff_orbSize
     {p q : GStar} (hp : p ∈ rootClassStar) (hq : q ∈ rootClassStar) :

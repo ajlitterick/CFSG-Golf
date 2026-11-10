@@ -27,6 +27,10 @@ open Subgroup CFSG CFSG.GH74
     rw [tauC_inv]
     exact hinv _ ha
 
+theorem tauC_pow (x : ↥CJ) (n : Nat) : tauC (x ^ n) = tpow (tauC x) n := by
+  induction n with
+  | zero => rw [pow_zero, tauC_one]; rfl
+  | succ n ih => rw [pow_succ', tauC_mul, ih]; rfl
 
 theorem card_of_tauC
     {P : ↥CJ → Prop} (L : List (List Nat)) (hL : L.Nodup)
@@ -69,15 +73,25 @@ theorem normal_tblSubgroup
 @[expose] def Q1sub :
     Subgroup ↥CJ := tblSubgroup Q1T tid_mem_Q1T Q1T_mul Q1T_inv
 
+@[expose] def Q2sub :
+    Subgroup ↥CJ := tblSubgroup Q2T tid_mem_Q2T Q2T_mul Q2T_inv
 
 theorem mem_Qsub {x : ↥CJ} : x ∈ Qsub ↔ tauC x ∈ QT := Iff.rfl
 
+theorem mem_Q1sub {x : ↥CJ} : x ∈ Q1sub ↔ tauC x ∈ Q1T := Iff.rfl
+
+theorem mem_Q2sub {x : ↥CJ} : x ∈ Q2sub ↔ tauC x ∈ Q2T := Iff.rfl
 
 theorem QT_sub_HT : ∀ t ∈ QT, t ∈ HT := fun _ ht => (mem_QT_iff.1 ht).1
 
 theorem card_Qsub : Nat.card ↥Qsub = 32 := by
   rw [Qsub, card_tblSubgroup QT_nodup QT_sub_HT, QT_length]
 
+theorem card_Q1sub : Nat.card ↥Q1sub = 8 := by
+  rw [Q1sub, card_tblSubgroup Q1T_nodup (fun t ht => QT_sub_HT t (Q1T_sub t ht)), Q1T_length]
+
+theorem card_Q2sub : Nat.card ↥Q2sub = 8 := by
+  rw [Q2sub, card_tblSubgroup Q2T_nodup (fun t ht => QT_sub_HT t (Q2T_sub t ht)), Q2T_length]
 
 theorem Qsub_normal
     : Qsub.Normal := normal_tblSubgroup QT_normal
@@ -88,6 +102,8 @@ instance instNormalQsub :
 theorem Q1sub_normal
     : Q1sub.Normal := normal_tblSubgroup Q1T_normal
 
+theorem Q2sub_normal
+    : Q2sub.Normal := normal_tblSubgroup Q2T_normal
 
 theorem isPGroup_Qsub : IsPGroup 2 ↥Qsub :=
   IsPGroup.of_card (n := 5) (by rw [card_Qsub]; norm_num)
@@ -267,6 +283,95 @@ theorem q8T_mem : ∀ g : QuaternionGroup 2, q8T x1T y1T g ∈ Q1T := by decide 
 
 theorem q8T_surj : ∀ t ∈ Q1T, ∃ g : QuaternionGroup 2, q8T x1T y1T g = t := by decide +kernel
 
+theorem q8_a1_pow4 : (QuaternionGroup.a 1 : QuaternionGroup 2) ^ 4 = 1 := by decide +kernel
+
+theorem q8_a1_sq_ne : (QuaternionGroup.a 1 : QuaternionGroup 2) ^ 2 ≠ 1 := by decide +kernel
+
+theorem q8_xa0_sq : (QuaternionGroup.xa 0 : QuaternionGroup 2) * QuaternionGroup.xa 0 =
+    (QuaternionGroup.a 1) ^ 2 := by decide +kernel
+
+theorem q8_xa0_a1 : (QuaternionGroup.xa 0 : QuaternionGroup 2) * QuaternionGroup.a 1 =
+    (QuaternionGroup.a 1) ^ 3 * QuaternionGroup.xa 0 := by decide +kernel
+
+theorem q8_gen : ∀ g : QuaternionGroup 2, ∃ i < 4, ∃ j < 2,
+    g = (QuaternionGroup.a 1) ^ i * (QuaternionGroup.xa 0) ^ j := by decide +kernel
+
+theorem card_q8 : Nat.card (QuaternionGroup 2) = 8 := by
+  rw [Nat.card_eq_fintype_card, QuaternionGroup.card]
+
+theorem eq_of_q8_gens {K L : Subgroup ↥CJ} (iso : ↥K ≃* QuaternionGroup 2)
+    (hL : Nat.card ↥L = 8)
+    (hx : ((iso.symm (QuaternionGroup.a 1) : ↥K) : ↥CJ) ∈ L)
+    (hy : ((iso.symm (QuaternionGroup.xa 0) : ↥K) : ↥CJ) ∈ L) : K = L := by
+  have hle : K ≤ L := by
+    intro k hk
+    obtain ⟨i, -, j, -, hg⟩ := q8_gen (iso ⟨k, hk⟩)
+    have h1 : (⟨k, hk⟩ : ↥K) =
+        iso.symm ((QuaternionGroup.a 1) ^ i * (QuaternionGroup.xa 0) ^ j) := by
+      rw [← hg]; simp
+    have hk' : k = ((iso.symm (QuaternionGroup.a 1) : ↥K) : ↥CJ) ^ i *
+        ((iso.symm (QuaternionGroup.xa 0) : ↥K) : ↥CJ) ^ j := by
+      have := congrArg Subtype.val h1
+      rw [map_mul, map_pow, map_pow] at this
+      simpa only [Subgroup.coe_mul, Subgroup.coe_pow] using this
+    rw [hk']
+    exact mul_mem (pow_mem hx i) (pow_mem hy j)
+  have hK : Nat.card ↥K = 8 := by rw [Nat.card_congr iso.toEquiv, card_q8]
+  exact Subgroup.eq_of_le_of_card_ge hle (by rw [hL, hK])
+
+theorem q8_normal_CJ
+    : ∀ K ∈ q8Subgroups (pCore 2 ↥CJ), K.Normal := by
+  rintro K ⟨hle, ⟨iso⟩⟩
+  rw [pCore_CJ] at hle
+  obtain ⟨φ, hφ⟩ : ∃ φ : QuaternionGroup 2 →* ↥CJ, ∀ g, φ g = ((iso.symm g : ↥K) : ↥CJ) :=
+    ⟨K.subtype.comp iso.symm.toMonoidHom, fun g => rfl⟩
+  have hφinj : Function.Injective φ := by
+    intro a b h
+    apply iso.symm.injective
+    apply Subtype.ext
+    rw [← hφ, ← hφ]
+    exact h
+  have hφQ : ∀ g, tauC (φ g) ∈ QT := by
+    intro g
+    have h1 : ((iso.symm g : ↥K) : ↥CJ) ∈ K := (iso.symm g).2
+    rw [hφ]
+    exact (mem_Qsub).1 (hle h1)
+  have hx4 : φ (QuaternionGroup.a 1) ^ 4 = 1 := by rw [← map_pow, q8_a1_pow4, map_one]
+  have hx2 : φ (QuaternionGroup.a 1) ^ 2 ≠ 1 := by
+    rw [← map_pow]
+    intro h
+    exact q8_a1_sq_ne (hφinj (by rw [h, map_one]))
+  have hyy : φ (QuaternionGroup.xa 0) * φ (QuaternionGroup.xa 0) = φ (QuaternionGroup.a 1) ^ 2 := by
+    rw [← map_mul, q8_xa0_sq, map_pow]
+  have hyx : φ (QuaternionGroup.xa 0) * φ (QuaternionGroup.a 1) =
+      φ (QuaternionGroup.a 1) ^ 3 * φ (QuaternionGroup.xa 0) := by
+    rw [← map_mul, q8_xa0_a1, map_mul, map_pow]
+  have h4 : tpow (tauC (φ (QuaternionGroup.a 1))) 4 = tid := by
+    rw [← tauC_pow, hx4, tauC_one]
+  have h2 : tpow (tauC (φ (QuaternionGroup.a 1))) 2 ≠ tid := by
+    intro h
+    apply hx2
+    apply tauC_injective
+    rw [tauC_pow, h, tauC_one]
+  have hyy' : tmul (tauC (φ (QuaternionGroup.xa 0))) (tauC (φ (QuaternionGroup.xa 0))) =
+      tpow (tauC (φ (QuaternionGroup.a 1))) 2 := by
+    rw [← tauC_mul, hyy, tauC_pow]
+  have hyx' : tmul (tauC (φ (QuaternionGroup.xa 0))) (tauC (φ (QuaternionGroup.a 1))) =
+      tmul (tpow (tauC (φ (QuaternionGroup.a 1))) 3) (tauC (φ (QuaternionGroup.xa 0))) := by
+    rw [← tauC_mul, hyx, tauC_mul, tauC_pow]
+  rcases Q8_classification _ (hφQ _) _ (hφQ _) h4 h2 hyy' hyx' with ⟨hx1, hy1⟩ | ⟨hx1, hy1⟩
+  · have hx1' : ((iso.symm (QuaternionGroup.a 1) : ↥K) : ↥CJ) ∈ Q1sub := by
+      rw [← hφ]; exact hx1
+    have hy1' : ((iso.symm (QuaternionGroup.xa 0) : ↥K) : ↥CJ) ∈ Q1sub := by
+      rw [← hφ]; exact hy1
+    have : K = Q1sub := eq_of_q8_gens iso card_Q1sub hx1' hy1'
+    rw [this]; exact Q1sub_normal
+  · have hx1' : ((iso.symm (QuaternionGroup.a 1) : ↥K) : ↥CJ) ∈ Q2sub := by
+      rw [← hφ]; exact hx1
+    have hy1' : ((iso.symm (QuaternionGroup.xa 0) : ↥K) : ↥CJ) ∈ Q2sub := by
+      rw [← hφ]; exact hy1
+    have : K = Q2sub := eq_of_q8_gens iso card_Q2sub hx1' hy1'
+    rw [this]; exact Q2sub_normal
 
 theorem q8T_mem_HT (g : QuaternionGroup 2) : q8T x1T y1T g ∈ HT :=
   QT_sub_HT _ (Q1T_sub _ (q8T_mem g))
@@ -312,5 +417,78 @@ theorem exists_q8_normal_CJ
   intro x hx
   exact (mem_Qsub).2 (Q1T_sub _ hx)
 
+theorem centralizer_Jelt : centralizer ({Jelt} : Set G12) = CJ := by
+  ext x
+  rw [Subgroup.mem_centralizer_singleton_iff, mem_CJ]
+  constructor
+  · intro h
+    exact (congrArg Subtype.val h).symm
+  · intro h
+    exact Subtype.ext h.symm
+
+@[expose] def eCJ : ↥(centralizer ({Jelt} : Set G12)) ≃* ↥CJ :=
+  MulEquiv.subgroupCongr centralizer_Jelt
+
+theorem eCJ_zElt : eCJ (zElt' Jelt) = zJ := Subtype.ext rfl
+
+theorem localHyp_centralizer_Jelt :
+    LocalHyp ↥(centralizer ({Jelt} : Set G12)) (zElt' Jelt) :=
+  LocalHyp.of_mulEquiv eCJ.symm ((eCJ.symm_apply_eq).2 eCJ_zElt.symm) localHyp_CJ
+
+theorem exists_xX : ∃ x : ↥CJ, x ∈ Qsub ∧ x.1 = Xelt := by
+  have hX : XT ∈ QT := XT_mem_QT
+  obtain ⟨x, hx⟩ := tauC_real XT (QT_sub_HT _ hX)
+  refine ⟨x, by rw [mem_Qsub, hx]; exact hX, ?_⟩
+  apply Subtype.ext
+  apply tbl_injective
+  show tauC x = tbl bfX
+  rw [hx, tbl_bfX]
+
+theorem weakly_closed_Jelt
+    : ∃ g : G12, g * Jelt * g⁻¹ ≠ Jelt ∧
+    ∃ q ∈ pCore 2 ↥(centralizer ({Jelt} : Set G12)), (q : G12) = g * Jelt * g⁻¹ := by
+  obtain ⟨h, hh⟩ := exists_conj_Jelt_Xelt
+  obtain ⟨x, hxQ, hxX⟩ := exists_xX
+  refine ⟨h, by rw [hh]; exact Xelt_ne_Jelt, eCJ.symm x, ?_, ?_⟩
+  · have hx : x ∈ pCore 2 ↥CJ := by rw [pCore_CJ]; exact hxQ
+    have := Subgroup.mem_map_of_mem eCJ.symm.toMonoidHom hx
+    rwa [pCore_map_iso 2 eCJ.symm] at this
+  · rw [hh]
+    exact hxX
+
+theorem asc03Hyp_Jelt :
+    Asc03Hyp G12 Jelt :=
+  asc03Hyp_of_local Jelt orderOf_Jelt localHyp_centralizer_Jelt weakly_closed_Jelt
+
+theorem q8_normal_Jelt :
+    ∀ K ∈ q8Subgroups (pCore 2 ↥(centralizer ({Jelt} : Set G12))), K.Normal :=
+  q8_normal_of_mulEquiv eCJ.symm q8_normal_CJ
+
+theorem exists_q8_normal_Jelt :
+    ∃ K ∈ q8Subgroups (pCore 2 ↥(centralizer ({Jelt} : Set G12))), K.Normal :=
+  exists_q8_normal_of_mulEquiv eCJ.symm exists_q8_normal_CJ
+
+theorem asc03_of_central_involution
+    (z : G12) (hz : IsCentralInvolution z) :
+    Asc03Hyp G12 z ∧
+      ∀ K ∈ q8Subgroups (pCore 2 ↥(centralizer ({z} : Set G12))), K.Normal := by
+  obtain ⟨g, rfl⟩ := exists_conj_of_central_involution z hz
+  have hlocz : LocalHyp ↥(centralizer ({g * Jelt * g⁻¹} : Set G12)) (zElt' (g * Jelt * g⁻¹)) :=
+    LocalHyp.of_mulEquiv (conjCentralizerEquiv g Jelt) (conjCentralizerEquiv_zElt g Jelt)
+      localHyp_centralizer_Jelt
+  refine ⟨asc03Hyp_of_local _ hz.1 hlocz ?_,
+    q8_normal_of_mulEquiv (conjCentralizerEquiv g Jelt) q8_normal_Jelt⟩
+  obtain ⟨h, hne, q, hq, hqe⟩ := weakly_closed_Jelt
+  refine ⟨g * h * g⁻¹, ?_, conjCentralizerEquiv g Jelt q, ?_, ?_⟩
+  · intro hcon
+    apply hne
+    calc h * Jelt * h⁻¹ = g⁻¹ * ((g * h * g⁻¹) * (g * Jelt * g⁻¹) * (g * h * g⁻¹)⁻¹) * g := by
+          group
+      _ = g⁻¹ * (g * Jelt * g⁻¹) * g := by rw [hcon]
+      _ = Jelt := by group
+  · have := Subgroup.mem_map_of_mem (conjCentralizerEquiv g Jelt).toMonoidHom hq
+    rwa [pCore_map_iso 2 (conjCentralizerEquiv g Jelt)] at this
+  · rw [conjCentralizerEquiv_apply, hqe]
+    group
 
 end CFSG.GH74.M12.Hyp

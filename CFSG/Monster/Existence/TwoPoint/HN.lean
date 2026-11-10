@@ -44,6 +44,19 @@ theorem wordLin_hnRhoT : wordLin hnRhoT = tStar := by
 
 theorem hnMkW_hnRhoT : hnMkW hnRhoT = tGriess := Subtype.ext wordLin_hnRhoT
 
+theorem hn_commute_of_fix_conj {c e α : MGriess} (hα : c * tGriess * c⁻¹ = α)
+    (h : (e : SpaceB ≃ₗ[ℚ] SpaceB) ((c : SpaceB ≃ₗ[ℚ] SpaceB) aStar) =
+      (c : SpaceB ≃ₗ[ℚ] SpaceB) aStar) : e * α = α * e := by
+  have hc : (c : SpaceB ≃ₗ[ℚ] SpaceB) ∈ AutO := c.2
+  have hαv : (α : SpaceB ≃ₗ[ℚ] SpaceB) =
+      (c : SpaceB ≃ₗ[ℚ] SpaceB) * tStar * (c : SpaceB ≃ₗ[ℚ] SpaceB)⁻¹ := by
+    rw [← hα]
+    rfl
+  have ht : ((α : SpaceB ≃ₗ[ℚ] SpaceB) : SpaceB →ₗ[ℚ] SpaceB) =
+      tAxis ((c : SpaceB ≃ₗ[ℚ] SpaceB) aStar) := by
+    rw [tAxis_apply_aStar hc, hαv]
+    rfl
+  exact Subtype.ext (commute_of_fix_of_eq_tAxis e.2 ht h)
 
 theorem hn_conj_of_conjCheck
     {c w : List Native.Gen} (h : wordLin (hnRhoT ++ c) = wordLin (c ++ w)) :
@@ -218,5 +231,22 @@ theorem hnHom_injective
       exact MonoidHom.mem_ker.1 hmem
     exact hnMiscCheck_parts.2.2.2.2 (hnMkW_eq_one_iff.1 h4)
 
+theorem exists_hn_two_point :
+    ∃ α β : MGriess, IsConj tGriess α ∧ IsConj tGriess β ∧
+    orderOf (α * β) = 5 ∧ ∃ K : Subgroup MGriess, K ≤ cent2 α β ∧
+      Nonempty (K ≃* CFSG.Blueprint.NativeSporadic.HN) := by
+  obtain ⟨ψ⟩ := CFSG.Sporadic.Bridge.HN.nonempty_mulEquiv
+  have hP : TauCeti.SporadicName.HN.presentation = TauCeti.Sporadic.hnPresentation := rfl
+  have hrel : TauCeti.SporadicName.HN.presentation.relatorLetters = hnRels := by
+    rw [hP]
+    exact CFSG.Sporadic.Bridge.HN.relatorLetters_eq
+  have hgen : TauCeti.SporadicName.HN.presentation.generatorCount = 5 := by
+    rw [hP]
+    simp [TauCeti.GroupPresentation.generatorCount]
+  have : IsSimpleGroup TauCeti.SporadicName.HN.Group :=
+    @MulEquiv.isSimpleGroup _ _ _ _ CFSG.Sporadic.HN.isSimpleGroup_HN ψ.symm
+  exact ⟨hnAlpha, hnBeta, isConj_alpha, isConj_beta, orderOf_alpha_mul_beta,
+    (hnHom _ hrel).range, range_hnHom_le _ hrel hgen,
+    ⟨(MonoidHom.ofInjective (hnHom_injective _ hrel hgen)).symm.trans ψ.symm⟩⟩
 
 end CFSG.Monster.Existence

@@ -115,6 +115,13 @@ theorem exists_unique_flag {n : ℕ} (hn : 1 ≤ n) (Q : Sylow 2 (SLt n)) :
 theorem mem_subgroupOfSpace {n : ℕ} {W : Submodule (ZMod 2) (Vt n)} {x : Multiplicative (Vt n)} :
     x ∈ subgroupOfSpace W ↔ Multiplicative.toAdd x ∈ W := Iff.rfl
 
+theorem mem_spaceOfSubgroup {n : ℕ} {Y : Subgroup (Multiplicative (Vt n))} {v : Vt n} :
+    v ∈ spaceOfSubgroup Y ↔ Multiplicative.ofAdd v ∈ Y := Iff.rfl
+
+theorem spaceOfSubgroup_subgroupOfSpace {n : ℕ} (W : Submodule (ZMod 2) (Vt n)) :
+    spaceOfSubgroup (subgroupOfSpace W) = W := by
+  ext v
+  rfl
 
 theorem subgroupOfSpace_spaceOfSubgroup {n : ℕ} (Y : Subgroup (Multiplicative (Vt n))) :
     subgroupOfSpace (spaceOfSubgroup Y) = Y := by

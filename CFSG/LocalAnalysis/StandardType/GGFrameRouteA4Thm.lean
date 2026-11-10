@@ -193,6 +193,16 @@ theorem ggFrameA4_of_weylOfType {ι : Type} {M : CoxeterMatrix ι}
     simp only [map_mul, Subgroup.coe_mul]
     exact hcomm
 
+theorem ggFrameA4Input_of {ι : Type} {M : CoxeterMatrix ι} (hTBF : GGTBFixInput)
+    (hWI : GGNbrInnerWeylInput)
+    (hconj : ∃ i₀ : ι, ∀ i, ∃ w : M.Group, w * M.simple i₀ = M.simple i * w)
+    (hnc : ∃ i j k l : ι, M.simple i * M.simple j * (M.simple k * M.simple l) ≠
+      M.simple k * M.simple l * (M.simple i * M.simple j)) : GGFrameA4Input M := by
+  intro G _ _ B Bs x L D J hR hW hAt _ z hzB hz1
+  obtain ⟨y, K, hN, e, he⟩ := hAt
+  exact ggFrameA4_of_weylOfType hconj hnc hR.1.2.1.2.1 e he
+    (sup_le (ggAutomizer_mono Bs le_top) (ggAutomizer_mono Bs le_top))
+    (eq_one_of_fix_join hTBF hWI hR hW hN) (hR.1.2.1.1 hzB) hz1
 
 theorem coxeterE7_eq : CoxeterMatrix.E₇ = coxeterMatrix (isFiniteType_cartan .E7) :=
   (coxeterMatrix_eq_of_ggIntCartan (C := CFSG.Blueprint.Chevalley.Tag.cartan .E7)
@@ -278,6 +288,15 @@ theorem noncomm_E8 : ∃ i j k l : Fin Tag.E8.rank,
   simp only [mul_smul, simple_smul] at h2
   exact h2
 
+theorem ggFrameA4Input_E7 (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput) :
+    GGFrameA4Input CoxeterMatrix.E₇ := by
+  rw [coxeterE7_eq]
+  exact ggFrameA4Input_of hTBF hWI conj_simple_E7 noncomm_E7
+
+theorem ggFrameA4Input_E8 (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput) :
+    GGFrameA4Input CoxeterMatrix.E₈ := by
+  rw [coxeterE8_eq]
+  exact ggFrameA4Input_of hTBF hWI conj_simple_E8 noncomm_E8
 
 end CFSG.StandardType.FrameRoute
 

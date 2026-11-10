@@ -37,5 +37,20 @@ open Certificates.KernelTower
 
 theorem ch36408_dp : allB 96 (wrDP wrT2.b1) = true := by decide +kernel
 
+theorem ch36408_eq_neg : (!icB (wrED 0 0) (wrED 0 2)
+    (Nat.lor (wrED 0 3) (Nat.shiftLeft 1 (Nat.add (Nat.mul 15 (lbL (wrED 0 1) 128)) 7)))
+    (wrEP 0 2)) = true := by
+  decide +kernel
+
+theorem ch36408_eq_neg2 : (!sqB (l3M (wrEP 0 9)) (l3bc (wrEP 0 9) 0) (l3G (wrEP 0 9))
+    (l3Im (wrEP 0 9) 0) (Nat.xor (l3g2 (wrEP 0 9) 0) 4) (wrX 0)) = true := by
+  decide +kernel
+
+theorem ch36408_eq_neg3 : (!cenB (l3M (wrEP 0 9)) (l3bc (wrEP 0 9)) (l3G (wrEP 0 9)) (wrED 0 4)
+    (l3Im (wrEP 0 9)) (l3g2 (wrEP 0 9)) 1) = true := by
+  decide +kernel
+
+theorem ch36408_dp_neg : (!wrDP (Nat.lor wrT2.b1 1) 0) = true := by
+  decide +kernel
 
 end Certificates.KernelTower

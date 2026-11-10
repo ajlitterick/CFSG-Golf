@@ -789,6 +789,17 @@ theorem glaPComponent_top_fixSubgroup_one {S : Type} [Group S] [IsSimpleGroup S]
   · rw [← glaPPrimeCore_map_iso p (Subgroup.topEquiv : ↥(⊤ : Subgroup S) ≃* S).symm, hO,
       Subgroup.map_bot]
 
+@[expose] def InputSporDownChev : Prop :=
+  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
+    ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ s : TauCeti.SporadicName, IsSporType s S →
+    ∀ α : MulAut S, α ^ p = 1 → ∀ I : Subgroup S, GLAPComponent p (fixSubgroup α) I →
+    ∀ q : ℕ, q.Prime → q ≠ 2 → q ≠ p →
+      CFSG.Yardstones.Md0ec50421ce4.IsChevSimple q (PSimple p I) →
+      α ≠ 1 ∧
+        ((p = 3 ∧ (s = .M23 ∨ s = .HS) ∧ IsLpType 2 5 (PSimple p I)) ∨
+          (p = 3 ∧ (s = .M24 ∨ s = .He) ∧ IsLpType 2 7 (PSimple p I)) ∨
+          (p = 5 ∧ s = .Suz ∧ IsLpType 2 9 (PSimple p I)) ∨
+          (p = 13 ∧ s = .M ∧ IsLpType 3 3 (PSimple p I)))
 
 end Spor
 

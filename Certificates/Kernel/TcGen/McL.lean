@@ -23,6 +23,14 @@ theorem tc_K : seedsL lay A B ⟨tcNregs, tcProg, tcSpec.facts⟩ tcSpec.rA tcSp
 theorem cp_K : seedsL lay A B ⟨cpNregs, cpProg, cpSpec.facts⟩ cpSpec.rA cpSpec.rB = true := by
   quickRfl
 
+theorem tc_neg : (!seedsL lay B A ⟨tcNregs, tcProg, tcSpec.facts⟩ tcSpec.rA tcSpec.rB) = true := by
+  quickRfl
+
+theorem ne_neg : (!seedsL lay A B ⟨2, [], [.ne [(0, 1)] [(1, 1)] 21]⟩ 0 1) = true := by
+  quickRfl
+
+theorem exp_neg : (!seedsL lay A B ⟨2, [], [.eq [(0, 65536)] [(0, 65536)]]⟩ 0 1) = true := by
+  quickRfl
 
 end CertificateChecks.KernelTc.McL
 

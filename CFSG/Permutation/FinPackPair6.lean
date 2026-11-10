@@ -212,6 +212,12 @@ theorem notin_of_check (hF : ∀ σ, σ ∈ F ↔ memK (pc6 σ) P = true)
   rw [(hG s).1 hsG, Bool.not_true] at h
   exact Bool.false_ne_true h
 
+theorem ne_one_of_check (hF : ∀ σ, σ ∈ F ↔ memK (pc6 σ) P = true) {e : ℕ} (he : pc6 1 = e)
+    (hc : allK (fun p => !Nat.beq p e) P = true) : ∀ s ∈ F, s ≠ 1 := by
+  intro s hs hs1
+  have h := allK_iff.1 hc _ (memK_iff.1 ((hF s).1 hs))
+  rw [hs1, he, Nat.beq_refl, Bool.not_true] at h
+  exact Bool.false_ne_true h
 
 theorem gen_of_check (hF : ∀ σ, σ ∈ F ↔ memK (pc6 σ) P = true) (hX : G.image pc6 = Q.toFinset)
     (hY : H.image pc6 = R.toFinset) (hZ : K.image pc6 = S.toFinset)

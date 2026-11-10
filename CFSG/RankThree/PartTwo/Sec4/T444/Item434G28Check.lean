@@ -48,6 +48,9 @@ theorem ofNat'_xor6 {t0 t1 t2 t3 t4 t5 : ℕ} (h0 : t0 < 8) (h1 : t1 < 8) (h2 : 
   rw [ofNat'_xor' h01234 h5, ofNat'_xor' h0123 h4, ofNat'_xor' h012 h3, ofNat'_xor' h01 h2,
     ofNat'_xor' h0 h1]
 
+theorem ofNat'_eq_zero_iff' {x : ℕ} (hx : x < 8) : GF8.ofNat' x = 0 ↔ x = 0 := by
+  show GF8.ofNat' x = GF8.ofNat' 0 ↔ x = 0
+  simp [GF8.ofNat', Nat.mod_eq_of_lt hx]
 
 theorem ofNat'_inj' {x y : ℕ} (hx : x < 8) (hy : y < 8) (h : GF8.ofNat' x = GF8.ofNat' y) :
     x = y := by

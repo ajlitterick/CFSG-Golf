@@ -173,6 +173,17 @@ theorem IsLongRootSU2Image.eq_of_orderOf_eq_two (hn3 : 3 ≤ n)
   exact eq_map_of_orderOf_eq_two (eq_one_of_mem_ker_of_isLongRootSU2 hK hp hq hn3 hL hker)
     (fun _ htL ht2 => hL.eq_of_orderOf_eq_two hK hp htL ht2) ht h2
 
+theorem IsLongRootSU2Image.eq_of_involution_eq (hn3 : 3 ≤ n)
+    (hker : θ.ker ≤ Subgroup.center (Su K p f n)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
+    {L₁' L₂' : Subgroup X} {i' : X} (h₁ : IsLongRootSU2Image θ hn L₁' i')
+    (h₂ : IsLongRootSU2Image θ hn L₂' i') : L₁' = L₂' := by
+  obtain ⟨L₁, i₁, h₁, rfl, hθ₁⟩ := h₁
+  obtain ⟨L₂, i₂, h₂, rfl, hθ₂⟩ := h₂
+  have := eq_of_map_eq_of_isLongRootSU2 hK hp hq hn3 h₁ h₂ hker hlift (hθ₁.trans hθ₂.symm)
+  subst this
+  have h2 := two_ne_zero_of_charP_ne_two (K := K) hp
+  exact congrArg (Subgroup.map θ)
+    ((h₁.eq_longRootGroupSU h2).trans (h₂.eq_longRootGroupSU h2).symm)
 
 theorem IsLongRootSU2Image.isClassicalSL2 (hn3 : 3 ≤ n) (hsurj : Function.Surjective θ)
     (hker : θ.ker ≤ Subgroup.center (Su K p f n)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
@@ -195,6 +206,12 @@ theorem centralizer_map_eq_of_isLongRootSU2 (hn3 : 3 ≤ n) (hsurj : Function.Su
     Subgroup.centralizer ({θ i} : Set X) = (Subgroup.centralizer ({i} : Set (Su K p f n))).map θ :=
   centralizer_map_eq θ hsurj (kerConjFree_of_isLongRootSU2 hK hp hq hn3 h hker hlift)
 
+omit hq in
+theorem map_mem_normalizer_of_isLongRootSU2 {L : Subgroup (Su K p f n)} {i : Su K p f n}
+    (h : IsLongRootSU2 K p f hn L i) {g : Su K p f n}
+    (hg : g ∈ Subgroup.centralizer ({i} : Set (Su K p f n))) :
+    θ g ∈ Subgroup.normalizer ((L.map θ : Subgroup X) : Set X) :=
+  map_mem_normalizer θ ((h.isClassicalSL2 hK hp).centralizer_le_normalizer hg)
 
 omit hK hp hq in
 theorem IsLongRootSU2Image.conj (hsurj : Function.Surjective θ) {L' : Subgroup X} {i' : X}
@@ -243,6 +260,26 @@ theorem lemma_6_5_su_map (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center (Su 
   obtain ⟨hc', hne'⟩ := commute_and_ne_of_map_su hK hp hq hn3 h₂ hker hlift hc hne
   exact lemma_6_5_su_map_of_commute hK hp hq hn3 hker h₁ h₂ hc' hne'
 
+theorem mem_centralizer_map_iff_forall_comm_su_of_commute (hn3 : 3 ≤ n)
+    (hker : θ.ker ≤ Subgroup.center (Su K p f n)) {L₁ L₂ : Subgroup (Su K p f n)}
+    {i₁ i₂ : Su K p f n} (h₁ : IsLongRootSU2 K p f hn L₁ i₁) (h₂ : IsLongRootSU2 K p f hn L₂ i₂)
+    (hc : Commute i₁ i₂) (hne : i₁ ≠ i₂) :
+    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
+      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
+  have hperf : ⁅L₁, L₁⁆ = L₁ :=
+    Subgroup.isPerfect_iff.mp ((h₁.isClassicalSL2 hK hp).isPerfect
+      (by rw [card_fixedSubfield hK]; omega))
+  exact mem_centralizer_map_iff hker hperf h₂.mem
+    (mem_centralizer_iff_forall_comm_su hK hp hn3 h₁ h₂ hc hne)
+
+theorem mem_centralizer_map_iff_forall_comm_su (hn3 : 3 ≤ n)
+    (hker : θ.ker ≤ Subgroup.center (Su K p f n)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
+    {L₁ L₂ : Subgroup (Su K p f n)} {i₁ i₂ : Su K p f n} (h₁ : IsLongRootSU2 K p f hn L₁ i₁)
+    (h₂ : IsLongRootSU2 K p f hn L₂ i₂) (hc : Commute (θ i₁) (θ i₂)) (hne : θ i₁ ≠ θ i₂) :
+    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
+      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
+  obtain ⟨hc', hne'⟩ := commute_and_ne_of_map_su hK hp hq hn3 h₂ hker hlift hc hne
+  exact mem_centralizer_map_iff_forall_comm_su_of_commute hK hp hq hn3 hker h₁ h₂ hc' hne'
 
 theorem lemma_6_5_su_image (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center (Su K p f n))
     (hlift : n ≠ 4 ∨ KerInvolutionFree θ) {L₁' L₂' : Subgroup X} {i₁' i₂' : X}
@@ -255,6 +292,14 @@ theorem lemma_6_5_su_image (hn3 : 3 ≤ n) (hker : θ.ker ≤ Subgroup.center (S
   obtain ⟨L₂, i₂, h₂, rfl, rfl⟩ := h₂
   exact lemma_6_5_su_map hK hp hq hn3 hker hlift h₁ h₂ hc hne
 
+theorem mem_centralizer_iff_forall_comm_su_image (hn3 : 3 ≤ n)
+    (hker : θ.ker ≤ Subgroup.center (Su K p f n)) (hlift : n ≠ 4 ∨ KerInvolutionFree θ)
+    {L₁' L₂' : Subgroup X} {i₁' i₂' : X} (h₁ : IsLongRootSU2Image θ hn L₁' i₁')
+    (h₂ : IsLongRootSU2Image θ hn L₂' i₂') (hc : Commute i₁' i₂') (hne : i₁' ≠ i₂') :
+    i₂' ∈ Subgroup.centralizer (L₁' : Set X) ↔ ∀ x ∈ L₁', ∀ y ∈ L₂', x * y = y * x := by
+  obtain ⟨L₁, i₁, h₁, rfl, rfl⟩ := h₁
+  obtain ⟨L₂, i₂, h₂, rfl, rfl⟩ := h₂
+  exact mem_centralizer_map_iff_forall_comm_su hK hp hq hn3 hker hlift h₁ h₂ hc hne
 
 end Lemma65
 

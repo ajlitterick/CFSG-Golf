@@ -118,6 +118,54 @@ theorem lab7_val (p : Fin nPts) : (lab7 p).val = L0.labelOf p.val := by
   simp only [lab7]
   omega
 
+omit hF in
+theorem letterG_xJ_mem (l : ℕ) : letterG (xJ 0) (xJ 1) (xJ 2) l ∈ Hj := by
+  unfold letterG
+  split_ifs <;> exact xJ_mem (by norm_num)
+
+theorem reach_rep : ∀ d p, p < nPts → depOf L0.dep p = d →
+    ∃ h ∈ Hj, idx nPts h subReps[L0.labelOf p]! = p := by
+  have hz := RepT.letter3 (rep_z hF (k := 0) (by norm_num)) (rep_z hF (k := 1) (by norm_num))
+    (rep_z hF (k := 2) (by norm_num))
+  intro d
+  induction d using Nat.strong_induction_on with
+  | _ d ih =>
+    intro p hp hd
+    have h := label_parts hF p hp
+    unfold labelAt at h
+    rw [Bool.and_eq_true] at h
+    obtain ⟨-, h⟩ := h
+    split_ifs at h with h0
+    · rw [beq_iff_eq, reps_eq hF] at h
+      exact ⟨1, Hj.one_mem, by rw [idx_one, h]⟩
+    · simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at h
+      obtain ⟨⟨⟨⟨⟨hp0, -⟩, -⟩, hzp⟩, hlab⟩, hdep⟩ := h
+      rw [beq_iff_eq] at h0
+      obtain ⟨g, hg, hgp⟩ := ih _ (by omega) _ hp0 rfl
+      refine ⟨letterG (xJ 0) (xJ 1) (xJ 2) (labOf L0.par p) * g,
+        Hj.mul_mem (letterG_xJ_mem _) hg, ?_⟩
+      rw [idx_mul, ← hlab, hgp, ← hz _ _ hp0, hzp]
+
+theorem lab7_orb (p q : Fin nPts) (h : lab7 p = lab7 q) : ∃ g ∈ Hj, g • p = q := by
+  obtain ⟨gp, hgp, ep⟩ := reach_rep hF _ p.val p.isLt rfl
+  obtain ⟨gq', hgq, eq⟩ := reach_rep hF _ q.val q.isLt rfl
+  have hl : L0.labelOf p.val = L0.labelOf q.val := by rw [← lab7_val hF, ← lab7_val hF, h]
+  refine ⟨gq' * gp⁻¹, Hj.mul_mem hgq (Hj.inv_mem hgp), Fin.ext ?_⟩
+  rw [val_smul, idx_mul]
+  have e := idx_inv_idx (n := nPts) gp subReps[L0.labelOf p.val]!
+  rw [ep] at e
+  rw [e, hl, eq]
+
+theorem lab7_root : lab7 (root0 hF) = 0 := by
+  obtain ⟨g, hg, eg⟩ := reach_rep hF _ 0 (nPts_pos hF) rfl
+  have e := idx_inv_idx (n := nPts) g subReps[L0.labelOf 0]!
+  rw [eg, idx_Hj hF (Hj.inv_mem hg)] at e
+  apply Fin.ext
+  rw [lab7_val hF]
+  show L0.labelOf 0 = 0
+  have hl := labelOf_lt hF (nPts_pos hF)
+  revert e
+  interval_cases L0.labelOf 0 <;> intro e <;> first | rfl | exact absurd e (by decide)
 
 theorem card_lab7 (i : Fin 7) :
     (Finset.univ.filter (fun p : Fin nPts => lab7 p = i)).card = subSizesF i := by
@@ -143,6 +191,33 @@ theorem card_lab7 (i : Fin 7) :
     rw [Finset.mem_filter]
     exact ⟨Finset.mem_univ _, Fin.ext (by rw [lab7_val hF]; exact hb.2)⟩
 
+theorem isPretransitive_J : MulAction.IsPretransitive J (Fin nPts) := by
+  refine ⟨fun x y => ⟨trans y.val * (trans x.val)⁻¹, Fin.ext ?_⟩⟩
+  rw [val_smul, idx_mul]
+  have e := idx_inv_idx (n := nPts) (trans x.val) 0
+  rw [idx_trans hF x.isLt] at e
+  rw [e, idx_trans hF y.isLt]
+
+theorem isPreprimitive_J : MulAction.IsPreprimitive J (Fin nPts) := by
+  have := isPretransitive_J hF
+  classical
+  refine isPreprimitive_of_labels (root0 hF) Hj (fun h hh => Hj_le_stabilizer hF hh) lab7
+    (lab7_orb hF) fun S hS hdvd => ?_
+  rw [lab7_root hF] at hS ⊢
+  have hsum : (∑ i ∈ S, (Finset.univ.filter (fun p : Fin nPts => lab7 p = i)).card) =
+      ∑ i ∈ S, subSizesF i := Finset.sum_congr rfl fun i _ => card_lab7 hF i
+  rw [hsum, Fintype.card_fin] at hdvd
+  exact subSizesF_blocks S hS hdvd
+
+theorem faithful_J : FaithfulSMul J (Fin nPts) := by
+  refine ⟨fun {g₁ g₂} h => ?_⟩
+  have hfix : ∀ p < nPts, idx nPts (g₂⁻¹ * g₁) p = p := by
+    intro p hp
+    have := h ⟨p, hp⟩
+    rw [idx_of_lt _ hp, mul_smul, this, inv_smul_smul]
+  have e : g₂⁻¹ * g₁ = 1 :=
+    eq_one_of_fix_qIdx0 hF (hfix 0 (nPts_pos hF)) fun t ht => hfix _ (qIdx0_lt hF t ht)
+  rw [← mul_left_cancel_iff (a := g₂⁻¹), e, inv_mul_cancel]
 
 end Facts
 

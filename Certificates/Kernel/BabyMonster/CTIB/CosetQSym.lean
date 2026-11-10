@@ -17,6 +17,10 @@ theorem cqs_rel : relOK LOq (nthN Syms 13) = true := by quickRfl
 theorem cqs_inv : andB (Nat.beq (compAut LOq (nthN Syms 1) (nthN Syms 13)) (id32 22))
     (Nat.beq (compAut LOq (nthN Syms 13) (nthN Syms 1)) (id32 22)) = true := by quickRfl
 
+theorem cqs_neg_inv : notB (Nat.beq (compAut LOq (nthN Syms 1) (nthN Syms 14)) (id32 22)) = true := by
+  quickRfl
+
+theorem cqs_neg_rel : notB (relOK LOq (Nat.xor (nthN Syms 13) 1)) = true := by quickRfl
 
 end CertificateChecks.KernelBM.CTIB
 

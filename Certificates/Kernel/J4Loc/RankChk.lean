@@ -14,6 +14,8 @@ theorem ch4174_kinv :
     ((List.range 4).all fun i => compT (mkKIT.getD i []) (mkKT.getD i []) == idT) = true := by
   quickRfl
 
+theorem neg4174_kinv : (!(compT (mkKIT.getD 0 []) (mkKT.getD 1 []) == idT)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelJ4Loc
 

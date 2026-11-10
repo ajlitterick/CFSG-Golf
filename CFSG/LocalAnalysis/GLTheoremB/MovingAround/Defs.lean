@@ -205,6 +205,9 @@ variable {G : Type*} [Group G] [Finite G]
 end Notation
 section PartIInputs
 
+@[expose] def Input31_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime → p ≠ 2 → ∀ R : Subgroup G, IsPGroup p ↥R →
+    ∀ k : ℕ, k ≤ 4 → k ≤ CFSG.Open.pRank p R → ∃ E : Subgroup G, IsEkIn p k R E ∧ (E.subgroupOf R).Normal
 
 @[expose] def Input31_6 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime → p ≠ 2 → ∀ R : Subgroup G, IsPGroup p ↥R →
@@ -423,6 +426,7 @@ structure Cex1310 (G : Type) [Group G] [Finite G] (m p : ℕ) (B M E A D T R L0 
 
 end Sec13Statements
 section Assembly
+variable {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E A : Subgroup G}
 end Assembly
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround

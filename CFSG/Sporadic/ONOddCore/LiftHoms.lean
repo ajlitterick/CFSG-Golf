@@ -87,6 +87,76 @@ theorem prep_liftArrs
   exact ⟨prep_posArr_h (hw _ (by rw [List.getD_eq_getElem _ _ hil]; exact List.getElem_mem hil)),
     posArr_size _ _⟩
 
+theorem liftImg_mem_P
+    (e : LiftEntry) (i : ℕ) : (liftImg e i : Equiv.Perm (Fin N)) ∈ Pv :=
+  onM_le (liftImg e i).2
+
+theorem hGen_mem_P
+    (i : ℕ) : (hGen i : Equiv.Perm (Fin N)) ∈ Pv := onM_le (hGen i).2
+
+@[expose] def liftPair
+    (e : LiftEntry) (i : ℕ) : Pv.prod Pv :=
+  ⟨((hGen i : Equiv.Perm (Fin N)), (liftImg e i : Equiv.Perm (Fin N))),
+    Subgroup.mem_prod.2 ⟨hGen_mem_P i, liftImg_mem_P e i⟩⟩
+
+theorem base3_length : base3.length = 3 := rfl
+
+theorem liftRoot_rel : pairRel N base3 liftRoot 1 := by
+  have h := pairRel_root (n := N) base3
+  have e : (base3.map Fin.val).toArray = base3Arr := rfl
+  rwa [e] at h
+
+theorem liftPairGens_get (hA : Array (Array ℕ)) (e : LiftEntry) {j : ℕ} (hj : j < 3) :
+    (liftPairGens hA e)[j]! = dbl nPts hA[j]! (liftArrs hA e)[j]! := by
+  interval_cases j <;> rfl
+
+theorem liftPairGens_size (hA : Array (Array ℕ)) (e : LiftEntry) : (liftPairGens hA e).size = 3 :=
+  rfl
+
+theorem hA_get_size {i : ℕ} (hi : i < 3) : (wordArrs Data.MWords)[i]!.size = N := by
+  rw [wordArrs, pwords_eq,
+    getElem!_map' _ _ (by rw [show Data.MWords.size = 3 by decide]; exact hi)]
+  exact pword_size _ _ _ _
+
+theorem lift_step
+    {k : ℕ} (hk : k < 12) {e : LiftEntry} (he : e ∈ (recK k).lifts) :
+    ∀ j < (liftPairGens (wordArrs Data.MWords) e).size, ∀ t (g : Pv.prod Pv),
+      pairRel N base3 t (g : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)) →
+      pairRel N base3 (leftStep 6 (liftPairGens (wordArrs Data.MWords) e) j t)
+        ((liftPair e j * g : Pv.prod Pv) : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)) := by
+  intro j hj t g ht
+  rw [liftPairGens_size] at hj
+  obtain ⟨hp, hs⟩ := prep_liftArrs hk he hj
+  have h := pairRel_step (prep_hA hj) hp (hA_get_size hj) hs ht
+  rw [leftStep, liftPairGens_get _ _ hj]
+  exact h
+
+theorem pairRel_inj_P
+    {t : Tab} {g g' : Pv.prod Pv}
+    (h : pairRel N base3 t (g : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)))
+    (h' : pairRel N base3 t (g' : Equiv.Perm (Fin N) × Equiv.Perm (Fin N))) : g = g' := by
+  obtain ⟨-, hk⟩ := h
+  obtain ⟨-, hk'⟩ := h'
+  have hg := Subgroup.mem_prod.1 g.2
+  have hg' := Subgroup.mem_prod.1 g'.2
+  have key : ∀ k (hk3 : k < 3), (g : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)).1
+      (base3[k]'(by rw [base3_length]; exact hk3)) =
+        (g' : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)).1
+          (base3[k]'(by rw [base3_length]; exact hk3)) ∧
+      (g : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)).2
+        (base3[k]'(by rw [base3_length]; exact hk3)) =
+          (g' : Equiv.Perm (Fin N) × Equiv.Perm (Fin N)).2
+            (base3[k]'(by rw [base3_length]; exact hk3)) := by
+    intro k hk3
+    obtain ⟨a1, a2⟩ := hk k (by rw [base3_length]; exact hk3)
+    obtain ⟨b1, b2⟩ := hk' k (by rw [base3_length]; exact hk3)
+    exact ⟨Fin.ext (a1.symm.trans b1), Fin.ext (by omega)⟩
+  apply Subtype.ext
+  apply Prod.ext
+  · exact eq_of_three hg.1 hg'.1 (key 0 (by norm_num)).1 (key 1 (by norm_num)).1
+      (key 2 (by norm_num)).1
+  · exact eq_of_three hg.2 hg'.2 (key 0 (by norm_num)).2 (key 1 (by norm_num)).2
+      (key 2 (by norm_num)).2
 
 theorem lifts_length_list :
     localCert.records.map (fun r => r.lifts.length) = [4, 0, 0, 4, 0, 0, 0, 0, 0, 4, 4, 0] := by

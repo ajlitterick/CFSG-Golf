@@ -355,6 +355,7 @@ namespace CFSG.Sporadic.Co1Patterson.Native
 
 @[expose] def swapIdx : Nat := 176
 
+@[expose] def swapQIdx : Nat := 177
 
 @[expose] def aeIdx : Nat := 190
 

@@ -55,6 +55,8 @@ theorem qPres_inv
     Subgroup Dfull :=
   { qPresMon with inv_mem' := qPres_inv }
 
+theorem mem_qPresGrp
+    {x : Dfull} : x ∈ qPresGrp ↔ QPres x := Iff.rfl
 
 theorem conj_Psi_of_rows
     {h : Dfull} {M : Fin 8 → Fin 8 → ZMod 2}

@@ -111,5 +111,7 @@ open CFSG.EvenSmallLie.OmegaEight.SpBranch (xorBits)
   | a :: b :: l => a < b && strictSorted (b :: l)
   | _ => true
 
+@[expose] def oqCount (u : Bool) (t : ℕ) : ℕ :=
+  if t = 0 then 0 else if u then 5760 else if qOf false t = 0 then 0 else 1152
 
 end CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOne

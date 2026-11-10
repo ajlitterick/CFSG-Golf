@@ -39,6 +39,12 @@ structure SpOutFourData (U : Subgroup (antiSp F)) (i : Fin 3 → antiSp F) : Pro
   central_fixed : ∀ u ∈ centerOf U, (frobAut F ^ 1) u = u → u = 1 ∨ ∃ k, u = i k
   conj_wit : ∀ k, ∃ x ∈ U, x * ((frobAut F ^ 1) x)⁻¹ = i k
 
+omit [Finite F] in
+theorem iRep_zero : iRep F 0 = uElt 0 1 0 0 := rfl
+omit [Finite F] in
+theorem iRep_one : iRep F 1 = uElt 0 0 1 0 := rfl
+omit [Finite F] in
+theorem iRep_two : iRep F 2 = uElt 0 1 1 0 := rfl
 
 omit [Finite F] [CharP F 2] in
 theorem eq_zero_or_one_of_sq {x : F} (h : x ^ 2 = x) : x = 0 ∨ x = 1 := by
@@ -139,6 +145,13 @@ variable {F : Type} [Field F] [Finite F] [CharP F 2] {H : Type u} [Group H] [Fin
   {U : Subgroup (antiSp F)} {R : Fin 2 → Subgroup (antiSp F)} {i : Fin 3 → antiSp F}
   {N : Fin 2 → Subgroup H}
 
+theorem frobAut_pow_fixed {t : antiSp F} (ht : (frobAut F ^ 1) t = t) (j : ℕ) :
+    (frobAut F ^ j) t = t := by
+  induction j with
+  | zero => simp
+  | succ j ih =>
+    rw [pow_succ', MulAut.mul_apply, ih]
+    simpa using ht
 
 theorem OutCtx.psi2_pow_four (C : OutCtx 1 Φ ψ k₀ U R i N) (hev : Even (orderOf ψ)) (s : ℕ) :
     psi2 ψ ^ s = 1 ∨ psi2 ψ ^ s = spf ψ := by

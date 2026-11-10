@@ -40,6 +40,9 @@ theorem vec_xor (m x y : ℕ) : vec m (x ^^^ y) = vec m x + vec m y := by
   funext a
   simp only [vec, Function.comp_apply, toV_xor, Pi.add_apply]
 
+theorem vec_zero (m : ℕ) : vec m 0 = 0 := by
+  funext a
+  simp only [vec, Function.comp_apply, toV_zero, Pi.zero_apply]
 
 theorem vec_inj {m x y : ℕ} (hx : x < 2 ^ (m + (m + 2))) (hy : y < 2 ^ (m + (m + 2)))
     (h : vec m x = vec m y) : x = y := by

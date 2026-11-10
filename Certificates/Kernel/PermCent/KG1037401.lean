@@ -25,6 +25,13 @@ theorem kCov : covWC (elemsC QA) ((a6Classes.map fun c => c.1).map cOf) wit = tr
 theorem kCls : clsesC QP ([pa, pb].map cOf) 5 (a6Classes.map cOfCls) = true := by
   decide +kernel
 
+theorem kNeg : covWC (elemsC QA) ((a6Classes.map fun c => c.1).map cOf)
+      (wit.map fun w => (w.1, w.2 + 1)) = false ∧
+    covWC (elemsC QA) ((a6Classes.map fun c => c.1).map cOf) (wit.map fun w => (3, w.2)) = false ∧
+    covWC (elemsC QA) ((a6Classes.map fun c => c.1).map cOf) wit.tail = false ∧
+    clsesC QP ([pa, pb].map cOf) 4 (a6Classes.map cOfCls) = false ∧
+    clsesC QP ([pb, pb].map cOf) 5 (a6Classes.map cOfCls) = false := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.Gs03.K1037401
 

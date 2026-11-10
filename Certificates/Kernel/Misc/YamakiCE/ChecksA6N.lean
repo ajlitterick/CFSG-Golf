@@ -18,6 +18,14 @@ open CFSG.KD.YamakiRep
 
 theorem ce550823bV : a6VK RE RP RV PVE = true := by quickRfl
 
+theorem ce550823nC : (!a6ChunkN RE RP RH 11520 512 0) = true := by quickRfl
+
+theorem ce550823nD : (!a6ChunkN RE (fun t => RP (Nat.add t 1)) RV 11520 512 3) = true := by
+  quickRfl
+
+theorem ce550823nE : (!a6VK RE (fun t => RP (Nat.add t 1)) RV PVE) = true := by quickRfl
+
+theorem ce550823nF : (!a6VK RE RP RV (fun v => PVE (Nat.add v 1))) = true := by quickRfl
 
 end CFSG.KD.YamakiA6
 

@@ -27,5 +27,8 @@ theorem subgroupOf_K3_eq (H : Subgroup Dfull) : H.subgroupOf K3 = (K3 ⊓ H).sub
   rw [Subgroup.mem_subgroupOf, Subgroup.mem_subgroupOf, Subgroup.mem_inf]
   exact ⟨fun h => ⟨k.2, h⟩, fun h => h.2⟩
 
+theorem subOf_mono
+    {E F F' : Subgroup Dfull} [CFSG.IsElementaryAbelian 2 E] (h : F ≤ F') :
+    subOf E F ≤ subOf E F' := fun _ hx => h hx
 
 end CFSG.Monster.B.TwoA

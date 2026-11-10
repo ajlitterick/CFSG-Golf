@@ -288,6 +288,12 @@ theorem conjSub_ptE_yE {a t : ShortField b c} (ha : a ≠ 0) (hat : a⁻¹ - t �
     conjSub_ptE_piT h hS hP hι hQ h1, star_add, star_inv₀, star_star, star_neg, star_star,
     ← sub_eq_add_neg]
 
+theorem conjSub_ptE_yE_eq {a t : ShortField b c} (ha : a ≠ 0) (hat : a⁻¹ - t = 0) :
+    conjSub (ptE Ψ ι a) (yE Ψ ι t) = xg Ψ 0 2 := by
+  have h1 : (star a)⁻¹ + -star t = 0 := by
+    rw [← star_inv₀, ← star_neg, ← star_add, ← sub_eq_add_neg, hat, star_zero]
+  rw [conjSub_yE, conjSub_ptE_piT h hS hP hι hQ ha, conjSub_ptE_xE hι, h1, ptE_zero hι,
+    conjSub_13_piT]
 
 theorem rankOneE_conj {t : ShortField b c} (ht : t ≠ 0) (a : ShortField b c) :
     ι (fieldCoord t) * yE Ψ ι (-t⁻¹) * ι (fieldCoord t) * ι (fieldCoord a) *

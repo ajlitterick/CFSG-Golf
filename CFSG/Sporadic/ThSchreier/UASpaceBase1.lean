@@ -21,6 +21,15 @@ private theorem native_ua_facts :
     (∀ n ∈ uaRowsTxt, n < 2 ^ 248) ∧ uaRowsTxt.length = 4 * 248 :=
   Certificates.certificate2325
 
+theorem uaBlock_wf (k : ℕ) : ∀ r ∈ uaBlock k, r.wf = true := by
+  intro r hr
+  obtain ⟨i, rfl⟩ := Array.mem_ofFn.1 hr
+  apply v4OfNat_wf
+  by_cases h : 248 * k + i.val < uaRowsTxt.length
+  · rw [List.getD_eq_getElem _ _ h]
+    exact native_ua_facts.2.2.2.1 _ (List.getElem_mem h)
+  · rw [List.getD_eq_default _ _ (by omega)]
+    norm_num
 
 theorem rowsMatrix_rowsAmI : rowsMatrix rowsAmI = toMat a - 1 := by
   ext i j
@@ -77,6 +86,38 @@ theorem mem_planeUA_iff (r : RowV) :
       ua_Q_inv, Matrix.vecMul_one]
     rfl
 
+theorem planeUA_map : planeUA.map (rowEquiv : RowV →ₗ[ZMod 2] (Fin 248 → ZMod 2)) =
+    Submodule.span (ZMod 2) (Set.range (toMat a - 1).row) := by
+  ext w
+  rw [Submodule.mem_map, Submodule.mem_span_range_iff_exists_fun]
+  constructor
+  · rintro ⟨_, ⟨r, rfl⟩, rfl⟩
+    exact ⟨ofRow r, (Matrix.vecMul_eq_sum _ _).symm⟩
+  · rintro ⟨c, hc⟩
+    refine ⟨toRow (Matrix.vecMul c (toMat a - 1)), ⟨toRow c, rfl⟩, ?_⟩
+    rw [← hc]
+    show Matrix.vecMul c (toMat a - 1) = _
+    rw [Matrix.vecMul_eq_sum]
+    simp only [Matrix.row_apply']
+
+theorem finrank_planeUA : Module.finrank (ZMod 2) planeUA = 120 := by
+  rw [← LinearEquiv.finrank_map_eq rowEquiv planeUA, planeUA_map,
+    ← Matrix.rank_eq_finrank_span_row]
+  have hP : IsUnit matUAP.det := Matrix.isUnit_det_of_left_inverse ua_P_inv
+  have hQ : IsUnit matUAQ.det := Matrix.isUnit_det_of_right_inverse ua_Q_inv
+  rw [← Matrix.rank_mul_eq_right_of_isUnit_det matUAP _ hP,
+    ← Matrix.rank_mul_eq_left_of_isUnit_det matUAQ _ hQ, ua_factor, matD120,
+    Matrix.rank_diagonal, Fintype.card_subtype]
+  have e : (Finset.univ.filter fun i : Fin 248 =>
+      (if (i : ℕ) < 120 then (1 : ZMod 2) else 0) ≠ 0) =
+      Finset.univ.filter fun i : Fin 248 => (i : ℕ) < 120 := by
+    apply Finset.filter_congr
+    intro i _
+    split_ifs with h
+    · exact ⟨fun _ => h, fun _ => by decide⟩
+    · exact ⟨fun h' => absurd rfl h', fun h' => absurd h' h⟩
+  rw [e, Fin.card_filter_val_lt]
+  rfl
 
 theorem inUA_iff (w : V4) : inUA w = true ↔ toRow w.toVec ∈ planeUA := by
   rw [mem_planeUA_iff, inUA, inUAT]

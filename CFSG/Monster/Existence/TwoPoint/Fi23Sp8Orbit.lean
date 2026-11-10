@@ -226,6 +226,8 @@ theorem rootP_lt
   · rw [h1]; exact piPt_lt 8
   · rw [h2]; norm_num
 
+theorem lab_root
+    {c : ℕ} (hc : c < 3) : Lb (rootP c) = c := rootCheck_parts.2.2.2.2 c hc
 
 theorem labCheck_parts :
     (∀ p < 31671, Lb p < 3 ∧ ∀ k ∈ gIdx, Lb (ap imgT[k]! p) = Lb p) ∧
@@ -294,6 +296,8 @@ theorem smul_val
 theorem tr_smul
     (g : J) (p : Pt) : tr (g • p) = g * tr p * g⁻¹ := conjPt_smul g p
 
+theorem tr_injective : Function.Injective tr := fun p q h =>
+  Fin.ext (conjPt_inj (by rw [orb_size]; exact p.isLt) (by rw [orb_size]; exact q.isLt) h)
 
 theorem smul_eq_iff_tr
     (g : J) (p q : Pt) : g • p = q ↔ g * tr p * g⁻¹ = tr q := smul_eq_iff g p q
@@ -327,6 +331,9 @@ theorem exists_word_F
   obtain ⟨l, hl, h⟩ := exists_word p.isLt
   exact ⟨l, hl, Fin.ext (by rw [smul_val]; exact h)⟩
 
+theorem LbF_rootF
+    (c : Fin 3) : LbF (rootF c) = c :=
+  Fin.ext (lab_root c.isLt)
 
 theorem exists_smul_iff
     {p q : Pt} : (∃ l ∈ spL, l • p = q) ↔ LbF p = LbF q := by

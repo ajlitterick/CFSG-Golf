@@ -111,6 +111,14 @@ theorem natCard_Jmat
   right_inv k := Subtype.ext (by simp)
   map_mul' x y := Subtype.ext (by simp)
 
+@[expose] def quotEquotEquiv
+    {r : Q} (hr : IsShortCoord (coordOf r)) :
+    (Jmat r ⧸ zpowers (tJ r)) ⧸ Equot r ≃* Kstab (phi0 (coordOf r)) :=
+  (QuotientGroup.quotientQuotientEquivQuotient (zpowers (tJ r)) ((rhoCent r).subgroupOf (Jmat r))
+    (zpowers_tJ_le r)).trans
+    ((QuotientGroup.quotientMulEquivOfEq (ker_piJ r).symm).trans
+      ((QuotientGroup.quotientKerEquivRange (piJ r)).trans
+        ((MulEquiv.subgroupCongr (range_piJ hr)).trans (opSubgroupEquiv _))))
 
 theorem equot_facts {r : Q} (hr : IsShortCoord (coordOf r)) :
     IsExtraspecialPGroup 2 (Equot r) ∧ Nat.card (Equot r) = 2 ^ 23 ∧
@@ -136,5 +144,28 @@ theorem equot_facts {r : Q} (hr : IsShortCoord (coordOf r)) :
   · rw [hcen', Nat.card_zpowers, hord]
   · rw [← Nat.card_congr (equotEquiv hr).toEquiv, hcard]
 
+theorem short_parity_common_centralizer
+    {r : Q} (hr : IsShortCoord (coordOf r)) :
+    Multiplicative.toAdd (phi (QuotientGroup.mk r)) = phi0 (coordOf r) ∧
+    (∀ f, f ∈ Jmat r ↔ f ∈ Gvis ∧ f * rhoEquiv r = rhoEquiv r * f) ∧
+    rhoCent r ≤ Jmat r ∧
+    (piJ r).ker = (rhoCent r).subgroupOf (Jmat r) ∧
+    (piJ r).range = (Kstab (Multiplicative.toAdd (phi (QuotientGroup.mk r)))).op ∧
+    Nat.card (Kstab (Multiplicative.toAdd (phi (QuotientGroup.mk r)))) = 42305421312000 ∧
+    Nat.card (centralizer {r} : Subgroup Q) = 2 ^ 24 ∧
+    Nat.card (Jmat r) = 709767191322427392000 ∧
+    ((tJ r : Jmat r) : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv r ∧
+    ((xJ r : Jmat r) : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv zQ ∧
+    zpowers (tJ r) ≤ center (Jmat r) ∧
+    (Equot r).Normal ∧ IsExtraspecialPGroup 2 (Equot r) ∧ Nat.card (Equot r) = 2 ^ 23 ∧
+    Nonempty ((Jmat r ⧸ zpowers (tJ r)) ⧸ Equot r ≃*
+      Kstab (Multiplicative.toAdd (phi (QuotientGroup.mk r)))) ∧
+    center (Equot r) = zpowers ⟨QuotientGroup.mk (xJ r), mk_xJ_mem_Equot r⟩ := by
+  have hv : Multiplicative.toAdd (phi (QuotientGroup.mk r)) = phi0 (coordOf r) := toAdd_phi_mk r
+  rw [hv]
+  obtain ⟨hE, hcardE, hcen, -, -⟩ := equot_facts hr
+  exact ⟨rfl, fun _ => mem_Jmat_iff, rhoCent_le_Jmat r, ker_piJ r, range_piJ hr,
+    natCard_Kstab_of_short (phi0_mem_shortSet' hr), natCard_centralizer_Q hr, natCard_Jmat hr, rfl,
+    rfl, zpowers_tJ_le_center r, inferInstance, hE, hcardE, ⟨quotEquotEquiv hr⟩, hcen⟩
 
 end CFSG.Monster.B.Short

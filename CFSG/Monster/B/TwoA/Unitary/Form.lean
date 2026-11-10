@@ -68,10 +68,19 @@ theorem hU_single_right (s : V6) (j : Fin 6) : hU s (Pi.single j 1) = s (partner
     rw [Pi.single_eq_of_ne this, bar_zero, mul_zero]
   · simp
 
+theorem eq_zero_of_hU {s : V6} (h : ∀ t, hU s t = 0) : s = 0 := by
+  funext i
+  have := h (Pi.single (partner i) 1)
+  rwa [hU_single_right, partner_partner] at this
 
 @[expose] def hGram : Matrix (Fin 6) (Fin 6) F4 :=
   Matrix.of fun i j => if j = partner i then 1 else 0
 
+theorem hGram_apply (i j : Fin 6) : hGram i j = hU (Pi.single i 1) (Pi.single j 1) := by
+  rw [hU_single_right, hGram, of_apply, Pi.single_apply]
+  by_cases h : j = partner i
+  · rw [ite_eq_left h, ite_eq_left (by rw [h, partner_partner])]
+  · rw [ite_eq_right h, ite_eq_right (fun h' => h (by rw [← h', partner_partner]))]
 
 @[expose] def barV (s : V6) : V6 := fun i => bar (s i)
 

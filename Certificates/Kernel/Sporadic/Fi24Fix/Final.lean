@@ -162,6 +162,17 @@ theorem eA_inv_eq : ((eA : Fi24AutomorphismGroup))⁻¹ = (AW.map g0).prod := by
   simp only [AW, List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_inv_rev, g0_inv,
     mul_assoc, mul_one, Nat.reduceAdd]
 
+theorem rel_trans {H : Subgroup Fi24AutomorphismGroup} {u v w : Fi24AutomorphismGroup}
+    (h1 : u * v⁻¹ ∈ H) (h2 : v * w⁻¹ ∈ H) : u * w⁻¹ ∈ H := by
+  have e : u * w⁻¹ = (u * v⁻¹) * (v * w⁻¹) := by group
+  rw [e]
+  exact H.mul_mem h1 h2
+
+theorem rel_symm {H : Subgroup Fi24AutomorphismGroup} {u v : Fi24AutomorphismGroup}
+    (h : u * v⁻¹ ∈ H) : v * u⁻¹ ∈ H := by
+  have e : v * u⁻¹ = (u * v⁻¹)⁻¹ := by group
+  rw [e]
+  exact H.inv_mem h
 
 theorem rel_mul {H : Subgroup Fi24AutomorphismGroup} {u v : Fi24AutomorphismGroup} (z : Fi24AutomorphismGroup)
     (h : u * v⁻¹ ∈ H) : (u * z) * (v * z)⁻¹ ∈ H := by

@@ -8,6 +8,7 @@ namespace CFSG.Sporadic.HeldB
 
 open CFSG.Monster.B.Co2.Native
 
+abbrev heDeg : Nat := 8330
 
 @[expose] def heGenHex : String := include_str "Data"/"CertGens.txt"
 

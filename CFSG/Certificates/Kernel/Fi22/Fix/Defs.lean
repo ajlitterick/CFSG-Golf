@@ -34,6 +34,8 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.LceS CFSG.KC.HOrb
 @[expose] noncomputable def compOK (Q R Q' : Nat) : Bool :=
   allBelow nP (nat_lit 55) (fun i => Nat.beq (pf Q' i) (pf R (pf Q i)))
 
+@[expose] noncomputable def compMap (Q R : Nat) : Nat :=
+  sumBelow nP (nat_lit 55) (fun i => Nat.shiftLeft (pf R (pf Q i)) (Nat.mul (nat_lit 12) i))
 
 @[expose] noncomputable def chainOK (Qs base : Nat → Nat) (k0 cnt : Nat) : Bool :=
   Nat.rec (motive := fun _ => Bool) true

@@ -65,6 +65,55 @@ theorem eq_or_top_of_index_two {G : Type*} [Group G] {H K : Subgroup G} (hHK : H
     have hr : H.relIndex K = 1 := by omega
     exact le_antisymm (Subgroup.relIndex_eq_one.1 hr) hHK
 
+theorem CTUC_Suz_simple_generalized_fitting_extension_model
+    {X : Type*} [Group X] [Finite X]
+    (hs : IsSimpleGroup (generalizedFitting X))
+    (hnc : ∃ a b : generalizedFitting X, a * b ≠ b * a)
+    (e : generalizedFitting X ≃* Blueprint.NativeSporadic.Suz) :
+    ∃ j : X →* suzR, Function.Injective j ∧
+      (generalizedFitting X).map j = suzP.subgroupOf suzR ∧
+      (j.range = suzP.subgroupOf suzR ∨ j.range = ⊤) ∧
+      ((generalizedFitting X).index = 1 ∨ (generalizedFitting X).index = 2) := by
+  set φ : generalizedFitting X ≃* suzP := e.trans suzEquivP
+  set ψ : suzR ≃* MulAut suzP := MulEquiv.ofBijective suzConjR suzConjR_bijective
+  set j : X →* suzR := ψ.symm.toMonoidHom.comp ((MulAut.congr φ).toMonoidHom.comp
+    MulAut.conjNormal)
+  have hj : Function.Injective j :=
+    ψ.symm.injective.comp ((MulAut.congr φ).injective.comp (conjNormal_injective hs hnc))
+  have hjF : ∀ f : generalizedFitting X, j f = ⟨φ f, suzP_le_suzR (φ f).2⟩ := by
+    intro f
+    apply ψ.injective
+    simp only [j, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulEquiv.apply_symm_apply,
+      conjNormal_coe, mulAut_congr_conj]
+    ext q
+    simp [ψ, suzConjR_apply, MulAut.conj_apply]
+  have hmap : (generalizedFitting X).map j = suzP.subgroupOf suzR := by
+    ext r
+    constructor
+    · rintro ⟨x, hx, rfl⟩
+      rw [Subgroup.mem_subgroupOf, show x = ((⟨x, hx⟩ : generalizedFitting X) : X) from rfl, hjF]
+      exact (φ ⟨x, hx⟩).2
+    · intro hr
+      rw [Subgroup.mem_subgroupOf] at hr
+      refine ⟨φ.symm ⟨r, hr⟩, (φ.symm ⟨r, hr⟩).2, ?_⟩
+      rw [hjF, MulEquiv.apply_symm_apply]
+  have hrange := eq_or_top_of_index_two (show suzP.subgroupOf suzR ≤ j.range by
+    rw [← hmap]; exact Subgroup.map_le_range _ _) suzP_index_R
+  refine ⟨j, hj, hmap, hrange, ?_⟩
+  have hcardF : Nat.card (generalizedFitting X) = 448345497600 := by
+    rw [Nat.card_congr φ.toEquiv, suzP_card]
+  have hX : Nat.card X = Nat.card j.range := by
+    rw [MonoidHom.range_eq_map, Subgroup.card_map_of_injective hj, Subgroup.card_top]
+  have hidx := (generalizedFitting X).card_mul_index
+  rw [hcardF] at hidx
+  rcases hrange with h | h
+  · left
+    rw [hX, h, Nat.card_congr (Subgroup.subgroupOfEquivOfLe suzP_le_suzR).toEquiv,
+      suzP_card] at hidx
+    omega
+  · right
+    rw [hX, h, Subgroup.card_top, suzR_card] at hidx
+    omega
 
 theorem map_centralizer {X : Type*} [Group X] (j : X →* suzT) (hj : Function.Injective j)
     (a : X) (K : Subgroup (Equiv.Perm (Fin 1782))) (hK : K ≤ suzT)

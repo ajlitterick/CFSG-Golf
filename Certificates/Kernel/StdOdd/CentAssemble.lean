@@ -212,6 +212,17 @@ theorem tailL_eq : ∀ O : List ℕ, tailL O = O.tail
   | [] => rfl
   | _ :: _ => rfl
 
+theorem spreadL_eq (w : ℕ) : ∀ Sr : List (List (List ℕ)),
+    List.rec (motive := fun _ => List (List (List ℕ))) List.nil
+      (fun S _ ih => List.cons (spreadS S 1 w) ih) Sr = Sr.map fun S => spreadS S 1 w
+  | [] => rfl
+  | S :: Sr => congrArg (List.cons _) (spreadL_eq w Sr)
+
+theorem getD_spread (w : ℕ) : ∀ (Sr : List (List (List ℕ))) (l : ℕ),
+    (Sr.map fun S => spreadS S 1 w).getD l [] = spreadS (Sr.getD l []) 1 w
+  | [], _ => rfl
+  | _ :: _, 0 => rfl
+  | _ :: Sr, l + 1 => getD_spread w Sr l
 
 theorem walkElt_spread1 (Ms : List ℕ) (S : List (List ℕ)) {w i : ℕ} (hi : i < w) :
     walkElt Ms (spreadS S 1 w) i = walkElt Ms (spreadS S 1 w) 0 := by
@@ -220,6 +231,110 @@ theorem walkElt_spread1 (Ms : List ℕ) (S : List (List ℕ)) {w i : ℕ} (hi : 
   simp only [Nat.mul_one, Nat.add_zero, Nat.zero_mul] at h1 h2
   rw [h1, h2]
 
+theorem refFact_of_refOK (D : CentData) {A B : ℕ} (hA : Rep A (toMat nativeAB.1))
+    (hB : Rep B (toMat nativeAB.2)) (hV : ∀ i < lenN D.V, Rep (nthV D.V i) (vM D.prog i))
+    (hRI : ∀ j, 1 ≤ j → j < D.p → ∀ r ∈ D.RI j, r < lenN D.V)
+    (hβv : ∀ j < D.p, vecK (nthN D.βs j) = D.βK j) (heL : D.eL.length = D.p)
+    (helt : ∀ i < D.p, D.e i < D.p) (he0 : D.e 0 = 0)
+    {O : List ℕ} {Sr : List (List (List ℕ))} {m : ℕ} (hm1 : 1 ≤ m) (hmp : m < D.p)
+    (hO : O.length = D.p)
+    (h : refOK (D.xB A B) A B O D.eL ((List.range (m - 1)).map fun l => (D.RI (l + 1)).map (nthV D.V))
+      Sr D.βs (D.FP m) (D.nf m) m = true) :
+    D.RefFact (vecK (nthN O 0)) := by
+  have hX : Rep (D.xB A B) (wM D.xw) := rep_wM hA hB D.xw
+  unfold refOK at h
+  rw [andB_eq, Bool.and_eq_true, spreadL_eq] at h
+  obtain ⟨h1, h2⟩ := h
+  have hstep : ∀ k, k + 1 < O.length → wM D.xw *ᵥ vecK (nthN O k) = vecK (nthN O (k + 1)) := by
+    intro k hk
+    have hb := congrArg (fun x => x.testBit k) (Nat.eq_of_beq_eq_true h1)
+    simp only [Nat.zero_testBit] at hb
+    rw [neqMask_sound (by rw [lenN_mapRows, lenN_vecsPl]), Bool.not_eq_false'] at hb
+    have he := (eqB_iff (lenN_mapRows _ _) (lenN_vecsPl _) k).1 hb
+    have hk1 : k < (dropLast O).length := by rw [dropLast_eq, List.length_dropLast]; omega
+    have hk2 : k < (tailL O).length := by rw [tailL_eq, List.length_tail]; omega
+    have he' := ptB_inj he
+    rw [ptK_mapRows (lenN_vecsPl _) hX, ptK_vecsPl _ hk1, ptK_vecsPl _ hk2] at he'
+    rwa [dropLast_eq, tailL_eq, nthN_dropLast hk, nthN_tail] at he'
+  have hpow : ∀ k < O.length, vecK (nthN O k) = wM D.xw ^ k *ᵥ vecK (nthN O 0) := by
+    intro k hk
+    induction k with
+    | zero => rw [pow_zero, Matrix.one_mulVec]
+    | succ k ih =>
+      rw [← hstep k hk, ih (by omega), Matrix.mulVec_mulVec, ← pow_succ']
+  set v := vecK (nthN O 0) with hv
+  set T0 := vecsPl (pickL O D.eL) with hT0
+  have hT0p : ∀ i < D.p, ptK T0 i = wM D.xw ^ D.e i *ᵥ v := by
+    intro i hi
+    have hi' : i < (pickL O D.eL).length := by rw [lenN_pickL, heL]; exact hi
+    rw [hT0, ptK_vecsPl _ hi', nthN_pickL _ _ _ (by rw [heL]; exact hi), hpow _ (by
+      rw [hO, nthN_eq_getD]; exact helt i hi), nthN_eq_getD]
+    rfl
+  obtain ⟨Tl, h0, hlen, hend, hlev⟩ := siftK_sound _ _ 0 T0 (lenN_vecsPl _) h2
+  have hLsl : (([A, B] : List ℕ) :: (List.range (m - 1)).map fun l =>
+      (D.RI (l + 1)).map (nthV D.V)).length = m := by simp; omega
+  rw [hLsl] at hend
+  have hlevl : ∀ l, 1 ≤ l → l < m → (([A, B] : List ℕ) :: (List.range (m - 1)).map fun l =>
+      (D.RI (l + 1)).map (nthV D.V)).getD l [] = (D.RI l).map (nthV D.V) := by
+    intro l h1 h2
+    obtain ⟨l', rfl⟩ : ∃ l', l = l' + 1 := ⟨l - 1, by omega⟩
+    rw [List.getD_cons_succ, List.getD_eq_getElem _ _ (by simp; omega), List.getElem_map,
+      List.getElem_range]
+  set w := lenN D.eL with hw
+  have hwp : w = D.p := by rw [hw, CFSG.KS.StdOdd.Chain.lenN_eq_length, heL]
+  have hel : ∀ l < m, ∀ i < D.p, ptB (Tl (l + 1)) i =
+      walkElt ((([A, B] : List ℕ) :: (List.range (m - 1)).map fun l =>
+        (D.RI (l + 1)).map (nthV D.V)).getD l []) (spreadS (Sr.getD l []) 1 w) 0 *ᵥ ptB (Tl l) i := by
+    intro l hl i hi
+    rw [(hlev l (by rw [hLsl]; exact hl)).1 i, getD_spread, walkElt_spread1 _ _ (by rw [hwp]; exact hi)]
+  have hlen0 : lenN [A, B] = [toMat nativeAB.1, toMat nativeAB.2].length := rfl
+  have hrep0 : ∀ l < lenN [A, B], Rep (nthN [A, B] l) ([toMat nativeAB.1, toMat nativeAB.2].getD l 0) := by
+    intro l hl
+    change l < 2 at hl
+    rcases l with _ | _ | l
+    · exact hA
+    · exact hB
+    · omega
+  obtain ⟨g0, hg0, hge0⟩ := walk_lift hlen0 hrep0 (spreadS (Sr.getD 0 []) 1 w) 0
+  have hp0 : 0 < D.p := Nat.lt_of_le_of_lt (Nat.zero_le m) hmp
+  have ht1 : ∀ i < D.p, ptK (Tl 1) i = g0 *ᵥ (wM D.xw ^ D.e i *ᵥ v) := by
+    intro i hi
+    rw [← hT0p i hi, ← h0]
+    exact ptK_of_mat (hel 0 (by omega) i hi) hge0
+  have hb0 : ptK (Tl 1) 0 = D.βK 0 := by
+    have := (hlev 0 (by rw [hLsl]; omega)).2
+    rw [Nat.zero_add] at this
+    rw [ptK_eq_vecK this, hβv 0 hp0]
+  have hf : ∀ j, 1 ≤ j → j < m → ∃ f ∈ monL (D.regK j), ∀ i < D.p,
+      ptK (Tl (j + 1)) i = f *ᵥ ptK (Tl j) i := by
+    intro j hj1 hjm
+    obtain ⟨hl, hr⟩ := rep_letters hV (D.RI j) (hRI j hj1 (by omega))
+    obtain ⟨f, hfm, hfe⟩ := walk_lift hl hr (spreadS (Sr.getD j []) 1 w) 0
+    refine ⟨f, hfm, fun i hi => ptK_of_mat ?_ hfe⟩
+    rw [hel j hjm i hi, hlevl j hj1 hjm]
+  choose! f hfm hfe using hf
+  refine ⟨g0, monL_AB hg0, ?_, m, fun j i => ptK (Tl j) i, f, hm1, hmp, ht1, hb0,
+    fun j hj1 hjm => ⟨hfm j hj1 hjm, ?_, hfe j hj1 hjm⟩, ?_⟩
+  · have := ht1 0 hp0
+    rw [he0, pow_zero, Matrix.one_mulVec, hb0] at this
+    rw [← this]
+    simp [CentData.βK, he0]
+  · rw [← hfe j hj1 hjm j (by omega)]
+    have := (hlev j (by rw [hLsl]; exact hjm)).2
+    rw [Nat.zero_add] at this
+    rw [ptK_eq_vecK this, hβv j (by omega)]
+  ·
+    intro hmem
+    obtain ⟨k, hk, hke⟩ := Finset.mem_image.1 hmem
+    have hb : ((memMask (Tl m) (D.FL m) (D.nf m) (m + 1)) &&& (1 <<< m)).testBit m = false :=
+      (congrArg (fun x => x.testBit m) (Nat.eq_of_beq_eq_true hend)).trans (Nat.zero_testBit m)
+    rw [Nat.testBit_and, Nat.testBit_shiftLeft, Nat.sub_self, one_testBit] at hb
+    simp only [ge_iff_le, le_refl, decide_true, Bool.true_and, Bool.and_true] at hb
+    have hFL : lenN (D.FL m) = 156 := lenN_splitPl _ _ _ _
+    have hmm := (memMask_sound (hlen m) hFL (D.nf m) (m + 1) m).2
+      ⟨by omega, k, Finset.mem_range.1 hk, (ptK_inj hke).symm⟩
+    rw [hmm] at hb
+    simp at hb
 
 theorem walkAB_sound {A B : ℕ} (hA : Rep A (toMat nativeAB.1)) (hB : Rep B (toMat nativeAB.2))
     {S : List (List ℕ)} {U : List ℕ} {k : List ℕ → Bool} (hU : lenN U = 156)

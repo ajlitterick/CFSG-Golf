@@ -24,6 +24,8 @@ theorem vecW_sub {a b : W} (ha : a.wf = true) (hb : b.wf = true) :
 theorem vecW_neg {a : W} (ha : a.wf = true) : vecW a.neg = -vecW a := by
   funext j; exact W.val_neg ha j.val
 
+theorem vecW_zero : vecW W.zero = 0 := by
+  funext j; exact W.val_zero j.val
 
 theorem mem_rowSpan {r : ℕ} (X : Array W) (i : Fin r) : vecW (rowW X i.val) ∈ rowSpan r X :=
   Submodule.subset_span ⟨i, rfl⟩
@@ -316,5 +318,177 @@ theorem IsRREF.unique {R R' : Fin r → Fin n → K} {p p' : Fin r → Fin n} (h
 
 end Unique
 
+theorem testBit_low_mask {s : ℕ} (hs : s < 64) (t : ℕ) :
+    ((1 : UInt64) <<< s.toUInt64 - 1).toNat.testBit t = decide (t < s) := by
+  have h1 : ((1 : UInt64) <<< s.toUInt64).toNat = 2 ^ s := by
+    rw [UInt64.toNat_shiftLeft, UInt64.toNat_one, Nat.toUInt64_eq, UInt64.toNat_ofNat',
+      Nat.mod_eq_of_lt (by omega : s < 2 ^ 64), Nat.mod_eq_of_lt hs, Nat.one_shiftLeft,
+      Nat.mod_eq_of_lt (Nat.pow_lt_pow_right (by norm_num) hs)]
+  have h2 : ((1 : UInt64) <<< s.toUInt64 - 1).toNat = 2 ^ s - 1 := by
+    rw [UInt64.toNat_sub_of_le, h1, UInt64.toNat_one]
+    rw [UInt64.le_iff_toNat_le, h1, UInt64.toNat_one]
+    exact Nat.one_le_two_pow
+  rw [h2, Nat.testBit_two_pow_sub_one]
+
+theorem W.zeroBelow_spec {a : W} {c : ℕ} (h : a.zeroBelow c = true) {j : ℕ} (hj : j < c) :
+    a.bitP j = false ∧ a.bitM j = false := by
+  rw [W.bitP_eq, W.bitM_eq]
+  by_cases hl : j / 64 < 13
+  · unfold W.zeroBelow at h
+    rw [Nat.all_eq_finRange_all, List.all_eq_true] at h
+    have hall := h ⟨j / 64, hl⟩ (List.mem_finRange _)
+    simp only at hall
+    by_cases h1 : 64 * (j / 64 + 1) ≤ c
+    · rw [ite_eq_left h1, beq_iff_eq] at hall
+      have e := congrArg (fun y : UInt64 => y.toNat.testBit (j % 64)) hall
+      simp only [UInt64.toNat_or, Nat.testBit_or, UInt64.toNat_zero, Nat.zero_testBit,
+        Bool.or_eq_false_iff] at e
+      exact e
+    · rw [ite_eq_right h1, ite_eq_left (by omega), beq_iff_eq] at hall
+      have e := congrArg (fun y : UInt64 => y.toNat.testBit (j % 64)) hall
+      simp only [UInt64.toNat_and, UInt64.toNat_or, Nat.testBit_and, Nat.testBit_or,
+        UInt64.toNat_zero, Nat.zero_testBit] at e
+      rw [testBit_low_mask (by omega), decide_eq_true (by omega), Bool.and_true,
+        Bool.or_eq_false_iff] at e
+      exact e
+  · rw [W.limbP_ge _ (by omega), W.limbM_ge _ (by omega)]
+    simp
+
+theorem W.restrictEq_spec {a M U : W} (h : a.restrictEq M U = true) (j : ℕ) :
+    (a.bitP j && M.bitP j) = U.bitP j ∧ (a.bitM j && M.bitP j) = false := by
+  unfold W.restrictEq at h
+  simp only [Bool.and_eq_true, beq_iff_eq] at h
+  have hl : ∀ l < 13, a.limbP l &&& M.limbP l = U.limbP l ∧ a.limbM l &&& M.limbP l = 0 := by
+    intro l hl
+    interval_cases l <;> simp_all [W.limbP, W.limbM]
+  rw [W.bitP_eq, W.bitP_eq, W.bitP_eq, W.bitM_eq]
+  by_cases h13 : j / 64 < 13
+  · obtain ⟨e1, e2⟩ := hl _ h13
+    rw [← Nat.testBit_and, ← UInt64.toNat_and, e1, ← Nat.testBit_and, ← UInt64.toNat_and, e2]
+    simp
+  · rw [W.limbP_ge _ (by omega), W.limbP_ge _ (by omega), W.limbP_ge _ (by omega),
+      W.limbM_ge _ (by omega)]
+    simp
+
+@[expose] def pivMask (piv : Array ℕ) : W := piv.foldl (fun M c => M.setTrit c 1) W.zero
+
+theorem pivMask_bits {piv : Array ℕ} (hp : ∀ c ∈ piv, c < 832) (j : ℕ) :
+    (pivMask piv).bitP j = decide (j ∈ piv) ∧ (pivMask piv).bitM j = false := by
+  unfold pivMask
+  rw [← Array.foldl_toList]
+  have hp' : ∀ c ∈ piv.toList, c < 832 := fun c hc => hp c (Array.mem_toList_iff.1 hc)
+  have key : ∀ (L : List ℕ) (M : W), (∀ c ∈ L, c < 832) →
+      (L.foldl (fun M c => M.setTrit c 1) M).bitP j = (M.bitP j || decide (j ∈ L)) ∧
+      (L.foldl (fun M c => M.setTrit c 1) M).bitM j = M.bitM j := by
+    intro L
+    induction L with
+    | nil => intro M _; simp
+    | cons c L ih =>
+      intro M hL
+      rw [List.foldl_cons]
+      obtain ⟨h1, h2⟩ := ih (M.setTrit c 1) (fun x hx => hL x (List.mem_cons_of_mem _ hx))
+      rw [h1, h2, W.bitP_setTrit _ (hL c List.mem_cons_self),
+        W.bitM_setTrit _ (hL c List.mem_cons_self)]
+      refine ⟨?_, by simp⟩
+      by_cases hjc : j = c
+      · subst hjc; simp
+      · simp [hjc]
+  obtain ⟨h1, h2⟩ := key piv.toList W.zero hp'
+  rw [h1, h2, W.bitP_zero, W.bitM_zero, Bool.false_or]
+  exact ⟨by simp [Array.mem_toList_iff], rfl⟩
+
+@[expose] def pivFin {r : ℕ} (F : RRef) (i : Fin r) : Fin 781 := ⟨min F.piv[i.val]! 780, by omega⟩
+
+@[expose] def rowsFun (r : ℕ) (X : Array W) : Fin r → Fin 781 → ZMod 3 :=
+  fun i => vecW (rowW X i.val)
+
+theorem rowSpan_eq_span (r : ℕ) (X : Array W) :
+    rowSpan r X = Submodule.span (ZMod 3) (Set.range (rowsFun r X)) := rfl
+
+theorem rowW_eq_getElem! (X : Array W) (i : ℕ) : rowW X i = X[i]! := (rowW_getElem! X i).symm
+
+theorem rrefOK_spec {r : ℕ} {F : RRef} (h : rrefOK r F = true) :
+    F.rows.size = r ∧ F.piv.size = r ∧ F.rank = r ∧ canonRows r F.rows = true ∧
+      IsRREF (rowsFun r F.rows) (pivFin F) := by
+  unfold rrefOK at h
+  simp only [Bool.and_eq_true, beq_iff_eq] at h
+  obtain ⟨⟨⟨hs, hps⟩, hrk⟩, hall⟩ := h
+  have hk : ∀ k < r, F.piv[k]! < 781 ∧ (k = 0 ∨ F.piv[k - 1]! < F.piv[k]!) ∧
+      F.rows[k]!.canon = true ∧ F.rows[k]!.zeroBelow F.piv[k]! = true ∧
+      F.rows[k]!.restrictEq (pivMask F.piv) (W.zero.setTrit F.piv[k]! 1) = true := by
+    intro k hk
+    rw [Nat.all_eq_finRange_all, List.all_eq_true] at hall
+    have := hall ⟨k, hk⟩ (List.mem_finRange _)
+    simp only [Bool.and_eq_true, Bool.or_eq_true, beq_iff_eq, decide_eq_true_eq] at this
+    obtain ⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩ := this
+    exact ⟨h1, h2, h3, h4, h5⟩
+  have hmem : ∀ c ∈ F.piv, c < 832 := by
+    intro c hc
+    obtain ⟨k, hk', rfl⟩ := Array.mem_iff_getElem.1 hc
+    have := (hk k (by omega)).1
+    rw [getElem!_pos F.piv k hk'] at this
+    omega
+  have hpiv : ∀ i : Fin r, (pivFin F i).val = F.piv[i.val]! := by
+    intro i; unfold pivFin; have := (hk i.val i.isLt).1; simp only; omega
+  have hinc : ∀ i j : ℕ, j < r → i < j → F.piv[i]! < F.piv[j]! := by
+    intro i j hj hij
+    induction j with
+    | zero => omega
+    | succ j ih =>
+      have h1 := (hk (j + 1) hj).2.1
+      rcases h1 with h1 | h1
+      · omega
+      · simp only [Nat.add_sub_cancel] at h1
+        rcases Nat.lt_succ_iff_lt_or_eq.1 hij with h2 | h2
+        · exact lt_trans (ih (by omega) h2) h1
+        · rw [h2]; exact h1
+  have hmono : StrictMono (pivFin (r := r) F) := by
+    intro i j hij
+    rw [Fin.lt_def, hpiv, hpiv]
+    exact hinc i.val j.val j.isLt hij
+  refine ⟨hs, hps, hrk, ?_, hmono, ?_, ?_⟩
+  · unfold canonRows
+    simp only [Bool.and_eq_true, beq_iff_eq, Array.all_eq_true]
+    refine ⟨hs, fun k hk' => ?_⟩
+    have := (hk k (by omega)).2.2.1
+    rwa [getElem!_pos F.rows k hk'] at this
+  · intro i j
+    unfold rowsFun vecW
+    rw [hpiv, rowW_eq_getElem!]
+    have hres := W.restrictEq_spec (hk i.val i.isLt).2.2.2.2 F.piv[j.val]!
+    have hjm : F.piv[j.val]! ∈ F.piv := by
+      rw [getElem!_pos F.piv j.val (by omega)]; exact Array.getElem_mem _
+    rw [(pivMask_bits hmem _).1, decide_eq_true hjm, Bool.and_true, Bool.and_true,
+      W.bitP_setTrit _ (by have := (hk i.val i.isLt).1; omega), W.bitP_zero,
+      Bool.false_or] at hres
+    obtain ⟨e1, e2⟩ := hres
+    unfold W.val bitVal
+    rw [e1, e2]
+    by_cases hij : i = j
+    · subst hij; simp
+    · have hne : F.piv[j.val]! ≠ F.piv[i.val]! := by
+        intro e
+        rcases lt_or_gt_of_ne (fun e' : i.val = j.val => hij (Fin.ext e')) with h1 | h1
+        · exact absurd e (ne_of_gt (hinc _ _ j.isLt h1))
+        · exact absurd e (ne_of_lt (hinc _ _ i.isLt h1))
+      simp [hij, hne]
+  · intro i c hc
+    unfold rowsFun vecW
+    rw [rowW_eq_getElem!]
+    rw [Fin.lt_def, hpiv] at hc
+    obtain ⟨e1, e2⟩ := W.zeroBelow_spec (hk i.val i.isLt).2.2.2.1 hc
+    unfold W.val bitVal
+    rw [e1, e2]
+    rfl
+
+theorem rows_eq_of_rowSpan_eq {r : ℕ} {F F' : RRef} (h : rrefOK r F = true)
+    (h' : rrefOK r F' = true) (hs : rowSpan r F.rows = rowSpan r F'.rows) : F.rows = F'.rows := by
+  obtain ⟨-, -, -, hc, hR⟩ := rrefOK_spec h
+  obtain ⟨-, -, -, hc', hR'⟩ := rrefOK_spec h'
+  have e := hR.unique hR' hs
+  apply eq_of_matW_eq hc hc'
+  ext i j
+  have := congrFun (congrFun e i) j
+  simpa [rowsFun, vecW, matW_apply] using this
 
 end CFSG.Sporadic.Fi24.Native

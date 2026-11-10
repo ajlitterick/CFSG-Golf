@@ -388,5 +388,46 @@ theorem ker_theta_eq (hV : finrank (ZMod 2) V = 3) :
   change Nat.card (LinearMap.ker (theta V)) ≤ Nat.card (LinearMap.range (kappa hV))
   rw [natCard_ker_theta hV, natCard_range_kappa hV]
 
+abbrev onePoints (V : Type*) [AddCommGroup V] : Points V → ZMod 2 := fun _ => 1
+
+theorem isCompl_onePoints (hV : finrank (ZMod 2) V = 3) :
+    IsCompl (Submodule.span (ZMod 2) {onePoints V}) (augmentation V) := by
+  constructor
+  · rw [Submodule.disjoint_def]
+    intro x hx hxU
+    obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.mp hx
+    have := mem_augmentation.mp hxU
+    simp only [Pi.smul_apply, smul_eq_mul, mul_one] at this
+    rw [Finset.sum_const, Finset.card_univ, card_points hV, nsmul_eq_mul] at this
+    have hc : c = 0 := by
+      have h7 : ((7 : ℕ) : ZMod 2) = 1 := by decide
+      rwa [h7, one_mul] at this
+    rw [hc, zero_smul]
+  · rw [codisjoint_iff, eq_top_iff]
+    intro x _
+    have hdecomp : x = (∑ p, x p) • onePoints V + (x + (∑ p, x p) • onePoints V) := by
+      funext p
+      simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul, mul_one]
+      exact (by decide : ∀ a b : ZMod 2, a = b + (a + b)) _ _
+    rw [hdecomp]
+    refine Submodule.add_mem_sup (Submodule.mem_span_singleton.mpr ⟨_, rfl⟩) ?_
+    rw [mem_augmentation]
+    simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul, mul_one]
+    rw [Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, card_points hV, nsmul_eq_mul]
+    have h7 : ((7 : ℕ) : ZMod 2) = 1 := by decide
+    rw [h7, one_mul]
+    exact (by decide : ∀ a : ZMod 2, a + a = 0) _
+
+theorem seven_point_augmentation_natural_dual_filtration (hV : finrank (ZMod 2) V = 3) :
+    (∀ (g : V ≃ₗ[ZMod 2] V) (f : Module.Dual (ZMod 2) V),
+      ((kappa hV (dualAct g f) : augmentation V) : Points V → ZMod 2) =
+        permAct g (kappa hV f)) ∧
+    (∀ (g : V ≃ₗ[ZMod 2] V) (x : augmentation V), theta V (permActU g x) = g (theta V x)) ∧
+    Function.Injective (kappa hV) ∧ Function.Surjective (theta V) ∧
+    LinearMap.ker (theta V) = LinearMap.range (kappa hV) ∧
+    IsCompl (Submodule.span (ZMod 2) {onePoints V}) (augmentation V) ∧
+    ∀ g : V ≃ₗ[ZMod 2] V, permAct g (onePoints V) = onePoints V :=
+  ⟨kappa_equivariant hV, theta_equivariant, kappa_injective hV, theta_surjective hV,
+    ker_theta_eq hV, isCompl_onePoints hV, fun _ => rfl⟩
 
 end CFSG.ProperTwoGeneratedCore.BinaryThreeSpace

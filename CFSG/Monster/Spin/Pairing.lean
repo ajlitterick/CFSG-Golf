@@ -24,6 +24,9 @@ private theorem two_eq_zero' : (2 : ZMod 2) = 0 := rfl
 
 @[expose] def μ₀ : C →ₗ[ZMod 2] ZMod 2 := (LinearMap.proj 0 ∘ₗ ψ) ∘ₗ C.subtype
 
+theorem μ₀_apply (d : C) : μ₀ d = ψ d 0 := rfl
+
+theorem μ₀_eq_repr (d : C) : μ₀ d = basisC.repr d 0 := (repr_apply d 0).symm
 
 @[simp] theorem μ₀_ΩC : μ₀ ΩC = 1 := by decide
 
@@ -205,6 +208,7 @@ theorem pair_π₀ (u : C) (δ : Cocode) : pair (π₀ u) δ = pair u δ + μ₀
   map_add' := θ_add_right a
   map_smul' c e := by rw [θ_smul_right, smul_eq_mul, RingHom.id_apply]
 
+theorem θL_apply (a u : C) : θL a u = θ a u := rfl
 
 @[expose] noncomputable def thetaD (a : C) : Cocode := (exists_pair_eq (θL a)).choose
 
@@ -233,6 +237,9 @@ theorem pair_Acocode (a b u : C) : pair u (Acocode a b) = A a b u := by
   rw [Acocode, pair_mk, A_eq_sum, dotProduct]
   exact Finset.sum_congr rfl fun i _ => by rw [Pi.mul_apply]; ring
 
+theorem Acocode_unique {a b : C} {δ : Cocode} (h : ∀ u : C, pair u δ = A a b u) :
+    δ = Acocode a b :=
+  ext_pair fun u => by rw [h u, pair_Acocode]
 
 @[simp] theorem pair_ΩC_Acocode (a b : C) : pair ΩC (Acocode a b) = 0 := by
   rw [pair_Acocode, A_comm₂₃, A_comm₁₂]

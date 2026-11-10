@@ -52,5 +52,7 @@ theorem jcBind_k : (glNJChS.size == 8 && allN 8 (fun k => bindListK 77 7 (CJc.S 
     glNJChW.size == 8) = true := by
   decide +kernel
 
+theorem jc_neg : (!bindListK 77 7 (CJc.S 0) (glNJPerm[1]!).toList) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelCo2Smith

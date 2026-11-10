@@ -38,6 +38,8 @@ theorem xconj_congr
     P1Cos → Eam :=
   Quotient.lift xconj fun _ _ h => xconj_congr (p1rel_iff.1 h)
 
+theorem xconjCos_mk
+    (e : Eam) : xconjCos (Quotient.mk _ e) = xconj e := rfl
 
 section Root
 

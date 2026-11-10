@@ -84,6 +84,18 @@ theorem Cgen_le_inf_stabilizer :
     Cgen ≤ Gmat ⊓ MulAction.stabilizer (SpaceB ≃ₗ[ℚ] SpaceB) aStar :=
   le_inf Cgen_le_Gmat Cgen_le_stabilizer
 
+theorem mem_Cgen_of_fix_of_apply_eq {σ c : SpaceB ≃ₗ[ℚ] SpaceB} (hσ : σ ∈ Gmat)
+    (h₁ : σ aStar = aStar) (hc : c ∈ Cgen) (h₂ : σ aStarMinus = c aStarMinus) : σ ∈ Cgen := by
+  have hc' : c⁻¹ ∈ Cgen := Cgen.inv_mem hc
+  have hJ : c⁻¹ * σ ∈ Jstar := by
+    refine mem_Jstar_of_fix_of_fix (Gmat.mul_mem (Cgen_le_Gmat hc') hσ) ?_ ?_
+    · rw [LinearEquiv.mul_apply, h₁]
+      exact fix_aStar_of_mem_Cgen hc'
+    · rw [LinearEquiv.mul_apply, h₂]
+      exact (LinearEquiv.mul_apply c⁻¹ c aStarMinus).symm.trans (by rw [inv_mul_cancel]; rfl)
+  have e : σ = c * (c⁻¹ * σ) := by group
+  rw [e]
+  exact Cgen.mul_mem hc (Jstar_le_Cgen hJ)
 
 theorem Gmat_inf_centralizer_tStar :
     Gmat ⊓ Subgroup.centralizer {tStar} =
@@ -93,6 +105,7 @@ theorem Gmat_inf_centralizer_tStar :
     MulAction.mem_stabilizer_iff]
   exact and_congr_right fun hg => mul_tStar_comm_iff hg
 
+theorem tauB_apply_aStar : tauB aStar = aStar := fix_aStar_of_mem_Cgen tauB_mem_Cgen
 
 theorem Gmat_inf_centralizer_tStar_eq_Cgen
     (h : Gmat ⊓ MulAction.stabilizer (SpaceB ≃ₗ[ℚ] SpaceB) aStar ≤ Cgen) :
@@ -166,5 +179,34 @@ theorem natCard_Gvis_eq_mul_Jstar :
   rw [natCard_stabilizer_subgroup, Gvis_inf_stabilizer_aStar, natCard_orbit_Gvis_aStar] at h
   exact h.symm
 
+theorem trA2_aStar : trA2 aStar = trA2Values 0 := by
+  have h : (aStar.1 : Matrix (Fin 24) (Fin 24) ℚ) = (2 : ℚ) • projMat (vMinus 0 1) := by
+    rw [aStar_eq]
+    simp only [Prod.fst_sub, Prod.smul_fst, Submodule.coe_sub, Submodule.coe_smul]
+    rw [coe_axisE_rStar]
+    simp
+  set c : Fin 24 → ℚ := fun i => (if i = 0 then 1 else 0) - (if i = 1 then 1 else 0) with hc
+  have hent : ∀ i j, ((2 : ℚ) • projMat (vMinus 0 1)) i j = c i * c j := by
+    intro i j
+    simp only [projMat, Matrix.smul_apply, Matrix.vecMulVec_apply, smul_eq_mul, vMinus_zero_one,
+      hc, Griess.ratVec, Code.eℤ, Pi.sub_apply, Pi.smul_apply, Pi.single_apply]
+    split_ifs <;> norm_num
+  have hc2 : ∑ i, c i ^ 2 = 2 := by
+    have h2 : ∀ i : Fin 24, c i ^ 2 = (if i = 0 then 1 else 0) + (if i = 1 then 1 else 0) := by
+      intro i
+      simp only [hc]
+      by_cases h0 : i = 0
+      · subst h0
+        simp
+      · by_cases h1 : i = 1
+        · subst h1
+          simp
+        · simp [h0, h1]
+    simp only [h2, Finset.sum_add_distrib, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
+    norm_num
+  rw [trA2, h]
+  simp only [hent, mul_pow]
+  rw [← Finset.sum_mul_sum, hc2]
+  norm_num [trA2Values, trA2Num, trA2Exp]
 
 end CFSG.Monster.AxisCount

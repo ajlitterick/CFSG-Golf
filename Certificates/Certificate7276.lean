@@ -10,5 +10,12 @@ namespace Certificates
 
 open CertificateChecks
 
+theorem certificate7276 :
+    CFSG.ASVolI.K43Data.octOK () = true ∧
+    CFSG.ASVolI.K43Data.ptChainOK () = true ∧
+    CFSG.ASVolI.K43Data.vecChainOK () = true :=
+  ⟨CFSG.KS.ASVolI.octOK_of_K KernelASVolI.k43_octOKK,
+    CFSG.KS.ASVolI.ptChainOK_of_K KernelASVolI.k43_ptChainK,
+    CFSG.KS.ASVolI.vecChainOK_of_K KernelASVolI.k43_vecChainK⟩
 
 end Certificates

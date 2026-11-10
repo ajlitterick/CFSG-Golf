@@ -17,6 +17,9 @@ namespace Ctx
 
 variable (c : Ctx S)
 
+theorem cj_mem_OG_of_mem_NG {g y : G} (hg : g ∈ c.NG) (hy : y ∈ c.OG) : cj y g⁻¹ ∈ c.OG := by
+  have := c.conj_mem_OG_of_mem_NG hg hy
+  simpa [cj] using this
 
 theorem cj_mem_OG_of_mem_NG' {g y : G} (hg : g ∈ c.NG) (hy : y ∈ c.OG) : cj y g ∈ c.OG := by
   have := c.conj_mem_OG_of_mem_NG (c.NG.inv_mem hg) hy

@@ -26,6 +26,9 @@ theorem repC_of_pt {X : Nat} {g : Equiv.Perm (Fin 1408)} (hX : Cn X)
     (h : ∀ x (hx : x < 1408), pt X x = (g ⟨x, hx⟩).val) : RepC X g :=
   ⟨hX, fun x hx => by rw [ap_eq hX hx, h x hx, idx_of_lt g hx, Equiv.Perm.smul_def]⟩
 
+theorem fd_lt (W i : Nat) : fd W i < 65536 := by
+  unfold fd
+  exact lt_of_le_of_lt Nat.and_le_right (by norm_num)
 
 theorem gen_word {l : Nat} (hl : l < 2) : classz.centGens.getD l [] ∈ classz.centGens := by
   interval_cases l <;> decide

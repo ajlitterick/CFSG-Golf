@@ -54,6 +54,10 @@ theorem jw_ok_false : jwOk false = true := by quickRfl
 
 theorem jw_ok_true : jwOk true = true := by quickRfl
 
+theorem neg_rel : (!Nat.beq (wordK 275 9 idn (LP false) [1]) idn) = true := by quickRfl
+
+theorem neg_surj : (!Nat.beq (wordK 275 9 idn (LP false) (jwSurjB true)) PBE) = true := by
+  quickRfl
 
 end CFSG.KC.TabWord.JW
 

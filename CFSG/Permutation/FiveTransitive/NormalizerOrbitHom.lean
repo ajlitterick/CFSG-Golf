@@ -39,6 +39,10 @@ theorem apply_subgroup_eq_one {G Y : Type*} [Group G] [MulAction G Y]
     change Quotient.mk'' (q • y) = (Quotient.mk'' y : orbitRel.Quotient Q Y)
     exact orbitRel.Quotient.quotient_smul_eq
 
+theorem inside_le_ker {G Y : Type*} [Group G] [MulAction G Y] (Q : Subgroup G) :
+    Q.subgroupOf (Subgroup.normalizer (Q : Set G)) ≤ (toPermHom (Y := Y) Q).ker := by
+  intro q hq
+  exact apply_subgroup_eq_one Q ⟨q.val, hq⟩
 
 @[expose] abbrev action {G Y : Type*} [Group G] [MulAction G Y] (Q : Subgroup G) :
     MulAction (Subgroup.normalizer (Q : Set G)) (orbitRel.Quotient Q Y) :=

@@ -73,6 +73,9 @@ theorem p1ToS_mem
     simp only [Subgroup.coe_mul, Subgroup.coe_inv]
     group
 
+theorem coe_pairToP1
+    (y : ↥(vStab (cvMul cv0 s) ⊓ vStab (cvMul (cvOf a0S) s))) :
+    ((pairToP1 s y : P1) : Dfull) = ((s * y * s⁻¹ : Shat) : Dfull) := rfl
 
 theorem mem_radV_iff
     (y : Shat) :

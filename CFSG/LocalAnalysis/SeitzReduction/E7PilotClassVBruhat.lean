@@ -225,6 +225,10 @@ theorem centralizer_e7ASRep_four_le_parabolic [CharP K 2] :
   have h := congrArg Subtype.val hg
   rwa [Subgroup.coe_mul, Subgroup.coe_mul, coe_e7ASRep_four] at h
 
+variable (K) in
+@[expose] noncomputable def parabolicV : Subgroup (adjointGroup .E7 K) :=
+  ((parabolicSubgroup .E7 K vNodes).subgroupOf (adjointGroup .E7 K)).map
+    (MulAut.conj (e7RepConj K 4)).toMonoidHom
 
 @[expose] def vInvTop (c : (Fin Tag.E7.rank → ℤ) → K) : Prop :=
   ∀ β ∈ vPsi, vLevel β = 3 → c β = 0

@@ -228,6 +228,7 @@ theorem card_le_eight_of_isElemAbelian (E : Subgroup Pauli2)
 theorem mul_comm_or_z0 : ∀ x y : Pauli2, x * y = y * x ∨ x * y = y * x * z0 := by
   decide +kernel
 
+theorem z0_central : ∀ y : Pauli2, z0 * y = y * z0 := by decide
 
 theorem z0_ne_one : z0 ≠ 1 := by decide
 
@@ -557,6 +558,7 @@ theorem card_le_sixteen_of_isZ4Q8Q8 {P : Type*} [Group P] (h : IsZ4Q8Q8 P) (E : 
 abbrev Z4Cube : Type :=
   Multiplicative (ZMod 4) × Multiplicative (ZMod 4) × Multiplicative (ZMod 4)
 
+theorem Z4Cube.pow_four : ∀ x : Z4Cube, x * x * (x * x) = 1 := by decide
 
 theorem Z4Cube.card_sq_eq_one :
     (Finset.univ.filter fun x : Z4Cube => x * x = 1).card = 8 := by

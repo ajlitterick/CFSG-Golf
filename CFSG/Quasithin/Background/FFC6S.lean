@@ -106,6 +106,8 @@ theorem dot_formula (θ : E →+ (Fin 3 → ZMod 2)) (w : Fin 3 → E)
 theorem evalW_add (w : Fin 3 → E) (h h' : E →+ ZMod 2) :
     evalW w (h + h') = evalW w h + evalW w h' := rfl
 
+theorem evalW_sub (w : Fin 3 → E) (h h' : E →+ ZMod 2) :
+    evalW w (h - h') = evalW w h - evalW w h' := rfl
 
 theorem evalW_inj (θ : E →+ (Fin 3 → ZMod 2)) (w : Fin 3 → E) (hw : ∀ i, θ (w i) = Pi.single i 1)
     (h : E →+ ZMod 2) (hh : ∀ m, θ m = 0 → h m = 0) (h0 : evalW w h = 0) : h = 0 := by

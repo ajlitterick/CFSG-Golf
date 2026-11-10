@@ -126,6 +126,10 @@ theorem vmF_idF {d v : Nat} (hv : v < 2 ^ d) : vmF d (idF d) v = v := by
   apply vmF_ext (CFSG.KC.F2W.vmF_lt _ _ _) hv
   rw [toVecD_vmF, matF_id, Matrix.vecMul_one]
 
+theorem vmF_powK {d v : Nat} (M : Nat) (hv : v < 2 ^ d) : ∀ e, vmF d (powK d M e) v = (vmF d M)^[e] v
+  | 0 => vmF_idF hv
+  | e + 1 => by
+    rw [powK_succ, vmF_mulF, vmF_powK M hv e, Function.iterate_succ_apply']
 
 theorem vmF_inv {d N X v : Nat} (h : Nat.beq (mulF d N X) (idF d) = true) (hv : v < 2 ^ d) :
     vmF d X (vmF d N v) = v := by

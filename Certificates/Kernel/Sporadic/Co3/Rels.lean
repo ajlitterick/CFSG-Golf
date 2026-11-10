@@ -24,6 +24,8 @@ theorem le_range : ∃ φ : TauCeti.Sporadic.co3Presentation.Group →*
     (lt_of_blt hB.1) (lt_of_blt hB.2) (Nat.eq_of_beq_eq_true hab2.1)
     (Nat.eq_of_beq_eq_true hab2.2) mA_eq mB_eq
 
+theorem neg_rel : notB (relOK RH (mulR 2 6 132 22 4 L H CM RM) [[(0, true)]] 7 ONE 0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.Co3Rels
 

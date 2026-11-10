@@ -22,6 +22,7 @@ theorem evenTab_zero : AxisCount.Native.evenTab[0]! = 0 := by decide +kernel
 
 theorem label_eq : label 3 0 = (false, 3, 60) := by decide +kernel
 
+theorem label_ne : label 3 0 ≠ (false, 3, 61) := by decide +kernel
 
 theorem label_three_sixty :
     (⟨false, AxisCount.Native.octCodeG AxisCount.Native.octTab[2]!

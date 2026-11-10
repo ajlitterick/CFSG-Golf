@@ -48,6 +48,7 @@ theorem ringEquiv_eq (σ : F4 ≃+* F4) : σ = RingEquiv.refl F4 ∨ σ = frob :
 
 abbrev sqv (v : Vec) : Vec := fun k => v k ^ 2
 
+theorem sqv_eq (v : Vec) : sqv v = frob.toRingHom ∘ v := rfl
 
 theorem sq_eq_zero_iff (x : F4) : x ^ 2 = 0 ↔ x = 0 := by revert x; decide
 

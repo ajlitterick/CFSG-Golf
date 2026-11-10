@@ -74,6 +74,7 @@ theorem mem_planePts_iff_eW (g : SU frobeniusF4 6) (A : Submodule F4 UnitarySix.
   rw [smul_eq_pt g⁻¹ p.1, ← hc, Units.smul_def, smul_comm, smul_inv_smul, mem_planePts]
   exact (Submodule.smul_mem_iff A c.ne_zero).symm
 
+theorem R_eq_rk (q : ℙ F4 (Fin 3 → F4)) : Plane.R q = rk q.rep := rfl
 
 theorem isHerm_R (q : ℙ F4 (Fin 3 → F4)) : IsHerm (Plane.R q) := isHerm_rk _
 

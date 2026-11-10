@@ -10,6 +10,9 @@ namespace CFSG.Sporadic.Co1.Module.Odd
 open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
   CFSG.Sporadic.Co1.OddNative Matrix
 
+@[expose] def type2Pts : Array ℕ := (orbitOf 2 98280).pts
+
+@[expose] def type2Pos : Array UInt32 := posTable 24 type2Pts
 
 @[expose] def isT2 (x : ℕ) : Bool :=
   inPts (orbitOf 2 98280).pts (posTable 24 (orbitOf 2 98280).pts) 98280 x
@@ -23,6 +26,8 @@ open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 
 @[expose] def noTwoOK : Bool := vecsOne.all fun x => !isT2 x
 
+@[expose] def disjOK : Bool :=
+  distinctKeys (((FZ 1).pts ++ FS.pts).toList.map rowsKey)
 
 @[expose] def zsTwo : Array (Array ℕ) := (FZ 2).pts
 
@@ -41,6 +46,7 @@ open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
   | [] => false
   | u₀ :: _ => L.all fun u => Zs.any fun z => vecMulN 24 (transposeRows 24 z) u₀ == u
 
+@[expose] def orbitYOK : Bool := orbitOK zsTwoList yList
 
 @[expose] def tripleOK : Bool := w2List.any fun u₁ => w2List.any fun u₂ => isT4' (u₁ ^^^ u₂)
 

@@ -59,6 +59,8 @@ theorem bitLift_add' (x y : ZMod 2) :
     bitLift x + bitLift y = bitLift (x + y) + 2 * bitLift (x * y) := by
   fin_cases x <;> fin_cases y <;> rfl
 
+theorem bitLift_sq (x : ZMod 2) : bitLift x * bitLift x = bitLift x := by
+  fin_cases x <;> rfl
 
 theorem sum_bitLift_mul (a b : Fin 24 → ZMod 2) :
     ∑ i, bitLift (a i) * bitLift (b i) = hammingNorm (a * b) := by
@@ -184,6 +186,10 @@ theorem lamCode_of_P_one {a : Fin 24 → ZMod 2} (h : P a = 1) :
 
 theorem Pint_zero_or_one (a : Fin 24 → ZMod 2) : Pint a = 0 ∨ Pint a = 1 := bitLift_zero_or_one _
 
+theorem Pint_eq (a : Fin 24 → ZMod 2) : Pint a = ((hammingNorm a / 4 : ℕ) : ℤ) % 2 := by
+  rw [Pint, P, ← bitLift_intCast]
+  push_cast
+  rfl
 
 theorem lamCode_mem {a : Fin 24 → ZMod 2} (ha : a ∈ C) : lamCode a ∈ codeLattice C := by
   obtain ⟨s, hs⟩ := four_dvd_wt ha

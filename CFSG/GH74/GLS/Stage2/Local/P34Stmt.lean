@@ -22,6 +22,10 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.Blueprint CFSG.Assembly.LowTwoRa
     IVK.IsPSp4 ↥(generalizedFitting (HBar H)) q ∧
     ¬ barIn H S ≤ generalizedFitting (HBar H) ∧ O2Of H ≠ H
 
+@[expose] def NoOneClassC0 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (k : Kind) (S : Subgroup G), Stage2Ctx G z k S →
+    ∀ H : Subgroup G, H ≠ ⊤ → Cen z ≤ H → C0 z k S H →
+      ¬ (∀ u v : G, orderOf u = 2 → orderOf v = 2 → IsConj u v)
 
 @[expose] def PerfInJ {G : Type} [Group G] (H : Subgroup G) : Prop :=
   ∀ P : Subgroup G, P ≤ H → Group.IsPerfect ↥P → barIn H P ≤ generalizedFitting (HBar H)

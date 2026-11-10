@@ -60,10 +60,27 @@ open CFSG.GF2Type.Smith1979.GammaU
 
 @[expose] def gammaUN (r : Array ℕ) : Bool := isoN r && (unitaryN r || antiN r)
 
+@[expose] def singClosure (_ : Unit := ()) : List ℕ :=
+  bfsClosure id (gamuGens.map appN) 4096 [a0] ((∅ : Std.HashSet ℕ).insert a0) []
+
+@[expose] def transOK (_ : Unit := ()) : Bool :=
+  let C := singClosure ()
+  (List.range 4096).all fun n => n == 0 || q0b n || C.contains n
 
 @[expose] def gensOK (_ : Unit := ()) : Bool :=
   gamuGens.all gammaUN && saGens.all fun r => gammaUN r && appN r a0 == a0
 
+@[expose] def keyD (s : List ℕ) : List ℕ := (spanList s).mergeSort (· ≤ ·)
+
+@[expose] def closureD (rep : List ℕ) : List (List ℕ) :=
+  bfsClosure keyD (saGens.map fun r s => s.map (appN r)) 5000 [rep]
+    ((∅ : Std.HashSet (List ℕ)).insert (keyD rep)) []
+
+@[expose] def coverOK (_ : Unit := ()) : Bool :=
+  let K := dReps.map fun rep => (closureD rep).map keyD
+  (lagrDFS 5 [a0] (lagrCand a0)).all fun v =>
+    let kv := keyD v
+    K.any fun ks => ks.contains kv
 
 @[expose] def thetaPow (e y : ℕ) : ℕ := if e = 1 then theta0N y else theta0N (theta0N y)
 
@@ -115,5 +132,21 @@ open CFSG.GF2Type.Smith1979.GammaU
   subsetProducts ((List.range 5).map fun i =>
     if c.testBit i then mulR k0 cBasis[i]! else cBasis[i]!)
 
+@[expose] def compOK (_ : Unit := ()) : Bool :=
+  let T := tdList d0
+  let S := spanList d0
+  T.length == 64 && T.all (fun r => r.size == 12 && r.all (· < 4096)) && T.contains k0 &&
+    gammaUN k0 && mulR k0 k0 == idR && appN k0 a0 == a0 && d0.all (fun d => appN k0 d == d) &&
+    (List.range 4096).all (fun n => f0b n a0 || S.contains (appN k0 n ^^^ n)) &&
+    cBasis.all T.contains &&
+    (List.range 32).all fun c =>
+      let C := compOf c
+      C.dedup.length == 32 && C.all T.contains && !C.contains k0 &&
+        C.all fun x => C.all fun y => C.contains (mulR x y)
+
+@[expose] def stepAOrbitCheck (_ : Unit := ()) : Bool := transOK () && gensOK () && coverOK ()
+
+@[expose] def stepATCheck (_ : Unit := ()) : Bool :=
+  (dReps.all fun D => D == d0 || badOK D) && compOK ()
 
 end CFSG.GF2Type.Smith1979.GammaU.StepA

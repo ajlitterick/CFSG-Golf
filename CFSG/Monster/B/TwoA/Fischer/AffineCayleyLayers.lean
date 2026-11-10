@@ -35,6 +35,15 @@ theorem coe_toMul_cliqueLabelMap (f : C →₀ ZMod 2) :
   rw [cliqueLabelMap_apply, toMul_sum]
   rfl
 
+theorem eq_indicWord (f : C →₀ ZMod 2) : f = indicWord f.support := by
+  classical
+  ext z
+  rw [indicWord, Finsupp.onFinset_apply]
+  by_cases h : z ∈ f.support
+  · rw [ite_eq_left h]
+    exact zmod_two_eq_one _ (Finsupp.mem_support_iff.1 h)
+  · rw [ite_eq_right h]
+    exact Finsupp.notMem_support_iff.1 h
 
 theorem labProd_eq (T : Finset C) :
     labProd lab T = ((cliqueLabelMap lab C (indicWord T)).toMul : S) := by

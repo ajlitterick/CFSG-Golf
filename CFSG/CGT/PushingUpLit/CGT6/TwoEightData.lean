@@ -168,6 +168,14 @@ theorem sigPerm_isAdd (x : L) : IsAddPerm (sigPerm D x) := by
 
 @[expose] def Fix (G : Subgroup (Equiv.Perm (Wd F L))) : Set (Wd F L) := {w | ∀ a ∈ G, a w = w}
 
+theorem lamPerm_isAdd (x : L) : IsAddPerm (lamPerm D x) := by
+  intro w w'
+  refine Prod.ext ?_ (Prod.ext ?_ ?_)
+  · simp [lamPerm_apply, lamFun]
+  · simp only [lamPerm_apply, lamFun, Prod.fst_add, Prod.snd_add, add_smul]
+    abel
+  · simp only [lamPerm_apply, lamFun, Prod.fst_add, Prod.snd_add, map_add, mul_add]
+    ring
 
 end Flag
 

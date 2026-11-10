@@ -104,6 +104,12 @@ theorem seed_parts :
   simp only [toMat_powM, toMat_mulM, toMat_rowsA, toMat_rowsB] at n2 n4 n6 n7 n10
   exact ⟨e1, n2, e3, n4, e5, n6, n7, e8, e9, n10⟩
 
+theorem prime_dvd_22 {p : ℕ} (hp : p.Prime) (hpd : p ∣ 22) : p = 2 ∨ p = 11 := by
+  have h22 : (22 : ℕ) = 2 * 11 := by norm_num
+  rw [h22] at hpd
+  rcases (Nat.Prime.dvd_mul hp).1 hpd with h | h
+  · exact Or.inl ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).1 h)
+  · exact Or.inr ((Nat.prime_dvd_prime_iff_eq hp (by norm_num)).1 h)
 
 theorem prod_cons_cons {M : Type*} [Monoid M] (a b : M) (l : List M) :
     (a :: b :: l).prod = a * (b :: l).prod := List.prod_cons
@@ -120,5 +126,41 @@ theorem matrix_gWord :
   simp only [List.map_cons, List.map_nil, prod_cons_cons, List.prod_singleton, ↓reduceIte,
     h21, mul_assoc]
 
+theorem fam_hn_explicit_seed_and_conjugate_product_orders :
+    (∃ a b : GL (Fin 133) (ZMod 5), (a : Matrix (Fin 133) (Fin 133) (ZMod 5)) = matA ∧
+      (b : Matrix (Fin 133) (Fin 133) (ZMod 5)) = matB) ∧
+    ∀ a b : GL (Fin 133) (ZMod 5), (a : Matrix (Fin 133) (Fin 133) (ZMod 5)) = matA →
+      (b : Matrix (Fin 133) (Fin 133) (ZMod 5)) = matB →
+      orderOf a = 2 ∧ orderOf b = 3 ∧ orderOf (a * b) = 22 ∧
+        orderOf (a * (a * b * b * a * b * a * b * a * b * a * b * a)⁻¹ * b *
+          (a * b * b * a * b * a * b * a * b * a * b * a)) = 19 := by
+  obtain ⟨hA2, hA1, hB3, hB1, hAB22, hAB11, hAB2, hGG, hX19, hX1⟩ := seed_parts
+  refine ⟨⟨⟨matA, matA, by rw [← sq, hA2], by rw [← sq, hA2]⟩,
+    ⟨matB, matB * matB, by rw [← pow_three, hB3], by rw [mul_assoc, ← pow_three, hB3]⟩, rfl,
+    rfl⟩, ?_⟩
+  intro a b ha hb
+  have : Fact (Nat.Prime 19) := ⟨by norm_num⟩
+  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+  have : Fact (Nat.Prime 2) := ⟨by norm_num⟩
+  set g := a * b * b * a * b * a * b * a * b * a * b * a with hg
+  have hgm : ((g : GL (Fin 133) (ZMod 5)) : Matrix (Fin 133) (Fin 133) (ZMod 5)) =
+      toMat 5 133 (wordM (seedSel rowsA rowsB) gWord) := by
+    rw [matrix_gWord, hg]
+    simp only [Units.val_mul, ha, hb]
+  have hgi : ((g⁻¹ : GL (Fin 133) (ZMod 5)) : Matrix (Fin 133) (Fin 133) (ZMod 5)) =
+      toMat 5 133 (wordM (seedSel rowsA rowsB) gInvWord) :=
+    Units.inv_eq_of_mul_eq_one_right (by rw [hgm]; exact hGG)
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [← orderOf_units, ha]
+    exact orderOf_eq_prime hA2 hA1
+  · rw [← orderOf_units, hb]
+    exact orderOf_eq_prime hB3 hB1
+  · rw [← orderOf_units, Units.val_mul, ha, hb]
+    refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) hAB22 fun p hp hpd => ?_
+    rcases prime_dvd_22 hp hpd with rfl | rfl
+    · exact hAB11
+    · exact hAB2
+  · rw [← orderOf_units, Units.val_mul, Units.val_mul, Units.val_mul, hgi, hgm, ha, hb]
+    exact orderOf_eq_prime hX19 hX1
 
 end CFSG.Sporadic.HNSchreier

@@ -18,6 +18,12 @@ theorem kTop : top = true := by quickRfl
 
 theorem kY : grY (pidn 42 6) X0 = true := by quickRfl
 
+theorem kNegY : notB (grY (pidn 42 6) (pidn 42 6)) = true := by quickRfl
+
+theorem kNegS : notB (grS (pidn 42 6) (pidn 42 6) X0) = true := by quickRfl
+
+theorem kNegTop : notB (allN 42 fun p => orB (Nat.beq p 1) (orB (Nat.beq p 26)
+    (notB (allN 4 fun i => Nat.beq (pg 6 (mask 6) (L34Bo.syG 0 i) p) p)))) = true := by quickRfl
 
 end CertificateChecks.KernelLC.L34Gr
 

@@ -489,6 +489,7 @@ theorem stripMatG_mul {n : Nat} (hn : n ≤ 4416) {A B : List Nat} (hA : A.lengt
   · have := wf_bit' hB (Nat.mod_lt _ (by norm_num)) hb
     omega
 
+theorem mulWn_nil (n A : Nat) : mulWn n [] A = A := rfl
 
 theorem mulWn_cons (n : Nat) (B : List Nat) (Ws : List (List Nat)) (A : Nat) :
     mulWn n (B :: Ws) A = mulWn n Ws (mulSn n B A) := by
@@ -629,6 +630,8 @@ theorem testBit_spreadRow {r : Nat} (hr : r < 2 ^ 4410) (P : Nat) :
     rw [e2]
     exact h2
 
+theorem spreadRow_eq (r : Nat) : spreadRow r = Nat.rec (motive := fun _ => Nat) (nat_lit 0)
+    (fun q acc => Nat.lor acc (chunk r q)) 70 := rfl
 
 @[expose] noncomputable def sob (F n : Nat) (blk : List Nat) (t acc : Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat → Nat) (fun _ acc => acc)
@@ -637,6 +640,10 @@ theorem testBit_spreadRow {r : Nat} (hr : r < 2 ^ 4410) (P : Nat) :
         (fun acc' => ih (Nat.succ t) acc'))
       (Nat.beq (Nat.shiftRight r n) (nat_lit 0))) blk t acc
 
+theorem stripOfBlock_eq (blk : List Nat) : stripOfBlock blk = sob 279680 4370 blk 0 0 := rfl
+
+theorem stripOfBlockn_eq (n : Nat) (blk : List Nat) :
+    stripOfBlockn n blk = sob 282624 n blk 0 0 := rfl
 
 @[expose] noncomputable def orRows : List Nat → Nat → Nat
   | [], _ => 0

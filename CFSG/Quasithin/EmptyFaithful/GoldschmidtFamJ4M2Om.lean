@@ -287,6 +287,10 @@ theorem ptElt_of_pos {i : ℕ} (hi : 0 < i) (hp : parData[i]! < i) :
 section Tree
 
 
+theorem ptElt_tree {i : ℕ} (hi0 : 0 < i) (hi : i < 77) :
+    ptElt i = gE genData[i]! * ptElt parData[i]! :=
+  ptElt_of_pos hi0 (tree_parts hi0 hi).1
+
 theorem Mx_ptElt_wfR (hM : MatFacts) {i : ℕ} (hi : i < 77) :
     Mx (ptElt i) = rowsMatrix tMats[i]! ∧ wfR tMats[i]! = true := by
   induction i using Nat.strong_induction_on with
@@ -300,6 +304,11 @@ theorem Mx_ptElt_wfR (hM : MatFacts) {i : ℕ} (hi : i < 77) :
         rowsMatrix_mulRows]
       exact ⟨rfl, wfR_mulRows (gmats_wfR hg) ih2⟩
 
+theorem Mx_ptElt (hM : MatFacts) {i : ℕ} (hi : i < 77) : Mx (ptElt i) = rowsMatrix tMats[i]! :=
+  (Mx_ptElt_wfR hM hi).1
+
+theorem wfR_tMats (hM : MatFacts) {i : ℕ} (hi : i < 77) : wfR tMats[i]! = true :=
+  (Mx_ptElt_wfR hM hi).2
 
 end Tree
 
@@ -374,6 +383,9 @@ theorem pt_eq_pt_iff (hF : J4Facts) {i j : ℕ} (hi : i < 77) (hj : j < 77) :
     pt i = pt j ↔ i = j :=
   ⟨pt_injective hF hi hj, fun h => h ▸ rfl⟩
 
+theorem pt_ne_basePt (hF : J4Facts) {i : ℕ} (hi : i < 77) (hi0 : 0 < i) : pt i ≠ basePt := by
+  rw [← pt_zero]
+  exact fun h => absurd (pt_injective hF hi (by norm_num) h) (by omega)
 
 theorem ptElt_mem_Hj_iff (hF : J4Facts) {i : ℕ} (hi : i < 77) : ptElt i ∈ Hj ↔ i = 0 := by
   rw [← smul_basePt_eq_self_iff, ptElt_smul_basePt, ← pt_zero, pt_eq_pt_iff hF hi (by norm_num)]
@@ -441,6 +453,9 @@ theorem rho_spec (hF : J4Facts) (g : ↥M2) (i j : Fin 77) :
   · intro h
     exact Subtype.ext h
 
+theorem smul_pt_eq_pt_rho (hF : J4Facts) (g : ↥M2) (i : Fin 77) :
+    (g : J) • pt i = pt (rho hF g i) :=
+  (rho_spec hF g i (rho hF g i)).1 rfl
 
 theorem rho_gE (hF : J4Facts) (n : ℕ) (hn : n < 32) (i : Fin 77) :
     (rho hF ⟨gE n, gE_mem_M2 hF.mat hn⟩ i : ℕ) = (sigData[n]!)[i.val]! := by
@@ -468,6 +483,20 @@ theorem rho_cE (hF : J4Facts) : rho hF ⟨cE, cE_mem_M2 hF.mat⟩ = 1 := by
   rw [rowOf_smul hF.mat, rowOf_pt hF.mat i.2]
   exact smul_toRow_of_frApply (Mx_cE hF.mat) (cMat_fix i.2)
 
+theorem rho_ptElt_zero (hF : J4Facts) {i : ℕ} (hi : i < 77) :
+    rho hF ⟨ptElt i, ptElt_mem_M2 hF.mat hi⟩ 0 = ⟨i, hi⟩ := by
+  rw [rho_spec hF _ 0 ⟨i, hi⟩]
+  show ptElt i • pt 0 = pt i
+  rw [pt_zero, ptElt_smul_basePt]
+
+theorem rho_transitive (hF : J4Facts) (i j : Fin 77) : ∃ g : ↥M2, rho hF g i = j := by
+  let a : ↥M2 := ⟨ptElt i, ptElt_mem_M2 hF.mat i.2⟩
+  let b : ↥M2 := ⟨ptElt j, ptElt_mem_M2 hF.mat j.2⟩
+  have ha : rho hF a 0 = i := rho_ptElt_zero hF i.2
+  have hb : rho hF b 0 = j := rho_ptElt_zero hF j.2
+  have hai : (rho hF a)⁻¹ i = 0 := by rw [Equiv.Perm.inv_eq_iff_eq, ha]
+  refine ⟨b * a⁻¹, ?_⟩
+  rw [map_mul, Equiv.Perm.mul_apply, map_inv, hai, hb]
 
 end Orbit
 

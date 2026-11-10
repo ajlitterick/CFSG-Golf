@@ -35,6 +35,8 @@ theorem Delta_le_prod (k : ℤ) :
 theorem Delta_fst_mem {k : ℤ} {x : G × G'} (hx : x ∈ Delta c c' θ k) : x.1 ∈ T.U k :=
   (Subgroup.mem_prod.1 (Delta_le_prod c c' θ k hx)).1
 
+theorem Delta_snd_mem {k : ℤ} {x : G × G'} (hx : x ∈ Delta c c' θ k) : x.2 ∈ T'.U k :=
+  (Subgroup.mem_prod.1 (Delta_le_prod c c' θ k hx)).2
 
 @[expose] def Gamma : Subgroup (G × G') :=
   ⨆ k ∈ intList 1 8, Delta c c' θ k
@@ -135,6 +137,8 @@ theorem coord_eq_of_prod (x : win T.U 1 8) {f : ℤ → G}
   exact huniq k hk
 
 end Phi
+
+
 
 
 section PhiMul
@@ -269,6 +273,8 @@ theorem phiFun_mul (x y : win T.U 1 8) :
 end PhiMul
 
 
+
+
 section PhiEquiv
 
 open CFSG.GH74.BNPair
@@ -332,6 +338,8 @@ theorem phi_rev_phi (x : win T.U 1 8) :
     _ = (x : G) := (coord_prod x).symm
 
 end PhiEquiv
+
+
 
 
 section Core

@@ -11,6 +11,20 @@ namespace KCRootAxis
 open Matrix CFSG.ComponentClassification.UnbalancedCatalog.SpChain
   CFSG.QuasithinUnique.Setup.X7b
 
+theorem isComplement'_subgroupOf {G : Type*} [Group G] {N A L : Subgroup G} (hA : A ≤ N)
+    (hL : L ≤ N) (hdisj : A ⊓ L = ⊥) (hmul : ∀ g ∈ N, ∃ a ∈ A, ∃ l ∈ L, a * l = g) :
+    (A.subgroupOf N).IsComplement' (L.subgroupOf N) := by
+  apply Subgroup.isComplement'_of_disjoint_and_mul_eq_univ
+  · rw [Subgroup.disjoint_def]
+    intro x hxA hxL
+    have h1 : (x : G) ∈ A ⊓ L := ⟨Subgroup.mem_subgroupOf.mp hxA, Subgroup.mem_subgroupOf.mp hxL⟩
+    rw [hdisj, Subgroup.mem_bot] at h1
+    exact Subtype.ext h1
+  · ext x
+    simp only [Set.mem_mul, Set.mem_univ, iff_true]
+    obtain ⟨a, ha, l, hl, hal⟩ := hmul x x.2
+    exact ⟨⟨a, hA ha⟩, Subgroup.mem_subgroupOf.mpr ha, ⟨l, hL hl⟩, Subgroup.mem_subgroupOf.mpr hl,
+      Subtype.ext hal⟩
 
 variable {K : Type} [Field K] [CharP K 2]
 
@@ -200,6 +214,8 @@ variable (K) in
 theorem mem_rootU₂ {g : antiSp K} : g ∈ rootU₂ K ↔ ∃ c : K, g = uElt 0 0 c 0 :=
   Iff.rfl
 
+theorem mem_rootU₁ {g : antiSp K} : g ∈ rootU₁ K ↔ ∃ b : K, g = uElt 0 b 0 0 :=
+  Iff.rfl
 
 theorem rootU₂_le_radA2 : rootU₂ K ≤ radA2 K := by
   rintro _ ⟨c, rfl⟩
@@ -387,6 +403,14 @@ variable (K) in
 theorem leviHom₂_apply (M : SL₂ K) (l : Kˣ) : leviHom₂ K (M, l) = sElt M * dElt l :=
   rfl
 
+theorem leviHom₂_injective : Function.Injective (leviHom₂ K) := by
+  rintro ⟨M, l⟩ ⟨M', l'⟩ h
+  rw [leviHom₂_apply, leviHom₂_apply, sElt_mul_dElt, sElt_mul_dElt] at h
+  have h' : aElt 0 0 * (dElt l * sElt M) = aElt 0 0 * (dElt l' * sElt M') := by
+    rw [aElt_zero_zero, one_mul, one_mul]
+    exact h
+  obtain ⟨-, -, hl, hM⟩ := normalForm_unique h'
+  rw [hl, hM]
 
 theorem leviHom₂_range_le_lineStab : (leviHom₂ K).range ≤ lineStab K := by
   rintro _ ⟨⟨M, l⟩, rfl⟩
@@ -412,6 +436,14 @@ theorem radA2_inf_leviHom₂_range : radA2 K ⊓ (leviHom₂ K).range = ⊥ := b
   rw [hv, hc, aElt_zero_zero]
   exact one_mem _
 
+theorem isComplement'_lineStab :
+    ((radA2 K).subgroupOf (lineStab K)).IsComplement'
+      ((leviHom₂ K).range.subgroupOf (lineStab K)) :=
+  isComplement'_subgroupOf radA2_le_lineStab leviHom₂_range_le_lineStab radA2_inf_leviHom₂_range
+    (fun g hg => by
+      obtain ⟨v, c, l, M, rfl⟩ := exists_normalForm hg
+      exact ⟨aElt v c, aElt_mem_radA2 v c, leviHom₂ K (M, l), ⟨(M, l), rfl⟩, by
+        rw [leviHom₂_apply, sElt_mul_dElt]⟩)
 
 instance normal_radA2_subgroupOf_lineStab : ((radA2 K).subgroupOf (lineStab K)).Normal :=
   ⟨fun x hx g => by
@@ -456,6 +488,13 @@ theorem exists_aElt_mul_sElt {g : antiSp K} (hg : g ∈ rootC₂ K) :
   subst hl1
   exact ⟨v, c, M, by rw [dElt_one, one_mul]⟩
 
+theorem isComplement'_centralizer :
+    ((radA2 K).subgroupOf (rootC₂ K)).IsComplement' ((sHom₂ K).range.subgroupOf (rootC₂ K)) :=
+  isComplement'_subgroupOf radA2_le_centralizer_rootU₂ sHom₂_range_le_centralizer_rootU₂
+    radA2_inf_sHom₂_range
+    (fun g hg => by
+      obtain ⟨v, c, M, rfl⟩ := exists_aElt_mul_sElt hg
+      exact ⟨aElt v c, aElt_mem_radA2 v c, sHom₂ K M, ⟨M, rfl⟩, rfl⟩)
 
 instance normal_radA2_subgroupOf_centralizer :
     ((radA2 K).subgroupOf (Subgroup.centralizer (rootU₂ K : Set (antiSp K)))).Normal :=

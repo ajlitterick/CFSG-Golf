@@ -46,6 +46,7 @@ variable {G : Type*} [Group G]
 
 @[expose] def cj (x y : G) : G := y⁻¹ * x * y
 
+theorem cj_def (x y : G) : cj x y = y⁻¹ * x * y := rfl
 
 @[simp] theorem cj_one_left (y : G) : cj (1 : G) y = 1 := by simp [cj]
 
@@ -70,6 +71,7 @@ theorem cj_cj (x y w : G) : cj (cj x y) w = cj x (y * w) := by simp [cj, mul_ass
 
 theorem cj_mul_right (x y w : G) : cj x (y * w) = cj (cj x y) w := (cj_cj x y w).symm
 
+theorem cj_inv_right (x y : G) : cj x y⁻¹ = y * x * y⁻¹ := by simp [cj]
 
 theorem cj_cj_inv (x y : G) : cj (cj x y) y⁻¹ = x := by simp [cj, mul_assoc]
 
@@ -83,11 +85,17 @@ theorem comm_of_cj_eq {x y : G} (h : cj x y = x) : x * y = y * x := by
   calc x * y = y * (y⁻¹ * x * y) := by group
     _ = y * x := by rw [h]
 
+theorem cj_eq_iff_comm {x y : G} : cj x y = x ↔ x * y = y * x :=
+  ⟨comm_of_cj_eq, cj_eq_self_of_comm⟩
 
 theorem cj_injective_left (y : G) : Function.Injective fun x : G => cj x y := by
   intro x x' h
   simpa [cj] using h
 
+theorem cj_eq_iff_eq_cj_inv {x y w : G} : cj x y = w ↔ x = cj w y⁻¹ := by
+  constructor
+  · rintro rfl; simp [cj, mul_assoc]
+  · rintro rfl; simp [cj, mul_assoc]
 
 theorem cj_comm (x y w : G) :
     cj (x⁻¹ * y⁻¹ * x * y) w = (cj x w)⁻¹ * (cj y w)⁻¹ * cj x w * cj y w := by

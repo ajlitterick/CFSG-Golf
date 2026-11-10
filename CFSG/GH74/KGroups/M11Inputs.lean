@@ -24,6 +24,9 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Sporadic.Mathieu CFSG.Bluepri
 
 section Consequences
 
+variable {K : Type} [Group K] (h : NativeSporadic.IsSporadic K .M11)
+
+include h
 
 end Consequences
 

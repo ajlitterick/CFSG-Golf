@@ -102,6 +102,12 @@ theorem iterPt_eq (x k p : Nat) : iterPt x k p = (pg 6 (mask 6) x)^[k] p := by
     rw [Function.iterate_succ_apply', ← ih]
     rfl
 
+theorem iter_lt {x : Nat} (hx : Cn x) {p : Nat} (hp : p < 42) :
+    ∀ k, (pg 6 (mask 6) x)^[k] p < 42
+  | 0 => hp
+  | k + 1 => by
+    rw [Function.iterate_succ_apply']
+    exact canon_lt hx (iter_lt hx hp k)
 
 theorem pg_pow2K {x : Nat} (hx : Cn x) :
     ∀ k, ∀ p < 42, pg 6 (mask 6) (pow2K 42 6 k x) p = (pg 6 (mask 6) x)^[2 ^ k] p

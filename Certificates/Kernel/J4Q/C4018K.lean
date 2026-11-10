@@ -63,6 +63,11 @@ theorem foldl_set_ne (f : Nat → Nat) (c : Nat) : ∀ (L : List Nat) (a : Array
     rw [List.foldl_cons, foldl_set_ne f c L _ fun ν' hν' => h ν' (List.mem_cons_of_mem _ hν'),
       Array.set!_eq_setIfInBounds, Array.getElem?_setIfInBounds_ne (h ν List.mem_cons_self)]
 
+theorem foldl_set_size (f : Nat → Nat) : ∀ (L : List Nat) (a : Array Nat),
+    (L.foldl (fun a μ => a.set! (f μ) μ) a).size = a.size
+  | [], _ => rfl
+  | ν :: L, a => by
+    rw [List.foldl_cons, foldl_set_size f L, Array.set!_eq_setIfInBounds, Array.size_setIfInBounds]
 
 theorem foldl_set_eq (f : Nat → Nat) (c μ : Nat) (hμ : f μ = c) : ∀ (L : List Nat) (a : Array Nat),
     μ ∈ L → (∀ ν ∈ L, f ν = c → ν = μ) → c < a.size →

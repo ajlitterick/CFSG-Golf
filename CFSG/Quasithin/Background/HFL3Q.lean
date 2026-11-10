@@ -43,6 +43,9 @@ theorem uni3_inv_entries {x : SpecialLinearGroup (Fin 3) K} (hx : x ∈ unitrian
   inv_mem' {x} (hx : x ∈ unitriangular 3 K ∧ (x : Matrix (Fin 3) (Fin 3) K) 0 1 = 0) :=
     ⟨inv_mem hx.1, by rw [(uni3_inv_entries hx.1).1, hx.2, neg_zero]⟩
 
+omit [Finite K] [CharP K 2] in
+theorem mem_Q2 {x : SpecialLinearGroup (Fin 3) K} :
+    x ∈ Q2 K ↔ x ∈ unitriangular 3 K ∧ (x : Matrix (Fin 3) (Fin 3) K) 0 1 = 0 := Iff.rfl
 
 omit [CharP K 2] in
 theorem card_Q1_le : Nat.card (Q1 K) ≤ Nat.card K ^ 2 := by
@@ -113,6 +116,8 @@ theorem card_fixV_Q1_le (hn : 1 ≤ n) (hK : Nat.card K = (2 ^ n) ^ 2) :
   inv_mem' {X} (hX : mat X 0 2 = 0 ∧ mat X 1 2 = 0 ∧ mat X 2 2 = 0) :=
     ⟨by simp [mat_inv, hX.1], by simp [mat_inv, hX.2.1], by simp [mat_inv, hX.2.2]⟩
 
+theorem mem_blkW {X : HMod n K} :
+    X ∈ blkW n K ↔ mat X 0 2 = 0 ∧ mat X 1 2 = 0 ∧ mat X 2 2 = 0 := Iff.rfl
 
 theorem card_blkW (hn : 1 ≤ n) (hK : Nat.card K = (2 ^ n) ^ 2) :
     Nat.card (blkW n K) = Nat.card K ^ 2 := by

@@ -114,6 +114,43 @@ theorem exists_notMem_of_index_two {B : Type*} [Group B] {M : Subgroup B} (hM : 
 
 section Three
 
+theorem zpow_eq_one_or_self_or_inv {G : Type*} [Group G] {g : G} (hg : g ^ 3 = 1) (k : ℤ) :
+    g ^ k = 1 ∨ g ^ k = g ∨ g ^ k = g⁻¹ := by
+  have h3 : g ^ (3 * (k / 3)) = 1 := by
+    rw [zpow_mul]
+    simp [hg]
+  have hk : g ^ k = g ^ (k % 3) := by
+    calc g ^ k = g ^ (k % 3 + 3 * (k / 3)) := by rw [Int.emod_add_mul_ediv]
+      _ = g ^ (k % 3) * g ^ (3 * (k / 3)) := zpow_add _ _ _
+      _ = g ^ (k % 3) := by rw [h3, mul_one]
+  have h2 : g ^ (2 : ℤ) = g⁻¹ := by
+    apply eq_inv_of_mul_eq_one_left
+    rw [← hg]
+    group
+  have hc : k % 3 = 0 ∨ k % 3 = 1 ∨ k % 3 = 2 := by omega
+  rcases hc with h | h | h <;> rw [hk, h]
+  · simp
+  · simp
+  · exact Or.inr (Or.inr h2)
+
+theorem eq_one_or_self_or_inv_of_mem_center {M : Type*} [Group M] (hZ : Nat.card (center M) = 3)
+    {z w : M} (hz : z ∈ center M) (hw : w ∈ center M) (hz1 : z ≠ 1) :
+    w = 1 ∨ w = z ∨ w = z⁻¹ := by
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  have hz1' : (⟨z, hz⟩ : center M) ≠ 1 := fun h => hz1 (congrArg Subtype.val h)
+  have hmem : (⟨w, hw⟩ : center M) ∈ Subgroup.zpowers (⟨z, hz⟩ : center M) :=
+    mem_zpowers_of_prime_card hZ hz1'
+  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hmem
+  have h3 : (⟨z, hz⟩ : center M) ^ 3 = 1 := by
+    rw [← hZ]
+    exact pow_card_eq_one'
+  have hv : w = z ^ k := by
+    have := congrArg Subtype.val hk
+    rw [Subgroup.coe_zpow] at this
+    exact this.symm
+  have hz3 : z ^ 3 = 1 := congrArg Subtype.val h3
+  rw [hv]
+  exact zpow_eq_one_or_self_or_inv hz3 k
 
 end Three
 
@@ -187,6 +224,77 @@ theorem exists_mulEquiv_extend_of_index_two [Finite M₂] (hM₁ : M₁.index = 
   rw [hι₁app, MulEquiv.symm_apply_apply] at h1
   exact h1
 
+theorem exists_mulEquiv_extend_of_index_two_twist [Finite M₂] (hM₁ : M₁.index = 2)
+    (hM₂ : M₂.index = 2) (μ : M₁ ≃* M₂) (hZ₂ : Nat.card (center M₂) = 3)
+    (hout₂ : Nat.card (MulAut M₂) ≤ 2 * Nat.card (M₂ ⧸ center M₂))
+    (hinv₁ : ∀ b : B₁, b ∉ M₁ → ∀ z : M₁, z ∈ center M₁ → b * (z : B₁) * b⁻¹ = (z : B₁)⁻¹)
+    (hinv₂ : ∀ b : B₂, b ∉ M₂ → ∀ z : M₂, z ∈ center M₂ → b * (z : B₂) * b⁻¹ = (z : B₂)⁻¹)
+    (α : MulAut M₂) : ∃ ν : B₁ ≃* B₂, ∀ m : M₁, ν m = α (μ m) :=
+  exists_mulEquiv_extend_of_index_two hM₁ hM₂ (μ.trans α) hZ₂ hout₂ hinv₁ hinv₂
+
+theorem exists_mulEquiv_of_index_two [Finite M₂] (hM₁ : M₁.index = 2) (hM₂ : M₂.index = 2)
+    (μ : M₁ ≃* M₂) (hZ₂ : Nat.card (center M₂) = 3)
+    (hout₂ : Nat.card (MulAut M₂) ≤ 2 * Nat.card (M₂ ⧸ center M₂))
+    (hinv₁ : ∀ b : B₁, b ∉ M₁ → ∀ z : M₁, z ∈ center M₁ → b * (z : B₁) * b⁻¹ = (z : B₁)⁻¹)
+    (hinv₂ : ∀ b : B₂, b ∉ M₂ → ∀ z : M₂, z ∈ center M₂ → b * (z : B₂) * b⁻¹ = (z : B₂)⁻¹) :
+    ∃ ν : B₁ ≃* B₂, ∃ α : MulAut M₂, ∀ m : M₁, ν m = α (μ m) := by
+  obtain ⟨ν, hν⟩ := exists_mulEquiv_extend_of_index_two hM₁ hM₂ μ hZ₂ hout₂ hinv₁ hinv₂
+  exact ⟨ν, 1, fun m => by rw [hν, MulAut.one_apply]⟩
+
+theorem mem_center_iff_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) (x : X) :
+    e x ∈ center Y ↔ x ∈ center X := by
+  rw [← Subgroup.map_center_eq e]
+  exact Subgroup.mem_map_iff_mem e.injective
+
+theorem mem_center_iff_of_extend {ν : B₁ ≃* B₂} {α : MulAut M₂} {μ : M₁ ≃* M₂}
+    (hν : ∀ m : M₁, ν m = α (μ m)) (z : M₁) :
+    z ∈ center M₁ ↔ ∃ w : M₂, w ∈ center M₂ ∧ (w : B₂) = ν z := by
+  constructor
+  · intro hz
+    exact ⟨α (μ z), (mem_center_iff_mulEquiv α _).mpr ((mem_center_iff_mulEquiv μ z).mpr hz),
+      (hν z).symm⟩
+  · rintro ⟨w, hw, hwz⟩
+    have hw' : w = α (μ z) := Subtype.ext (hwz.trans (hν z))
+    rw [hw'] at hw
+    exact (mem_center_iff_mulEquiv μ z).mp ((mem_center_iff_mulEquiv α _).mp hw)
+
+theorem map_center_eq_of_extend {ν : B₁ ≃* B₂} {α : MulAut M₂} {μ : M₁ ≃* M₂}
+    (hν : ∀ m : M₁, ν m = α (μ m)) :
+    ((center M₁).map M₁.subtype).map ν.toMonoidHom = (center M₂).map M₂.subtype := by
+  ext y
+  simp only [Subgroup.mem_map, Subgroup.subtype_apply]
+  constructor
+  · rintro ⟨_, ⟨z, hz, rfl⟩, rfl⟩
+    obtain ⟨w, hw, hwz⟩ := (mem_center_iff_of_extend hν z).mp hz
+    exact ⟨w, hw, hwz⟩
+  · rintro ⟨w, hw, rfl⟩
+    obtain ⟨z, hzdef⟩ : ∃ z : M₁, μ z = α.symm w := ⟨μ.symm (α.symm w), by simp⟩
+    have hνz : ν z = (w : B₂) := by rw [hν, hzdef]; simp
+    have hz : z ∈ center M₁ := (mem_center_iff_of_extend hν z).mpr ⟨w, hw, hνz.symm⟩
+    exact ⟨z, ⟨z, hz, rfl⟩, hνz⟩
+
+theorem exists_mulEquiv_of_index_two_center [Finite M₂] (hM₁ : M₁.index = 2)
+    (hM₂ : M₂.index = 2) (μ : M₁ ≃* M₂) (hZ₂ : Nat.card (center M₂) = 3)
+    (hout₂ : Nat.card (MulAut M₂) ≤ 2 * Nat.card (M₂ ⧸ center M₂))
+    (hinv₁ : ∀ b : B₁, b ∉ M₁ → ∀ z : M₁, z ∈ center M₁ → b * (z : B₁) * b⁻¹ = (z : B₁)⁻¹)
+    (hinv₂ : ∀ b : B₂, b ∉ M₂ → ∀ z : M₂, z ∈ center M₂ → b * (z : B₂) * b⁻¹ = (z : B₂)⁻¹)
+    {z₁ : M₁} {z₂ : M₂} (hz₁ : z₁ ∈ center M₁) (hz₂ : z₂ ∈ center M₂) (h₁ : z₁ ≠ 1)
+    (h₂ : z₂ ≠ 1) :
+    ∃ ν : B₁ ≃* B₂, ν (z₁ : B₁) = (z₂ : B₂) ∧ ∃ α : MulAut M₂, ∀ m : M₁, ν m = α (μ m) := by
+  obtain ⟨ν₀, hν₀⟩ := exists_mulEquiv_extend_of_index_two hM₁ hM₂ μ hZ₂ hout₂ hinv₁ hinv₂
+  have hw : μ z₁ ∈ center M₂ := (mem_center_iff_mulEquiv μ z₁).mpr hz₁
+  have hw1 : μ z₁ ≠ 1 := fun h => h₁ ((map_eq_one_iff μ μ.injective).mp h)
+  rcases eq_one_or_self_or_inv_of_mem_center hZ₂ hz₂ hw h₂ with h | h | h
+  · exact absurd h hw1
+  · refine ⟨ν₀, ?_, 1, fun m => by rw [hν₀, MulAut.one_apply]⟩
+    rw [hν₀, h]
+  · obtain ⟨s₂, hs₂⟩ := exists_notMem_of_index_two hM₂
+    have : M₂.Normal := normal_of_index_eq_two hM₂
+    refine ⟨ν₀.trans (MulAut.conj s₂), ?_, MulAut.conjNormal s₂, fun m => ?_⟩
+    · simp only [MulEquiv.trans_apply, MulAut.conj_apply, hν₀]
+      rw [hinv₂ s₂ hs₂ _ hw, h]
+      simp
+    · simp [hν₀, MulAut.conjNormal_apply]
 
 end Main
 

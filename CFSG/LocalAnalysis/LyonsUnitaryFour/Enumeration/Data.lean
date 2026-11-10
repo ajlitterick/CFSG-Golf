@@ -163,5 +163,17 @@ instance : Fintype LyonsLabel :=
 @[expose] def lyonsConfigurations : Set (Multiset LyonsRow) :=
   Set.range lyonsConfiguration
 
+theorem lyonsConfiguration_FReflected :
+    lyonsConfiguration .FReflected = (lyonsConfiguration .F).map LyonsRow.reflect := by
+  decide +kernel
+
+theorem lyonsConfiguration_GReflected :
+    lyonsConfiguration .GReflected = (lyonsConfiguration .G).map LyonsRow.reflect := by
+  decide +kernel
+
+theorem card_lyonsConfiguration_mem (c : LyonsLabel) :
+    Multiset.card (lyonsConfiguration c) ∈
+      ({10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 23} : Finset ℕ) := by
+  cases c <;> decide
 
 end CFSG.LyonsUnitaryFour

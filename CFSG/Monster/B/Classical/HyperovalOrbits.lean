@@ -217,10 +217,22 @@ theorem leastMask_spec (k : Fin 3) :
 
 @[expose] def dMat : Matrix (Fin 3) (Fin 3) F4 := Matrix.diagonal ![F4.ω, 1, 1]
 
+theorem dMat_mulVec_injective : Function.Injective (Matrix.mulVecLin dMat) := by
+  intro v w h
+  revert v w
+  decide +kernel
+
+@[expose] noncomputable def dProj : ℙ F4 (Fin 3 → F4) → ℙ F4 (Fin 3 → F4) :=
+  Projectivization.map (Matrix.mulVecLin dMat) dMat_mulVec_injective
 
 @[expose] def dPermFn : Fin 21 → Fin 21 := ![0, 1, 2, 3, 4, 5, 8, 6, 7, 17, 20, 18, 19, 9, 12, 10,
   11, 13, 16, 14, 15]
 
+theorem dPermFn_spec : ∀ p : Fin 21, normIdx (dMat *ᵥ Ω p) = dPermFn p := by decide +kernel
+
+theorem dProj_Ωproj (p : Fin 21) : Ωproj.symm (dProj (Ωproj p)) = dPermFn p := by
+  rw [dProj, Ωproj_apply, Projectivization.map_mk, Ωproj_symm_mk, Matrix.mulVecLin_apply,
+    dPermFn_spec]
 
 theorem dPermFn_injective : Function.Injective dPermFn := by decide
 
@@ -309,5 +321,54 @@ theorem card_stab_O_le (k : Fin 3) :
 @[expose] def pslOrbit (A : Finset (Fin 21)) : Set (Finset (Fin 21)) :=
   {B | ∃ g : PSL(3, F4), A.map (pslPerm g).toEmbedding = B}
 
+theorem pslOrbits_hyperovals :
+    {S | ∃ A ∈ hyperovals, S = pslOrbit A} =
+      {(O 0 : Set (Finset (Fin 21))), (O 1 : Set (Finset (Fin 21))),
+        (O 2 : Set (Finset (Fin 21)))} := by
+  ext S
+  simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
+  constructor
+  · rintro ⟨A, hA, rfl⟩
+    rw [hyperovals_eq, Finset.mem_union, Finset.mem_union] at hA
+    rcases hA with (hA | hA) | hA
+    · exact Or.inl (orbit_O hA)
+    · exact Or.inr (Or.inl (orbit_O hA))
+    · exact Or.inr (Or.inr (orbit_O hA))
+  · have hne : ∀ i, (O i).Nonempty := fun i => by
+      rw [← Finset.card_pos, card_O]; norm_num
+    have hmem : ∀ i, ∀ A ∈ O i, A ∈ O 0 ∪ O 1 ∪ O 2 := fun i A hA => by
+      match i, hA with
+      | 0, hA => exact Finset.mem_union_left _ (Finset.mem_union_left _ hA)
+      | 1, hA => exact Finset.mem_union_left _ (Finset.mem_union_right _ hA)
+      | 2, hA => exact Finset.mem_union_right _ hA
+    have key : ∀ i, ∃ A ∈ hyperovals, (O i : Set (Finset (Fin 21))) = pslOrbit A := fun i => by
+      obtain ⟨A, hA⟩ := hne i
+      refine ⟨A, ?_, (orbit_O hA).symm⟩
+      rw [hyperovals_eq]
+      exact hmem i A hA
+    rintro (rfl | rfl | rfl)
+    · exact key 0
+    · exact key 1
+    · exact key 2
+
+theorem four_field_projective_plane_hyperoval_census :
+    ((∀ i, IsNormalized (Ω i)) ∧ (∀ v, IsNormalized v → ∃ i, Ω i = v) ∧
+      StrictMono fun i => lexKey (Ω i)) ∧
+    hyperovals.card = 168 ∧
+    hyperovals = O 0 ∪ O 1 ∪ O 2 ∧ (∀ i j : Fin 3, i ≠ j → Disjoint (O i) (O j)) ∧
+    (∀ i, (O i).card = 56) ∧
+    (∀ i, ∀ A ∈ O i, pslOrbit A = (O i : Set (Finset (Fin 21)))) ∧
+    {S | ∃ A ∈ hyperovals, S = pslOrbit A} =
+      {(O 0 : Set (Finset (Fin 21))), (O 1 : Set (Finset (Fin 21))),
+        (O 2 : Set (Finset (Fin 21)))} ∧
+    (∀ i, (∀ A ∈ O i, leastMask i ≤ mask A) ∧ ∃ A ∈ O i, mask A = leastMask i) ∧
+    leastMask 0 = 1656 ∧ leastMask 1 = 2740 ∧ leastMask 2 = 3276 ∧
+    (∀ p, dPerm p = Ωproj.symm (dProj (Ωproj p))) ∧
+    (∀ i, setImage dPerm (O i) = O (i + 1)) ∧
+    Nat.card lineAut ≤ 120960 ∧
+    ∀ i, Nat.card {σ : lineAut // setImage σ (O i) = O i} ≤ 40320 :=
+  ⟨Ω_spec, card_hyperovals, hyperovals_eq, fun _ _ h => disjoint_O h, card_O,
+    fun _ _ hA => orbit_O hA, pslOrbits_hyperovals, leastMask_spec, rfl, rfl, rfl,
+    fun p => (dProj_Ωproj p).symm, setImage_dPerm_O, card_lineAut_le, card_stab_O_le⟩
 
 end CFSG.Monster.B.Classical.Plane

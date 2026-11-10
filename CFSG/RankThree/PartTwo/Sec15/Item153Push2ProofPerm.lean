@@ -157,6 +157,9 @@ variable {n : ℕ}
     rw [hinv, pcode_sq]
     exact hmul _ ha _ ha
 
+theorem mem_ofCodes {l : List (List ℕ)} {h1 : List.range n ∈ l}
+    {hmul : ∀ a ∈ l, ∀ b ∈ l, cmul a b ∈ l} {h3 : ∀ a ∈ l, cmul (csq a) a = List.range n}
+    {σ : Perm (Fin n)} : σ ∈ ofCodes l h1 hmul h3 ↔ pcode σ ∈ l := Iff.rfl
 
 theorem card_ofCodes {l : List (List ℕ)} {h1 : List.range n ∈ l}
     {hmul : ∀ a ∈ l, ∀ b ∈ l, cmul a b ∈ l} {h3 : ∀ a ∈ l, cmul (csq a) a = List.range n}
@@ -474,6 +477,16 @@ theorem sylow_five_comm (P : Sylow 3 (Perm (Fin 5))) : ∀ x ∈ P, ∀ y ∈ P,
       _ = g * (y * x) * g⁻¹ := by group
   simpa using h'
 
+theorem card_sylow_five (P : Sylow 3 (Perm (Fin 5))) :
+    Nat.card ↥(P : Subgroup (Perm (Fin 5))) = 3 := by
+  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+  obtain ⟨g, hg⟩ := exists_conj_sylow P E5Sylow
+  rw [E5Sylow_coe] at hg
+  have h := Subgroup.card_map_of_injective (K := (P : Subgroup (Perm (Fin 5))))
+    (f := (MulAut.conj g).toMonoidHom) (MulAut.conj g).injective
+  rw [hg] at h
+  rw [← h]
+  exact card_E5
 
 end SylowFive
 

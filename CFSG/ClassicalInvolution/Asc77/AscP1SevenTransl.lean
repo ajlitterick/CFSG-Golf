@@ -165,6 +165,21 @@ theorem comm_translGroup {B : Set Q} (hB : B ⊆ cent Δ d) {g y : Q}
   | inv x _ hx =>
     exact (Commute.inv_left (show Commute x (transl a d y) from hx)).eq
 
+theorem commute_translGroup {B B' : Set Q} (hB : B ⊆ cent Δ d) (hB' : B' ⊆ cent Δ d) {g g' : Q}
+    (hg : g ∈ translGroup a d B) (hg' : g' ∈ translGroup a d B') : g * g' = g' * g := by
+  induction hg' using Subgroup.closure_induction with
+  | mem x hx =>
+    obtain ⟨b, hb, rfl⟩ := hx
+    exact c.comm_translGroup hB hg (hB' hb)
+  | one => simp
+  | mul x z _ _ hx hz =>
+    calc g * (x * z) = (g * x) * z := (mul_assoc _ _ _).symm
+      _ = (x * g) * z := by rw [hx]
+      _ = x * (g * z) := mul_assoc _ _ _
+      _ = x * (z * g) := by rw [hz]
+      _ = (x * z) * g := (mul_assoc _ _ _).symm
+  | inv x _ hx =>
+    exact (Commute.inv_right (show Commute g x from hx)).eq
 
 theorem conj_mem_cent {B : Set Q} (hB : B ⊆ cent Δ d) {g : Q} (hg : g ∈ translGroup a d B) :
     ∀ x ∈ cent Δ d, g * x * g⁻¹ ∈ cent Δ d ∧ g⁻¹ * x * g ∈ cent Δ d := by

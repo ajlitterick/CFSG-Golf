@@ -29,6 +29,8 @@ section
 variable {hn : 1 ≤ n} {S : Array (Array ℕ)} {k : ℕ} {hk : k ≤ S.size} {base : List (Fin n)}
   {hb : base.Nodup} {W : Array (List ℤ)}
 
+theorem RawSchreierDatum.ofArrays_originalCount :
+    (RawSchreierDatum.ofArrays n hn S k hk base hb W).originalCount = k := rfl
 
 theorem RawSchreierDatum.ofArrays_strongCount :
     (RawSchreierDatum.ofArrays n hn S k hk base hb W).strongCount = S.size := rfl

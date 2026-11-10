@@ -22,5 +22,6 @@ open CFSG.KC (notB)
 
 #kc_forall_chunks fix_ok (fun k => fixF k = true) 191 CertificateChecks.KernelJ4Fam.fixF 1
 
+theorem neg_fix : notB (fixRowOK INV (FB.set 7 (FB.getD 7 0 ^^^ 2)) FLL PL 7) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Fam

@@ -27,6 +27,9 @@ noncomputable section
 theorem endPowU_apply_eq_iterate
 
 
+
+
+
     {G : Type*} [Monoid G] (S : G →* G) (n : ℕ) (x : G) :
     endPowU S n x = S^[n] x := by
   induction n with
@@ -41,8 +44,18 @@ section BaseChange
   ((baseChangeGL ι).comp (adjointGroup τ K).subtype).codRestrict _ fun g =>
     CFSG.LieType.Chevalley.baseChangeGL_mem_adjointGroup ι g.2
 
+theorem coe_bcA
+
+
+
+
+    {K L : Type} [Field K] [Field L] (ι : K →+* L)
+    {τ : Tag} (g : adjointGroup τ K) :
+    (bcA ι τ g : ModGL τ L) = baseChangeGL ι (g : ModGL τ K) := rfl
 
 theorem bcA_injective
+
+
 
 
     {K L : Type} [Field K] [Field L]
@@ -52,12 +65,16 @@ theorem bcA_injective
 theorem bcA_xElement
 
 
+
+
     {K L : Type} [Field K] [Field L]
     (ι : K →+* L) {τ : Tag} (i : Fin τ.rank) (c : K) :
     bcA ι τ (xElement i c) = xElement i (ι c) :=
   Subtype.ext (baseChangeGL_xUnit ι i c)
 
 theorem bcA_yElement
+
+
 
 
     {K L : Type} [Field K] [Field L]

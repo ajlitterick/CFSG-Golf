@@ -216,6 +216,17 @@ section withK
 
 variable {c : X} (hc : c = S.k ∨ c = S.t * S.k)
 
+theorem withK_t : (S.withK c hc).t = S.t := rfl
+
+theorem withK_data : (S.withK c hc).data = S.data := rfl
+
+theorem withK_k : (S.withK c hc).k = c := rfl
+
+theorem withK_x : (S.withK c hc).x = S.x := rfl
+
+theorem withK_y : (S.withK c hc).y = S.y := rfl
+
+theorem withK_z : (S.withK c hc).z = S.z := rfl
 
 end withK
 

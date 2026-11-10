@@ -152,6 +152,20 @@ theorem card_gen_eq {n w m nw pm ng T N : ℕ} {L : ℕ → ℕ}
     exact ⟨⟨k, hk⟩, Subtype.ext he⟩
   rw [← Nat.card_eq_of_bijective f hf, Nat.card_eq_fintype_card, Fintype.card_fin]
 
+theorem eq_stabilizer_of_card {G X : Type*} [Group G] [Finite G] [MulAction G X] (x : X)
+    {M : Subgroup G} (hM : M ≤ MulAction.stabilizer G x)
+    (h : Nat.card G ≤ Nat.card M * Nat.card (MulAction.orbit G x)) :
+    M = MulAction.stabilizer G x := by
+  have e := (MulAction.stabilizer G x).card_mul_index
+  rw [MulAction.index_stabilizer, ← Nat.card_coe_set_eq] at e
+  have hpos : 0 < Nat.card (MulAction.orbit G x) := by
+    rw [Nat.card_coe_set_eq, ← MulAction.index_stabilizer]
+    exact Nat.pos_of_ne_zero Subgroup.index_ne_zero_of_finite
+  have hle : Nat.card (MulAction.stabilizer G x) ≤ Nat.card M := by
+    by_contra hlt
+    have := Nat.mul_lt_mul_of_pos_right (Nat.lt_of_not_le hlt) hpos
+    omega
+  exact Subgroup.eq_of_le_of_card_ge hM hle
 
 end CFSG.KC.L34Syl
 

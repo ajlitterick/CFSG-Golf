@@ -322,5 +322,22 @@ theorem trialityTargets_involutions :
   · exact ⟨qP_ne_one (by norm_num) (by norm_num) (by norm_num) (Or.inl (by norm_num)),
       by rw [qP_self_mul]; exact qP_zero_zero_of_even (by decide)⟩
 
+theorem tauData_witnesses :
+    tauData.map (fun w => (w.cosetIndex, w.sourceQ, w.trialityPower, w.target)) =
+      [(1, 0, 2, (0, 3, 60)), (1, 63, 2, (1, 60, 60)), (1, 196668, 1, (1, 3, 48)),
+        (2, 734, 1, (1, 734, 0))] :=
+  Certificates.certificate6024.2.2.2.2.2.2.2.2
+
+theorem visible_involution_triality_witnesses :
+    tauB ^ 2 * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB) * (tauB ^ 2)⁻¹ = rhoEquiv (qP 0 3 60) ∧
+    tauB ^ 2 * (rhoEquiv (qP 0 63 0) * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB)) * (tauB ^ 2)⁻¹ =
+      rhoEquiv (qP 1 60 60) ∧
+    tauB * (rhoEquiv (qP 0 60 48) * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB)) * tauB⁻¹ =
+      rhoEquiv (qP 1 3 48) ∧
+    tauB * (rhoEquiv (qP 0 734 0) * (cosetRep 2 : SpaceB ≃ₗ[ℚ] SpaceB)) * tauB⁻¹ =
+      rhoEquiv (qP 1 734 0) ∧
+    ∀ q ∈ [qP 0 3 60, qP 1 60 60, qP 1 3 48, qP 1 734 0], q ≠ 1 ∧ q * q = 1 :=
+  ⟨trialityWitness_one, trialityWitness_two, trialityWitness_three, trialityWitness_four,
+    trialityTargets_involutions⟩
 
 end CFSG.Monster.Existence.Census

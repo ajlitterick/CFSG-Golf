@@ -46,6 +46,10 @@ theorem bval_succ {G : Type*} [Group G] (gen : ℕ → G) (W n : ℕ) :
   rw [Nat.succ_eq_add_one, Nat.mul_add, pow_add]
   ring
 
+theorem brec_beq_ne {k i : ℕ} (h : k ≠ i) (a b : ℕ) :
+    Bool.rec (motive := fun _ => ℕ) a b (Nat.beq k i) = a := by
+  have : Nat.beq k i = false := Bool.eq_false_iff.mpr fun h' => h (Nat.eq_of_beq_eq_true h')
+  rw [this]
 
 @[expose] noncomputable def swd {G : Type*} [Group G] (gen : ℕ → G) (w : List (ℕ × Bool)) : G :=
   (w.map fun x => if x.2 then gen x.1 else (gen x.1)⁻¹).prod

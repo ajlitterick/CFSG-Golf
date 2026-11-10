@@ -115,6 +115,8 @@ theorem eq_mk (x : W n) : x = mk (vec x) (vec_mem x) x.right := rfl
 theorem ext_vec {x y : W n} (hv : vec x = vec y) (hr : x.right = y.right) : x = y :=
   SemidirectProduct.ext (congrArg Multiplicative.ofAdd (Subtype.ext hv)) hr
 
+theorem ext_vec_iff {x y : W n} : x = y ↔ vec x = vec y ∧ x.right = y.right :=
+  ⟨fun h => h ▸ ⟨rfl, rfl⟩, fun h => ext_vec h.1 h.2⟩
 
 theorem vec_mul (x y : W n) : vec (x * y) = vec x + permVec x.right (vec y) := rfl
 
@@ -201,6 +203,16 @@ theorem negOnePow_add (a b : ZMod 2) : negOnePow R (a + b) = negOnePow R a * neg
 theorem signedPermAction_apply (x : W n) (f : Fin n → R) (j : Fin n) :
     signedPermAction R x f j = negOnePow R (vec x j) * f (x.right⁻¹ j) := rfl
 
+theorem signedPermAction_single (x : W n) (i : Fin n) :
+    signedPermAction R x (Pi.single i 1) =
+      negOnePow R (vec x (x.right i)) • Pi.single (x.right i) 1 := by
+  funext j
+  rw [signedPermAction_apply, Pi.smul_apply, smul_eq_mul]
+  by_cases hj : j = x.right i
+  · subst hj
+    simp
+  · have : x.right⁻¹ j ≠ i := fun h => hj (Perm.inv_eq_iff_eq.1 h)
+    rw [Pi.single_eq_of_ne this, Pi.single_eq_of_ne hj, mul_zero, mul_zero]
 
 @[expose] def simpleRoot (i : Fin n) : Fin n → R :=
   if h : (i : ℕ) = 0 ∧ 1 < n then -Pi.single ⟨0, by omega⟩ 1 - Pi.single ⟨1, h.2⟩ 1
@@ -214,6 +226,7 @@ theorem signedPermAction_apply (x : W n) (f : Fin n → R) (j : Fin n) :
   {x | ∃ i j : Fin n, i < j ∧
     (x = Pi.single i 1 - Pi.single j 1 ∨ x = -Pi.single i 1 - Pi.single j 1)}
 
+@[expose] def negRoots : Set (Fin n → R) := {x | -x ∈ posRoots R}
 
 @[expose] def forkEdge (i j : Fin n) : Prop :=
   ((i : ℕ) = 0 ∧ (j : ℕ) = 2) ∨ ((i : ℕ) = 1 ∧ (j : ℕ) = 2) ∨ (2 ≤ (i : ℕ) ∧ (j : ℕ) = i + 1)
@@ -240,5 +253,47 @@ instance : DecidableRel (forkGraph n).Adj := fun _ _ =>
 
 @[expose] def coxeterEntry (i j : Fin n) : ℕ := if (forkGraph n).Adj i j then 3 else 2
 
+theorem even_signed_permutation_data (hn : 4 ≤ n) :
+    (∀ v : Fin n → ZMod 2, v ∈ evenSubspace n ↔ ∑ i, v i = 0) ∧
+    (∀ (σ : Perm (Fin n)) (i : Fin n), permVec σ (basisVec i) = basisVec (σ i)) ∧
+    (∀ (σ : Perm (Fin n)) (v : Fin n → ZMod 2), v ∈ evenSubspace n →
+      permVec σ v ∈ evenSubspace n) ∧
+    (∀ (v w : Fin n → ZMod 2) (hv : v ∈ evenSubspace n) (hw : w ∈ evenSubspace n)
+      (σ τ : Perm (Fin n)), mk v hv σ * mk w hw τ =
+        mk (v + permVec σ w) (Submodule.add_mem _ hv (permVec_mem σ hw)) (σ * τ)) ∧
+    (∀ x : W n, x = mk (vec x) (vec_mem x) x.right) ∧
+    (∀ x : W n, x ∈ signSubgroup n ↔ x.right = 1) ∧
+    s (⟨0, by omega⟩ : Fin n) =
+      mk (basisVec ⟨0, by omega⟩ + basisVec ⟨1, by omega⟩) (basisVec_add_basisVec_mem _ _)
+        (swap ⟨0, by omega⟩ ⟨1, by omega⟩) ∧
+    s (⟨1, by omega⟩ : Fin n) =
+      mk 0 (Submodule.zero_mem _) (swap ⟨0, by omega⟩ ⟨1, by omega⟩) ∧
+    (∀ i : Fin n, ∀ hi : 2 ≤ (i : ℕ),
+      s i = mk 0 (Submodule.zero_mem _) (swap ⟨i - 1, by omega⟩ i)) ∧
+    (∀ (x : W n) (i : Fin n), signedPermAction ℝ x (Pi.single i 1) =
+      negOnePow ℝ (vec x (x.right i)) • Pi.single (x.right i) 1) ∧
+    simpleRoot ℝ (⟨0, by omega⟩ : Fin n) =
+      -Pi.single ⟨0, by omega⟩ 1 - Pi.single ⟨1, by omega⟩ 1 ∧
+    (∀ i : Fin n, ∀ hi : 1 ≤ (i : ℕ),
+      simpleRoot ℝ i = Pi.single ⟨i - 1, by omega⟩ 1 - Pi.single i 1) ∧
+    (∀ x : Fin n → ℝ, x ∈ roots ℝ ↔ ∃ i j : Fin n, i < j ∧ ∃ ε δ : ℝ, (ε = 1 ∨ ε = -1) ∧
+      (δ = 1 ∨ δ = -1) ∧ x = ε • Pi.single i 1 + δ • Pi.single j 1) ∧
+    (∀ x : Fin n → ℝ, x ∈ posRoots ℝ ↔ ∃ i j : Fin n, i < j ∧
+      (x = Pi.single i 1 - Pi.single j 1 ∨ x = -Pi.single i 1 - Pi.single j 1)) ∧
+    (∀ x : Fin n → ℝ, x ∈ negRoots ℝ ↔ -x ∈ posRoots ℝ) ∧
+    (∀ i j : Fin n, (forkGraph n).Adj i j ↔
+      ((i : ℕ) = 0 ∧ (j : ℕ) = 2) ∨ ((i : ℕ) = 2 ∧ (j : ℕ) = 0) ∨
+        ((i : ℕ) = 1 ∧ (j : ℕ) = 2) ∨ ((i : ℕ) = 2 ∧ (j : ℕ) = 1) ∨
+        (2 ≤ (i : ℕ) ∧ (j : ℕ) = i + 1) ∨ (2 ≤ (j : ℕ) ∧ (i : ℕ) = j + 1)) ∧
+    (∀ i j : Fin n, i ≠ j → (forkGraph n).Adj i j → coxeterEntry i j = 3) ∧
+    (∀ i j : Fin n, i ≠ j → ¬ (forkGraph n).Adj i j → coxeterEntry i j = 2) := by
+  refine ⟨fun _ => Iff.rfl, permVec_basisVec, fun σ _ hv => permVec_mem σ hv,
+    fun _ _ _ _ _ _ => rfl, eq_mk, fun _ => mem_signSubgroup_iff, s_zero (by omega),
+    s_of_ne_zero (by simp), fun i hi => s_of_ne_zero (by omega),
+    signedPermAction_single ℝ, ?_, fun i hi => ?_, fun _ => Iff.rfl, fun _ => Iff.rfl,
+    fun _ => Iff.rfl, fun _ _ => forkGraph_adj_iff, fun i j _ h => ite_eq_left h,
+    fun i j _ h => ite_eq_right h⟩
+  · rw [simpleRoot, dite_eq_left ⟨rfl, by omega⟩]
+  · rw [simpleRoot, dite_eq_right fun h => by omega]
 
 end CFSG.ComponentClassification.PresentationLocal

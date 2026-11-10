@@ -18,6 +18,8 @@ theorem bindA : walkOK (imgAt TX (nat_lit 0)) (hnsOrbitData ()).alpha (nat_lit 0
 theorem bindB : walkOK (imgAt TX (nat_lit 1)) (hnsOrbitData ()).beta (nat_lit 0) = true := by
   quickRfl
 
+theorem neg_imgAt : Bool.not (imgAt TX (nat_lit 0) (nat_lit 0)
+    (fldW (getRec TX (nat_lit 464) (nat_lit 0)) (nat_lit 420) (nat_lit 21))) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNXBind
 

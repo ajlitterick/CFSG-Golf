@@ -70,6 +70,11 @@ theorem MY_Q_le_stab_B (Γ : Subgroup P24) :
   rw [mem_MY_iff] at hg
   exact ⟨hg.1, MulAction.mem_stabilizer_iff.2 (smul_Bstd_of_smul_Qstd hg.2)⟩
 
+theorem card_MY_Q_L_le :
+    Nat.card ↥(MY mog22 Qstd) ≤ 1920 := by
+  have h1 := Subgroup.card_le_of_le (MY_Q_le_stab_B mog22)
+  rw [card_inf_stabilizer_eq (Γ := mog22) Bstd] at h1
+  exact h1.trans card_stab_B_le
 
 theorem exists_piQ (Γ : Subgroup P24) :
     ∃ π : ↥(MY Γ Qstd) →* Equiv.Perm (Fin 5),
@@ -98,9 +103,12 @@ theorem g1Perm_mem_MY {Γ : Subgroup P24} (hg : g1Perm ∈ Γ) : g1Perm ∈ MY �
 theorem g2Perm_mem_MY {Γ : Subgroup P24} (hg : g2Perm ∈ Γ) : g2Perm ∈ MY Γ Qstd :=
   mem_MY_Q_of_perm hg sig2 g2_smul_Zq
 
+theorem a2Perm_mem_MY {Γ : Subgroup P24} (hg : a2Perm ∈ Γ) : a2Perm ∈ MY Γ Qstd :=
+  mem_MY_Q_of_perm hg siga2 a2_smul_Zq
 
 theorem g2Perm_mem_mog22 : g2Perm ∈ mog22 := PO_le_mog22 g2Perm_mem_PO
 
+theorem a2Perm_mem_mog22 : a2Perm ∈ mog22 := PO_le_mog22 a2Perm_mem_PO
 
 theorem piQ_range_top {Γ : Subgroup P24} (h1 : g1Perm ∈ Γ) (h2 : g2Perm ∈ Γ) :
     (piQ Γ).range = ⊤ := by
@@ -124,5 +132,29 @@ theorem ker_piQ_of_card {Γ : Subgroup P24} (h1 : g1Perm ∈ Γ) (h2 : g2Perm �
     rw [h5]
     exact hc
 
+theorem NQ_le_MY_Q {Γ : Subgroup P24} (hΓ : mog22 ≤ Γ) : NQ ≤ MY Γ Qstd := fun g hg => by
+  obtain ⟨t, rfl⟩ := hg
+  exact mem_MY_Q_of_perm (hΓ (nqPerm_mem_mog22 t)) 1 fun i => by
+    simpa using nq_smul_Zq t i
+
+theorem nq_fix_Zq : ∀ g ∈ NQ, ∀ i, g • Zq i = Zq i := by
+  rintro _ ⟨t, rfl⟩ i
+  exact nq_smul_Zq t i
+
+theorem ker_piQ_L :
+    (piQ mog22).ker = NQ.subgroupOf (MY mog22 Qstd) :=
+  ker_piQ_of_card g1Perm_mem_mog22 g2Perm_mem_mog22 NQ (NQ_le_MY_Q le_rfl) nq_fix_Zq
+    (by rw [card_NQ]; exact card_MY_Q_L_le)
+
+theorem card_MY_Q_L :
+    Nat.card ↥(MY mog22 Qstd) = 1920 := by
+  rw [card_eq_card_ker_mul (piQ mog22) (piQ_range_top g1Perm_mem_mog22 g2Perm_mem_mog22),
+    ker_piQ_L, Nat.card_congr (Subgroup.subgroupOfEquivOfLe (NQ_le_MY_Q le_rfl)).toEquiv, card_NQ]
+  decide
+
+theorem KY_Q_L :
+    KY mog22 Qstd = NQ :=
+  pCoreOf_eq_of_ker (n := 5) (by norm_num) (piQ mog22)
+    (Or.inl (piQ_range_top g1Perm_mem_mog22 g2Perm_mem_mog22)) ker_piQ_L (NQ_le_MY_Q le_rfl) isPGroup_NQ
 
 end CFSG.Quasithin.RonanH143

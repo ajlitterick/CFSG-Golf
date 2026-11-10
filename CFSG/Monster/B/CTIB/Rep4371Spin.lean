@@ -137,6 +137,9 @@ theorem theta_rhoPair_rawSpin (q : Q) (i : SpinIdx) :
 @[expose] noncomputable def shatQ (q : Q) (hq : q ∈ Subgroup.centralizer {rStar}) : Shat :=
   cbarEquiv (kappa ⟨rhoEquiv q, rhoEquiv_mem_Cgen hq⟩)
 
+theorem shatQ_mem_Ehat {q : Q} (hq : q ∈ Subgroup.centralizer {rStar}) :
+    (shatQ q hq : Dfull) ∈ Ehat :=
+  ⟨_, kappa_rho_mem_Ebar hq, rfl⟩
 
 theorem rhoV_shatQ_spin
     {q : Q} (hq : q ∈ Subgroup.centralizer {rStar}) {t t' : Fin 2048}

@@ -47,6 +47,10 @@ theorem e6ToF4_add (v w : Fin Tag.E6.rank → ℤ) : e6ToF4 (v + w) = e6ToF4 v +
   · exact add_add_add_comm (v ⟨0, by decide⟩) (w ⟨0, by decide⟩) (v ⟨5, by decide⟩)
       (w ⟨5, by decide⟩)
 
+@[expose] def e6ToF4Hom : (Fin Tag.E6.rank → ℤ) →+ (Fin Tag.F4.rank → ℤ) where
+  toFun := e6ToF4
+  map_zero' := e6ToF4_zero
+  map_add' := e6ToF4_add
 
 theorem e6ToF4_reflect_check : ∀ (i : Fin 4) (j : Fin Tag.E6.rank),
     e6ToF4 ((nativeWord i).foldr (fun k w => reflect Tag.E6 k w) (Pi.single j 1)) =
@@ -186,6 +190,12 @@ theorem diagramOrbit_eq_pair (α : Fin TwistTag.E6.tag.rank → ℤ) :
   rw [TwistTag.diagramOrbit, h2, Finset.image_insert, Finset.image_singleton, pow_zero, pow_one]
   rfl
 
+theorem relProj_eq_of_mem_diagramOrbit {α β : Fin TwistTag.E6.tag.rank → ℤ}
+    (h : β ∈ TwistTag.E6.diagramOrbit α) : relProj β = relProj α := by
+  rw [diagramOrbit_eq_pair, Finset.mem_insert, Finset.mem_singleton] at h
+  rcases h with rfl | rfl
+  · rfl
+  · exact relProj_permLattice α
 
 @[expose] def relFibre (r : Fin Tag.F4.rank → ℤ) : Set (Fin TwistTag.E6.tag.rank → ℤ) :=
   {β | IsRoot TwistTag.E6.tag β ∧ relProj β = r}
@@ -219,6 +229,37 @@ theorem exists_relFibre_eq
   obtain ⟨α, hα, rfl, -⟩ := exists_relProj_fibre hr
   exact ⟨α, hα, rfl, relFibre_relProj hα⟩
 
+@[expose] def relRoot (O : TwistTag.E6.diagramRootOrbits) : Fin Tag.F4.rank → ℤ :=
+  relProj O.2.choose
+
+theorem relRoot_eq {O : TwistTag.E6.diagramRootOrbits} {β : Fin TwistTag.E6.tag.rank → ℤ}
+    (hβ : β ∈ (O : Finset (Fin TwistTag.E6.tag.rank → ℤ))) : relRoot O = relProj β := by
+  rw [← O.2.choose_spec.2] at hβ
+  exact (relProj_eq_of_mem_diagramOrbit hβ).symm
+
+theorem isRoot_relRoot
+    (O : TwistTag.E6.diagramRootOrbits) : IsRoot Tag.F4 (relRoot O) :=
+  isRoot_relProj O.2.choose_spec.1
+
+theorem coe_eq_relFibre
+    (O : TwistTag.E6.diagramRootOrbits) :
+    ((O : Finset (Fin TwistTag.E6.tag.rank → ℤ)) : Set (Fin TwistTag.E6.tag.rank → ℤ)) =
+      relFibre (relRoot O) := by
+  rw [relRoot, relFibre_relProj O.2.choose_spec.1, O.2.choose_spec.2]
+
+theorem relRoot_bijective
+    : Function.Bijective fun O : TwistTag.E6.diagramRootOrbits =>
+    (⟨relRoot O, isRoot_relRoot O⟩ : {r // IsRoot Tag.F4 r}) := by
+  refine ⟨fun O₁ O₂ h => ?_, fun ⟨r, hr⟩ => ?_⟩
+  · have h' : relRoot O₁ = relRoot O₂ := congrArg Subtype.val h
+    exact Subtype.ext (Finset.coe_injective (by rw [coe_eq_relFibre, coe_eq_relFibre, h']))
+  · obtain ⟨β, hβ, hβr, -⟩ := exists_relProj_fibre hr
+    exact ⟨⟨TwistTag.E6.diagramOrbit β, β, hβ, rfl⟩,
+      Subtype.ext ((relRoot_eq (TwistTag.E6.self_mem_diagramOrbit β)).trans hβr)⟩
+
+theorem height_relRoot (O : TwistTag.E6.diagramRootOrbits) {β : Fin TwistTag.E6.tag.rank → ℤ}
+    (hβ : β ∈ (O : Finset (Fin TwistTag.E6.tag.rank → ℤ))) : height (relRoot O) = height β := by
+  rw [relRoot_eq hβ, height_relProj]
 
 abbrev relRootGroup
     (r : Fin Tag.F4.rank → ℤ) : Subgroup (ModGL TwistTag.E6.tag K) :=
@@ -269,6 +310,16 @@ theorem map_conj_relRootGroup
     (canonical_weyl_root_transport TwistTag.E6.tag K).1 w' _ (relFibre_subset_isRoot r),
     ← relFibre_smul h, map_conj_eq_of_mem (canonicalRep_mem_fixed h.1)]
 
+theorem nativeRep_mem_root
+    (i : Fin 4) :
+    nativeRep i ∈ graphFixedRootGroup TwistTag.E6 K barHom :=
+  canonicalRep_mem_root (isLift_nativeRefl i).1
+
+theorem map_conj_nativeRep_relRootGroup
+    (i : Fin 4) (r : Fin Tag.F4.rank → ℤ) :
+    (relRootGroup r).map (MulAut.conj (nativeRep i)).toMonoidHom =
+      relRootGroup (simple .F4 i • r) :=
+  map_conj_relRootGroup (isLift_nativeRefl i) r
 
 theorem card_diagramOrbit_eq_one_iff : ∀ k : Fin 72,
     ((TwistTag.E6.diagramOrbit (e6Root k)).card = 1 ↔
@@ -318,6 +369,9 @@ theorem relFibre_finite
     (r : Fin Tag.F4.rank → ℤ) : (relFibre r).Finite :=
   (finite_setOf_isRoot TwistTag.E6.tag).subset (relFibre_subset_isRoot r)
 
+theorem relProj_eq_of_mem_relFibre {r : Fin Tag.F4.rank → ℤ} {β : Fin TwistTag.E6.tag.rank → ℤ}
+    (hβ : β ∈ relFibre r) : relProj β = r :=
+  hβ.2
 
 theorem bijOn_prod_congr {M : Type*} [Group M] {k : ℕ} {A B : Fin k → Subgroup M} (h : A = B)
     {T : Set M} (hA : Set.BijOn (fun u : (j : Fin k) → A j => (List.ofFn fun j => (u j : M)).prod)
@@ -374,5 +428,42 @@ theorem card_graphFixedPosUnipotent :
     Nat.card (graphFixedPosUnipotent TwistTag.E6 K barHom) = 2 ^ 36 :=
   card_stdUnipotent0
 
+theorem ncard_posRoots_long :
+    {r : Fin Tag.F4.rank → ℤ | IsRoot .F4 r ∧ 0 < height r ∧
+      f4Euclid r ⬝ᵥ f4Euclid r = 2}.ncard = 12 := by
+  have hS : {r : Fin Tag.F4.rank → ℤ | IsRoot .F4 r ∧ 0 < height r ∧
+      f4Euclid r ⬝ᵥ f4Euclid r = 2} = (fun k : Fin 48 => Tag.F4.rootCertificate.root k) ''
+        ↑((Finset.univ : Finset (Fin 48)).filter fun k : Fin 48 =>
+          0 < height (Tag.F4.rootCertificate.root k) ∧
+            f4Euclid (Tag.F4.rootCertificate.root k) ⬝ᵥ
+              f4Euclid (Tag.F4.rootCertificate.root k) = 2) := by
+    ext v
+    constructor
+    · rintro ⟨hv, hh, hl⟩
+      obtain ⟨k, rfl⟩ := isRoot_f4_iff.1 hv
+      exact ⟨k, by simpa using ⟨hh, hl⟩, rfl⟩
+    · rintro ⟨k, hk, rfl⟩
+      exact ⟨isRoot_f4_iff.2 ⟨k, rfl⟩, by simpa using hk⟩
+  rw [hS, Set.ncard_image_of_injective _ f4_rootCertificate_root_injective, Set.ncard_coe_finset]
+  decide +kernel
+
+theorem ncard_posRoots_short :
+    {r : Fin Tag.F4.rank → ℤ | IsRoot .F4 r ∧ 0 < height r ∧
+      f4Euclid r ⬝ᵥ f4Euclid r = 1}.ncard = 12 := by
+  have hS : {r : Fin Tag.F4.rank → ℤ | IsRoot .F4 r ∧ 0 < height r ∧
+      f4Euclid r ⬝ᵥ f4Euclid r = 1} = (fun k : Fin 48 => Tag.F4.rootCertificate.root k) ''
+        ↑((Finset.univ : Finset (Fin 48)).filter fun k : Fin 48 =>
+          0 < height (Tag.F4.rootCertificate.root k) ∧
+            f4Euclid (Tag.F4.rootCertificate.root k) ⬝ᵥ
+              f4Euclid (Tag.F4.rootCertificate.root k) = 1) := by
+    ext v
+    constructor
+    · rintro ⟨hv, hh, hl⟩
+      obtain ⟨k, rfl⟩ := isRoot_f4_iff.1 hv
+      exact ⟨k, by simpa using ⟨hh, hl⟩, rfl⟩
+    · rintro ⟨k, hk, rfl⟩
+      exact ⟨isRoot_f4_iff.2 ⟨k, rfl⟩, by simpa using hk⟩
+  rw [hS, Set.ncard_image_of_injective _ f4_rootCertificate_root_injective, Set.ncard_coe_finset]
+  decide +kernel
 
 end CFSG.LieType.Chevalley.C2E6Std.RelativeRoots

@@ -74,6 +74,9 @@ theorem mem_a8Vec
     rintro _ ⟨v, hv, rfl⟩
     exact ⟨-v, W.neg_mem hv, Psi_neg v⟩
 
+theorem mem_a8Grp
+    {W : Submodule (ZMod 2) V8} {x : Dfull} :
+    x ∈ a8Grp W ↔ ∃ v ∈ W, Psi v = x := Iff.rfl
 
 theorem Psi_mem_a8Grp
     {W : Submodule (ZMod 2) V8} {v : V8} (hv : v ∈ W) : Psi v ∈ a8Grp W :=
@@ -112,6 +115,12 @@ theorem a8Grp_mono
   rintro _ ⟨v, hv, rfl⟩
   exact ⟨v, h hv, rfl⟩
 
+theorem a8Vec_le_iff
+    {A B : Subgroup Dfull} (hA : A ≤ A8) (hB : B ≤ A8) :
+    a8Vec A ≤ a8Vec B ↔ A ≤ B := by
+  refine ⟨fun h => ?_, a8Vec_mono⟩
+  rw [← a8Grp_a8Vec hA, ← a8Grp_a8Vec hB]
+  exact a8Grp_mono h
 
 theorem a8Vec_injective
     {A B : Subgroup Dfull} (hA : A ≤ A8) (hB : B ≤ A8)
@@ -126,6 +135,10 @@ theorem natCard_a8Grp
   · rintro ⟨_, v, hv, rfl⟩
     exact ⟨⟨v, hv⟩, rfl⟩
 
+theorem natCard_a8Grp_eq_pow
+    (W : Submodule (ZMod 2) V8) :
+    Nat.card (a8Grp W) = 2 ^ finrank (ZMod 2) W := by
+  rw [natCard_a8Grp, Module.natCard_eq_pow_finrank (K := ZMod 2), Nat.card_zmod]
 
 theorem natCard_a8Vec
     {A : Subgroup Dfull} (hA : A ≤ A8) : Nat.card (a8Vec A) = Nat.card A := by

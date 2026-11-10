@@ -195,6 +195,8 @@ theorem exists_mulAut_of_mem_normalizer {Γ H : Type*} [Group Γ] [Group H] {ρ 
 theorem lg_mul (g g' : SpecialLinearGroup (Fin 2) K) : lg (g * g') = lg g * lg g' := by
   rw [lg, lg, lg, lr_mul, map_mul, mul_one]
 
+theorem lg_one : lg (1 : SpecialLinearGroup (Fin 2) K) = 1 := by
+  rw [lg, map_one, lr_one]
 
 theorem lr_inv (A B : GL (Fin 2) K) : (lr A B)⁻¹ = lr A⁻¹ B⁻¹ := by
   rw [inv_eq_iff_mul_eq_one, lr_mul, mul_inv_cancel, mul_inv_cancel, lr_one]

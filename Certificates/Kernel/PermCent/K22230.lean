@@ -50,6 +50,8 @@ theorem binds : matOK codeA (CA.G 0) = true ∧ matOK codeB (CA.G 1) = true ∧
 
 theorem cover : coverK true true 1024 = true := by decide +kernel
 
+theorem cover_neg : (!coverK true false 1024 && !coverK false true 1024) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelPermCent.U52
 

@@ -67,6 +67,18 @@ noncomputable instance : Group Heis where
 theorem vec_mul_vec (v w : V4) : vec v * vec w = ⟨2 * form v w, v + w⟩ := by
   ext <;> simp [mul_def, vec]
 
+theorem center_mul (x : Heis) : center * x = ⟨x.c + 1, x.v⟩ := by
+  ext
+  · simp [mul_def, center, form_zero_left]; ring
+  · simp [mul_def, center]
+
+theorem mul_center (x : Heis) : x * center = ⟨x.c + 1, x.v⟩ := by
+  ext
+  · simp [mul_def, center, form_zero_right]
+  · simp [mul_def, center]
+
+theorem center_mul_comm (x : Heis) : center * x = x * center := by
+  rw [center_mul, mul_center]
 
 end Heis
 

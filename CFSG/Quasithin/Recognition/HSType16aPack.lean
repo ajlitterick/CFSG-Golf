@@ -161,6 +161,9 @@ theorem q7_ok : allK q7 iotaC = true := by decide +kernel
 
 theorem cosetC_ok : allK (fun c => memK c lamC) cosetC = true := by decide +kernel
 
+theorem evenInvC_ok :
+    allK (fun c => !memK c lamC && inLam0 (mulK 6 c 3298320)) evenInvC = true := by
+  decide +kernel
 
 theorem evenInvC_jInvC_ok :
     allK (fun a => allK (fun b => Nat.beq (powK 6 one6 (mulK 6 a b) 3) one6) jInvC) evenInvC =

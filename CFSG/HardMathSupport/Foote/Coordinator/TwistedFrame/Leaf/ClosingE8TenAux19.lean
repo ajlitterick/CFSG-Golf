@@ -16,6 +16,7 @@ open scoped commutatorElement
 set_option linter.unusedSectionVars false
 
 
+
 section Char2
 
 variable {K : Type} [Field K] [Finite K] (D : LangLevi TwClass.e8Ten.tag K TwClass.e8Ten.w)
@@ -60,6 +61,7 @@ variable {K : Type} [Field K] [Finite K] (D : LangLevi TwClass.e8Ten.tag K TwCla
 @[expose] def ΨE (q : ModGL Tag.E8 K) : ModGL Tag.E8 D.L :=
   (gE D)⁻¹ * baseChangeGL (algebraMap K D.L) q * gE D
 
+theorem ΨE_eq (q : ModGL Tag.E8 K) : ΨE D q = CoordsAux.Ψ D q := rfl
 
 @[expose] def κF (q : ModGL Tag.E8 K) : Fn D.L := CoordsAux.κ D q
 

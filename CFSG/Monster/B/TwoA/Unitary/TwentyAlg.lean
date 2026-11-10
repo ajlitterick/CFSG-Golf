@@ -151,5 +151,17 @@ theorem span_endOf_records :
   exact Submodule.sum_mem _ fun a _ => Submodule.sum_mem _ fun a' _ =>
     Submodule.smul_mem _ _ (matUnit_mem_span b a a')
 
+open scoped TensorProduct in
+theorem isAbsolutelyIrreducible_of_adjoin {F G W : Type*} [Field F] [Monoid G] [AddCommGroup W]
+    [Module F W] [FiniteDimensional F W] [Nontrivial W] (ρ : Representation F G W)
+    (h : Algebra.adjoin F (Set.range ρ) = ⊤) :
+    CFSG.Theory.Representation.IsAbsolutelyIrreducible ρ := by
+  refine ⟨?_⟩
+  have : Nontrivial (AlgebraicClosure F ⊗[F] W) :=
+    (Module.FaithfullyFlat.nontrivial_tensorProduct_iff_right (R := F)
+      (M := AlgebraicClosure F) (N := W)).2 inferInstance
+  apply CFSG.Theory.Representation.irreducible_of_jacobson_density_surjective
+  rw [← CFSG.Theory.Representation.extendScalars_surj_iff]
+  exact h
 
 end CFSG.Monster.B.TwoA.Unitary

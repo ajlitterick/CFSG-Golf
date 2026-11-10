@@ -25,6 +25,7 @@ open CFSG.TwoNodeSmall
 @[expose, reducible] def e6DepPt (_ : Unit := ()) : Pt :=
   { p := 3, D := 6, nFrame := 6, gens := e6DepFrame (), x := [0, 0, 0, 0, 0, 1], bound := e6DepBound }
 
+@[expose] def e6DepCheck (_ : Unit := ()) : Bool := checkFrameM (e6DepPt ())
 
 end CFSG.DepFrame
 

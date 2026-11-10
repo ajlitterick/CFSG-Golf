@@ -319,6 +319,26 @@ theorem exists_cell_of_partition (Γ : SimpleGraph V) [DecidableRel Γ.Adj] (v :
   ext z
   simp only [Finset.coe_filter, Finset.mem_univ, true_and, Set.mem_ofPred_eq, hmem]
 
+omit [Fintype V] [DecidableEq V] in
+theorem exists_iso_of_mulAction {G : Type*} [Group G] [MulAction G V]
+    [MulAction.IsPretransitive G V] (Γ : SimpleGraph V)
+    (hΓ : ∀ (g : G) (y z : V), Γ.Adj (g • y) (g • z) ↔ Γ.Adj y z) (v x : V) :
+    ∃ σ : Γ ≃g Γ, σ v = x := by
+  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq G v x
+  exact ⟨⟨MulAction.toPerm g, fun {a b} => hΓ g a b⟩, hg⟩
+
+theorem natDegree_dvd_card_sub_one_of_vertexTransitive (Γ : SimpleGraph V) [DecidableRel Γ.Adj]
+    (hconn : Γ.Connected) {k : ℕ} (hreg : Γ.IsRegularOfDegree k) (v : V)
+    (htrans : ∀ x, ∃ σ : Γ ≃g Γ, σ v = x)
+    (cell : V → ι) (i₀ : ι) (hcell : ∀ y, cell y = i₀ ↔ y = v) (Q : Matrix ι ι ℕ)
+    (hQ : ∀ y j, (Finset.univ.filter fun z => Γ.Adj y z ∧ cell z = j).card = Q (cell y) j)
+    {f : ℚ[X]} (hf : Irreducible f) (hfk : ¬ f.IsRoot (k : ℚ))
+    (hQf : (Q.map (Nat.cast : ℕ → ℚ)).charpoly = (X - C (k : ℚ)) * f) :
+    f.natDegree ∣ Fintype.card V - 1 := by
+  obtain ⟨cell', hcell', hQ'⟩ :=
+    exists_equitable_of_vertexTransitive Γ v htrans cell i₀ hcell Q hQ
+  exact natDegree_dvd_card_sub_one_of_equitable_charpoly Γ hconn hreg cell' i₀ hcell' Q hQ' hf
+    hfk hQf
 
 theorem not_isRoot_of_irreducible_of_natDegree_eq_three {f : ℚ[X]} (hf : Irreducible f)
     (hf3 : f.natDegree = 3) (a : ℚ) : ¬ f.IsRoot a := fun h => by
@@ -326,5 +346,20 @@ theorem not_isRoot_of_irreducible_of_natDegree_eq_three {f : ℚ[X]} (hf : Irred
   rw [Polynomial.degree_eq_natDegree hf.ne_zero, hf3] at this
   exact absurd this (by decide)
 
+theorem rank_four_spectral_obstruction {G : Type*} [Group G] [MulAction G V]
+    [MulAction.IsPretransitive G V] (Γ : SimpleGraph V) [DecidableRel Γ.Adj]
+    (hΓ : ∀ (g : G) (y z : V), Γ.Adj (g • y) (g • z) ↔ Γ.Adj y z)
+    (hconn : Γ.Connected) {k : ℕ} (hreg : Γ.IsRegularOfDegree k) (v : V)
+    (O : Fin 4 → Set V) (hO : ∀ y, ∃! i, y ∈ O i) (hO0 : O 0 = {v})
+    (Q : Matrix (Fin 4) (Fin 4) ℕ)
+    (hQ : ∀ i j, ∀ y ∈ O i, {z | Γ.Adj y z ∧ z ∈ O j}.ncard = Q i j)
+    {f : ℚ[X]} (hf : Irreducible f) (hf3 : f.natDegree = 3)
+    (hQf : (Q.map (Nat.cast : ℕ → ℚ)).charpoly = (X - C (k : ℚ)) * f) :
+    3 ∣ Fintype.card V - 1 := by
+  obtain ⟨cell, hcell, hcQ⟩ := exists_cell_of_partition Γ v O hO 0 hO0 Q hQ
+  rw [← hf3]
+  exact natDegree_dvd_card_sub_one_of_vertexTransitive Γ hconn hreg v
+    (exists_iso_of_mulAction Γ hΓ v) cell 0 hcell Q (fun y j => (hcQ y 0).2 j) hf
+    (not_isRoot_of_irreducible_of_natDegree_eq_three hf hf3 _) hQf
 
 end CFSG.Monster.B.Generic

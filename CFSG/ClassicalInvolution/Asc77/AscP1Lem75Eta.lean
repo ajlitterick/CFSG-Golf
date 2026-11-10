@@ -27,6 +27,8 @@ variable {S : Sylow 2 G} {η β : Set (Subgroup G)}
 theorem Data.symm (D : Data p f Ω S η β) : Data p f Ω S β η :=
   ⟨D.hp, D.hq, D.hΩ, D.hβ, D.hβi, D.hη, D.hηi⟩
 
+theorem Data.usetS (D : Data p f Ω S η β) {V : Subgroup G} (hV : V ∈ η) :
+    V ∈ USet Ω ∧ V ≤ (S : Subgroup G) := D.hη.1 hV
 
 theorem Data.distinct (D : Data p f Ω S η β) {A B : Subgroup G} (hA : A ∈ η) (hB : B ∈ η)
     (hne : A ≠ B) {K : Subgroup G} (hK : K ∈ Ω) (hAK : A ≤ K) (hBK : B ≤ K) : False :=

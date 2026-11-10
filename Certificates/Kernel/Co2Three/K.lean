@@ -108,6 +108,7 @@ open CFSG.KC.Enum CertificateChecks.KernelMisc.Co2K CFSG.KC.Co2Three
 
 @[expose] noncomputable def hypS (ρ : ℕ) : ℕ := hypG (RFn ρ) (RSn ρ) (YM ρ) (FTn ρ) (ZM ρ)
 
+@[expose] noncomputable def ch13636Hyp (ρ : ℕ) : Bool := Nat.ble (hypS ρ) 162
 
 end CertificateChecks.KernelCo2Three
 

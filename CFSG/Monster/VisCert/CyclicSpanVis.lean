@@ -58,5 +58,23 @@ theorem span_orbit_twoΩCls :
   rintro _ ⟨t, rfl⟩
   exact orbitCls_mem_orbit t
 
+theorem visible_lattice_cyclic_span :
+    pCyc ∈ AutPerm ∧
+    (∀ j : Fin 12, permWord pCyc (B j) =
+      ∑ k : Fin 12, (if (pCoeff.getD j 0).testBit k then 1 else 0) • B k) ∧
+    (∀ j k : Fin 24, QuadraticMap.polarBilin qL (ellCls j) (ellCls k) = bvec 24 (gramRow j) k) ∧
+    LinearIndependent (ZMod 2) ellCls ∧ Submodule.span (ZMod 2) (Set.range ellCls) = ⊤ ∧
+    (∀ (g : Fin 14) (i : Fin 24), modTwoEnd (cycGen g) (ellCls i) =
+      ∑ j : Fin 24, bvec 24 (cycRows[(g : ℕ)]!)[(i : ℕ)]! j • ellCls j) ∧
+    twoΩCls = ∑ j : Fin 24, bvec 24 seedVec j • ellCls j ∧
+    (∀ t : Fin 24, ∑ j : Fin 24, bvec 24 orbitVecs[(t : ℕ)]! j • ellCls j =
+      modTwoEnd (cycWordElt orbitWords[(t : ℕ)]!) twoΩCls) ∧
+    LinearIndependent (ZMod 2)
+      (fun t : Fin 24 => ∑ j : Fin 24, bvec 24 orbitVecs[(t : ℕ)]! j • ellCls j) ∧
+    (∀ g : Fin 14, ∃ s, (s, cycGen g) ∈ Pvis) ∧
+    Submodule.span (ZMod 2) {x : L2 | ∃ p : Pvis, modTwoEnd p.1.2 twoΩCls = x} = ⊤ := by
+  obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, -⟩ := cyclic_span_certificate
+  exact ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, fun g => mem_PvisLat.1 (cycGen_mem_PvisLat g),
+    span_orbit_twoΩCls⟩
 
 end CFSG.Monster.VisCert

@@ -38,10 +38,22 @@ theorem heAutR_pow_ne
   rw [h'] at he
   exact absurd he (by decide)
 
+theorem heAutR_sq_ne_one :
+    heAutR ^ 2 ≠ 1 := heAutR_pow_ne heOuterArith_check.2.2.1
 
 theorem heAutR_pow_five_ne_one :
     heAutR ^ 5 ≠ 1 := heAutR_pow_ne heOuterArith_check.2.2.2.1
 
+theorem orderOf_heAutR : orderOf heAutR = 10 := by
+  refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) heAutR_pow_ten fun p hp hpd => ?_
+  have hp' : p = 2 ∨ p = 5 := by
+    have h := (Nat.Prime.dvd_mul hp).1 (show p ∣ 2 * 5 from hpd)
+    rcases h with h | h
+    · exact Or.inl ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).1 h)
+    · exact Or.inr ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_five).1 h)
+  rcases hp' with rfl | rfl
+  · exact heAutR_pow_five_ne_one
+  · exact heAutR_sq_ne_one
 
 theorem heAutR_conj_a0 :
     heAutR * heGenPerm 0 * heAutR⁻¹ = heGenPerm 0 := by
@@ -186,5 +198,25 @@ theorem heP_relIndex_heAutGroup :
     · exact Or.inr h
     · exact Or.inl h
 
+theorem ctbh_exact_outer_involution_arithmetic :
+    (heAutRArr.size = 8330 ∧ (∀ i < 8330, heAutRArr[i]! < 8330) ∧
+      (∀ i < 8330, ∀ j < 8330, heAutRArr[i]! = heAutRArr[j]! → i = j) ∧
+      Rep 8330 heAutRArr heAutR) ∧
+    orderOf heAutR = 10 ∧ heAutR * heGenPerm 0 * heAutR⁻¹ = heGenPerm 0 ∧
+    heAutR * heGenPerm 1 * heAutR⁻¹ = (heW ^ 2)⁻¹ * heGenPerm 1 * heW ^ 2 ∧
+    heAutR ∉ heP ∧ heAutR ^ 2 ∈ heP ∧
+    heAutR ∈ Subgroup.normalizer (heP : Set (Equiv.Perm (Fin 8330))) ∧
+    orderOf heAutU = 2 ∧ heAutU ∉ heP ∧
+    heP ≤ heAutGroup ∧ (heP.subgroupOf heAutGroup).Normal ∧
+    (heAutGroup : Set (Equiv.Perm (Fin 8330))) =
+      (heP : Set (Equiv.Perm (Fin 8330))) *
+        (↑(Subgroup.zpowers heAutU) : Set (Equiv.Perm (Fin 8330))) ∧
+    heP.relIndex heAutGroup = 2 := by
+  have hinv := heOuterArith_check.1
+  refine ⟨⟨by simp [heAutRArr, hexTable], fun i hi => (isInvA_spec hinv hi).1,
+    fun i hi j hj hij => ?_, rep_heAutR⟩, orderOf_heAutR, heAutR_conj_a0, heAutR_conj_a1,
+    heAutR_not_mem, heAutR_sq_mem, heAutR_mem_normalizer, orderOf_heAutU, heAutU_not_mem,
+    heP_le_heAutGroup, heP_normal_heAutGroup, heAutGroup_coe, heP_relIndex_heAutGroup⟩
+  rw [← (isInvA_spec hinv hi).2, ← (isInvA_spec hinv hj).2, hij]
 
 end CFSG.Sporadic.HeldB

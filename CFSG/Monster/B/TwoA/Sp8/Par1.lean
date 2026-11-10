@@ -78,6 +78,29 @@ theorem natCard_P1 :
   rw [P1_eq_ZU, h]
   norm_num
 
+theorem ncard_conj_cQ :
+    {y : Dfull | ∃ g ∈ Jhat, g * cQ * g⁻¹ = y}.ncard = 4600 := by
+  let _ := jConj
+  have hset : {y : Dfull | ∃ g ∈ Jhat, g * cQ * g⁻¹ = y} = MulAction.orbit Jhat cQ := by
+    ext y
+    constructor
+    · rintro ⟨g, hg, rfl⟩
+      exact ⟨⟨g, hg⟩, rfl⟩
+    · rintro ⟨g, rfl⟩
+      exact ⟨g, g.2, rfl⟩
+  have hstab : MulAction.stabilizer Jhat cQ = P1.subgroupOf Jhat := by
+    ext g
+    rw [MulAction.mem_stabilizer_iff, Subgroup.mem_subgroupOf, P1, Subgroup.mem_inf,
+      Subgroup.mem_centralizer_singleton_iff]
+    change (g : Dfull) * cQ * (g : Dfull)⁻¹ = cQ ↔ _
+    rw [mul_inv_eq_iff_eq_mul]
+    exact ⟨fun h => ⟨g.2, h⟩, fun h => h.2⟩
+  have h1 := Subgroup.card_mul_index (MulAction.stabilizer Jhat cQ)
+  rw [MulAction.index_stabilizer, hstab,
+    Nat.card_congr (Subgroup.subgroupOfEquivOfLe P1_le_Jhat).toEquiv, natCard_P1,
+    natCard_Jhat] at h1
+  rw [hset]
+  omega
 
 theorem exists_bV_orth :
     ∃ y ∈ bV.orthogonal sigLine, ∃ z ∈ bV.orthogonal sigLine,
@@ -131,6 +154,23 @@ theorem commutator_N1 :
     rw [hg', commutator_def]
     exact Subgroup.zpow_mem _ hm _
 
+theorem natCard_EU_sigLine :
+    Nat.card (EU sigLine) = 4 := by
+  rw [natCard_EU, natCard_submodule, finrank_sigLine]
+  norm_num
+
+theorem natCard_N1_quot :
+    Nat.card (N1 ⧸ Subgroup.center N1) = 2 ^ 20 := by
+  have h := Subgroup.card_eq_card_quotient_mul_card_subgroup (Subgroup.center N1)
+  have hc : Nat.card (Subgroup.center N1) = 4 := by
+    rw [center_N1, ← EU_sigLine,
+      Nat.card_congr (Subgroup.subgroupOfEquivOfLe EU_sigLine_le_N1).toEquiv, natCard_EU_sigLine]
+  rw [hc, natCard_N1] at h
+  omega
+
+theorem cQ_pow_val_add'
+    (a b : ZMod 2) : cQ ^ (a + b).val = cQ ^ a.val * cQ ^ b.val :=
+  cQ_pow_add a b
 
 @[expose] def kleinHom :
     Multiplicative (ZMod 2 × ZMod 2) →* Dfull where
@@ -146,6 +186,22 @@ theorem commutator_N1 :
     rw [xhat_pow_val_add, cQ_pow_add, mul_assoc, ← mul_assoc (xhat ^ w.toAdd.1.val),
       ← hc.eq, mul_assoc, mul_assoc]
 
+theorem kleinHom_injective :
+    Function.Injective kleinHom := by
+  rw [injective_iff_map_eq_one]
+  intro v hv
+  change xhat ^ v.toAdd.1.val * cQ ^ v.toAdd.2.val = 1 at hv
+  rcases zmod2_cases v.toAdd.2 with h2 | h2
+  · rw [h2, ZMod.val_zero, pow_zero, mul_one, xhat_pow_val_eq_one_iff] at hv
+    have h : Multiplicative.toAdd v = 0 := Prod.ext hv h2
+    rw [← ofAdd_toAdd v, h]
+    rfl
+  · exfalso
+    rw [h2, show (1 : ZMod 2).val = 1 from rfl, pow_one] at hv
+    have e : cQ = (xhat ^ v.toAdd.1.val)⁻¹ := eq_inv_of_mul_eq_one_right hv
+    apply cQ_not_mem_A8
+    rw [e]
+    exact A8.inv_mem (A8.pow_mem xhat_mem_A8 _)
 
 theorem range_kleinHom :
     kleinHom.range = Subgroup.closure {xhat, cQ} := by
@@ -162,5 +218,26 @@ theorem range_kleinHom :
       show xhat ^ (0 : ZMod 2).val * cQ ^ (1 : ZMod 2).val = cQ
       rw [ZMod.val_zero, pow_zero, one_mul, show (1 : ZMod 2).val = 1 from rfl, pow_one]
 
+@[expose] def kleinEquiv :
+
+    Multiplicative (ZMod 2 × ZMod 2) ≃* Subgroup.closure {xhat, cQ} :=
+  (MonoidHom.ofInjective kleinHom_injective).trans (MulEquiv.subgroupCongr range_kleinHom)
+
+theorem short_first_parabolic_unitary_centralizer :
+    (P1.subgroupOf Jhat).map jhatToKv0 = Unitary.Usig ∧
+    P1.subgroupOf Jhat ⊓ jhatToKv0.ker = N1.subgroupOf Jhat ∧
+    Nat.card N1 = 2 ^ 22 ∧
+    Subgroup.center N1 = (Subgroup.closure {xhat, cQ}).subgroupOf N1 ∧
+    Nonempty (Subgroup.closure ({xhat, cQ} : Set Dfull) ≃* Multiplicative (ZMod 2 × ZMod 2)) ∧
+    commutator N1 = (Subgroup.zpowers xhat).subgroupOf N1 ∧
+    CFSG.IsElementaryAbelian 2 (N1 ⧸ Subgroup.center N1) ∧
+    Nat.card (N1 ⧸ Subgroup.center N1) = 2 ^ 20 ∧
+    (CFSG.pCore 2 P1).map P1.subtype = N1 ∧
+    Nonempty (P1 ⧸ N1.subgroupOf P1 ≃* Unitary.PSU62) ∧
+    Nat.card P1 = 77148607752437760 ∧
+    {y : Dfull | ∃ g ∈ Jhat, g * cQ * g⁻¹ = y}.ncard = 4600 :=
+  ⟨map_P1, P1_inf_ker, natCard_N1, center_N1, ⟨kleinEquiv.symm⟩, commutator_N1,
+    isElementaryAbelian_N1_quot, natCard_N1_quot, pCore_P1, nonempty_p1Quot_PSU62, natCard_P1,
+    ncard_conj_cQ⟩
 
 end CFSG.Monster.B.TwoA.Sp8

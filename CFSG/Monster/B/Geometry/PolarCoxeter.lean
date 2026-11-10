@@ -37,6 +37,7 @@ theorem b3Fun_b3Fun : ∀ (k : Fin 3) (r : Fin 18), b3Fun k (b3Fun k r) = r := b
   | 1 => 3
   | 2 => 5
 
+theorem b3Perm_simple : ∀ k : Fin 3, 9 ≤ (b3Perm k (b3Simple k)).val := by decide +kernel
 
 theorem b3Perm_pos : ∀ (k : Fin 3) (r : Fin 18), r.val < 9 → r ≠ b3Simple k →
     (b3Perm k r).val < 9 ∧ b3Perm k r ≠ b3Simple k := by decide +kernel
@@ -245,6 +246,32 @@ theorem exists_dist_eq_mul_of_mem_residue {J : Set ι} {x y z : C}
     · exact ⟨v * cs.simple j, mul_mem hv (cs.simple_mem_parabolic hj), by
         rw [h, hxb, mul_assoc]⟩
 
+omit hδ in
+theorem length_mul_add_length_longest_le [Finite W] {K J : Set ι} {x y : W}
+    (hx : x ∈ cs.parabolic K) (hy : y ∈ cs.parabolic J) :
+    cs.length (x * y) + cs.length (longest cs (K ∩ J)) ≤
+      cs.length (longest cs K) + cs.length (longest cs J) := by
+  obtain ⟨⟨u, v⟩, ⟨hu, hv, hyuv⟩, -⟩ := cs.existsUnique_isMinimalCosetRep_mul (K ∩ J) y⁻¹
+  dsimp only at hu hv hyuv
+  have hKJ := isLongest_of_finite (cs := cs) (K ∩ J)
+  have hK := isLongest_of_finite (cs := cs) K
+  have hJ := isLongest_of_finite (cs := cs) J
+  have hvK : v⁻¹ ∈ cs.parabolic K := inv_mem (cs.parabolic_mono Set.inter_subset_left hv)
+  have hvJ : v ∈ cs.parabolic J := cs.parabolic_mono Set.inter_subset_right hv
+  have hy' : y = v⁻¹ * u⁻¹ := by rw [← mul_inv_rev, ← hyuv, inv_inv]
+  have huJ : u ∈ cs.parabolic J := by
+    have : u = y⁻¹ * v⁻¹ := by rw [hyuv, mul_inv_cancel_right]
+    rw [this]
+    exact mul_mem (inv_mem hy) (inv_mem hvJ)
+  have h1 : cs.length (x * y) ≤ cs.length (x * v⁻¹) + cs.length u := by
+    rw [hy', ← mul_assoc]
+    have := cs.length_mul_le (x * v⁻¹) u⁻¹
+    rwa [cs.length_inv] at this
+  have h2 : cs.length (x * v⁻¹) ≤ cs.length (longest cs K) := hK.2 _ (mul_mem hx hvK)
+  have h3 := cs.length_mul_of_isMinimalCosetRep hu hKJ.1
+  have h4 : cs.length (u * longest cs (K ∩ J)) ≤ cs.length (longest cs J) :=
+    hJ.2 _ (mul_mem huJ (cs.parabolic_mono Set.inter_subset_right hKJ.1))
+  omega
 
 theorem length_longest_le_of_mem_residue [Finite W]
     (hcent : ∀ w : W, longest cs Set.univ * w = w * longest cs Set.univ) {J : Set ι}

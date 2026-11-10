@@ -71,6 +71,11 @@ variable (hn : 3 ≤ n) (hq : ¬(n = 3 ∧ 2 ^ f = 2))
   (hker : φ.ker ≤ Subgroup.center ↥(unitarySU 2 f K n))
   (hC : Subgroup.centralizer (φ.range : Set G) = ⊥)
 
+include hn hq hker hC in
+theorem autOfI_injective : Function.Injective (autOfI h hn hq hker hC) := by
+  have hφ : Function.Injective φ.range.normalizerMonoidHom := by
+    rw [← MonoidHom.ker_eq_bot_iff, Subgroup.normalizerMonoidHom_ker, hC, Subgroup.bot_subgroupOf]
+  exact (MulAut.congr (projEquivI h hn hq hker hC)).symm.injective.comp hφ
 
 include hn hq hker hC in
 theorem autOfI_apply_piI {g : G} (hg : g ∈ Subgroup.normalizer (φ.range : Set G))
@@ -234,6 +239,11 @@ theorem eq_of_semiActs {g : G} {A B : GL (Fin n) K} {σ τ : K ≃+* K}
   have e3 := congrArg (primeFormFieldFactor h isPrimeFormGram_idGram hn hq) (e1.symm.trans e2)
   rwa [primeFormFieldFactor_apply, primeFormFieldFactor_apply] at e3
 
+include hn hq hker hC in
+theorem eq_one_of_semiActs_of_mem_suPairs {g : G} {A B : GL (Fin n) K} {σ : K ≃+* K}
+    (hA : SemiActs h φ g A σ) (hBU : B ∈ primeFormUnitary h (idGram K n))
+    (hB : (g, B) ∈ SUTorus.suPairs φ) : σ = 1 :=
+  eq_of_semiActs hn hq hker hC hA (semiActs_one_iff.mpr ⟨hBU, hB⟩)
 
 theorem glAut_eq_map (σ : K ≃+* K) (X : GL (Fin n) K) :
     glAut σ X = GeneralLinearGroup.map (σ : K →+* K) X :=

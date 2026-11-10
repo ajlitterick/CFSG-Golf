@@ -53,6 +53,9 @@ theorem aPart_add (v w : Vec12) : aPart (v + w) = aPart v + aPart w := rfl
 
 theorem bPart_add (v w : Vec12) : bPart (v + w) = bPart v + bPart w := rfl
 
+theorem aPart_zero : aPart 0 = 0 := rfl
+
+theorem bPart_zero : bPart 0 = 0 := rfl
 
 variable {G : Type*} [Group G]
 

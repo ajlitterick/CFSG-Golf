@@ -30,6 +30,13 @@ open CFSG.KC.Mat8P
 
 @[expose] def oneQ : ℕ := nat_lit 11151733894906779683522195341810241573494785
 
+@[expose] def mvT (X v j s : ℕ) : ℕ := Nat.mul (colQ X s) (Nat.land (Nat.shiftRight v j) 1)
+
+@[expose] def mvQ (X v : ℕ) : ℕ :=
+  Nat.xor (mvT X v 0 0) (Nat.xor (mvT X v 1 12) (Nat.xor (mvT X v 2 24)
+    (Nat.xor (mvT X v 3 36) (Nat.xor (mvT X v 4 48) (Nat.xor (mvT X v 5 60)
+    (Nat.xor (mvT X v 6 72) (Nat.xor (mvT X v 7 84) (Nat.xor (mvT X v 8 96)
+    (Nat.xor (mvT X v 9 108) (Nat.xor (mvT X v 10 120) (mvT X v 11 132)))))))))))
 
 @[expose] def bfsQ (gens : List ℕ) (cap : ℕ) : ℕ → NT ℕ → List ℕ → List ℕ → List ℕ
   | 0, _, acc, _ => acc

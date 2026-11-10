@@ -127,6 +127,7 @@ theorem dWord_lt : ∀ x ∈ dWord, x < 2 := by decide
 
 theorem eWord_lt : ∀ x ∈ eWord, x < 2 := by decide
 
+theorem matBi_size : matBi.size = 253 := by unfold matBi; rw [mulW_size, matB_size]
 
 theorem rowsWF_matBi : RowsWF (toVM matBi) := RowsWF.mulW rowsWF_matB rowsWF_matB
 
@@ -193,6 +194,7 @@ theorem matrixFacts_of (h : matrixChecks = true) : MatrixFacts := by
 
 private theorem zmod3_pow3_eq_one : ∀ x : ZMod 3, x ^ 3 = 1 → x = 1 := by decide
 
+private theorem zmod3_pow5_eq_one : ∀ x : ZMod 3, x ^ 5 = 1 → x = 1 := by decide
 
 theorem det_word (w : List ℕ) :
     (w.map genMat).prod.det = (w.map fun x => if x = 0 then mA.det else mB.det).prod := by

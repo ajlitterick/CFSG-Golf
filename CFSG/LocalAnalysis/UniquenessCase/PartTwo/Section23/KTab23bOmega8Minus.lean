@@ -447,6 +447,9 @@ theorem t3P0_le_of_borel_le_of_not_le_point
 noncomputable abbrev t3Pℓ0 (K : Type) [Field K] (b c : K) : Subgroup ↥(T3G K b c) :=
   MulAction.stabilizer ↥(T3G K b c) (t3F1 K)
 
+noncomputable abbrev t3Pℓ (K : Type) [Field K] (b c : K) (h : ↥(T3G K b c)) :
+    Subgroup ↥(T3G K b c) :=
+  (t3Pℓ0 K b c).map (MulAut.conj h).toMonoidHom
 
 noncomputable abbrev T3H (K : Type) [Field K] (b c : K) :
     Subgroup (MulAut (Multiplicative (T3V K))) :=

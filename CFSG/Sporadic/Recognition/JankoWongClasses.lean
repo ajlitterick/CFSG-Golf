@@ -87,6 +87,19 @@ theorem card_alt_type33 : (Finset.univ.filter fun g : alternatingGroup (Fin 8) =
   norm_num [Nat.factorial] at this
   exact this
 
+theorem card_alt_type2222 : (Finset.univ.filter fun g : alternatingGroup (Fin 8) =>
+    (g : Perm (Fin 8)).cycleType = {2, 2, 2, 2}).card = 105 := by
+  have := AlternatingGroup.card_of_cycleType (Fin 8) ({2, 2, 2, 2} : Multiset ℕ)
+  simp only [Fintype.card_fin] at this
+  norm_num [Nat.factorial] at this
+  exact this
+
+theorem card_alt_type22 : (Finset.univ.filter fun g : alternatingGroup (Fin 8) =>
+    (g : Perm (Fin 8)).cycleType = {2, 2}).card = 210 := by
+  have := AlternatingGroup.card_of_cycleType (Fin 8) ({2, 2} : Multiset ℕ)
+  simp only [Fintype.card_fin] at this
+  norm_num [Nat.factorial] at this
+  exact this
 
 theorem card_centralizer_mul_ncard_orbit {E : Type*} [Group E] [Finite E] (y : E) :
     Nat.card (centralizer ({y} : Set E)) * (MulAction.orbit (ConjAct E) y).ncard =
@@ -248,6 +261,8 @@ theorem even_card_support_of_commute {α : Type*} [Fintype α] [DecidableEq α] 
   rw [hz0] at hmod
   rw [Fintype.card_coe] at hmod
   exact Nat.even_iff.mpr hmod
+
+
 
 
 theorem sign_of_type33 {σ : Perm (Fin 8)} (h : σ.cycleType = {3, 3}) : sign σ = 1 := by

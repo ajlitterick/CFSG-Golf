@@ -47,6 +47,17 @@ theorem blkM_inj {X Y : ℕ} (hX : LCanon 12 7 111 X) (hY : LCanon 12 7 111 Y)
   rw [ho', ZMod.natCast_eq_natCast_iff', Nat.mod_eq_of_lt hfX, Nat.mod_eq_of_lt hfY] at e
   exact e
 
+theorem add_shift_inj {a a' c c' m : ℕ} (ha : a < 2 ^ m) (ha' : a' < 2 ^ m)
+    (h : Nat.add a (Nat.shiftLeft c m) = Nat.add a' (Nat.shiftLeft c' m)) : a = a' ∧ c = c' := by
+  change a + c <<< m = a' + c' <<< m at h
+  rw [Nat.shiftLeft_eq, Nat.shiftLeft_eq] at h
+  have h1 := congrArg (· % 2 ^ m) h
+  have h2 := congrArg (· / 2 ^ m) h
+  rw [Nat.add_mul_mod_self_right, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt ha,
+    Nat.mod_eq_of_lt ha'] at h1
+  rw [Nat.add_mul_div_right _ _ (by positivity), Nat.add_mul_div_right _ _ (by positivity),
+    Nat.div_eq_of_lt ha, Nat.div_eq_of_lt ha'] at h2
+  exact ⟨h1, by omega⟩
 
 theorem bIf_true {c x : Bool} (h : Bool.rec (motive := fun _ => Bool) true x c = true)
     (hc : c = true) : x = true := by
@@ -100,6 +111,8 @@ theorem tabWC_sound {C : BConsts} {PI WC : ℕ → ℕ} {nc : ℕ} (h : tabWC C 
 
 @[expose] def lastSel (j : Fin 7) : Fin 111 := ⟨104 + j.val, by omega⟩
 
+theorem lastCols_eq (M : Matrix (Fin 7) (Fin 111) (ZMod 5)) : lastCols M = M.submatrix id lastSel :=
+  rfl
 
 theorem chart_tree {KX PT WT GT WC PI PJ SG : ℕ → ℕ} {n nc : ℕ} {G0 G1 : ℕ}
     {Gi0 Gi1 : Matrix (Fin 111) (Fin 111) (ZMod 5)}

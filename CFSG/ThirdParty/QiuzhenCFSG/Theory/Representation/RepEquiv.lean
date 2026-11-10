@@ -86,6 +86,7 @@ public theorem coe_toEquiv : ⇑(e.toEquiv) = e :=
 public theorem coe_toLinearMap : ⇑e.toLinearMap = e :=
   rfl
 
+public theorem toFun_eq_coe : e.toFun = e := List.map_inj.mp rfl
 
 section
 
@@ -154,6 +155,7 @@ public def Simps.apply (e : ρ ≃ₗ σ) : V → W :=
 public theorem toEquiv_symm : e.symm.toEquiv = e.toEquiv.symm :=
   rfl
 
+public theorem coe_symm_toEquiv : ⇑e.toEquiv.symm = e.symm := rfl
 
 variable {F G V W X Y : Type*} [CommRing F] [Monoid G] [AddCommMonoid V] [AddCommMonoid W]
   [AddCommMonoid X] [AddCommMonoid Y] [Module F V] [Module F W] [Module F X]
@@ -174,6 +176,11 @@ public def trans : ρ ≃ₗ ϕ :=
 
 /-! `symm` as an equivalence on equivalences. -/
 
+/-- Taking inverses defines an equivalence between `ρ ≃ₗ σ` and `σ ≃ₗ ρ`. -/
+@[expose]
+public def symmEquiv : (ρ ≃ₗ σ) ≃ (σ ≃ₗ ρ) where
+  toFun := .symm
+  invFun := .symm
 
 variable {e₁₂} {e₂₃} {e : ρ ≃ₗ σ}
 

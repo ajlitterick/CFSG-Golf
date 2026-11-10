@@ -26,6 +26,13 @@ variable {G : Type} [Group G]
 @[expose] def VBig (L : Subgroup G) : Prop :=
   ¬ (VS3 L ∨ VFD L ∨ VU3two L)
 
+theorem f112_vertex_types (L : Subgroup G) : VS3 L ∨ VFD L ∨ VU3two L ∨ VBig L := by
+  by_cases h : VS3 L ∨ VFD L ∨ VU3two L
+  · rcases h with h | h | h
+    · exact Or.inl h
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr (Or.inl h))
+  · exact Or.inr (Or.inr (Or.inr h))
 
 @[expose] def PairSS (L1 L2 : Subgroup G) : Prop :=
   VS3 L1 ∧ VS3 L2
@@ -72,5 +79,26 @@ theorem PairExotic.symm {L1 L2 : Subgroup G} (h : PairExotic L1 L2) : PairExotic
   · exact Or.inl h
   · exact Or.inr (Or.inr ⟨h.2, h.1⟩)
 
+theorem f112_pair_cases (L1 L2 : Subgroup G) :
+    PairSS L1 L2 ∨ PairTits L1 L2 ∨ PairS3Big L1 L2 ∨ PairFDBig L1 L2 ∨ PairBig L1 L2 ∨
+      PairExotic L1 L2 := by
+  rcases f112_vertex_types L1 with h1 | h1 | h1 | h1 <;>
+    rcases f112_vertex_types L2 with h2 | h2 | h2 | h2
+  · exact Or.inl ⟨h1, h2⟩
+  · exact Or.inr (Or.inl (Or.inr ⟨h1, h2⟩))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h2))))))
+  · exact Or.inr (Or.inr (Or.inl (Or.inl ⟨h1, h2⟩)))
+  · exact Or.inr (Or.inl (Or.inl ⟨h1, h2⟩))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨h1, h2⟩))))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h2))))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inl (Or.inl ⟨h1, h2⟩))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h1)))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h1)))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h1)))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h1)))))
+  · exact Or.inr (Or.inr (Or.inl (Or.inr ⟨h1, h2⟩)))
+  · exact Or.inr (Or.inr (Or.inr (Or.inl (Or.inr ⟨h1, h2⟩))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h2))))))
+  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨h1, h2⟩))))
 
 end CFSG.Quasithin

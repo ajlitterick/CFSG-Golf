@@ -122,6 +122,9 @@ theorem rhoG_inv {g : G} (hg : g ∈ NW W) : rhoG W φ g⁻¹ = (rhoG W φ g)⁻
   rw [rhoG_of_mem (inv_mem hg), rhoG_of_mem hg, ← map_inv]
   rfl
 
+theorem rhoG_pow {g : G} (hg : g ∈ NW W) (n : ℕ) : rhoG W φ (g ^ n) = rhoG W φ g ^ n := by
+  rw [rhoG_of_mem (pow_mem hg n), rhoG_of_mem hg, ← map_pow]
+  rfl
 
 theorem rhoG_mulVec {g : G} (hg : g ∈ NW W) (w : W) :
     (rhoG W φ g : Mat12) *ᵥ Multiplicative.toAdd (φ w) =

@@ -24,6 +24,11 @@ theorem yB_pow_three : yB ^ 3 = 1 := by
   rw [Subgroup.coe_pow, coe_yB, Subgroup.coe_one]
   exact (cp1_facts hM.tab hM.struct hM.cp1).2.1
 
+theorem yB_ne_one : yB ≠ 1 := by
+  intro h
+  apply (cp1_facts hM.tab hM.struct hM.cp1).2.2.1
+  have := congrArg Subtype.val h
+  rwa [coe_yB, Subgroup.coe_one] at this
 
 theorem yB_not_mem_zpowers_xB : yB ∉ zpowers xB := by
   intro hmem

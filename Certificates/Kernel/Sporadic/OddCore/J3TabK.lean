@@ -30,6 +30,17 @@ namespace CertificateChecks.KernelSpor.J3Tab
 open CFSG.EvenSporadicStandard.HypOne.J3 CFSG.Sporadic.SmallOddCore.Native CFSG.PSL3Four.Native
 open CertificateChecks.KernelSpor.J3HypSyl
 
+meta def eM : Enum := bfs (fun j t => conjTab 6156 idM sM[j]! t) 3 idM 128
+
+meta def rM : Array (Array Nat) :=
+  let idx := indexOf eM.tabs
+  eM.tabs.map fun t => (Array.range 3).map fun j => (idx[conjTab 6156 idM sM[j]! t]?).getD 0
+
+meta def mM : Array (Array Nat) :=
+  (Array.range 128).map fun a => (List.range 127).foldl
+    (fun row c => row.push ((rM[row[eM.par[c + 1]!]!]!)[eM.lab[c + 1]!]!)) #[a]
+
+meta def tM : Array (Array Nat) := #[#[((indexOf eM.tabs)[natArr t0]?).getD 0]]
 
 end CertificateChecks.KernelSpor.J3Tab
 
@@ -57,6 +68,9 @@ theorem t_ok : bAnd(Nat.blt tI 128, bAnd(Nat.beq (J3HS.T tI) (J3CentP 9),
     Nat.beq (J3HS.T 0) (pidn 6156 13))) = true := by
   quickRfl
 
+theorem rec_neg : Nat.beq (mK 1 1) (r32 J3HS.POS (Nat.add (Nat.mul (mK 1 (parOf J3HS.PL 1)) 3)
+    (Nat.mod (Nat.add (labOf J3HS.PL 1) 1) 3))) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.J3Tab
 

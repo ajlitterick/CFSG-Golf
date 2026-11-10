@@ -14,6 +14,11 @@ open CFSG.KC.BM CFSG.KC.BM.Lat CFSG.KC.YModel CFSG.KC.BM.Pkt
     (s : Nat) : Bool :=
   Nat.beq (projRow (nat_lit 1197) f (dyElim (nat_lit 256) Bs (nat_lit 0) (F (skipP s)))) (R s)
 
+theorem stPOK_of {Bs : List (List Nat)} {F : Nat → Nat} {f : Nat} {R : Nat → Nat} {s V W : Nat}
+    (h : Nat.beq (projRow (nat_lit 1197) f (dyElim (nat_lit 256) Bs (nat_lit 0) V)) W = true)
+    (hV : V = F (skipP s)) (hW : W = R s) : stPOK Bs F f R s = true := by
+  subst hV hW
+  exact h
 
 @[expose] def RowStabP (Bs : List (List Nat)) (N : ℕ → ℕ → ℤ) (f r i : ℕ) : Prop :=
   ∃ q : ℕ → ℤ, (∀ t < 4370, (q (skipP t) + q 1197 * (if f.testBit (skipP t) then 1 else 0)) % 2 =

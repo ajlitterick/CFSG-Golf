@@ -238,6 +238,10 @@ theorem coe_tp4M
     (b : Fin 2 → rootsOfUnity p K) :
     ((tp4M h b : ↥(F4.reeGamma K a)) : ModGL F4.tag K) = tp4Hom p a K b := rfl
 
+theorem coe_nGamma
+    (w : F4.relWeylRee) :
+    ((nGamma w : ↥(F4.reeGamma K a)) : ModGL F4.tag K) =
+      ((nrep F4.tag K w.1 : adjointGroup F4.tag K) : ModGL F4.tag K) := rfl
 
 include h in
 theorem tp4M_injective :

@@ -34,6 +34,9 @@ theorem lineRun_cons (wd n w P : Nat) (ch : Char) (ds : List Char) (e t v acc : 
     lineRun wd n w P (ch :: ds) e t v acc = lineStep wd n w P ch (lineRun wd n w P ds) e t v acc :=
   rfl
 
+theorem bool_rec_true {α : Sort _} (a b : α) : Bool.rec (motive := fun _ => α) a b true = b := rfl
+
+theorem bool_rec_false {α : Sort _} (a b : α) : Bool.rec (motive := fun _ => α) a b false = a := rfl
 
 theorem bool_rec_eq {α : Sort _} (a b : α) (c : Bool) :
     Bool.rec (motive := fun _ => α) a b c = if c = true then b else a := by
@@ -50,6 +53,10 @@ theorem blt_false {a b : Nat} (h : ¬ a < b) : Nat.blt a b = false := by
   · rfl
   · exact absurd (lt_of_blt hb) h
 
+theorem beq_false' {a b : Nat} (h : a ≠ b) : Nat.beq a b = false := by
+  cases hb : Nat.beq a b
+  · rfl
+  · exact absurd (Nat.eq_of_beq_eq_true hb) h
 
 theorem lineStep_eq (wd n w P : Nat) (ch : Char) (ih : Nat → Nat → Nat → Nat → Bool)
     (e t v acc : Nat) : lineStep wd n w P ch ih e t v acc =

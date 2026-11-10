@@ -42,6 +42,8 @@ noncomputable abbrev pt1 : Fin 3510 := ⟨1, treeFacts_one.r_lt⟩
 noncomputable abbrev ptSub :
     Fin 3510 := ⟨subRoot, treeFacts_two.r_lt⟩
 
+theorem ptD_root :
+    (ptD root : J) = a := (ptD_val root).trans conjPt_zero
 
 theorem conjPt_mem_lvl_one
     {q : ℕ} (hq : q < 3510) (h0 : ap (tpTab q) 0 = 0) :
@@ -180,6 +182,40 @@ theorem eq_of_commute_lvl_one
     · rw [hc hh, h1, smul_smul, smul_smul, commute_a_of_mem_lvl_one hh]
     · rw [hc hh, h2, smul_smul, ← commute_a_of_mem_lvl_one hh, mul_smul, a_smul_ptSub]
 
+theorem idxPerm_a_commute
+    {h : J} (hh : h ∈ lvl 1) :
+    idxPerm a * idxPerm h = idxPerm h * idxPerm a := by
+  rw [← map_mul, ← map_mul, commute_a_of_mem_lvl_one hh]
+
+theorem commute_lvl_one_iff
+    (σ : Equiv.Perm (Fin 3510)) :
+    (∀ h ∈ lvl 1, σ * idxPerm h = idxPerm h * σ) ↔ σ = 1 ∨ σ = idxPerm a := by
+  refine ⟨eq_of_commute_lvl_one σ, ?_⟩
+  rintro (rfl | rfl) h hh
+  · rw [one_mul, mul_one]
+  · exact idxPerm_a_commute hh
+
+theorem mem_centralizer_lvl_one_iff
+    {σ : Equiv.Perm (Fin 3510)} :
+    σ ∈ Subgroup.centralizer ((lvl 1).map idxPerm : Set (Equiv.Perm (Fin 3510))) ↔
+      σ = 1 ∨ σ = idxPerm a := by
+  rw [Subgroup.mem_centralizer_iff, ← commute_lvl_one_iff]
+  constructor
+  · intro h g hg
+    exact (h _ ⟨g, hg, rfl⟩).symm
+  · rintro h _ ⟨g, hg, rfl⟩
+    exact (h g hg).symm
+
+theorem idxPerm_a_ne_one : idxPerm a ≠ 1 := fun h =>
+  a_ne_one (idxPerm_injective (h.trans (map_one idxPerm).symm))
+
+theorem card_centralizer_lvl_one :
+    Nat.card (Subgroup.centralizer ((lvl 1).map idxPerm : Set (Equiv.Perm (Fin 3510)))) = 2 := by
+  have h : (Subgroup.centralizer ((lvl 1).map idxPerm : Set (Equiv.Perm (Fin 3510))) :
+      Set (Equiv.Perm (Fin 3510))) = {1, idxPerm a} := by
+    ext σ
+    rw [SetLike.mem_coe, mem_centralizer_lvl_one_iff, Set.mem_insert_iff, Set.mem_singleton_iff]
+  rw [← SetLike.coe_sort_coe, h, Nat.card_coe_set_eq, Set.ncard_pair idxPerm_a_ne_one.symm]
 
 theorem eq_of_commute_stabilizer
     (i : Fin 3510) (σ : Equiv.Perm (Fin 3510))

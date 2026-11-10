@@ -953,6 +953,15 @@ theorem inputL2_holds : Lemma1315b.InputL2 := by
 
 end InputL2
 
+theorem input23_19_prop1310a5_of (h : Lemma1315b.Input23_19) : Prop1310a5.Input23_19 := by
+  intro X _ _ hX p hp hp2 B hB hB4 hBr K hK htype
+  refine h X hX p hp hp2 B hB hB4 hBr K hK ?_
+  rcases htype with hA | ⟨q, hqp, idx, ⟨e⟩, hq⟩ | hc
+  · exact Or.inl hA
+  · refine Or.inr (Or.inl ⟨q, hq ▸ idx.1.characteristic_prime, hqp, ?_⟩)
+    rw [← hq]
+    exact Lemma1315b.isChevSimple_of_lie e
+  · exact Or.inr (Or.inr hc)
 
 theorem input3_3_of_chevTwoOdd (h : Prop1116Design.InputChevTwoOdd) : Lemma1315b.Input3_3 := by
   intro p hp hp5 K _ _ hK hcore h2 hpchev
@@ -1305,6 +1314,22 @@ theorem input14_4_1_holds : Lemma1315b.Input14_4_1 :=
   input14_4_1_of_kd (fun _ _ hp hp5 => kdChevDownQ_five_le hp hp5)
     (fun _ hp hp5 => kdChevInner_five_le hp hp5)
 
+theorem lemma1315_of_remaining_inputs (h1314 : Lemma1314Statement)
+    (hI2319 : Lemma1315b.Input23_19) (hI255 : Lemma1315b.Input25_5)
+    (hI1418 : Lemma1315b.Input14_18) (hI1415 : Lemma1314.Input14_15)
+    (hFi23 : Lemma1314.Input23_24Fi23) (hI112 : CFSG.HardMathSupport.Solomon.LocalBalance.Input11_2)
+    (hI183 : Prop115.Input18_3Gen) (hDiag : Lemma1315b.Input18_3DiagZ) : Lemma1315Statement :=
+  lemma1315_of_inputs h1314 hI2319 hI255 input3_3_holds input14_4_1_holds hI1418 hI1415 hFi23 hI112
+    hI183 hDiag inputL2_holds
+
+theorem lemma1315_extras_of_remaining_inputs (h1314 : Lemma1314Statement)
+    (hI2319 : Lemma1315b.Input23_19) (hI255 : Lemma1315b.Input25_5)
+    (hI1418 : Lemma1315b.Input14_18) (hI1415 : Lemma1314.Input14_15)
+    (hFi23 : Lemma1314.Input23_24Fi23) (hI112 : CFSG.HardMathSupport.Solomon.LocalBalance.Input11_2)
+    (hI183 : Prop115.Input18_3Gen) (hDiag : Lemma1315b.Input18_3DiagZ) :
+    Lemma1315b.ExtrasStatement :=
+  lemma1315_extras_of_inputs h1314 hI2319 hI255 input3_3_holds input14_4_1_holds hI1418 hI1415 hFi23
+    hI112 hI183 hDiag inputL2_holds
 
 end CertDown
 

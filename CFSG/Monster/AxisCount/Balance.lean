@@ -37,6 +37,14 @@ namespace CFSG.Monster.AxisCount
 
 @[expose] def totalAxes : ℕ := 97_239_461_142_009_186_000
 
+theorem transL_eq : transL = 2 * 8292375 := rfl
+
+theorem transM_col_sum (i : Fin 12) : ∑ t, transM t i = transL := by
+  fin_cases i <;> simp [Fin.sum_univ_succ, transM, transL]
+
+theorem orbitSizes_balance (t : Fin 12) :
+    ∑ i, transM t i * orbitSizes i = transL * orbitSizes t := by
+  fin_cases t <;> simp [Fin.sum_univ_succ, transM, transL, orbitSizes]
 
 theorem sum_orbitSizes : ∑ i, orbitSizes i = totalAxes := by
   simp [Fin.sum_univ_succ, orbitSizes, totalAxes]

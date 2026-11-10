@@ -39,6 +39,13 @@ theorem memberK_spec {r : Nat} {F bs Mws : List Nat} {full A sF : Nat} {fs : Lis
   obtain ⟨h3, h4⟩ := fbkM_bAnd h3
   exact ⟨Nat.eq_of_beq_eq_true h1, Nat.eq_of_beq_eq_true h2, h3, Nat.le_of_ble_eq_true h4⟩
 
+theorem omegaK_spec {r : Nat} {F Mws : List Nat} {full sF : Nat} {fs : List Nat}
+    (h : omegaK r F Mws full sF fs = true) :
+    sF &&& full = sF ∧ dualS (appS Mws (selS F sF)) fs 0 = true ∧
+      2 * 2 ^ r * 2048 * lenS F ≤ 16384 * 2 ^ lenS (appS Mws (selS F sF)) := by
+  obtain ⟨h1, h2⟩ := fbkM_bAnd h
+  obtain ⟨h2, h3⟩ := fbkM_bAnd h2
+  exact ⟨Nat.eq_of_beq_eq_true h1, h2, Nat.le_of_ble_eq_true h3⟩
 
 theorem fixRep_spec {p : Rep} {gens : List (List Nat)} {x : FixD} (h : fixRep p gens x = true) :
     lenS gens = p.1 ∧ lenS x.1 + lenS x.2.2.1 = 12 ∧

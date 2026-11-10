@@ -73,6 +73,7 @@ theorem card_Q1M : Nat.card Q1M = 64 := by
 
 @[expose] def f2 : Q1M := ⟨0, F4.ω, 0⟩
 
+@[expose] def zc : Q1M := ⟨0, 0, 1⟩
 
 @[expose] def E (a : F4) : Q1M := e1 ^ (a.code.val % 2) * e2 ^ (a.code.val / 2)
 
@@ -80,6 +81,9 @@ theorem card_Q1M : Nat.card Q1M = 64 := by
 
 @[expose] def C (c : F4) : Q1M := ⟨0, 0, c⟩
 
+theorem E_val : ∀ a : F4, E a = ⟨a, 0, 0⟩ := by decide +kernel
+
+theorem F_val : ∀ b : F4, F b = ⟨0, b, 0⟩ := by decide +kernel
 
 theorem C_eq_comm : ∀ c : F4, C c = ⁅e1, F c⁆ := by decide +kernel
 

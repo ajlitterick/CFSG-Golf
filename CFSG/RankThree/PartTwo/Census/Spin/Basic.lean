@@ -36,6 +36,10 @@ theorem toQuotient_eq_one_iff (x : ↥⁅H, H⁆) :
     simp only [map_mul, MulEquiv.apply_symm_apply]
     exact (h _).symm
 
+theorem toQuotient_surjective : Function.Surjective (toQuotient H) := by
+  intro z
+  obtain ⟨y, rfl⟩ := QuotientGroup.mk'_surjective _ z
+  exact ⟨commutatorEquiv H y, by simp [toQuotient]⟩
 
 variable {H}
 
@@ -235,6 +239,13 @@ theorem efe' : E * (F * E) = E := by rw [← mul_assoc, h.efe]
 omit [DecidableEq N] in
 theorem fef' : F * (E * F) = F := by rw [← mul_assoc, h.fef]
 
+omit [DecidableEq N] in
+theorem efe_mul (X : Matrix N N R) : E * (F * (E * X)) = E * X := by
+  rw [← mul_assoc, ← mul_assoc, h.efe]
+
+omit [DecidableEq N] in
+theorem fef_mul (X : Matrix N N R) : F * (E * (F * X)) = F * X := by
+  rw [← mul_assoc, ← mul_assoc, h.fef]
 
 theorem φ_mul (a b c d a' b' c' d' : R) :
     φ E F a b c d * φ E F a' b' c' d' =
@@ -273,10 +284,33 @@ theorem φ_lower (v : R) : φ E F 1 0 v 1 = 1 + v • F := by
     rw [φ_mul h]
     simp only [mul_apply, Fin.sum_univ_two]
 
+theorem φHom_apply (h : SqZeroPair E F) (g : Matrix (Fin 2) (Fin 2) R) :
+    h.φHom g = φ E F (g 0 0) (g 0 1) (g 1 0) (g 1 1) :=
+  rfl
 
 @[expose] def ψ (h : SqZeroPair E F) : SpecialLinearGroup (Fin 2) R →* GL N R :=
   (Units.map h.φHom).comp SpecialLinearGroup.toGL
 
+theorem coe_ψ (h : SqZeroPair E F) (g : SpecialLinearGroup (Fin 2) R) :
+    ((h.ψ g : GL N R) : Matrix N N R) =
+      φ E F ((g : Matrix (Fin 2) (Fin 2) R) 0 0) ((g : Matrix (Fin 2) (Fin 2) R) 0 1)
+        ((g : Matrix (Fin 2) (Fin 2) R) 1 0) ((g : Matrix (Fin 2) (Fin 2) R) 1 1) :=
+  rfl
+
+theorem commute_φ {X : Matrix N N R} (hE : Commute E X) (hF : Commute F X) (a b c d : R) :
+    Commute (φ E F a b c d) X := by
+  have hEF : Commute (E * F) X := hE.mul_left hF
+  have hFE : Commute (F * E) X := hF.mul_left hE
+  unfold φ
+  exact ((((((hEF.smul_left a).add_left (hE.smul_left b)).add_left (hF.smul_left c)).add_left
+    (hFE.smul_left d)).add_left ((((Commute.one_left X).sub_left hEF).sub_left hFE))))
+
+theorem commute_φ_φ {E' F' : Matrix N N R} (h1 : Commute E E') (h2 : Commute E F')
+    (h3 : Commute F E') (h4 : Commute F F') (a b c d a' b' c' d' : R) :
+    Commute (φ E F a b c d) (φ E' F' a' b' c' d') := by
+  have hE : Commute E (φ E' F' a' b' c' d') := (commute_φ h1.symm h2.symm a' b' c' d').symm
+  have hF : Commute F (φ E' F' a' b' c' d') := (commute_φ h3.symm h4.symm a' b' c' d').symm
+  exact commute_φ hE hF a b c d
 
 theorem φ_injective {K : Type*} [Field K] {E F : Matrix N N K} (h : SqZeroPair E F)
     (hE : E ≠ 0) {a b c d a' b' c' d' : K}
@@ -549,6 +583,19 @@ theorem x_injective (i : ι) : Function.Injective (R.x i) := by
   have : (u - v) • R.E i = 0 := by rw [sub_smul, h, sub_self]
   exact (smul_eq_zero.mp this).resolve_left (sub_ne_zero.mpr hne)
 
+theorem y_injective (i : ι) : Function.Injective (R.y i) := by
+  have hF : R.F i ≠ 0 := by
+    intro h0
+    apply R.E_ne_zero i
+    rw [← (R.sqZero i).efe, h0, mul_zero, zero_mul]
+  intro u v huv
+  have h := congrArg R.mat huv
+  rw [mat, mat, y, y, R.coe_root_inr, R.coe_root_inr, toAdd_ofAdd, toAdd_ofAdd,
+    add_right_inj] at h
+  by_contra hne
+  apply hF
+  have : (u - v) • R.F i = 0 := by rw [sub_smul, h, sub_self]
+  exact (smul_eq_zero.mp this).resolve_left (sub_ne_zero.mpr hne)
 
 theorem commute_of_mat {g g' : R.G} (h : Commute (R.mat g) (R.mat g')) : Commute g g' :=
   R.mat_injective (by rw [mat_mul, mat_mul]; exact h.eq)
@@ -667,6 +714,10 @@ variable {K : Type*} [Field K] {CM : Matrix ι ι ℤ} {X Y : ι → Matrix N N 
   torus_conj_inl := torus_conj_inl
   torus_conj_inr := torus_conj_inr
 
+theorem RootData.ofInt_E (hI : IntRootData CM X Y wt) (G : Subgroup (GL N K))
+    (root : ι ⊕ ι → Multiplicative K →* G) (torus : (ι → Kˣ) →* G) (h1 h2 h3 h4 h5) (i : ι) :
+    (RootData.ofInt hI G root torus h1 h2 h3 h4 h5).E i = intMap K (X i) :=
+  rfl
 
 end OfInt
 

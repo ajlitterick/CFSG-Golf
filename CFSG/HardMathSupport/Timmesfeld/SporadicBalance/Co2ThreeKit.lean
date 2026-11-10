@@ -87,6 +87,23 @@ theorem anyLt_true {n : ℕ} {p : ℕ → Bool} (h : CFSG.Sporadic.Schreier.Co3.
   exact ⟨i, hi, h⟩
 
 
+@[expose] def dsearch (n : ℕ) (L : Array Level) (base : Array ℕ)
+    (rels : Array (Option (ℕ × Array ℕ))) (pred : Array ℕ → Bool) :
+    ℕ → ℕ → Array ℕ → Array ℕ → List (Array ℕ)
+  | 0, _, acc, _ => if pred acc then [acc] else []
+  | fuel + 1, i, acc, accI =>
+    match rels.getD i none with
+    | some (j, y) =>
+      if (L[i]!).pos[accI[y[acc[base[j]!]!]!]!]! < (L[i]!).pts.size then
+        dsearch n L base rels pred fuel (i + 1)
+          (compA n acc (L[i]!).tr[(L[i]!).pos[accI[y[acc[base[j]!]!]!]!]!]!)
+          (compA n (L[i]!).trInv[(L[i]!).pos[accI[y[acc[base[j]!]!]!]!]!]! accI)
+      else []
+    | none =>
+      (List.range (L[i]!).pts.size).flatMap fun k =>
+        dsearch n L base rels pred fuel (i + 1) (compA n acc (L[i]!).tr[k]!)
+          (compA n (L[i]!).trInv[k]! accI)
+
 variable {Q : RawSchreierDatum n} {O S : Array (Array ℕ)} {base : Array ℕ}
   {W : Array (List ℤ)} {chunks : ℕ}
 

@@ -117,7 +117,9 @@ theorem eqA_eq {a b : Array Nat} {A B : Equiv.Perm (Fin 6156)} {f f' : Nat → N
     rw [← hf c (bs_lt c hc), ← hf' c (bs_lt c hc)]
     exact h c hc
 
+theorem nQ : TQ.N = 243 := Nat.eq_of_beq_eq_true kNQ
 theorem nA : TA.N = 1080 := Nat.eq_of_beq_eq_true kNA
+theorem nD : TD.N = 360 := Nat.eq_of_beq_eq_true kND
 
 @[expose] noncomputable def gpq (k : Nat) : Equiv.Perm (Fin 6156) := gp k
 @[expose] noncomputable def gpa (k : Nat) : Equiv.Perm (Fin 6156) := gp (33 + k)
@@ -269,6 +271,7 @@ theorem repD {k : Nat} (hk : k < 360) : Rep 6156 j3tDCert.pts[k]! (ud k) := by
   exact rep_treeArr treeD hgsD k hk
 
 theorem repFQ {k : Nat} (hk : k < 243) : RepF 6156 (tq k) (uq k) := repF_trV treeQ hgQ 243 k hk.le hk
+theorem repFA {k : Nat} (hk : k < 1080) : RepF 6156 (ta k) (ua k) := repF_trV treeA hgA 1080 k hk.le hk
 theorem repFD {k : Nat} (hk : k < 360) : RepF 6156 (td k) (ud k) := repF_trV treeD hgD 360 k hk.le hk
 
 theorem memUQ {k : Nat} (hk : k < 243) : uq k ∈ GJ :=
@@ -289,6 +292,7 @@ theorem any_mem {c : ArrCert} {t : Array Nat} {k : Nat} (hk : k < c.pts.size)
   rw [getElem!_pos c.pts k hk]
   exact Array.getElem_mem_toList _
 
+theorem rep_id : RepF 6156 (fun x => x) (1 : Equiv.Perm (Fin 6156)) := RepF.one
 
 theorem lines_get {j : Nat} (hj : j < 13) : j3tLines[j]! = unpack 6156 13 (F (5 + j)) := by
   rw [j3tLines, ofFn_get hj, arr_k (by omega)]

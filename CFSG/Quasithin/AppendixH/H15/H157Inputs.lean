@@ -31,5 +31,15 @@ open CFSG.Quasithin.H.Mathieu CFSG.QuasithinUnique.Setup.X1
     #[19, 16, 9, 5, 20, 22, 8, 4, 12, 13, 6, 11, 1, 0, 10, 7, 15, 3, 18, 23, 14, 2, 21, 17],
     #[23, 21, 8, 5, 17, 18, 9, 4, 13, 12, 7, 11, 1, 0, 10, 6, 15, 2, 22, 19, 14, 3, 16, 20]]
 
+@[expose] def fixCnt {T : PT 24} [Fact (T.check = true)] (mats : Array (List ℕ)) (p : T.Elem) : ℕ :=
+  (fixMasks 11 (fun q m => actM (mats[q.idx]!) m) [p]).length
+
+@[expose] def class3AHolds : Prop :=
+  (∀ p : T24s3.Elem, p ≠ 1 → 16 ≤ fixCnt mats24s3 p →
+      ∃ h ∈ conj3AStd, inAutOK h = true ∧ conjToB h (T24s3.arr p) tStd = true) ∧
+  (∀ p : T24s5.Elem, p ≠ 1 → fixCnt mats24s5 p < 16) ∧
+  (∀ p : T24s7.Elem, p ≠ 1 → fixCnt mats24s7 p < 16) ∧
+  (∀ p : T24s11.Elem, p ≠ 1 → fixCnt mats24s11 p < 16) ∧
+  (∀ p : T24s23.Elem, p ≠ 1 → fixCnt mats24s23 p < 16)
 
 end CFSG.ASVolI.AppH.H157

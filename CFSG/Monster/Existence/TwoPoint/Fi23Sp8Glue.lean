@@ -20,6 +20,11 @@ open CFSG.Sporadic.Bridge.Fi23 (img)
 theorem fiE_mem_fiLK {i : ℕ} (hi : i < 10) (hi8 : i ≠ 8) : fiE i ∈ fiLK :=
   Subgroup.subset_closure ⟨i, hi, hi8, rfl⟩
 
+theorem fiLK_le_fiK :
+    fiLK ≤ fiK :=
+  (Subgroup.closure_le _).2 (by
+    rintro _ ⟨i, hi, -, rfl⟩
+    exact fiE_mem_fiK hi)
 
 section Glue
 
@@ -127,6 +132,11 @@ theorem lieModel_cent2_inf_cent
 
 end Glue
 
+theorem cent2_inf_cent_gammaZero
+    (hKeq : fiK = cent2 fiAlpha fiBeta) :
+    cent2 fiAlpha fiBeta ⊓ cent gammaZero = fiLK :=
+  cent2_inf_cent_eq hKeq (fun _ hi hi8 => fiE_commute_gammaZero hi hi8)
+    fiE_eight_not_commute_gammaZero
 
 theorem lieModel_cent2_inf_cent_gammaZero
     (hKeq : fiK = cent2 fiAlpha fiBeta) :

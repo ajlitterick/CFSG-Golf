@@ -102,6 +102,8 @@ theorem iotaH_length : iotaH.length = 52 := by
 
 abbrev co2U : co2P := ⟨locU, locU_mem⟩
 
+theorem qTuple_length' : qTuple.length = 8 := by
+  rw [qTuple, List.length_map, localShape.qWords_length]
 
 @[expose] def iotaRows : List CFSG.Sporadic.Co1Schreier.Native.Rows :=
   (CFSG.Sporadic.Co1Schreier.Native.dag [Native.hRows0, Native.hRows1] iotaDerivs).1

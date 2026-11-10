@@ -82,6 +82,7 @@ theorem bitF_oval : ∀ k < 6, IsOvalVec (bitF k) := by
   unfold IsOvalVec
   decide +kernel
 
+theorem bitF_val : ∀ k < 6, (bitF k).val = Nat.shiftLeft 1 k := by decide +kernel
 
 theorem inKK_iff (hkm : allN (fun v => beqB (memL v hallKList) (inKK v)) 64 = true) (v : Fin 64) :
     inKK v.val = true ↔ IsOvalVec v := by

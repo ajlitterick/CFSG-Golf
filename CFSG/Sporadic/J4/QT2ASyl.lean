@@ -90,6 +90,13 @@ theorem w5_ne_zero (s : String) : ∀ l ∈ w5 s, l ≠ 0 := by
 
 theorem invW_eq (w : List ℤ) : invW w = invWord w := rfl
 
+theorem ne_zero_invW {w : List ℤ} (h : ∀ l ∈ w, l ≠ 0) : ∀ l ∈ invW w, l ≠ 0 := by
+  intro l hl
+  unfold invW at hl
+  rw [List.mem_map] at hl
+  obtain ⟨l', hl', rfl⟩ := hl
+  have := h l' (List.mem_reverse.1 hl')
+  omega
 
 @[expose] noncomputable def aY : J := el5 aDw
 

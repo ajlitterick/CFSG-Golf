@@ -25,6 +25,12 @@ inductive PlaneKind where
 
 namespace PlaneKind
 
+@[expose]
+def natDim (k : PlaneKind) (t : ℕ) : ℕ :=
+  match k with
+  | .linear ε => 2 * t + ε.val
+  | .symplectic => 2 * t
+  | .orthogonal δ => 2 * t + 2 * δ.val
 
 end PlaneKind
 

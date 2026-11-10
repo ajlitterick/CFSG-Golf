@@ -112,6 +112,11 @@ theorem testBit_mstep_mono (c : Nat) (q : Nat → Nat) (k M b : Nat) (h : M.test
   unfold mstep
   split <;> simp [Nat.testBit_or, h]
 
+theorem testBit_foldl_mono (c : Nat) (q : Nat → Nat) (b : Nat) :
+    ∀ (l : List Nat) (M : Nat), M.testBit b = true →
+      (l.foldl (fun M k => mstep c q k M) M).testBit b = true
+  | [], _, h => h
+  | k :: l, M, h => testBit_foldl_mono c q b l _ (testBit_mstep_mono c q k M b h)
 
 theorem testBit_foldl_mono' (c : Nat) (q : Nat → Nat) (b : Nat) (f : Nat → Nat) :
     ∀ (l : List Nat) (M : Nat), M.testBit b = true →

@@ -118,6 +118,8 @@ instance : DecidableRel T.Adj := fun g h =>
 theorem adj_iff {g h : K} : T.Adj g h ↔ ∃ i, h = g * s i :=
   Iff.rfl
 
+theorem adj_mul_s (g : K) (i : Fin 3) : T.Adj g (g * s i) :=
+  ⟨i, rfl⟩
 
 theorem neighborFinset_eq (g : K) :
     T.neighborFinset g = Finset.univ.image fun i => g * s i := by

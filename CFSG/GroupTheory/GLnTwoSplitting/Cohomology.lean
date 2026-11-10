@@ -166,13 +166,9 @@ end TwoCocycle
     [AddCommMonoid V] [Module k V] (ρ : Representation k G V) : G →* (V ≃ₗ[k] V) :=
   (LinearMap.GeneralLinearGroup.generalLinearEquiv k V).toMonoidHom.comp ρ.asGroupHom
 
-
 @[expose] noncomputable def naturalRep (n : ℕ) :
     Representation (ZMod 2) (GL (Fin n) (ZMod 2)) (Fin n → ZMod 2) :=
   (Matrix.toLinAlgEquiv' : Matrix (Fin n) (Fin n) (ZMod 2) ≃ₐ[ZMod 2] _).toMonoidHom.comp
     (Units.coeHom _)
-
-
-universe u in
 
 end CFSG.GroupTheory.GLnTwoSplitting

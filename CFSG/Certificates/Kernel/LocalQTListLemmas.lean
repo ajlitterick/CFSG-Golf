@@ -33,6 +33,11 @@ theorem allA_of_getD {α : Type} (l : List α) (f : α → Bool) (x₀ : α)
   have := h i hi
   rwa [List.getD_eq_getElem _ _ hi] at this
 
+theorem forall_lt_12 {p : ℕ → Prop} (h0 : p 0) (h1 : p 1) (h2 : p 2) (h3 : p 3) (h4 : p 4)
+    (h5 : p 5) (h6 : p 6) (h7 : p 7) (h8 : p 8) (h9 : p 9) (h10 : p 10) (h11 : p 11) :
+    ∀ c < 12, p c := by
+  intro c hc
+  interval_cases c <;> assumption
 
 end CFSG.KC.LQT.L
 

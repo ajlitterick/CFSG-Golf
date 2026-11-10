@@ -9,9 +9,11 @@ namespace CFSG.Monster.Code
 
 open CFSG.Monster
 
+theorem allOnes_eq_Ω : allOnes = Ω := rfl
 
 theorem allOnes_mem_C : allOnes ∈ C := Ω_mem_C
 
+theorem bitLift_eq_val (t : ZMod 2) : bitLift t = t.val := rfl
 
 theorem weight_eq_hammingNorm (d : Fin 24 → ZMod 2) : weight d = hammingNorm d := by
   rw [weight, hammingNorm_eq_sum_val]
@@ -27,6 +29,7 @@ theorem weight_mod_four {d : Fin 24 → ZMod 2} (hd : d ∈ C) : weight d % 4 = 
 
 @[expose] def mogLattice : AddSubgroup (Fin 24 → ℤ) := codeLatticeSubgroup allOnes_mem_C
 
+theorem mem_mogLattice {u : Fin 24 → ℤ} : u ∈ mogLattice ↔ u ∈ codeLattice C := Iff.rfl
 
 @[expose] def normSq (u : Fin 24 → ℤ) : ℤ := ∑ i, u i * u i
 

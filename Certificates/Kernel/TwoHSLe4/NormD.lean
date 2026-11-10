@@ -14,6 +14,12 @@ namespace CertificateChecks.KernelTwoHSLe4.Norm
 
 open CFSG.EvenSporadicStandard.TwoHS CFSG.KC.Enum
 
+meta def rowOf (a : R4) : Array ℕ :=
+  #[a.a00, a.a01, a.a02, a.a03, a.a10, a.a11, a.a12, a.a13, a.a20, a.a21, a.a22, a.a23,
+    a.a30, a.a31, a.a32, a.a33]
+
+meta def nvM : Array (Array ℕ) := normR2.toArray.map rowOf
+meta def svM : Array (Array ℕ) := survR.toArray.map rowOf
 
 end CertificateChecks.KernelTwoHSLe4.Norm
 
@@ -45,6 +51,9 @@ open CFSG.EvenSporadicStandard.TwoHS CFSG.KC.Enum
   rmv a tRV == tRV || !(norm1B T a && SL.all (fun s' => SL.any fun s => rmul a s == rmul s' a)) ||
     (rmv a tRV == zpRV && decide (a ∈ candR))
 
+@[expose] noncomputable def chunkA (k : ℕ) : Bool :=
+  (((allBits 16).drop (4096 * k)).take 4096).all fun l =>
+    !normB2S (R4.ofList l) || nvL.contains (R4.ofList l)
 
 @[expose] def bitsOf (n : ℕ) : R4 :=
   ⟨n % 2, n / 2 % 2, n / 4 % 2, n / 8 % 2, n / 16 % 2, n / 32 % 2, n / 64 % 2, n / 128 % 2,
@@ -65,6 +74,43 @@ theorem mem_bitsN {b : R4} (hb : b.wf2) : b ∈ bitsN := by
 @[expose] def liftsOK (b : R4) : Bool :=
   bitsN.all fun x => nCaseS (compatS b) (lift2 b x)
 
+@[expose] def chunkN (b : R4) (k : ℕ) : Bool :=
+  (List.range' (4096 * k) 4096).all fun n => nCaseS (compatS b) (lift2 b (bitsOf n))
+
+theorem liftsOK_of_chunks_aux (b : R4) (h : ∀ k < 16, chunkN b k = true) : liftsOK b = true := by
+  unfold liftsOK bitsN
+  rw [List.all_eq_true]
+  intro x hx
+  obtain ⟨n, hn, rfl⟩ := List.mem_map.1 hx
+  have hn' : n < 65536 := List.mem_range.1 hn
+  have hk := h (n / 4096) (by omega)
+  unfold chunkN at hk
+  exact List.all_eq_true.1 hk n (List.mem_range'_1.2 ⟨by omega, by omega⟩)
+
+theorem liftsOK_of_chunks (b : R4) (h0 : chunkN b 0 = true) (h1 : chunkN b 1 = true)
+    (h2 : chunkN b 2 = true) (h3 : chunkN b 3 = true) (h4 : chunkN b 4 = true)
+    (h5 : chunkN b 5 = true) (h6 : chunkN b 6 = true) (h7 : chunkN b 7 = true)
+    (h8 : chunkN b 8 = true) (h9 : chunkN b 9 = true) (h10 : chunkN b 10 = true)
+    (h11 : chunkN b 11 = true) (h12 : chunkN b 12 = true) (h13 : chunkN b 13 = true)
+    (h14 : chunkN b 14 = true) (h15 : chunkN b 15 = true) : liftsOK b = true := by
+  refine liftsOK_of_chunks_aux b fun k hk => ?_
+  interval_cases k
+  · exact h0
+  · exact h1
+  · exact h2
+  · exact h3
+  · exact h4
+  · exact h5
+  · exact h6
+  · exact h7
+  · exact h8
+  · exact h9
+  · exact h10
+  · exact h11
+  · exact h12
+  · exact h13
+  · exact h14
+  · exact h15
 
 end CertificateChecks.KernelTwoHSLe4.Norm
 

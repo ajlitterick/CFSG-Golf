@@ -141,6 +141,18 @@ theorem localDeltaIn_eq_bot_of_coreFree (hp : p.Prime)
   have h1 := le_core_of_mem_localDeltaIn hg hx hx1
   rwa [gLAPPrimeCoreOf_eq_bot_of_coreFree hp hinj hH h] at h1
 
+theorem isLocallyBalancedAbs_of_coreFree (hp : p.Prime)
+    (hinj : Function.Injective (MulAut.conj : K →* MulAut K))
+    (hin : ∀ D : Subgroup (MulAut K), IsElemAbelian p D → Nat.card D = p ^ 3 →
+      D ≤ innerAut K → False)
+    (hcf : ∀ x : MulAut K, x ^ p = 1 → x ∉ innerAut K → CoreFreeAt p x) :
+    IsLocallyBalancedAbs p 3 K := by
+  intro D hD hcard H hH _
+  by_cases hDin : D ≤ innerAut K
+  · exact (hin D hD hcard hDin).elim
+  · obtain ⟨x, hxD, hxin⟩ := IsConcreteLE.not_le_iff_exists.1 hDin
+    have hx1 : x ≠ 1 := fun h => hxin (by rw [h]; exact one_mem _)
+    exact localDeltaIn_eq_bot_of_coreFree hp hinj hH hxD hx1 (hcf x (hD.2 x hxD) hxin)
 
 end Balance
 

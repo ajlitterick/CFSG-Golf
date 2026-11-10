@@ -35,6 +35,19 @@ theorem fin_in : (fusD2Fi24.facts.all (factIn outs) && memB fusD2Fi24.rA outs &&
 
 theorem seeds : seedRegsL lay F A B fusD2Fi24.rA fusD2Fi24.rB = true := by quickRfl
 
+theorem ren_neg : (!renOK [0, 1, 101, 59, 72, 87, 100, 49, 109, 114, 158] fusD2Fi24Prog cs) =
+    true := by decide +kernel
+
+theorem ch_neg : (!chunkV lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
+  quickRfl
+
+theorem seg_neg : (!wsegL lay F fusD2Fi24.wB 8 0 (W.WL.getD 0 lay.ONE) (W.WL.getD 2 lay.ONE)) =
+    true := by quickRfl
+
+theorem fa_neg : (!factL lay (initR lay A B fusD2Fi24N) fusD2Fi24N
+    (fusD2Fi24.facts.getD 5 default)) = true := by quickRfl
+
+theorem seeds_neg : (!seedRegsL lay F B A fusD2Fi24.rA fusD2Fi24.rB) = true := by quickRfl
 
 end CertificateChecks.KernelFusLay.Fi24P5
 

@@ -158,6 +158,20 @@ theorem adj_iff_mem_labelLayer_two {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {
   · exact iff_of_false (hS.not_adj_of_mem_labelLayer_three hC hx hri)
       (hnot (j := 3) (by decide) hri)
 
+theorem inv_eq_self_of_mem {r : S} (hr : r ∈ ptStab act lab Y C) : r⁻¹ = r := by
+  rw [hS.ptStab_eq_closure_of_isSliceMaxClique hC] at hr
+  have h := CFSG.elemPow_eq_one_of_isElementaryAbelian (p := 2) r hr
+  exact inv_eq_of_mul_eq_one_right (by rw [← pow_two]; exact h)
+
+theorem adj_act_act_iff {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {r s : S}
+    (hr : r ∈ ptStab act lab Y C) (hs : s ∈ ptStab act lab Y C) :
+    (sliceGraph lab Y).Adj (act r x) (act s x) ↔ r * s ∈ labelLayer lab C 2 := by
+  have h := hS.adj_act_iff ((sliceGroup lab Y).inv_mem hr.1) (act r x) (act s x)
+  have e : act r⁻¹ (act s x) = act (r⁻¹ * s) x := by rw [map_mul, Equiv.Perm.mul_apply]
+  rw [act_inv_act, e] at h
+  rw [← h, hS.adj_iff_mem_labelLayer_two hC hx
+    ((ptStab act lab Y C).mul_mem ((ptStab act lab Y C).inv_mem hr) hs),
+    hS.inv_eq_self_of_mem hC hr]
 
 omit hC [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))] in
 theorem commute_lab_of_act_eq {x : V} {k : S} (hk : act k x = x) : Commute (lab x) k := by
@@ -178,6 +192,11 @@ theorem act_lab_eq_act_lab {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {a : V} (
   exact (braid_of_pow_three_eq_one (hS.lab_mul_self hx.1) (hS.lab_mul_self haY)
     (hS.pow_three_lab_mul_of_mem_omega hC hx ha)).symm
 
+omit [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))] in
+theorem act_lab_act_lab {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {a : V} (ha : a ∈ C) :
+    act (lab x) (act (lab a) x) = a := by
+  rw [← hS.act_lab_eq_act_lab hC hx ha, ← Equiv.Perm.mul_apply, ← map_mul,
+    hS.lab_mul_self hx.1, map_one, Equiv.Perm.one_apply]
 
 theorem act_lab_eq_of_mem_labelLayer_two {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {r : S}
     (hr : r ∈ labelLayer lab C 2) : act (lab x) (act r x) = act r x := by

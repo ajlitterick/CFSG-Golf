@@ -69,6 +69,8 @@ variable {G : Type} [Group G] [Finite G]
   TwinLieShape p f (CoreAssembly.conjClass K) z ∧
     ∃ T ∈ CoreAssembly.conjClass K, Commutes K T ∧ IsClassicalMember p f T z
 
+abbrev TwinExactShapePred : ShapePred :=
+  fun _ _ _ K z => TwinExactShape p f K z
 
 end Shape
 
@@ -186,6 +188,9 @@ theorem listed_tag_ne (hL : ListedTwin (C.D.tag C.i₁) (C.D.rank C.i₁)) :
   rcases hL with ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ <;> rw [h] <;>
     exact ⟨by decide, by decide⟩
 
+theorem psi_commute₀₂ (x : (compModel C.D C.i₀).K) (y : (compModel C.D C.i₂).K) :
+    C.psi C.i₀ x * C.psi C.i₂ y = C.psi C.i₂ y * C.psi C.i₀ x :=
+  C.psi_commute C.ne₀₂ x y
 
 structure Spec : Prop where
   hK₀ : modOdd z (exactCore z C.K) = (C.psi C.i₀).range
@@ -284,6 +289,13 @@ variable (C : TwinShapeCtx p f Ω z)
 
 include C
 
+theorem eq_cases (j : Fin C.D.card) :
+    j = C.i₀ ∨ j = C.i₁ ∨ j = C.i₂ ∨ (j ≠ C.i₀ ∧ j ≠ C.i₁ ∧ j ≠ C.i₂) :=
+  C.toCore.eq_cases j
+
+theorem extra_psi {j : Fin C.D.card} (h0 : j ≠ C.i₀) (h1 : j ≠ C.i₁) (h2 : j ≠ C.i₂) :
+    (C.D.tag j = .PSL ∧ C.D.rank j = 2) ∧ oddQuotMk z ⟨z, XCtx.hzC z⟩ ∈ (C.psi j).range :=
+  C.toCore.extra_psi h0 h1 h2
 
 theorem A1_of_ne {j : Fin C.D.card} (hj : j ≠ C.i₁) : C.D.tag j = .PSL ∧ C.D.rank j = 2 :=
   C.toCore.A1_of_ne hj
@@ -291,6 +303,9 @@ theorem A1_of_ne {j : Fin C.D.card} (hj : j ≠ C.i₁) : C.D.tag j = .PSL ∧ C
 theorem listed_tag_ne : C.D.tag C.i₁ ≠ .G2 ∧ C.D.tag C.i₁ ≠ .trialityD4 :=
   C.toCore.listed_tag_ne C.listed
 
+theorem psi_commute₀₂ (x : (compModel C.D C.i₀).K) (y : (compModel C.D C.i₂).K) :
+    C.psi C.i₀ x * C.psi C.i₂ y = C.psi C.i₂ y * C.psi C.i₀ x :=
+  C.toCore.psi_commute₀₂ x y
 
 structure Spec : Prop where
   hK₀ : modOdd z (exactCore z C.K) = (C.psi C.i₀).range

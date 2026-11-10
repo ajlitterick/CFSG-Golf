@@ -244,6 +244,13 @@ theorem closure_inv_eq_top :
     Subgroup.closure {xK⁻¹, yK⁻¹} = ⊤ :=
   Subgroup.eq_top_of_card_eq _ (by rw [natCard_closure_inv, natCard_Kv])
 
+theorem closure_xK_yK :
+    Subgroup.closure {xK, yK} = ⊤ := by
+  refine eq_top_iff.2 (closure_inv_eq_top ▸ ?_)
+  rw [Subgroup.closure_le]
+  rintro g (rfl | rfl)
+  · exact Subgroup.inv_mem _ (Subgroup.subset_closure (by simp))
+  · exact Subgroup.inv_mem _ (Subgroup.subset_closure (by simp))
 
 theorem map_J22_eq_range :
     J22.map conjHom = wActHom.range := by
@@ -259,5 +266,10 @@ noncomputable def kvEquivCo2 :
     Kstab v0 ≃* Blueprint.NativeSporadic.Co2 :=
   kvEquivJ22.trans co2EquivJ22.symm
 
+theorem short_stabilizer_Co2_isomorphism :
+    conjHom gA22 = wActHom xK⁻¹ ∧ conjHom gB22 = wActHom yK⁻¹ ∧
+      J22.map conjHom = wActHom.range ∧ Subgroup.closure {xK, yK} = ⊤ ∧
+      Nonempty (Kstab v0 ≃* Blueprint.NativeSporadic.Co2) :=
+  ⟨conjHom_gA22, conjHom_gB22, map_J22_eq_range, closure_xK_yK, ⟨kvEquivCo2⟩⟩
 
 end CFSG.Monster.Existence.Co2Bridge

@@ -16,5 +16,9 @@ open CFSG.Sporadic.SmallF2.Native CFSG.Sporadic.J4
 theorem span_check : mulRows 112 spanInvRows spanRows = idRows 112 :=
   Certificates.certificate2181.1
 
+theorem subdegree_check : ∀ T T' : Finset (Fin 7), T.Nonempty → T'.Nonempty → Disjoint T T' →
+    (∑ i ∈ T, subSizesF i) ∣ 501397585920 → (∑ i ∈ T', subSizesF i) ∣ 501397585920 →
+    (∑ i ∈ T, subSizesF i) ≠ ∑ i ∈ T', subSizesF i :=
+  Certificates.certificate2181.2
 
 end CFSG.Sporadic.J4Schreier

@@ -122,6 +122,17 @@ theorem isVis_rho (q : Bool × Nat × Nat) : (Gen.rho q).isVis = true := rfl
 
 theorem isVis_xi : Gen.xi.isVis = true := rfl
 
+theorem wordRows_check {w : List Gen} {ms : List (Array Nat)} {r : List Nat}
+    (h : w.map Gen.l2Rows = ms) (hc : (rowsOf ms == r.toArray) = true) :
+    (Cover.wordRows w == r.toArray) = true := by
+  rw [wordRows_eq h]
+  exact hc
+
+theorem l2Word_check {w : List Gen} {ms : List (Array Nat)} {v t : Nat}
+    (h : w.map Gen.l2Rows = ms) (hc : (foldRows ms v == t) = true) :
+    (Cover.l2Word w v == t) = true := by
+  rw [l2Word_eq h]
+  exact hc
 
 end CertificateChecks.KernelAP
 

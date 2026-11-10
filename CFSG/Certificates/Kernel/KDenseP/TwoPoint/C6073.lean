@@ -55,6 +55,7 @@ open CFSG.KC.KDense
 
 @[expose] noncomputable def rn (c : Nat) (s : St) : St := CFSG.KD.TP.run (WD (f20 c (nat_lit 0))) c s
 
+@[expose] noncomputable def CHI (k : Nat) : Nat := CH (IXf k)
 
 end CFSG.KD.TP.c6073
 

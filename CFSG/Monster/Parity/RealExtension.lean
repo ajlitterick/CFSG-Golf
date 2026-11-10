@@ -247,5 +247,46 @@ private def pairQ (i j : Fin 24) : symMat :=
   ⟨single i j 1 + single j i 1, by
     rw [mem_symMat, transpose_add, transpose_single, transpose_single, add_comm]⟩
 
+theorem eq_or_eq_neg_of_conj_eq_rat {g g' : Matrix (Fin 24) (Fin 24) ℚ} (hg : g * gᵀ = 1)
+    (hg' : g' * g'ᵀ = 1)
+    (h : ∀ A : symMat, gᵀ * (A : Matrix (Fin 24) (Fin 24) ℚ) * g =
+      g'ᵀ * (A : Matrix (Fin 24) (Fin 24) ℚ) * g') :
+    g' = g ∨ g' = -g := by
+  have hgtg : gᵀ * g = 1 := mul_eq_one_comm.1 hg
+  obtain ⟨k, hk⟩ : ∃ k : Matrix (Fin 24) (Fin 24) ℚ, k = g' * gᵀ := ⟨_, rfl⟩
+  have hkk : k * kᵀ = 1 := by
+    rw [hk, transpose_mul, transpose_transpose, Matrix.mul_assoc, ← Matrix.mul_assoc gᵀ, hgtg,
+      Matrix.one_mul, hg']
+  have hconj : ∀ A : symMat, kᵀ * (A : Matrix (Fin 24) (Fin 24) ℚ) * k = A := by
+    intro A
+    rw [hk, transpose_mul, transpose_transpose]
+    calc g * g'ᵀ * (A : Matrix (Fin 24) (Fin 24) ℚ) * (g' * gᵀ) = g * (g'ᵀ * A * g') * gᵀ := by
+          simp only [Matrix.mul_assoc]
+      _ = g * (gᵀ * A * g) * gᵀ := by rw [h A]
+      _ = A := by
+          simp only [Matrix.mul_assoc, hg, Matrix.mul_one]
+          rw [← Matrix.mul_assoc, hg, Matrix.one_mul]
+  have hcomm : ∀ A : symMat, Commute (A : Matrix (Fin 24) (Fin 24) ℚ) k := by
+    intro A
+    change (A : Matrix (Fin 24) (Fin 24) ℚ) * k = k * A
+    calc (A : Matrix (Fin 24) (Fin 24) ℚ) * k = k * kᵀ * A * k := by rw [hkk, Matrix.one_mul]
+      _ = k * (kᵀ * A * k) := by simp only [Matrix.mul_assoc]
+      _ = k * A := by rw [hconj A]
+  have hsingle : Pairwise fun x y => Commute (single x y (1 : ℚ)) k := by
+    intro x y hxy
+    have e : single x y (1 : ℚ) = single x x 1 * (single x y 1 + single y x 1) := by
+      simp [Matrix.mul_add, hxy]
+    rw [e]
+    exact (hcomm (diagQ x)).mul_left (hcomm (pairQ x y))
+  obtain ⟨c, hc⟩ := mem_range_scalar_of_commute_single hsingle
+  have hc2 : c * c = 1 := by
+    rw [← hc, scalar_apply, diagonal_transpose, diagonal_mul_diagonal] at hkk
+    simpa using congrFun (congrFun hkk 0) 0
+  have hg'k : g' = k * g := by rw [hk, Matrix.mul_assoc, hgtg, Matrix.mul_one]
+  rcases mul_self_eq_one_iff.1 hc2 with rfl | rfl
+  · left
+    rw [hg'k, ← hc, map_one, Matrix.one_mul]
+  · right
+    rw [hg'k, ← hc, map_neg, map_one, Matrix.neg_mul, Matrix.one_mul]
 
 end CFSG.Monster.Parity

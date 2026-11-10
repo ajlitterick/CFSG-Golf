@@ -54,6 +54,28 @@ theorem no_component_of_equiv {A B : Type*} [Group A] [Group B] (e : A ≃* B)
     (h : ∀ K : Subgroup B, ¬ CFSG.IsComponent K) (K : Subgroup A) : ¬ CFSG.IsComponent K :=
   fun hK => h _ (CFSG.LocalCores.isComponent_map_mulEquiv e hK)
 
+theorem CTI_Co2_third_centralizer_normal_two_subgroup :
+    ∃ Q : Subgroup locH3, Q.Normal ∧ Nat.card Q = 1024 ∧ (∀ x y : Q, x * y = y * x) ∧
+      (∀ x : Q, x * x = 1) ∧ Subgroup.centralizer (Q : Set locH3) = Q ∧
+      ∀ B : Subgroup locH3, ¬ CFSG.IsComponent B := by
+  refine ⟨locQu.subgroupOf locH3, locQu_normal_H3, ?_, fun x y => ?_, fun x => ?_, ?_,
+    no_component_locH3⟩
+  · rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe locQu_le_H3).toEquiv, card_locQu]
+  · exact Subtype.ext (Subtype.ext (locQu_comm (Subgroup.mem_subgroupOf.1 x.2)
+      (Subgroup.mem_subgroupOf.1 y.2)))
+  · exact Subtype.ext (Subtype.ext (locQu_sq (Subgroup.mem_subgroupOf.1 x.2)))
+  · ext h
+    rw [Subgroup.mem_centralizer_iff]
+    constructor
+    · intro hh
+      refine Subgroup.mem_subgroupOf.2 ?_
+      rw [← locH3_inf_centralizer_Qu]
+      refine Subgroup.mem_inf.2 ⟨h.2, Subgroup.mem_centralizer_iff.2 fun g hg => ?_⟩
+      have := hh ⟨g, locQu_le_H3 hg⟩ (Subgroup.mem_subgroupOf.2 hg)
+      exact congrArg Subtype.val this
+    · intro hh g hg
+      exact Subtype.ext (locQu_comm (Subgroup.mem_subgroupOf.1 hg)
+        (Subgroup.mem_subgroupOf.1 hh))
 
 theorem no_component_centralizer_zP
     (B : Subgroup (Subgroup.centralizer ({zP} : Set co2P))) :

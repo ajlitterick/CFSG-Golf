@@ -164,6 +164,9 @@ theorem fr_congr {n w c : Nat} {f g : Nat → Nat} (h : FR n w c f) (e : ∀ p <
   rw [← e q hq]
   exact h q hq
 
+theorem fr_eq {n w c d : Nat} {f : Nat → Nat} (hc : FR n w c f) (hd : FR n w d f) {q : Nat}
+    (hq : q < n) : imgW w c q = imgW w d q := by
+  rw [(hc q hq).1, (hd q hq).1]
 
 theorem segW_fr {n w a b : Nat} {ta tb : Array Nat} (ha : FR n w a (img ta))
     (hb : FR n w b (img tb)) : ∀ (seg : List Nat) (acc : Nat) (f : Nat → Nat), FR n w acc f →

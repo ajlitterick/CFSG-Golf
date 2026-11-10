@@ -95,6 +95,23 @@ theorem cnum_int (g : Fin 26)
   · rw [hCz, Int.add_mul_emod_self_left]
     exact (hq i).1 t t.2
 
+theorem cnum_den (g : Fin 26)
+    {N : ℕ → ℕ → ℤ} {r : ℕ → ℕ} (hst : ∀ i < 4371, RowStab CFSG.KC.BM.Dyadic.Bs N (r i) i)
+    (hnum : ∀ t u : ℕ, t < 4371 → u < 4371 → numer g t u = N t u) :
+    ∀ i t : Fin 4371, (Cnum g i t).den = 1 := by
+  obtain ⟨C, hC, -⟩ := cnum_int g hst hnum
+  intro i t
+  rw [hC, Matrix.map_apply]
+  exact Rat.den_intCast _
+
+theorem cmat_eq (g : Fin 26)
+    {N : ℕ → ℕ → ℤ} {r : ℕ → ℕ} (hst : ∀ i < 4371, RowStab CFSG.KC.BM.Dyadic.Bs N (r i) i)
+    (hnum : ∀ t u : ℕ, t < 4371 → u < 4371 → numer g t u = N t u) :
+    ∀ i t : Fin 4371, Cmat g i t = if (r i).testBit t then 1 else 0 := by
+  obtain ⟨C, hC, hp⟩ := cnum_int g hst hnum
+  intro i t
+  rw [Cmat, hC, Matrix.map_apply, Rat.num_intCast, ← ZMod.intCast_mod, Nat.cast_ofNat, hp i t]
+  split <;> simp
 
 end CertificateChecks.KernelBM.Dy
 

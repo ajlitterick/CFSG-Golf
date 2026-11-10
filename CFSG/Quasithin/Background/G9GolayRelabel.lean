@@ -23,6 +23,10 @@ theorem golay_permAct_add (σ : Equiv.Perm (Fin 24)) (v w : GolayAmbient) :
   funext i
   rfl
 
+theorem golay_permAct_zero (σ : Equiv.Perm (Fin 24)) : permAct σ (0 : GolayAmbient) = 0 := by
+  funext i
+  rfl
+
 
 theorem golay_permAct_inv_cancel (σ : Equiv.Perm (Fin 24)) (w : GolayAmbient) :
     permAct σ (permAct σ⁻¹ w) = w := by

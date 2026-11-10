@@ -13,6 +13,18 @@ namespace CFSG.LocalAnalysis.AGL81TheoremCD.Section8
 
 variable {G : Type} [Group G] [Finite G]
 
+@[expose] def KFact76Max : Prop :=
+  ∀ (Y : Type) [Group Y] [Finite Y], CFSG.Open.IsKGroup Y → CFSG.pPrimeCore 3 Y = ⊥ →
+    ∀ A : Subgroup Y, Nat.card A = 3 →
+      (∀ g : Y, A.map (MulAut.conj g).toMonoidHom ≤ Subgroup.normalizer (A : Set Y) →
+        A.map (MulAut.conj g).toMonoidHom = A) →
+      IsSimpleGroup ↥(Subgroup.normalClosure (A : Set Y)) ∧
+        (CFSG.Open.pRank 3 (Subgroup.normalClosure (A : Set Y)) = 1 ∨
+          ∀ W : Subgroup Y,
+            Subgroup.normalizer (A : Set Y) ⊓ Subgroup.normalClosure (A : Set Y) ≤ W →
+            W ≤ Subgroup.normalClosure (A : Set Y) →
+            W = Subgroup.normalizer (A : Set Y) ⊓ Subgroup.normalClosure (A : Set Y) ∨
+              W = Subgroup.normalClosure (A : Set Y))
 
 @[expose] def KFactFi22SPEThreeRank : Prop :=
   ∀ (X : Type) [Group X] [Finite X], CFSG.pPrimeCore 5 X = ⊥ →

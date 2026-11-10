@@ -28,5 +28,16 @@ theorem c21260pair : pairWK CertificateChecks.KernelU6.T.R (pts.L.getD 0 0) pair
 theorem c21260plane : planeWK tp.C (wd.W.getD 0 0) planeWords.toList wd.W = true := by
   decide +kernel
 
+theorem c21260neg_pt : ptWK CertificateChecks.KernelU6.T.R
+    (ptWords.toList.set 1 (ptWords.toList.getD 2 [])) 0 = false := by
+  decide +kernel
+
+theorem c21260neg_pair : pairWK CertificateChecks.KernelU6.T.R (pts.L.getD 0 0)
+    (pairWords.toList.set 3 (pairWords.toList.getD 4 [])) pts.L 0 = false := by
+  decide +kernel
+
+theorem c21260neg_plane : planeWK tp.C (wd.W.getD 0 0)
+    (planeWords.toList.set 1 (planeWords.toList.getD 2 [])) wd.W = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSmithEK

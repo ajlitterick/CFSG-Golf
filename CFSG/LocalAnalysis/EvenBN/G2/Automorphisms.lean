@@ -13,6 +13,22 @@ open CFSG.ComponentClassification.UnbalancedCatalog CFSG.ComponentClassification
 open CFSG.ComponentClassification.OuterAutomorphisms (inner inner_normal)
 
 
+theorem isElementaryAbelian_quotient_of_mul_self {G : Type*} [Group G] {N E : Subgroup G}
+    [(N.subgroupOf E).Normal] (h : ∀ x ∈ E, x * x ∈ N) :
+    CFSG.IsElementaryAbelian 2 (E ⧸ N.subgroupOf E) := by
+  have hsq : ∀ q : E ⧸ N.subgroupOf E, q * q = 1 := by
+    intro q
+    induction q using QuotientGroup.induction_on with
+    | H a =>
+      rw [← QuotientGroup.mk_mul, QuotientGroup.eq_one_iff]
+      exact mem_subgroupOf.2 (h a a.2)
+  have hinv : ∀ q : E ⧸ N.subgroupOf E, q⁻¹ = q := fun q => inv_eq_of_mul_eq_one_right (hsq q)
+  refine { toIsMulCommutative := ⟨⟨fun a b => ?_⟩⟩, exponent_dvd_p := ?_ }
+  · calc a * b = (a * b)⁻¹ := (hinv _).symm
+      _ = b⁻¹ * a⁻¹ := mul_inv_rev a b
+      _ = b * a := by rw [hinv, hinv]
+  · exact Monoid.exponent_dvd_of_forall_pow_eq_one fun q => by rw [sq]; exact hsq q
+
 theorem orderOf_inv_mul_mul {G : Type*} [Group G] (a w : G) :
     orderOf (w⁻¹ * a * w) = orderOf a := by
   have h := MulEquiv.orderOf_eq (MulAut.conj w⁻¹) a
@@ -81,6 +97,36 @@ theorem inn_sup {H₁ H₂ : Subgroup (ModGL .G2 K)} (h₁ : H₁ ≤ adjointGro
   rw [inn, subgroupOf_sup h₁ h₂, Subgroup.map_sup]
   rfl
 
+theorem inn_adjointGroup : inn (adjointGroup .G2 K) = inner (adjointGroup .G2 K) := by
+  rw [inn, subgroupOf_self, ← MonoidHom.range_eq_map]
+  rfl
+
+theorem inn_le_inner (H : Subgroup (ModGL .G2 K)) : inn H ≤ inner (adjointGroup .G2 K) := by
+  rintro _ ⟨g, -, rfl⟩
+  exact ⟨g, rfl⟩
+
+theorem inn_bot : inn (⊥ : Subgroup (ModGL .G2 K)) = ⊥ := by
+  rw [inn, bot_subgroupOf, Subgroup.map_bot]
+
+theorem inn_subgroupOf_normal {H₁ H₂ : Subgroup (ModGL .G2 K)}
+    (h : H₂ ≤ normalizer (H₁ : Set (ModGL .G2 K))) : ((inn H₁).subgroupOf (inn H₂)).Normal := by
+  refine ⟨fun x hx y => ?_⟩
+  rw [mem_subgroupOf] at hx ⊢
+  obtain ⟨a, ha, hax⟩ := mem_inn.1 hx
+  obtain ⟨b, hb, hby⟩ := mem_inn.1 y.2
+  rw [coe_mul, coe_mul, coe_inv, ← hax, ← hby, ← map_mul, ← map_inv, ← map_mul]
+  refine conj_mem_inn ?_
+  rw [coe_mul, coe_mul, coe_inv]
+  exact (mem_normalizer_iff.1 (h hb) _).1 ha
+
+theorem inn_quotient_isElementaryAbelian {H₁ H₂ : Subgroup (ModGL .G2 K)}
+    [((inn H₁).subgroupOf (inn H₂)).Normal]
+    (h : ∀ x ∈ H₂, x ∈ adjointGroup .G2 K → x * x ∈ H₁) :
+    CFSG.IsElementaryAbelian 2 (inn H₂ ⧸ (inn H₁).subgroupOf (inn H₂)) :=
+  isElementaryAbelian_quotient_of_mul_self fun x hx => by
+    obtain ⟨g, hg, rfl⟩ := mem_inn.1 hx
+    rw [← map_mul]
+    exact conj_mem_inn (by rw [coe_mul]; exact h _ hg g.2)
 
 end Inn
 
@@ -183,6 +229,11 @@ theorem fieldAut_pow_pinnedX (k : ℕ) (s : Fin Tag.G2.rank → ℤ) (c : K) :
   rw [coe_fieldAut_pow_apply, units_map_entrywise_pinnedX]
   exact congrArg _ (frobeniusEquiv_pow_apply k c)
 
+theorem fieldAut_pow_g2N (k : ℕ) (A B C D E F : K) (h : g2N A B C D E F ∈ adjointGroup .G2 K) :
+    (((fieldAut K ^ k) ⟨g2N A B C D E F, h⟩ : adjointGroup .G2 K) : ModGL .G2 K) =
+      g2N (A ^ 2 ^ k) (B ^ 2 ^ k) (C ^ 2 ^ k) (D ^ 2 ^ k) (E ^ 2 ^ k) (F ^ 2 ^ k) := by
+  rw [coe_fieldAut_pow_apply]
+  simp only [g2N, map_mul, units_map_entrywise_pinnedX, frobeniusEquiv_pow_apply]
 
 theorem fieldAut_pow_torusElt (k : ℕ) (i : Fin Tag.G2.rank) (t : Kˣ) :
     (((fieldAut K ^ k) ⟨torusElt .G2 K i t, torusElt_mem_adjointGroup i t⟩ :
@@ -723,6 +774,19 @@ variable
   {K : Type} [Field K] [Finite K]
   [CharP K 2]
 
+theorem orderOf_fieldAut_pow_half {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    orderOf (fieldAut K ^ e) = 2 := by
+  have hn : 2 ≤ 2 * e := by omega
+  rw [orderOf_pow_of_dvd (by omega) ⟨2, by rw [orderOf_fieldAut hK hn]; ring⟩,
+    orderOf_fieldAut hK hn]
+  exact Nat.mul_div_cancel _ (by omega)
+
+theorem fieldAut_pow_half_not_mem_inner {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    fieldAut K ^ e ∉ inner (adjointGroup .G2 K) := by
+  rw [fieldAut_pow_mem_inner_iff hK (by omega)]
+  intro h
+  have := Nat.le_of_dvd (by omega) h
+  omega
 
 theorem exists_inner_conj_eq_of_outer {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e)
     {x : MulAut (adjointGroup .G2 K)} (hx : orderOf x = 2)
@@ -756,10 +820,115 @@ theorem exists_inner_conj_eq_of_outer {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) 
       _ = ((fieldAut K ^ j)⁻¹ * MulAut.conj g * fieldAut K ^ j)⁻¹ * fieldAut K ^ e *
           ((fieldAut K ^ j)⁻¹ * MulAut.conj g * fieldAut K ^ j) := by group
 
+theorem outer_involutions_eq {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    {x : MulAut (adjointGroup .G2 K) | x ∉ inner (adjointGroup .G2 K) ∧ orderOf x = 2} =
+      {x | ∃ w ∈ inner (adjointGroup .G2 K), x = w⁻¹ * fieldAut K ^ e * w} := by
+  ext x
+  constructor
+  · rintro ⟨hxL, hx⟩
+    exact exists_inner_conj_eq_of_outer hK he hx hxL
+  · rintro ⟨w, hw, rfl⟩
+    refine ⟨fun h => fieldAut_pow_half_not_mem_inner hK he ?_, ?_⟩
+    · have := (inner_normal (adjointGroup .G2 K)).conj_mem _ h w
+      rwa [show w * (w⁻¹ * fieldAut K ^ e * w) * w⁻¹ = fieldAut K ^ e by group] at this
+    · rw [orderOf_inv_mul_mul, orderOf_fieldAut_pow_half hK he]
+
+theorem inn_inf_centralizer_fieldAut_pow (H : Subgroup (ModGL .G2 K)) (k : ℕ) :
+    inn H ⊓ centralizer {fieldAut K ^ k} =
+      inn (H ⊓ entrywiseFixedGroup .G2 (frobeniusEquiv K 2 ^ k)) := by
+  ext α
+  constructor
+  · rintro ⟨hα₁, hα₂⟩
+    obtain ⟨g, hg, rfl⟩ := mem_inn.1 hα₁
+    have h1 := mem_centralizer_singleton_iff.1 hα₂
+    rw [mulAut_mul_conj] at h1
+    have h2 : (fieldAut K ^ k) g = g := conj_injective (mul_right_cancel h1).symm
+    refine conj_mem_inn ⟨hg, mem_entrywiseFixedGroup.2 ⟨g.2, ?_⟩⟩
+    rw [← coe_fieldAut_pow_apply, h2]
+  · intro hα
+    obtain ⟨g, ⟨hg, hgΓ⟩, rfl⟩ := mem_inn.1 hα
+    refine ⟨conj_mem_inn hg, mem_centralizer_singleton_iff.2 ?_⟩
+    have h2 : (fieldAut K ^ k) g = g := Subtype.ext (by
+      rw [coe_fieldAut_pow_apply]
+      exact (mem_entrywiseFixedGroup.1 hgΓ).2)
+    rw [mulAut_mul_conj, h2]
 
 omit
   [CharP K 2] in
+theorem card_inf_entrywiseFixedGroup {H : Subgroup (ModGL .G2 K)} (hHC : H ≤ adjointGroup .G2 K)
+    {d : ℕ} (σ : K ≃+* K) (φ : (Fin d → K) → ModGL .G2 K) (hφ : Function.Injective φ)
+    (hH : ∀ g, g ∈ H ↔ ∃ v, φ v = g)
+    (hσ : ∀ v, Units.map (entrywiseHom σ.toRingHom) (φ v) = φ fun i => σ (v i)) :
+    Nat.card (H ⊓ entrywiseFixedGroup .G2 σ : Subgroup (ModGL .G2 K)) =
+      Nat.card (fixSubfield σ) ^ d := by
+  refine card_eq_of_param (fun w : Fin d → fixSubfield σ => φ fun i => (w i : K))
+    (fun w w' h => funext fun i => Subtype.ext (congrFun (hφ h) i)) fun g => ?_
+  constructor
+  · rintro ⟨hgH, hgΓ⟩
+    obtain ⟨v, rfl⟩ := (hH g).1 hgH
+    have h1 := (mem_entrywiseFixedGroup.1 hgΓ).2
+    rw [hσ] at h1
+    have h2 := hφ h1
+    exact ⟨fun i => ⟨v i, congrFun h2 i⟩, rfl⟩
+  · rintro ⟨w, rfl⟩
+    have hmem : (φ fun i => (w i : K)) ∈ H := (hH _).2 ⟨_, rfl⟩
+    refine ⟨hmem, mem_entrywiseFixedGroup.2 ⟨hHC hmem, ?_⟩⟩
+    rw [hσ]
+    congr 1
+    funext i
+    exact (w i).2
 
+theorem card_inn_inf_centralizer_sq {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e)
+    {H : Subgroup (ModGL .G2 K)} (hHC : H ≤ adjointGroup .G2 K) {d : ℕ}
+    (φ : (Fin d → K) → ModGL .G2 K) (hφ : Function.Injective φ)
+    (hH : ∀ g, g ∈ H ↔ ∃ v, φ v = g)
+    (hσ : ∀ v, Units.map (entrywiseHom (frobeniusEquiv K 2 ^ e).toRingHom) (φ v) =
+      φ fun i => (frobeniusEquiv K 2 ^ e) (v i)) :
+    Nat.card (inn H ⊓ centralizer {fieldAut K ^ e} : Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 =
+      Nat.card (inn H) := by
+  have hk := (even_G2_canonical_field_full_centralizer he K hK (frobeniusEquiv K 2 ^ e)
+    (frobeniusEquiv_pow_apply e)).2.1
+  rw [inn_inf_centralizer_fieldAut_pow, card_inn (inf_le_left.trans hHC), card_inn hHC,
+    card_inf_entrywiseFixedGroup hHC _ φ hφ hH hσ, card_eq_of_param φ hφ hH, hk, hK, ← pow_mul,
+    ← pow_mul, ← pow_mul]
+  ring_nf
+
+theorem centralizer_fieldAut_half_mulEquiv {e : ℕ} (hK : Nat.card K = 2 ^ (2 * e))
+    (he : 1 ≤ e) :
+    ∃ (k : Type) (_ : Field k), Nat.card k = 2 ^ e ∧
+      Nonempty ((inner (adjointGroup .G2 K) ⊓ centralizer {fieldAut K ^ e} :
+        Subgroup (MulAut (adjointGroup .G2 K))) ≃* adjointGroup .G2 k) := by
+  set σ := frobeniusEquiv K 2 ^ e with hσ
+  obtain ⟨-, hk, -, hfix, -⟩ :=
+    even_G2_canonical_field_full_centralizer he K hK σ (frobeniusEquiv_pow_apply e)
+  have hδ : fieldAut K ^ e = entrywiseAdjointAut .G2 σ := fieldAut_pow e
+  set E₀ := (entrywiseAdjointAut .G2 σ).toMonoidHom.eqLocus
+    (MonoidHom.id (adjointGroup .G2 K)) with hE₀
+  have h1 : E₀.map (MulAut.conj : adjointGroup .G2 K →* MulAut (adjointGroup .G2 K)) =
+      inner (adjointGroup .G2 K) ⊓ centralizer {fieldAut K ^ e} := by
+    ext α
+    constructor
+    · rintro ⟨g, hg, rfl⟩
+      refine ⟨⟨g, rfl⟩, mem_centralizer_singleton_iff.2 ?_⟩
+      have hg' : (fieldAut K ^ e) g = g := by
+        rw [hδ]
+        exact hg
+      rw [mulAut_mul_conj, hg']
+    · rintro ⟨⟨g, rfl⟩, hc⟩
+      have h2 := mem_centralizer_singleton_iff.1 hc
+      rw [mulAut_mul_conj] at h2
+      have h3 : (fieldAut K ^ e) g = g := conj_injective (mul_right_cancel h2).symm
+      refine ⟨g, ?_, rfl⟩
+      show (entrywiseAdjointAut .G2 σ) g = g
+      rw [← hδ]
+      exact h3
+  refine ⟨fixSubfield σ, inferInstance, hk, ⟨?_⟩⟩
+  exact (MulEquiv.subgroupCongr h1).symm.trans
+    ((E₀.equivMapOfInjective _ conj_injective).symm.trans
+      ((E₀.equivMapOfInjective _ Subtype.val_injective).trans
+        ((MulEquiv.subgroupCongr hfix).trans
+          ((adjointGroup .G2 (fixSubfield σ)).equivMapOfInjective _
+            (baseChangeGL_injective _)).symm)))
 
 end FieldInvolution
 
@@ -769,6 +938,164 @@ variable
   {K : Type} [Field K] [Finite K]
   [CharP K 2] {e : ℕ}
 
+theorem card_sq_U (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (U K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (U K)) :=
+  card_inn_inf_centralizer_sq (d := 1) hK he (U_le_adjointGroup K) (fun v => g2N 0 0 0 0 0 (v 0))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w _ _ _ _ _ h6 => funext fun i => by
+      fin_cases i
+      exact h6)
+    (fun g => by
+      rw [mem_U]
+      exact ⟨fun ⟨F, h⟩ => ⟨![F], h.symm⟩, fun ⟨v, h⟩ => ⟨v 0, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]; simp only [map_zero]
+
+theorem card_sq_Y (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (Y K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (Y K)) :=
+  card_inn_inf_centralizer_sq (d := 2) hK he Y_le_adjointGroup (fun v => g2N 0 0 0 0 (v 0) (v 1))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w _ _ _ _ h5 h6 => funext fun i => by
+      fin_cases i
+      exacts [h5, h6])
+    (fun g => by
+      rw [mem_Y]
+      exact ⟨fun ⟨E, F, h⟩ => ⟨![E, F], h.symm⟩, fun ⟨v, h⟩ => ⟨v 0, v 1, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]; simp only [map_zero]
+
+theorem card_sq_W (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (W K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (W K)) :=
+  card_inn_inf_centralizer_sq (d := 3) hK he W_le_adjointGroup
+    (fun v => g2N 0 0 0 (v 0) (v 1) (v 2))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w _ _ _ h4 h5 h6 => funext fun i => by
+      fin_cases i
+      exacts [h4, h5, h6])
+    (fun g => by
+      rw [mem_W]
+      exact ⟨fun ⟨D, E, F, h⟩ => ⟨![D, E, F], h.symm⟩, fun ⟨v, h⟩ => ⟨v 0, v 1, v 2, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]; simp only [map_zero]
+
+theorem card_sq_F (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (Model.F K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (Model.F K)) :=
+  card_inn_inf_centralizer_sq (d := 4) hK he F_le_adjointGroup
+    (fun v => g2N 0 0 (v 0) (v 1) (v 2) (v 3))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w _ _ h3 h4 h5 h6 => funext fun i => by
+      fin_cases i
+      exacts [h3, h4, h5, h6])
+    (fun g => by
+      rw [mem_F]
+      exact ⟨fun ⟨C, D, E, F, h⟩ => ⟨![C, D, E, F], h.symm⟩,
+        fun ⟨v, h⟩ => ⟨v 0, v 1, v 2, v 3, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]; simp only [map_zero]
+
+theorem card_sq_D (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (Model.D K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (Model.D K)) :=
+  card_inn_inf_centralizer_sq (d := 5) hK he D_le_adjointGroup
+    (fun v => g2N 0 (v 0) (v 1) (v 2) (v 3) (v 4))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w _ h2 h3 h4 h5 h6 => funext fun i => by
+      fin_cases i
+      exacts [h2, h3, h4, h5, h6])
+    (fun g => by
+      rw [mem_D]
+      exact ⟨fun ⟨B, C, D, E, F, h⟩ => ⟨![B, C, D, E, F], h.symm⟩,
+        fun ⟨v, h⟩ => ⟨v 0, v 1, v 2, v 3, v 4, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]; simp only [map_zero]
+
+theorem card_sq_S (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    Nat.card (inn (S K) ⊓ centralizer {fieldAut K ^ e} :
+      Subgroup (MulAut (adjointGroup .G2 K))) ^ 2 = Nat.card (inn (S K)) :=
+  card_inn_inf_centralizer_sq (d := 6) hK he (S_le_adjointGroup K)
+    (fun v => g2N (v 0) (v 1) (v 2) (v 3) (v 4) (v 5))
+    (g2N_comp_injective _ _ _ _ _ _ fun v w h1 h2 h3 h4 h5 h6 => funext fun i => by
+      fin_cases i
+      exacts [h1, h2, h3, h4, h5, h6])
+    (fun g => by
+      rw [mem_S]
+      exact ⟨fun ⟨A, B, C, D, E, F, h⟩ => ⟨![A, B, C, D, E, F], h.symm⟩,
+        fun ⟨v, h⟩ => ⟨v 0, v 1, v 2, v 3, v 4, v 5, h.symm⟩⟩)
+    fun v => by rw [units_map_entrywise_g2N]
+
+theorem involutions_fieldAut_coset (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    {x : MulAut (adjointGroup .G2 K) |
+        (∃ w ∈ inn (S K), x = fieldAut K ^ e * w) ∧ orderOf x = 2} =
+      {x | ∃ w ∈ inn (S K), x = w⁻¹ * fieldAut K ^ e * w} := by
+  have : Finite (MulAut (adjointGroup .G2 K)) := MulEquiv.finite_left
+  let ch : Fin 7 → Subgroup (ModGL .G2 K) := ![⊥, U K, Y K, W K, Model.F K, Model.D K, S K]
+  let V : Fin 7 → Subgroup (MulAut (adjointGroup .G2 K)) := fun i => inn (ch i)
+  have hnorm : ∀ i : Fin 6, ch i.succ ≤ normalizer (ch i.castSucc : Set (ModGL .G2 K)) := by
+    intro i
+    fin_cases i
+    · exact le_normalizer_of_conj_mem fun x _ y hy => by
+        rw [mem_bot.1 hy, mul_one, mul_inv_cancel]
+        exact one_mem _
+    · exact Y_le_S.trans S_le_normalizer_U
+    · exact W_le_S.trans S_le_normalizer_Y
+    · exact F_le_S.trans S_le_normalizer_W
+    · exact D_le_S.trans S_le_normalizer_F
+    · exact S_le_normalizer_D
+  have : ∀ i : Fin 6, ((V i.castSucc).subgroupOf (V i.succ)).Normal := fun i =>
+    inn_subgroupOf_normal (hnorm i)
+  have hsq : ∀ i : Fin 6, ∀ x ∈ ch i.succ, x ∈ adjointGroup .G2 K → x * x ∈ ch i.castSucc := by
+    intro i
+    fin_cases i
+    · intro x (hx : x ∈ U K) _
+      have := U_isElementaryAbelian (K := K)
+      rw [← sq, CFSG.elemPow_eq_one_of_isElementaryAbelian x hx]
+      exact one_mem _
+    · intro x (hx : x ∈ Y K) _
+      have := Y_isElementaryAbelian (K := K)
+      rw [← sq, CFSG.elemPow_eq_one_of_isElementaryAbelian x hx]
+      exact one_mem (U K)
+    · intro x (hx : x ∈ W K) _
+      have := W_isElementaryAbelian (K := K)
+      rw [← sq, CFSG.elemPow_eq_one_of_isElementaryAbelian x hx]
+      exact one_mem (Y K)
+    · intro x (hx : x ∈ Model.F K) _
+      obtain ⟨C, D, E, F, rfl⟩ := mem_F.1 hx
+      rw [g2N_mul_self]
+      exact g2N_mem_W_iff.2 ⟨rfl, rfl, by ring⟩
+    · intro x (hx : x ∈ Model.D K) _
+      obtain ⟨B, C, D, E, F, rfl⟩ := mem_D.1 hx
+      rw [g2N_mul_self]
+      exact g2N_mem_F_iff.2 ⟨rfl, rfl⟩
+    · intro x (hx : x ∈ S K) _
+      obtain ⟨A, B, C, D, E, F, rfl⟩ := mem_S.1 hx
+      rw [g2N_mul_self]
+      exact g2N_mem_D_iff.2 rfl
+  have : ∀ i : Fin 6,
+      CFSG.IsElementaryAbelian 2 (V i.succ ⧸ (V i.castSucc).subgroupOf (V i.succ)) :=
+    fun i => inn_quotient_isElementaryAbelian (hsq i)
+  refine Common.involution_coset_eq_conj_orbit_of_card_sq (orderOf_fieldAut_pow_half hK he) V
+    inn_bot rfl (fun i => inn_mono ?_) (fun i => ?_) fun i => ?_
+  · fin_cases i
+    exacts [bot_le, U_le_Y, Y_le_W, W_le_F, F_le_D, D_le_S]
+  · fin_cases i
+    · exact fieldAut_pow_mem_normalizer_inn bot_le (fun k => Subgroup.map_bot _) e
+    · exact fieldAut_pow_mem_normalizer_inn (U_le_adjointGroup K) (fun k => map_entrywise_U _) e
+    · exact fieldAut_pow_mem_normalizer_inn Y_le_adjointGroup (fun k => map_entrywise_Y _) e
+    · exact fieldAut_pow_mem_normalizer_inn W_le_adjointGroup (fun k => map_entrywise_W _) e
+    · exact fieldAut_pow_mem_normalizer_inn F_le_adjointGroup (fun k => map_entrywise_F _) e
+    · exact fieldAut_pow_mem_normalizer_inn D_le_adjointGroup (fun k => map_entrywise_D _) e
+    · exact fieldAut_pow_mem_normalizer_inn (S_le_adjointGroup K) (fun k => map_entrywise_S _) e
+  · fin_cases i
+    exacts [card_sq_U hK he, card_sq_Y hK he, card_sq_W hK he, card_sq_F hK he, card_sq_D hK he,
+      card_sq_S hK he]
+
+theorem yamada_3_20 (hK : Nat.card K = 2 ^ (2 * e)) (he : 1 ≤ e) :
+    orderOf (fieldAut K ^ e) = 2 ∧ fieldAut K ^ e ∉ inner (adjointGroup .G2 K) ∧
+      {x : MulAut (adjointGroup .G2 K) |
+          (∃ w ∈ inn (S K), x = fieldAut K ^ e * w) ∧ orderOf x = 2} =
+        {x | ∃ w ∈ inn (S K), x = w⁻¹ * fieldAut K ^ e * w} ∧
+      {x : MulAut (adjointGroup .G2 K) | x ∉ inner (adjointGroup .G2 K) ∧ orderOf x = 2} =
+        {x | ∃ w ∈ inner (adjointGroup .G2 K), x = w⁻¹ * fieldAut K ^ e * w} ∧
+      ∃ (k : Type) (_ : Field k), Nat.card k = 2 ^ e ∧
+        Nonempty ((inner (adjointGroup .G2 K) ⊓ centralizer {fieldAut K ^ e} :
+          Subgroup (MulAut (adjointGroup .G2 K))) ≃* adjointGroup .G2 k) :=
+  ⟨orderOf_fieldAut_pow_half hK he, fieldAut_pow_half_not_mem_inner hK he,
+    involutions_fieldAut_coset hK he, outer_involutions_eq hK he,
+    centralizer_fieldAut_half_mulEquiv hK he⟩
 
 end Coset
 
@@ -1003,6 +1330,11 @@ theorem yamada_3_21 {n : ℕ} (hK : Nat.card K = 2 ^ n) (hn : 2 ≤ n)
   exact iSup₂_le fun A hA => le_iSup₂_of_le A ⟨hA.1.trans hSQ, hA.2.1,
     by rw [hA.2.2, hrank.1, hrQ]⟩ le_rfl
 
+theorem yamada_3_21_sylow {n : ℕ} (hK : Nat.card K = 2 ^ n) (hn : 2 ≤ n)
+    (Q : Sylow 2 (MulAut (adjointGroup .G2 K))) (hSQ : inn (S K) ≤ Q) :
+    rankThompson (Q : Subgroup (MulAut (adjointGroup .G2 K))) = inn (S K) := by
+  have : Finite (MulAut (adjointGroup .G2 K)) := MulEquiv.finite_left
+  exact (yamada_3_21 hK hn Q.isPGroup' hSQ).2.2
 
 end Thompson
 
@@ -1068,6 +1400,7 @@ theorem act_mem_inner_iff {x : G} (hx : x ∈ normalizer (L : Set G)) :
     have hyx' : y = ⟨x, hx⟩ := Subtype.ext hyx
     rw [← hyx']
     exact hy
+
 
 
 theorem act_mem_centralizer_inn_iff {H : Subgroup (ModGL .G2 K)} {x : G}

@@ -266,6 +266,12 @@ theorem hLab_eq_of_mem
     rw [← MulAction.orbit_eq_iff.2 h1, ← MulAction.orbit_eq_iff.2 hp]
   exact (orbit_rep_inj (he ▸ MulAction.mem_orbit_self (repX (hLab p)))).symm
 
+theorem least_rep
+    {j : Fin 12} {p : X} (hp : p ∈ MulAction.orbit HP (repX j)) : repX j ≤ p := by
+  obtain ⟨t, ht, hte⟩ := (mem_orbit_iff p).1 hp
+  have := prim_parts.2.2.2.2.2.2.2.2.2.2.2.1 j j.isLt t ht
+  rw [hte] at this
+  exact this
 
 theorem perm_smul_def (g : PH) (x : X) : g • x = (g : Equiv.Perm X) x := rfl
 
@@ -342,5 +348,39 @@ theorem range_pair {α : Type*} (x y : α) : Set.range ![x, y] = {x, y} := by
   ext g
   simp [eq_comm, or_comm]
 
+theorem range_a0_a1 : Set.range ![a0, a1] = {a0, a1} := range_pair a0 a1
+
+theorem closure_range_a0_a1 : Subgroup.closure (Set.range ![a0, a1]) = PH := by
+  rw [range_a0_a1]
+
+theorem preprimitive_of_eq
+    {K : Subgroup (Equiv.Perm X)} (h : K = PH) :
+    MulAction.IsPreprimitive K X := by
+  subst h
+  exact ph_preprimitive
+
+theorem fam_hn_certified_primitive_action :
+    (∀ h ∈ HP, h x0 = x0) ∧
+    Data.subgroupOrbitReps = [0, 1, 4, 7, 9, 15, 26, 34, 67, 88, 3542, 95153] ∧
+    Data.subgroupOrbitSizes =
+      [1, 362880, 166320, 10395, 69300, 166320, 311850, 30800, 16632, 2520, 2520, 462] ∧
+    (∀ j : Fin 12, Nat.card (MulAction.orbit HP (repX j)) = Data.subgroupOrbitSizes[j.val]!) ∧
+    (∀ p : X, ∃ j : Fin 12, p ∈ MulAction.orbit HP (repX j)) ∧
+    (∀ j k : Fin 12, repX k ∈ MulAction.orbit HP (repX j) → j = k) ∧
+    (∀ j : Fin 12, ∀ p ∈ MulAction.orbit HP (repX j), repX j ≤ p) ∧
+    (∀ j : Fin 12, j ≠ 0 → ∃ L, ValidInvariantMerge ![a0, a1] x0 (repX j) L) ∧
+    MulAction.IsPreprimitive PH X := by
+  refine ⟨fun h hh => HP_fix_zero hh, by decide, by decide, card_orbit,
+    fun p => ⟨_, mem_orbit_hLab p⟩, fun j k h => orbit_rep_inj h, fun j p hp => least_rep hp,
+    fun j hj => ?_, ph_preprimitive⟩
+  have := preprimitive_of_eq closure_range_a0_a1
+  refine exists_validInvariantMerge_of_preprimitive ![a0, a1] x0 (repX j) ?_
+  intro h
+  apply hj
+  have : repX j ∈ MulAction.orbit HP (repX 0) := by
+    have e : repX 0 = x0 := Fin.ext rfl
+    rw [e, h]
+    exact MulAction.mem_orbit_self x0
+  exact (orbit_rep_inj this).symm
 
 end CFSG.Sporadic.HNSchreier

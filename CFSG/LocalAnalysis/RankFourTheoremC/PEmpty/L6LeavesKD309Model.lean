@@ -124,6 +124,10 @@ theorem card_Wr : Nat.card Wr = 5 ^ 6 := by
   rw [Nat.card_congr e, Nat.card_prod]
   simp [Nat.card_eq_fintype_card, Fintype.card_fun, ZMod.card]
 
+theorem isPGroup_Wr : IsPGroup 5 Wr := by
+  haveI : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
+  exact IsPGroup.of_card card_Wr
+
 
 abbrev UU : Type := ZMod 5 → K16
 

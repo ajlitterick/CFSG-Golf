@@ -62,6 +62,8 @@ theorem fi22ThetaFun_bijective :
 
     Fin 3510 ≃ fi22ZClass := Equiv.ofBijective _ fi22ThetaFun_bijective
 
+theorem fi22Theta_apply
+    (i : Fin 3510) : fi22Theta i = fi22ThetaFun i := rfl
 
 theorem fi22Theta_eq
     {g : fi22P} {i : Fin 3510} (h : (g : Equiv.Perm (Fin 3510)) 0 = i) :

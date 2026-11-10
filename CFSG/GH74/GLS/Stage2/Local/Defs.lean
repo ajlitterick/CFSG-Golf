@@ -49,6 +49,8 @@ abbrev Cen (z : G) : Subgroup G := centralizer ({z} : Set G)
   S ⊓ (⨅ K ∈ {K : Subgroup (CentralizerBar z) | IsComponent K ∧ K ≤ LBar z},
     (normalizer (K : Set (CentralizerBar z))).comap (toBar z)).map (Cen z).subtype
 
+@[expose] def Dz (S : Subgroup G) (z : G) : Subgroup G :=
+  pPrimeCoreOf 2 (Cen z ⊓ centralizer ((S1 S z : Subgroup G) : Set G))
 
 @[expose] noncomputable def AutOrd (A V : Subgroup G) : ℕ :=
   (centralizer (V : Set G) ⊓ A).relIndex (normalizer (V : Set G) ⊓ A)

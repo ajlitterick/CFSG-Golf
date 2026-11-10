@@ -28,6 +28,11 @@ theorem apZ_cons (NV : Nat → Nat → Nat) (z : Int) (w : List Int) (x : Nat) :
   change strictN (apZ NV w x) (fun y => ptZ NV z y) = _
   rw [strictN_eq]
 
+theorem apZ_append (NV : Nat → Nat → Nat) (u v : List Int) (x : Nat) :
+    apZ NV (u ++ v) x = apZ NV u (apZ NV v x) := by
+  induction u with
+  | nil => rfl
+  | cons z u ih => rw [List.cons_append, apZ_cons, apZ_cons, ih]
 
 theorem dirOK_nil (net : Nat → Bool) : dirOK net [] = true := rfl
 

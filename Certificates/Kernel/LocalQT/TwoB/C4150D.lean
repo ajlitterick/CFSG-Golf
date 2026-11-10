@@ -52,6 +52,7 @@ namespace CFSG.KD.LQT.TB
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KD.LQT.C4126
 
+@[expose] noncomputable def pc (p q : Nat) : Nat := pcomp 3850 12 (mask 12) p q
 
 @[expose] noncomputable def idK : Nat := pidn 3850 12
 

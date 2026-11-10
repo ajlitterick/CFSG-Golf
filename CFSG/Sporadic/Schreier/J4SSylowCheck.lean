@@ -16,6 +16,12 @@ open scoped Matrix
 theorem genCols_all : ∀ i < 4, wordCols (fiveGenWords[i]!) = generatorColumns[i]! :=
   Certificates.certificate2182.1
 
+theorem genCols_size : ∀ i < 4, (generatorColumns[i]!).size = 11 ∧
+    ∀ j < 11, (generatorColumns[i]!)[j]! < 2048 :=
+  Certificates.certificate2182.2.1
+
+theorem elem_size : elementColumns.size = 1024 :=
+  Certificates.certificate2182.2.2.1
 
 theorem elem_zero : elementColumns[0]! = idRows 11 :=
   Certificates.certificate2182.2.2.2.1
@@ -44,6 +50,8 @@ theorem sq_all : ∀ e < 1024, squares[e]! < 1024 ∧
     elementColumns[squares[e]!]! = comp11 elementColumns[e]! elementColumns[e]! :=
   Certificates.certificate2182.2.2.2.2.2.2.2.2.1
 
+theorem ell_all : ∀ e < 1024, ∀ j < 11, ell ((elementColumns[e]!)[j]!) = ell (2 ^ j) :=
+  Certificates.certificate2182.2.2.2.2.2.2.2.2.2.1
 
 theorem ell_vecMul : ∀ e < 1024,
     CFSG.Sporadic.SmallF2.toVecD 11 300 ᵥ* colsMatrix (elementColumns[e]!) =

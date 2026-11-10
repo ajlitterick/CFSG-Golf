@@ -49,5 +49,8 @@ theorem hs_witness34 :
         orderOf (x * (y * x * y⁻¹)) = 6 :=
   Certificates.certificate2272.2.2.2.2.2.2.1
 
+theorem hs_sylowGens_permOK :
+    ∀ T ∈ hsSylowGenTbls, permOK 3850 T = true :=
+  Certificates.certificate2272.2.2.2.2.2.2.2
 
 end CFSG.Sporadic.SmallOddCore

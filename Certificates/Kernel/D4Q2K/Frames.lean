@@ -18,6 +18,11 @@ theorem ch709441fr : frameK D.pts D.frames.toList = true := by
 theorem ch709441len : bAnd(Nat.beq (lenL D.pts) 2240, Nat.beq D.frames.toList.length 4480) = true := by
   quickRfl
 
+theorem ch709441fr_negRep : (!frameK D.pts (#[0, 0, 1, 2] :: D.frames.toList)) = true := by
+  quickRfl
+
+theorem ch709441fr_negIdx : (!frameK D.pts (#[2240, 0, 1, 2] :: D.frames.toList)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

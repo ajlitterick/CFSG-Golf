@@ -110,6 +110,9 @@ theorem surj_of_injK {n w p : Nat} (hp : InjK n w p) :
   obtain ⟨i, hi, e⟩ := hsurj j (by simpa using hj)
   exact ⟨i, by simpa using hi, e.symm⟩
 
+theorem injK_of_canonK {n w p : Nat} (hp : canonK n w (mask w) (n * w) p = true)
+    (hinj : ∀ a < n, ∀ b < n, pg w (mask w) p a = pg w (mask w) p b → a = b) : InjK n w p :=
+  ⟨(canon_facts hp).2.2.2, hinj⟩
 
 theorem permOK_pinvS {n w p : Nat} (hp : canonK n w (mask w) (n * w) p = true)
     (hinj : InjK n w p) : permOK n w (mask w) (n * w) p (pinvS n w (mask w) p) = true := by

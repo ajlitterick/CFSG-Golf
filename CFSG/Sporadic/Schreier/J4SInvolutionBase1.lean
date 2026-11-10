@@ -20,6 +20,7 @@ theorem η_inv' (m : ℕ) : (η m)⁻¹ = η m := by
 
 section Generic
 
+variable {G : Type*} [Group G]
 
 end Generic
 

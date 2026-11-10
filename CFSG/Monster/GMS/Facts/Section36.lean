@@ -13,6 +13,15 @@ variable {G : Type*} [Group G]
     t ∈ Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G) →
       orderOf t = 2 → IsConj z₀ t ∧ IsConj z₀ (b * t) ∧ IsConj z₀ (x * t)
 
+@[expose] def A12InFiveA (a z₀ : G) : Prop :=
+  ∀ b x : G, IsConj a b → x ∈ typeSet a z₀ b .fiveA →
+    ∃ φ : alternatingGroup (Fin 12) →* G, Function.Injective φ ∧
+      (∀ σ, φ σ ∈ Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G)) ∧
+      (∀ σ : alternatingGroup (Fin 12),
+        (σ : Equiv.Perm (Fin 12)).cycleType = {2, 2} ∨
+          (σ : Equiv.Perm (Fin 12)).cycleType = {2, 2, 2, 2, 2, 2} → IsConj a (φ σ)) ∧
+      (∀ σ : alternatingGroup (Fin 12),
+        (σ : Equiv.Perm (Fin 12)).cycleType = {2, 2, 2, 2} → IsConj z₀ (φ σ))
 
 @[expose] def IsLineTriple (a x y : G) : Prop := IsConj a x ∧ IsConj a y ∧ IsConj a (x * y)
 

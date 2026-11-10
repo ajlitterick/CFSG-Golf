@@ -36,6 +36,14 @@ theorem card_griessHopfMultiplier_M23_of_certificate :
     ⟨hfin, hcard.trans (by rw [one_mul, card_m23])⟩
   omega
 
+theorem card_ker_eq_one_of_certificate
+    {E : Type} [Group E] [Group.IsPerfect E]
+    (q : E →* CFSG.Blueprint.NativeSporadic.M23) (hq : Function.Surjective q)
+    (hker : q.ker ≤ Subgroup.center E) : Nat.card q.ker = 1 :=
+  Nat.dvd_one.1 (card_ker_dvd_of_cover (p := 1) (cw := m23CommWord)
+    isPresentation_m23Gen_of_certificate (fun i => m23CommW_mem_commutator i)
+    (fun i => lift_m23CommW m23TabCheck_eq_true i)
+    card_griessHopfMultiplier_M23_of_certificate q hq hker)
 
 theorem card_center_eq_one_of_certificate
     {Q : Type} [Group Q] (hQ : Group.IsPerfect Q)

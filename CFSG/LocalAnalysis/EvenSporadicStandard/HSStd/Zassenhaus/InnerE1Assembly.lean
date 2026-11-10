@@ -15,6 +15,24 @@ open Subgroup CFSG.Open CFSG.Blueprint CFSG.Blueprint.NativeSporadic
   CFSG.EvenSporadicStandard.Induction CFSG.EvenSporadicStandard.Solomon78 Wreath
 open scoped commutatorElement
 
+@[expose] def HSInnerPartA : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), HSLemma21Setting G L →
+    HSInductionA8 G → HSInductionHiS G →
+    ∀ t : G, t ∈ centralizer (L : Set G) → orderOf t = 2 →
+      centralizer ({t} : Set G) = L ⊔ zpowers t →
+    ∀ (S : Subgroup G) (z n : G), HSFusionData L t S z n →
+    ∀ E : Subgroup G, E ≤ L → z ∈ E → IsElemAbelian 2 E → Nat.card E = 16 →
+      (∃ φ : ↥(normalizer (E : Set G) ⊓ L) →* Equiv.Perm (Fin 6), Function.Surjective φ ∧
+        φ.ker = E.subgroupOf (normalizer (E : Set G) ⊓ L)) →
+      (∀ e ∈ E, e ≠ 1 → ∃ a ∈ normalizer (E : Set G) ⊓ L, a * z * a⁻¹ = e) →
+      (∀ e ∈ E, ∃ m ∈ normalizer ((zpowers t ⊔ E : Subgroup G) : Set G), m * t * m⁻¹ = t * e) →
+    ∀ W : Subgroup G, W = I2.Opp2 (normalizer ((zpowers t ⊔ E : Subgroup G) : Set G)) →
+      W ≤ normalizer ((zpowers t ⊔ E : Subgroup G) : Set G) →
+      (∀ m ∈ normalizer ((zpowers t ⊔ E : Subgroup G) : Set G), ∀ w ∈ W, m * w * m⁻¹ ∈ W) →
+      E ≤ W → t ∉ W → IsElemAbelian 2 W → Nat.card W = 256 →
+      Nat.card (normalizer ((zpowers t ⊔ E : Subgroup G) : Set G)) = 16 * 23040 →
+      centralizer ((zpowers t ⊔ E : Subgroup G) : Set G) = zpowers t ⊔ E →
+    Nonempty (InnerD8ConfigC L t)
 
 @[expose] def HSInnerB4 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), HSLemma21Setting G L →

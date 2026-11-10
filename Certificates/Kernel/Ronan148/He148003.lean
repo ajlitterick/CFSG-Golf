@@ -59,6 +59,8 @@ theorem kC : (cn (HN 0) && cn (HNI 0) && cn (HN 1)) = true := by
 theorem kR : relK (HN 0) (HNI 0) (HN 1) = true := by
   quickRfl
 
+theorem kRNeg : (!relK (pidn 8330 14) (pidn 8330 14) (HN 1)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelRonan148.He148003
 

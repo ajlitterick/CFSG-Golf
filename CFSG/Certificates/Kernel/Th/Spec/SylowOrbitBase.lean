@@ -214,6 +214,18 @@ private theorem blkAcc_succ {BL b : ℕ} (h : 0 < blkAcc BL (b + 1)) :
     obtain ⟨h2, h3⟩ := CFSG.KC.Th.Spec.Dce.andB_iff.1 h2
     exact ⟨Nat.blt_eq.mp h1, Nat.eq_of_beq_eq_true h2, Nat.blt_eq.mp h3, rfl⟩
 
+private theorem blkAcc_pos {BL m : ℕ} (h : 0 < blkAcc BL m) :
+    ∀ i ≤ m, 0 < blkAcc BL i := by
+  induction m with
+  | zero =>
+    intro i hi
+    obtain rfl : i = 0 := by omega
+    exact h
+  | succ m ih =>
+    intro i hi
+    rcases Nat.lt_or_eq_of_le hi with hi | rfl
+    · exact ih (blkAcc_succ (b := m) h).1 i (by omega)
+    · exact h
 
 private theorem blkAcc_lt_succ {BL i : ℕ} (h : 0 < blkAcc BL (i + 1)) :
     blkAcc BL i < blkAcc BL (i + 1) := by

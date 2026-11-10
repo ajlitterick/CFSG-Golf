@@ -800,6 +800,9 @@ theorem plusQuad_rho [Nonempty N] {K : Type*} [Field K] {g : GL N K} (hg : g ∈
   map_one' := Units.ext rho_one
   map_mul' g h := Units.ext (rho_mul g.2 h.2)
 
+theorem coe_orthHom (g : F.normGroup A) :
+    ((F.orthHom (A := A) g : GL (DI m) A) : Matrix (DI m) (DI m) A) = F.rho A g :=
+  rfl
 
 end Frame
 

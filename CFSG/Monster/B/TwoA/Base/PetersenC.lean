@@ -53,6 +53,9 @@ theorem Y5_mem_X5
   obtain ⟨g, hg, h⟩ := Y5_eq_conjSub d
   exact ⟨g, hg, h.symm⟩
 
+theorem Y4_le_Y5_iff
+    (c : Fin 15) (d : Fin 10) : Y4 c ≤ Y5 d ↔ R4 c ⊆ R5 d := by
+  rw [Y4, Y5, EU_le_EU_iff, (pairSpace_UR4 c).le_iff (pairSpace_UR5 d)]
 
 theorem Y4_injective :
     Function.Injective Y4 := by
@@ -88,5 +91,57 @@ instance finite_X5 :
     (Function.Injective.bijective_of_nat_card_le
       (fun d d' h => Y5_injective (congrArg Subtype.val h)) (by rw [natCard_X5, Nat.card_fin]))
 
+theorem coe_enum4
+    (c : Fin 15) : ((enum4 c : X4) : Subgroup Dfull) = Y4 c := rfl
+
+theorem coe_enum5
+    (d : Fin 10) : ((enum5 d : X5) : Subgroup Dfull) = Y5 d := rfl
+
+@[expose] def vertEquiv :
+    X5 ≃ PetVert :=
+  enum5.symm.trans (Equiv.ofBijective vlab vlab_bijective)
+
+@[expose] def edgeEquiv :
+    X4 ≃ PetEdge :=
+  enum4.symm.trans (Equiv.ofBijective edgeLab ⟨edgeLab_injective, edgeLab_surjective⟩)
+
+theorem vertEquiv_enum5
+    (d : Fin 10) : vertEquiv (enum5 d) = vlab d := by
+  rw [vertEquiv, Equiv.trans_apply, Equiv.symm_apply_apply]
+  rfl
+
+theorem edgeEquiv_enum4
+    (c : Fin 15) : edgeEquiv (enum4 c) = edgeLab c := by
+  rw [edgeEquiv, Equiv.trans_apply, Equiv.symm_apply_apply]
+  rfl
+
+theorem le_iff_mem_edge
+    (F : X4) (G : X5) :
+    (F : Subgroup Dfull) ≤ G ↔ vertEquiv G ∈ (edgeEquiv F).1 := by
+  obtain ⟨c, rfl⟩ := enum4.surjective F
+  obtain ⟨d, rfl⟩ := enum5.surjective G
+  rw [coe_enum4, coe_enum5, vertEquiv_enum5, edgeEquiv_enum4, Y4_le_Y5_iff, R4_subset_R5_iff]
+  change _ ↔ vlab d ∈ ({vlab (ev4 c 0), vlab (ev4 c 1)} : Finset PetVert)
+  rw [Finset.mem_insert, Finset.mem_singleton, vlab_injective.eq_iff, vlab_injective.eq_iff]
+
+theorem rank_three_upper_residue_Petersen :
+    Nat.card X4 = 15 ∧ Nat.card X5 = 10 ∧
+    (∀ k ∈ K3, ∀ F ∈ X4, conjSub k F ∈ X4) ∧ (∀ k ∈ K3, ∀ G ∈ X5, conjSub k G ∈ X5) ∧
+    (∀ F ∈ X4, ∀ G ∈ X5, F ≤ G → ∀ F' ∈ X4, ∀ G' ∈ X5, F' ≤ G' →
+      ∃ k ∈ K3, conjSub k F = F' ∧ conjSub k G = G') ∧
+    (∃ (φ : X5 ≃ PetVert) (χ : X4 ≃ PetEdge),
+      ∀ (F : X4) (G : X5), (F : Subgroup Dfull) ≤ G ↔ φ G ∈ (χ F).1) ∧
+    (∀ (F : X4) (G : X5), (F : Subgroup Dfull) ≤ G ↔ vertEquiv G ∈ (edgeEquiv F).1) ∧
+    (∀ d : Fin 10, ((enum5 d : X5) : Subgroup Dfull) = EU (UR5 d) ∧
+      PairSpace (UR5 d) (R5 d) ∧ (vertEquiv (enum5 d) : Finset ℕ) = tetLab d) ∧
+    (∀ (d : Fin 10) (k : Fin 5),
+      (k : ℕ) + 1 ∈ tetLab d ↔ ∀ D ∈ R5 d, ¬ ((D : Finset (Fin 24)) ⊆ tetrad k)) ∧
+    (∀ c : Fin 15, ((enum4 c : X4) : Subgroup Dfull) = EU (UR4 c) ∧ PairSpace (UR4 c) (R4 c)) :=
+  ⟨natCard_X4, natCard_X5, fun _ hk _ hF => conjSub_mem_X4 hk hF,
+    fun _ hk _ hG => conjSub_mem_X5 hk hG,
+    fun _ hF _ hG hFG _ hF' _ hG' hFG' => incident_transitive hF hG hFG hF' hG' hFG',
+    ⟨vertEquiv, edgeEquiv, le_iff_mem_edge⟩, le_iff_mem_edge,
+    fun d => ⟨rfl, pairSpace_UR5 d, by rw [vertEquiv_enum5]; rfl⟩, mem_tetLab_iff,
+    fun c => ⟨rfl, pairSpace_UR4 c⟩⟩
 
 end CFSG.Monster.B.TwoA

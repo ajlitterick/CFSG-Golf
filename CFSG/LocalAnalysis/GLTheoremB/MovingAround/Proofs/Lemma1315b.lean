@@ -1160,6 +1160,19 @@ theorem le_M_of_spor {m p : ℕ} {B M R : Subgroup G} {d z : G} (hb : Basic m p 
     (fun E hE hr => hb.normB E (hE.trans hB4B) hr) hb.core hL
 
 
+structure Inputs : Prop where
+  i2319 : Input23_19
+  i255 : Input25_5
+  i33 : Input3_3
+  i144 : Input14_4_1
+  i1418 : Input14_18
+  i1415 : Lemma1314.Input14_15
+  iFi23 : Lemma1314.Input23_24Fi23
+  i112 : CFSG.HardMathSupport.Solomon.LocalBalance.Input11_2
+  i183 : Prop115.Input18_3Gen
+  iDiag : Input18_3DiagZ
+  iL2 : InputL2
+
 theorem cg2_le_cg_d {d z : G} : Cg2 d z ≤ Cg d :=
   Subgroup.centralizer_le (Set.singleton_subset_iff.2 (Set.mem_insert d {z}))
 
@@ -1185,6 +1198,113 @@ theorem ne_bot_of_quasisimple_quot {Y : Type} [Group Y] {J : Subgroup Y} {N : Su
   subst h
   exact (QuotientGroup.quotientMulEquivOfEq hK).trans QuotientGroup.quotientBot
 
+theorem single_case {m p : ℕ} {B M R : Subgroup G} {d z : G} (hb : Basic m p B M R d z)
+    (hI : Inputs) (hstd : GLStanding G m p) (hX : Cg z ≠ ⊤)
+    {H H0 : Subgroup G} (hHc : GLAPComponent p (Cg z) H)
+    (hdH : d ∈ Subgroup.normalizer (H : Set G)) (hH0H : H0 ≤ H)
+    (hH0 : GLAPComponent p (Cg2 d z) H0) (hHM : ¬ H ≤ M)
+    (hH0t : Prop95Iv.InChevTwo (barOf p H0) ∨ (p = 5 ∧ IsAltType 7 (barOf p H0)))
+    {A : Subgroup G} (hA : IsSCp p (Cg z) A) (hAr : CFSG.Open.pRank p A = 3) (hdA : d ∈ A)
+    (hzA : z ∈ A) :
+    (p = 5 ∨ p = 7) ∧ IsLpType 2 p (barOf p H0) ∧ IsLpType 2 (p ^ p) (barOf p H) ∧
+      ¬ InducesInner p H d := by
+  have hp := hb.prime
+  haveI : Fact p.Prime := ⟨hp⟩
+  have hKP : CFSG.Open.IsKProper G := hstd.kProper
+  have hdX : d ∈ Cg z := hb.d_mem_Cg
+  have hHX : H ≤ Cg z := hHc.1
+  have hKX : CFSG.Open.IsKGroup ↥(Cg z) := CFSG.Open.IsKProper.isKGroup hKP (Cg z) hX
+  haveI : (GLAPPrimeCore p ↥(Cg z)).Normal := inferInstance
+  have hY : CFSG.Open.IsKGroup (↥(Cg z) ⧸ GLAPPrimeCore p ↥(Cg z)) :=
+    CFSG.Open.IsKGroup.quotient hKX _
+  have hcomp := Lemma1314.isComponentOf_barX_of_glaPComponent hHc
+  have hKhat := isKHat_barX hp hKX hHc
+  have hcoreK := core_barX_eq_bot hp hHc
+  have hdK := mk_mem_normalizer_barX (p := p) hdX hdH
+  have hdord := orderOf_mk_eq (p := p) hdX hb.dord
+  have hdp : (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg z)) ⟨d, hdX⟩) ^ p = 1 := by
+    have := pow_orderOf_eq_one (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg z)) ⟨d, hdX⟩)
+    rwa [hdord] at this
+  have hH0' : GLAPComponent p (H ⊓ Cg d) H0 :=
+    glaPComponent_of_le hp hH0 (le_inf hH0H (hH0.1.trans cg2_le_cg_d)) (inf_le_cg2 hHX)
+  have hH0X : H0 ≤ Cg z := hH0H.trans hHX
+  have hdz : IsPGroup p ↥(Subgroup.zpowers d) :=
+    IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hb.dord, pow_one])
+  have hJ := glaPComponent_barX_inf_centralizer hp hdX hHX hdH hdz hH0'
+  have eH : barOf p H ≃* ↥(barX p (Cg z) H) := quotEquivBarX hp hHX hHc.2.1
+  have hH0q : CFSG.Open.IsQuasisimple (barOf p H0) := isQuasisimple_barOf_of_comp hp hH0
+  have hH0core : GLAPPrimeCore p (barOf p H0) = ⊥ := glaPPrimeCore_quotient_eq_bot hp
+  have hp2 : 2 ≠ p := by have := hb.five_le; omega
+  have hH0type : (∃ n : ℕ, IsAltType n (barOf p H0 ⧸ Subgroup.center (barOf p H0))) ∨
+      IsChevSimple 2 (barOf p H0 ⧸ Subgroup.center (barOf p H0)) := by
+    rcases hH0t with hc | ⟨-, hA7⟩
+    · exact Or.inr (isChevSimple_two_of_isChevTwo hc.2)
+    · exact Or.inl ⟨7, isAltType_center_quot (by norm_num) hA7⟩
+  have hclaim : ((∃ n : ℕ, IsAltType n (barOf p H ⧸ Subgroup.center (barOf p H))) ∨
+      (∃ q : ℕ, q.Prime ∧ q ≠ p ∧
+        IsChevSimple q (barOf p H ⧸ Subgroup.center (barOf p H)))) → False :=
+    fun ht => hHM (le_M_of_type hb hI.i2319 hKP hX hHc ht)
+  by_cases hcen : barX p (Cg z) H ≤ Subgroup.centralizer
+      ({QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg z)) ⟨d, hdX⟩} : Set (↥(Cg z) ⧸ GLAPPrimeCore p ↥(Cg z)))
+  ·
+    exfalso
+    have hinf : barX p (Cg z) H ⊓ Subgroup.centralizer
+        ({QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg z)) ⟨d, hdX⟩} :
+          Set (↥(Cg z) ⧸ GLAPPrimeCore p ↥(Cg z))) = barX p (Cg z) H := inf_eq_left.2 hcen
+    have hJ' : GLAPComponent p (barX p (Cg z) H) (barX p (Cg z) H0) := by
+      rw [hinf] at hJ
+      exact hJ
+    have hper : ⁅barX p (Cg z) H0, barX p (Cg z) H0⁆ = barX p (Cg z) H0 := glaPComponent_perfect hJ'
+    have hJbot : barX p (Cg z) H0 ≠ ⊥ := ne_bot_of_quasisimple_quot (isQuasisimple_barOf_of_comp hp hJ')
+    have hJK : barX p (Cg z) H0 = barX p (Cg z) H :=
+      eq_of_perfect_subnormal_quasisimple hcomp.2.2 hJbot hper hJ'.2.1
+    have e0 : barOf p H0 ≃* ↥(barX p (Cg z) H) :=
+      (barOfBarX hp hH0X).trans (iso_of_eq_of_core hJK hcoreK)
+    have eHH0 : barOf p H ≃* barOf p H0 := eH.trans e0.symm
+    rcases hH0type with ⟨n, hn⟩ | hch
+    · exact hclaim (Or.inl ⟨n, isAltType_center_of_equiv eHH0 hn⟩)
+    · exact hclaim (Or.inr ⟨2, Nat.prime_two, hp2, isChevSimple_center_of_equiv eHH0 hch⟩)
+  · have hpump0 := pumpupVia_of_setting hp hdK hdp hcen hJ
+    have hpump : Lemma1314.PumpupVia p (barOf p H0) ↥(barX p (Cg z) H) (conjAutOf _ _ hdK) :=
+      Lemma1314.pumpupVia_of_equiv (barOfBarX hp hH0X).symm hpump0
+    rcases hH0t with hchev | ⟨hp5, hA7⟩
+    · have hch2 : IsChevSimple 2 (barOf p H0 ⧸ Subgroup.center (barOf p H0)) :=
+        isChevSimple_two_of_isChevTwo hchev.2
+      have hnab := exists_noncomm_quot hKhat.1
+      rcases catalog_cases hnab hKhat.2 with ⟨n, hn⟩ | ⟨idx, ⟨e⟩⟩ | ⟨name, hname⟩
+      · exact absurd (Or.inl ⟨n, isAltType_center_of_equiv eH hn⟩) hclaim
+      · have hr : idx.1.characteristic.Prime := idx.1.characteristic_prime
+        have hchev : IsChevSimple idx.1.characteristic
+            (↥(barX p (Cg z) H) ⧸ Subgroup.center ↥(barX p (Cg z) H)) := isChevSimple_of_lie e
+        by_cases hrp : idx.1.characteristic = p
+        · rw [hrp] at hchev
+          obtain ⟨hch_p, hnot_inner⟩ := hI.i144 p p hp hb.five_le hp _ hKhat hcoreK hchev
+            (barOf p H0) _ hpump
+          obtain ⟨h57, hL2p⟩ := hI.i33 p hp hb.five_le (barOf p H0) hH0q hH0core hch2 hch_p
+          have hLq := hI.i1418 p hp (by have := hb.five_le; omega) _ hKhat hcoreK hchev
+            (barOf p H0) _ hL2p hpump
+          refine ⟨h57, hL2p, isLpType_of_equiv eH hLq, ?_⟩
+          intro hind
+          obtain ⟨k, hk, hkk⟩ := innerOn_of_inducesInner hp hHc.2.1 hdX hind
+          exact hnot_inner rfl (mem_innerAut_of_innerOn hdK hk hkk)
+        · exact absurd (Or.inr ⟨idx.1.characteristic, hr, hrp,
+            isChevSimple_center_of_equiv eH hchev⟩) hclaim
+      · exact absurd (le_M_of_spor hb hI.i255 hKP hX hHc hdH hH0' hch2 ⟨name, hname⟩ hA hAr hdA hzA)
+          hHM
+    · exfalso
+      subst hp5
+      have hdis := hI.i1415 5 hp (le_refl 5) _ hKhat hcoreK
+        ⟨_, Lemma1314.pumpupVia_of_equiv hA7.some hpump⟩
+      rcases hdis with ⟨k, hk2, hk⟩ | ⟨-, hFi⟩
+      · have : IsAltType (k * 5 + 2) (↥(barX 5 (Cg z) H) ⧸ Subgroup.center ↥(barX 5 (Cg z) H)) :=
+          isAltType_center_quot (by omega) hk
+        exact hclaim (Or.inl ⟨_, isAltType_center_of_equiv eH this⟩)
+      · have hG := hI.iFi23 (↥(Cg z) ⧸ GLAPPrimeCore 5 ↥(Cg z)) (glaPPrimeCore_quotient_eq_bot hp)
+          (barX 5 (Cg z) H) (barX 5 (Cg z) B) hcomp (isElemAbelian_barX hb.bel) hFi
+        have hk3 : 3 ≤ CFSG.Open.pRank 5 B := by rw [hb.pRank_B]; have := hb.m4; omega
+        exact hHM (Lemma1314.le_of_gMinusOne hp hHX hb.B_le_Cg (isPGroup_of_elemAbelian hb.bel)
+          hb.normB hb.core hG hk3)
+
 
 theorem h0type {p : ℕ} {H0 : Subgroup G}
     (hH0t : Prop95Iv.InChevTwo (barOf p H0) ∨ (p = 5 ∧ IsAltType 7 (barOf p H0))) :
@@ -1203,6 +1323,43 @@ structure TypeResult (p : ℕ) (X H0 H : Subgroup G) (d : G) : Prop where
   dN : d ∈ Subgroup.normalizer (H : Set G)
   ninner : ¬ InducesInner p H d
 
+theorem type_analysis {m p : ℕ} {B M R : Subgroup G} {d z : G} (hb : Basic m p B M R d z)
+    (hI : Inputs) (hstd : GLStanding G m p) (hX : Cg z ≠ ⊤)
+    {H0 : Subgroup G} (hH0 : GLAPComponent p (Cg2 d z) H0) (hH0M : ¬ H0 ≤ M)
+    (hH0t : Prop95Iv.InChevTwo (barOf p H0) ∨ (p = 5 ∧ IsAltType 7 (barOf p H0)))
+    {A : Subgroup G} (hA : IsSCp p (Cg z) A) (hAr : CFSG.Open.pRank p A = 3) (hdA : d ∈ A)
+    (hzA : z ∈ A) {H : Subgroup G} (hHdef : H = ⨆ g ∈ GLAPLayer p (Cg z), GLBConj g H0) :
+    TypeResult p (Cg z) H0 H d := by
+  have hp := hb.prime
+  haveI : Fact p.Prime := ⟨hp⟩
+  have hp2 : p ≠ 2 := by have := hb.five_le; omega
+  have hH0H : H0 ≤ H := by
+    rw [hHdef]
+    exact le_iSup₂_of_le (1 : G) (Subgroup.one_mem _) (le_of_eq (gLBConj_one H0).symm)
+  rcases hI.i183 p hp hp2 G hstd.simple hstd.nonabelian hstd.kProper d z hb.dord hb.zo hb.dz H0
+    hH0 with ⟨L, hL, hHL, hdL⟩ | ⟨L, hL, hinj, hcyc, hHL⟩
+  · have hLH : H = L := hHdef.trans hHL
+    have hHc : GLAPComponent p (Cg z) H := hLH ▸ hL
+    have hdH : d ∈ Subgroup.normalizer (H : Set G) :=
+      mem_normalizer_iff_gLBConj_eq.2 (hLH ▸ hdL)
+    have hHM : ¬ H ≤ M := fun h => hH0M (hH0H.trans h)
+    obtain ⟨h57, hlp, hlq, hni⟩ :=
+      single_case hb hI hstd hX hHc hdH hH0H hH0 hHM hH0t hA hAr hdA hzA
+    exact ⟨h57, hlp, hlq, hHc, hH0H, hdH, hni⟩
+  · exfalso
+    have hdiag := hI.iDiag p hp hp2 G hstd.simple hstd.nonabelian hstd.kProper d z hb.dord hb.zo
+      hb.dz H0 hH0 L hL hinj hcyc hHL
+    have hLM : ∀ i, L i ≤ M := fun i => by
+      obtain ⟨e⟩ := hdiag i
+      rcases h0type hH0t with ⟨n, hn⟩ | hch
+      · exact le_M_of_type hb hI.i2319 hstd.kProper hX (hL i)
+          (Or.inl ⟨n, Lemma1314.isAltType_of_equiv e.symm hn⟩)
+      · exact le_M_of_type hb hI.i2319 hstd.kProper hX (hL i)
+          (Or.inr ⟨2, Nat.prime_two, hp2.symm, isChevSimple_of_equiv e.symm hch⟩)
+    have hHM : H ≤ M := by
+      rw [hHdef, hHL]
+      exact iSup_le hLM
+    exact hH0M (hH0H.trans hHM)
 
 end TypeAnalysis
 
@@ -2317,6 +2474,8 @@ end SitRIC
 end Structure
 
 
+
+
 section Assembly
 
 variable {G : Type} [Group G] [Finite G]
@@ -2380,6 +2539,26 @@ theorem A_data {m p : ℕ} {B M E A D T R L0 : Subgroup G} {d : G}
     exact Subgroup.mem_sup_right (Subgroup.mem_zpowers z)
   exact ⟨⟨hAX, hA.2.1, fun E _ hEel hAE => hA.2.2 E le_top hEel hAE⟩, hdA, hzA⟩
 
+theorem exists_sit {m p : ℕ} {B M E A D T R L0 : Subgroup G} {d : G}
+    (h1314 : Lemma1314Statement) (hI : Inputs)
+    (h : Cex1310 G m p B M E A D T R L0 d) (h139a : Prop139a p M D) {U : Subgroup G}
+    (hU : IsU1312 p B M D L0 d U) (hUR : U ≤ centerOf R) {z : G} {H0 : Subgroup G}
+    (hz : z ∈ U ∧ z ≠ 1) (hH0 : GLAPComponent p (Cg2 d z) H0) (hH0M : ¬ H0 ≤ M)
+    (hH0t : Prop95Iv.InChevTwo (barOf p H0) ∨ (p = 5 ∧ IsAltType 7 (barOf p H0))) :
+    ∃ H : Subgroup G, H = (⨆ g ∈ GLAPLayer p (Cg z), GLBConj g H0) ∧
+      TypeResult p (Cg z) H0 H d ∧ Sit m p B M R d z H := by
+  have hb := basic_of_cex h h139a hU hUR hz
+  have hstd := h.standing
+  haveI : IsSimpleGroup G := hstd.simple
+  have hX : Cg z ≠ ⊤ := centralizer_ne_top_of_simple hstd.nonabelian hz.2
+  obtain ⟨hAsc, hdA, hzA⟩ := A_data h hb
+  have h14 := h1314 h h139a
+  have hAr : CFSG.Open.pRank p A = 3 := h14.2.2.2
+  have tr := type_analysis hb hI hstd hX hH0 hH0M hH0t hAsc hAr hdA hzA
+    (H := ⨆ g ∈ GLAPLayer p (Cg z), GLBConj g H0) rfl
+  have hHM : ¬ (⨆ g ∈ GLAPLayer p (Cg z), GLBConj g H0) ≤ M := fun hle => hH0M (tr.H0H.trans hle)
+  exact ⟨_, rfl, tr, hb, tr.comp, tr.dN, hb.B_le_normalizer hstd hI.i112 tr.comp,
+    hb.centBar_B_eq hstd hI.i112 tr.comp hHM, tr.ninner, hI.iL2 p hb.prime hb.five_le _ tr.lq⟩
 
 end Assembly
 
@@ -2390,6 +2569,26 @@ namespace CFSG.LocalAnalysis.GLTheoremB.MovingAround
 open CFSG.Open CFSG.LocalAnalysis.GLTheoremB
 open CFSG.HardMathSupport.Solomon.LocalBalance (barOf)
 
+theorem lemma1315_of_inputs (h1314 : Lemma1314Statement)
+    (hI2319 : Lemma1315b.Input23_19) (hI255 : Lemma1315b.Input25_5) (hI33 : Lemma1315b.Input3_3)
+    (hI144 : Lemma1315b.Input14_4_1) (hI1418 : Lemma1315b.Input14_18)
+    (hI1415 : Lemma1314.Input14_15) (hFi23 : Lemma1314.Input23_24Fi23)
+    (hI112 : CFSG.HardMathSupport.Solomon.LocalBalance.Input11_2)
+    (hI183 : Prop115.Input18_3Gen) (hDiag : Lemma1315b.Input18_3DiagZ)
+    (hL2 : Lemma1315b.InputL2) : Lemma1315Statement := by
+  have hI : Lemma1315b.Inputs :=
+    ⟨hI2319, hI255, hI33, hI144, hI1418, hI1415, hFi23, hI112, hI183, hDiag, hL2⟩
+  intro G _ _ m p B M E A D T R L0 d h h139a U hU hUR z H0 hz hH0 hH0M hH0t H
+  obtain ⟨H', hH', tr, hs⟩ := Lemma1315b.exists_sit h1314 hI h h139a hU hUR hz hH0 hH0M hH0t
+  subst hH'
+  have h14 := h1314 h h139a
+  have hIM := Lemma1315b.mem_normalizer_Iof h139a
+  have hr : Lemma1315b.RIC p R (Iof p M D) :=
+    ⟨fun r hr' => hIM r (hs.hb.rM hr'), h14.1.1, h14.1.2.1, h14.1.2.2⟩
+  obtain ⟨P, -, -, -, -, -, -, -, -, -, -, -, hRB⟩ := hs.R_facts
+  exact ⟨⟨tr.p57, tr.lp, tr.lq, hs.cyclic_centBar, tr.dN, tr.ninner⟩,
+    Lemma1315.sylow_of_central_rank_two h hU.1 hUR, hRB,
+    hs.iv hr (Lemma1315b.normalizer_R_le_M h hU.1 hUR) hIM⟩
 
 namespace Lemma1315b
 
@@ -2407,6 +2606,27 @@ namespace Lemma1315b
 
 end Lemma1315b
 
+theorem lemma1315_extras_of_inputs (h1314 : Lemma1314Statement)
+    (hI2319 : Lemma1315b.Input23_19) (hI255 : Lemma1315b.Input25_5) (hI33 : Lemma1315b.Input3_3)
+    (hI144 : Lemma1315b.Input14_4_1) (hI1418 : Lemma1315b.Input14_18)
+    (hI1415 : Lemma1314.Input14_15) (hFi23 : Lemma1314.Input23_24Fi23)
+    (hI112 : CFSG.HardMathSupport.Solomon.LocalBalance.Input11_2)
+    (hI183 : Prop115.Input18_3Gen) (hDiag : Lemma1315b.Input18_3DiagZ)
+    (hL2 : Lemma1315b.InputL2) : Lemma1315b.ExtrasStatement := by
+  have hI : Lemma1315b.Inputs :=
+    ⟨hI2319, hI255, hI33, hI144, hI1418, hI1415, hFi23, hI112, hI183, hDiag, hL2⟩
+  intro G _ _ m p B M E A D T R L0 d h h139a U hU hUR z H0 hz hH0 hH0M hH0t H
+  obtain ⟨H', hH', tr, hs⟩ := Lemma1315b.exists_sit h1314 hI h h139a hU hUR hz hH0 hH0M hH0t
+  subst hH'
+  obtain ⟨P, hPH, hPp, hPmax, -, hPB, hBeq, hdis, hBH, -, hRH, -, -⟩ := hs.R_facts
+  have hBH' : B ⊓ H = P := hBH
+  refine ⟨?_, ?_, ?_, fun x hx => hs.normalizer_zpowers_le hx, hs.m_eq_and_inner.1⟩
+  · rw [hBH']
+    exact ⟨hPH, hPp, hPmax⟩
+  · rw [hBH']
+    exact ⟨hBeq, hdis⟩
+  · rw [hBH']
+    exact hRH
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround
 

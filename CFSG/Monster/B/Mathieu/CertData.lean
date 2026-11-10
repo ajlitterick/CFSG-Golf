@@ -15,6 +15,8 @@ namespace CFSG.Monster.B.Mathieu
 open Lean (Json)
 open CFSG.Certificates CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
 
+@[expose] def certificateText : String :=
+  certText0 ++ certText1 ++ certText2 ++ certText3 ++ certText4 ++ certText5
 
 structure ChainRecord where
   degree : ℕ
@@ -87,6 +89,13 @@ structure CertificateFile where
       permutationConvention := ← j.getObjValAs? String "permutation_convention"
       groups := gs }
 
+@[expose] def certificateFile : Except String CertificateFile := do
+  CertificateFile.ofJson (← Json.parse certificateText)
+
+@[expose] def MathieuCertificate (t : String) : Option GroupRecord :=
+  match certificateFile with
+  | .ok f => f.groups.find? fun r => r.group == t
+  | .error _ => none
 
 @[expose] noncomputable def arrPerm (n : ℕ) (a : List ℕ) : Equiv.Perm (Fin n) :=
   permOfArr n a.toArray

@@ -97,6 +97,9 @@ theorem normSq_pos {u : Fin 24 → ℤ} (h : u ≠ 0) : 0 < normSq u := by
       (Finset.mem_univ i)
   linarith
 
+theorem le_normSq (u : Fin 24 → ℤ) (i : Fin 24) : u i * u i ≤ normSq u :=
+  Finset.single_le_sum (f := fun i => u i * u i) (fun j _ => mul_self_nonneg (u j))
+    (Finset.mem_univ i)
 
 theorem mem_minFamily₃_of_odd {u : Fin 24 → ℤ} {d : Fin 24 → ZMod 2} (hd : d ∈ C)
     (hud : ∀ i, u i ≡ 1 + 2 * bitLift (d i) [ZMOD 4]) (hn : normSq u = 32) :

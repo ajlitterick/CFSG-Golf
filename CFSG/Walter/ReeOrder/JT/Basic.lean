@@ -92,6 +92,17 @@ theorem inv_of_inf_centralizer_eq_bot [Finite G] {u : G} (hu : u * u = 1) {K : S
   rw [huinv, mul_inv_rev, mul_inv_rev, mul_inv_rev, inv_inv, huinv]
   simp only [mul_assoc, hu, mul_one]
 
+theorem le_centralizer_of_inv {u : G} {K : Subgroup G}
+    (hinv : ∀ x ∈ K, u * x * u⁻¹ = x⁻¹) : K ≤ Subgroup.centralizer (K : Set G) := by
+  intro x hx
+  rw [Subgroup.mem_centralizer_iff]
+  intro y hy
+  have h1 := hinv _ (K.mul_mem hx hy)
+  rw [show u * (x * y) * u⁻¹ = (u * x * u⁻¹) * (u * y * u⁻¹) by group, hinv x hx,
+    hinv y hy, mul_inv_rev] at h1
+  have := congrArg (·⁻¹) h1
+  simp only [mul_inv_rev, inv_inv] at this
+  exact this
 
 section BrauerWielandt
 

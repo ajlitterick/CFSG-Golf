@@ -104,6 +104,8 @@ theorem dot4_neg (f c : T4) : dot4 f (-c) = -dot4 f c := by
   simp only [dot4, Prod.fst_neg, Prod.snd_neg]
   ring
 
+theorem dot4_zero_right (f : T4) : dot4 f 0 = 0 := by
+  simp [dot4]
 
 theorem dot4_zero_left (c : T4) : dot4 0 c = 0 := by
   simp [dot4]

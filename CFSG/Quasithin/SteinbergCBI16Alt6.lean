@@ -77,5 +77,10 @@ theorem card_Z1A_6 : Nat.card (Z1A coords6.actA) = 2 * Nat.card (B1A coords6.act
     (not_mem_B1A_of_codes cols6_lt act6 (by decide) f0_gens6 no6)
     (classify_Z1A closure_gens6 cols6_lt act6 rels6_eq (coords6.f0_mem 0) f0_gens6 class6)
 
+variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
+
+theorem finrank_H1_alternatingNatural_six {ρ : Representation (ZMod 2) Γ W}
+    (h : Explicit.AlternatingNatural ρ 6 .alternating) : Module.finrank (ZMod 2) (H1 ρ) = 1 :=
+  coords6.finrank_H1_eq_one h card_Z1A_6
 
 end CFSG.Quasithin.SteinbergCB.I16

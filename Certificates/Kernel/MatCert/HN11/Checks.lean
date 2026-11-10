@@ -32,7 +32,13 @@ end CertificateChecks.KernelMC.HN11
 namespace CertificateChecks.KernelMC.HN11
 
 open CFSG.KC.LocalComp.FactsV CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongSporLocal
+open CFSG.KD.MC.HN11 (lay V P N)
 
+theorem neg_regs : Bool.not (regsV lay V P (fun s => TT (s + 1)) N hn_11_claims.nregs
+    hn_11_claims.prog RF) = true := by quickRfl
+
+theorem neg_facts : Bool.not (chunkV lay V P N RF hn_11_claims.nregs hn_11_claims.facts
+    (fun i => HH (i + 1)) (fun _ => true) 256 0) = true := by quickRfl
 
 end CertificateChecks.KernelMC.HN11
 

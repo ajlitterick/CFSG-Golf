@@ -228,6 +228,8 @@ theorem joint_actFun_ne_bot (β : E.normalizerMonoidHom.range) {χ : E → L}
     refine Equiv.ext fun χ => Subtype.ext (funext fun e => ?_)
     rfl
 
+theorem weightAction_apply (β : E.normalizerMonoidHom.range) (χ : Wts L E) (e : E) :
+    (weightAction β χ).1 e = χ.1 ((β : MulAut E).symm e) := rfl
 
 theorem weightAction_injective [IsAlgClosed L] {p : ℕ} (hp : (p : L) ≠ 0)
     (hexp : ∀ e : E, (e : GL ι K) ^ p = 1) (hcomm : ∀ e e' : E, (e : GL ι K) * e' = e' * e) :

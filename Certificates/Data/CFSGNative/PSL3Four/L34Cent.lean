@@ -17,5 +17,22 @@ namespace CFSG.PSL3Four.Native
 @[expose] def e9T (_ : Unit := ()) : Array Tab :=
   Array.ofFn (n := 9) fun k => comp 42 (powTab 42 a₀T (k.val / 3)) (powTab 42 b₀T (k.val % 3))
 
+@[expose] def e9rT (_ : Unit := ()) : Array Tab :=
+  Array.ofFn (n := 18) fun k => if k.val < 9 then e9T[k.val]! else comp 42 r₄T e9T[k.val - 9]!
+
+@[expose] def l34CentCheck (ES ER : Array Tab) : Bool :=
+  memTab ES a₀T && memTab ES b₀T && memTab ER r₄T &&
+    powTab 42 a₀T 3 == idTab 42 && powTab 42 b₀T 3 == idTab 42 &&
+    comp 42 a₀T b₀T == comp 42 b₀T a₀T &&
+    (allBelow 9 fun i => allBelow 9 fun j => i == j || !(e9T[i]! == e9T[j]!)) &&
+    comp 42 r₄T r₄T == idTab 42 && !(r₄T == idTab 42) &&
+    comp 42 r₄T a₀T == comp 42 a₀T r₄T && comp 42 r₄T b₀T == comp 42 b₀T r₄T &&
+    (allBelow ER.size fun k =>
+      !(comp 42 ER[k]! a₀T == comp 42 a₀T ER[k]! && comp 42 ER[k]! b₀T == comp 42 b₀T ER[k]!) ||
+        memTab e9rT ER[k]!) &&
+    (allBelow ER.size fun k =>
+      !(anyBelow 9 (fun i => comp 42 ER[k]! a₀T == comp 42 e9T[i]! ER[k]!) &&
+        anyBelow 9 (fun j => comp 42 ER[k]! b₀T == comp 42 e9T[j]! ER[k]!)) ||
+        comp 42 ER[k]! r₄T == comp 42 r₄T ER[k]!)
 
 end CFSG.PSL3Four.Native

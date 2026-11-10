@@ -100,6 +100,17 @@ theorem co3Field12_size (f : ℕ) : (co3Field12 f).size = (co3Lines12.getD f (0,
 
 @[expose] def co3C12 : Equiv.Perm (Fin 12) := permOfArr 12 co3C12Arr
 
+@[expose] def co3MGen (i : ℕ) : Equiv.Perm (Fin 276) := permOfArr 276 co3MArrs[i - 1]!
+
+@[expose] def co3M1Gen (i : ℕ) : Equiv.Perm (Fin 276) := permOfArr 276 co3M1Arrs[i - 1]!
+
+@[expose] def co3MCommWord (k : ℕ) : Equiv.Perm (Fin 276) :=
+  let p := co3MCommPairs.getD k (0, 0)
+  co3MGen p.2 * co3MGen p.1 * (co3MGen p.2)⁻¹ * (co3MGen p.1)⁻¹
+
+@[expose] def co3M1CommWord (k : ℕ) : Equiv.Perm (Fin 276) :=
+  let p := co3M1CommPairs.getD k (0, 0)
+  co3M1Gen p.2 * co3M1Gen p.1 * (co3M1Gen p.2)⁻¹ * (co3M1Gen p.1)⁻¹
 
 abbrev Co3V6 : Type := Fin 3 ⊕ Fin 3 → ZMod 2
 
@@ -167,5 +178,49 @@ theorem co3Field12_size' (f : ℕ) {m : ℕ} (h : (co3Lines12.getD f (0, 0)).2 =
     (co3Field12 f).size = m := by
   rw [co3Field12_size, h]
 
+theorem AT_Co3_outer_certificate_data :
+    co3OuterSchemaVersion = 1 ∧
+    ((List.range 6).map fun f => ((co3Lines276.getD (5 + f) (0, 0)).2)) =
+      [10, 14, 11, 8, 8, 25] ∧
+    [co3TGenCount, co3MGenCount, co3M1GenCount, co3MCommGenCount, co3M1CommGenCount,
+      co3JointGenCount, co3Sp36GenCount, co3M36GenCount, co3M112GenCount] =
+      [8, 7, 6, 4, 3, 13, 63, 6, 5] ∧
+    co3TChain.strongCount = 10 ∧ co3MChain.strongCount = 14 ∧ co3M1Chain.strongCount = 11 ∧
+    co3MCommChain.strongCount = 8 ∧ co3M1CommChain.strongCount = 8 ∧
+    co3JointChain.strongCount = 25 ∧ co3Sp36Chain.strongCount = 66 ∧
+    co3M36Chain.strongCount = 16 ∧ co3M112Chain.strongCount = 13 ∧
+    co3TChain.base.toList.map Fin.val = [0, 1, 2] ∧
+    co3MChain.base.toList.map Fin.val = [0, 1, 2, 3] ∧
+    co3M1Chain.base.toList.map Fin.val = [0, 1, 3, 4] ∧
+    co3MCommChain.base.toList.map Fin.val = [0, 1, 2, 3] ∧
+    co3M1CommChain.base.toList.map Fin.val = [0, 1, 3, 4] ∧
+    co3JointChain.base.toList.map Fin.val = [0, 1, 2, 3, 4, 5, 6] ∧
+    co3Sp36Chain.base.toList.map Fin.val = [0, 1, 2, 4, 8, 12] ∧
+    co3M36Chain.base.toList.map Fin.val = [0, 1, 2, 8, 12, 4] ∧
+    co3M112Chain.base.toList.map Fin.val = [0, 1, 2, 3, 4] ∧
+    (∀ f < 11, ∀ k < (co3Field276 f).size,
+      isInvA 276 (co3Field276 f)[k]! (invCand 276 (co3Field276 f)[k]!) = true) ∧
+    (∀ f < 3, ∀ k < (co3Field36 f).size,
+      isInvA 36 (co3Field36 f)[k]! (invCand 36 (co3Field36 f)[k]!) = true) ∧
+    (∀ f < 2, ∀ k < (co3Field12 f).size,
+      isInvA 12 (co3Field12 f)[k]! (invCand 12 (co3Field12 f)[k]!) = true) ∧
+    wordsOK 8 10 co3TDerivations = true ∧ wordsOK 7 14 co3MDerivations = true ∧
+    wordsOK 6 11 co3M1Derivations = true ∧ wordsOK 4 8 co3MCommDerivations = true ∧
+    wordsOK 3 8 co3M1CommDerivations = true ∧ wordsOK 13 25 co3JointDerivations = true ∧
+    wordsOK 63 66 co3Sp36Derivations = true ∧ wordsOK 6 16 co3M36Derivations = true ∧
+    wordsOK 5 13 co3M112Derivations = true ∧
+    co3IzNat.length = 36 ∧ co3IzNat.Pairwise (· < ·) ∧ (∀ p ∈ co3IzNat, p < 276) ∧
+    co3ItNat.length = 12 ∧ co3ItNat.Pairwise (· < ·) ∧ (∀ p ∈ co3ItNat, p < 276) ∧
+    co3MCommPairs = [(2, 5), (2, 6), (2, 7), (3, 4)] ∧ co3M1CommPairs = [(2, 5), (2, 6), (3, 6)] ∧
+    co3A.length = 36 ∧ (∀ a ∈ co3A, a < 64) ∧ co3OrbitBounds = (170775, 2608200) := by
+  obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11⟩ := co3Words_check
+  refine ⟨rfl, rfl, rfl, co3Field276_size' 5 rfl, co3Field276_size' 6 rfl,
+    co3Field276_size' 7 rfl, co3Field276_size' 8 rfl, co3Field276_size' 9 rfl,
+    co3Field276_size' 10 rfl, co3Field36_size' 0 rfl, co3Field36_size' 1 rfl,
+    co3Field12_size' 0 rfl, by decide, by decide, by decide, by decide, by decide, by decide,
+    by decide, by decide, by decide, fun f hf k hk => isInvA_co3Field276 hf hk,
+    fun f hf k hk => isInvA_co3Field36 hf hk, fun f hf k hk => isInvA_co3Field12 hf hk,
+    h3, h4, h5, h6, h7, h8, h9, h10, h11, rfl, by decide, by decide, rfl, by decide, by decide,
+    rfl, rfl, rfl, by decide, rfl⟩
 
 end CFSG.Sporadic.Schreier.Co3

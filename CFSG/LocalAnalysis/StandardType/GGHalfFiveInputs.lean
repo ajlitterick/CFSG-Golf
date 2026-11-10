@@ -8,6 +8,16 @@ namespace CFSG.StandardType
 
 open CFSG.Assembly CFSG.Assembly.LowTwoRank
 
+@[expose] def GGNbrTablePNbrInput : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
+    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
+    GGInnerDiagOn Bs K → GGNbr p B x D J y K →
+    ∀ labJ labK : LargeEvenLabel, LargeEvenInLambda2 labJ → LargeEvenInLambda2 labK →
+      GGHasLabel labJ (J ⧸ Subgroup.center J) → GGHasLabel labK (K ⧸ Subgroup.center K) →
+      ∃ labJ' labK' : LargeEvenLabel, LargeEvenInLambda2 labJ' ∧ LargeEvenInLambda2 labK' ∧
+        GGTablePRow p labJ' labK' ∧
+        GGHasLabel labJ' (J ⧸ Subgroup.center J) ∧ GGHasLabel labK' (K ⧸ Subgroup.center K)
+
 
 @[expose] def GGTableBAut48LeInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G) (y : G)

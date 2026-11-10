@@ -22,6 +22,10 @@ open CFSG.KC.Enum CFSG.KS CFSG.KC.L34W CFSG.ComponentClassification.GrSLit.L34Fa
 
 theorem two_k : twoOK T1X.F TW = true := by decide +kernel
 
+theorem two_neg : (!twoOK T1X.F (patchT TW 14 (Nat.add (Nat.sub (TW 14)
+    (Nat.shiftLeft (pg 10 (mask 10) (TW 14) 1) 10)) (Nat.shiftLeft (pg 10 (mask 10) (TW 14) 0) 10)))) =
+    true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34W
 

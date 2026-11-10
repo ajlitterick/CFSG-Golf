@@ -13,6 +13,68 @@ abbrev GL6 : Type := GL (Fin 6) (ZMod 2)
 
 abbrev M6 : Type := Matrix (Fin 6) (Fin 6) (ZMod 2)
 
+theorem orbR_mem {P : List ℕ → Prop} {act : List ℕ → List ℕ → List ℕ} {dflt t : List ℕ}
+    {gens : List (List ℕ)} (h0 : P t) (hstep : ∀ x, P x → ∀ i, P (act x (gens.getD i dflt)))
+    (par : List (ℕ × ℕ)) : ∀ x ∈ orbR act dflt t gens par, P x := by
+  have key : ∀ (l : List (ℕ × ℕ)) (acc : Array (List ℕ)), (∀ x ∈ acc, P x) →
+      ∀ x ∈ l.foldl (fun acc ps => acc.push (act (acc.getD ps.1 t) (gens.getD ps.2 dflt))) acc,
+        P x := by
+    intro l
+    induction l with
+    | nil => exact fun acc h => h
+    | cons ps l ih =>
+      intro acc h
+      rw [List.foldl_cons]
+      refine ih _ fun x hx => ?_
+      rcases Array.mem_push.mp hx with hx | rfl
+      · exact h x hx
+      · refine hstep _ ?_ _
+        rw [Array.getD]
+        split_ifs with hp
+        · exact h _ (Array.getElem_mem hp)
+        · exact h0
+  exact key par #[t] (fun x hx => by rw [Array.mem_singleton.mp hx]; exact h0)
+
+theorem testBit_bitsOf (f : ℕ → Bool) (n i : ℕ) :
+    (bitsOf f n).testBit i = (decide (i < n) && f i) := by
+  induction n with
+  | zero => simp [bitsOf]
+  | succ k ih =>
+    rw [bitsOf, Nat.testBit_xor, ih]
+    rcases lt_trichotomy i k with h | rfl | h
+    · have h1 : ¬ k = i := by omega
+      have h2 : i < k + 1 := by omega
+      cases hf : f k <;> simp [h, h2, Nat.testBit_two_pow, h1]
+    · cases hf : f i <;> simp [Nat.testBit_two_pow, hf]
+    · have h1 : ¬ i < k := by omega
+      have h2 : ¬ i < k + 1 := by omega
+      have h3 : ¬ k = i := by omega
+      cases hf : f k <;> simp [h1, h2, Nat.testBit_two_pow, h3]
+
+theorem length_formAct (w g : List ℕ) : (formAct w g).length = 6 := by
+  simp [formAct]
+
+theorem decN_formAct {w : List ℕ} (hw : w.length = 6) (g : List ℕ) :
+    decN 6 (formAct w g) = (decN 6 g)ᵀ * decN 6 w * decN 6 g := by
+  ext i j
+  have hj : (j : ℕ) < (formAct w g).length := by rw [length_formAct]; exact j.isLt
+  have e1 : decN 6 (formAct w g) i j = b2z (dotN 6 (g.getD i 0) (mvN w (g.getD j 0))) := by
+    simp only [decN, Matrix.of_apply, vecN]
+    rw [List.getD_eq_getElem _ _ hj]
+    simp [formAct, testBit_bitsOf]
+  rw [e1, dotN_spec, ← decN_mulVec hw]
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, dotProduct, Matrix.mulVec,
+    Finset.sum_mul, Finset.mul_sum]
+  rw [Finset.sum_comm]
+  refine Finset.sum_congr rfl fun k _ => Finset.sum_congr rfl fun l _ => ?_
+  simp only [decN, Matrix.of_apply]
+  ring
+
+theorem exists_unit_of_inv {n : ℕ} {g h : List ℕ} (hg : ValidN n g) (hh : ValidN n h)
+    (e1 : mulN g h = oneN n) (e2 : mulN h g = oneN n) :
+    ∃ u : GL (Fin n) (ZMod 2), (u : Matrix (Fin n) (Fin n) (ZMod 2)) = decN n g :=
+  ⟨⟨decN n g, decN n h, by rw [← decN_mulN hg.1 hh.1, e1, decN_oneN],
+    by rw [← decN_mulN hh.1 hg.1, e2, decN_oneN]⟩, rfl⟩
 
 @[ext] structure Form6 where
   mat : M6
@@ -68,6 +130,10 @@ theorem subset_sum_dvd : ∀ a ∈ [0, 315], ∀ b ∈ [0, 2880], ∀ c ∈ [0, 
 theorem validN_sbGens : ∀ g ∈ sbGens, ValidN 6 g := fun g hg =>
   validB_iff.mp ((by decide : ∀ g ∈ sbGens, validB 6 g = true) g hg)
 
+theorem mem_orbit_of {s : GL6} {x : List ℕ}
+    (e : decN 6 x = ((s : GL6) : M6)ᵀ * W0.mat * (s : M6)) :
+    (⟨decN 6 x⟩ : Form6) ∈ MulAction.orbit GL6 W0 :=
+  ⟨s⁻¹, Form6.ext (by rw [inv_smul_mat, e])⟩
 
 theorem card_GL6 : Nat.card GL6 = 20158709760 := by
   rw [Matrix.card_GL_field, ZMod.card]

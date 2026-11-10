@@ -42,6 +42,10 @@ theorem ch733008_hPins : pinsK 6 2 EH.CF wH = true := by quickRfl
 theorem ch733008_hRecs : ∀ t < 9, recK2 28 12 6 2 EH.CF (genR 28 12 6 2 EH.CF) 9 t = true := by
   kc_cover 64
 
+theorem ch733008_negCount : (!recK2 28 12 6 3 EA1.CF (genR 28 12 6 3 EA1.CF) 179 178) = true := by
+  quickRfl
+
+theorem ch733008_negPin : (!pinsK 6 3 EA1.CF wA2) = true := by quickRfl
 
 end CFSG.KD.G24B
 

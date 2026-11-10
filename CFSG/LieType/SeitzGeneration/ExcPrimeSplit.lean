@@ -42,6 +42,10 @@ theorem SeitzExcAnisotropicForAt.mono {P : TauCeti.LieTypeIndex → Prop}
     (hP : SeitzExcAnisotropicForAt P Q) : SeitzExcAnisotropicForAt P Q' :=
   SeitzPlanes.mono (fun _ _ _ hE => ⟨hE.1, hE.2.1, h _ _ hE.2.2.1, hE.2.2.2⟩) hP
 
+theorem SeitzExcAnisotropicForAt.mono_index {P P' : TauCeti.LieTypeIndex → Prop}
+    {Q : TauCeti.LieTypeIndex → ℕ → Prop} (h : ∀ d, P' d → P d)
+    (hP : SeitzExcAnisotropicForAt P Q) : SeitzExcAnisotropicForAt P' Q :=
+  SeitzPlanes.mono (fun _ _ _ hE => ⟨hE.1, h _ hE.2.1, hE.2.2⟩) hP
 
 theorem SeitzExcAnisotropicForAt.union {P : TauCeti.LieTypeIndex → Prop}
     {Q Q₁ Q₂ : TauCeti.LieTypeIndex → ℕ → Prop}
@@ -79,6 +83,10 @@ theorem SeitzExcOuterNarrowForAt.mono {P : TauCeti.LieTypeIndex → Prop}
     (hP : SeitzExcOuterNarrowForAt P Q) : SeitzExcOuterNarrowForAt P Q' :=
   SeitzPlanes.mono (fun _ _ _ hE => ⟨hE.1, hE.2.1, hE.2.2.1, h _ _ hE.2.2.2⟩) hP
 
+theorem SeitzExcOuterNarrowForAt.mono_index {P P' : TauCeti.LieTypeIndex → Prop}
+    {Q : TauCeti.LieTypeIndex → ℕ → Prop} (h : ∀ d, P' d → P d)
+    (hP : SeitzExcOuterNarrowForAt P Q) : SeitzExcOuterNarrowForAt P' Q :=
+  SeitzPlanes.mono (fun _ _ _ hE => ⟨hE.1, hE.2.1, h _ hE.2.2.1, hE.2.2.2⟩) hP
 
 theorem SeitzExcOuterNarrowForAt.union {P : TauCeti.LieTypeIndex → Prop}
     {Q Q₁ Q₂ : TauCeti.LieTypeIndex → ℕ → Prop}

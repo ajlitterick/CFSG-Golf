@@ -750,6 +750,11 @@ theorem class_of (hn : n ≤ 32) {PP EA EB : List (Perm (Fin n))}
     obtain ⟨x, hx, rfl⟩ := List.mem_map.mp hs
     exact List.mem_map_of_mem (k x hx)
 
+theorem optRec_none {β : Type} (f : Bool) (g : β → Bool) :
+    Option.rec (motive := fun _ => Bool) f g none = f := rfl
+
+theorem optRec_some {β : Type} (f : Bool) (g : β → Bool) (x : β) :
+    Option.rec (motive := fun _ => Bool) f g (some x) = g x := rfl
 
 theorem check_soundK {n : ℕ} (hn : n ≤ 32) (D : Dat) (c₁ c₂ c₃ : List Char)
     (h₁ : D.clPar = parsePairs (String.ofList c₁)) (h₂ : D.hPar = parsePairs (String.ofList c₂))

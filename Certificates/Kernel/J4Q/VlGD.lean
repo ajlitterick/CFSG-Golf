@@ -7,6 +7,7 @@ public section
 
 namespace CFSG.KD.VG
 
+@[expose] def root : Bool × Nat × Nat × Nat := (true, CFSG.KD.J4Q.one, 0, 0)
 
 @[expose] noncomputable def cj (T : Nat) : Nat :=
   CFSG.KC.J4Q.mulJ CFSG.KD.J4Q.c CFSG.KD.J4Q.rm

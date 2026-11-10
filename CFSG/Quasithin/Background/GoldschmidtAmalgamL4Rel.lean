@@ -34,6 +34,13 @@ structure BRel (a b s y : E) : Prop extends BConj a b s y where
 
 theorem BRel.toTRel' {a b s y : E} (h : BRel a b s y) : TRel a b s := h.toBConj.toTRel
 
+theorem tcRel : TRel tA tB tS where
+  ha := tA_pow_four
+  hb := tB_pow_four
+  hs := tS_sq
+  hab := tA_mul_tB
+  hsa := tS_tA_tS
+  hsb := tS_tB_tS
 
 namespace TRel
 
@@ -50,6 +57,7 @@ theorem pow_a (n : ℕ) : a ^ (n % 4) = a ^ n := (pow_eq_pow_mod n h.ha).symm
 
 theorem pow_b (n : ℕ) : b ^ (n % 4) = b ^ n := (pow_eq_pow_mod n h.hb).symm
 
+theorem pow_s (n : ℕ) : s ^ (n % 2) = s ^ n := (pow_eq_pow_mod n h.hs).symm
 
 theorem comm_pow (m n : ℕ) : b ^ n * a ^ m = a ^ m * b ^ n :=
   ((Commute.pow_pow (show Commute a b from h.hab) m n).eq).symm

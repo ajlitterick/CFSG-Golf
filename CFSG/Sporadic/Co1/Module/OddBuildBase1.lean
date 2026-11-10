@@ -66,6 +66,11 @@ theorem rho3_mem :
 theorem t1_mem :
     t1 ∈ Hst := reg_fix_of_mem (by decide)
 
+theorem n1_mem :
+    n1 ∈ Hst := reg_fix_of_mem (by decide)
+
+theorem n2_mem :
+    n2 ∈ Hst := reg_fix_of_mem (by decide)
 
 theorem sRep_mem
     (k : Fin 3) : sRep k ∈ Hst := by
@@ -75,6 +80,14 @@ theorem sRep_mem
 theorem rho3_sq :
     rho3 * rho3 = 1 := reg_mul_eq_one fixOK_facts.2.1
 
+theorem t1_sq :
+    t1 * t1 = 1 := reg_mul_eq_one fixOK_facts.2.2.1
+
+theorem rho3_inv :
+    rho3⁻¹ = rho3 := inv_eq_of_mul_eq_one_right rho3_sq
+
+theorem t1_inv :
+    t1⁻¹ = t1 := inv_eq_of_mul_eq_one_right t1_sq
 
 theorem t1_conj :
     IsConj rho3 t1 := by
@@ -125,6 +138,28 @@ theorem order_rho3_sRep :
   exact ⟨key 70 (by norm_num) 3 h0 (by norm_num), key 73 (by norm_num) 3 h1 (by norm_num),
     key 76 (by norm_num) 5 h2 (by norm_num)⟩
 
+theorem orders_facts
+    {r : ℕ} (hr : r < 94) {F : Forest}
+    (hF : ∀ i < F.pts.size, validRows F.pts[i]! = true)
+    (f : ℕ → NativeSporadic.Co1) (hf : ∀ i < F.pts.size, mat (f i) = rowsMatrix 24 F.pts[i]!)
+    (hz : zeroCount (ordersWith (rr r) F) = 0) :
+    ∀ i < F.pts.size, 0 < (ordersWith (rr r) F)[i]! ∧
+      orderOf (reg r * f i) = (ordersWith (rr r) F)[i]! := by
+  intro i hi
+  have hz' : (ordersWith (rr r) F)[i]! ≠ 0 := by
+    have h0 := hz
+    unfold zeroCount at h0
+    rw [countBelow_eq, zero_add, Finset.card_eq_zero, Finset.filter_eq_empty_iff] at h0
+    have hsz : i < (ordersWith (rr r) F).size := by simpa [ordersWith] using hi
+    have := h0 (Finset.mem_range.2 hsz)
+    simpa using this
+  have hpos : 0 < (ordersWith (rr r) F)[i]! := Nat.pos_of_ne_zero hz'
+  refine ⟨hpos, ?_⟩
+  rw [ordersWith_get _ _ hi] at hpos ⊢
+  have hval : validRows (mulRows 24 (rr r) F.pts[i]!) = true :=
+    validRows_mulRows (validOK_facts.1 r hr) (hF i hi)
+  rw [← orderOf_eq_of_orderN hval (x := reg r * f i) (by
+    rw [map_mul, mat_reg, hf i hi, rowsMatrix_mulRows]) hpos]
 
 theorem fixOK₂_facts : fixCount [Mt 27] = 65536 ∧
     fixCount4 [Mt 27] (transposeRows 24 qRows) (orbitOf 2 98280).pts
@@ -133,6 +168,40 @@ theorem fixOK₂_facts : fixCount [Mt 27] = 65536 ∧
   simp only [fixOK₂, Bool.and_eq_true, beq_iff_eq] at h
   exact h
 
+theorem Z_forest
+    {k n : ℕ} (hk : k < 3) (h : forestZOK k n = true) :
+    ∃ z : ℕ → NativeSporadic.Co1,
+      (∀ i < n, z i ∈ Hst ⊓ Subgroup.centralizer ({rho3} : Set NativeSporadic.Co1) ⊓
+        Subgroup.centralizer ({reg (sIdx[k]!)} : Set NativeSporadic.Co1)) ∧
+      (∀ i < n, ∀ j < n, z i = z j → i = j) ∧
+      (∀ i < n, mat (z i) = rowsMatrix 24 (FZ k).pts[i]!) := by
+  obtain ⟨hOK, hsz⟩ := forestZOK_facts h
+  have hpk := partnerOK_facts k hk
+  have hzk : zIdx[k]! ∈ zIdx := by interval_cases k <;> simp [zIdx]
+  have hzmem : ∀ l < (zIdx[k]!).length, reg ((zIdx[k]!)[l]!) ∈ Hst ⊓
+      Subgroup.centralizer ({rho3} : Set NativeSporadic.Co1) ⊓
+      Subgroup.centralizer ({reg (sIdx[k]!)} : Set NativeSporadic.Co1) := by
+    intro l hl
+    have hzin : (zIdx[k]!)[l]! ∈ zIdx[k]! := by
+      rw [getElem!_pos (zIdx[k]!) l hl]
+      exact List.getElem_mem hl
+    refine Subgroup.mem_inf.2 ⟨Subgroup.mem_inf.2 ⟨reg_fix_of_mem ?_,
+      reg_mem_centralizer (hpk.1 _ hzin).1⟩, ?_⟩
+    · simp only [List.mem_append]
+      exact Or.inr (List.mem_flatten.2 ⟨zIdx[k]!, hzk, hzin⟩)
+    · rw [Subgroup.mem_centralizer_singleton_iff]
+      exact reg_comm (hpk.1 _ hzin).2
+  have hQsize : (QZ k).size = (zIdx[k]!).length := by simp [QZ]
+  obtain ⟨z, hz, hinj⟩ := forest_mul_sound hOK (fun l hl => PZ_get k l hl) rfl
+    (fun l => reg ((zIdx[k]!)[l]!))
+    (fun l hl => by
+      rw [mat_reg, show (QZ k)[l]! = rr ((zIdx[k]!)[l]!) from
+        map_toArray_get (zIdx[k]!) (hQsize ▸ hl)])
+    (Hst ⊓ Subgroup.centralizer ({rho3} : Set NativeSporadic.Co1) ⊓
+      Subgroup.centralizer ({reg (sIdx[k]!)} : Set NativeSporadic.Co1))
+    (fun l hl => hzmem l (hQsize ▸ hl))
+  rw [hsz] at hz hinj
+  exact ⟨z, fun i hi => (hz i hi).1, hinj, fun i hi => (hz i hi).2⟩
 
 theorem fix_rho3 :
     {ω : Vec24 | rho3 • ω = ω}.ncard = 65536 := by

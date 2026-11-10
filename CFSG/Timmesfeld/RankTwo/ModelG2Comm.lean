@@ -91,6 +91,8 @@ theorem g2X_eq (i : Fin 6) (c : K) :
 theorem g2X_add (i : Fin 6) (c d : K) : g2X i (c + d) = g2X i c * g2X i d :=
   xPar_add _ c d
 
+theorem g2X_zero (i : Fin 6) : g2X i (0 : K) = 1 :=
+  xPar_zero _
 
 theorem commutator_g2X {i j : Fin 6} {fs : List Factor} (h : (g2Pos i, g2Pos j, fs) ∈ g2HexReps)
     (s t : K) :

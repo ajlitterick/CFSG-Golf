@@ -11,6 +11,18 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.ASVolI.ChC CFSG.LieType.BorelTits
 open scoped MatrixGroups commutatorElement
 
+theorem burnsideC121_omegaOneCenter_baum {Ω : Type} [Group Ω] [Finite Ω] (P : Subgroup Ω) :
+    omegaOneCenterOf (baum P) = omegaOneCenterOf (thompsonJ P) := by
+  apply le_antisymm
+  · refine (Subgroup.closure_le _).2 fun g hg => ?_
+    rw [← (omegaOne_centralizer_thompsonJ P).1]
+    refine Subgroup.subset_closure ⟨⟨hg.1.1.1, Subgroup.mem_centralizer_iff.2 fun j hj => ?_⟩, hg.2⟩
+    exact Subgroup.mem_centralizer_iff.1 hg.1.2 j (B6.thompsonJ_le_baum P hj)
+  · refine (Subgroup.closure_le _).2 fun g hg => ?_
+    have hgΩ : g ∈ omegaOneCenterOf (thompsonJ P) := Subgroup.subset_closure hg
+    refine Subgroup.subset_closure ⟨⟨B6.thompsonJ_le_baum P hg.1.1,
+      Subgroup.mem_centralizer_iff.2 fun s hs => ?_⟩, hg.2⟩
+    exact (Subgroup.mem_centralizer_iff.1 hs.2 g hgΩ).symm
 
 theorem burnsideC121_iSup_conj_eq {Ω : Type} [Group Ω] {Y S : Subgroup Ω}
     (hY : ⁅Y, S⁆ = Y) :

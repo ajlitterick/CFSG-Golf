@@ -49,6 +49,16 @@ theorem ch114_e6_bounds : e6StringData.checkBucketBounds e6Certificate = true :=
 theorem ch114_e7_bounds : e7StringData.checkBucketBounds e7Certificate = true := by decide +kernel
 theorem ch114_e8_bounds : e8StringData.checkBucketBounds e8Certificate = true := by decide +kernel
 
+theorem ch114_neg_string : top Tag.G2.rank 19 7 g2Certificate.roots
+    [192, 4, 48, 56, 145, 1, 193, 1, 96, 100, 4, 144] = false := by decide +kernel
+
+theorem ch114_neg_root : top Tag.G2.rank 19 7 [137, 152, 135, 185, 153, 120, 87, 187, 169, 119, 86, 103]
+    g2StringData.strings = false := by decide +kernel
+
+theorem ch114_neg_modulus : top Tag.G2.rank 2 7 g2Certificate.roots g2StringData.strings = false := by
+  decide +kernel
+
+theorem ch114_neg_coords : coordsK Tag.E8.rank 5 e8Certificate.roots = false := by decide +kernel
 
 end CertificateChecks.ChevStr
 

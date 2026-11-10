@@ -34,6 +34,16 @@ theorem c12634ord : letsB (nth S 0) (nth S 2) (fun a a2 c c4 =>
         (fun x => notIdK (powK x 4) && idK (powK x 8))) = true := by
   decide +kernel
 
+theorem c12634negT : letsB (nth S 0) (nth S 2) (fun a a2 c c4 =>
+    !optB (wordsO Sc.chars) (transK (let5 a a2 c c4))) = true := by decide +kernel
+
+theorem c12634negS : letsB (nth S 0) (nth S 2) (fun a a2 c c4 =>
+    !optB (wordsO Tc.chars) (fun W => optB (natsO Rc.chars) (stabK (let5 a a2 c c4) W))) = true := by
+  decide +kernel
+
+theorem c12634negO : (!ordK (nth S 0) 5) = true := by decide +kernel
+
+theorem c12634negB : (!arK (nth S 0) dataS[2]!) = true := by decide +kernel
 
 end CFSG.KD.Prim77
 

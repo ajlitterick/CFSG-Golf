@@ -13,6 +13,7 @@ open scoped MatrixGroups LinearAlgebra.Projectivization
 open CFSG.GorensteinWalter Projectivization
 
 
+
 section Delta
 
 variable {Ω : Type*} [Fintype Ω] [DecidableEq Ω]
@@ -237,6 +238,7 @@ theorem deletedRep_apply (g : G) (x : ↥(evenWeight Ω)) :
 end PermRep
 
 
+
 section Points
 
 variable {k : Type*} [Field k]
@@ -382,6 +384,20 @@ theorem exists_smul_eq_of_ne_zero (v w : Fin 2 → k) (hv : v ≠ 0) (hw : w ≠
   refine ⟨y * x⁻¹, ?_⟩
   rw [mul_smul, ← hx, inv_smul_smul, hy]
 
+theorem natural_binary_irreducible (N : AddSubgroup (Fin 2 → k))
+    (hN : ∀ (g : SL(2, k)), ∀ v ∈ N, g • v ∈ N) : N = ⊥ ∨ N = ⊤ := by
+  by_cases hbot : N = ⊥
+  · exact Or.inl hbot
+  right
+  obtain ⟨⟨v, hvN⟩, hv0⟩ := (AddSubgroup.ne_bot_iff_exists_ne_zero (H := N)).mp hbot
+  have hv0' : v ≠ 0 := fun h => hv0 (Subtype.ext h)
+  rw [eq_top_iff]
+  intro w _
+  by_cases hw : w = 0
+  · rw [hw]; exact N.zero_mem
+  obtain ⟨g, hg⟩ := exists_smul_eq_of_ne_zero v w hv0' hw
+  rw [← hg]
+  exact hN g v hvN
 
 end Natural
 
@@ -485,12 +501,61 @@ theorem rootGroup_fixed_iff (L : ℙ k (Fin 2 → k)) :
     obtain ⟨t, rfl⟩ := (mem_rootGroup_iff _).mp hg
     exact h t
 
+theorem rootGroup_regular' (L M : ℙ k (Fin 2 → k)) (hL : L ≠ psl2ProjectiveInfinity k)
+    (hM : M ≠ psl2ProjectiveInfinity k) :
+    ∃! g : (CFSG.ProperTwoGeneratedCore.LocalCriterionSquareField.upperUnipotent (F := k)).range,
+      (g : SL(2, k)) • L = M := by
+  obtain ⟨t, ht, huniq⟩ := rootGroup_regular L M hL hM
+  refine ⟨⟨uElt t, (mem_rootGroup_iff _).mpr ⟨t, rfl⟩⟩, ht, fun g hg => ?_⟩
+  obtain ⟨t', ht'⟩ := (mem_rootGroup_iff _).mp g.2
+  apply Subtype.ext
+  have : t' = t := huniq t' (by show uElt t' • L = M; rw [← ht']; exact hg)
+  rw [ht', this]
 
 variable [Fintype (ℙ k (Fin 2 → k))] [DecidableEq (ℙ k (Fin 2 → k))]
 
 @[expose] def bvec (L : ℙ k (Fin 2 → k)) : ℙ k (Fin 2 → k) → ZMod 2 :=
   delta (psl2ProjectiveInfinity k) + delta L
 
+theorem bvec_linearIndependent : LinearIndependent (ZMod 2)
+    (fun L : {L : ℙ k (Fin 2 → k) // L ≠ psl2ProjectiveInfinity k} => bvec L.1) := by
+  classical
+  let _ : AddCommGroup (ZMod 2) := zmod2AddCommGroup
+  rw [Fintype.linearIndependent_iff]
+  intro c hc L₀
+  have h := congrFun hc L₀.1
+  simp only [Finset.sum_apply, Pi.smul_apply, bvec, Pi.add_apply, delta, smul_eq_mul,
+    Pi.zero_apply] at h
+  rw [Finset.sum_eq_single L₀] at h
+  · simpa [Pi.single_apply, L₀.2] using h
+  · intro L _ hL
+    have : L₀.1 ≠ L.1 := fun h' => hL (Subtype.ext h'.symm)
+    simp [L₀.2, this]
+  · simp
+
+theorem bvec_span : Submodule.span (ZMod 2)
+    (Set.range fun L : {L : ℙ k (Fin 2 → k) // L ≠ psl2ProjectiveInfinity k} => bvec L.1) =
+      evenWeight (ℙ k (Fin 2 → k)) := by
+  classical
+  apply le_antisymm
+  · rw [Submodule.span_le]
+    rintro _ ⟨L, rfl⟩
+    exact delta_add_delta_mem _ _
+  · intro x hx
+    rw [eq_sum_pairs (psl2ProjectiveInfinity k) hx]
+    refine Submodule.sum_mem _ fun L hL => Submodule.smul_mem _ _ ?_
+    have hL' : L ≠ psl2ProjectiveInfinity k := Finset.ne_of_mem_erase hL
+    rw [add_comm]
+    exact Submodule.subset_span ⟨⟨L, hL'⟩, rfl⟩
+
+omit [Fintype (ℙ k (Fin 2 → k))] in
+theorem permAct_bvec (g : SL(2, k))
+    (hg : g ∈ (CFSG.ProperTwoGeneratedCore.LocalCriterionSquareField.upperUnipotent (F := k)).range)
+    (L : ℙ k (Fin 2 → k)) :
+    permAct (MulAction.toPerm g) (bvec L) = bvec (g • L) := by
+  have hinf : g • psl2ProjectiveInfinity k = psl2ProjectiveInfinity k :=
+    (rootGroup_fixed_iff _).mpr rfl g hg |>.trans rfl
+  simp only [bvec, permAct_add, permAct_delta, MulAction.toPerm_apply, hinf]
 
 end TFacts
 
@@ -506,6 +571,95 @@ omit [Fintype k] in
 theorem mem_upperRootGroup_iff (g : SL(2, k)) : g ∈ upperRootGroup k ↔ ∃ t : k, g = uElt t :=
   mem_rootGroup_iff g
 
+theorem deletedRep_irreducible (hk : Fintype.card k = 4) [Fintype (ℙ k (Fin 2 → k))]
+    [DecidableEq (ℙ k (Fin 2 → k))] :
+    Nontrivial ↥(evenWeight (ℙ k (Fin 2 → k))) ∧
+      ∀ U : Submodule (ZMod 2) ↥(evenWeight (ℙ k (Fin 2 → k))),
+        (∀ g : SL(2, k), ∀ u ∈ U, deletedRep SL(2, k) (ℙ k (Fin 2 → k)) g u ∈ U) →
+          U = ⊥ ∨ U = ⊤ := by
+  classical
+  have h5 : Fintype.card (ℙ k (Fin 2 → k)) = 5 := by rw [card_projectiveLine, hk]
+  have h2 : ∀ a b c d : ℙ k (Fin 2 → k), a ≠ b → c ≠ d →
+      ∃ g : SL(2, k), g • a = c ∧ g • b = d :=
+    fun a b c d hab hcd => MulAction.is_two_pretransitive_iff.mp inferInstance hab hcd
+  refine ⟨?_, fun N hN => ?_⟩
+  · have : Nontrivial (ℙ k (Fin 2 → k)) := Fintype.one_lt_card_iff_nontrivial.mp (by omega)
+    obtain ⟨a, b, hab⟩ := this
+    refine ⟨⟨delta a + delta b, delta_add_delta_mem a b⟩, 0, fun h => ?_⟩
+    have := congrFun (congrArg Subtype.val h) a
+    simp [delta, hab] at this
+  · let N' : Submodule (ZMod 2) (ℙ k (Fin 2 → k) → ZMod 2) := N.map (evenWeight _).subtype
+    have hN'le : N' ≤ evenWeight _ := by
+      rintro _ ⟨y, _, rfl⟩
+      exact y.2
+    have hN'inv : ∀ g : SL(2, k), ∀ x ∈ N', permAct (MulAction.toPerm g) x ∈ N' := by
+      rintro g _ ⟨y, hy, rfl⟩
+      exact ⟨deletedRep SL(2, k) _ g y, hN g y hy, rfl⟩
+    rcases evenWeight_irreducible_five h5 h2 N' hN'le hN'inv with h | h
+    · left
+      rw [eq_bot_iff]
+      intro y hy
+      have hy' : (y : ℙ k (Fin 2 → k) → ZMod 2) ∈ N' := ⟨y, hy, rfl⟩
+      rw [h] at hy'
+      have h0 : (y : ℙ k (Fin 2 → k) → ZMod 2) = 0 := (Submodule.mem_bot _).mp hy'
+      exact (Submodule.mem_bot _).mpr (Subtype.ext h0)
+    · right
+      rw [eq_top_iff]
+      intro y _
+      have hy : (y : ℙ k (Fin 2 → k) → ZMod 2) ∈ N' := by rw [h]; exact y.2
+      obtain ⟨z, hz, hzy⟩ := hy
+      have : z = y := Subtype.ext hzy
+      rw [← this]
+      exact hz
+
+theorem four_field_projective_natural_and_deleted_models (hk : Fintype.card k = 4)
+    [Fintype (ℙ k (Fin 2 → k))] [DecidableEq (ℙ k (Fin 2 → k))] :
+    Fintype.card (ℙ k (Fin 2 → k)) = 5 ∧
+      (∃ β : SL(2, k) ≃* alternatingGroup (ℙ k (Fin 2 → k)),
+        ∀ g L, ((β g : Equiv.Perm (ℙ k (Fin 2 → k))) L) = g • L) ∧
+      Group.IsPerfect SL(2, k) ∧
+      (Nat.card (Fin 2 → k) = 16 ∧ Module.finrank (ZMod 2) (evenWeight (ℙ k (Fin 2 → k))) = 4) ∧
+      (∀ N : AddSubgroup (Fin 2 → k), (∀ g : SL(2, k), ∀ v ∈ N, g • v ∈ N) → N = ⊥ ∨ N = ⊤) ∧
+      (∀ N : Submodule (ZMod 2) (ℙ k (Fin 2 → k) → ZMod 2), N ≤ evenWeight _ →
+        (∀ g : SL(2, k), ∀ x ∈ N, permAct (MulAction.toPerm g) x ∈ N) →
+          N = ⊥ ∨ N = evenWeight _) ∧
+      (¬ ∃ φ : (Fin 2 → k) ≃+ ↥(evenWeight (ℙ k (Fin 2 → k))), ∀ (g : SL(2, k)) v,
+        (φ (g • v) : ℙ k (Fin 2 → k) → ZMod 2) =
+          permAct (MulAction.toPerm g) (φ v : ℙ k (Fin 2 → k) → ZMod 2)) ∧
+      (Nat.card (upperRootGroup k) = 4 ∧
+        (∃ P : Sylow 2 SL(2, k), (P : Subgroup SL(2, k)) = upperRootGroup k) ∧
+        (∀ L : ℙ k (Fin 2 → k), (∀ g ∈ upperRootGroup k, g • L = L) ↔ L = psl2ProjectiveInfinity k) ∧
+        (∀ L M : ℙ k (Fin 2 → k), L ≠ psl2ProjectiveInfinity k → M ≠ psl2ProjectiveInfinity k →
+          ∃! g : upperRootGroup k, (g : SL(2, k)) • L = M) ∧
+        LinearIndependent (ZMod 2)
+          (fun L : {L : ℙ k (Fin 2 → k) // L ≠ psl2ProjectiveInfinity k} => bvec L.1) ∧
+        Submodule.span (ZMod 2)
+          (Set.range fun L : {L : ℙ k (Fin 2 → k) // L ≠ psl2ProjectiveInfinity k} => bvec L.1) =
+            evenWeight (ℙ k (Fin 2 → k)) ∧
+        (∀ g ∈ upperRootGroup k, ∀ L : ℙ k (Fin 2 → k),
+          permAct (MulAction.toPerm g) (bvec L) = bvec (g • L))) := by
+  classical
+  have hΩ : Fintype.card (ℙ k (Fin 2 → k)) = 5 := by rw [card_projectiveLine, hk]
+  refine ⟨hΩ, four_field_projective_alt hk, ?_, ⟨?_, ?_⟩, natural_binary_irreducible, ?_,
+    natural_not_equiv_deleted hk, ?_⟩
+  · exact CFSG.LinearGroups.special_linear_dimension_two_perfect
+      ⟨Finset.univ, by rw [Finset.card_univ, hk]⟩
+  · rw [Nat.card_eq_fintype_card, Fintype.card_fun, Fintype.card_fin, hk]
+    norm_num
+  · have : Nonempty (ℙ k (Fin 2 → k)) := Fintype.card_pos_iff.mp (by omega)
+    rw [finrank_evenWeight, hΩ]
+  · intro N hNE hN
+    exact evenWeight_irreducible_five hΩ
+      (fun a b c d hab hcd => MulAction.is_two_pretransitive_iff.mp inferInstance hab hcd) N hNE hN
+  · have hchar : (Nat.card (upperRootGroup k)) = 4 := by
+      rw [upperRootGroup, CFSG.ProperTwoGeneratedCore.LocalCriterionSquareField.upperUnipotent_card,
+        Nat.card_eq_fintype_card, hk]
+    refine ⟨hchar, ?_, rootGroup_fixed_iff, rootGroup_regular', bvec_linearIndependent, bvec_span,
+      permAct_bvec⟩
+    have hk2 : Fintype.card k = 2 ^ 2 := by rw [hk]; norm_num
+    refine ⟨Sylow.ofCard (upperRootGroup k) ?_, rfl⟩
+    rw [hchar, factorization_card_sl2 (by norm_num) hk2]
+    norm_num
 
 end Final
 

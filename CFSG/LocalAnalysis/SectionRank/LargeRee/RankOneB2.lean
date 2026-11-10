@@ -229,6 +229,15 @@ theorem vMat_one
   rw [vMat, map_one]
   exact (presBlock_one vLabel_injective).2
 
+theorem vMat_inv_mul
+    {g : adjointGroup ReeTag.F4.tag K} (hg : g ∈ vStab K) :
+    vMat g⁻¹ * vMat g = 1 := by
+  rw [← vMat_mul (inv_mem hg) hg, inv_mul_cancel, vMat_one]
+
+theorem vMat_mul_inv
+    {g : adjointGroup ReeTag.F4.tag K} (hg : g ∈ vStab K) :
+    vMat g * vMat g⁻¹ = 1 := by
+  rw [← vMat_mul hg (inv_mem hg), mul_inv_cancel, vMat_one]
 
 theorem xElement_one_mem_vStab
     (c : K) : xElement (fi 1) c ∈ vStab K :=
@@ -461,6 +470,8 @@ variable {K : Type} [Field K]
         weylElement ReeTag.F4.tag K (fi 1))) *
       weylElement ReeTag.F4.tag K (fi 2))) * weylElement ReeTag.F4.tag K (fi 1))
 
+theorem reeOrbitWord_fi_one : ReeTag.F4.reeOrbitWord (fi 1) = [fi 1, fi 2, fi 1, fi 2] :=
+  rfl
 
 theorem isReduced_z₂ :
     (coxeterSystem ReeTag.F4.tag).IsReduced ([fi 1, fi 2, fi 1] ++ [fi 2]) :=
@@ -584,6 +595,10 @@ theorem nfU_mem_vStab
   rw [nfU_eq_evalV]
   exact evalV_mem_vStab _
 
+theorem nfU'_mem_vStab
+    (d₁ d₂ d₃ d₄ : K) : nfU' d₁ d₂ d₃ d₄ ∈ vStab K := by
+  rw [nfU'_eq_evalV]
+  exact evalV_mem_vStab _
 
 variable [CharP K 2]
 
@@ -664,6 +679,9 @@ theorem pow_theta_pow_e (hK : Nat.card K = 2 ^ (2 * a + 1)) (x : K) :
     (x ^ 2 ^ (a + 1)) ^ 2 ^ a = x := by
   rw [← pow_mul, ← pow_add, show a + 1 + a = 2 * a + 1 by ring, pow_two_pow_card hK]
 
+theorem pow_e_pow_theta (hK : Nat.card K = 2 ^ (2 * a + 1)) (x : K) :
+    (x ^ 2 ^ a) ^ 2 ^ (a + 1) = x := by
+  rw [← pow_mul, ← pow_add, show a + (a + 1) = 2 * a + 1 by ring, pow_two_pow_card hK]
 
 omit [Finite K] in
 theorem suzukiS_eq_mat {u v x₁ x₂ x₃ : K} (h₁ : x₁ = u ^ 2 ^ (a + 1))

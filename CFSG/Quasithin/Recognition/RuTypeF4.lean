@@ -117,6 +117,7 @@ instance : CharP F4 2 := by
   rw [CharP.charP_iff_prime_eq_zero Nat.prime_two]
   exact two_eq_zero
 
+theorem sq_sq : ∀ x : F4, (x ^ 2) ^ 2 = x := by decide
 
 end F4
 

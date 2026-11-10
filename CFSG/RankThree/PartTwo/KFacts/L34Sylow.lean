@@ -577,6 +577,9 @@ theorem card_eZero_eq (hk : Nat.card k = 4) :
   haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
   Sylow.ofCard (eZero k) (card_eZero_eq hk)
 
+theorem coe_eZeroSylow (hk : Nat.card k = 4) :
+    ((eZeroSylow hk : Sylow 3 (projectiveSL 3 k)) : Subgroup (projectiveSL 3 k)) = eZero k :=
+  rfl
 
 theorem exists_eq_map_conj_eZero (hk : Nat.card k = 4) {E : Subgroup (projectiveSL 3 k)}
     (hE : Nat.card E = 9) :

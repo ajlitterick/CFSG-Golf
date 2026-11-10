@@ -131,6 +131,9 @@ theorem s5Cl : slK (Nat.mul C2462S5.cnt 2)
       (prodQK 6156 13 (mask 13) 2 C2462S5.T (bothK 1 C2462S5.GI C2462S5I)) C2462S5Cl) 0
       (Nat.mul C2462S5.cnt 2) = true := by quickRfl
 
+theorem s27HF_neg :
+    hsortPtKF 6156 13 (mask 13) C2462S27.cnt (fun _ => 0) C2462S27.HS C2462S27.HSI 0 = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.C24602
 

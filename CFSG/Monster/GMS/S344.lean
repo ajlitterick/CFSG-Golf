@@ -277,5 +277,30 @@ theorem s346
     calc q * q₁ * y * (q * q₁)⁻¹ = q * (q₁ * y * q₁⁻¹) * q⁻¹ := by group
       _ = y' := by rw [← hy₂, hy₂']
 
+theorem s346_frattini
+    [Finite G] (hSLS : SLSStatement d₀) (hTV : TableVIn G)
+    (hL : LeechStatement) (hLC : LeechCosetStatement) {a z₀ : G} (hG : GMSF1Type d₀ a z₀)
+    {w x y g : G} (hw : IsConj z₀ w) (hx : x ∈ Subgroup.centralizer ({w} : Set G))
+    (hy : y ∈ Subgroup.centralizer ({w} : Set G)) (hxA : IsConj a x) (hyA : IsConj a y)
+    (hxy : x ≠ y) (hodd : Odd (orderOf (x * y))) (hg : g ∈ Subgroup.centralizer ({w} : Set G))
+    (hgx : x⁻¹ * (g * x * g⁻¹) ∈ leechQ w) (hgy : y⁻¹ * (g * y * g⁻¹) ∈ leechQ w) :
+    ∃ q ∈ leechQ w,
+      q * g ∈ Subgroup.centralizer ({x} : Set G) ⊓ Subgroup.centralizer ({y} : Set G) := by
+  have hconj : ∀ t : G, t ∈ Subgroup.centralizer ({w} : Set G) →
+      g * t * g⁻¹ ∈ Subgroup.centralizer ({w} : Set G) := fun t ht =>
+    Subgroup.mul_mem _ (Subgroup.mul_mem _ hg ht) (Subgroup.inv_mem _ hg)
+  obtain ⟨q, hq, hqx, hqy⟩ := s346 hSLS hTV hL hLC hG hw hx hy (hconj x hx) (hconj y hy) hxA hyA
+    (hxA.trans (isConj_iff.mpr ⟨g, rfl⟩)) (hyA.trans (isConj_iff.mpr ⟨g, rfl⟩)) hxy hgx hgy hodd
+    (by
+      rw [show g * x * g⁻¹ * (g * y * g⁻¹) = g * (x * y) * g⁻¹ by group, orderOf_conj_eq]
+      exact hodd)
+  have hcent : ∀ t : G, q * t * q⁻¹ = g * t * g⁻¹ →
+      q⁻¹ * g ∈ Subgroup.centralizer ({t} : Set G) := by
+    intro t h
+    rw [Subgroup.mem_centralizer_singleton_iff]
+    calc q⁻¹ * g * t = q⁻¹ * (g * t * g⁻¹) * g := by group
+      _ = q⁻¹ * (q * t * q⁻¹) * g := by rw [h]
+      _ = t * (q⁻¹ * g) := by group
+  exact ⟨q⁻¹, Subgroup.inv_mem _ hq, Subgroup.mem_inf.mpr ⟨hcent x hqx, hcent y hqy⟩⟩
 
 end CFSG.Monster.GMS

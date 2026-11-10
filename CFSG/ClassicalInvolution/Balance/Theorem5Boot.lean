@@ -55,17 +55,97 @@ end P1
 
 section Assembly
 
+@[expose] def FramesMeetAt (p f : ℕ) [Fact p.Prime] (Ω : Set (Subgroup G)) (𝒯 : Set (Subgroup G))
+    (x : G) : Prop :=
+  ∀ K ∈ centMembers Ω x, ∃ A ∈ 𝒯, x ∈ A ∧ ∃ L ∈ frameFamily p f Ω A, InCommonComponent x K L
+
 
 section P1Frames
 
 
+theorem localOddCentral_of_connectedBalancedFrames [IsSimpleGroup G]
+    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
+    (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω)
+    {𝒯 : Set (Subgroup G)} (hbal : ∀ A ∈ 𝒯, RankThreeBalance A)
+    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
+    (hcon : ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯,
+      Relation.ReflTransGen (fun X Y => X ∈ 𝒯 ∧ Y ∈ 𝒯 ∧ ShareFour X Y) A A')
+    {x : G} (hx1 : x ≠ 1) (hmeet : FramesMeetAt p f Ω 𝒯 x) : LocalOddCentral Ω {x} := by
+  have hΔ := deltaCore_eq_bot_of_connected_frames
+    (componentClassificationOddCore_eq_bot_of_simple hnab) hinv hbal hcon
+  exact localOddCentral_of_framesMeet hnab hp2 hq ModelFacts.modelClauseZero fundamentalWholeA1 hΩ
+    hIH hx1 fun K hK => by
+      obtain ⟨A, hA, hxA, L, ⟨hLΩ, hLA, z, hzA, hz⟩, hcc⟩ := hmeet K hK
+      exact ⟨A, (hbal A hA).elem, (hbal A hA).card, hΔ A hA, hxA, L, hLΩ, z, hzA, hz, hLA, hcc⟩
+
 end P1Frames
+
+theorem exactMembers_and_localOddCentral_of_balancedFrames [IsSimpleGroup G]
+    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
+    (hΩ : InClass p f Ω) (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K)
+    (hIH : LocalLieSystems p f Ω) (hconn : OmegaConnected Ω)
+    {𝒯 : Set (Subgroup G)} (hbal : ∀ A ∈ 𝒯, RankThreeBalance A)
+    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
+    (hcon : ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯,
+      Relation.ReflTransGen (fun X Y => X ∈ 𝒯 ∧ Y ∈ 𝒯 ∧ ShareFour X Y) A A')
+    {A₀ : Subgroup G} (hA₀ : A₀ ∈ 𝒯)
+    (hcov : ∃ K₀ ∈ frameFamily p f Ω A₀, ∃ z₀ ∈ A₀, IsClassicalMember p f K₀ z₀ ∧
+      FramesMeetAt p f Ω 𝒯 z₀)
+    (hexotic : ExoticLeviBlock p f) :
+    ExactMembers Ω ∧ ∀ L ∈ Ω, ∀ z : G, IsClassicalMember p f L z → LocalOddCentral Ω {z} := by
+  have hf : 0 < f := by
+    rcases Nat.eq_zero_or_pos f with rfl | h
+    · simp at hq
+    · exact h
+  have hΔ := deltaCore_eq_bot_of_connected_frames
+    (componentClassificationOddCore_eq_bot_of_simple hnab) hinv hbal hcon
+  have hB₀ := hbal A₀ hA₀
+  obtain ⟨K₀, hK₀, z₀, hz₀A, hz₀, hmeet⟩ := hcov
+  have hK₀Ω : K₀ ∈ Ω := hK₀.1
+  have hK₀A : K₀ ≤ Subgroup.centralizer (A₀ : Set G) := hK₀.2.1
+  have hP1 : LocalOddCentral Ω {z₀} :=
+    localOddCentral_of_connectedBalancedFrames hnab hp2 hq hΩ hIH hbal hinv hcon hz₀.ne_one hmeet
+  have hP1all := localOddCentral_of_classicalMember hp2 hf hΩ hsingle hK₀Ω hz₀ hP1
+  refine ⟨?_, hP1all⟩
+  by_cases h9 : p ^ f = 9
+  · exact exactMembers_of_connected_nine hnab hp2 hq h9 hΩ hsingle hIH hconn hP1all hexotic
+  · obtain ⟨F₀, hF₀⟩ := CFSG.SignalizerFunctor.Helpers.signalizerFunctorEk_nonempty 2 2
+      Nat.prime_two A₀ hB₀.elem (by rw [hB₀.card]; norm_num)
+    exact exactMembers_of_deltaCore_eq_bot hnab hp2 hq h9 ModelFacts.modelClauseZero
+      fundamentalWholeA1 hΩ hsingle hIH hK₀Ω hz₀
+      (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le 2 hB₀.elem hF₀.1)
+      (hK₀A.trans (Subgroup.centralizer_le hF₀.1)) (hΔ A₀ hA₀ F₀ hF₀)
 
 
 end Assembly
 
 section BootTriple
 
+@[expose] def ConnectedBalancedFramesExist (p f : ℕ) [Fact p.Prime] : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+    p ≠ 2 → 5 ≤ p ^ f →
+    ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
+      RouteD.DeltaConnected (CoreAssembly.conjClass K) →
+        CoreAssembly.IndepTriple p f (CoreAssembly.conjClass K) →
+        ∃ 𝒯 : Set (Subgroup G), (∀ A ∈ 𝒯, RankThreeBalance A) ∧
+          (∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯) ∧
+          (∀ A ∈ 𝒯, ∀ A' ∈ 𝒯,
+            Relation.ReflTransGen (fun X Y => X ∈ 𝒯 ∧ Y ∈ 𝒯 ∧ ShareFour X Y) A A') ∧
+          ∃ A₀ ∈ 𝒯, ∃ K₀ ∈ frameFamily p f (CoreAssembly.conjClass K) A₀, ∃ z₀ ∈ A₀,
+            IsClassicalMember p f K₀ z₀ ∧ FramesMeetAt p f (CoreAssembly.conjClass K) 𝒯 z₀
+
+@[expose] def ConnectedFramesExist (p f : ℕ) [Fact p.Prime] : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+    p ≠ 2 → 5 ≤ p ^ f →
+    ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
+      RouteD.DeltaConnected (CoreAssembly.conjClass K) →
+        CoreAssembly.IndepTriple p f (CoreAssembly.conjClass K) →
+        ∃ 𝒯 : Set (Subgroup G), 𝒯 ⊆ triangleFrames p f (CoreAssembly.conjClass K) ∧
+          (∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯) ∧
+          (∀ A ∈ 𝒯, ∀ A' ∈ 𝒯,
+            Relation.ReflTransGen (fun X Y => X ∈ 𝒯 ∧ Y ∈ 𝒯 ∧ ShareFour X Y) A A') ∧
+          ∃ A₀ ∈ 𝒯, ∃ K₀ ∈ frameFamily p f (CoreAssembly.conjClass K) A₀, ∃ z₀ ∈ A₀,
+            IsClassicalMember p f K₀ z₀ ∧ FramesMeetAt p f (CoreAssembly.conjClass K) 𝒯 z₀
 
 @[expose] def TriangleConnectedAll (p f : ℕ) [Fact p.Prime] : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -82,6 +162,36 @@ section BootTriple
       RouteD.DeltaConnected (CoreAssembly.conjClass K) →
         ∀ A : Subgroup G, IndepTripleOn p f (CoreAssembly.conjClass K) A →
           ∀ a ∈ A, a ≠ 1 → ComponentLayersAt (CoreAssembly.conjClass K) A a
+
+
+theorem connectedBalancedFramesExist_of_layers (hlay : TriangleLayers p f)
+    (hfam : ConnectedFramesExist p f) : ConnectedBalancedFramesExist p f := by
+  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
+  have hf : 0 < f := by
+    rcases Nat.eq_zero_or_pos f with rfl | h
+    · simp at hq
+    · exact h
+  have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
+  have hIH := localLieSystems_of_citBelowU hΩ hBelow
+  obtain ⟨𝒯, hsub, hinv, hcon, hcov⟩ := hfam G hnab hp2 hq K z hz hBelow hconn hind
+  exact ⟨𝒯, fun A hA => rankThreeBalance_of_indepTripleOn_of_layers hnab hp2 hf hq hΩ hIH
+    (hsub hA) (hlay G hnab hp2 hq K z hz hBelow hconn A (hsub hA)), hinv, hcon, hcov⟩
+
+theorem bootTriple_of_balancedFrames (hfam : ConnectedBalancedFramesExist p f)
+    (hexotic : ExoticLeviBlock p f) : CoreAssembly.BootTriple p f := by
+  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
+  have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
+  have hIH := localLieSystems_of_citBelowU hΩ hBelow
+  obtain ⟨𝒯, hbal, hinv, hcon, A₀, hA₀, hcov⟩ := hfam G hnab hp2 hq K z hz hBelow hconn hind
+  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_balancedFrames hnab hp2 hq hΩ
+    (CoreAssembly.exists_single_class K) hIH (omegaConnected_of_deltaConnected hconn) hbal hinv
+    hcon hA₀ hcov hexotic
+  exact ⟨hex, hP1 K (CoreAssembly.mem_conjClass_self K) z hz⟩
+
+theorem bootTriple_of_triangleLayers (hlay : TriangleLayers p f)
+    (hfam : ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
+    CoreAssembly.BootTriple p f :=
+  bootTriple_of_balancedFrames (connectedBalancedFramesExist_of_layers hlay hfam) hexotic
 
 
 end BootTriple

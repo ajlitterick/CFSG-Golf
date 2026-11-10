@@ -58,6 +58,13 @@ variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
 section Finite
 variable [Finite G] {N : Subgroup G} [N.Normal]
 
+theorem eq_one_or_eq_of_map_eq_of_twin (hΩ : Q3T7M.HM Ω)
+    (hN : Odd (Nat.card N)) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKJ : K ≠ J) {z : G}
+    (hzK : IsUniqueInvolution K z) (hzJ : IsUniqueInvolution J z) {x k : G} (hx : x ∈ J)
+    (hk : k ∈ K) (hk2 : IsPGroup 2 (Subgroup.zpowers k))
+    (hxk : QuotientGroup.mk' N x = QuotientGroup.mk' N k) : k = 1 ∨ k = z :=
+  CFSG.ClassicalInvolution.T7FU.Asc77.eq_one_or_eq_of_map_eq_of_twin (⟨hΩ, hΩ.toGen⟩) hN hK hJ hKJ
+    hzK hzJ hx hk hk2 hxk
 
 theorem exists_conj_of_map_eq (hΩ : Q3T7M.HM Ω)
     (hN : Odd (Nat.card N)) {K L : Subgroup G} (hK : K ∈ Ω) (hL : L ∈ Ω)
@@ -273,11 +280,18 @@ open CFSG.ClassicalInvolution.Asc77
 open CFSG.Open CFSG.ClassicalInvolution.Generic
 variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
 
+theorem exists_mem_USet_le [Finite G] (hΩ : Q3T7M.HM Ω) {J : Subgroup G}
+    (hJ : J ∈ Ω) : ∃ U ∈ USet Ω, U ≤ J :=
+  CFSG.ClassicalInvolution.T7FU.Asc77.exists_mem_USet_le (⟨hΩ, hΩ.toGen⟩) hJ
 
 theorem dstarAdj_of_commutes [Finite G] (hΩ : Q3T7M.HM Ω) {K J : Subgroup G}
     (hJ : J ∈ Ω) (hne : J ≠ K) (hc : Commutes J K) : dstarAdj Ω K J :=
   CFSG.ClassicalInvolution.T7FU.Asc77.dstarAdj_of_commutes (⟨hΩ, hΩ.toGen⟩) hJ hne hc
 
+theorem dstarAdj_of_le_normalizer [Finite G] (hΩ : Q3T7M.HM Ω)
+    {K J : Subgroup G} (hJ : J ∈ Ω) (hne : J ≠ K) (hN : J ≤ Subgroup.normalizer (K : Set G)) :
+    dstarAdj Ω K J :=
+  CFSG.ClassicalInvolution.T7FU.Asc77.dstarAdj_of_le_normalizer (⟨hΩ, hΩ.toGen⟩) hJ hne hN
 section Lift
 variable {N : Subgroup G} [N.Normal]
 end Lift
@@ -411,6 +425,14 @@ theorem MinCex.of_sylow (c : MinCex Ω K S R W H) {S' : Sylow 2 G} {W' : Subgrou
     (CFSG.ClassicalInvolution.T7FU.Asc77.MinCex.of_sylow c.toU hRS' hK' hne hR' hR'K' hR'S' hW' hW'S' hW'n)
     c
 
+theorem MinCex.centralizer_le_H (h4 : E187E4C) (c : MinCex Ω K S R W H)
+    {K' R' : Subgroup G} (hK' : K' ∈ twinSet Ω K) (hne : K' ≠ K)
+    (hR' : R' ∈ RSet Ω) (hR'K' : R' ≤ K') (hR'S : R' ≤ (S : Subgroup G)) {A : Subgroup G}
+    (hA : IsPGroup 2 A) (hAcyc : (∃ w : G, w ≠ 1 ∧ w * w = 1 ∧ A = Subgroup.zpowers w)) (hRA : R ⊔
+        R' ≤ Subgroup.centralizer (A : Set G))
+    (hX : Subgroup.centralizer (A : Set G) ≠ ⊤) : Subgroup.centralizer (A : Set G) ≤ H :=
+  CFSG.ClassicalInvolution.T7FU.Asc77.MinCex.centralizer_le_H (h4.atG c) c.toU hK' hne hR' hR'K'
+    hR'S hA hAcyc hRA hX
 end Finite
 end Asc77
 

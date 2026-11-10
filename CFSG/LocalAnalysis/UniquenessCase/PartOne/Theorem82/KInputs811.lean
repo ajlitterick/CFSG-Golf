@@ -90,6 +90,7 @@ inductive LieFam811 where
   ∀ (Y : Type) [Group Y] [Finite Y], ThreeCover (fun Z _ => IsSpor Z .ONan) Y →
     ∀ S : Sylow 3 Y, ∀ x ∈ (S : Subgroup Y), x ^ 3 = 1
 
+theorem k3Exp_of_k3 (h : K3) : K3Exp := fun Y _ _ hY S => (h Y hY S).2.1
 
 @[expose] def K3Out : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y], ThreeCover (fun Z _ => IsSpor Z .ONan) Y →
@@ -191,6 +192,7 @@ inductive LieFam811 where
     ∀ A : Subgroup Y, IsElemAbelian 3 A → Nat.card A = 27 →
       IsMulCommutative ↥(centralizer (A : Set Y))
 
+theorem k6dL4_of_k6d (h : K6d) : K6dL4 := fun Y _ _ r hY _ => h Y .l4 r 1 hY
 
 @[expose] def K6r : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y], ∀ (fam : LieFam811) (r f : ℕ), IsLie811 Y fam r f →
@@ -229,11 +231,15 @@ inductive LieFam811 where
         ∀ N : Subgroup Y, N ≤ K → (N.subgroupOf K).Normal → Odd (Nat.card N) →
           N ≤ centralizer (K : Set Y))
 
+@[expose] def K6Z : Prop :=
+  ∀ (Y : Type) [Group Y] [Finite Y], ∀ (fam : LieFam811) (r f : ℕ), IsLie811 Y fam r f → 5 ≤ r →
+    ¬ r ∣ Nat.card (center Y)
 
 @[expose] def K6ZL4 : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (r : ℕ), IsLie811 Y .l4 r 1 → 5 ≤ r →
     ¬ r ∣ Nat.card (center Y)
 
+theorem k6ZL4_of_k6Z (h : K6Z) : K6ZL4 := fun Y _ _ r hY hr => h Y .l4 r 1 hY hr
 
 @[expose] def K6 : Prop := K6a ∧ K6b ∧ K6c ∧ K6d ∧ K6r ∧ K6L4
 

@@ -85,6 +85,9 @@ theorem isRoot_root (N : E8Neighbour) : IsRoot .E8 N.root := by
   cases N
   exacts [isRoot_highRoot _, isRoot_single _ _, isRoot_single _ _]
 
+theorem root_mem_coverRoots (N : E8Neighbour) : N.root ∈ EPilot.coverRoots .E8 := by
+  cases N <;> decide +kernel
+
 
 @[expose] noncomputable def levi (K : Type) [Field K] (N : E8Neighbour) :
     Subgroup (adjointGroup .E8 K) :=
@@ -158,6 +161,52 @@ theorem subset_nodes_amalgamPlacement {J : Finset (Fin (Tag.rank .E8))} (hJ : J.
   · rw [amalgamPlacement_of_seven_not_mem h7]
     exact fun j hj => mem_nodes_high_of_ne fun h => h7 (h ▸ hj)
 
+theorem amalgamRoots_subset_orthRoots_placement {J : Finset (Fin (Tag.rank .E8))}
+    (hJ : J.card ≤ 2) : amalgamRoots J ⊆ orthRoots (amalgamPlacement J).root :=
+  amalgamRoots_subset_orthRoots_iff_subset_nodes.2 (subset_nodes_amalgamPlacement hJ)
+
+theorem amalgamRoots_subset_high_or_two_iff {J : Finset (Fin (Tag.rank .E8))} (hJ : J.card ≤ 2) :
+    amalgamRoots J ⊆ orthRoots high.root ∨ amalgamRoots J ⊆ orthRoots two.root ↔
+      J ≠ {1, 7} ∧ J ≠ {3, 7} := by
+  rw [amalgamRoots_subset_orthRoots_iff_subset_nodes,
+    amalgamRoots_subset_orthRoots_iff_subset_nodes]
+  constructor
+  · rintro (h | h) <;> refine ⟨?_, ?_⟩ <;> rintro rfl <;> revert h <;> decide
+  · rintro ⟨h17, h37⟩
+    by_cases h7 : (7 : Fin (Tag.rank .E8)) ∈ J
+    · right
+      refine fun j hj => mem_nodes_two_of_ne ?_ ?_
+      · rintro rfl
+        exact h17 (eq_pair_of_card_le_two hJ (by decide) hj h7)
+      · rintro rfl
+        exact h37 (eq_pair_of_card_le_two hJ (by decide) hj h7)
+    · left
+      exact fun j hj => mem_nodes_high_of_ne fun h => h7 (h ▸ hj)
+
+theorem mem_nodes_six_of_ne {j : Fin (Tag.rank .E8)} (h4 : j ≠ 4) (h5 : j ≠ 5) (h6 : j ≠ 6) :
+    j ∈ six.nodes := by
+  revert j
+  decide
+
+theorem amalgamRoots_subset_high_or_six_iff {J : Finset (Fin (Tag.rank .E8))} (hJ : J.card ≤ 2) :
+    amalgamRoots J ⊆ orthRoots high.root ∨ amalgamRoots J ⊆ orthRoots six.root ↔
+      J ≠ {4, 7} ∧ J ≠ {5, 7} ∧ J ≠ {6, 7} := by
+  rw [amalgamRoots_subset_orthRoots_iff_subset_nodes,
+    amalgamRoots_subset_orthRoots_iff_subset_nodes]
+  constructor
+  · rintro (h | h) <;> refine ⟨?_, ?_, ?_⟩ <;> rintro rfl <;> revert h <;> decide
+  · rintro ⟨h47, h57, h67⟩
+    by_cases h7 : (7 : Fin (Tag.rank .E8)) ∈ J
+    · right
+      refine fun j hj => mem_nodes_six_of_ne ?_ ?_ ?_
+      · rintro rfl
+        exact h47 (eq_pair_of_card_le_two hJ (by decide) hj h7)
+      · rintro rfl
+        exact h57 (eq_pair_of_card_le_two hJ (by decide) hj h7)
+      · rintro rfl
+        exact h67 (eq_pair_of_card_le_two hJ (by decide) hj h7)
+    · left
+      exact fun j hj => mem_nodes_high_of_ne fun h => h7 (h ▸ hj)
 
 section Placement
 
@@ -224,11 +273,33 @@ theorem levi_le_neighbourLevi {J : Finset (Fin (Tag.rank .E8))} {N : E8Neighbour
     (h : J ⊆ N.nodes) : CFSG.LieType.CurtisTits.levi (adjDatumE8 K).rootGroup J ≤ N.levi K :=
   levi_le_orthRoots fun j hj => (N.iform_root_single_eq_zero_iff j).2 (h hj)
 
+theorem levi_le_e7Levi {J : Finset (Fin (Tag.rank .E8))} (h : (7 : Fin (Tag.rank .E8)) ∉ J) :
+    CFSG.LieType.CurtisTits.levi (adjDatumE8 K).rootGroup J ≤ e7Levi K := by
+  rw [← levi_high]
+  exact levi_le_neighbourLevi fun j hj => mem_nodes_high_of_ne fun h' => h (h' ▸ hj)
 
 theorem leviAmalgam_le_placementLevi (J : {J : Finset (Fin (adjDatumE8 K).rank) // J.card ≤ 2}) :
     (adjDatumE8 K).leviAmalgam J ≤ (amalgamPlacement J.1).levi K :=
   levi_le_neighbourLevi (subset_nodes_amalgamPlacement J.2)
 
+theorem leviAmalgam_le_e7Levi_or_two_or_six
+    (J : {J : Finset (Fin (adjDatumE8 K).rank) // J.card ≤ 2}) :
+    ((7 : Fin (Tag.rank .E8)) ∉ J.1 → (adjDatumE8 K).leviAmalgam J ≤ e7Levi K) ∧
+    ((1 : Fin (Tag.rank .E8)) ∉ J.1 → (3 : Fin (Tag.rank .E8)) ∉ J.1 →
+      (adjDatumE8 K).leviAmalgam J ≤ two.levi K) ∧
+    (J.1 ⊆ six.nodes → (adjDatumE8 K).leviAmalgam J ≤ six.levi K) ∧
+    ((adjDatumE8 K).leviAmalgam J ≤ e7Levi K ∨ (adjDatumE8 K).leviAmalgam J ≤ two.levi K ∨
+      (adjDatumE8 K).leviAmalgam J ≤ six.levi K) := by
+  refine ⟨levi_le_e7Levi, fun h1 h3 => levi_le_neighbourLevi fun j hj =>
+    mem_nodes_two_of_ne (fun h => h1 (h ▸ hj)) fun h => h3 (h ▸ hj),
+    fun h => levi_le_neighbourLevi h, ?_⟩
+  have h := leviAmalgam_le_placementLevi J
+  unfold amalgamPlacement at h
+  split_ifs at h with h7 h13
+  · exact Or.inr (Or.inr h)
+  · exact Or.inr (Or.inl h)
+  · rw [levi_high] at h
+    exact Or.inl h
 
 end Placement
 

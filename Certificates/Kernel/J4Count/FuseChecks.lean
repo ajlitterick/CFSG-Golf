@@ -49,6 +49,7 @@ open CFSG.KC.J4Q CFSG.KD.J4Q CFSG.KS.SporSch.J4B
 
 theorem fuse : Nat.beq (conjK 3).1 ZK.1 = true := by quickRfl
 
+theorem neg_fuse : notB (Nat.beq (conjK 2).1 ZK.1) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Count.Fuse
 

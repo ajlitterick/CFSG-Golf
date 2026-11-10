@@ -346,5 +346,26 @@ theorem pair_eq_D23
     exact ⟨fun h => hde.trans h, fun h => hde.symm.trans h⟩
   · exact absurd (h3 _ hte _ (hte.trans (isConj_iff.2 ⟨w, rfl⟩))) hw
 
+theorem pair_iff_D23 (E : Set J) :
+    CFSG.Blueprint.Fischer.Pair J E ↔ E = {x : J | IsConj d x} :=
+  ⟨pair_eq_D23 E, fun h => h ▸ pair_J⟩
+
+theorem pair_eq_D23_native
+    (E : Set Blueprint.NativeSporadic.Fi23)
+    (hE : CFSG.Blueprint.Fischer.Pair _ E) : E = {x | IsConj dFi23 x} := by
+  have h := pair_eq_D23 _ (@CFSG.Fischer.pair_map Blueprint.NativeSporadic.Fi23 (↥J) inferInstance
+    inferInstance E hE fi23EquivJ)
+  ext x
+  show x ∈ E ↔ IsConj (fi23EquivJ.toEquiv.symm d) x
+  rw [isConj_symm_iff fi23EquivJ.toEquiv (map_mul fi23EquivJ) d x]
+  have hx : fi23EquivJ.toEquiv x ∈ fi23EquivJ '' E ↔ x ∈ E :=
+    ⟨fun ⟨y, hy, e⟩ => fi23EquivJ.injective e ▸ hy, fun hx => ⟨x, hx, rfl⟩⟩
+  rw [← hx, h]
+  rfl
+
+theorem pair_iff_D23_native
+    (E : Set Blueprint.NativeSporadic.Fi23) :
+    CFSG.Blueprint.Fischer.Pair _ E ↔ E = {x | IsConj dFi23 x} :=
+  ⟨pair_eq_D23_native E, fun h => h ▸ pair_Fi23⟩
 
 end CFSG.Sporadic.Fi23

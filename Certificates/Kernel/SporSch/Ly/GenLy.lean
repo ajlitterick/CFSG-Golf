@@ -27,6 +27,9 @@ meta def packM (M : Array (Array Nat)) : Nat := Id.run do
       acc := acc ||| (((M[i]!)[j]! % 5) <<< (1332 * i + 12 * j))
   return acc
 
+meta def unpackM (X : Nat) : Array (Array Nat) :=
+  Array.ofFn (n := 111) fun i => Array.ofFn (n := 111) fun j =>
+    (X >>> (1332 * i.val + 12 * j.val)) % 4096
 
 meta def intListE (l : List Int) : Expr :=
   let intT := mkConst ``Int

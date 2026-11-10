@@ -16,6 +16,8 @@ theorem rows_symm : ∀ i j : Fin 8,
 
 theorem rows_diag : ∀ i : Fin 8, bvec 8 (gramRows.getD i 0) i = 0 := by decide +kernel
 
+theorem rows_diag_corrupt :
+    ¬ ∀ i : Fin 8, bvec 8 ([129, 192, 56, 52, 44, 28, 130, 67].getD i 0) i = 0 := by decide +kernel
 
 theorem gram0_symm (i j : Fin 8) : gram0 i j = gram0 j i := rows_symm i j
 

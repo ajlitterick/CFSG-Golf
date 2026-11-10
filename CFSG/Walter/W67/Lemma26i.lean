@@ -352,5 +352,13 @@ theorem lemma_2_6_i : S_lemma_2_6_i := by
   obtain ⟨h1, h2⟩ := fr.eX_dvd_and_KX_iso hXE
   exact ⟨h1, h2, fr.normalizer_inf_H_eq hXE⟩
 
+theorem lemma_2_6_cover :
+    ∀ (G : Type) [Group G] [Finite G] (h : Hyp G) (fr : Frame h),
+      (∀ N : Subgroup G, N.Normal → N.index ≠ 2) →
+      Subgroup.normalizer ((fr.S : Subgroup G) : Set G) =
+        (Subgroup.normalizer ((fr.S : Subgroup G) : Set G) ⊓
+          Subgroup.centralizer (fr.E : Set G)) ⊔ fr.CS := by
+  intro G _ _ h fr hidx
+  exact fr.normalizer_S_eq hidx
 
 end CFSG.Walter.W67

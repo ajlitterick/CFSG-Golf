@@ -18,5 +18,12 @@ set_option compiler.extract_closed false
 @[expose] def expandX {n : ℕ} (w : List (Fin n × Bool)) : List ℕ :=
   w.flatMap fun l => expandSigned (l.1.val, l.2)
 
+@[expose] def q3Text : String := include_str "Fi24PrimeQ3Word.txt"
+
+@[expose] def q3Word : List (ℕ × Bool) :=
+  (q3Text.toList.filter fun c => c.isAlpha).map fun c =>
+    if c.isLower then (c.toNat - 97, true) else (c.toNat - 65, false)
+
+@[expose] def q3Expanded : List ℕ := q3Word.flatMap expandSigned
 
 end CFSG.Sporadic.Recognition.Fi24PrimeMultiplier

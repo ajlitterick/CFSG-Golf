@@ -66,6 +66,15 @@ end Defs
 
 section Basic
 
+theorem mem_par_iff
+    {i : Fin Tag.G2.rank}
+    {g : ↥(adjointGroup .G2 F)} :
+    g ∈ par i ↔ (g : ModGL .G2 F) ∈ parabolicSubgroup .G2 F {i} := Iff.rfl
+
+theorem mem_radical_iff
+    {i : Fin Tag.G2.rank}
+    {g : ↥(adjointGroup .G2 F)} :
+    g ∈ radical i ↔ (g : ModGL .G2 F) ∈ parabolicRadical .G2 F {i} := Iff.rfl
 
 theorem xC_mem_lev
     (i : Fin Tag.G2.rank) (c : F) :

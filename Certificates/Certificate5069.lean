@@ -124,5 +124,19 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.GLS in
+open CFSG.GH74.GLS.C3 in
+open CFSG.GH74.GLS.C3.Layer2 in
+open CFSG.GH74.GLS.C3.Layer2.L5 in
+open CFSG.GH74.GLS.C3.Layer2.L5.Fus in
+open Equiv Perm Subgroup CFSG.GH74.GLS.C3.Prop121 CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model in
+theorem certificate5069 : (List.finRange 4).all sh2EngChk = true := by
+  rw [List.all_eq_true]
+  intro ty _
+  fin_cases ty
+  exacts [CertificateChecks.Batch5069.sh2EngChk_0, CertificateChecks.Batch5069.sh2EngChk_1, CertificateChecks.Batch5069.sh2EngChk_2,
+    CertificateChecks.Batch5069.sh2EngChk_3]
 
 end Certificates

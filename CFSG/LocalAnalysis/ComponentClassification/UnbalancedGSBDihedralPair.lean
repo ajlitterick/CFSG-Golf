@@ -17,6 +17,95 @@ section Generators
 
 variable {P : Type*} [Group P] {r b : P}
 
+theorem zpow_val_eq_of_cast_eq (hr : orderOf r = 4) (a : ZMod 4) (k : ℤ)
+    (h : (a : ZMod 4) = (k : ZMod 4)) : r ^ (a.val : ℤ) = r ^ k := by
+  rw [zpow_eq_zpow_iff_modEq, hr, ← ZMod.intCast_eq_intCast_iff]
+  push_cast
+  rw [ZMod.natCast_zmod_val]
+  exact h
+
+theorem conj_zpow_of_rel (hrel : b * r * b⁻¹ = r⁻¹) (k : ℤ) : b * r ^ k * b⁻¹ = r ^ (-k) := by
+  have h := map_zpow (MulAut.conj b) r k
+  rw [MulAut.conj_apply, MulAut.conj_apply, hrel, inv_zpow'] at h
+  exact h
+
+theorem zpow_mul_of_rel (hrel : b * r * b⁻¹ = r⁻¹) (k : ℤ) : r ^ k * b = b * r ^ (-k) := by
+  have h := conj_zpow_of_rel hrel (-k)
+  rw [neg_neg] at h
+  calc r ^ k * b = b * r ^ (-k) * b⁻¹ * b := by rw [h]
+    _ = b * r ^ (-k) := by group
+
+@[expose] def dihedralFourHom (hr : orderOf r = 4) (hb : b⁻¹ = b) (hrel : b * r * b⁻¹ = r⁻¹) :
+    DihedralGroup 4 →* P where
+  toFun x := match x with
+    | DihedralGroup.r i => r ^ (i.val : ℤ)
+    | DihedralGroup.sr i => b * r ^ (i.val : ℤ)
+  map_one' := by
+    change r ^ ((0 : ZMod 4).val : ℤ) = 1
+    rw [ZMod.val_zero, Nat.cast_zero, zpow_zero]
+  map_mul' x y := by
+    rcases x with i | i <;> rcases y with j | j
+    · rw [DihedralGroup.r_mul_r]
+      change r ^ ((i + j).val : ℤ) = r ^ (i.val : ℤ) * r ^ (j.val : ℤ)
+      rw [← zpow_add]
+      exact zpow_val_eq_of_cast_eq hr _ _ (by push_cast [ZMod.natCast_zmod_val]; rfl)
+    · rw [DihedralGroup.r_mul_sr]
+      change b * r ^ ((j - i).val : ℤ) = r ^ (i.val : ℤ) * (b * r ^ (j.val : ℤ))
+      rw [← mul_assoc, zpow_mul_of_rel hrel, mul_assoc, ← zpow_add]
+      congr 1
+      exact zpow_val_eq_of_cast_eq hr _ _
+        (by push_cast [ZMod.natCast_zmod_val]; ring)
+    · rw [DihedralGroup.sr_mul_r]
+      change b * r ^ ((i + j).val : ℤ) = b * r ^ (i.val : ℤ) * r ^ (j.val : ℤ)
+      rw [mul_assoc, ← zpow_add]
+      congr 1
+      exact zpow_val_eq_of_cast_eq hr _ _ (by push_cast [ZMod.natCast_zmod_val]; rfl)
+    · rw [DihedralGroup.sr_mul_sr]
+      change r ^ ((j - i).val : ℤ) = b * r ^ (i.val : ℤ) * (b * r ^ (j.val : ℤ))
+      calc r ^ ((j - i).val : ℤ) = r ^ (-(i.val : ℤ)) * r ^ (j.val : ℤ) := by
+            rw [← zpow_add]
+            exact zpow_val_eq_of_cast_eq hr _ _
+              (by push_cast [ZMod.natCast_zmod_val]; ring)
+        _ = b * r ^ (i.val : ℤ) * b⁻¹ * r ^ (j.val : ℤ) := by rw [conj_zpow_of_rel hrel]
+        _ = b * r ^ (i.val : ℤ) * (b * r ^ (j.val : ℤ)) := by rw [hb]; group
+
+theorem dihedralFourHom_r (hr : orderOf r = 4) (hb : b⁻¹ = b) (hrel : b * r * b⁻¹ = r⁻¹)
+    (i : ZMod 4) : dihedralFourHom hr hb hrel (DihedralGroup.r i) = r ^ (i.val : ℤ) :=
+  rfl
+
+theorem dihedralFourHom_sr (hr : orderOf r = 4) (hb : b⁻¹ = b) (hrel : b * r * b⁻¹ = r⁻¹)
+    (i : ZMod 4) : dihedralFourHom hr hb hrel (DihedralGroup.sr i) = b * r ^ (i.val : ℤ) :=
+  rfl
+
+theorem dihedralFourHom_injective (hr : orderOf r = 4) (hb : b⁻¹ = b)
+    (hrel : b * r * b⁻¹ = r⁻¹) (hbr : b ∉ zpowers r) :
+    Function.Injective (dihedralFourHom hr hb hrel) := by
+  rw [injective_iff_map_eq_one]
+  rintro (i | i) h
+  · rw [dihedralFourHom_r, zpow_natCast] at h
+    have hdvd : orderOf r ∣ i.val := orderOf_dvd_of_pow_eq_one h
+    rw [hr] at hdvd
+    have hlt : i.val < 4 := ZMod.val_lt i
+    have hi : i.val = 0 := by omega
+    rw [(ZMod.val_eq_zero i).mp hi]
+    rfl
+  · rw [dihedralFourHom_sr] at h
+    exfalso
+    apply hbr
+    rw [eq_inv_of_mul_eq_one_left h]
+    exact inv_mem (zpow_mem (mem_zpowers r) _)
+
+theorem dihedralFourHom_surjective (hr : orderOf r = 4) (hb : b⁻¹ = b)
+    (hrel : b * r * b⁻¹ = r⁻¹) (hgen : closure {r, b} = ⊤) :
+    Function.Surjective (dihedralFourHom hr hb hrel) := by
+  rw [← MonoidHom.range_eq_top, eq_top_iff, ← hgen, closure_le]
+  rintro x (rfl | rfl)
+  · refine ⟨DihedralGroup.r 1, ?_⟩
+    rw [dihedralFourHom_r]
+    have : (1 : ZMod 4).val = 1 := rfl
+    rw [this, Nat.cast_one, zpow_one]
+  · refine ⟨DihedralGroup.sr 0, ?_⟩
+    rw [dihedralFourHom_sr, ZMod.val_zero, Nat.cast_zero, zpow_zero, mul_one]
 
 end Generators
 
@@ -39,6 +128,7 @@ instance (m m' : PairCoord) : Decidable (PairEquiv m m') := by
 
 @[expose] def pairZ : PairCoord := (DihedralGroup.r 2, 1, 0)
 
+@[expose] def pairZU : PairCoord := (DihedralGroup.r 2 * DihedralGroup.sr 0, DihedralGroup.sr 0, 0)
 
 @[expose] def PairInD (μ : ℕ) (m : PairCoord) : Prop :=
   PairEquiv (pairMul μ pairU m) (pairMul μ m pairU)
@@ -47,6 +137,33 @@ instance (μ : ℕ) (m : PairCoord) : Decidable (PairInD μ m) := by
   unfold PairInD
   infer_instance
 
+theorem card_pairInD_zero : (Finset.univ.filter (fun m => PairInD 0 m)).card = 64 := by decide
+
+theorem card_pairInD_one : (Finset.univ.filter (fun m => PairInD 1 m)).card = 64 := by decide
+
+theorem card_pair_sq_z_zero :
+    (Finset.univ.filter (fun m => PairInD 0 m ∧ PairEquiv (pairMul 0 m m) pairZ)).card = 8 := by
+  decide
+
+theorem card_pair_sq_z_one :
+    (Finset.univ.filter (fun m => PairInD 1 m ∧ PairEquiv (pairMul 1 m m) pairZ)).card = 24 := by
+  decide
+
+theorem card_pair_sq_u_zero :
+    (Finset.univ.filter (fun m => PairInD 0 m ∧ PairEquiv (pairMul 0 m m) pairU)).card = 8 := by
+  decide
+
+theorem card_pair_sq_u_one :
+    (Finset.univ.filter (fun m => PairInD 1 m ∧ PairEquiv (pairMul 1 m m) pairU)).card = 8 := by
+  decide
+
+theorem card_pair_sq_zu_zero :
+    (Finset.univ.filter (fun m => PairInD 0 m ∧ PairEquiv (pairMul 0 m m) pairZU)).card = 8 := by
+  decide
+
+theorem card_pair_sq_zu_one :
+    (Finset.univ.filter (fun m => PairInD 1 m ∧ PairEquiv (pairMul 1 m m) pairZU)).card = 8 := by
+  decide
 
 theorem r_two_sq : (DihedralGroup.r 2 : DihedralGroup 4) ^ 2 = 1 := by decide
 
@@ -298,6 +415,21 @@ theorem card_fiber (hM : Model φ₀ φ₁ z τ μ) (x : H) :
   change Nat.card ↥{m : PairCoord | elem φ₀ φ₁ τ m = elem φ₀ φ₁ τ (g₀, h₀, a₀)} = 2
   rw [hset, Nat.card_coe_set_eq, Set.ncard_pair hne]
 
+theorem two_mul_card (hM : Model φ₀ φ₁ z τ μ) [Finite H] (Q : H → Prop) :
+    2 * Nat.card {x : H // Q x} = Nat.card {m : PairCoord // Q (elem φ₀ φ₁ τ m)} := by
+  classical
+  have : Fintype H := Fintype.ofFinite H
+  let e : {m : PairCoord // Q (elem φ₀ φ₁ τ m)} ≃
+      Σ x : {x : H // Q x}, {m : PairCoord // elem φ₀ φ₁ τ m = x} :=
+    { toFun := fun m => ⟨⟨elem φ₀ φ₁ τ m, m.2⟩, ⟨m.1, rfl⟩⟩
+      invFun := fun p => ⟨p.2.1, by rw [p.2.2]; exact p.1.2⟩
+      left_inv := fun m => rfl
+      right_inv := by
+        rintro ⟨⟨x, hx⟩, ⟨m, hm⟩⟩
+        exact Sigma.subtype_ext (Subtype.ext hm) rfl }
+  rw [Nat.card_congr e, Nat.card_sigma]
+  simp only [card_fiber hM, Finset.sum_const, Finset.card_univ, smul_eq_mul]
+  rw [mul_comm, Nat.card_eq_fintype_card]
 
 end Model
 
@@ -362,5 +494,161 @@ end DihedralPair
 
 open DihedralPair
 
+theorem dihedral_pair_outer_centralizer_square_counts {P : Type*} [Group P] {r b : P}
+    (hgen : closure {r, b} = ⊤) (hr : orderOf r = 4) (hb : orderOf b = 2)
+    (hbr : b ∉ zpowers r) (hrel : b * r * b⁻¹ = r⁻¹)
+    {H : Type*} [Group H] [Finite H] {z : H} (hzc : z ∈ center H)
+    (φ₀ φ₁ : P →* H) (hφ₀ : Function.Injective φ₀) (hφ₁ : Function.Injective φ₁)
+    (hζ₀ : φ₀ (r ^ 2) = z) (hζ₁ : φ₁ (r ^ 2) = z)
+    (hint : φ₀.range ⊓ φ₁.range = zpowers z) (hcomm : ⁅φ₀.range, φ₁.range⁆ = ⊥)
+    {μ : ℕ} (hμ : μ ≤ 1) {τ : H} (hτ2 : τ ^ 2 = z ^ μ)
+    (hτ₀ : ∀ x : P, τ * φ₀ x * τ⁻¹ = φ₁ x) (hτ₁ : ∀ x : P, τ * φ₁ x * τ⁻¹ = φ₀ x)
+    (hτP : τ ∉ (φ₀.range : Set H) * (φ₁.range : Set H))
+    (hH : closure ((φ₀.range : Set H) ∪ φ₁.range ∪ {τ}) = ⊤)
+    (u : H) (hu : u = φ₀ b * φ₁ b) (D : Subgroup H) (hD : D = centralizer {u}) :
+    IsPGroup 2 H ∧ Nat.card H = 64 ∧
+    IsElementaryAbelian 2 (closure {z, u}) ∧ Nat.card (closure {z, u}) = 4 ∧
+    closure {z, u} ≤ D ∧ closure {z, u} ≤ centralizer (D : Set H) ∧
+    Nat.card D = 32 ∧
+    Nat.card {x : H // x ∈ D ∧ x ^ 2 = z} = 4 + 8 * μ ∧
+    Nat.card {x : H // x ∈ D ∧ x ^ 2 = u} = 4 ∧
+    Nat.card {x : H // x ∈ D ∧ x ^ 2 = z * u} = 4 ∧
+    (μ = 1 → Nat.card {x : H // x ∈ D ∧ x ^ 2 = u} < Nat.card {x : H // x ∈ D ∧ x ^ 2 = z} ∧
+      Nat.card {x : H // x ∈ D ∧ x ^ 2 = z * u} < Nat.card {x : H // x ∈ D ∧ x ^ 2 = z}) := by
+  classical
+  have hb' : b⁻¹ = b := by rw [inv_eq_iff_mul_eq_one, ← pow_two, ← hb, pow_orderOf_eq_one]
+  set f := dihedralFourHom hr hb' hrel with hfdef
+  have hfinj := dihedralFourHom_injective hr hb' hrel hbr
+  have hfsurj := dihedralFourHom_surjective hr hb' hrel hgen
+  have hrange : ∀ φ : P →* H, (φ.comp f).range = φ.range := fun φ => by
+    rw [MonoidHom.range_comp, MonoidHom.range_eq_top.mpr hfsurj, ← MonoidHom.range_eq_map]
+  have hf2 : f (DihedralGroup.r 2) = r ^ 2 := by
+    rw [hfdef, dihedralFourHom_r, show (2 : ZMod 4).val = 2 from rfl, zpow_natCast]
+  have hfb : f (DihedralGroup.sr 0) = b := by
+    rw [hfdef, dihedralFourHom_sr, ZMod.val_zero, Nat.cast_zero, zpow_zero, mul_one]
+  have hcommPP : ∀ x y : P, φ₁ y * φ₀ x = φ₀ x * φ₁ y := by
+    intro x y
+    have hle := commutator_eq_bot_iff_le_centralizer.mp hcomm
+    exact mem_centralizer_iff.mp (hle ⟨x, rfl⟩) (φ₁ y) ⟨y, rfl⟩
+  have hM : Model (φ₀.comp f) (φ₁.comp f) z τ μ :=
+    { inj₀ := hφ₀.comp hfinj
+      inj₁ := hφ₁.comp hfinj
+      zeta₀ := by rw [MonoidHom.comp_apply, hf2, hζ₀]
+      zeta₁ := by rw [MonoidHom.comp_apply, hf2, hζ₁]
+      central := hzc
+      inter := by rw [hrange, hrange, hint]
+      comm := fun x y => hcommPP (f x) (f y)
+      sq := hτ2
+      swap₀ := fun x => hτ₀ (f x)
+      swap₁ := fun x => hτ₁ (f x)
+      not_mem := by rw [hrange, hrange]; exact hτP
+      gen := by rw [hrange, hrange]; exact hH }
+  set ψ₀ := φ₀.comp f with hψ₀def
+  set ψ₁ := φ₁.comp f with hψ₁def
+  have hU : elem ψ₀ ψ₁ τ pairU = u := by
+    rw [hu]
+    change φ₀ (f (DihedralGroup.sr 0)) * φ₁ (f (DihedralGroup.sr 0)) * τ ^ 0 = _
+    rw [hfb, pow_zero, mul_one]
+  have hZ : elem ψ₀ ψ₁ τ pairZ = z := by
+    change φ₀ (f (DihedralGroup.r 2)) * φ₁ (f 1) * τ ^ 0 = z
+    rw [hf2, hζ₀, map_one, map_one, pow_zero, mul_one, mul_one]
+  have hZU : elem ψ₀ ψ₁ τ pairZU = z * u := by
+    change φ₀ (f (DihedralGroup.r 2 * DihedralGroup.sr 0)) * φ₁ (f (DihedralGroup.sr 0)) *
+      τ ^ 0 = _
+    rw [map_mul, hf2, hfb, map_mul, hζ₀, hu, pow_zero, mul_one, mul_assoc]
+  have hone : elem ψ₀ ψ₁ τ (1, 1, 0) = 1 := by
+    change φ₀ (f 1) * φ₁ (f 1) * τ ^ 0 = 1
+    rw [map_one, map_one, map_one, pow_zero, mul_one, mul_one]
+  have hmemD : ∀ m, elem ψ₀ ψ₁ τ m ∈ D ↔ PairInD μ m := by
+    intro m
+    rw [hD, mem_centralizer_singleton_iff, ← hU, hM.elem_mul, hM.elem_mul, eq_comm,
+      hM.elem_eq_iff]
+    rfl
+  have hsq : ∀ m t, (elem ψ₀ ψ₁ τ m) ^ 2 = elem ψ₀ ψ₁ τ t ↔ PairEquiv (pairMul μ m m) t := by
+    intro m t
+    rw [pow_two, hM.elem_mul, hM.elem_eq_iff]
+  have hcount : ∀ (Q : H → Prop) (p : PairCoord → Prop) [DecidablePred p],
+      (∀ m, Q (elem ψ₀ ψ₁ τ m) ↔ p m) →
+      2 * Nat.card {x : H // Q x} = (Finset.univ.filter p).card := by
+    intro Q p _ hQ
+    rw [hM.two_mul_card Q, Nat.card_congr (Equiv.subtypeEquivRight hQ),
+      Nat.card_eq_fintype_card, Fintype.card_subtype]
+  have hcardH : Nat.card H = 64 := by
+    have h := hcount (fun _ => True) (fun _ => True) (fun _ => Iff.rfl)
+    rw [Nat.card_congr (Equiv.subtypeUnivEquiv fun _ => trivial), Finset.filter_true,
+      Finset.card_univ] at h
+    have hM128 : Fintype.card PairCoord = 128 := by
+      simp [Fintype.card_prod, DihedralGroup.card]
+    omega
+  have hcardD : 2 * Nat.card D = (Finset.univ.filter (fun m => PairInD μ m)).card :=
+    hcount (· ∈ D) _ hmemD
+  have hcz : 2 * Nat.card {x : H // x ∈ D ∧ x ^ 2 = z} =
+      (Finset.univ.filter (fun m => PairInD μ m ∧ PairEquiv (pairMul μ m m) pairZ)).card :=
+    hcount _ _ fun m => by rw [hmemD, ← hZ, hsq]
+  have hcu : 2 * Nat.card {x : H // x ∈ D ∧ x ^ 2 = u} =
+      (Finset.univ.filter (fun m => PairInD μ m ∧ PairEquiv (pairMul μ m m) pairU)).card :=
+    hcount _ _ fun m => by rw [hmemD, ← hU, hsq]
+  have hczu : 2 * Nat.card {x : H // x ∈ D ∧ x ^ 2 = z * u} =
+      (Finset.univ.filter (fun m => PairInD μ m ∧ PairEquiv (pairMul μ m m) pairZU)).card :=
+    hcount _ _ fun m => by rw [hmemD, ← hZU, hsq]
+  have hcounts : Nat.card D = 32 ∧ Nat.card {x : H // x ∈ D ∧ x ^ 2 = z} = 4 + 8 * μ ∧
+      Nat.card {x : H // x ∈ D ∧ x ^ 2 = u} = 4 ∧
+      Nat.card {x : H // x ∈ D ∧ x ^ 2 = z * u} = 4 := by
+    interval_cases μ
+    · rw [card_pairInD_zero] at hcardD
+      rw [card_pair_sq_z_zero] at hcz
+      rw [card_pair_sq_u_zero] at hcu
+      rw [card_pair_sq_zu_zero] at hczu
+      omega
+    · rw [card_pairInD_one] at hcardD
+      rw [card_pair_sq_z_one] at hcz
+      rw [card_pair_sq_u_one] at hcu
+      rw [card_pair_sq_zu_one] at hczu
+      omega
+  have hzcomm : ∀ y : H, y * z = z * y := fun y => mem_center_iff.mp hzc y
+  have hu1 : u ≠ 1 := by
+    rw [← hU, ← hone, Ne, hM.elem_eq_iff]
+    decide
+  have huz : u ≠ z := by
+    rw [← hU, ← hZ, Ne, hM.elem_eq_iff]
+    decide
+  have hu2 : u ^ 2 = 1 := by
+    rw [← hU, ← hone, hsq]
+    change PairEquiv (DihedralGroup.sr 0 * DihedralGroup.sr 0,
+      DihedralGroup.sr 0 * DihedralGroup.sr 0, 0) (1, 1, 0)
+    decide
+  have horderU : orderOf u = 2 := orderOf_eq_prime hu2 hu1
+  have hune : u ∉ zpowers z := by
+    intro h
+    rcases mem_zpowers_eq_one_or_eq hM.orderOf_z h with h1 | h1
+    · exact hu1 h1
+    · exact huz h1
+  obtain ⟨hklein, hcard4⟩ := klein_closure hM.orderOf_z horderU (hzcomm u).symm hune
+  have hzD : z ∈ D := by
+    rw [hD, mem_centralizer_singleton_iff]
+    exact (hzcomm u).symm
+  have huD : u ∈ D := by
+    rw [hD, mem_centralizer_singleton_iff]
+  have hleD : closure {z, u} ≤ D := by
+    rw [closure_le]
+    rintro x (rfl | rfl)
+    · exact hzD
+    · exact huD
+  have hleC : closure {z, u} ≤ centralizer (D : Set H) := by
+    rw [closure_le]
+    rintro x (rfl | rfl)
+    · rw [SetLike.mem_coe, mem_centralizer_iff]
+      intro d _
+      exact hzcomm d
+    · rw [SetLike.mem_coe, mem_centralizer_iff]
+      intro d hd
+      rw [SetLike.mem_coe, hD, mem_centralizer_singleton_iff] at hd
+      exact hd
+  obtain ⟨hD32, hz', hu', hzu'⟩ := hcounts
+  refine ⟨IsPGroup.of_card (n := 6) (by rw [hcardH]; norm_num), hcardH, hklein, hcard4, hleD,
+    hleC, hD32, hz', hu', hzu', ?_⟩
+  intro h1
+  rw [hz', hu', hzu', h1]
+  omega
 
 end CFSG.ComponentClassification.UnbalancedGS

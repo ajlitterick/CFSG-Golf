@@ -60,6 +60,9 @@ theorem psi_get {SM PS : Nat} (h : psiOK SM PS = true) {i j : Nat} (hi : i < 128
   rw [psiOK, Bool.and_eq_true, Bool.and_eq_true] at h
   exact Nat.eq_of_beq_eq_true (allB_eq_true.1 (allB_eq_true.1 h.2 i hi) j hj)
 
+theorem psi_zero {SM PS : Nat} (h : psiOK SM PS = true) : bit PS 0 = 0 := by
+  rw [psiOK, Bool.and_eq_true, Bool.and_eq_true] at h
+  exact Nat.eq_of_beq_eq_true h.1.1
 
 theorem psi_one {SM PS : Nat} (h : psiOK SM PS = true) : bit PS 1 = 1 := by
   rw [psiOK, Bool.and_eq_true, Bool.and_eq_true] at h

@@ -51,5 +51,7 @@ open scoped commutatorElement
   List.formPerm [0, 3, 5] * List.formPerm [1, 20, 13] * List.formPerm [2, 8, 14] *
     List.formPerm [4, 17, 9] * List.formPerm [12, 16, 15] * List.formPerm [18, 23, 22]
 
+@[expose] def m24W : Equiv.Perm (Fin 24) :=
+  m24A * m24B * m24A * m24B * m24A * m24B * m24A * m24B⁻¹ * m24A * m24B⁻¹ * m24A * m24B⁻¹
 
 end CFSG.RankThree.PartTwo.KFacts.KS14

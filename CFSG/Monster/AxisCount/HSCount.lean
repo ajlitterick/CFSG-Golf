@@ -156,6 +156,7 @@ instance :
 theorem vv_zero : vv 0 = aStar := by
   simp [vv, Cert.gammaW, Cert.orbits, Cert.orbit0, wordLin_nil]
 
+theorem gm_smul (i : Fin 12) : gm i aStar = vv i := rfl
 
 theorem gm_mem_Gmat (i : Fin 12) : gm i ∈ Gmat := wordLin_mem_Gmat _
 
@@ -269,6 +270,9 @@ theorem Gmat_inf_stabilizer_le_Cgen :
   rw [Gmat_inf_stabilizer_eq_closure]
   exact schreier_le_Cgen
 
+theorem Gmat_inf_stabilizer_eq_Cgen :
+    Gmat ⊓ MulAction.stabilizer (SpaceB ≃ₗ[ℚ] SpaceB) aStar = Cgen :=
+  le_antisymm Gmat_inf_stabilizer_le_Cgen Cgen_le_inf_stabilizer
 
 theorem list_sum_range_map {M : Type*} [AddCommMonoid M] (f : ℕ → M) (n : ℕ) :
     ((List.range n).map f).sum = ∑ i ∈ Finset.range n, f i := by

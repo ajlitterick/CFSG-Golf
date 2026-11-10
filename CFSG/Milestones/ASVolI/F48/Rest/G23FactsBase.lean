@@ -21,6 +21,14 @@ attribute [local irreducible] burnsideF48t_g23LArr burnsideF48t_g23Tau burnsideF
 
 section Letters
 
+theorem burnsideF48t_g23_X_eq : burnsideF48t_g23X =
+    Subgroup.closure (Set.range fun k : Fin 4 => burnsideF48t_g23γ k) :=
+  Certificates.certificate7762.1
+
+theorem burnsideF48t_g23_γ_mem {i : ℕ} (hi : i < 4) : burnsideF48t_g23γ i ∈ burnsideF48t_g23X := by
+  rw [burnsideF48t_g23_X_eq]
+  exact Subgroup.subset_closure ⟨⟨i, hi⟩, rfl⟩
+
 
 end Letters
 

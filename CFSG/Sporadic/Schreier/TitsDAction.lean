@@ -26,6 +26,9 @@ theorem titsLineHom_word
     titsLineHom ⟨wordIn 4 titsGen w, hw⟩ = wordIn 4 titsAStar w :=
   hom_wordIn titsLineHom (fun _ hi => titsGen_mem_titsA hi) (fun _ hi => titsLineHom_gen hi) w hw
 
+theorem tcomm_mk {K : Subgroup (Equiv.Perm (Fin 1755))} {x y : Equiv.Perm (Fin 1755)} (hx : x ∈ K)
+    (hy : y ∈ K) (h : tcomm x y ∈ K) : (⟨tcomm x y, h⟩ : K) = tcomm ⟨x, hx⟩ ⟨y, hy⟩ :=
+  Subtype.ext (by simp [tcomm])
 
 theorem titsFlagHom_dGen
     (j : ℕ) :

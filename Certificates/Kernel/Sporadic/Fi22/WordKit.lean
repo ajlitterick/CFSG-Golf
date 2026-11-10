@@ -35,6 +35,8 @@ theorem cnId : Fi22X.cn (pidn 3510 12) = true := by quickRfl
 
 theorem gen_eq {k : Nat} (hk : k < 2) : fi22ChainGen k = unpack 3510 12 (G k) := Fi22G.gen_eq hk
 
+theorem gen_cn {k : Nat} (hk : k < 2) : Fi22X.cn (G k) = true ∧ Fi22X.cn (GI k) = true :=
+  (bAnd_iff _ _).1 (allN_spec cnG k hk)
 
 theorem genInv_eq {k : Nat} (hk : k < 2) :
     invCand 3510 (fi22ChainGen k) = unpack 3510 12 (GI k) := by

@@ -20,6 +20,8 @@ set_option Elab.async false
 
 theorem ord_ok : ordK = true := by quickRfl
 
+theorem neg_beta_sq : Bool.not (allN (nat_lit 31671) fun k =>
+    Nat.beq (tb G (nat_lit 40) (tb G (nat_lit 40) k)) k) = true := by quickRfl
 
 end CFSG.KD.Fi23K
 

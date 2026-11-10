@@ -19,12 +19,31 @@ inductive Instr : Type
   | iv (i k : ℕ) : Instr
   | pwr (e i k : ℕ) : Instr
 
+@[expose] def program : List Instr :=
+  [.mu 1 2 3, .mu 3 2 4, .mu 3 4 5, .mu 3 5 6, .mu 1 6 7, .mu 6 1 8, .iv 8 9, .mu 9 7 8, .pwr 9 8 9,
+    .mu 7 9 2, .mu 6 5 8, .mu 3 8 9, .mu 9 4 10, .mu 1 10 7, .mu 10 1 8, .iv 8 9, .mu 9 7 8,
+    .pwr 14 8 1]
+
+@[expose] def Instr.sources : Instr → List ℕ
+  | .mu i j _ => [i, j]
+  | .iv i _ => [i]
+  | .pwr _ i _ => [i]
 
 @[expose] def Instr.target : Instr → ℕ
   | .mu _ _ k => k
   | .iv _ k => k
   | .pwr _ _ k => k
 
+@[expose] def sourcesOk : List Instr → List ℕ → Bool
+  | [], _ => true
+  | ins :: rest, assigned =>
+    ins.sources.all (fun r => decide (r ∈ assigned)) && sourcesOk rest (ins.target :: assigned)
+
+theorem program_sourcesOk : sourcesOk program [1, 2] = true := by decide
+
+theorem coreWords_letters : (∀ l ∈ coreZWord, l.natAbs = 1 ∨ l.natAbs = 2) ∧
+    ∀ i, ∀ l ∈ coreGeneratorWords i, l.natAbs = 1 ∨ l.natAbs = 2 := by
+  decide
 
 end Packet
 

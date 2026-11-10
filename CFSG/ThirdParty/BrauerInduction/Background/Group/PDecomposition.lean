@@ -69,6 +69,9 @@ lemma one : IsPRegular p (1 : G) := by simp [IsPRegular]
 lemma order_coprime {a : G} (h : IsPRegular p a) :
     Nat.Coprime (orderOf a) p := h
 
+/-- An element is `p`-regular iff its inverse is `p`-regular. -/
+lemma inv_iff (a : G) : IsPRegular p a⁻¹ ↔ IsPRegular p a := by
+    simp only [IsPRegular, orderOf_inv]
 
 /--
 The product of commuting `p`-regular elements is `p`-regular.
@@ -142,6 +145,26 @@ lemma pow (a : G) (h : IsPRegular p a) (n : ℕ) :
     IsPRegular p (a ^ n) :=
   h.coprime_dvd_left (orderOf_pow_dvd n)
 
+lemma pow_ordProj [Fact p.Prime] {a : G} (ha : IsOfFinOrder a) :
+    IsPRegular p (a ^ ordProj[p] (orderOf a)) := by
+  let n : ℕ := orderOf a
+  have hn0 : n ≠ 0 := orderOf_ne_zero_iff.mpr ha
+  -- ordCompl[p] n is coprime to p
+  have hcop : Nat.Coprime (ordCompl[p] n) p := by
+    simpa [Nat.coprime_comm, n] using Nat.coprime_ordCompl Fact.out hn0
+  have hpow1 :
+      (a ^ ordProj[p] n) ^ ordCompl[p] n = 1 := by
+    calc
+      (a ^ ordProj[p] n) ^ ordCompl[p] n
+          = a ^ (ordProj[p] n * ordCompl[p] n) := by
+              rw [pow_mul]
+      _ = a ^ n := by
+              rw [Nat.ordProj_mul_ordCompl_eq_self]
+      _ = 1 := by
+              simp only [pow_orderOf_eq_one a, n]
+  have hdvd : orderOf (a ^ ordProj[p] n) ∣ ordCompl[p] n :=
+    orderOf_dvd_of_pow_eq_one hpow1
+  exact hcop.of_dvd_left hdvd
 
 @[simp]
 lemma subtype_iff
@@ -159,6 +182,9 @@ namespace CFSG.IsPSingular
 @[simp]
 lemma one : IsPSingular p (1 : G) := ⟨0, by simp⟩
 
+/-- An element is `p`-singular iff its inverse is `p`-singular. -/
+lemma inv_iff (a : G) : IsPSingular p a⁻¹ ↔ IsPSingular p a := by
+    simp only [IsPSingular, orderOf_inv]
 
 /--
 The product of commuting `p`-singular elements is `p`-singular.
@@ -284,6 +310,16 @@ It is defined as a Bezout power of the element, using the decomposition of
 @[simp]
 lemma pRegular_one : pRegular p (1 : G) = 1 := by simp [pRegular]
 
+/-- The inverse of a `p`-regular element is `p`-regular. -/
+lemma pRegular_inv [Fact p.Prime] {a : G} :
+    pRegular p (a⁻¹) = (pRegular p a)⁻¹ := by
+  have h_ord : orderOf (a⁻¹) = orderOf a := orderOf_inv a
+  simp only [pRegular, h_ord, Nat.cast_pow, inv_zpow', zpow_neg]
+
+lemma pRegular_map {H : Type v} [Group H] (f : G →* H) (hf : Function.Injective f)
+    (a : G) : pRegular p (f a) = f (pRegular p a) := by
+  have h_ord : orderOf (f a) = orderOf a := orderOf_injective f hf a
+  simp only [pRegular, h_ord, Nat.cast_pow, map_zpow]
 
 theorem orderOf_pRegular_dvd (a : G) :
     orderOf (pRegular p a) ∣ ordCompl[p] (orderOf a) := by
@@ -334,6 +370,15 @@ It is defined as a Bezout power of the element, using the decomposition of
 @[simp]
 lemma pSingular_one : pSingular p (1 : G) = 1 := by simp [pSingular]
 
+lemma pSingular_inv [Fact p.Prime] {a : G} :
+    pSingular p (a⁻¹) = (pSingular p a)⁻¹ := by
+  have h_ord : orderOf (a⁻¹) = orderOf a := orderOf_inv a
+  simp only [pSingular, h_ord, Int.natCast_ediv, Nat.cast_pow, inv_zpow', zpow_neg]
+
+lemma pSingular_map {H : Type v} [Group H] (f : G →* H) (h : Function.Injective f)
+    (a : G) : pSingular p (f a) = f (pSingular p a) := by
+  have h_ord : orderOf (f a) = orderOf a := orderOf_injective f h a
+  simp only [pSingular, h_ord, Int.natCast_ediv, Nat.cast_pow, map_zpow]
 
 theorem orderOf_pSingular_dvd (a : G) :
     orderOf (pSingular p a) ∣ ordProj[p] (orderOf a) := by
@@ -480,6 +525,12 @@ theorem pSingular_pRegular_unique [Fact p.Prime]
       _ = pRegular p a := by rw [h₁]; rfl
   exact ⟨hs_eq, hv_eq⟩
 
+lemma pRegular_eq_self_of_isPRegular [Fact p.Prime]
+    {a : G} (hf : IsOfFinOrder a) (hr : IsPRegular p a) :
+    pRegular p a = a := by
+  have hs : IsPSingular p (1 : G) := IsPSingular.one p
+  obtain ⟨_, hr_eq⟩ := pSingular_pRegular_unique p hf (one_mul a) (mul_one a) hs hr
+  exact hr_eq.symm
 
 lemma pSingular_eq_self_of_isPSingular [Fact p.Prime]
     {a : G} (hf : IsOfFinOrder a) (hs : IsPSingular p a) :
@@ -552,6 +603,16 @@ lemma pRegular_mul_eq_self_of_pSingular_commute [Fact p.Prime]
     pSingular_pRegular_unique p (a := a * b) (b := b) (c := a) hf h_mul rfl hb ha
   exact h_reg_eq.symm
 
+lemma isPRegular_eq_one_of_mem_pGroup [Fact p.Prime]
+    {a : G} {P : Subgroup G} (hP : IsPGroup p P)
+    (haP : a ∈ P) (hr : IsPRegular p a) : a = 1 := by
+  -- 1. Extract the fact that a is p-singular from the p-group property
+  have hs : IsPSingular p a := by
+    rcases (IsPGroup.iff_orderOf).mp hP ⟨a, haP⟩ with ⟨k, hk⟩
+    use k
+    simp only [← hk, Subgroup.orderOf_mk]
+  -- 2. A sinngular and regular element is 1
+  exact IsPSingular.isPRegular_eq_one p a hs hr
 
 /-- Two p-regular parts commute if the elements commute. -/
 lemma pRegular.commute {a b : G} (h : Commute a b) :
@@ -561,6 +622,14 @@ lemma pRegular.commute {a b : G} (h : Commute a b) :
 lemma pSingular.commute {a b : G} (h : Commute a b) :
     Commute (pSingular p a) (pSingular p b) := Commute.zpow_zpow h _ _
 
+/-- If a and b commute, then the p-regular part of a commutes with the p-singular part of b. -/
+lemma pRegular_pSingular_commute {a b : G} (h : Commute a b) :
+    Commute (Group.pRegular p a) (Group.pSingular p b) := Commute.zpow_zpow h _ _
+
+/-- If a and b commute, then the p-singular part of a commutes with the
+  p-regular part of b. -/
+lemma pSingular_pRegular_commute {a b : G} (h : Commute a b) :
+    Commute (Group.pSingular p a) (Group.pRegular p b) := Commute.zpow_zpow h _ _
 
 /--
 The `p`-decomposition of a commuting product is the product of the
@@ -619,6 +688,38 @@ lemma pSingular.mul_of_commute [Fact p.Prime]
     Group.pSingular p (a * b) = Group.pSingular p a * Group.pSingular p b :=
   (pDecomp_mul_of_commute p ha hb hcomm).left
 
+/-- If `s` is p-singular and commutes with `a`, then `pRegular (a * s) = pRegular a`. -/
+lemma pRegular_mul_eq_left_of_right_pSingular_commute [Fact p.Prime]
+    {a s : G} (ha_fin : IsOfFinOrder s) (hb_fin : IsOfFinOrder a)
+    (hs : IsPSingular p s) (hcomm : Commute s a) :
+    Group.pRegular p (a * s) = Group.pRegular p a := by
+  calc
+    Group.pRegular p (a * s)
+        = Group.pRegular p a * Group.pRegular p s := by
+          rw [Group.pRegular.mul_of_commute p hb_fin ha_fin hcomm.symm]
+    _   = Group.pRegular p a := by
+          simp only [Group.isPSingular_pRegular_eq_one p ha_fin hs, mul_one]
+
+/--
+Raising an element to the `p`-part of its order only depends on its
+`p`-regular factor.
+-/
+lemma pow_ordProj_eq_pRegular_pow_ordProj [Fact p.Prime]
+    {a : G} (h : IsOfFinOrder a) :
+    a ^ ordProj[p] (orderOf a) = Group.pRegular p a ^ ordProj[p] (orderOf a) := by
+  let n := ordProj[p] (orderOf a)
+  let r := Group.pRegular p a
+  let s := Group.pSingular p a
+  have hdecomp : s * r = a := pDecomp p h
+  have hcomm : Commute s r := pDecomp_commute p a
+  have : s ^ n = 1 := by
+    have hdvd : orderOf s ∣ n := Group.orderOf_pSingular_dvd p a
+    exact orderOf_dvd_iff_pow_eq_one.mp hdvd
+  calc
+    a ^ n = (s * r) ^ n := by rw [hdecomp]
+    _     = s ^ n * r ^ n := hcomm.mul_pow n
+    _     = 1 * r ^ n := by rw [this]
+    _     = r ^ n := by rw [one_mul]
 
 end pDecomposition
 

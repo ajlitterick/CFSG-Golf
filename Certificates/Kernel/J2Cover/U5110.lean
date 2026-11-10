@@ -51,5 +51,10 @@ theorem k5110_comm : uList.all (fun p => uList.all fun q =>
 
 theorem k5110_nsq : mulU nElt nElt == (0, 0) := by quickRfl
 
+theorem k5110_neg_mul :
+    (!((0, 2) :: uList).all (fun p => uList.all fun q => bitU (mulU p q))) = true := by
+  quickRfl
+
+theorem k5110_neg_nodup : (!nodupU ((0, 0) :: uList)) = true := by quickRfl
 
 end CertificateChecks.KernelJ2Cover

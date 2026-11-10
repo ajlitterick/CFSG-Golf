@@ -87,6 +87,68 @@ theorem relTest_iff {x y : Table} {xg yg : Perm (Fin deg)} (hx : Rep deg x xg)
     · rfl
     · exact absurd ((hpow w).1 hb) (h2 w hw')
 
+theorem uInvTabs_getElem (h : tablesOK = true) {i : ℕ} (hi : i < 4) :
+    uInvTabs[i]! = invT deg uTabs[i]! := by
+  have hsz := (tablesOK_sizes h).1
+  unfold uInvTabs
+  rw [getElem!_pos (uTabs.map (invT deg)) _ (by simp; omega), Array.getElem_map,
+    getElem!_pos uTabs _ (by omega)]
+
+theorem uTabs_mem_tables (h : tablesOK = true) {i : ℕ} (hi : i < 4) :
+    uTabs[i]! ∈ uTabs.toList ++ [sigmaTab] ++ txyTabs.toList := by
+  have hsz := (tablesOK_sizes h).1
+  rw [List.mem_append, List.mem_append]
+  left
+  left
+  rw [getElem!_pos uTabs i (by omega)]
+  exact Array.getElem_mem_toList _
+
+theorem abTabs_perm (h : tablesOK = true) : ∀ g ∈ abTabs.toList, permOK deg g = true := by
+  intro g hg
+  have hlist : abTabs.toList = [uTabs[0]!, uTabs[3]!] := rfl
+  rw [hlist, List.mem_cons, List.mem_singleton] at hg
+  rcases hg with hg | hg
+  · rw [hg]
+    exact (tablesOK_perm h _ (uTabs_mem_tables h (by norm_num))).1
+  · rw [hg]
+    exact (tablesOK_perm h _ (uTabs_mem_tables h (by norm_num))).1
+
+theorem rep_of_mem_toList {E : Array Table}
+    (hE : ∀ k < E.size, Rep deg E[k]! (tablePerm deg E[k]!)) {T : Table} (hT : T ∈ E.toList) :
+    Rep deg T (tablePerm deg T) := by
+  obtain ⟨k, hk, rfl⟩ := Array.getElem_of_mem (Array.mem_toList_iff.mp hT)
+  have := hE k hk
+  rwa [getElem!_pos E k hk] at this
+
+theorem filter_tablePerm_orderOf {E : Array Table}
+    (hE : ∀ k < E.size, Rep deg E[k]! (tablePerm deg E[k]!)) {m : ℕ} (hm : 0 < m) :
+    (E.toList.map (tablePerm deg)).filter (fun g => decide (orderOf g = m)) =
+      (E.toList.filter (ordTest deg m)).map (tablePerm deg) := by
+  rw [List.filter_map]
+  congr 1
+  refine List.filter_congr fun T hT => ?_
+  apply Bool.eq_iff_iff.2
+  rw [Function.comp_apply, decide_eq_true_iff]
+  exact (ordTest_iff_perm (rep_of_mem_toList hE hT) hm).symm
+
+theorem tp_uTabs_eq_ug (h : tablesOK = true) {i : ℕ} (hi : i < 4) : tp deg uTabs[i]! = ug i :=
+  rep_unique (rep_tp (tablesOK_perm h _ (uTabs_mem_tables h hi)).1) (rep_u h hi)
+
+theorem Y0_eq_closure_pair (h : YOK) :
+    Subgroup.closure ({ug 0, ug 3} : Set (Perm (Fin deg))) = Y0 := by
+  rw [Y0_eq_ab h]
+  congr 1
+  ext z
+  have ht := yCheck_tables h
+  have h0 := tp_uTabs_eq_ug ht (i := 0) (by norm_num)
+  have h3 := tp_uTabs_eq_ug ht (i := 3) (by norm_num)
+  have hz : z ∈ tp deg '' {x | x ∈ abTabs.toList.toArray} ↔
+      (tp deg uTabs[0]! = z ∨ tp deg uTabs[3]! = z) := by
+    simp [abTabs]
+  refine Iff.trans ?_ hz.symm
+  rw [h0, h3]
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff]
+  exact or_congr eq_comm eq_comm
 
 theorem closure_pair_subtype_eq_top {G : Type*} [Group G] (H : Subgroup G) (a b : G)
     (hab : Subgroup.closure ({a, b} : Set G) = H) (ha : a ∈ H) (hb : b ∈ H) :

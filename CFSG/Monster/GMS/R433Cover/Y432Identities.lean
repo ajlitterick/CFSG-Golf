@@ -15,6 +15,7 @@ namespace CFSG.Monster.GMS.R433Cover
 open CFSG.Certificates.CosetEnumeration (evalWord)
 open CFSG.YGroups (spiderWord yGen evalWord_yGen_432_eq_iff evalWord_yGen_432_eq_one_iff)
 
+theorem yConj_length : yConj.length = 71 := by decide +kernel
 
 theorem yConj_lt : ∀ c ∈ yConj, c < 10 := by decide +kernel
 

@@ -28,6 +28,22 @@ variable {T Mc M : Subgroup G} (h : Data T Mc M)
 
 include h
 
+theorem commutator_y0Of_rc_le_M : ⁅y0Of T Mc M, rcOf Mc M⁆ ≤ M :=
+  h.commutator_le_y0Of.trans (y0Of_le T Mc M)
+
+theorem Ys_eq : Ys T Mc M = oTwoUpper (⁅Y0s T Mc M, Rcs Mc M⁆ ⊔ Rcs Mc M) := by
+  have hsupM : ⁅y0Of T Mc M, rcOf Mc M⁆ ⊔ rcOf Mc M ≤ M :=
+    sup_le h.commutator_y0Of_rc_le_M h.rc_le_M
+  unfold Ys Y0s Rcs
+  rw [h.yOf_eq, imageOTwoQuot_oTwoUpper hsupM,
+    imageOTwoQuot_sup h.commutator_y0Of_rc_le_M h.rc_le_M,
+    imageOTwoQuot_commutator (y0Of_le T Mc M) h.rc_le_M]
+
+theorem Rcs_isPGroup : IsPGroup 2 (Rcs Mc M) :=
+  imageOTwoQuot_isPGroup h.rc_le_M (rc_isPGroup Mc M)
+
+theorem Rcs_le_normalizer_Y0s : Rcs Mc M ≤ Subgroup.normalizer (Y0s T Mc M : Set (OTwoQuot M)) :=
+  imageOTwoQuot_le_normalizer h.rc_le_normalizer_y0Of
 
 theorem Y0s_inf_ker :
     Y0s T Mc M ⊓ (piStar h).ker =
@@ -82,6 +98,24 @@ theorem Ys_Rcs_centralize :
         Ys T Mc M ⊔ Rcs Mc M⁆ = ⊥ :=
   (lemma_14_1_17_three h.qtfe h.hyp (y0Of_le T Mc M)).1
 
+theorem Ys_centralizes_N : ∀ y ∈ Ys T Mc M, ∀ n ∈ Y0s T Mc M ⊓ (piStar h).ker, n * y = y * n := by
+  intro y hy n hn
+  have hnC : n ∈ imageOTwoQuot M (M ⊓ Subgroup.centralizer (V154 T Mc M : Set G)) := by
+    rw [Y0s_inf_ker h] at hn
+    refine imageOTwoQuot_mono ?_ hn
+    exact inf_le_inf_right _ (y0Of_le T Mc M)
+  have h0 := h.Ys_Rcs_centralize
+  rw [Subgroup.commutator_eq_bot_iff_le_centralizer] at h0
+  have := Subgroup.mem_centralizer_iff.mp (h0 hnC) y (Subgroup.mem_sup_left hy)
+  exact this.symm
+
+theorem Rcs_centralizes_C : ∀ ρ ∈ Rcs Mc M,
+    ∀ n ∈ imageOTwoQuot M (M ⊓ Subgroup.centralizer (V154 T Mc M : Set G)), n * ρ = ρ * n := by
+  intro ρ hρ n hn
+  have h0 := h.Ys_Rcs_centralize
+  rw [Subgroup.commutator_eq_bot_iff_le_centralizer] at h0
+  have := Subgroup.mem_centralizer_iff.mp (h0 hn) ρ (Subgroup.mem_sup_right hρ)
+  exact this.symm
 
 theorem Ys_inf_ker_odd : ∀ u ∈ Ys T Mc M ⊓ (piStar h).ker, Odd (orderOf u) := by
   intro u hu

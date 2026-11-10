@@ -67,6 +67,13 @@ private theorem act_pow {L : Subgroup G} {y ℓ : G} (hℓ : ℓ ∈ L)
     rw [pow_succ, pow_succ]
     exact act_mul (L.pow_mem hℓ m) ih h x hx
 
+private theorem mul_inv_mem_centralizer_of_act {L : Subgroup G} {y ℓ : G}
+    (h : ∀ x ∈ L, y⁻¹ * x * y = ℓ⁻¹ * x * ℓ) : y * ℓ⁻¹ ∈ Subgroup.centralizer (L : Set G) := by
+  rw [Subgroup.mem_centralizer_iff]
+  intro x hx
+  calc x * (y * ℓ⁻¹) = y * (y⁻¹ * x * y) * ℓ⁻¹ := by group
+    _ = y * (ℓ⁻¹ * x * ℓ) * ℓ⁻¹ := by rw [h x hx]
+    _ = y * ℓ⁻¹ * x := by group
 
 private theorem coe_mem_centralizer_of_mem_center {L : Subgroup G} {z : L}
     (hz : z ∈ Subgroup.center L) : (z : G) ∈ Subgroup.centralizer (L : Set G) := by

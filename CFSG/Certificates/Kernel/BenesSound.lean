@@ -595,6 +595,7 @@ theorem rec_strictN (g : Nat → Nat → Nat) (e : Nat) : ∀ j, j ≤ e + 1 →
     rw [e1, iterF, ← e2, ← ih]
     exact strictN_eq _ _
 
+theorem iterF_zero_len (f : Nat → Nat → Nat) (a b s : Nat) : iterF f a 0 s = iterF f b 0 s := rfl
 
 theorem testBit_netP {S k n N : Nat} (hS : S = 2 ^ k) (h : CFSG.KC.KDense.netOK k N = true)
     (x : Nat) :
@@ -743,6 +744,7 @@ theorem one_eq_rep : (1 : Nat) = maskN (4096 * 1) / M4096 := by
   have := Nat.one_lt_two_pow (n := 4096) (by decide)
   omega
 
+theorem REP_eq_rep : REP = maskN (4096 * 3510) / M4096 := rfl
 
 @[expose] noncomputable def dstep (k y : Nat) : Nat :=
   sN (Nat.land y (dilMask k)) (fun h =>
@@ -974,6 +976,13 @@ theorem arr_entry {F : Nat → Nat} (σ : Nat → Nat) (hσ : ∀ p < 4096, σ p
   · rw [decide_eq_false h16, Bool.false_and, Nat.testBit_lt_two_pow
       (Nat.lt_of_lt_of_le hs (Nat.pow_le_pow_right (n := 2) (by decide) (show 12 ≤ j0 by omega)))]
 
+theorem arrNW_entry {NW : Nat} (h : nwValid NW = true) {p : Nat} (hp : p < 4096) :
+    arrNW NW / 2 ^ (16 * p) % 2 ^ 16 = nwPerm NW p := by
+  unfold arrNW
+  refine arr_entry (nwPerm NW) (fun p hp => nwPerm_lt h hp) (fun j _ => ⟨fun p hp => ?_, fun q hq => ?_⟩) hp
+  · have := (testBit_applyNW h one_eq_rep (coord j)).1 0 (by omega) p hp
+    simpa using this
+  · exact (testBit_applyNW h one_eq_rep (coord j)).2 q (by omega)
 
 theorem arrInvNW_entry {NW : Nat} (h : nwValid NW = true) {p : Nat} (hp : p < 4096) :
     arrInvNW NW / 2 ^ (16 * p) % 2 ^ 16 = nwInv NW p := by

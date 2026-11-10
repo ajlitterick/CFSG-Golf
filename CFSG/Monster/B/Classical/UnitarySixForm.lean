@@ -85,6 +85,7 @@ theorem herm_swap (v w : V) : herm w v = bar (herm v w) := by
   refine Finset.sum_congr rfl fun i _ => ?_
   rw [Fin.revPerm_apply, Fin.rev_rev, bar_mul, bar_bar, mul_comm]
 
+theorem herm_self_bar (v : V) : bar (herm v v) = herm v v := (herm_swap v v).symm
 
 theorem herm_eq_zero_comm {v w : V} (h : herm v w = 0) : herm w v = 0 := by
   rw [herm_swap, h, bar_zero]
@@ -178,6 +179,7 @@ theorem det_of_mem (g : SU frobeniusF4 6) :
     ((g : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4).det = 1 :=
   ((mem_SU_iff _).mp g.2).1
 
+theorem isIsometry_one : IsIsometry 1 := fun x y => by simp only [one_mulVec]
 
 theorem IsIsometry.mul {A B : Matrix (Fin 6) (Fin 6) F4} (hA : IsIsometry A)
     (hB : IsIsometry B) : IsIsometry (A * B) := fun x y => by

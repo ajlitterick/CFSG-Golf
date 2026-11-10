@@ -8,6 +8,7 @@ namespace CFSG.Sporadic.Co1Block
 
 open CFSG.Monster.B.Co2.Native
 
+abbrev certDeg : Nat := 98280
 
 @[expose] def certVecHex : String := include_str "Data"/"Vecs.txt"
 

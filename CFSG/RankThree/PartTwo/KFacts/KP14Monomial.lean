@@ -54,6 +54,7 @@ theorem signedMat_id_one : signedMat id (fun _ => 1) = 1 := by
       exact mul_inv_cancel₀ (hs _)
     rw [h1, h2, signedMat_id_one]
 
+theorem mem_monomial {g : GL (Fin 3) (ZMod 3)} : g ∈ monomial ↔ IsMonomial g := Iff.rfl
 
 theorem mem_monomial_of {g : GL (Fin 3) (ZMod 3)} (π : Fin 3 → Fin 3) (s : Fin 3 → ZMod 3)
     (hπ : Function.Bijective π) (hs : ∀ j, s j ≠ 0) (h : (g : Mat3) = signedMat π s) :
@@ -199,6 +200,16 @@ theorem monoRefl_subset_monomial : monoRefl ⊆ monomial := by
   · exact mem_monomial_of ![2, 1, 0] ![1, 1, 1] (by decide) (by decide) (by decide)
   · exact mem_monomial_of ![2, 1, 0] ![2, 1, 2] (by decide) (by decide) (by decide)
 
+theorem isReflection_of_mem_monoRefl {x : GL (Fin 3) (ZMod 3)} (hx : x ∈ monoRefl) :
+    IsReflection x := by
+  rw [isReflection_iff]
+  simp only [monoRefl, diagRefl, swapRefl, Set.mem_union, Set.mem_insert_iff,
+    Set.mem_singleton_iff] at hx
+  rcases hx with (rfl | rfl | rfl) | (rfl | rfl | rfl | rfl | rfl | rfl) <;> decide +kernel
+
+theorem isReflection_iff_mem_monoRefl {g : GL (Fin 3) (ZMod 3)} (hg : g ∈ monomial) :
+    IsReflection g ↔ g ∈ monoRefl :=
+  ⟨mem_monoRefl_of_isReflection hg, isReflection_of_mem_monoRefl⟩
 
 @[expose] def cyc : GL (Fin 3) (ZMod 3) :=
   ⟨!![0, 0, 1; 1, 0, 0; 0, 1, 0], !![0, 1, 0; 0, 0, 1; 1, 0, 0], by decide, by decide⟩
@@ -218,6 +229,7 @@ theorem cyc_p12 : cyc * p12 * cyc⁻¹ = p02 := by decide +kernel
 
 theorem cyc_p02 : cyc * p02 * cyc⁻¹ = p01 := by decide +kernel
 
+theorem cyc_m01 : cyc * m01 * cyc⁻¹ = m12 := by decide +kernel
 
 theorem cyc_m12 : cyc * m12 * cyc⁻¹ = m02 := by decide +kernel
 
@@ -385,5 +397,37 @@ theorem eq_swapRefl_or_eq_monoRefl_of_alternating {G₀ : Subgroup (GL (Fin 3) (
     (hinv _ (mem_of_pow_three_eq_one hG₀ e cyc'_mem_monomial cyc'_pow_three))
     (fun d hd => mem_monoRefl_of_isReflection (hD hd) (hDr d hd)) hst
 
+theorem cyc_eq : cyc = p01 * p12 := by decide +kernel
+
+theorem cyc'_eq : cyc' = m01 * p12 := by decide +kernel
+
+theorem cyc_mem_closure : cyc ∈ Subgroup.closure swapRefl := by
+  rw [cyc_eq]
+  exact mul_mem (Subgroup.subset_closure (by simp [swapRefl]))
+    (Subgroup.subset_closure (by simp [swapRefl]))
+
+theorem cyc'_mem_closure : cyc' ∈ Subgroup.closure swapRefl := by
+  rw [cyc'_eq]
+  exact mul_mem (Subgroup.subset_closure (by simp [swapRefl]))
+    (Subgroup.subset_closure (by simp [swapRefl]))
+
+theorem exists_conj_p01 {x : GL (Fin 3) (ZMod 3)} (hx : x ∈ swapRefl) :
+    ∃ g ∈ Subgroup.closure swapRefl, g * p01 * g⁻¹ = x := by
+  have h1 := cyc_mem_closure
+  have h2 := cyc'_mem_closure
+  simp only [swapRefl, Set.mem_insert_iff, Set.mem_singleton_iff] at hx
+  rcases hx with rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨1, one_mem _, by group⟩
+  · exact ⟨cyc ^ 2 * cyc', mul_mem (pow_mem h1 _) h2, by decide +kernel⟩
+  · exact ⟨cyc, h1, cyc_p01⟩
+  · exact ⟨cyc', h2, cyc'_p01⟩
+  · exact ⟨cyc ^ 2, pow_mem h1 _, by decide +kernel⟩
+  · exact ⟨cyc * cyc', mul_mem h1 h2, by decide +kernel⟩
+
+theorem exists_conj_swapRefl {x y : GL (Fin 3) (ZMod 3)} (hx : x ∈ swapRefl)
+    (hy : y ∈ swapRefl) : ∃ g ∈ Subgroup.closure swapRefl, g * y * g⁻¹ = x := by
+  obtain ⟨g, hg, rfl⟩ := exists_conj_p01 hx
+  obtain ⟨h, hh, rfl⟩ := exists_conj_p01 hy
+  exact ⟨g * h⁻¹, mul_mem hg (inv_mem hh), by group⟩
 
 end CFSG.RankThree.PartTwo.KFacts.KP14

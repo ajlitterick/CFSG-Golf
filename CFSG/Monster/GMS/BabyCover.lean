@@ -157,6 +157,8 @@ theorem mem_coverPre {T : Subgroup B} {g : G} :
     rw [coverMap_apply hg] at hT
     exact hT
 
+theorem coverPre_le_centralizer (T : Subgroup B) :
+    coverPre φ T ≤ Subgroup.centralizer ({b} : Set G) := fun _ hg => (mem_coverPre.mp hg).1
 
 theorem coverPre_inf (S T : Subgroup B) :
     coverPre φ (S ⊓ T) = coverPre φ S ⊓ coverPre φ T := by
@@ -319,6 +321,54 @@ theorem card_inf_centralizer_of_forall [Finite G] (h : IsBabyCover b φ) {x : G}
   rw [h1] at this
   omega
 
+theorem centralizer_inf_le_coverPre (h : IsBabyCover b φ) {x : G}
+    (hx : x ∈ Subgroup.centralizer ({b} : Set G)) :
+    Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G) ≤
+      coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B)) := by
+  intro g hg
+  refine (mem_coverPre_centralizer_iff h hx).mpr ⟨hg.1, Or.inl ?_⟩
+  rw [Subgroup.mem_centralizer_singleton_iff.mp hg.2, mul_inv_cancel_right]
+
+theorem relIndex_centralizer_inf_coverPre {x : G} :
+    (Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G)).relIndex
+        (coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B))) =
+      {z : G | ∃ g ∈ coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B)),
+        g * x * g⁻¹ = z}.ncard := by
+  rw [← index_subgroupOf_centralizer_eq_ncard, Subgroup.relIndex]
+  congr 1
+  ext g
+  simp only [Subgroup.mem_subgroupOf, Subgroup.mem_inf]
+  exact ⟨fun hg => hg.2, fun hg => ⟨coverPre_le_centralizer _ g.2, hg⟩⟩
+
+theorem relIndex_centralizer_inf_coverPre_eq_two_iff (h : IsBabyCover b φ) {x : G}
+    (hx : x ∈ Subgroup.centralizer ({b} : Set G)) :
+    (Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G)).relIndex
+        (coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B))) = 2 ↔
+      ∃ g ∈ Subgroup.centralizer ({b} : Set G), g * x * g⁻¹ = b * x := by
+  have hsub : ∀ g ∈ coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B)),
+      g * x * g⁻¹ = x ∨ g * x * g⁻¹ = b * x := fun g hg =>
+    ((mem_coverPre_centralizer_iff h hx).mp hg).2
+  rw [relIndex_centralizer_inf_coverPre]
+  constructor
+  · intro h2
+    by_contra hno
+    push Not at hno
+    have h1 := ncard_orbit_eq_one (H := coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B)))
+      (x := x) fun g hg => (hsub g hg).resolve_right (hno g (coverPre_le_centralizer _ hg))
+    omega
+  · rintro ⟨g₀, hg₀, he⟩
+    exact ncard_orbit_eq_two h.b_ne_one
+      ((mem_coverPre_centralizer_iff h hx).mpr ⟨hg₀, Or.inr he⟩) he hsub
+
+theorem relIndex_centralizer_inf_coverPre_eq_one_or_two (h : IsBabyCover b φ) {x : G}
+    (hx : x ∈ Subgroup.centralizer ({b} : Set G)) :
+    (Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G)).relIndex
+        (coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B))) = 1 ∨
+      (Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G)).relIndex
+        (coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B))) = 2 := by
+  rw [relIndex_centralizer_inf_coverPre]
+  exact ncard_orbit_eq_one_or_two h.b_ne_one fun g hg =>
+    ((mem_coverPre_centralizer_iff h hx).mp hg).2
 
 theorem coverPre_inf_centralizer_inf (h : IsBabyCover b φ) {x y : G}
     (hx : x ∈ Subgroup.centralizer ({b} : Set G)) (hy : y ∈ Subgroup.centralizer ({b} : Set G)) :
@@ -436,6 +486,34 @@ theorem mem_ker_patternMap (h : IsBabyCover b φ) {x y : G}
   simp only [Subgroup.mem_inf, mem_centralizer_singleton_iff_conj]
   tauto
 
+theorem map_ker_patternMap (h : IsBabyCover b φ) {x y : G}
+    (hx : x ∈ Subgroup.centralizer ({b} : Set G)) (hy : y ∈ Subgroup.centralizer ({b} : Set G)) :
+    (patternMap h hx hy).ker.map (coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B) ⊓
+        Subgroup.centralizer ({coverMap φ y} : Set B))).subtype =
+      Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G) ⊓
+        Subgroup.centralizer ({y} : Set G) := by
+  ext g
+  constructor
+  · rintro ⟨g', hg', rfl⟩
+    exact (mem_ker_patternMap h hx hy g').mp hg'
+  · intro hg
+    have hgP : g ∈ coverPre φ (Subgroup.centralizer ({coverMap φ x} : Set B) ⊓
+        Subgroup.centralizer ({coverMap φ y} : Set B)) := by
+      refine (mem_coverPre_inf_centralizer_iff h hx hy).mpr ⟨hg.1.1, Or.inl ?_, Or.inl ?_⟩
+      · exact mem_centralizer_singleton_iff_conj.mp hg.1.2
+      · exact mem_centralizer_singleton_iff_conj.mp hg.2
+    exact ⟨⟨g, hgP⟩, (mem_ker_patternMap h hx hy ⟨g, hgP⟩).mpr hg, rfl⟩
+
+theorem card_inf_inf_mul_card_range [Finite G] (h : IsBabyCover b φ) {x y : G}
+    (hx : x ∈ Subgroup.centralizer ({b} : Set G)) (hy : y ∈ Subgroup.centralizer ({b} : Set G)) :
+    Nat.card ↥(Subgroup.centralizer ({b} : Set G) ⊓ Subgroup.centralizer ({x} : Set G) ⊓
+        Subgroup.centralizer ({y} : Set G)) * Nat.card (patternMap h hx hy).range =
+      2 * Nat.card ↥(Subgroup.centralizer ({coverMap φ x} : Set B) ⊓
+        Subgroup.centralizer ({coverMap φ y} : Set B)) := by
+  have h1 := Subgroup.card_ker_mul_card_range (patternMap h hx hy)
+  rw [← card_coverPre h, ← map_ker_patternMap h hx hy,
+    Subgroup.card_map_of_injective (Subgroup.subtype_injective _)]
+  exact h1
 
 end Pattern
 
@@ -975,6 +1053,13 @@ theorem mul_self_eq_of_babyInv_three
   obtain ⟨b₀, z, u, h⟩ := exists_twoClasses hSLS hTV hL hG
   exact h.mul_self_eq_of_babyInv_three hT3 hb hφ hx h3
 
+theorem isConj_of_mem_twoANbr_self
+    (hSLS : SLSStatement d₀) (hTV : TableVIn G)
+    (hL : LeechStatement) {a z₀ : G} (hG : GMSF1Type d₀ a z₀) {b : G} (hb : IsConj a b)
+    {y₁ y₂ : G} (h₁ : y₁ ∈ twoANbr a b) (h₂ : y₂ ∈ twoANbr a b) :
+    ∃ g ∈ Subgroup.centralizer ({b} : Set G), g * y₁ * g⁻¹ = y₂ := by
+  obtain ⟨b₀, z, u, h⟩ := exists_twoClasses hSLS hTV hL hG
+  exact h.exists_conj_of_mem_twoANbr hb h₁ h₂
 
 end Setting
 

@@ -83,6 +83,9 @@ deriving DecidableEq
 @[expose] def poolElems (T : KTab) (kgens : List Nat) : List Nat :=
   (twoElems T).filter fun x => !cheapBad T kgens x
 
+@[expose] def pcList (T : KTab) (kgens : List Nat) : List (Nat × Node) :=
+  (poolElems T kgens).filterMap fun x => (normClosure T kgens [x]).bind fun N =>
+    if N.elems.all (isTwoN T) then some (x, N) else none
 
 @[expose] def distinctNodes (l : List Node) : List Node :=
   (l.foldl (fun (st : List Node × HashSet (List Nat)) N =>
@@ -107,6 +110,21 @@ deriving DecidableEq
 @[expose] def joinNode (T : KTab) (kgens : List Nat) (N P : Node) : Option Node :=
   normClosure T kgens (N.gens ++ P.gens)
 
+@[expose] def latticeRound (T : KTab) (kgens : List Nat) (PCs : List Node) (nodes : List Node) :
+    List Node :=
+  let known : HashSet (List Nat) := nodes.foldl (fun s N => s.insert N.elems) ∅
+  let new := nodes.flatMap fun N => PCs.filterMap fun P =>
+    if subsetL P.elems N.elems then none else
+      (joinNode T kgens N P).bind fun J =>
+        if J.elems.all (isTwoN T) && !known.contains J.elems then some J else none
+  nodes ++ distinctNodes new
+
+@[expose] def latticeNodes (T : KTab) (kgens : List Nat) (PCs : List Node) : Nat → List Node
+  | 0 => [botNode T]
+  | n + 1 =>
+    let l := latticeNodes T kgens PCs n
+    let l' := latticeRound T kgens PCs l
+    if l'.length == l.length then l else l'
 
 @[expose] def latticeOK (T : KTab) (kgens : List Nat) (PCs nodes : List Node) : Bool :=
   nodes.any (· == botNode T) &&

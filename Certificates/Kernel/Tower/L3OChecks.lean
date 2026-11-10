@@ -94,5 +94,14 @@ theorem ch36408_l3o_lt (t : Nat) (ht : t < 448) : ch36408_l3o t = true := by
 
 #kc_each_by ch36408_l3o 0 448 ch36408_l3o_lt
 
+theorem ch36408_l3o_neg :
+    (!outB (l3M 0) (l3bc 0 0) (l3G 0) (l3Im 0 0) (l3S 0 0) (wrL3O 1) (Nat.xor (wrL3O 0) 1)
+      (wrL3O 2) (fun m => wrL3O (Nat.add 3 m))) = true := by
+  decide +kernel
+
+theorem ch36408_l3o_neg2 :
+    (!outB (l3M 0) (l3bc 0 3) (l3G 0) (l3Im 0 3) (l3S 0 3) (wrL3O 19) (wrL3O 18) (wrL3O 20)
+      (fun m => Nat.xor (wrL3O (Nat.add 21 m)) (Nat.shiftLeft 1 16))) = true := by
+  decide +kernel
 
 end Certificates.KernelTower

@@ -36,6 +36,15 @@ theorem init : eqL (W.SL.getD 0 []) (initR lay A B fi23Nregs) = true := by quick
 
 theorem seeds : seedRegsL lay (W.SL.getD 4 []) A B 0 1 = true := by quickRfl
 
+theorem ch_neg : (!chunkL lay fi23Prog 200 0 (W.SL.getD 0 []) (W.SL.getD 0 [])) = true := by
+  quickRfl
+
+theorem fa_neg : (!factsL lay (W.SL.getD 0 []) fi23Nregs (fi23Mod.modFactsW 3 fi23Tops) 1 15) =
+    true := by
+  quickRfl
+
+theorem seeds_neg : (!seedRegsL lay (W.SL.getD 4 []) B A 0 1) = true := by
+  quickRfl
 
 end CertificateChecks.KernelAM.Fi23
 

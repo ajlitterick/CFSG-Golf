@@ -68,5 +68,11 @@ theorem evalWord_yGen_322_eq_iff
   evalWord_yGen_eq_iff (by simp [ngen, y322_check.1]) y322_check.2.1 y322_relators
     y322Model_injective u v
 
+theorem evalWord_yGen_322_eq_one_iff
+    (w : List ℕ) :
+    evalWord (yGen 3 2 2) w = 1 ↔
+      eqA 728 (ModelNative.evalW 728 y322Arrays w) (idA 728) = true :=
+  evalWord_yGen_eq_one_iff (by simp [ngen, y322_check.1]) y322_check.2.1 y322_relators
+    y322Model_injective w
 
 end CFSG.YGroups

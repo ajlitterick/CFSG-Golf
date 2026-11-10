@@ -103,6 +103,23 @@ theorem levelSize_of_orbitSizes {S : Array (Array ℕ)} {base : Array ℕ} {l : 
   rw [getElem!_pos _ i hi']
   simp [rawOrbitSizes]
 
+theorem orbitSizes_ofArrays (hP : allPermsOK n S = true) (hc : 0 < chunks)
+    (h : rawChainOK n (S.extract 0 k) S (baseArr n b) W chunks = true) :
+    List.ofFn (RawSchreierDatum.ofArrays n hn S k hk (finList n b) hb W).orbitSize =
+      rawOrbitSizes n S (baseArr n b) := by
+  have hsz := (valid_ofArrays (hn := hn) (hk := hk) (hb := hb) hP hc h).2
+  have hlen : (rawLevels n S (baseArr n b)).size = b.length := by
+    rw [size_rawLevels]
+    simp [baseArr, finList]
+  apply List.ext_getElem
+  · simp only [List.length_ofFn, rawOrbitSizes, List.length_map, Array.length_toList, hlen]
+    show (finList n b).length = b.length
+    simp [finList]
+  · intro i h1 h2
+    rw [List.getElem_ofFn, hsz]
+    simp only [rawOrbitSizes, List.getElem_map, Array.getElem_toList]
+    rw [getElem!_pos _ i (by simp only [rawOrbitSizes, List.length_map,
+      Array.length_toList] at h2; exact h2)]
 
 theorem exists_mem_ofArrays_apply_base (hP : allPermsOK n S = true) (hc : 0 < chunks)
     (h : rawChainOK n (S.extract 0 k) S (baseArr n b) W chunks = true)

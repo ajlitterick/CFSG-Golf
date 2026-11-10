@@ -244,6 +244,15 @@ theorem ψQ_surjective : Function.Surjective N.ψQ := by
   refine ⟨⟨_, N.conj_mem_Q h.2 hq₀⟩, Multiplicative.toAdd.injective ?_⟩
   rw [N.ψQ_conj h ⟨q₀, hq₀⟩, hx]
 
+theorem exists_comm_eq (w : Fin 2 → F4) : ∃ q ∈ ruQ N.T, ∀ u : ruU N.L N.T,
+    zval ((q : G) * u * q⁻¹ * (u : G)⁻¹) = Sigma.formB w (Multiplicative.toAdd (N.ψU u)) := by
+  obtain ⟨q, hq⟩ := N.ψQ_surjective (Multiplicative.ofAdd w)
+  refine ⟨q, q.2, fun u => ?_⟩
+  have e := N.formB_ψQ q (Multiplicative.toAdd (N.ψU u))
+  rw [hq, toAdd_ofAdd] at e
+  rw [e, pairF, N.comm_congr (pCoreOf_le 2 _ q.2)
+    (show N.ψU u = N.ψU (N.uOf (Multiplicative.toAdd (N.ψU u))) from
+      Multiplicative.toAdd.injective (by rw [N.ψU_uOf]))]
 
 theorem mem_Z_of_comm_Q {u : G} (hu : u ∈ ruU N.L N.T)
     (hc : ∀ q ∈ ruQ N.T, q * u = u * q) : u ∈ ruZ N.T := by

@@ -192,6 +192,16 @@ theorem fixedCount_unpack (P : ℕ) :
 
 end Ops
 
+theorem all_contains_unpack {n w P : ℕ} {S T : Array ℕ} (hS : ∀ q ∈ S.toList, q < n) :
+    (S.all fun q => T.contains (unpack n w P)[q]!) =
+      S.all fun q => T.contains (pg w (mask w) P q) := by
+  rw [← Array.all_toList, ← Array.all_toList]
+  generalize S.toList = l at hS ⊢
+  induction l with
+  | nil => rfl
+  | cons q l ih =>
+    rw [List.all_cons, List.all_cons, unpack_get' (hS q List.mem_cons_self),
+      ih (fun x hx => hS x (List.mem_cons_of_mem _ hx))]
 
 end CFSG.KC.Misc.ArrEnum
 

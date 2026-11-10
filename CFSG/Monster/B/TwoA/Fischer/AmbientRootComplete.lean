@@ -16,6 +16,22 @@ open CFSG.Monster.B.E6.FixedE6 CFSG.Monster.B.E6.FixedE6Root CFSG.Monster.B.E6.S
   CFSG.LieType.Chevalley.C2E6Std CFSG.LieType.Chevalley.C2E6Std.FieldExtension
 open scoped Matrix IsMulCommutative
 
+theorem ncard_orbit_perm_mul {G : Type*} [Group G] (π : G →* Equiv.Perm fixedL) (u : fixedL) :
+    {u' | ∃ g : G, u' = π g u}.ncard *
+      Nat.card ((MulAction.stabilizer (Equiv.Perm fixedL) u).comap π) = Nat.card G := by
+  let _ := MulAction.compHom fixedL π
+  have h1 : {u' | ∃ g : G, u' = π g u} = MulAction.orbit G u := by
+    ext u'
+    constructor
+    · rintro ⟨h, rfl⟩
+      exact ⟨h, rfl⟩
+    · rintro ⟨h, rfl⟩
+      exact ⟨h, rfl⟩
+  have h2 : (MulAction.stabilizer (Equiv.Perm fixedL) u).comap π = MulAction.stabilizer G u := by
+    ext g
+    rw [Subgroup.mem_comap, MulAction.mem_stabilizer_iff, MulAction.mem_stabilizer_iff]
+    rfl
+  rw [h1, h2, ← MulAction.index_stabilizer, mul_comm, Subgroup.card_mul_index]
 
 theorem actStar_mem_rootVecSet
     (γ : GStar) {u : fixedL} (hu : u ∈ rootVecSet) :
@@ -308,6 +324,62 @@ theorem complete_ambient_root_orbits_core
       rfl
     · rw [hdrop (by decide)]
       exact hc3 u hu q hq hqu
+theorem complete_ambient_root_orbits
+    (hS : IsFischerSlice act lab Y) {C : Set V}
+    (hC : IsSliceMaxClique lab Y C) [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))]
+    {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {η : C ≃ X₀}
+    {θ : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
+      CFSG.Blueprint.NativeSporadic.M22}
+    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
+      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
+    (hθ : ∀ (f : setStab act lab Y C) (z : C),
+      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
+    {φ : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
+    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
+    {α : setStab act lab Y C →* F₀}
+    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
+      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
+    {Φ : Y ≃ CFSG.Monster.B.Fischer.Y} (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ)
+    {ρ : sliceGroup lab Y →* stdGroup} (hρ : Function.Injective ρ)
+    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass)
+    {Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL} (hΨ : ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y)
+    {y₀ : Y} (hy₀ : (y₀ : V) ∈ C) {s : Fin 4 → sliceGroup lab Y}
+    (hs : ∀ (k : Fin 4) (v w : Y), (w : V) = act (s k : S) v → Φ w = fourGens k (Φ v))
+    {qC : stdGroup} (hqC : IsConj rootInv qC) (hqCz : rootVecOf qC = cliqueFixedVec Φ Ψ)
+    (Q : Subgroup S) (hHQ : sliceGroup lab Y ≤ Q) (hQY : ∀ q ∈ Q, ∀ y ∈ Y, act q y ∈ Y)
+    (ρQ : Q →* GStar)
+    (hρQ : ∀ (h : S) (hh : h ∈ sliceGroup lab Y),
+      ρQ ⟨h, hHQ hh⟩ = SemidirectProduct.inl (ρ ⟨h, hh⟩))
+    (hQcard : Nat.card Q = 2 * Nat.card (sliceGroup lab Y)) :
+    (∀ u ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q},
+      ∃! k : Fin 4, u ∈ hOrbit ρ (orbitReps ρ Φ Ψ s qC y₀ k)) ∧
+    (∀ k : Fin 4, (hOrbit ρ (orbitReps ρ Φ Ψ s qC y₀ k)).ncard =
+      (![3510, 142155, 694980, 3127410] : Fin 4 → ℕ) k) ∧
+    (∀ k : Fin 4, Nat.card (stabH ρ (orbitReps ρ Φ Ψ s qC y₀ k)) =
+      (![18393661440, 454164480, 92897280, 20643840] : Fin 4 → ℕ) k) ∧
+    (∀ x x' : stdGroup, IsConj rootInv x → IsConj rootInv x' →
+      ((∃ h : sliceGroup lab Y, x' = ρ h * x * (ρ h)⁻¹) ↔
+        rootVecOf x' ∈ hOrbit ρ (rootVecOf x))) ∧
+    (∀ k : Fin 4, ∀ u ∈ hOrbit ρ (orbitReps ρ Φ Ψ s qC y₀ k), ∀ q : stdGroup,
+      IsConj rootInv q → rootVecOf q = u →
+      {y : Y | ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ≠ q ∧
+        Commute q (ρ ⟨lab y, lab_mem_sliceGroup y.2⟩)}.ncard =
+        (![693, 22, 126, 22] : Fin 4 → ℕ) k) ∧
+    (∀ k : Fin 4, {u' | ∃ q : Q, u' = actStar (ρQ q) (orbitReps ρ Φ Ψ s qC y₀ k)} =
+      hOrbit ρ (orbitReps ρ Φ Ψ s qC y₀ k)) ∧
+    ∀ k : Fin 4, Nat.card ((MulAction.stabilizer (Equiv.Perm fixedL)
+      (orbitReps ρ Φ Ψ s qC y₀ k)).comap (actStar.comp ρQ)) =
+        (![36787322880, 908328960, 185794560, 41287680] : Fin 4 → ℕ) k := by
+  obtain ⟨hpart, hsize, hstab, hconj, hcount, hQorb⟩ :=
+    hS.complete_ambient_root_orbits_core hC hx hη hθ hφ hα hΦ hρ hroot hΨ hy₀ hs hqC hqCz Q hHQ
+      hQY ρQ hρQ
+  have H := FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα
+  refine ⟨hpart, hsize, hstab, hconj, hcount, hQorb, fun k => ?_⟩
+  have h := ncard_orbit_perm_mul (actStar.comp ρQ) (orbitReps ρ Φ Ψ s qC y₀ k)
+  have e : {u' | ∃ q : Q, u' = (actStar.comp ρQ) q (orbitReps ρ Φ Ψ s qC y₀ k)} =
+      hOrbit ρ (orbitReps ρ Φ Ψ s qC y₀ k) := hQorb k
+  rw [e, hsize k, hQcard, H.card_sliceGroup hΦ] at h
+  fin_cases k <;> simp at h ⊢ <;> omega
 
 end IsFischerSlice
 

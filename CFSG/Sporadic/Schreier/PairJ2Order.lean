@@ -48,5 +48,14 @@ theorem card_j2P :
   simp only [← RawSchreierDatum.orbitSize_eq_card, j2Chain_orbitSize]
   rfl
 
+theorem card_j2 :
+    Nat.card Blueprint.NativeSporadic.J2 = 604800 := by
+  rw [Nat.card_congr j2PermEquiv.toEquiv, card_j2P]
+
+theorem FAM_J2_order :
+    ValidSchreier j2Chain ∧ j2Chain.base.toList.map Fin.val = [1, 0, 2] ∧
+      (List.finRange j2Chain.baseCount).map j2Chain.orbitSize = [315, 160, 12] ∧
+      Nat.card j2P = 604800 ∧ Nat.card Blueprint.NativeSporadic.J2 = 604800 :=
+  ⟨j2Chain_valid.1, j2Chain_base, j2Chain_orbitSizes, card_j2P, card_j2⟩
 
 end CFSG.Sporadic.Schreier

@@ -34,6 +34,11 @@ theorem generator_square (T : Module.End K V) (d : K)
   letI : Fact (¬ IsSquare d) := ⟨hns⟩
   exact CatalogueBProjectiveQuadratic.actionAdjoinEquiv T d hsquare
 
+theorem evaluationEquiv_val [Nontrivial V] (T : Module.End K V) (d : K)
+    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
+    (z : CatalogueBProjectiveQuadratic.extension d) :
+    (evaluationEquiv T d hns hsquare z).val =
+      CatalogueBProjectiveQuadratic.actionHom T d hsquare z := rfl
 
 theorem evaluationEquiv_root [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d) :

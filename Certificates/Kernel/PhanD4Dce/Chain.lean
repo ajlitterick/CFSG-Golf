@@ -20,6 +20,14 @@ theorem levels : levelsOK CFSG.KAct.PhanD4CT.A (nat_lit 58) (nat_lit 1120) CFSG.
     [] = true := by
   decide +kernel
 
+theorem ch270006_chain_fix : notB (levelsOK CFSG.KAct.PhanD4CT.A (nat_lit 58) (nat_lit 1120)
+    [(0, [0], [])] [16]) = true := by quickRfl
+
+theorem ch270006_chain_dup : notB (recOK CFSG.KAct.PhanD4CT.A (nat_lit 58) (nat_lit 1120) [0]
+    [928, 928] (nat_lit 65536)) = true := by quickRfl
+
+theorem ch270006_chain_parent : notB (recOK CFSG.KAct.PhanD4CT.A (nat_lit 58) (nat_lit 1120) [0]
+    [58] (nat_lit 65536)) = true := by quickRfl
 
 end CFSG.KAct.PhanD4CT
 

@@ -48,6 +48,25 @@ theorem gens_ok : gensK CX.S UP PtsT.F LP = true := by
 theorem iso_ok : isoK UP = true := by
   decide +kernel
 
+example : ptNorm (scK 2 (PtsT.F 5)) = false := by
+  decide +kernel
+
+example : ptsK (fun i => if i = 7 then PtsT.F 3 else PtsT.F i) = false := by
+  decide +kernel
+
+example : lnsK (fun l => if l = 9 then LP 4 else LP l) = false := by
+  decide +kernel
+
+example : allN 165 (fun i => genPt CX.S (fun k => if k = 0 then UP 1 else UP k) PtsT.F 0 i) =
+    false := by
+  decide +kernel
+
+example : allN 297 (fun l => genLn CX.S (fun l => if l = 0 then LP 0 + 1 else LP l) 0 l) =
+    false := by
+  decide +kernel
+
+example : isoK (fun k => if k = 2 then 1 else UP k) = false := by
+  decide +kernel
 
 end CFSG.KC.U52PL
 

@@ -139,6 +139,9 @@ variable (D : PairData)
              allBelow (sideGens D (D.kind[i]! - 1)).size fun j =>
                wordT D.n al ali (sg[i]!)[j]! == (sideGens D (D.kind[i]! - 1))[j]!))
 
+@[expose] def checkSideNorm : Bool :=
+  allBelow D.sideW.length fun k =>
+    normalOK D.n (sideEnum D k).tabs (nGens D) (nGensI D) (sideGens D k)
 
 @[expose] def checkMemW (memW : List (List (List Int))) : Bool :=
   decide (memW.length ≤ D.sideW.length) &&

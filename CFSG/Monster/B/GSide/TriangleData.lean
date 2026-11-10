@@ -42,6 +42,14 @@ theorem cv0_ne_cu
 theorem cw0_ne_cu
     (j : Fin 2) : cw0 ≠ cu j := (cgraph_adj_cu j).2.ne
 
+theorem triVert_zero
+    (j : Fin 2) : triVert j 0 = cv0 := rfl
+
+theorem triVert_one
+    (j : Fin 2) : triVert j 1 = cw0 := rfl
+
+theorem triVert_two
+    (j : Fin 2) : triVert j 2 = cu j := rfl
 
 theorem triVert_injective
     (j : Fin 2) : Function.Injective (triVert j) := by
@@ -74,6 +82,14 @@ theorem exists_triVert_cvMul
     (mem_triangle_iff.2 ⟨i, rfl⟩))
   ⟨k, hk.symm⟩
 
+theorem triKer_le_triStab
+    (j : Fin 2) : triKer j ≤ triStab j := fun s hs =>
+  mem_cvSetStab_triple ⟨by rw [mem_vStab.1 hs.1.1]; exact Set.mem_insert _ _,
+    by rw [mem_vStab.1 hs.1.2]; exact Set.mem_insert_of_mem _ (Set.mem_insert _ _),
+    by rw [mem_vStab.1 hs.2]; exact Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ rfl)⟩
+    fun y hy => ⟨y, hy, by
+      rcases hy with rfl | rfl | rfl
+      exacts [mem_vStab.1 hs.1.1, mem_vStab.1 hs.1.2, mem_vStab.1 hs.2]⟩
 
 theorem mem_triKer_iff
     {j : Fin 2} {s : Shat} :
@@ -125,6 +141,9 @@ theorem triPermFun_mul
   map_one' := Equiv.ext fun i => triPermFun_one j i
   map_mul' s t := Equiv.ext fun i => triPermFun_mul j s t i
 
+theorem triPerm_apply
+    (j : Fin 2) (s : triStab j) (i : Fin 3) :
+    triPerm j s i = triPermFun j s i := rfl
 
 theorem triPerm_apply_eq_iff
     {j : Fin 2} (s : triStab j) (i k : Fin 3) :
@@ -171,12 +190,209 @@ theorem mem_triStab_of_isTriB
     · exact ⟨cv0, Set.mem_insert _ _, h0⟩
     · exact ⟨cu j, Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ rfl), h2⟩
 
+theorem exists_isTriA
+    (j : Fin 2) : ∃ a, IsTriA j a := by
+  obtain ⟨a, h1, h2, h0⟩ := exists_swap_of_isCTriangle
+    ⟨(cgraph_adj_cu j).2, cgraph_adj_cv0_cw0.symm, (cgraph_adj_cu j).1.symm⟩
+  exact ⟨a, h0, h1, h2⟩
+
+theorem exists_isTriB
+    (j : Fin 2) : ∃ b, IsTriB j b :=
+  exists_swap_of_isCTriangle (isCTriangle_cu j)
+
+theorem triPerm_isTriA
+    {j : Fin 2} {a : Shat} (ha : IsTriA j a) :
+    triPerm j ⟨a, mem_triStab_of_isTriA ha⟩ = Equiv.swap 1 2 := by
+  obtain ⟨h0, h1, h2⟩ := ha
+  refine Equiv.ext fun i => (triPerm_apply_eq_iff _ i _).2 ?_
+  have e0 : cvMul cv0 a⁻¹ = cv0 := cvMul_inv_eq_of_cvMul_eq h0
+  have e1 : cvMul (cu j) a⁻¹ = cw0 := by rw [← h1, cvMul_inv_cancel]
+  have e2 : cvMul cw0 a⁻¹ = cu j := by rw [← h2, cvMul_inv_cancel]
+  fin_cases i
+  · exact e0
+  · exact e2
+  · exact e1
+
+theorem triPerm_isTriB
+    {j : Fin 2} {b : Shat} (hb : IsTriB j b) :
+    triPerm j ⟨b, mem_triStab_of_isTriB hb⟩ = Equiv.swap 0 1 := by
+  obtain ⟨h0, h1, h2⟩ := hb
+  refine Equiv.ext fun i => (triPerm_apply_eq_iff _ i _).2 ?_
+  have e0 : cvMul cw0 b⁻¹ = cv0 := by rw [← h0, cvMul_inv_cancel]
+  have e1 : cvMul cv0 b⁻¹ = cw0 := by rw [← h1, cvMul_inv_cancel]
+  have e2 : cvMul (cu j) b⁻¹ = cu j := cvMul_inv_eq_of_cvMul_eq h2
+  fin_cases i
+  · exact e1
+  · exact e0
+  · exact e2
+
+theorem perm_fin_three_cases (σ : Equiv.Perm (Fin 3)) :
+    σ = 1 ∨ σ = Equiv.swap 1 2 ∨ σ = Equiv.swap 0 1 ∨ σ = Equiv.swap 1 2 * Equiv.swap 0 1 ∨
+      σ = Equiv.swap 0 1 * Equiv.swap 1 2 ∨
+      σ = Equiv.swap 1 2 * Equiv.swap 0 1 * Equiv.swap 1 2 := by
+  revert σ
+  decide
+
+theorem triPerm_surjective
+    (j : Fin 2) : Function.Surjective (triPerm j) := by
+  obtain ⟨a, ha⟩ := exists_isTriA j
+  obtain ⟨b, hb⟩ := exists_isTriB j
+  let A : triStab j := ⟨a, mem_triStab_of_isTriA ha⟩
+  let B : triStab j := ⟨b, mem_triStab_of_isTriB hb⟩
+  have hA : triPerm j A = Equiv.swap 1 2 := triPerm_isTriA ha
+  have hB : triPerm j B = Equiv.swap 0 1 := triPerm_isTriB hb
+  intro σ
+  rcases perm_fin_three_cases σ with rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨1, map_one _⟩
+  · exact ⟨A, hA⟩
+  · exact ⟨B, hB⟩
+  · exact ⟨A * B, by rw [map_mul, hA, hB]⟩
+  · exact ⟨B * A, by rw [map_mul, hA, hB]⟩
+  · exact ⟨A * B * A, by rw [map_mul, map_mul, hA, hB]⟩
 
 instance triKer_normal
     (j : Fin 2) : ((triKer j).subgroupOf (triStab j)).Normal := by
   rw [← ker_triPerm]
   exact MonoidHom.normal_ker _
 
+@[expose] def triQuotEquiv
+    (j : Fin 2) :
+    triStab j ⧸ (triKer j).subgroupOf (triStab j) ≃* Equiv.Perm (Fin 3) :=
+  (QuotientGroup.quotientMulEquivOfEq (ker_triPerm j).symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective _ (triPerm_surjective j))
+
+theorem mem_triKer_of_triPerm_eq_one
+    {j : Fin 2} {s : triStab j} (h : triPerm j s = 1) :
+    (s : Shat) ∈ triKer j := by
+  have hs : s ∈ (triPerm j).ker := h
+  rw [ker_triPerm, Subgroup.mem_subgroupOf] at hs
+  exact hs
+
+theorem triPerm_eq_one_of_mem_triKer
+    {j : Fin 2} {s : triStab j} (h : (s : Shat) ∈ triKer j) :
+    triPerm j s = 1 := by
+  have hs : s ∈ (triKer j).subgroupOf (triStab j) := h
+  rw [← ker_triPerm] at hs
+  exact hs
+
+theorem mem_vStab_iff_triPerm
+    {j : Fin 2} (s : triStab j) :
+    (s : Shat) ∈ vStab cv0 ↔ triPerm j s 0 = 0 := by
+  rw [triPerm_apply_eq_iff, mem_vStab]
+  constructor
+  · exact cvMul_inv_eq_of_cvMul_eq
+  · intro h
+    have h' := cvMul_inv_eq_of_cvMul_eq h
+    rwa [inv_inv] at h'
+
+theorem triPerm_two_of_mem_cEdgeStab
+    {j : Fin 2} (s : triStab j)
+    (hs : (s : Shat) ∈ cvSetStab {cv0, cw0}) : triPerm j s 2 = 2 := by
+  have hs' := (cvSetStab {cv0, cw0}).inv_mem hs
+  obtain ⟨k, hk⟩ := exists_triVert_cvMul ((triStab j).inv_mem s.2) 2
+  rw [triPerm_apply_eq_iff]
+  refine hk.trans ?_
+  rw [triVert_two] at hk
+  fin_cases k
+  · exfalso
+    have h := (mem_cvSetStab.1 hs' (cu j)).1 (by rw [hk]; exact Set.mem_insert _ _)
+    rcases h with h | h
+    · exact cv0_ne_cu j h.symm
+    · exact cw0_ne_cu j h.symm
+  · exfalso
+    have h := (mem_cvSetStab.1 hs' (cu j)).1 (by rw [hk]; exact Set.mem_insert_of_mem _ rfl)
+    rcases h with h | h
+    · exact cv0_ne_cu j h.symm
+    · exact cw0_ne_cu j h.symm
+  · rfl
+
+theorem perm_fin_three_fix_zero :
+    ∀ σ : Equiv.Perm (Fin 3), σ 0 = 0 → σ = 1 ∨ σ = Equiv.swap 1 2 := by
+  decide
+
+theorem perm_fin_three_fix_two :
+    ∀ σ : Equiv.Perm (Fin 3), σ 2 = 2 → σ = 1 ∨ σ = Equiv.swap 0 1 := by
+  decide
+
+theorem perm_fin_three_fix_zero_two :
+    ∀ σ : Equiv.Perm (Fin 3), σ 0 = 0 → σ 2 = 2 → σ = 1 := by
+  decide
+
+theorem triStab_inf_vStab
+    {j : Fin 2} {a : Shat} (ha : IsTriA j a) :
+    triStab j ⊓ vStab cv0 = triKer j ⊔ Subgroup.zpowers a := by
+  apply le_antisymm
+  · rintro s ⟨hsT, hsv⟩
+    let S : triStab j := ⟨s, hsT⟩
+    let A : triStab j := ⟨a, mem_triStab_of_isTriA ha⟩
+    rcases perm_fin_three_fix_zero (triPerm j S) ((mem_vStab_iff_triPerm S).1 hsv) with h | h
+    · exact Subgroup.mem_sup_left (mem_triKer_of_triPerm_eq_one h)
+    · have h1 : triPerm j (S * A⁻¹) = 1 := by
+        rw [map_mul, map_inv, h, triPerm_isTriA ha, mul_inv_cancel]
+      have h2 := mem_triKer_of_triPerm_eq_one h1
+      have e : s = (s * a⁻¹) * a := by group
+      rw [e]
+      exact Subgroup.mul_mem_sup h2 (Subgroup.mem_zpowers a)
+  · refine sup_le (fun s hs => ⟨triKer_le_triStab j hs, hs.1.1⟩) ?_
+    rw [Subgroup.zpowers_le]
+    exact ⟨mem_triStab_of_isTriA ha, mem_vStab.2 ha.1⟩
+
+theorem triStab_inf_cEdgeStab
+    {j : Fin 2} {b : Shat} (hb : IsTriB j b) :
+    triStab j ⊓ cvSetStab {cv0, cw0} = triKer j ⊔ Subgroup.zpowers b := by
+  apply le_antisymm
+  · rintro s ⟨hsT, hse⟩
+    let S : triStab j := ⟨s, hsT⟩
+    let B : triStab j := ⟨b, mem_triStab_of_isTriB hb⟩
+    rcases perm_fin_three_fix_two (triPerm j S) (triPerm_two_of_mem_cEdgeStab S hse) with h | h
+    · exact Subgroup.mem_sup_left (mem_triKer_of_triPerm_eq_one h)
+    · have h1 : triPerm j (S * B⁻¹) = 1 := by
+        rw [map_mul, map_inv, h, triPerm_isTriB hb, mul_inv_cancel]
+      have h2 := mem_triKer_of_triPerm_eq_one h1
+      have e : s = (s * b⁻¹) * b := by group
+      rw [e]
+      exact Subgroup.mul_mem_sup h2 (Subgroup.mem_zpowers b)
+  · refine sup_le (fun s hs => ⟨triKer_le_triStab j hs, cEdgeFix_le_cEdgeStab hs.1⟩) ?_
+    rw [Subgroup.zpowers_le]
+    exact ⟨mem_triStab_of_isTriB hb,
+      (mem_cvSetStab_pair cv0_ne_cw0).2 (Or.inr ⟨hb.1, hb.2.1⟩)⟩
+
+theorem triStab_inf_vStab_inf_cEdgeStab
+    (j : Fin 2) :
+    triStab j ⊓ vStab cv0 ⊓ cvSetStab {cv0, cw0} = triKer j := by
+  apply le_antisymm
+  · rintro s ⟨⟨hsT, hsv⟩, hse⟩
+    let S : triStab j := ⟨s, hsT⟩
+    exact mem_triKer_of_triPerm_eq_one (perm_fin_three_fix_zero_two (triPerm j S)
+      ((mem_vStab_iff_triPerm S).1 hsv) (triPerm_two_of_mem_cEdgeStab S hse))
+  · intro s hs
+    exact ⟨⟨triKer_le_triStab j hs, hs.1.1⟩, cEdgeFix_le_cEdgeStab hs.1⟩
+
+theorem mul_self_mem_triKer_of_isTriA
+    {j : Fin 2} {a : Shat} (ha : IsTriA j a) :
+    a * a ∈ triKer j := by
+  obtain ⟨h0, h1, h2⟩ := ha
+  refine mem_triKer_iff.2 fun i => ?_
+  fin_cases i
+  · show cvMul cv0 (a * a) = cv0
+    rw [cvMul_mul, h0, h0]
+  · show cvMul cw0 (a * a) = cw0
+    rw [cvMul_mul, h1, h2]
+  · show cvMul (cu j) (a * a) = cu j
+    rw [cvMul_mul, h2, h1]
+
+theorem mul_self_mem_triKer_of_isTriB
+    {j : Fin 2} {b : Shat} (hb : IsTriB j b) :
+    b * b ∈ triKer j := by
+  obtain ⟨h0, h1, h2⟩ := hb
+  refine mem_triKer_iff.2 fun i => ?_
+  fin_cases i
+  · show cvMul cv0 (b * b) = cv0
+    rw [cvMul_mul, h0, h1]
+  · show cvMul cw0 (b * b) = cw0
+    rw [cvMul_mul, h1, h0]
+  · show cvMul (cu j) (b * b) = cu j
+    rw [cvMul_mul, h2, h2]
 
 theorem mul_pow_three_mem_triKer
     {j : Fin 2} {a b : Shat} (ha : IsTriA j a) (hb : IsTriB j b) :
@@ -195,6 +411,52 @@ theorem mul_pow_three_mem_triKer
   · show cvMul (cu j) ((a * b) ^ 3) = cu j
     rw [pow_three, cvMul_mul, cvMul_mul, c2, c0, c1]
 
+theorem natCard_cEdgeFix :
+    Nat.card cEdgeFix = 2 ^ 38 * 3 ^ 6 * 5 * 7 * 11 := by
+  have h := natCard_subgroup_eq_mul (vStab cv0) cw0
+  have horb : {x | ∃ s ∈ vStab cv0, cvMul cw0 s = x} = cgraph.neighborSet cv0 := by
+    rw [← vStabOrbit_eq_neighborSet cgraph_adj_cv0_cw0]
+    ext x
+    exact ⟨fun ⟨s, hs, hx⟩ => ⟨s, hs, hx⟩, fun ⟨s, hs, hx⟩ => ⟨s, hs, hx⟩⟩
+  rw [horb, ncard_neighborSet, natCard_vStab_eq] at h
+  have e : Nat.card cEdgeFix = Nat.card ↥(vStab cv0 ⊓ vStab cw0) := rfl
+  rw [e]
+  omega
+
+theorem natCard_triKer_mul
+    (j : Fin 2) :
+    Nat.card (triKer j) * triType cv0 cw0 (cu j) = Nat.card cEdgeFix := by
+  have h := natCard_subgroup_eq_mul cEdgeFix (cu j)
+  have horb : {x | ∃ s ∈ cEdgeFix, cvMul (cu j) s = x} = pairStabOrbit cv0 cw0 (cu j) := by
+    ext x
+    exact ⟨fun ⟨s, hs, hx⟩ => ⟨s, hs.1, hs.2, hx⟩, fun ⟨s, h1, h2, hx⟩ => ⟨s, ⟨h1, h2⟩, hx⟩⟩
+  rw [horb] at h
+  rw [h, mul_comm]
+
+theorem natCard_triKer_zero :
+    Nat.card (triKer 0) = 2 ^ 37 * 3 ^ 2 * 5 * 7 := by
+  have h := natCard_triKer_mul 0
+  rw [triType_cu.1, natCard_cEdgeFix] at h
+  generalize Nat.card (triKer 0) = n at h ⊢
+  omega
+
+theorem natCard_triKer_one :
+    Nat.card (triKer 1) = 2 ^ 32 * 3 ^ 4 * 5 := by
+  have h := natCard_triKer_mul 1
+  rw [triType_cu.2, natCard_cEdgeFix] at h
+  generalize Nat.card (triKer 1) = n at h ⊢
+  omega
+
+theorem natCard_triStab
+    (j : Fin 2) : Nat.card (triStab j) = 6 * Nat.card (triKer j) := by
+  have h1 := Subgroup.card_eq_card_quotient_mul_card_subgroup ((triKer j).subgroupOf (triStab j))
+  have h2 : Nat.card (triStab j ⧸ (triKer j).subgroupOf (triStab j)) = 6 := by
+    rw [Nat.card_congr (triQuotEquiv j).toEquiv, Nat.card_perm, Nat.card_eq_fintype_card,
+      Fintype.card_fin]
+    rfl
+  have h3 : Nat.card ((triKer j).subgroupOf (triStab j)) = Nat.card (triKer j) :=
+    Nat.card_congr (Subgroup.subgroupOfEquivOfLe (triKer_le_triStab j)).toEquiv
+  rw [h1, h2, h3]
 
 theorem clabelS_inv
     (v : CVert) : (clabelS v)⁻¹ = clabelS v :=
@@ -492,6 +754,15 @@ theorem exists_isTriB_adj :
   obtain ⟨x, hx, h1, h2⟩ := exists_label_swap_of_triType_1782 hT ht
   exact ⟨x, hx, h1, h2, cvMul_clabelS_of_adj hx⟩
 
+theorem not_isTriA_adj
+    {x : CVert} (hx : cgraph.Adj cv0 x) : ¬ IsTriA 1 (clabelS x) := by
+  rintro ⟨-, h1, -⟩
+  have hwu : cgraph.Adj cw0 (cvMul cw0 (clabelS x)) := by
+    rw [h1]
+    exact (cgraph_adj_cu 1).2
+  have h := (triType_eq_1782_of_label_swap cgraph_adj_cv0_cw0 hx hwu).2
+  rw [h1, triType_cu.2] at h
+  norm_num at h
 
 theorem exists_isTriA_dist_three :
     ∃ y, cgraph.dist cv0 y = 3 ∧ IsTriA 1 (clabelS y) := by
@@ -507,6 +778,16 @@ theorem exists_isTriB_dist_three :
   obtain ⟨y, hy, h1, h2⟩ := exists_label_swap_of_triType_44352 hT ht
   exact ⟨y, hy, h1, h2, cvMul_clabelS_of_dist_three hy⟩
 
+theorem not_isTriA_dist_three
+    {y : CVert} (hy : cgraph.dist cv0 y = 3) :
+    ¬ IsTriA 0 (clabelS y) := by
+  rintro ⟨-, h1, -⟩
+  have hwu : cgraph.Adj cw0 (cvMul cw0 (clabelS y)) := by
+    rw [h1]
+    exact (cgraph_adj_cu 0).2
+  have h := (triType_eq_44352_of_label_swap cgraph_adj_cv0_cw0 hy hwu).2
+  rw [h1, triType_cu.1] at h
+  norm_num at h
 
 theorem clabel_mul_clabel
     (v : CVert) : clabel v * clabel v = 1 :=
@@ -654,6 +935,8 @@ theorem exists_fourth_vertex :
     (j : Fin 2) : vStab cv0 :=
   ⟨clabelS (cu j), clabelS_mem_vStab_cv0_of_adj (cgraph_adj_cu j).1⟩
 
+theorem lamUH_mem_RA
+    (j : Fin 2) : lamUH j ∈ RA := ⟨cu j, (cgraph_adj_cu j).1, rfl⟩
 
 theorem exists_adj_clabelS_mul_fourth
     {x : CVert} (hx : cgraph.Adj cv0 x)
@@ -1144,6 +1427,18 @@ theorem triElt_injective
   have key : ∀ x y : Bool, Bool.xor x y = false → x = y := by decide
   exact ⟨key _ _ a, key _ _ b, key _ _ c⟩
 
+theorem natCard_triLab
+    (t : Fin 2) : Nat.card (triLab t) = 8 := by
+  let f : Bool × Bool × Bool → triLab t := fun x =>
+    ⟨triElt t x.1 x.2.1 x.2.2, triElt_mem t _ _ _⟩
+  have hf : Function.Bijective f := by
+    refine ⟨fun x y hxy => ?_, fun z => ?_⟩
+    · obtain ⟨h1, h2, h3⟩ := triElt_injective (congrArg Subtype.val hxy)
+      exact Prod.ext h1 (Prod.ext h2 h3)
+    · obtain ⟨i, j, k, hz⟩ := mem_triLab_iff.1 z.2
+      exact ⟨(i, j, k), Subtype.ext hz.symm⟩
+  rw [← Nat.card_eq_of_bijective f hf]
+  simp
 
 theorem conj_triElt
     {t : Fin 2} {g : Shat} {x y w : Bool → Shat}

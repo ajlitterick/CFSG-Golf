@@ -30,6 +30,15 @@ theorem schreierSiftResidual_mem_iff {n : ℕ}
         (fun p hp x u hu => htrans p (by simp [hp]) x u hu) (t⁻¹ * h) htail
       exact (H.mul_mem_cancel_left (H.inv_mem htH)).symm.trans htail_iff
 
+theorem schreierSiftSucceeds_mem {n : ℕ}
+    (levels : List (Fin n × SchreierOrbitState n))
+    (H : Subgroup (Equiv.Perm (Fin n)))
+    (htrans : ∀ p ∈ levels, ∀ (x : Fin n) (t : Equiv.Perm (Fin n)),
+      p.2.transversal? x = some t → t ∈ H)
+    (h : Equiv.Perm (Fin n)) (hsift : schreierSiftSucceeds levels h = true) :
+    h ∈ H :=
+  (schreierSiftResidual_mem_iff levels H htrans h 1
+    ((schreierSiftSucceeds_eq_true_iff levels h).1 hsift)).2 H.one_mem
 
 namespace RawSchreierDatum
 
@@ -99,6 +108,17 @@ theorem permutation_sift_membership {n : ℕ} (Q : RawSchreierDatum n)
     (hsift : Q.sift h i = true) : h ∈ H :=
   Q.permutation_sift_membership_index ⟨i, Nat.lt_succ_of_le hi⟩ h H htrans hsift
 
+theorem sift_terminal_mem {n : ℕ} (Q : RawSchreierDatum n)
+    (h : Equiv.Perm (Fin n)) (H : Subgroup (Equiv.Perm (Fin n)))
+    (hsift : Q.sift h Q.baseCount = true) : h ∈ H := by
+  rw [(Q.sift_terminal h).1 hsift]
+  exact H.one_mem
+
+theorem sift_empty_base_mem {n : ℕ} (Q : RawSchreierDatum n)
+    (hbase : Q.baseCount = 0) (h : Equiv.Perm (Fin n))
+    (H : Subgroup (Equiv.Perm (Fin n))) (hsift : Q.sift h 0 = true) : h ∈ H := by
+  rw [(Q.sift_empty_base hbase h).1 hsift]
+  exact H.one_mem
 
 end RawSchreierDatum
 

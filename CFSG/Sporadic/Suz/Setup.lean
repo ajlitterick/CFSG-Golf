@@ -35,6 +35,8 @@ theorem certificate_parts : matrixChecks = true ∧ formChecks = true ∧
 theorem matrixFacts :
     MatrixFacts := matrixFacts_of certificate_parts.1
 
+theorem det_seeds :
+    mA.det = 1 ∧ mB.det = 1 := ⟨det_mA matrixFacts, det_mB matrixFacts⟩
 
 noncomputable abbrev gA : GL (Fin 64) (ZMod 3) :=
   Matrix.GeneralLinearGroup.mkOfDetNeZero mA (det_mA_ne_zero matrixFacts)

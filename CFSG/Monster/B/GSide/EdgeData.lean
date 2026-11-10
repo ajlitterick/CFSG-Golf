@@ -34,6 +34,8 @@ theorem cEdgeFix_le_cEdgeStab :
 @[expose] def cEdgeIncl :
     cEdgeFix →* cEdgeStab := Subgroup.inclusion cEdgeFix_le_cEdgeStab
 
+theorem coe_cEdgeIncl
+    (a : cEdgeFix) : ((cEdgeIncl a : cEdgeStab) : Shat) = a := rfl
 
 theorem cEdgeIncl_injective :
     Function.Injective cEdgeIncl := Subgroup.inclusion_injective _
@@ -47,6 +49,19 @@ theorem swap_mem_cEdgeStab
     s ∈ cEdgeStab :=
   (mem_cvSetStab_pair cgraph_adj_cv0_cw0.ne).2 (Or.inr ⟨hs0, hs1⟩)
 
+theorem cEdgeStab_eq_sup
+    {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0) :
+    cEdgeStab = cEdgeFix ⊔ Subgroup.zpowers s := by
+  apply le_antisymm
+  · intro g hg
+    rcases (mem_cvSetStab_pair cgraph_adj_cv0_cw0.ne).1 hg with ⟨h0, h1⟩ | ⟨h0, h1⟩
+    · exact Subgroup.mem_sup_left ⟨h0, h1⟩
+    · have hgs : g * s ∈ cEdgeFix := Subgroup.mem_inf.2
+        ⟨by rw [mem_vStab, cvMul_mul, h0, hs1], by rw [mem_vStab, cvMul_mul, h1, hs0]⟩
+      have h := (cEdgeFix ⊔ Subgroup.zpowers s).mul_mem (Subgroup.mem_sup_left hgs)
+        (Subgroup.mem_sup_right (Subgroup.inv_mem _ (Subgroup.mem_zpowers s)))
+      rwa [mul_inv_cancel_right] at h
+  · exact sup_le cEdgeFix_le_cEdgeStab (Subgroup.zpowers_le.2 (swap_mem_cEdgeStab hs0 hs1))
 
 theorem swap_mul_self_mem
     {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0) :
@@ -147,6 +162,18 @@ theorem lamV0_ne_lamW0 :
     lamV0 ≠ lamW0 := fun h =>
   (clabel_adj cgraph_adj_cv0_cw0).1 (congrArg (fun x : cEdgeFix => ((x : Shat) : Dfull)) h)
 
+theorem lamV0_ne_one :
+    lamV0 ≠ 1 := fun h =>
+  cQ_ne_one (coe_lamV0.symm.trans (congrArg (fun x : cEdgeFix => ((x : Shat) : Dfull)) h))
+
+theorem lamW0_ne_one :
+    lamW0 ≠ 1 := fun h => by
+  have h1 : cQ * xhat = 1 :=
+    coe_lamW0.symm.trans (congrArg (fun x : cEdgeFix => ((x : Shat) : Dfull)) h)
+  have h2 : xhat = cQ :=
+    calc xhat = cQ * (cQ * xhat) := by rw [← mul_assoc, cQ_mul_self, one_mul]
+      _ = cQ := by rw [h1, mul_one]
+  exact cQ_ne_xhat h2.symm
 
 theorem lamV0_mul_self :
     lamV0 * lamV0 = 1 :=
@@ -225,6 +252,27 @@ theorem center_cEdgeFix :
     · exact lamV0_mem_center
     · exact lamW0_mem_center
 
+theorem natCard_center_cEdgeFix :
+    Nat.card (Subgroup.center cEdgeFix) = 4 := by
+  have e : (Subgroup.center cEdgeFix : Set cEdgeFix) = {1, lamV0, lamW0, lamV0 * lamW0} := by
+    ext z
+    simp only [SetLike.mem_coe, Set.mem_insert_iff, Set.mem_singleton_iff]
+    exact mem_center_cEdgeFix_iff
+  have hp1 : lamV0 * lamW0 ≠ 1 := fun h => lamV0_ne_lamW0 (by
+    calc lamV0 = lamV0 * (lamW0 * lamW0) := by rw [lamW0_mul_self, mul_one]
+      _ = lamW0 := by rw [← mul_assoc, h, one_mul])
+  have hv : lamV0 ≠ lamV0 * lamW0 := fun h =>
+    lamW0_ne_one (mul_left_cancel (h.symm.trans (mul_one lamV0).symm))
+  have hw : lamW0 ≠ lamV0 * lamW0 := fun h =>
+    lamV0_ne_one (mul_right_cancel (h.symm.trans (one_mul lamW0).symm))
+  have h1 : (1 : cEdgeFix) ∉ ({lamV0, lamW0, lamV0 * lamW0} : Set cEdgeFix) := by
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, not_or]
+    exact ⟨lamV0_ne_one.symm, lamW0_ne_one.symm, hp1.symm⟩
+  have h2 : lamV0 ∉ ({lamW0, lamV0 * lamW0} : Set cEdgeFix) := by
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, not_or]
+    exact ⟨lamV0_ne_lamW0, hv⟩
+  rw [← SetLike.coe_sort_coe, Nat.card_coe_set_eq, e, Set.ncard_insert_of_notMem h1,
+    Set.ncard_insert_of_notMem h2, Set.ncard_pair hw]
 
 @[expose] def cEdgeSigma
     {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0) :
@@ -244,6 +292,9 @@ theorem center_cEdgeFix :
   map_mul' a b := Subtype.ext (show s * ((a : Shat) * b) * s⁻¹ = s * a * s⁻¹ * (s * b * s⁻¹) by
     group)
 
+theorem coe_cEdgeSigma
+    {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0)
+    (a : cEdgeFix) : (cEdgeSigma hs0 hs1 a : Shat) = s * a * s⁻¹ := rfl
 
 theorem cEdgeSigma_spec
     {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0)
@@ -291,5 +342,14 @@ theorem exists_hom_cEdgeStab
     (swapE_not_mem_range hs0 hs1) (cEdgeSigma hs0 hs1) (cEdgeSigma_spec hs0 hs1) θ hθ t b ht ht2
     (cEdge_hnorm hs0 hs1)
 
+theorem exists_hom_cEdgeStab'
+    {s : Shat} (hs0 : cvMul cv0 s = cw0) (hs1 : cvMul cw0 s = cv0)
+    {G : Type*} [Group G] (θ : cEdgeFix →* G) (hθ : Function.Injective θ) (t : G)
+    (ht : ∀ a, t * θ a * t⁻¹ = θ (cEdgeSigma hs0 hs1 a)) (ht2 : t * t ∈ θ.range) :
+    ∃ f : cEdgeStab →* G, (∀ a, f (cEdgeIncl a) = θ a) ∧
+      ∃ d ∈ Subgroup.center cEdgeFix, f (swapE hs0 hs1) = t * θ d :=
+  exists_hom_of_index_two' cEdgeIncl cEdgeIncl_injective index_range_cEdgeIncl
+    (swapE_not_mem_range hs0 hs1) (cEdgeSigma hs0 hs1) (cEdgeSigma_spec hs0 hs1) θ hθ t ht ht2
+    (cEdge_hnorm hs0 hs1)
 
 end CFSG.Monster.B.GSide

@@ -100,6 +100,16 @@ private theorem conj_mul_of_commute {c a b g : K} (hc : g * c = c * g) (h : g * 
 private theorem mul_mul_cancel_of_mul_self {c y : K} (hc : c * c = 1) : c * (c * y) = y := by
   rw [← mul_assoc, hc, one_mul]
 
+private theorem mul_self_of_orderOf_eq_two {r : K} (hr : orderOf r = 2) : r * r = 1 := by
+  rw [← sq, ← hr, pow_orderOf_eq_one]
+
+private theorem mul_self_of_mul_mul_self {c y : K} (hc : c * c = 1) (hcy : c * y = y * c)
+    (h : c * y * (c * y) = 1) : y * y = 1 := by
+  calc y * y = c * c * (y * y) := by rw [hc, one_mul]
+    _ = c * y * (c * y) := by
+        rw [mul_assoc c y (c * y), ← mul_assoc y c y, ← hcy]
+        group
+    _ = 1 := h
 
 private theorem mul_ne_one_of_ne {c y : K} (hc : c * c = 1) (hyc : y ≠ c) : c * y ≠ 1 := fun h =>
   hyc ((eq_inv_of_mul_eq_one_right h).trans (inv_eq_of_mul_eq_one_right hc))
@@ -109,16 +119,34 @@ private theorem mul_ne_self_of_ne_one {c y : K} (hy : y ≠ 1) : c * y ≠ c := 
 
 end Generic
 
+theorem orderOf_of_mem_RA
+    {y : vStab cv0} (hy : y ∈ RA) : orderOf y = 2 := by
+  obtain ⟨w, -, hw⟩ := hy
+  exact (Subgroup.orderOf_coe y).symm.trans ((congrArg orderOf hw).trans (orderOf_clabelS w))
 
 theorem commute_cV0
     (y : vStab cv0) : cV0 * y = y * cV0 :=
   (Subgroup.mem_center_iff.1 cV0_mem_center_vStab y).symm
 
+theorem orderOf_of_mem_RA_or_RB
+    {y : vStab cv0} (hy : y ∈ RA ∪ RB) : orderOf y = 2 := by
+  rcases hy with hy | hy
+  · exact orderOf_of_mem_RA hy
+  · have hr : cV0 * y ∈ RA := hy
+    exact orderOf_eq_prime (by
+      rw [sq]
+      exact mul_self_of_mul_mul_self cV0_mul_self (commute_cV0 y)
+        (mul_self_of_orderOf_eq_two (orderOf_of_mem_RA hr))) (ne_one_of_mem_RB hy)
 
 abbrev pCoreComm
     (y : vStab cv0) : Subgroup (Subgroup.centralizer {y}) :=
   ⁅CFSG.pCore 2 (Subgroup.centralizer {y}), CFSG.pCore 2 (Subgroup.centralizer {y})⁆
 
+theorem pCoreComm_map_equiv
+    {y y' : vStab cv0}
+    (e : Subgroup.centralizer {y} ≃* Subgroup.centralizer {y'}) :
+    (pCoreComm y).map e.toMonoidHom = pCoreComm y' := by
+  rw [Subgroup.map_commutator, CFSG.pCore_map_iso]
 
 theorem mem_centralizer_lamW0H_iff
     {x : vStab cv0} :
@@ -141,6 +169,9 @@ theorem mem_centralizer_lamW0H_iff
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
+theorem coe_centralizerLamW0Equiv
+    (x : Subgroup.centralizer {lamW0H}) :
+    ((centralizerLamW0Equiv x : P1) : Dfull) = (((x : vStab cv0) : Shat) : Dfull) := rfl
 
 theorem commutator_N1_eq_zpowers :
     ⁅N1, N1⁆ = Subgroup.zpowers xhat := by

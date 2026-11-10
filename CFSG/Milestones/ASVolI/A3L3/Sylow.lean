@@ -138,6 +138,8 @@ variable {F : Type} [Field F] {X : Type} [Group X]
 
 @[expose] def C₁ (M : burnsideA315y_Model F X) : Subgroup ↥M.Γ := burnsideA315y_C1 M.Γ M.zh
 
+theorem S₀_le_C₁ (M : burnsideA315y_Model F X) : M.S₀ ≤ M.C₁ := fun s hs =>
+  ⟨M.S₀_det s hs, M.S₀_comm s hs⟩
 
 section OfData
 

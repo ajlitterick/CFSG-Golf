@@ -12,6 +12,8 @@ namespace CFSG.Sporadic.Schreier
 
 open CFSG.Monster.B.Mathieu CFSG.Monster.B.Binary.Native
 
+@[expose] def j1CertificateSha : ℕ :=
+  0x9f8fe6e4bbf9891f9b90f53d73d86fb00a1e9bcae1a119081c79e4f8b6f35289
 
 @[expose] def J1CertificateFile.shapeOK (f : J1CertificateFile) : Bool :=
   f.schemaVersion == 1 && f.group == "J1" && f.prime == 11 && f.dimension == 7 &&

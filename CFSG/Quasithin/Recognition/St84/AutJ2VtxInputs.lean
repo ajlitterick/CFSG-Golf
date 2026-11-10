@@ -68,6 +68,8 @@ theorem q1mOfCode_idx (q : Q1M) : q1mOfCode (q1mIdx q).val = q := by
   simp only [q1mOfCode, q1mIdx, Nat.reduceMod]
   ext <;> simp <;> omega
 
+theorem q1mList_length : q1mList.length = 64 := by
+  simp [q1mList]
 
 theorem mem_q1mList (q : Q1M) : q ∈ q1mList := by
   rw [q1mList, ← q1mOfCode_idx q]
@@ -81,6 +83,8 @@ noncomputable abbrev rmR : Equiv.Perm (Fin 315) := tp 315 rmRT
 noncomputable abbrev bmR : Equiv.Perm (Fin 315) := tp 315 bmRT
 noncomputable abbrev tmR : Equiv.Perm (Fin 315) := tp 315 tmRT
 noncomputable abbrev gmR : Equiv.Perm (Fin 315) := tp 315 gmRT
+noncomputable abbrev umR : Equiv.Perm (Fin 315) := tp 315 umT
+noncomputable abbrev vmR : Equiv.Perm (Fin 315) := tp 315 vmT
 
 noncomputable def EmR (a : F4) : Equiv.Perm (Fin 315) :=
   E1R ^ (a.code.val % 2) * E2R ^ (a.code.val / 2)
@@ -117,6 +121,12 @@ noncomputable def κR (q : Q1M) : Equiv.Perm (Fin 315) :=
 @[expose] def autJ2VtxC0 (_ : Unit := ()) : Bool :=
   autJ2Tbls.all (permOK 315) && autJ2Tbls.all fun t => invOK 315 t (invT 315 t)
 
+@[expose] def autJ2VtxC1 (_ : Unit := ()) : Bool :=
+  enumOK 315 300 256 sylT && enumOK 315 4000 3840 (sylT ++ [gWT]) &&
+    enumOK 315 3000 2304 (sylT ++ [g1T])
+
+@[expose] def autJ2VtxC2 (_ : Unit := ()) : Bool :=
+  enumOK 315 100 32 q2T && normOK 315 100 q2T (sylT ++ [gWT])
 
 @[expose] def autJ2VtxC3 (_ : Unit := ()) : Bool :=
   invoOK 315 umT && !(inP (natArr umT)) && invoOK 315 vmT &&
@@ -150,9 +160,14 @@ theorem κArr_get (q : Q1M) : (κArr ())[(q1mIdx q).val]! = κRT q := by
 @[expose] def autJ2VtxC5 (_ : Unit := ()) : Bool :=
   conjGenOK rmRT ρM && conjGenOK bmRT βM && conjGenOK tmRT τM && conjGenOK gmRT γM
 
+@[expose] def autJ2VtxC6 (_ : Unit := ()) : Bool :=
+  enumOK 315 100 36 [rmRT, bmRT, tmRT, gmRT] &&
+    normOK 315 100 [e1RT, e2RT, f1RT, f2RT] (sylT ++ [g1T])
 
 @[expose] def q1Gens : List Table := [e1RT, e2RT, f1RT, f2RT]
 
+@[expose] def autJ2VtxC7 (_ : Unit := ()) : Bool :=
+  enumOK 315 100 64 q1Gens
 
 theorem autJ2VtxC0_perm (h : autJ2VtxC0 () = true) {t : Table} (ht : t ∈ autJ2Tbls) :
     permOK 315 t = true := by
@@ -370,5 +385,46 @@ theorem κR_gm_conj (h0 : autJ2VtxC0 () = true) (h4 : autJ2VtxC4 () = true)
     (rep_invT (rep_tp hgm) (autJ2VtxC0_inv h0 (t := gmRT) (by simp [autJ2Tbls])))
     (autJ2VtxC5_gm h5) q
 
+theorem autJ2VtxC1_syl (h : autJ2VtxC1 () = true) : enumOK 315 300 256 sylT = true := by
+  have h' := h
+  simp only [autJ2VtxC1, Bool.and_eq_true] at h'
+  exact h'.1.1
+
+theorem autJ2VtxC1_W (h : autJ2VtxC1 () = true) :
+    enumOK 315 4000 3840 (sylT ++ [gWT]) = true := by
+  have h' := h
+  simp only [autJ2VtxC1, Bool.and_eq_true] at h'
+  exact h'.1.2
+
+theorem autJ2VtxC1_one (h : autJ2VtxC1 () = true) :
+    enumOK 315 3000 2304 (sylT ++ [g1T]) = true := by
+  have h' := h
+  simp only [autJ2VtxC1, Bool.and_eq_true] at h'
+  exact h'.2
+
+theorem autJ2VtxC2_enum (h : autJ2VtxC2 () = true) : enumOK 315 100 32 q2T = true := by
+  have h' := h
+  simp only [autJ2VtxC2, Bool.and_eq_true] at h'
+  exact h'.1
+
+theorem autJ2VtxC2_norm (h : autJ2VtxC2 () = true) :
+    normOK 315 100 q2T (sylT ++ [gWT]) = true := by
+  have h' := h
+  simp only [autJ2VtxC2, Bool.and_eq_true] at h'
+  exact h'.2
+
+theorem autJ2VtxC6_A (h : autJ2VtxC6 () = true) :
+    enumOK 315 100 36 [rmRT, bmRT, tmRT, gmRT] = true := by
+  have h' := h
+  simp only [autJ2VtxC6, Bool.and_eq_true] at h'
+  exact h'.1
+
+theorem autJ2VtxC6_norm (h : autJ2VtxC6 () = true) :
+    normOK 315 100 [e1RT, e2RT, f1RT, f2RT] (sylT ++ [g1T]) = true := by
+  have h' := h
+  simp only [autJ2VtxC6, Bool.and_eq_true] at h'
+  exact h'.2
+
+theorem autJ2VtxC7_spec (h : autJ2VtxC7 () = true) : enumOK 315 100 64 q1Gens = true := h
 
 end CFSG.Quasithin.F112R.St84.AutJ2Model

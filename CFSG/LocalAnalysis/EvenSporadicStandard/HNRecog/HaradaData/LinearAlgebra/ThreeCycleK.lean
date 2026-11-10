@@ -127,6 +127,9 @@ theorem wordsK_evK : wordsK.map evK = L5 := by
 @[expose] noncomputable def chkInv : Bool :=
   allK (fun c => anyK (fun d => Nat.beq (mulW 64 c d) cOne) L5) L5
 
+@[expose] noncomputable def nodupK (L : List ℕ) : Bool :=
+  List.rec (motive := fun _ => Bool) true
+    (fun a t r => Bool.rec (motive := fun _ => Bool) r false (memK a t)) L
 
 @[expose] noncomputable def chkCen : Bool :=
   allK (fun c => Bool.rec (motive := fun _ => Bool) true (Nat.beq c cOne)
@@ -137,9 +140,22 @@ theorem chkMul_true : chkMul = true := by decide +kernel
 
 theorem chkInv_true : chkInv = true := by decide +kernel
 
+theorem nodupK_L5 : nodupK L5 = true := by decide +kernel
 
 theorem chkCen_true : chkCen = true := by decide +kernel
 
+theorem nodup_of_nodupK {L : List ℕ} (h : nodupK L = true) : L.Nodup := by
+  induction L with
+  | nil => exact List.nodup_nil
+  | cons a L ih =>
+    change Bool.rec (motive := fun _ => Bool) (nodupK L) false (memK a L) = true at h
+    cases ha : memK a L
+    · rw [ha] at h
+      refine List.nodup_cons.mpr ⟨fun hm => ?_, ih h⟩
+      rw [memK_iff.mpr hm] at ha
+      exact Bool.noConfusion ha
+    · rw [ha] at h
+      exact absurd (h : false = true) Bool.false_ne_true
 
 theorem mul_closed {c : ℕ} (hc : c ∈ L5) (k : Fin 3) : mulW 64 c (gK k) ∈ L5 := by
   have h := allK_iff.mp chkMul_true c hc
@@ -206,6 +222,11 @@ theorem inv_mem_of (hA : A.map cd = L5) {g : Perm V6} (hg : g ∈ A) : g⁻¹ �
   rw [inv_eq_of_mul_eq_one_right e1]
   exact hh
 
+theorem nodup_of (hA : A.map cd = L5) : A.Nodup := by
+  have h : (A.map cd).Nodup := by
+    rw [hA]
+    exact nodup_of_nodupK nodupK_L5
+  exact h.of_map cd
 
 private theorem beq_of_comm {g a : Perm V6} {C : ℕ} (ha : cd a = C) (h : g * a = a * g) :
     Nat.beq (mulW 64 (cd g) C) (mulW 64 C (cd g)) = true := by

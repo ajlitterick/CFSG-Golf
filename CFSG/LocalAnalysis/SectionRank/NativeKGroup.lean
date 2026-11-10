@@ -93,6 +93,13 @@ theorem catalog_containsAbelianSimple : KCore.ContainsAbelianSimple Catalog := b
 @[expose] def IsSQTKCat (X : Type) [Group X] : Prop :=
   IsStronglyQuasithin X ∧ IsKGroupCat X
 
+theorem isKGroupCat_iff_kGroupAllSimple {X : Type} [Group X] :
+    IsKGroupCat X ↔ KCore.KGroupAllSimple Catalog X :=
+  Iff.rfl
+
+theorem isSQTKCat_iff_sQTKOver {X : Type} [Group X] :
+    IsSQTKCat X ↔ KCore.SQTKOver Catalog IsStronglyQuasithin X :=
+  Iff.rfl
 
 theorem catalog_of_isKGroupCat_of_surjective {X : Type} [Group X] (hX : IsKGroupCat X)
     (K : Subgroup X) {S : Type} [Group S] [IsSimpleGroup S] (φ : K →* S)

@@ -84,6 +84,11 @@ abbrev jwRels5 (neg : Bool) := restrictWords (subsetOf 6 [0, 1, 2, 3, 4]) (jwRel
 
 abbrev jwRels4 (neg : Bool) := restrictWords (subsetOf _ [0, 1, 2, 3]) (jwRels5 neg)
 
+@[expose] def jwEnum6 (neg : Bool) : Bool := subsetCheck (jwRels neg) [0, 1, 2, 3, 4] 200000 275
+
+@[expose] def jwEnum5 (neg : Bool) : Bool := subsetCheck (jwRels5 neg) [0, 1, 2, 3] 200000 2835
+
+@[expose] def jwEnum4 (neg : Bool) : Bool := subsetCheck (jwRels4 neg) [] 20000 1152
 
 @[expose] def jwGenWord (neg : Bool) : ℕ → List ℤ
   | 0 => [2, 1, -2, 1, -2, 1, 2, 2, 1, -2, -2, 1, 2, 2, 1, 2, 2, 1, -2, 1, 2, 1, 2, 1, 2, 2, 1,
@@ -148,5 +153,8 @@ abbrev jwRels4 (neg : Bool) := restrictWords (subsetOf _ [0, 1, 2, 3]) (jwRels5 
     wordT 275 (jwImgLetter T0 T1 T2 T3 T4 T5 V0 V1 V2 V3 V4 V5) jwSurjA == O.alpha &&
     wordT 275 (jwImgLetter T0 T1 T2 T3 T4 T5 V0 V1 V2 V3 V4 V5) (jwSurjB neg) == O.beta
 
+@[expose] def jwEnums (neg : Bool) : Bool := jwEnum6 neg && jwEnum5 neg && jwEnum4 neg
+
+@[expose] def jwChecks (neg : Bool) : Bool := jwEnums neg && jwTabCheck neg
 
 end CFSG.Sporadic.Recognition.JankoWong

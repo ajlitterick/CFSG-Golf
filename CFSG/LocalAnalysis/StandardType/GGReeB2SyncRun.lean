@@ -59,6 +59,11 @@ private theorem stepB_sync : ∀ (a₀ b₀ a1 b2 : Bool) (s s' : Bool × Bool �
   revert a₀ b₀ a1 b2 α β π α' β' π'
   decide
 
+private theorem tyB_eq_pstar (e : ℕ) (A B : Finset (Fin e)) (q : Fin e) (α β : Bool) :
+    pstar e A B q α β = tyB (decide (q ∈ B)) (decide (succσ e q ∈ B)) α β := by
+  by_cases hq : q ∈ B <;> by_cases hs : succσ e q ∈ B <;>
+    simp [pstar, tyB, hq, hs]
+
 
 private def runFrom {S : Type} {e : ℕ} [NeZero e] (F : Fin e → S → S) (j : Fin e) (s : S) : ℕ → S
   | 0 => s

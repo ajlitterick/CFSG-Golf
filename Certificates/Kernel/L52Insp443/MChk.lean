@@ -26,6 +26,9 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM CFSG.KC.L52I
 
 #kc_each ch725109m 0 2
 
+theorem ch725109n_m : notB (mChk (List.append (D.wS.getD 0 []) (mapMulK idK (D.wS.getD 0 [])))
+    (D.wS.getD 0 []) (D.a0B.getD 0 []) (D.a1B.getD 0 []) idK) = true := by
+  quickRfl
 
 end CertificateChecks.KernelL52I
 

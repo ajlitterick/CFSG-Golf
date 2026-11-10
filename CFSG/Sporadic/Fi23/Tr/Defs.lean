@@ -24,6 +24,8 @@ theorem mem_orbit_iff_isConj
 @[expose] noncomputable def ptD23 : Fin 31671 ≃ D23 :=
   ptEquiv.trans (Equiv.subtypeEquivRight mem_orbit_iff_isConj)
 
+theorem ptD23_val
+    (i : Fin 31671) : (ptD23 i : J) = conjPt i.val := rfl
 
 @[expose] noncomputable def trRoot :
     Set D23 := ptD23 '' {k | k.val ∈ trData}
@@ -43,5 +45,7 @@ theorem trRoot_mem_trOrbit : trRoot ∈ trOrbit :=
 @[expose] def cOrbit : Set (Set D23) :=
   {T | ∃ g : J, T = ⇑(Pair.conjPerm pair_J g) '' cRoot}
 
+theorem cRoot_mem_cOrbit : cRoot ∈ cOrbit :=
+  ⟨1, by rw [map_one, Equiv.Perm.coe_one, Set.image_id]⟩
 
 end CFSG.Sporadic.Fi23

@@ -16,6 +16,16 @@ variable {k : Type u} [Field k]
 section Components
 variable [IsAlgClosed k]
 
+theorem componentPointsHom_map_eq_one
+    (M N : TauCeti.FiniteTypeCommHopfAlgCat.{u,u} k)
+    (f : M.obj ⟶ N.obj) (hN : ConnectedSpace (PrimeSpectrum N))
+    (x : TauCeti.HopfAlgebra.points (R := k) (H := N) (CommAlgCat.of k k)) :
+    TauCeti.FiniteTypeCommHopfAlgCat.componentPointsHom M (CommAlgCat.of k k)
+      (TauCeti.AlgHom.mapDomain f.hom x) = 1 := by
+  rw [TauCeti.FiniteTypeCommHopfAlgCat.componentPointsHom_apply]
+  exact TauCeti.ConstantGroup.point_comp_eq_one_of_connected
+    (ConnectedComponents (PrimeSpectrum M)) hN
+    (f.hom.comp (TauCeti.FiniteTypeCommHopfAlgCat.componentCoordinateHom M).hom) x.ofConv
 
 theorem componentPointsHom_eq_one_iff
     (M : TauCeti.FiniteTypeCommHopfAlgCat.{u,u} k)

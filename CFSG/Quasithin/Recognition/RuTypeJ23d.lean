@@ -457,6 +457,51 @@ theorem eq_z_of_involution {x : G} (hx : x ∈ ruS M.L) (hb : (M.bel : G) * x = 
   · exact absurd hx2 (M.sq_ne_one_of_b0 hx h)
   · exact absurd hx2 (M.sq_ne_one_of_b0sq hx h)
 
+theorem lemma_J23_7 :
+    Nonempty (↥(ruQ M.T ⊓ Subgroup.centralizer (M.B : Set G)) ≃* QuaternionGroup 2) := by
+  rw [M.centralizer_Q_eq]
+  set P := ruS M.L ⊓ Subgroup.centralizer (M.B : Set G)
+  have hcard := M.card_centralizer_S_B
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  have hP : IsPGroup 2 P := IsPGroup.of_card hcard
+  have hmemP : ∀ {x : G}, x ∈ P ↔ x ∈ ruS M.L ∧ (M.bel : G) * x = x * M.bel := by
+    intro x
+    rw [Subgroup.mem_inf, M.mem_centralizer_B]
+  have hinv : ∀ y : CFSG.DisconnectedInvolutionGraph.Helpers.Involution P,
+      ((y : P) : G) = M.z := by
+    intro y
+    have hy := y.2
+    rw [← Subgroup.orderOf_coe] at hy
+    obtain ⟨hyS, hyb⟩ := hmemP.mp (y : P).2
+    refine M.eq_z_of_involution hyS hyb ?_ ?_
+    · have := pow_orderOf_eq_one ((y : P) : G)
+      rwa [hy] at this
+    · intro h1
+      rw [h1, orderOf_one] at hy
+      omega
+  have hrank : CFSG.DisconnectedInvolutionGraph.Helpers.NoCommutingDistinctInvolutions P := by
+    intro y y' _
+    exact Subtype.ext (Subtype.ext ((hinv y).trans (hinv y').symm))
+  rcases CFSG.DisconnectedInvolutionGraph.Helpers.rank_one_two_cyclic_or_quaternion hP hrank with
+    hcyc | ⟨e, he, ⟨φ⟩⟩
+  · exfalso
+    obtain ⟨g, hg⟩ := IsCyclic.exists_ofOrder_eq_natCard (α := P)
+    rw [hcard] at hg
+    have h4 : (g : G) ^ 4 = 1 := M.pow_four_S (hmemP.mp g.2).1
+    have h4' : g ^ 4 = 1 := Subtype.ext (by simpa using h4)
+    have := orderOf_dvd_of_pow_eq_one h4'
+    rw [hg] at this
+    norm_num at this
+  · have hc : Nat.card (QuaternionGroup (2 ^ e)) = 2 ^ 3 := by
+      rw [Nat.card_congr φ.toEquiv, hcard]
+    rw [Nat.card_eq_fintype_card, QuaternionGroup.card] at hc
+    have he1 : e = 1 := by
+      have h2 : 2 ^ e = 2 ^ 1 := by
+        have : 4 * 2 ^ e = 4 * 2 ^ 1 := by rw [hc]; norm_num
+        omega
+      exact Nat.pow_right_injective (le_refl 2) h2
+    subst he1
+    exact ⟨φ.symm⟩
 
 end RuDataM
 

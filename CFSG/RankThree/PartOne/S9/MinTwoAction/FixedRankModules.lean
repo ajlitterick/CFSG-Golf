@@ -25,6 +25,9 @@ variable {ρ : Representation K L V}
 
 theorem isInv_top : IsInv ρ ⊤ := fun _ _ _ => Submodule.mem_top
 
+theorem isInv_bot : IsInv ρ ⊥ := fun g w hw => by
+  rw [Submodule.mem_bot] at hw ⊢
+  rw [hw, map_zero]
 
 theorem IsInv.inf {W W' : Submodule K V} (h : IsInv ρ W) (h' : IsInv ρ W') : IsInv ρ (W ⊓ W') :=
   fun g w hw => ⟨h g w hw.1, h' g w hw.2⟩

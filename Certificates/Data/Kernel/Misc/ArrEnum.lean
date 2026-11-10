@@ -57,6 +57,9 @@ open CFSG.KC.LQT.P (allN)
     (i == 0 || (Nat.blt (PAR i) i && Nat.blt (LAB i) ngen &&
       Nat.beq (PT i) (ACT (LAB i) (PT (PAR i)))))
 
+@[expose] noncomputable def pointsA (n w ngen N : Nat) (ACT : Nat → Nat → Nat) (PT : Nat → Nat)
+    (E : Nat → Nat → Nat) (PAR LAB : Nat → Nat) (lo cnt : Nat) : Bool :=
+  allN cnt fun t => pointA n w ngen N ACT PT E PAR LAB (Nat.add lo t)
 
 @[expose] noncomputable def conjAct (n w : Nat) (G : Nat → Nat) (k p : Nat) : Nat :=
   pcomp n w (mask w) (G k) (pcomp n w (mask w) p (pinvS n w (mask w) (G k)))

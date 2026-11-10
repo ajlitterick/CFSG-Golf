@@ -98,6 +98,13 @@ theorem OddOrderOneOrThree.of_mulEquiv {X Y : Type} [Group X] [Group Y] (e : X �
   | 7, X, _ => Census3.ThmThreeItem8 X
   | 8, X, _ => Census3.ThmThreeItem9 X
 
+@[expose] def KF133OneItem (i : Fin 9) : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
+    Sec12Hyp G p A c L E → Sec12Facts G p A c L E → Sec13Facts G p A c L E →
+    ¬ Outcome152Five p E A (lieGenerated p E) →
+    ∀ t ∈ reflectionSet p E, t ∈ torusImage E L → ∀ K : Subgroup G, IsKt p E t K →
+    ∀ e ∈ autFixedInG E t, e ≠ 1 → ∀ I ∈ thetaComponentsAt p e, K ≤ I →
+      thmThreeItem i (SimpleQuot p I) → KF133Concl p A c L E K I
 
 @[expose] def KF133Thm3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
@@ -107,6 +114,14 @@ theorem OddOrderOneOrThree.of_mulEquiv {X Y : Type} [Group X] [Group Y] (e : X �
     ∀ e ∈ autFixedInG E t, e ≠ 1 → ∀ I ∈ thetaComponentsAt p e, K ≤ I →
       Census3.TheoremThreeList (SimpleQuot p I)
 
+@[expose] def KF133Theta : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
+    Sec12Hyp G p A c L E → Sec12Facts G p A c L E → Sec13Facts G p A c L E →
+    ¬ Outcome152Five p E A (lieGenerated p E) →
+    ∀ t ∈ reflectionSet p E, t ∈ torusImage E L → ∀ K : Subgroup G, IsKt p E t K →
+    ∀ e ∈ autFixedInG E t, e ≠ 1 →
+      K ≤ Subgroup.centralizer
+        (inSubgroup (aschbacherSolvableCore p) (Subgroup.centralizer ({e} : Set G)) : Set G)
 
 @[expose] def KF133Two : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
@@ -122,5 +137,18 @@ theorem KF133One.two (h : KF133One) : KF133Two := by
   intro G _ _ p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI
   exact (h G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI).2.1
 
+theorem kf133One_of_items (hThm3 : KF133Thm3) (h : ∀ i : Fin 9, KF133OneItem i) : KF133One := by
+  intro G _ _ p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI
+  have hl := hThm3 G p A c L E hH hF hF13 hT t ht K hK e he he1 I hI hKI
+  rcases hl with h1 | h2 | h3 | h4 | h5 | h6 | h7 | h8 | h9
+  · exact h 0 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h1
+  · exact h 1 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h2
+  · exact h 2 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h3
+  · exact h 3 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h4
+  · exact h 4 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h5
+  · exact h 5 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h6
+  · exact h 6 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h7
+  · exact h 7 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h8
+  · exact h 8 G p A c L E hH hF hF13 hT t ht htL K hK e he he1 I hI hKI h9
 
 end CFSG.RankThree.PartOne.S13K

@@ -103,5 +103,7 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native
     (s.elems n N).all (coverCheck n p s.repArrs) &&
     s.normalGeneration.all (normalGenCheck n N c.origArrs)
 
+@[expose] def groupSylowCheck (n N : ℕ) (r : GroupRecord) : Bool :=
+  r.sylows.all (sylowCheck n N r.chain)
 
 end CFSG.Monster.B.Mathieu

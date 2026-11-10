@@ -43,6 +43,7 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallOddCore CFSG.Sporadic.SmallOddCo
 
 @[expose] def pgTbls : Array Table := #[tm codeA, tm codeB]
 
+@[expose] def pgInvTbls : Array Table := pgTbls.map (invT 80)
 
 @[expose] def l43Sift (T : Table) : Bool := siftA 80 l43Levels baseArr 0 (natArr T)
 

@@ -56,6 +56,10 @@ lemma comap_ρ (φ : H →* G) (ρ : FDRep k G) :
     (comap φ ρ).ρ = ρ.ρ.comp φ := by
   simp only [comap, FGModuleCat.of_carrier, FDRep.of_ρ' (ρ.ρ.comp φ)]
 
+/-- The dimension of a representation remains the same upon homomorphism restriction. -/
+lemma finrank_comap (φ : H →* G) (σ : FDRep k G) :
+    Module.finrank k (comap φ σ) = Module.finrank k σ := by
+  rfl
 
 /--
 Pull back a morphism of finite-dimensional representations along a monoid
@@ -105,6 +109,23 @@ noncomputable def comapFunctor (φ : H →* G) : FDRep k G ⥤ FDRep k H where
     rw [FDRep.homToLinearMap_comp]
     rfl
 
+/-- Restricting an isomorphism along a homomorphism gives an isomorphism. -/
+@[expose] noncomputable def comapMapIso (φ : H →* G) {V W : FDRep k G} (i : V ≅ W) :
+    comap φ V ≅ comap φ W :=
+  (comapFunctor φ).mapIso i
+
+/--
+Pullback along a composite homomorphism is naturally isomorphic to iterated pullback.
+-/
+@[expose] noncomputable def comapFunctorCompIso
+    {H : Type w} {K : Type x} [Monoid H] [Monoid K]
+    (φ : H →* G) (ψ : K →* H) :
+    comapFunctor (k := k) φ ⋙ comapFunctor (k := k) ψ
+      ≅ comapFunctor (k := k) (φ.comp ψ) :=
+  NatIso.ofComponents (fun ρ ↦ Iso.refl _) (fun f ↦ by
+    apply FDRep.hom_ext
+    intro x
+    rfl)
 
 end Comap
 
@@ -123,6 +144,17 @@ lemma res_ρ (ρ : FDRep k G) (I : Subgroup G) :
     (res ρ I).ρ = ρ.ρ.comp I.subtype := by
   rfl
 
+lemma finrank_res (σ : FDRep k G) (I : Subgroup G) :
+    Module.finrank k (res σ I) = Module.finrank k σ := rfl
+
+/-- Restriction to a subgroup as a functor. -/
+@[expose] noncomputable def resFunctor (I : Subgroup G) : FDRep k G ⥤ FDRep k I :=
+  comapFunctor I.subtype
+
+/-- Restricting an isomorphism to a subgroup gives an isomorphism. -/
+@[expose] noncomputable def resMapIso (I : Subgroup G) {V W : FDRep k G} (i : V ≅ W) :
+    res V I ≅ res W I :=
+  (resFunctor I).mapIso i
 
 end SubgroupRestriction
 
@@ -134,12 +166,21 @@ variable {H : Type w} [CommRing k] [Monoid G] [Monoid H]
 @[expose] noncomputable def transport (e : G ≃* H) (V : FDRep k G) : FDRep k H :=
   comap e.symm.toMonoidHom V
 
+/-- The dimension of a representation remains the same upon transport. -/
+lemma finrank_transport (e : G ≃* H) (σ : FDRep k G) :
+    Module.finrank k (transport e σ) = Module.finrank k σ := rfl
 
 @[simp]
 lemma transport_ρ (e : G ≃* H) (V : FDRep k G) :
     (transport e V).ρ = V.ρ.comp e.symm.toMonoidHom := by
   rfl
 
+/--
+Transport along a composite monoid isomorphism agrees definitionally with iterated transport.
+-/
+lemma transport_trans {K : Type*} [Monoid K]
+    (e₁ : G ≃* H) (e₂ : H ≃* K) (V : FDRep k G) :
+    transport (e₁.trans e₂) V = transport e₂ (transport e₁ V) := rfl
 
 /-- Transport along a monoid isomorphism on morphisms. -/
 @[expose] noncomputable def transportMap (e : G ≃* H) {V W : FDRep k G} (f : V ⟶ W) :
@@ -153,6 +194,43 @@ lemma transport_ρ (e : G ≃* H) (V : FDRep k G) :
 @[expose] noncomputable def transportFunctor (e : G ≃* H) : FDRep k G ⥤ FDRep k H :=
   comapFunctor e.symm.toMonoidHom
 
+/-- Transporting along the identity isomorphism is naturally isomorphic to the identity functor. -/
+@[expose] noncomputable def transportFunctorRefl :
+    transportFunctor (MulEquiv.refl G) ≅ 𝟭 (FDRep k G) :=
+  NatIso.ofComponents (fun ρ ↦ Iso.refl _) (fun f ↦ by
+    apply FDRep.hom_ext
+    intro x
+    exact ConcreteCategory.congr_hom rfl x
+  )
+
+/--
+Transporting along a composition of isomorphisms is naturally isomorphic to the
+composition of transport functors.
+-/
+@[expose] noncomputable def transportFunctorTrans {K : Type*} [Monoid K]
+    (e₁ : G ≃* H) (e₂ : H ≃* K) :
+    transportFunctor (k := k) e₁ ⋙ transportFunctor e₂ ≅
+      transportFunctor (e₁.trans e₂) := by
+  change
+    comapFunctor (k := k) e₁.symm.toMonoidHom ⋙
+      comapFunctor e₂.symm.toMonoidHom ≅
+        comapFunctor ((e₁.trans e₂).symm.toMonoidHom)
+  have h :
+      e₁.symm.toMonoidHom.comp e₂.symm.toMonoidHom =
+        (e₁.trans e₂).symm.toMonoidHom := by
+    ext x
+    rfl
+  rw [← h]
+  exact
+    comapFunctorCompIso
+      (k := k)
+      e₁.symm.toMonoidHom
+      e₂.symm.toMonoidHom
+
+/-- Transporting an isomorphism gives an isomorphism between the transported representations. -/
+@[expose] noncomputable def transportMapIso (e : G ≃* H) {V W : FDRep k G} (i : V ≅ W) :
+    transport e V ≅ transport e W :=
+  (transportFunctor e).mapIso i
 
 end Transport
 
@@ -195,6 +273,17 @@ lemma ofTopMap_homToLinearMap_apply
       FDRep.homToLinearMap (H := (⊤ : Subgroup G)) f x := by
   rfl
 
+/--
+Transport representations of the top subgroup `⊤` to representations of `G`.
+This is the functorial version of `FDRep.ofTop`.
+-/
+@[expose] noncomputable def ofTopFunctor :
+    FDRep k (⊤ : Subgroup G) ⥤ FDRep k G :=
+  FDRep.transportFunctor
+    (k := k)
+    (G := (⊤ : Subgroup G))
+    (H := G)
+    (Subgroup.topEquiv : (⊤ : Subgroup G) ≃* G)
 
 end top
 
@@ -315,6 +404,51 @@ end TransportEquiv
 
 section Top
 
+variable {k : Type u} {G : Type v}
+variable [CommRing k] [Group G]
+
+/--
+Restricting a representation transported from `⊤` back to `G` recovers the
+original representation of `⊤`.
+-/
+@[expose] noncomputable def res_top_ofTop_iso
+     (σ : FDRep k (⊤ : Subgroup G)) :
+    (FDRep.ofTop σ).res (⊤ : Subgroup G) ≅ σ :=
+  (FDRep.transportUnitIsoApp
+    (k := k)
+    (G := (⊤ : Subgroup G))
+    (H := G)
+    (Subgroup.topEquiv : (⊤ : Subgroup G) ≃* G)
+    σ).symm
+
+
+/--
+Transporting the restriction of a representation to `⊤` back to `G` recovers
+the original representation.
+-/
+@[expose] noncomputable def ofTop_res_top_iso
+    (ρ : FDRep k G) :
+    FDRep.ofTop (ρ.res (⊤ : Subgroup G)) ≅ ρ :=
+  FDRep.transportCounitIsoApp
+    (k := k)
+    (G := (⊤ : Subgroup G))
+    (H := G)
+    (Subgroup.topEquiv : (⊤ : Subgroup G) ≃* G)
+    ρ
+
+/--
+Representations of the top subgroup `⊤ : Subgroup G` are equivalent to
+representations of `G`.
+-/
+@[expose] noncomputable def ofTopEquivalence
+    {k : Type u} {G : Type v}
+    [CommRing k] [Group G] :
+    FDRep k (⊤ : Subgroup G) ≌ FDRep k G :=
+  FDRep.transportEquiv
+    (k := k)
+    (G := (⊤ : Subgroup G))
+    (H := G)
+    (Subgroup.topEquiv : (⊤ : Subgroup G) ≃* G)
 
 end Top
 

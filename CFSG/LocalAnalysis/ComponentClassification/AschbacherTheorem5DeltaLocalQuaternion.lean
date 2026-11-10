@@ -121,6 +121,9 @@ theorem zmod4Pow_neg {p : X} (hp : p ^ 4 = 1) (i : ZMod 4) :
   refine eq_inv_of_mul_eq_one_left ?_
   rw [← zmod4Pow_add hp, neg_add_cancel, zmod4Pow_zero]
 
+theorem zmod4Pow_sub {p : X} (hp : p ^ 4 = 1) (i j : ZMod 4) :
+    zmod4Pow p (i - j) = zmod4Pow p i * (zmod4Pow p j)⁻¹ := by
+  rw [sub_eq_add_neg, zmod4Pow_add hp, zmod4Pow_neg hp]
 
 theorem conj_zmod4Pow {p q : X} (h : IsQ8Pair p q) (i : ZMod 4) :
     q * zmod4Pow p i * q⁻¹ = (zmod4Pow p i)⁻¹ := by

@@ -121,6 +121,13 @@ theorem Z5_eq :
     Z5 = ZU U4 :=
   congrArg (fun E : Subgroup Dfull => Subgroup.centralizer (E : Set Dfull)) E5_eq_EU
 
+theorem H4_subgroupOf_eq :
+    H4.subgroupOf Jhat = (wSetStab U3).comap jhatToKv0 := by
+  rw [H4_eq, HU_subgroupOf_eq]
+
+theorem H5_subgroupOf_eq :
+    H5.subgroupOf Jhat = (wSetStab U4).comap jhatToKv0 := by
+  rw [H5_eq, HU_subgroupOf_eq]
 
 theorem natCard_H4 :
     Nat.card H4 = 2 ^ 23 * 5505024 := by
@@ -130,6 +137,25 @@ theorem natCard_H5 :
     Nat.card H5 = 2 ^ 23 * 41287680 := by
   rw [H5_eq, natCard_HU, natCard_N4]
 
+theorem K4_eq_closure :
+    K4 = Subgroup.closure (insert tauhat (H4 : Set Dfull)) := by
+  rw [K4_eq, H4_eq]
+  exact KU_eq_closure tauhat_mem_normalizer_EU3 N3_transitive
+
+theorem K5_eq_closure :
+    K5 = Subgroup.closure (insert tauhat (H5 : Set Dfull)) := by
+  rw [K5_eq, H5_eq]
+  exact KU_eq_closure tauhat_mem_normalizer_EU4 N4_transitive
+
+theorem K4_le_Shat :
+    K4 ≤ Shat := by
+  rw [K4_eq]
+  exact KU_le_Shat tauhat_mem_normalizer_EU3 N3_transitive
+
+theorem K5_le_Shat :
+    K5 ≤ Shat := by
+  rw [K5_eq]
+  exact KU_le_Shat tauhat_mem_normalizer_EU4 N4_transitive
 
 theorem natCard_K4 :
     Nat.card K4 = 692692325498880 := by
@@ -143,6 +169,33 @@ theorem natCard_K5 :
   rw [← K5_eq, ← E5_eq_EU, ← H5_eq, natCard_E5, natCard_H5] at h
   exact h.trans (by norm_num)
 
+theorem exists_K4_conj_xhat
+    {a : Dfull} (ha : a ∈ E4) (ha1 : a ≠ 1) :
+    ∃ g ∈ K4, g * xhat * g⁻¹ = a := by
+  obtain ⟨g, hg, hga⟩ := exists_conj_xhat N3_transitive (E4_eq_EU ▸ ha) ha1
+  rw [← KU_eq_closure tauhat_mem_normalizer_EU3 N3_transitive, ← K4_eq] at hg
+  exact ⟨g, hg, hga⟩
+
+theorem exists_K5_conj_xhat
+    {a : Dfull} (ha : a ∈ E5) (ha1 : a ≠ 1) :
+    ∃ g ∈ K5, g * xhat * g⁻¹ = a := by
+  obtain ⟨g, hg, hga⟩ := exists_conj_xhat N4_transitive (E5_eq_EU ▸ ha) ha1
+  rw [← KU_eq_closure tauhat_mem_normalizer_EU4 N4_transitive, ← K5_eq] at hg
+  exact ⟨g, hg, hga⟩
+
+theorem natCard_Ehat_inf_Z4 :
+    Nat.card ↥(Ehat ⊓ Z4) = 2 ^ 20 := by
+  have h : Nat.card ↥(Ehat ⊓ ZU U3) = 2 * 2 ^ (22 - Module.finrank (ZMod 2) U3) :=
+    natCard_Ehat_inf_centralizer_EU
+  rw [Z4_eq, h, finrank_U3]
+  norm_num
+
+theorem natCard_Ehat_inf_Z5 :
+    Nat.card ↥(Ehat ⊓ Z5) = 2 ^ 19 := by
+  have h : Nat.card ↥(Ehat ⊓ ZU U4) = 2 * 2 ^ (22 - Module.finrank (ZMod 2) U4) :=
+    natCard_Ehat_inf_centralizer_EU
+  rw [Z5_eq, h, finrank_U4]
+  norm_num
 
 theorem natCard_Z4 :
     Nat.card Z4 = 2 ^ 35 := by
@@ -184,6 +237,15 @@ theorem conjE_E5_surjective :
     K5 →* GL (Fin 5) (ZMod 2) :=
   (mulAutEquivGL natCard_E5).toMonoidHom.comp (conjE E5)
 
+theorem actE4_surjective :
+    Function.Surjective actE4 := by
+  rw [actE4, MonoidHom.coe_comp]
+  exact (MulEquiv.surjective _).comp conjE_E4_surjective
+
+theorem actE5_surjective :
+    Function.Surjective actE5 := by
+  rw [actE5, MonoidHom.coe_comp]
+  exact (MulEquiv.surjective _).comp conjE_E5_surjective
 
 theorem ker_actE4 :
     actE4.ker = Z4.subgroupOf K4 := by
@@ -205,5 +267,14 @@ instance Z4_subgroupOf_normal :
 instance Z5_subgroupOf_normal :
     (Z5.subgroupOf K5).Normal := ker_actE5 ▸ actE5.normal_ker
 
+@[expose] noncomputable def k4QuotEquiv :
+    K4 ⧸ Z4.subgroupOf K4 ≃* GL (Fin 4) (ZMod 2) :=
+  (QuotientGroup.quotientMulEquivOfEq ker_actE4.symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective actE4 actE4_surjective)
+
+@[expose] noncomputable def k5QuotEquiv :
+    K5 ⧸ Z5.subgroupOf K5 ≃* GL (Fin 5) (ZMod 2) :=
+  (QuotientGroup.quotientMulEquivOfEq ker_actE5.symm).trans
+    (QuotientGroup.quotientKerEquivOfSurjective actE5 actE5_surjective)
 
 end CFSG.Monster.B.TwoA

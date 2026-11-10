@@ -152,6 +152,14 @@ theorem toVec_apply_lab (m : ℕ) (q : Fin 52) :
     if (Nat.choose (Tag.F4.stringData.down (b - 4) i + m) m) % 2 = 1 then
       [4 + rIdx (rt (b - 4) + (m : ℤ) • Pi.single i 1)] else []
 
+@[expose] def yCol (i : Fin Tag.F4.rank) (b : ℕ) : List ℕ :=
+  if b < 4 then b :: (if cartanOdd b i then [4 + rIdx (-Pi.single i 1)] else [])
+  else if rt (b - 4) = -Pi.single i 1 then [b]
+  else if rt (b - 4) = Pi.single i 1 then [b, i, 4 + rIdx (-Pi.single i 1)]
+  else (List.range (Tag.F4.stringData.down (b - 4) i + 1)).flatMap fun m =>
+    if (Nat.choose (Tag.F4.stringData.up (b - 4) i + m) m) % 2 = 1 then
+      [4 + rIdx (rt (b - 4) - (m : ℤ) • Pi.single i 1)] else []
+
 
 theorem natCast_eq_ite [CharP R 2] (n : ℕ) : (n : R) = if n % 2 = 1 then 1 else 0 := by
   have h2 : ((2 : ℕ) : R) = 0 := by exact_mod_cast (CharTwo.two_eq_zero : (2 : R) = 0)
@@ -268,5 +276,67 @@ theorem xOp_one_single (i : Fin Tag.F4.rank) (b : Fin 52) :
         · rw [if_pos hodd, if_pos hodd, one_smul, rootVec_eq_lvec hroot]
         · rw [if_neg hodd, if_neg hodd, zero_smul, lvec_nil]
 
+
+theorem cartan_term_y (i : Fin Tag.F4.rank) (b : Fin 52) (hb : (b : ℕ) < 4) :
+    ((((Tag.cartan Tag.F4 ⟨b, hb⟩ i).natAbs : ℕ) : R) * 1) • rootVec Tag.F4 R (-Pi.single i 1) =
+      lvec R (if cartanOdd b i then [4 + rIdx (-Pi.single i 1)] else []) := by
+  by_cases hodd : (Tag.cartan Tag.F4 ⟨b, hb⟩ i).natAbs % 2 = 1
+  · have hc : cartanOdd b i = true := by simp [cartanOdd, hb, hodd]
+    rw [hc, if_pos rfl, natCast_eq_ite, if_pos hodd, mul_one, one_smul,
+      rootVec_eq_lvec (isRoot_neg_single Tag.F4 i)]
+  · have hc : cartanOdd b i = false := by simp [cartanOdd, hb, hodd]
+    rw [hc, natCast_eq_ite, if_neg hodd, zero_mul, zero_smul]
+    simp [lvec_nil]
+
+theorem yOp_one_single (i : Fin Tag.F4.rank) (b : Fin 52) :
+    yOp Tag.F4 R i 1 (Finsupp.single (lab b) 1) = lvec R (yCol i b) := by
+  by_cases hb : (b : ℕ) < 4
+  · have hx : yCol i b = (b : ℕ) :: (if cartanOdd b i then [4 + rIdx (-Pi.single i 1)] else []) := by
+      simp [yCol, hb]
+    rw [hx, lvec_cons, toVec_one_shiftLeft b, ← cartan_term_y i b hb, lab_of_lt hb]
+    change yOp Tag.F4 R i 1 (hVec Tag.F4 R ⟨b, hb⟩) = _
+    rw [yOp_apply_hVec]
+    rfl
+  · have hk : (b : ℕ) - 4 < 48 := by have := b.2; omega
+    have hv := isRoot_rt hk
+    have hb1 : lvec R [(b : ℕ)] = rootVec Tag.F4 R (rt ((b : ℕ) - 4)) := by
+      rw [lvec_singleton b.2]
+      exact single_lab_ge hb
+    rw [single_lab_ge hb]
+    by_cases h1 : rt ((b : ℕ) - 4) = -Pi.single i 1
+    · have hx : yCol i b = [(b : ℕ)] := by simp [yCol, hb, h1]
+      rw [hx, hb1, h1, yOp_apply_rootVec_neg_single]
+    · by_cases h2 : rt ((b : ℕ) - 4) = Pi.single i 1
+      · have hx : yCol i b = [(b : ℕ), (i : ℕ), 4 + rIdx (-Pi.single i 1)] := by
+          simp [yCol, hb, h2, (single_ne_neg_single i)]
+        have hi52 : (i : ℕ) < 52 := lt_of_lt_of_le i.2 (by decide)
+        have hr52 : 4 + rIdx (-Pi.single i 1) < 52 := by
+          have := (rIdx_spec (isRoot_neg_single Tag.F4 i)).1; omega
+        have e1 : (Finsupp.single (lab b) 1 : RootModule Tag.F4 R) =
+            rootVec Tag.F4 R (Pi.single i 1) := by rw [single_lab_ge hb, h2]
+        have e2 : (Finsupp.single (lab ⟨i, hi52⟩) 1 : RootModule Tag.F4 R) = hVec Tag.F4 R i := by
+          rw [lab_of_lt i.2]; rfl
+        have e3 : (Finsupp.single (lab ⟨4 + rIdx (-Pi.single i 1), hr52⟩) 1 :
+            RootModule Tag.F4 R) = rootVec Tag.F4 R (-Pi.single i 1) := by
+          rw [← lvec_singleton hr52, ← rootVec_eq_lvec (isRoot_neg_single Tag.F4 i)]
+        rw [hx, lvec_cons, lvec_cons, lvec_cons, lvec_nil, add_zero,
+          toVec_one_shiftLeft b, toVec_one_shiftLeft' hi52, toVec_one_shiftLeft' hr52,
+          e1, e2, e3, h2, yOp_apply_rootVec_single, one_smul, one_pow, one_smul, add_assoc]
+      · have hx : yCol i b = (List.range (Tag.F4.stringData.down ((b : ℕ) - 4) i + 1)).flatMap
+            (fun m => if (Nat.choose (Tag.F4.stringData.up ((b : ℕ) - 4) i + m) m) % 2 = 1 then
+              [4 + rIdx (rt ((b : ℕ) - 4) - (m : ℤ) • Pi.single i 1)] else []) := by
+          simp [yCol, hb, h1, h2]
+        rw [hx, lvec_flatMap_range, yOp_apply_rootVec_of_ne i 1 hv h2 h1,
+          (string_eq hk i h2 h1).1, (string_eq hk i h2 h1).2]
+        refine Finset.sum_congr rfl fun m hm => ?_
+        have hmu : m ≤ Tag.F4.stringData.down ((b : ℕ) - 4) i := by
+          have := Finset.mem_range.1 hm; omega
+        have hroot : IsRoot Tag.F4 (rt ((b : ℕ) - 4) - (m : ℤ) • Pi.single i 1) := by
+          have := (isRoot_string hk i h2 h1 (-(m : ℤ))).2 ⟨by omega, by omega⟩
+          rwa [neg_smul, ← sub_eq_add_neg] at this
+        rw [one_pow, mul_one, natCast_eq_ite]
+        by_cases hodd : (Nat.choose (Tag.F4.stringData.up ((b : ℕ) - 4) i + m) m) % 2 = 1
+        · rw [if_pos hodd, if_pos hodd, one_smul, rootVec_eq_lvec hroot]
+        · rw [if_neg hodd, if_neg hodd, zero_smul, lvec_nil]
 
 end CFSG.AGLEmbeddingD2.Tits.MsideParabolicEscape.F4Adjoint

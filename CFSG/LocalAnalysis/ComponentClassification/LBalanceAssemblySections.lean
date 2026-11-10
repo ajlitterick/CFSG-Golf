@@ -69,6 +69,10 @@ theorem outer_component (hX : SchreierSections X) (K : Subgroup X) (hK : IsCompo
   exact hX.outer_solvable K hK.1.2.2 (QuotientGroup.mk' (center K))
     (QuotientGroup.mk'_surjective _)
 
+theorem outer_component_of_quotient (hX : SchreierSections X) (N : Subgroup X) [N.Normal]
+    (H : Subgroup (X ⧸ N)) (K : Subgroup H) (hK : IsComponent K) :
+    Group.IsSolvable (OuterAutomorphisms.Outer (K ⧸ center K)) :=
+  ((hX.quotient N).subgroup H).outer_component K hK
 
 theorem of_isKGroup
     (hS : ∀ (S : Type) [Group S] [Finite S] [IsSimpleGroup S], (∃ a b : S, a * b ≠ b * a) →

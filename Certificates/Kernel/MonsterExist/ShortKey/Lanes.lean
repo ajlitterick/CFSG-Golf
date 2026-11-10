@@ -124,6 +124,24 @@ theorem eq_lsum_laneW (hW : 0 < W) {v n : ℕ} (hv : v < 2 ^ (W * n)) :
   · exact Nat.testBit_lt_two_pow (lt_of_lt_of_le hv (Nat.pow_le_pow_right (by norm_num)
       (Nat.le_of_not_lt h)))
 
+theorem laneW_lsum (hW : 0 < W) {f : ℕ → ℕ} {n : ℕ} (hf : ∀ k < n, f k < 2 ^ W) {k : ℕ}
+    (hk : k < n) : laneW W (lsum W f n) k = f k := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < W
+  · rw [testBit_laneW _ _ _ hi, testBit_lsum hW hf]
+    have h1 : W * k + i < W * n := by
+      have : W * (k + 1) ≤ W * n := Nat.mul_le_mul_left _ hk
+      rw [Nat.mul_succ] at this
+      omega
+    have h2 : (W * k + i) / W = k := by
+      rw [Nat.add_comm, Nat.add_mul_div_left _ _ hW, Nat.div_eq_of_lt hi, Nat.zero_add]
+    have h3 : (W * k + i) % W = i := by
+      rw [Nat.add_comm, Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt hi]
+    simp [h1, h2, h3]
+  · have hi' : W ≤ i := Nat.le_of_not_lt hi
+    rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le (laneW_lt _ k) (Nat.pow_le_pow_right (by norm_num) hi')),
+      Nat.testBit_lt_two_pow (lt_of_lt_of_le (hf k hk) (Nat.pow_le_pow_right (by norm_num) hi'))]
 
 theorem xor_lsum (hW : 0 < W) {f g : ℕ → ℕ} {n : ℕ} (hf : ∀ k < n, f k < 2 ^ W)
     (hg : ∀ k < n, g k < 2 ^ W) : lsum W f n ^^^ lsum W g n = lsum W (fun k => f k ^^^ g k) n := by

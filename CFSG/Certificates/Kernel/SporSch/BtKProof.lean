@@ -36,6 +36,16 @@ theorem btK_proved (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
   ext g
   simp [Subtype.ext_iff]
 
+theorem btK_sound (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (hA : imageList gA = (unpack n w (PS 0)).toList)
+    (hB : imageList gB = (unpack n w (PS 1)).toList) (hnd : base.toList.Nodup) (hk64 : nb ≤ 64)
+    (x y : gen2 gA gB) {X Y : Nat}
+    (hX : imageList (x : Equiv.Perm (Fin n)) = (unpack n w X).toList)
+    (hY : imageList (y : Equiv.Perm (Fin n)) = (unpack n w Y).toList)
+    (_hXc : canonK n w (mask w) (n * w) X = true) (_hYc : canonK n w (mask w) (n * w) Y = true) :
+    btK n w (mask w) (n * w) BP nb LR TR TRI X Y =
+      #(univ.filter fun g : gen2 gA gB => g * x = y * g) :=
+  btK_proved hQ hA hB hnd hk64 x y hX hY
 
 end CFSG.KS.SporSch.MBT
 

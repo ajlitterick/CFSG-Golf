@@ -97,5 +97,19 @@ theorem mem_H1_iff
   · rintro ⟨h, hk⟩
     exact ⟨⟨g, h⟩, hk, rfl⟩
 
+theorem symplectic_eight_data :
+    (uhat = iotaD (kappa ⟨rhoEquiv (XQ ⟨dC, 0⟩), rhoEquiv_mem_Cgen XQ_dC_mem_centralizer⟩)) ∧
+    ghat8 = tauhat * uhat * tauhat⁻¹ ∧
+    (∀ i j : Fin 24, dhat i j = iotaD (kappa ⟨rhoEquiv (DQ (deltaPair i j)),
+      rhoEquiv_mem_Cgen (DQ_mem_centralizer _)⟩)) ∧
+    B7 = Subgroup.closure {xhat, yhat, dhat 2 3, dhat 2 4, dhat 2 5, dhat 2 6, uhat} ∧
+    A8 = Subgroup.closure (insert ghat8 (B7 : Set Dfull)) ∧
+    (∀ g : Dfull, g ∈ H1 ↔ ∃ h : g ∈ Jhat, jhatToKv0 ⟨g, h⟩ ∈ Cr) ∧
+    Xgrp = Subgroup.closure (insert tauhat (H1 : Set Dfull)) ∧
+    aT = ![xhat, yhat, dhat 2 3, dhat 2 4, dhat 2 5, dhat 2 6, uhat, ghat8] ∧
+    (∀ i j : Fin 8, b0 (Pi.single i 1) (Pi.single j 1) = bvec 8 (gramRows.getD i 0) j) ∧
+    B7 ≤ Ehat ∧ A8 ≤ Shat ∧ H1 ≤ Jhat ∧ Xgrp ≤ Shat :=
+  ⟨rfl, rfl, fun _ _ => rfl, rfl, rfl, mem_H1_iff, rfl, rfl, b0_single, B7_le_Ehat, A8_le_Shat,
+    H1_le_Jhat, Xgrp_le_Shat⟩
 
 end CFSG.Monster.B.TwoA.Sp8

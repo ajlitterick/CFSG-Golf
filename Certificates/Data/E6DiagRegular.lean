@@ -38,5 +38,29 @@ open CFSG.Blueprint.Chevalley CFSG.HardMathSupport.Timmesfeld.Steinberg
 
 @[expose] def pairZ (T : RootTables) (k : ℕ) (v : List ℤ) : ℤ := dotL (T.vecs.getD k []) v
 
+@[expose] def regularL (T : RootTables) (nr : ℕ) (v₁ v₂ : List ℤ) : Bool :=
+  (List.range nr).all fun k => !(decide (pairZ T k v₁ % 3 = 0) && decide (pairZ T k v₂ % 3 = 0))
+
+@[expose] def fixesRootL (C : RootCertificate .E6) (T : RootTables) (t : List ℕ) : Bool :=
+  (List.range C.roots.length).any fun k =>
+    decide (dotL (T.vecs.getD k []) (hsL T t) = T.hts.getD k 0) &&
+      (List.ofFn (C.tupleVec t (C.root k)) == List.ofFn (C.root k))
+
+@[expose] def e6RegFixMain (C : RootCertificate .E6) (T : RootTables)
+    (elems : List (List ℕ)) : Bool :=
+  (List.range 729).all fun n₁ =>
+    let vec₁ := digits3 .E6 n₁
+    let partners := (List.range 729).filter fun n₂ =>
+      regularL T C.roots.length (castL vec₁) (castL (digits3 .E6 n₂))
+    partners.isEmpty ||
+      (let W₁ := elems.filter (chiTestL .E6 T vec₁)
+       partners.all fun n₂ =>
+        let vec₂ := digits3 .E6 n₂
+        W₁.all fun t => !(chiTestL .E6 T vec₂ t) || !(e6ScTest C vec₁ t) || fixesRootL C T t)
+
+@[expose] def e6RegFixCheck (_ : Unit := ()) : Bool :=
+  let S : StabCert3 := ⟨[], [], e6WKeys ()⟩
+  S.check e6Certificate && e6RegFixMain e6Certificate (RootTables.ofCert e6Certificate)
+    (S.elems .E6)
 
 end CFSG.LieType.SeitzGeneration.ExcWideThree.E6DiagRegular

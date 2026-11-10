@@ -537,6 +537,8 @@ private noncomputable def cl (g : ℤ) (t0 m c : ℕ) (st : LSt) : LSt :=
   Nat.rec (motive := fun _ => LSt → LSt) (fun st => st)
     (fun i ih st => ih (stepC g t0 m i st)) c st
 
+private theorem conjsLay_eq (g : ℤ) (t0 m : ℕ) (st : LSt) : conjsLay g t0 m st = cl g t0 m m st :=
+  rfl
 
 private theorem cl_zero (g : ℤ) (t0 m : ℕ) (st : LSt) : cl g t0 m 0 st = st := rfl
 

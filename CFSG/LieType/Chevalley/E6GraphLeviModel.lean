@@ -23,6 +23,8 @@ abbrev pathIdx (t : Fin 5) : Fin TwistTag.E6.tag.rank := a5Path t
 
 theorem matRoot_mem : ∀ a b : Fin 6, a ≠ b → matRoot a b ∈ a5Roots := by decide +kernel
 
+theorem mem_a5Roots_iff_matRoot : ∀ β ∈ a5Roots, ∃ a b : Fin 6, a ≠ b ∧ matRoot a b = β := by
+  decide +kernel
 
 theorem matRoot_injective : ∀ a b a' b' : Fin 6, a ≠ b → a' ≠ b' → matRoot a b = matRoot a' b' →
     a = a' ∧ b = b' := by
@@ -31,9 +33,28 @@ theorem matRoot_injective : ∀ a b a' b' : Fin 6, a ≠ b → a' ≠ b' → mat
 theorem cubeRoot_mem : ∀ S : Finset (Fin 6), S.card = 3 → cubeRoot S ∈ degOneRoots := by
   decide +kernel
 
+theorem cubeRoot_surj : ∀ β ∈ degOneRoots, ∃ S : Finset (Fin 6), S.card = 3 ∧ cubeRoot S = β := by
+  decide +kernel
 
 theorem cubeRoot_injective : ∀ S S' : Finset (Fin 6), S.card = 3 → S'.card = 3 →
     cubeRoot S = cubeRoot S' → S = S' := by
+  decide +kernel
+
+theorem matRoot_add : ∀ (a b : Fin 6) (t : Fin 5), a ≠ b → ¬(a = t.castSucc ∧ b = t.succ) →
+    ¬(a = t.succ ∧ b = t.castSucc) → ∀ x y : Fin 6,
+      (x ≠ y ∧ matRoot x y = matRoot a b + Pi.single (pathIdx t) 1) ↔
+        ((a = t.succ ∧ x = t.castSucc ∧ y = b) ∨ (b = t.castSucc ∧ x = a ∧ y = t.succ)) := by
+  decide +kernel
+
+theorem matRoot_sub : ∀ (a b : Fin 6) (t : Fin 5), a ≠ b → ¬(a = t.castSucc ∧ b = t.succ) →
+    ¬(a = t.succ ∧ b = t.castSucc) → ∀ x y : Fin 6,
+      (x ≠ y ∧ matRoot x y = matRoot a b - Pi.single (pathIdx t) 1) ↔
+        ((a = t.castSucc ∧ x = t.succ ∧ y = b) ∨ (b = t.succ ∧ x = a ∧ y = t.castSucc)) := by
+  decide +kernel
+
+theorem cubeRoot_add : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 → ∀ S' : Finset (Fin 6),
+    S'.card = 3 → (cubeRoot S' = cubeRoot S + Pi.single (pathIdx t) 1 ↔
+      (t.succ ∈ S ∧ t.castSucc ∉ S ∧ S' = insert t.castSucc (S.erase t.succ))) := by
   decide +kernel
 
 
@@ -76,6 +97,21 @@ theorem not_isRoot_e6HighestRoot_add : ∀ t : Fin 5,
     e6HighestRoot - Pi.single (pathIdx t) 1 ∉ rootFinset TwistTag.E6.tag ∧
     -e6HighestRoot + Pi.single (pathIdx t) 1 ∉ rootFinset TwistTag.E6.tag ∧
     -e6HighestRoot - Pi.single (pathIdx t) 1 ∉ rootFinset TwistTag.E6.tag := by decide +kernel
+
+theorem negCube_add : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 → ∀ S' : Finset (Fin 6),
+    S'.card = 3 → (-cubeRoot S'ᶜ = -cubeRoot Sᶜ + Pi.single (pathIdx t) 1 ↔
+      (t.succ ∈ S ∧ t.castSucc ∉ S ∧ S' = insert t.castSucc (S.erase t.succ))) := by
+  decide +kernel
+
+theorem cubeRoot_sub : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 → ∀ S' : Finset (Fin 6),
+    S'.card = 3 → (cubeRoot S' = cubeRoot S - Pi.single (pathIdx t) 1 ↔
+      (t.castSucc ∈ S ∧ t.succ ∉ S ∧ S' = insert t.succ (S.erase t.castSucc))) := by
+  decide +kernel
+
+theorem negCube_sub : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 → ∀ S' : Finset (Fin 6),
+    S'.card = 3 → (-cubeRoot S'ᶜ = -cubeRoot Sᶜ - Pi.single (pathIdx t) 1 ↔
+      (t.castSucc ∈ S ∧ t.succ ∉ S ∧ S' = insert t.succ (S.erase t.castSucc))) := by
+  decide +kernel
 
 
 theorem matRoot_add_left : ∀ (t : Fin 5) (b : Fin 6), b ≠ t.castSucc → b ≠ t.succ →
@@ -133,6 +169,7 @@ theorem negCube_sub_eq : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 → t.
 theorem negCube_sub_not : ∀ (S : Finset (Fin 6)) (t : Fin 5), S.card = 3 →
     ¬(t.castSucc ∈ S ∧ t.succ ∉ S) →
       -cubeRoot Sᶜ - Pi.single (pathIdx t) 1 ∉ rootFinset TwistTag.E6.tag := by decide +kernel
+
 
 
 variable (E : Type) [Field E]
@@ -580,6 +617,7 @@ theorem toModel_fromModel
     (LinearMap.ext (toModel_fromModel h2)) (LinearMap.ext (fromModel_toModel h2))
 
 
+
 abbrev xMat (t : Fin 5) (c : E) : Matrix (Fin 6) (Fin 6) E :=
   Matrix.transvection t.castSucc t.succ c
 
@@ -605,5 +643,7 @@ theorem castSucc_ne_succ (t : Fin 5) : t.castSucc ≠ t.succ := Fin.castSucc_lt_
 theorem neg_eq_self_of_two (h2 : (2 : E) = 0) (x : E) : -x = x := by
   linear_combination (-x) * h2
 
+theorem sub_eq_add_of_two (h2 : (2 : E) = 0) (x y : E) : x - y = x + y := by
+  linear_combination (-y) * h2
 
 end CFSG.LieType.Chevalley.E6GraphLevi

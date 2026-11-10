@@ -278,6 +278,12 @@ theorem card_mul_card_towerStab_le (C : Subgroup G) (b : ℕ → G) (L : ℕ →
       exact Nat.mul_le_mul_left _ (Nat.mul_le_mul_right _ (horb j (by omega)))
   exact key k le_rfl
 
+omit [Finite G] in
+theorem mem_towerStab {C : Subgroup G} {b : ℕ → G} {g : G} (hg : g ∈ C)
+    (hb : ∀ i, g * b i = b i * g) : ∀ k, g ∈ towerStab C b k
+  | 0 => hg
+  | k + 1 => Subgroup.mem_inf.2 ⟨mem_towerStab hg hb k,
+      Subgroup.mem_centralizer_singleton_iff.2 (hb k)⟩
 
 omit [Finite G] in
 theorem mem_towerStab_of_lt {C : Subgroup G} {b : ℕ → G} {g : G} (hg : g ∈ C) :

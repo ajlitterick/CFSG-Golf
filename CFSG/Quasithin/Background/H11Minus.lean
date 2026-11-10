@@ -17,6 +17,12 @@ section MinusGroup
 
 open scoped Matrix
 
+variable {F : Type} [Field F] [CharP F 2]
+
+private noncomputable abbrev sigQ (n : ℕ) (a : F) [Fact (Irreducible (quadPoly a))]
+    [CharP (AdjoinRoot (quadPoly a)) 2] : AdjoinRoot (quadPoly a) →+* AdjoinRoot (quadPoly a) :=
+  iterateFrobenius (AdjoinRoot (quadPoly a)) 2 n
+
 
 end MinusGroup
 

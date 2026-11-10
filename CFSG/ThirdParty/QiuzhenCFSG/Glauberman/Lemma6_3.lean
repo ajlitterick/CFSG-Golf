@@ -217,6 +217,10 @@ private theorem qdT_zpow (p : ℕ) [Fact p.Prime] (k : ℤ) :
   · rw [zpow_neg, zpow_natCast, qdT_pow p n, GorensteinWalter.sl2UpperUnipotent_inv]
     simp
 
+private theorem qdX_pow (p : ℕ) [Fact p.Prime] (k : ℕ) :
+    (qdX p) ^ k = SemidirectProduct.inr (GorensteinWalter.sl2UpperUnipotent (k : ZMod p)) := by
+  rw [show (qdX p) ^ k = SemidirectProduct.inr ((qdT p) ^ k) by
+    exact (map_pow (SemidirectProduct.inr : qdSL p →* Qd p) (qdT p) k).symm, qdT_pow]
 
 private theorem qdX_zpow (p : ℕ) [Fact p.Prime] (k : ℤ) :
     (qdX p) ^ k = SemidirectProduct.inr (GorensteinWalter.sl2UpperUnipotent (k : ZMod p)) := by
@@ -603,6 +607,11 @@ private theorem normalizer_map_eq_of_equiv {G G' : Type*} [Group G] [Group G']
       Subgroup.normalizer ((P.map e.toMonoidHom : Subgroup G') : Set G') := by
   simpa using (Subgroup.map_equiv_normalizer_eq P e)
 
+/-- The image of a subgroup under a group isomorphism is again normal when the original
+is normal (transport of normality along an isomorphism). -/
+private theorem map_normal_of_equiv {G G' : Type*} [Group G] [Group G'] (e : G ≃* G')
+    {P : Subgroup G} [P.Normal] : (P.map e.toMonoidHom : Subgroup G').Normal := by
+  exact Subgroup.Normal.map inferInstance e.toMonoidHom e.surjective
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Forward direction of `pStableLocal_iso`: `pStableLocal p G` implies

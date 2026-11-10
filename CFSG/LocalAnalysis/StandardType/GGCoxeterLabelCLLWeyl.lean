@@ -213,6 +213,18 @@ end Standard
     (∃ e : Fin 4 ≃ ι, M = CoxeterMatrix.F₄.reindex e) ∨
     (∃ e : Fin 2 ≃ ι, M = CoxeterMatrix.G₂.reindex e)
 
+theorem GGIsWeylMatrix.fixed_or_D {ι : Type} {M : CoxeterMatrix ι} (hM : GGIsWeylMatrix M) :
+    GGIsWeylMatrixFixed M ∨
+      ∃ (n : ℕ) (e : Fin n ≃ ι), 4 ≤ n ∧ M = (CoxeterMatrix.D n).reindex e := by
+  rcases hM with ⟨n, e, hn, h | h | ⟨hn4, h⟩⟩ | h | h | h | h | h
+  · exact Or.inl (Or.inl ⟨n, e, hn, Or.inl h⟩)
+  · exact Or.inl (Or.inl ⟨n, e, hn, Or.inr (Or.inl h)⟩)
+  · exact Or.inl (Or.inl ⟨n, e, hn, Or.inr (Or.inr ⟨hn4, h⟩)⟩)
+  · exact Or.inl (Or.inr (Or.inl h))
+  · exact Or.inl (Or.inr (Or.inr (Or.inl h)))
+  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inl h))))
+  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h)))))
+  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h)))))
 
 theorem GGIsWeylMatrixFixed.finite {ι : Type} {M : CoxeterMatrix ι} (hM : GGIsWeylMatrixFixed M) :
     Finite ι := by
@@ -265,5 +277,15 @@ theorem ggCartanFaithfulInputFixed_holds :
   exact ggCartanFaithful_of_isFiniteType hα hP hp2 (isFiniteType_of_ggIsWeylMatrixFixed hM hC) hC
     hind
 
+theorem ggCartanFaithful_of_ggIsWeylMatrix {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) {Γ : Type}
+    {M : CoxeterMatrix Γ} (hM : GGIsWeylMatrix M)
+    (hD : ¬ ∃ (n : ℕ) (e : Fin n ≃ Γ), 4 ≤ n ∧ M = (CoxeterMatrix.D n).reindex e)
+    {C : Matrix Γ Γ ℤ} (hC : GGIntCartan M C) {V : Type} [AddCommGroup V] [Module (ZMod p) V]
+    (h : Γ → V) (α : Γ → Module.Dual (ZMod p) V) (hα : ∀ i, α i (h i) = 2)
+    (hP : ∀ i j, α i (h j) = (C i j : ZMod p)) (hind : LinearIndependent (ZMod p) h) :
+    Function.Injective (M.toCoxeterSystem.lift
+      ⟨fun i => reflection (hα i), isLiftable_reflection_of_intCartan hC h α hα hP⟩) :=
+  ggCartanFaithfulInputFixed_holds p Fact.out hp2 Γ M C (hM.fixed_or_D.resolve_right hD) hC V h
+    α hα hP hind
 
 end CFSG.StandardType

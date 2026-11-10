@@ -108,6 +108,11 @@ open CFSG.KC CFSG.KC.Enum CFSG.KC.A45Cls CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.K
 
 #kc_each ch725107f 0 2
 
+theorem ch725107n_gs : notB (fanoPQ 0
+    (pcomp 36 6 (mask 6) (F.cP.getD 0 0) (pcomp 36 6 (mask 6) (C4Q.S 0) (F.cI.getD 0 0)))
+    (pcomp 36 6 (mask 6) (F.cP.getD 0 0) (pcomp 36 6 (mask 6) (C4Q.SI 0) (F.cI.getD 0 0))) 1 2) =
+    true := by
+  quickRfl
 
 end CertificateChecks.KernelS6I
 

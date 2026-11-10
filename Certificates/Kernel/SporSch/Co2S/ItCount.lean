@@ -12,6 +12,7 @@ namespace CertificateChecks.KernelSporSch.Co2It
 
 open CFSG.KS.SporSch CFSG.KS.SporSch.Co2SFix CertificateChecks.KernelSporSch
 
+theorem pnb : Co2ItC.pnb = 9 := rfl
 
 theorem bb : Nat.beq (bbProd 12 (bbMask co2ItNat) Co2ItC.LR Co2ItC.BP 9) 41287680 = true := by
   quickRfl

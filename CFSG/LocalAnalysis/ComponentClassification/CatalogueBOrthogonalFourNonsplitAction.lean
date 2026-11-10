@@ -135,6 +135,11 @@ theorem rho_val (h2 : (2 : K) ≠ 0) (A : normDeterminantOne delta)
       rw [hermitianForm_det delta h2, hermitianForm_det delta h2]
       exact Matrix.det_transpose X.val)⟩
 
+theorem gamma_val (h2 : (2 : K) ≠ 0) (X : hermitianSubmodule delta) :
+    ((gamma delta h2).val X).val = X.val.map (conjugation delta) := by
+  apply Matrix.ext
+  intro i j
+  exact (X.property.apply j i).symm
 
 theorem gamma_mul_gamma (h2 : (2 : K) ≠ 0) : gamma delta h2 * gamma delta h2 = 1 := by
   apply Subtype.ext

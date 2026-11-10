@@ -34,6 +34,10 @@ variable {F : Type} [Field F] [CharP F 2]
     · simp [h]
     · simp [h, CharTwo.neg_eq]⟩
 
+omit [CharP F 2] in
+theorem coe_pm' (σ : Equiv.Perm (Fin 4)) (h) :
+    ((⟨SpecialLinear.signedPerm σ 1, h⟩ : SpecialLinearGroup (Fin 4) F) :
+      Matrix (Fin 4) (Fin 4) F) = SpecialLinear.signedPerm σ 1 := rfl
 
 theorem coe_pm (σ : Equiv.Perm (Fin 4)) :
     ((pm σ : SpecialLinearGroup (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) =

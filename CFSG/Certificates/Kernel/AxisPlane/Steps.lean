@@ -199,6 +199,13 @@ theorem codeAt_cons (P : Nat) (Ps : List Nat) (x : Nat) :
 
 theorem toNat_le_one (b : Bool) : b.toNat ≤ 1 := by cases b <;> decide
 
+theorem codeAt_lt : ∀ (Ps : List Nat) (x : Nat), codeAt Ps x < 2 ^ Ps.length
+  | [], _ => by simp [codeAt_nil]
+  | P :: Ps, x => by
+    rw [codeAt_cons, List.length_cons, Nat.pow_succ]
+    have := codeAt_lt Ps x
+    have := toNat_le_one (dat P x)
+    omega
 
 theorem codeAt_eq_zero : ∀ (Ps : List Nat) (x : Nat),
     codeAt Ps x = 0 ↔ ∀ P ∈ Ps, dat P x = false

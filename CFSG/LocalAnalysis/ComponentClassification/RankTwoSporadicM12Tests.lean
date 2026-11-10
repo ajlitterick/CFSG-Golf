@@ -36,5 +36,21 @@ open CFSG.RankThree.PartOne CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Ce
 
 theorem m12PS_lt : ∀ p ∈ m12PS, p < 24 := by decide
 
+@[expose] def rdExcA (tk : Array ℕ) (n : ℕ) (p : ℕ) : ExcRef × ℕ :=
+  let a := rdArr tk n (p + 1)
+  (⟨tk[p]!, a.1⟩, a.2)
+
+@[expose] def decodeExcA (n : ℕ) (s : String) : List ExcRef :=
+  (rdListC (decodeNats s) (rdExcA (decodeNats s) n) 0).1
+
+@[expose] def m12Check (S : Array (Array ℕ)) (Wd : Array (List ℤ)) (e0 : Array (Array ℕ))
+    (sc sx : String) : Bool :=
+  let d := decodeCert 24 sc
+  decide (2 ≤ S.size) && caseChainOK2P 24 S m12BaseArr Wd m12A1Arr m12B1Arr &&
+    censusExcOK 24 m12PS m12Fuel (m12InP S) (m12InP S) (m12InR S) false false false d.sGens
+      d.roots d.nodes e0 (decodeExcA 24 sx) &&
+    (allLt d.sGens.size fun k =>
+      m12InP S d.sGens[k]! || m12InP S (compA 24 m12SigArr d.sGens[k]!)) &&
+    (enumBfs 24 d.sGens m12PS m12Fuel).pts.size == 128
 
 end CFSG.ComponentClassification.RankTwoSporadic.M12

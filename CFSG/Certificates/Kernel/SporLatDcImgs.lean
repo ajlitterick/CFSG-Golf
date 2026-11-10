@@ -155,6 +155,12 @@ private theorem pathsOK_spec {x : List ℕ} {j : ℕ} (h : pathsOK P.C P.D x j =
   · rw [Bool.and_eq_true, Nat.beq_eq] at h1
     exact h1
 
+private theorem act_pathW {x : List ℕ} (hx : ∀ p ∈ x, p < n) {j : ℕ}
+    (h : pathsOK P.C P.D x j = true) {q : ℕ} (hq : q ∈ x) (ho : oid P.D q = j) :
+    act n (evalElt P.els (pathW P.C P.D 64 q [])) q = P.D.obase.getD j 0 := by
+  obtain ⟨his, hw⟩ := pathsOK_spec P h hq ho
+  rw [P.act_wordF_eq (isS_lt P his) (hx q hq)]
+  exact hw
 
 private theorem isS_append {k π : List ℕ} (hk : isS P.C k = true) (hπ : isS P.C π = true) :
     isS P.C (k ++ π) = true := by

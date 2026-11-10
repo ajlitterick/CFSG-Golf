@@ -78,6 +78,13 @@ lemma prod_ρ_apply (V W : FDRep k G) (g : G) (x : V × W) :
   rw [FDRep.prod_ρ]
   exact Representation.prod_apply_apply V.ρ W.ρ g x
 
+private lemma hom_hom_apply_eq_of_eq
+    {X Y : FDRep k G} {f g : X ⟶ Y}
+    (h : f = g) (x : X.V.obj) :
+    f.hom.hom x = g.hom.hom x := by
+  subst h
+  rfl
+
 
 /-- Helper: The underlying vector space of a biproduct is linearly equivalent to the product. -/
 noncomputable def linearEquivBiprod (X Y : FDRep k G) :
@@ -185,6 +192,186 @@ lemma IsZero_biproduct_empty
     cases i
 
 
+/--
+Construct an isomorphism between finite biproducts from a reindexing of the
+summands together with componentwise isomorphisms.
+-/
+noncomputable def biproductIsoOfReindex
+    {k : Type u} [CommRing k]
+    {G : Type v} [Monoid G]
+    {ι κ : Type} [Fintype ι] [Fintype κ]
+    (f : ι → FDRep k G) (g : κ → FDRep k G)
+    (σ : ι ≃ κ)
+    (hσ : ∀ i, Nonempty (f i ≅ g (σ i))) :
+    Limits.biproduct f ≅ Limits.biproduct g :=
+  Limits.biproduct.mapIso (fun i => Classical.choice (hσ i)) ≪≫
+    Limits.biproduct.reindex σ g
+
+
+open Classical in
+/--
+If two finite families have the same multiplicities in each isomorphism class
+represented by either family, then their index types are equivalent in a way
+that matches isomorphic summands.
+-/
+lemma exists_equiv_of_iso_counts
+    {ι κ : Type} [Fintype ι] [Fintype κ]
+    (f : ι → FDRep k G) (g : κ → FDRep k G)
+    (hcount_f :
+      ∀ i₀ : ι,
+        (∑ i, if Nonempty (f i₀ ≅ f i) then 1 else 0)
+          =
+        (∑ j, if Nonempty (f i₀ ≅ g j) then 1 else 0))
+    (hcount_g :
+      ∀ j₀ : κ,
+        (∑ i, if Nonempty (g j₀ ≅ f i) then 1 else 0)
+          =
+        (∑ j, if Nonempty (g j₀ ≅ g j) then 1 else 0)) :
+    ∃ σ : ι ≃ κ, ∀ i, Nonempty (f i ≅ g (σ i)) := by
+  let Setoid_ι : Setoid ι :=
+    { r := fun i i' => Nonempty (f i ≅ f i')
+      iseqv :=
+        ⟨ fun _ => ⟨Iso.refl _⟩,
+          fun ⟨h⟩ => ⟨h.symm⟩,
+          fun ⟨h1⟩ ⟨h2⟩ => ⟨h1.trans h2⟩ ⟩ }
+
+  let Classes := Quotient Setoid_ι
+  let classOf : ι → Classes := Quotient.mk Setoid_ι
+
+  have h_surj (j : κ) : ∃ i, Nonempty (f i ≅ g j) := by
+    by_contra h_none
+    push Not at h_none
+
+    have h_lhs_zero :
+        (∑ i, if Nonempty (g j ≅ f i) then 1 else 0) = 0 := by
+      apply Finset.sum_eq_zero
+      intro i _
+      rw [if_neg]
+      intro h
+      rcases h with ⟨e⟩
+      exact @IsEmpty.false (f i ≅ g j) (h_none i) e.symm
+
+    have h_rhs_pos :
+        1 ≤ ∑ x : κ, if Nonempty (g j ≅ g x) then 1 else 0 := by
+      rw [Finset.sum_eq_add_sum_sdiff_singleton_of_mem]
+      · rw [if_pos ⟨Iso.refl _⟩]
+        exact Nat.le_add_right 1 _
+      · simp
+
+    have h_eq := hcount_g j
+    rw [h_lhs_zero] at h_eq
+    rw [← h_eq] at h_rhs_pos
+    exact Nat.not_succ_le_zero 0 h_rhs_pos
+
+  let classOf' (j : κ) : Classes :=
+    Quotient.mk Setoid_ι (Classical.choose (h_surj j))
+
+  have card_fibers_eq :
+      ∀ c : Classes,
+        Fintype.card { i // classOf i = c } =
+          Fintype.card { j // classOf' j = c } := by
+    intro c
+    obtain ⟨rep, rfl⟩ := Quotient.exists_rep c
+
+    have hS := hcount_f rep
+    simp only [Finset.sum_boole] at hS
+
+    rw [Fintype.card_subtype (fun i => classOf i = ⟦rep⟧),
+        Fintype.card_subtype (fun j => classOf' j = ⟦rep⟧)]
+
+    have h_left :
+        (Finset.univ.filter (fun x => Nonempty (f rep ≅ f x))).card =
+          (Finset.univ.filter (fun i => classOf i = ⟦rep⟧)).card := by
+      apply congrArg
+      apply Finset.filter_congr
+      intro i _
+      rw [Quotient.eq]
+      constructor
+      · intro h
+        exact ⟨h.some.symm⟩
+      · intro h
+        exact ⟨h.some.symm⟩
+
+    have h_right :
+        (Finset.univ.filter (fun x => Nonempty (f rep ≅ g x))).card =
+          (Finset.univ.filter (fun j => classOf' j = ⟦rep⟧)).card := by
+      apply congrArg
+      apply Finset.filter_congr
+      intro j _
+      rw [Quotient.eq]
+      constructor
+      · intro h
+        have h_link := Classical.choose_spec (h_surj j)
+        exact ⟨h_link.some.trans h.some.symm⟩
+      · intro h
+        have h_link := Classical.choose_spec (h_surj j)
+        exact ⟨h.some.symm.trans h_link.some⟩
+
+    rw [h_left, h_right] at hS
+    exact hS
+
+  let e1 : ι ≃ (c : Classes) × { i // classOf i = c } :=
+    (Equiv.sigmaFiberEquiv classOf).symm
+
+  let e_mid :
+      ((c : Classes) × { i // classOf i = c }) ≃
+        ((c : Classes) × { j // classOf' j = c }) :=
+    Equiv.sigmaCongrRight
+      (fun c => Fintype.equivOfCardEq (card_fibers_eq c))
+
+  let e2 : κ ≃ (c : Classes) × { j // classOf' j = c } :=
+    (Equiv.sigmaFiberEquiv classOf').symm
+
+  let σ := e1.trans (e_mid.trans e2.symm)
+
+  refine ⟨σ, ?_⟩
+  intro i
+
+  have h_classes_eq : classOf' (σ i) = classOf i := by
+    let y := e_mid (e1 i)
+
+    have h_proj : classOf' (e2.symm y) = y.1 := by
+      change classOf' (Equiv.sigmaFiberEquiv classOf' y) = y.1
+      rw [Equiv.sigmaFiberEquiv_apply]
+      exact y.snd.property
+
+    have h_mid : y.1 = (e1 i).1 := rfl
+
+    have h_first : (e1 i).1 = classOf i := by
+      rw [Equiv.sigmaFiberEquiv_symm_apply_fst]
+
+    dsimp [σ]
+    rw [h_proj, h_mid, h_first]
+
+  rw [Quotient.eq] at h_classes_eq
+  obtain ⟨h_iso_fiber⟩ := h_classes_eq
+  obtain ⟨h_link⟩ := Classical.choose_spec (h_surj (σ i))
+  exact ⟨h_iso_fiber.symm.trans h_link⟩
+
+open Classical in
+/--
+Two finite biproducts are isomorphic if their summands have the same
+multiplicities in every isomorphism class represented by either family.
+-/
+theorem biproduct_iso_of_iso_counts
+    {ι κ : Type} [Fintype ι] [Fintype κ]
+    (f : ι → FDRep k G) (g : κ → FDRep k G)
+    [HasBiproduct f] [HasBiproduct g]
+    (hcount_f :
+      ∀ i₀ : ι,
+        (∑ i, if Nonempty (f i₀ ≅ f i) then 1 else 0)
+          =
+        (∑ j, if Nonempty (f i₀ ≅ g j) then 1 else 0))
+    (hcount_g :
+      ∀ j₀ : κ,
+        (∑ i, if Nonempty (g j₀ ≅ f i) then 1 else 0)
+          =
+        (∑ j, if Nonempty (g j₀ ≅ g j) then 1 else 0)) :
+    Nonempty ((⨁ f) ≅ (⨁ g)) := by
+  rcases exists_equiv_of_iso_counts f g hcount_f hcount_g with ⟨σ, hσ⟩
+  exact ⟨FDRep.biproductIsoOfReindex
+    (k := k) (G := G) (f := f) (g := g) σ hσ⟩
+
 end FiniteBiproducts
 
 section HomToBiproduct
@@ -193,6 +380,54 @@ variable {k : Type u} {G : Type v} [CommRing k] [Monoid G]
 
 variable {ι : Type wι} [Finite ι]
 
+/--
+Morphisms into a finite biproduct are linearly equivalent to families of
+morphisms into each summand.
+-/
+noncomputable def hom_to_biproduct_linearEquiv
+    (S : FDRep k G) (f : ι → FDRep k G)
+    [HasBiproduct f] :
+    (S ⟶ (⨁ f : FDRep k G)) ≃ₗ[k] (∀ i, S ⟶ f i) where
+  toFun g i := g ≫ biproduct.π (f := f) i
+  invFun p := biproduct.lift (f := f) p
+  map_add' := by
+    intro g h
+    ext i
+    simp
+  map_smul' := by
+    intro c g
+    ext i
+    simp
+  left_inv := by
+    intro g
+    apply biproduct.hom_ext
+    intro i
+    simp
+  right_inv := by
+    intro p
+    funext i
+    simp
+
+/--
+The dimension of the morphism space into a finite biproduct is the sum of the
+dimensions of the morphism spaces into the summands.
+-/
+lemma finrank_hom_to_biproduct_eq_sum
+    {ι : Type wι} [Fintype ι]
+    {k : Type u} {G : Type v} [Field k] [Monoid G]
+    (S : FDRep k G) (f : ι → FDRep k G)
+    [HasBiproduct f] :
+    Module.finrank k (S ⟶ ⨁ f) =
+      ∑ i, Module.finrank k (S ⟶ f i) := by
+  let e := hom_to_biproduct_linearEquiv (k := k) (G := G) S f
+  calc
+    Module.finrank k (S ⟶ ⨁ f)
+        = Module.finrank k (∀ i, S ⟶ f i) := LinearEquiv.finrank_eq e
+    _ = ∑ i, Module.finrank k (S ⟶ f i) := by
+        simpa using
+          (Module.finrank_pi_fintype k :
+            Module.finrank k (∀ i, S ⟶ f i) =
+              ∑ i, Module.finrank k (S ⟶ f i))
 
 end HomToBiproduct
 

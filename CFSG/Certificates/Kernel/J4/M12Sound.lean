@@ -331,6 +331,21 @@ theorem toVec_xor (a b : ℕ) : toVec (a ^^^ b) = toVec a + toVec b := by
 theorem toMat_land (A K : ℕ) (i j : Fin 12) : toMat (A &&& K) i j = toMat A i j * toMat K i j := by
   simp only [toMat, Matrix.of_apply, Nat.testBit_and, cast_and]
 
+theorem mul12_assoc (A B C : ℕ) : mul12 (mul12 A B) C = mul12 A (mul12 B C) :=
+  eq_of_toMat_eq (mul12_lt _ _) (mul12_lt _ _) (by simp only [toMat_mul12, Matrix.mul_assoc])
+
+theorem ident12_mul12 {A : ℕ} (hA : A < 2 ^ 144) : mul12 ident12 A = A :=
+  eq_of_toMat_eq (mul12_lt _ _) hA (by rw [toMat_mul12, toMat_ident12, Matrix.one_mul])
+
+theorem mul12_ident12 {A : ℕ} (hA : A < 2 ^ 144) : mul12 A ident12 = A :=
+  eq_of_toMat_eq (mul12_lt _ _) hA (by rw [toMat_mul12, toMat_ident12, Matrix.mul_one])
+
+theorem vecmul_mul12 (x A B : ℕ) : vecmul (vecmul x A) B = vecmul x (mul12 A B) :=
+  eq_of_toVec_eq (vecmul_lt _ _) (vecmul_lt _ _)
+    (by rw [toVec_vecmul, toVec_vecmul, toVec_vecmul, toMat_mul12, Matrix.vecMul_vecMul])
+
+theorem vecmul_ident12 {x : ℕ} (hx : x < 2 ^ 12) : vecmul x ident12 = x :=
+  eq_of_toVec_eq (vecmul_lt _ _) hx (by rw [toVec_vecmul, toMat_ident12, Matrix.vecMul_one])
 
 theorem vecmul_xor (a b M : ℕ) : vecmul (a ^^^ b) M = vecmul a M ^^^ vecmul b M :=
   eq_of_toVec_eq (vecmul_lt _ _) (Nat.xor_lt_two_pow (vecmul_lt _ _) (vecmul_lt _ _))
@@ -339,6 +354,10 @@ theorem vecmul_xor (a b M : ℕ) : vecmul (a ^^^ b) M = vecmul a M ^^^ vecmul b 
 theorem mulF_eq (A B : ℕ) : S.mulF A B = mul12 A B := by
   simp only [S.mulF, F2W.strictN_eq]
 
+theorem chkMul_iff {C A B : ℕ} : chkMul C A B = true ↔ C = mul12 A B := beq_eq_true
+
+theorem chkMul_sound {C A B : ℕ} (h : chkMul C A B = true) : toMat C = toMat A * toMat B := by
+  rw [chkMul_iff.1 h, toMat_mul12]
 
 theorem chkInv_sound {A B : ℕ} (h : chkInv A B = true) : toMat A * toMat B = 1 := by
   rw [← toMat_mul12, beq_eq_true.1 h, toMat_ident12]
@@ -485,6 +504,24 @@ theorem mem_ptSub {P : ℕ} (hP : ptOK P = true) {v : Fin 12 → ZMod 2} :
     · exact ⟨0, 1, 0, by simp⟩
     · exact ⟨0, 0, 1, by simp⟩
 
+theorem zero_not_mem_ptVecs {P : ℕ} (hP : ptOK P = true) : (0 : Fin 12 → ZMod 2) ∉ ptVecs P := by
+  obtain ⟨h0, h01, h12, -, -⟩ := ptOK_spec hP
+  simp only [ptVecs, Set.mem_insert_iff, Set.mem_singleton_iff]
+  rintro (h | h | h) <;> rw [eq_comm, toVec_eq_zero_iff (pv_lt _ _)] at h <;> omega
+
+theorem ptVecs_eq_of_ptSub_eq {P Q : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
+    (h : ptSub P = ptSub Q) : ptVecs P = ptVecs Q := by
+  ext v
+  have hv := (mem_ptSub hP (v := v)).symm.trans ((SetLike.ext_iff.1 h v).trans (mem_ptSub hQ))
+  constructor
+  · intro hm
+    rcases hv.1 (Or.inr hm) with rfl | h'
+    · exact absurd hm (zero_not_mem_ptVecs hP)
+    · exact h'
+  · intro hm
+    rcases hv.2 (Or.inr hm) with rfl | h'
+    · exact absurd hm (zero_not_mem_ptVecs hQ)
+    · exact h'
 
 theorem eq_of_ptVecs_eq {P Q : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
     (h : ptVecs P = ptVecs Q) : P = Q := by
@@ -509,6 +546,9 @@ theorem eq_of_ptVecs_eq {P Q : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
   refine eq_of_pv aP bQ fun i hi => ?_
   interval_cases i <;> omega
 
+theorem eq_of_ptSub_eq {P Q : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
+    (h : ptSub P = ptSub Q) : P = Q :=
+  eq_of_ptVecs_eq hP hQ (ptVecs_eq_of_ptSub_eq hP hQ h)
 
 theorem sel_cases : ∀ h < 6,
     (sel h 0 = 0 ∧ sel h 1 = 1 ∧ sel h 2 = 2) ∨ (sel h 0 = 0 ∧ sel h 1 = 2 ∧ sel h 2 = 1) ∨
@@ -554,6 +594,10 @@ theorem chkPt_image {P g Q h : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
   rcases sel_cases h h6 with ⟨s0, s1, s2⟩ | ⟨s0, s1, s2⟩ | ⟨s0, s1, s2⟩ | ⟨s0, s1, s2⟩ |
     ⟨s0, s1, s2⟩ | ⟨s0, s1, s2⟩ <;> rw [s0, s1, s2] <;> tauto
 
+theorem chkPt_map {P g Q h : ℕ} (hP : ptOK P = true) (hQ : ptOK Q = true)
+    (hc : chkPt P g Q h = true) : (ptSub P).map (toMat g).vecMulLinear = ptSub Q := by
+  rw [ptSub, Submodule.map_span, ptSub, ← chkPt_image hP hQ hc]
+  rfl
 
 theorem chkPtF_eq (P g Q h : ℕ) : S.chkPtF P g Q h = chkPt P g Q h := by
   cases P <;> cases g <;> cases Q <;> rfl
@@ -563,6 +607,18 @@ theorem image_vecMul_mul (A B : Matrix (Fin 12) (Fin 12) (ZMod 2)) (X : Set (Fin
   rw [Set.image_image]
   simp only [Matrix.vecMul_vecMul]
 
+theorem testBit_mask144 : ∀ p < 144,
+    Nat.testBit (nat_lit 22300745198530623141535718272648361505980415) p = true := by
+  decide +kernel
+
+theorem letMat_lt (LET c : ℕ) : letMat LET c < 2 ^ 144 :=
+  Nat.and_lt_two_pow _ (by decide +kernel)
+
+theorem toMat_letMat (LET c : ℕ) (i j : Fin 12) :
+    toMat (letMat LET c) i j = ((LET.testBit (144 * c + (12 * (i : ℕ) + j))).toNat : ZMod 2) := by
+  rw [toMat_apply]
+  change ((((LET >>> (144 * c)) &&& _).testBit _).toNat : ZMod 2) = _
+  rw [Nat.testBit_and, testBit_mask144 _ (by omega), Bool.and_true, Nat.testBit_shiftRight]
 
 @[expose] noncomputable def wordVal {M : Type*} [Monoid M] (e : ℕ → M) (w n : ℕ) : M :=
   Nat.rec (motive := fun _ => M) 1 (fun i acc => acc * e (wLet w i)) n
@@ -584,6 +640,9 @@ theorem map_wordVal {M N F : Type*} [Monoid M] [Monoid N] [FunLike F M N] [Monoi
   | 0 => map_one f
   | n + 1 => by rw [wordVal_succ, wordVal_succ, map_mul, map_wordVal f e w n]
 
+theorem evalW_lt (LET w : ℕ) : ∀ n : ℕ, evalW LET w n < 2 ^ 144
+  | 0 => ident12_lt
+  | _ + 1 => mul12_lt _ _
 
 theorem toMat_evalW (LET w : ℕ) : ∀ n : ℕ,
     toMat (evalW LET w n) = wordVal (fun c => toMat (letMat LET c)) w n

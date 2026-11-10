@@ -6,6 +6,12 @@ public section
 
 namespace CFSG.QuasithinUnique.Ch1.SporLat
 
+def buildLatPt (n : Nat) (ta tb : Array Nat) (Δ : List Nat) (sTabs : List (Array Nat))
+    (cap : Nat) : LatData (List Nat) :=
+  buildLat ptAct n ta tb Δ sTabs cap
+
+def buildO2Pt (D : LatData (List Nat)) : Array (OmegaData (List (List Nat))) :=
+  buildO2 ptAct D
 
 def omegaSpecPtB (letters : Array (Array Nat)) (Δ : List Nat) (O : OmegaData (List Nat)) : Bool :=
   decide (O.lbl[0]! = Δ) && decide (0 < O.lbl.size) &&
@@ -35,6 +41,19 @@ local instance latOKPtDec (n : Nat) (ta tb : Array Nat) (Δ : List Nat)
     (D : LatData (List Nat)) : Decidable (LatOK ptAct n ta tb Δ D) := by
   unfold LatOK; infer_instance
 
+def latOKPt (n : Nat) (ta tb : Array Nat) (Δ : List Nat) (D : LatData (List Nat)) : Bool :=
+  decide (LatOK ptAct n ta tb Δ D)
+
+theorem latOKPt_iff {n : Nat} {ta tb : Array Nat} {Δ : List Nat} {D : LatData (List Nat)} :
+    latOKPt n ta tb Δ D = true ↔ LatOK ptAct n ta tb Δ D :=
+  decide_eq_true_iff
+
+def o2OKPt (D : LatData (List Nat)) (Ot : Array (OmegaData (List (List Nat)))) : Bool :=
+  decide (O2OK ptAct D Ot)
+
+theorem o2OKPt_iff {D : LatData (List Nat)} {Ot : Array (OmegaData (List (List Nat)))} :
+    o2OKPt D Ot = true ↔ O2OK ptAct D Ot :=
+  decide_eq_true_iff
 
 def inclPt (Δ : List Nat) (D : LatData (List Nat)) (J : Nat) (incl : List (List Nat)) : Bool :=
   decide (∀ j < J, ∀ jj < J, (GensIn ptAct Δ D j jj ↔ jj ∈ incl[j]!))

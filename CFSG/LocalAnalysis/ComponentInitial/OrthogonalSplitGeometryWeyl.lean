@@ -35,6 +35,9 @@ theorem eps_eval_self (i : Fin r) : eps r i i = 1 := by
 theorem eps_eval_ne {i j : Fin r} (h : j ≠ i) : eps r i j = 0 := by
   simp [eps_apply, h]
 
+theorem sign_vec_apply (s t : ℤ) (a b j : Fin r) :
+    (s • eps r a + t • eps r b) j = (if j = a then s else 0) + if j = b then t else 0 := by
+  simp [eps_apply]
 
 end Sign
 
@@ -660,6 +663,25 @@ theorem bijOn_simpleRefl (hr : 2 ≤ r) (i : Fin r) :
     hinvol γ⟩⟩
 
 end Descent
+
+
+theorem orthogonal_geometry_split_D_signed_descent {r : ℕ} (hr : 3 ≤ r) :
+    (∀ i, simpleRefl r i ∈ weylGroup r) ∧
+      Subgroup.closure (Set.range (simpleRefl r)) = weylGroup r ∧
+      (∀ α ∈ roots r, ∀ β ∈ roots r, ∃ w ∈ weylGroup r, w α = β) ∧
+      (∀ i, simpleRefl r i (simpleRoot r i) = -simpleRoot r i ∧
+        Set.BijOn (simpleRefl r i) (posRoots r \ {simpleRoot r i})
+          (posRoots r \ {simpleRoot r i})) ∧
+      (∀ β ∈ posRoots r, ∃ c : Fin r → ℕ, β = ∑ i, c i • simpleRoot r i) ∧
+      (∀ w ∈ weylGroup r, w ≠ 1 → ∃ i, -(w⁻¹ (simpleRoot r i)) ∈ posRoots r) ∧
+      (∀ w ∈ weylGroup r, ∀ i, -(w⁻¹ (simpleRoot r i)) ∈ posRoots r →
+        weylLength r (simpleRefl r i * w) = weylLength r w - 1) :=
+  ⟨simpleRefl_mem (by omega), closure_simpleRefl hr,
+    fun _ hα _ hβ => exists_weyl_apply_eq hr hα hβ,
+    fun i => ⟨simpleRefl_simpleRoot (by omega) i, bijOn_simpleRefl (by omega) i⟩,
+    fun _ hβ => exists_nonneg_comb (by omega) hβ,
+    fun _ hw hne => exists_simpleRoot_neg hr hw hne,
+    fun _ hw _ hi => weylLength_simpleRefl_mul (by omega) hw hi⟩
 
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplit

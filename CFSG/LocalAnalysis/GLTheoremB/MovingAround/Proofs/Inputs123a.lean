@@ -1466,6 +1466,10 @@ theorem input19_17_2_of (h : Input19_17_2S) : Lemma123.Input19_17_2 := by
   · exact Or.inl fun h2 => h1 (isLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
   · exact Or.inr fun h2 => h1 (isWeaklyLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
 
+@[expose] def Input19_18S : Prop :=
+  ∀ (p : ℕ), p.Prime → 3 < p → ∀ (S : Type) [Group S] [Finite S],
+    ((IsSimpleGroup S ∧ Prop1116Design.IsLieOverField 3 S) ∨ (p = 13 ∧ IsLpType 3 (3 ^ 13) S)) →
+      IsWeaklyLocallyOTwoBalancedWrtP p 1 S
 
 theorem center_quot_eq_bot {Y : Type} [Group Y] (hq : CFSG.Open.IsQuasisimple Y) :
     Subgroup.center (Y ⧸ Subgroup.center Y) = ⊥ := by

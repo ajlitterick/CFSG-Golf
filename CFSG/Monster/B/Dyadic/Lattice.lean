@@ -63,6 +63,10 @@ theorem det_Bq :
   simp_rw [Bq_diag]
   rw [Finset.prod_inv_distrib, Finset.prod_pow_eq_pow_sum, expDefect_eq]
 
+theorem det_Bq_ne_zero :
+    Bq.det ≠ 0 := by
+  rw [det_Bq]
+  positivity
 
 variable {V : Type*} [AddCommGroup V] [Module ℚ V] (R : Basis (Fin 4371) ℚ V)
 
@@ -110,9 +114,136 @@ theorem coe_ellZBasis
   unfold ellZBasis
   exact congrArg Subtype.val (Basis.span_apply (ell_linIndep_int R) i)
 
+theorem span_Lam :
+    Submodule.span ℚ (Lam R : Set V) = ⊤ := by
+  rw [eq_top_iff, ← (ellBasis R).span_eq, coe_ellBasis]
+  exact Submodule.span_mono (Submodule.subset_span (R := ℤ))
+
+@[expose] def rawLat : Submodule ℤ V := Submodule.span ℤ (Set.range R)
 
 theorem ell_mem_Lam (i : Fin 4371) : ell R i ∈ Lam R := Submodule.subset_span ⟨i, rfl⟩
 
+theorem zsum_ell (c : Fin 4371 → ℤ) :
+    ∑ t, c t • ell R t = ∑ j, (∑ t, (c t : ℚ) * Bq t j) • R j := by
+  simp_rw [ell_eq, Finset.smul_sum, ← Int.cast_smul_eq_zsmul ℚ, smul_smul]
+  rw [Finset.sum_comm]
+  simp_rw [Finset.sum_smul]
+
+theorem R_mem_Lam (k : Fin 4371) : R k ∈ Lam R := by
+  obtain ⟨c, hc⟩ := (Submodule.mem_span_range_iff_exists_fun ℤ).1 (sing_mem_rowLat k k.2)
+  have key : ∀ j : Fin 4371, ∑ t, (c t : ℚ) * Bq t j = if k = j then 1 else 0 := by
+    intro j
+    have hj := congrFun hc j
+    simp only [Finset.sum_apply, Pi.smul_apply, smul_eq_mul, Bvec, byteVec, sing] at hj
+    have hj' : ∑ t, (c t : ℚ) * (Bmat t j : ℚ) = if (j : ℕ) = k then 128 else 0 := by
+      have := congrArg (fun z : ℤ => (z : ℚ)) hj
+      rw [Finset.sum_congr rfl fun t _ => by rw [Bmat_apply, Bz]]
+      simpa [apply_ite] using this
+    simp only [Bq, mul_div_assoc']
+    rw [← Finset.sum_div, hj']
+    by_cases h : k = j
+    · subst h
+      simp
+    · rw [ite_eq_right (fun e => h (Fin.ext e.symm)), ite_eq_right h]
+      simp
+  have : ∑ t, c t • ell R t = R k := by
+    rw [zsum_ell]
+    simp_rw [key, ite_smul, one_smul, zero_smul]
+    rw [Finset.sum_ite_eq]
+    simp
+  rw [← this]
+  exact Submodule.sum_mem _ fun t _ => Submodule.smul_mem _ _ (ell_mem_Lam R t)
+
+theorem rawLat_le_Lam : rawLat R ≤ Lam R :=
+  Submodule.span_le.2 (Set.range_subset_iff.2 (R_mem_Lam R))
+
+set_option exponentiation.threshold 16384 in
+theorem relIndex_rawLat_Lam :
+    (rawLat R).toAddSubgroup.relIndex (Lam R).toAddSubgroup = 2 ^ 13123 := by
+  have h := AddSubgroup.relIndex_eq_abs_det (rawLat R).toAddSubgroup (Lam R).toAddSubgroup
+    (rawLat_le_Lam R) R (ellBasis R) (Submodule.span_int_eq_addSubgroupClosure _)
+    (by rw [coe_ellBasis]; exact Submodule.span_int_eq_addSubgroupClosure _)
+  have h1 := Basis.toMatrix_mul_toMatrix_flip (ellBasis R) R
+  have h2 := congrArg Matrix.det h1
+  rw [Matrix.det_mul, Matrix.det_one, ← Basis.det_apply, ← Basis.det_apply, coe_ellBasis,
+    det_ell] at h2
+  rw [eq_inv_of_mul_eq_one_left h2, inv_inv, abs_of_pos (by positivity)] at h
+  exact_mod_cast h
+
+@[expose] def parMat (sh : ℕ) (M : Array (Array (ℕ × UInt32))) :
+    Matrix (Fin 4371) (Fin 4371) (ZMod 2) :=
+  fun k t => if Binary.Native.rowBit (binRow sh basisRowsK diagExpK M k) t then 1 else 0
+
+structure ReducesOn (N : V →ₗ[ℚ] V) (sh : ℕ) (M : Array (Array (ℕ × UInt32)))
+    (num : ℕ → ℕ → ℤ) : Prop where
+  sh_le : sh ≤ 24
+  num_eq : ∀ s u, entrySum (M[s]!).toList u = (num s u : ZMod 4294967296)
+  act : ∀ t, N (R t) = ∑ u : Fin 4371, ((num t u : ℚ) / 2 ^ sh) • R u
+  ok : ∀ i < 4371, (reduceRow sh basisRowsK diagExpK M i).isSome
+
+variable {R} in
+theorem ell_image_of
+    {N : V →ₗ[ℚ] V} {sh : ℕ} {M : Array (Array (ℕ × UInt32))}
+    {num : ℕ → ℕ → ℤ} (h : ReducesOn R N sh M num) (i : Fin 4371) :
+    ∃ c : Fin 4371 → ℤ, N (ell R i) = ∑ t, (c t : ℚ) • ell R t ∧
+      ∀ t, (c t : ZMod 2) = parMat sh M i t := by
+  obtain ⟨qs, hqs⟩ := Option.isSome_iff_exists.1 (h.ok i i.2)
+  obtain ⟨hdiv, c, hc1, hc2⟩ := reduce_row_of sh h.sh_le M num h.num_eq hqs
+  refine ⟨c, ?_, fun t => by rw [hc2 t, parMat, rowBit_binRow sh M hqs t.2]⟩
+  have hpos : (2 : ℚ) ^ sh ≠ 0 := by positivity
+  have hX : ∀ u : Fin 4371, ∑ s : Fin 4371, Bq i s * ((num s u : ℚ) / 2 ^ sh) =
+      ∑ t : Fin 4371, (c t : ℚ) * Bq t u := by
+    intro u
+    have h1 : ((∑ t : Fin 4371, Bz i t * num t u : ℤ) : ℚ) =
+        2 ^ sh * ∑ t : Fin 4371, (c t : ℚ) * (Bz t u : ℚ) := by
+      rw [← Int.ediv_mul_cancel (hdiv u), hc1 u]
+      push_cast [Int.cast_sum]
+      ring
+    push_cast [Int.cast_sum] at h1
+    simp only [Bq, Bmat_apply]
+    rw [show ∑ x : Fin 4371, (Bz i x : ℚ) / 128 * ((num x u : ℚ) / 2 ^ sh) =
+        (∑ x : Fin 4371, (Bz i x : ℚ) * (num x u : ℚ)) / (2 ^ sh * 128) by
+      rw [Finset.sum_div]
+      refine Finset.sum_congr rfl fun x _ => ?_
+      field_simp, h1, mul_div_mul_left _ _ hpos,
+      show ∑ x : Fin 4371, (c x : ℚ) * ((Bz x u : ℚ) / 128) =
+        (∑ x : Fin 4371, (c x : ℚ) * (Bz x u : ℚ)) / 128 by
+      rw [Finset.sum_div]
+      refine Finset.sum_congr rfl fun x _ => ?_
+      ring]
+  have hL : N (ell R i) =
+      ∑ u : Fin 4371, (∑ s : Fin 4371, Bq i s * ((num s u : ℚ) / 2 ^ sh)) • R u := by
+    rw [ell_eq, map_sum]
+    simp_rw [map_smul, h.act, Finset.smul_sum, smul_smul]
+    rw [Finset.sum_comm]
+    simp_rw [Finset.sum_smul]
+  have hR : ∑ t, (c t : ℚ) • ell R t = ∑ u : Fin 4371, (∑ t, (c t : ℚ) * Bq t u) • R u := by
+    simp_rw [ell_eq, Finset.smul_sum, smul_smul]
+    rw [Finset.sum_comm]
+    simp_rw [Finset.sum_smul]
+  rw [hL, hR]
+  exact Finset.sum_congr rfl fun u _ => by rw [hX u]
+
+variable {R} in
+theorem lam_mapsTo_of
+    {N : V →ₗ[ℚ] V} {sh : ℕ} {M : Array (Array (ℕ × UInt32))}
+    {num : ℕ → ℕ → ℤ} (h : ReducesOn R N sh M num) : ∀ x ∈ Lam R, N x ∈ Lam R := by
+  intro x hx
+  refine Submodule.span_induction (p := fun x _ => N x ∈ Lam R) ?_ ?_ ?_ ?_ hx
+  · rintro _ ⟨i, rfl⟩
+    obtain ⟨c, hc, -⟩ := ell_image_of h i
+    rw [hc]
+    refine Submodule.sum_mem _ fun t _ => ?_
+    rw [Int.cast_smul_eq_zsmul]
+    exact Submodule.smul_mem _ _ (ell_mem_Lam R t)
+  · rw [map_zero]
+    exact Submodule.zero_mem _
+  · intro x y _ _ hx hy
+    rw [map_add]
+    exact Submodule.add_mem _ hx hy
+  · intro a x _ hx
+    rw [map_zsmul]
+    exact Submodule.smul_mem _ a hx
 
 @[expose] noncomputable def lamEnd (N : V →ₗ[ℚ] V) (h : ∀ x ∈ Lam R, N x ∈ Lam R) :
     Lam R →ₗ[ℤ] Lam R :=
@@ -134,6 +265,32 @@ theorem mkQ_zsmul {M : Type*} [AddCommGroup M] (c : ℤ) (x : M) :
     ModN.mkQ 2 (c • x) = (c : ZMod 2) • ModN.mkQ 2 x := by
   rw [map_zsmul, Int.cast_smul_eq_zsmul]
 
+variable {R} in
+theorem modTwo_ell_of
+    {N : V →ₗ[ℚ] V} {sh : ℕ} {M : Array (Array (ℕ × UInt32))}
+    {num : ℕ → ℕ → ℤ} (h : ReducesOn R N sh M num) (hm : ∀ x ∈ Lam R, N x ∈ Lam R)
+    (k : Fin 4371) :
+    modTwoMap (lamEnd R N hm) (ModN.basis (ellZBasis R) k) =
+      ∑ l, parMat sh M k l • ModN.basis (ellZBasis R) l := by
+  rw [ModN.basis_apply_eq_mkQ, modTwoMap_mkQ]
+  obtain ⟨c, hc, hpar⟩ := ell_image_of h k
+  have h' : lamEnd R N hm (ellZBasis R k) = ∑ l, c l • ellZBasis R l := by
+    apply Subtype.ext
+    rw [Submodule.coe_sum, coe_lamEnd, coe_ellZBasis, hc]
+    refine Finset.sum_congr rfl fun l _ => ?_
+    rw [Submodule.coe_smul, coe_ellZBasis, Int.cast_smul_eq_zsmul]
+  rw [h', map_sum]
+  refine Finset.sum_congr rfl fun l _ => ?_
+  rw [mkQ_zsmul, hpar, ModN.basis_apply_eq_mkQ]
+
+theorem reducesOn_packet (j : ℕ) (N : V →ₗ[ℚ] V)
+    (hN : ∀ t, N (R t) = ∑ u : Fin 4371, ((numerAt j t u : ℚ) / 8) • R u)
+    (hok : ∀ i < 4371, (reduceRow 3 basisRowsK diagExpK (packetMat j) i).isSome) :
+    ReducesOn R N 3 (packetMat j) (numerAt j) where
+  sh_le := by norm_num
+  num_eq := entrySum_packetMat j
+  act t := by rw [hN t]; norm_num
+  ok := hok
 
 theorem Bzq_isUpperTriangular :
     Bzq.IsUpperTriangular := fun i j h => by
@@ -232,5 +389,63 @@ theorem modTwo_ell
   refine Finset.sum_congr rfl fun l _ => ?_
   rw [mkQ_zsmul, hpar, ModN.basis_apply_eq_mkQ]
 
+theorem toMatrix_modTwo
+    (g : Fin 26) (N : V →ₗ[ℚ] V)
+    (hN : ∀ t, N (R t) = ∑ u : Fin 4371, ((numer g t u : ℚ) / 8) • R u)
+    (hm : ∀ x ∈ Lam R, N x ∈ Lam R) :
+    (LinearMap.toMatrix (ModN.basis (ellZBasis R)) (ModN.basis (ellZBasis R))
+      (modTwoMap (lamEnd R N hm))).transpose = Cmat g := by
+  ext k l
+  rw [Matrix.transpose_apply, LinearMap.toMatrix_apply, modTwo_ell R g N hN hm,
+    Basis.repr_sum_self]
+
+theorem den_Bq_diag
+    (i : Fin 4371) : (Bq i i).den = 2 ^ (7 - diagExpK[(i : ℕ)]!) := by
+  rw [Bq_diag, show ((2 : ℚ) ^ (7 - diagExpK[(i : ℕ)]!)) = ((2 ^ (7 - diagExpK[(i : ℕ)]!) : ℕ) : ℚ)
+    by push_cast; rfl, Rat.inv_natCast_den, ite_eq_right (by positivity)]
+
+theorem expCount_card (k : ℕ) :
+    (Finset.univ.filter fun i : Fin 4371 => diagExpK[(i : ℕ)]! = k).card = expCountOf diagExpK k := by
+  rw [Finset.card_filter, Fin.sum_univ_eq_sum_range (fun i => if diagExpK[i]! = k then 1 else 0)
+    4371, ← list_sum_range]
+  rfl
+
+theorem diag_den_count (e : Fin 7) :
+    (Finset.univ.filter fun i : Fin 4371 => (Bq i i).den = 2 ^ (e : ℕ)).card =
+      ![22, 243, 1035, 1782, 993, 284, 12] e := by
+  have hfilter : (Finset.univ.filter fun i : Fin 4371 => (Bq i i).den = 2 ^ (e : ℕ)) =
+      Finset.univ.filter fun i : Fin 4371 => diagExpK[(i : ℕ)]! = 7 - e := by
+    ext i
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, den_Bq_diag]
+    rw [Nat.pow_right_injective (le_refl 2) |>.eq_iff]
+    have := diagExp_le i
+    have := e.2
+    omega
+  rw [hfilter, expCount_card]
+  have h := diag_stats.1
+  simp only [List.range_succ, List.range_zero, List.nil_append, List.map_cons, List.map_nil,
+    List.cons_append, List.cons.injEq] at h
+  fin_cases e <;> simp [h]
+
+theorem den_Bq_diag_le
+    (i : Fin 4371) : ∃ e < 7, (Bq i i).den = 2 ^ e := by
+  refine ⟨7 - diagExpK[(i : ℕ)]!, ?_, den_Bq_diag i⟩
+  by_contra hcon
+  have h0 : diagExpK[(i : ℕ)]! = 0 := by omega
+  have hc := expCount_card 0
+  have h := diag_stats.1
+  simp only [List.range_succ, List.range_zero, List.nil_append, List.map_cons, List.map_nil,
+    List.cons_append, List.cons.injEq] at h
+  rw [h.1] at hc
+  have : i ∈ Finset.univ.filter fun i : Fin 4371 => diagExpK[(i : ℕ)]! = 0 := by simp [h0]
+  rw [Finset.card_eq_zero.1 hc] at this
+  simp at this
+
+theorem den_Bq_dvd (i j : Fin 4371) : (Bq i j).den ∣ 128 := by
+  have h := Rat.den_dvd (Bmat i j) 128
+  rw [← Rat.intCast_div_eq_divInt] at h
+  have : (Bq i j) = ((Bmat i j : ℤ) : ℚ) / ((128 : ℤ) : ℚ) := by simp [Bq]
+  rw [this]
+  exact_mod_cast h
 
 end CFSG.Monster.B.Dyadic

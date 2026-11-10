@@ -47,6 +47,8 @@ theorem embT_injective (n : ℕ) [NeZero n] : Function.Injective (embT n) := by
   apply emb_injective n
   exact congrArg Subtype.val h
 
+theorem embT_coe (n : ℕ) [NeZero n] (t : T0 n) :
+    ((embT n t : alternatingGroup (Fin (n + 4))) : Perm (Fin (n + 4))) = emb n (t : Amb n) := rfl
 
 @[expose] def a0perm (n : ℕ) [NeZero n] : Perm (Fin (n + 4)) :=
   swap (Fin.castAdd 4 (0 : Fin n)) (Fin.natAdd n 0) *

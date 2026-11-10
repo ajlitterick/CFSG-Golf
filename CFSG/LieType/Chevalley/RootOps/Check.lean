@@ -114,6 +114,56 @@ theorem image_image {m : ℕ} (hm : m < τ.rootCertificate.roots.length) (i : Fi
   refine rootCertificate_root_injOn h2 hm ?_
   rw [rootCertificate_root_image h1, rootCertificate_root_image hm, reflect_reflect]
 
+theorem colCheck_spec {i : Fin τ.rank} {L L' : List Entry} {s : ℤ} {c : ℕ} (hL : ValidEntries τ L)
+    (hc : c < dim τ) (h : colCheck τ i L L' s c = true) :
+    (weylElt τ R i 1 : Module.End R (RootModule τ R)) (entriesOp τ R L (posVec τ R c)) =
+      (s : R) • entriesOp τ R L' ((weylElt τ R i 1 : Module.End R (RootModule τ R))
+        (posVec τ R c)) := by
+  rw [entriesOp_posVec L hc, weylElt_vecOf i (hL.colOf c), weylElt_posVec i hc,
+    entriesOp_vecOf L' (validVec_nPos i hc), ← vecOf_map_mul]
+  exact vecOf_eq_of_normalize_eq (beq_iff_eq.1 h)
+
+theorem conj_of_conjCheckAux {i : Fin τ.rank} {L L' : List Entry} {s : ℤ}
+    (h : conjCheckAux τ i L L' s = true) :
+    (weylElt τ R i 1 : Module.End R (RootModule τ R)) * entriesOp τ R L =
+      (s : R) • (entriesOp τ R L' * (weylElt τ R i 1 : Module.End R (RootModule τ R))) := by
+  simp only [conjCheckAux, Bool.and_eq_true, List.all_eq_true, List.mem_range, Bool.or_eq_true,
+    decide_eq_true_eq, List.any_eq_true, beq_iff_eq] at h
+  obtain ⟨⟨⟨hv, hh⟩, hcols⟩, hsupp⟩ := h
+  have hL := validEntries_of_validB hv
+  refine ext_posVec fun c hc => ?_
+  rw [Module.End.mul_apply, LinearMap.smul_apply, Module.End.mul_apply]
+  by_cases hcr : c < τ.rank
+  · exact colCheck_spec hL hc (hh c hcr)
+  by_cases hmem : ∃ e ∈ L, e.1 = c
+  · obtain ⟨e, he, rfl⟩ := hmem
+    exact colCheck_spec hL hc ((hcols e he).resolve_left hcr)
+  push Not at hmem
+  have hcolL : colOf L c = [] := by
+    simp only [colOf, List.map_eq_nil_iff, List.filter_eq_nil_iff, beq_iff_eq]
+    exact hmem
+  have hm : c - τ.rank < τ.rootCertificate.roots.length := by simp only [dim] at hc; omega
+  have hcolL' : colOf L' (τ.rank + τ.rootCertificate.image (c - τ.rank) i) = [] := by
+    simp only [colOf, List.map_eq_nil_iff, List.filter_eq_nil_iff, beq_iff_eq]
+    intro e he hec
+    rcases hsupp e he with hlt | ⟨f, hf, hfc⟩
+    · omega
+    · refine hmem f hf ?_
+      rw [hfc, hec, Nat.add_sub_cancel_left, image_image hm]
+      omega
+  rw [entriesOp_posVec L hc, hcolL, vecOf_nil, map_zero, weylElt_posVec i hc]
+  simp only [nPos, hcr, ↓reduceDIte]
+  rw [vecOf_cons, vecOf_nil, add_zero, map_smul, entriesOp_posVec L', hcolL',
+    vecOf_nil, smul_zero, smul_zero]
+  have := rootCertificate_image_lt hm i
+  simp only [dim]
+  omega
+
+theorem conj_of_conjCheck {a : ℕ} {i : Fin τ.rank} {k : ℕ} (h : conjCheck τ a i k = true) :
+    (weylElt τ R i 1 : Module.End R (RootModule τ R)) * entriesOp τ R (entries τ a k) =
+      ((signOf τ a i ^ k : ℤ) : R) • (entriesOp τ R (entries τ (τ.rootCertificate.image a i) k) *
+        (weylElt τ R i 1 : Module.End R (RootModule τ R))) :=
+  conj_of_conjCheckAux h
 
 theorem idxPos_lt (b : CFSG.LieType.Ree.Idx τ.rootCertificate) : idxPos b < dim τ := by
   rcases b with j | m

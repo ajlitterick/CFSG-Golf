@@ -13,6 +13,8 @@ namespace CertificateChecks.Batch3112
 theorem count_zeros : Nat.count (fun x => qPoly (bvec 8 x) + 1 = 0) (2 ^ 8) = 136 := by
   decide +kernel
 
+theorem count_zeros_ne : ¬ Nat.count (fun x => qPoly (bvec 8 x) + 1 = 0) (2 ^ 8) = 135 := by
+  decide +kernel
 
 theorem card_shift (P : V8 → Prop) [DecidablePred P] (v : V8) :
     (Finset.univ.filter fun w => P (w + v)).card = (Finset.univ.filter P).card :=

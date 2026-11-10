@@ -71,6 +71,9 @@ theorem piAut_eq_one_iff {A : Subgroup G} {x : G} (hx : x ∈ torusNormalizer A)
 end PiAut
 
 
+theorem swap_eq_swap_cases : ∀ i j k l : Fin 3, i ≠ j → k ≠ l → Equiv.swap i j = Equiv.swap k l →
+    (i = k ∧ j = l) ∨ (i = l ∧ j = k) := by decide
+
 theorem exists_swap_of_sq_one : ∀ σ : Equiv.Perm (Fin 3), σ * σ = 1 → σ ≠ 1 →
     ∃ i j, i ≠ j ∧ σ = Equiv.swap i j := by decide
 
@@ -206,6 +209,7 @@ theorem LineHyp.nodeOf_ne_one (hL : LineHyp p A c J f ρ) {i j : Fin 3} (hij : i
   exact hij h3.symm
 
 
+
 theorem LineHyp.nodeOf_mem_reflectionSet (hL : LineHyp p A c J f ρ) {i j : Fin 3} (hij : i ≠ j) :
     nodeOf A ρ i j ∈ reflectionSet p A := by
   have hp := hL.prime
@@ -244,6 +248,14 @@ theorem LineHyp.nodeOf_mem_reflectionSet (hL : LineHyp p A c J f ρ) {i j : Fin 
   rwa [show ((e.symm g : ↥(torusImage A J)) : MulAut A) * t₀ * ((e.symm g : ↥(torusImage A J)) :
     MulAut A)⁻¹ = nodeOf A ρ i j from h2] at hmem
 
+theorem LineHyp.nodeOf_inj (hL : LineHyp p A c J f ρ) {i j k l : Fin 3} (hij : i ≠ j) (hkl : k ≠ l)
+    (h : nodeOf A ρ i j = nodeOf A ρ k l) : (i = k ∧ j = l) ∨ (i = l ∧ j = k) := by
+  obtain ⟨ζ, hζ⟩ := hL.exists_zeta
+  have hs : Equiv.swap i j = Equiv.swap k l :=
+    actsBy_unique hL.prime hL.cover hζ (ActsBy.permSL _) (ActsBy.permSL _) (fun a ha => by
+      have := congrArg (fun φ : MulAut A => ((φ ⟨a, ha⟩ : A) : G)) h
+      simpa [nodeOf, piAut_apply (hL.permSL_mem_normalizer _)] using this)
+  exact swap_eq_swap_cases i j k l hij hkl hs
 
 theorem LineHyp.exists_nodeOf_eq (hL : LineHyp p A c J f ρ) {t : MulAut A} (ht : t ∈ torusImage A J)
     (ht2 : t * t = 1) (ht1 : t ≠ 1) : ∃ i j, i ≠ j ∧ nodeOf A ρ i j = t := by
@@ -438,6 +450,7 @@ theorem LineHyp.rootG_invariant (hL : LineHyp p A c J f ρ) {i j : Fin 3} (h : i
       = c ^ k * (ρ (diagSL v hv) * ρ (rt h u) * (ρ (diagSL v hv))⁻¹) * (c ^ k)⁻¹ := by group
     _ = (ρ (diagSL v hv) * ρ (rt h u) * (ρ (diagSL v hv))⁻¹) * c ^ k * (c ^ k)⁻¹ := by rw [h1]
     _ = _ := by rw [mul_inv_cancel_right]
+
 
 
 omit [Finite G] [Finite K] in

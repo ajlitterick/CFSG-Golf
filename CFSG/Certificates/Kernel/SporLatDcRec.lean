@@ -30,6 +30,8 @@ theorem mem_recs_repOK {r : Rep} (hr : r ∈ P.recs) : repOK P.C P.D r = true :=
 private theorem recs_lab_valid {r : Rep} (hr : r ∈ P.recs) : PtValid n r.lab :=
   rep_lab_valid P (mem_recs_repOK P hr)
 
+private theorem recs_lab_nodup {r : Rep} (hr : r ∈ P.recs) : r.lab.Nodup :=
+  rep_lab_nodup P (mem_recs_repOK P hr)
 
 theorem recs_lab_eq {r : Rep} (hr : r ∈ P.recs) : r.lab = lab n ptLab P.C.Δ (evalElt P.els r.w) :=
   rep_lab_eq P (mem_recs_repOK P hr)

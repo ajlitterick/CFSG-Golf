@@ -18,6 +18,9 @@ variable {F : Type} [Field F] [CharP F 2]
 
 @[expose] def emb (w : ↥(evenWeight 5)) : Fin 5 → F := fun i => z2 F (w.1 i)
 
+theorem emb_add (w w' : ↥(evenWeight 5)) : emb (w + w') = (emb w : Fin 5 → F) + emb w' := by
+  funext i
+  simp [emb]
 
 theorem emb_mem (w : ↥(evenWeight 5)) :
     (emb w : Fin 5 → F) ∈ (delta5 : Submodule F (Fin 5 → F)) := by
@@ -152,6 +155,9 @@ theorem T_add (w w' : ↥(evenWeight 5)) : T β φ (w + w') = T β φ w + T β �
 theorem T_mul_zero (w w' : ↥(evenWeight 5)) : T β φ w * T β φ w' = 0 :=
   Nm_mul_zero (φ_sq β φ w) (φ_sq β φ w') (φ_comm β φ w w')
 
+theorem T_zero : T β φ 0 = 0 := by
+  unfold T
+  rw [pt_zero, map_one, Nm_one]
 
 theorem T_eq_Psi (w : ↥(evenWeight 5)) :
     T β φ w = Psi (fun i => T β φ (gen2 i)) (emb w) := by

@@ -59,6 +59,22 @@ section Three
 
 variable {W : Type}
 
+theorem burnsideF45_mem_three {N : Set W} (hN : N.ncard = 3) {p q r : W} (hp : p ∈ N) (hq : q ∈ N)
+    (hr : r ∈ N) (hpq : p ≠ q) (hpr : p ≠ r) (hqr : q ≠ r) {z : W} (hz : z ∈ N) :
+    z = p ∨ z = q ∨ z = r := by
+  have hfin : N.Finite := Set.finite_of_ncard_ne_zero (by rw [hN]; norm_num)
+  have hsub : ({p, q, r} : Set W) ⊆ N := by
+    intro a ha
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at ha
+    rcases ha with rfl | rfl | rfl
+    · exact hp
+    · exact hq
+    · exact hr
+  have hcard : ({p, q, r} : Set W).ncard = 3 := Set.ncard_eq_three.2 ⟨p, q, r, hpq, hpr, hqr, rfl⟩
+  have heq := Set.eq_of_subset_of_ncard_le hsub (by rw [hN, hcard]) hfin
+  rw [← heq] at hz
+  simpa using hz
+
 
 end Three
 

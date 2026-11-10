@@ -43,6 +43,11 @@ theorem omega_ne_zero : toVecD 24 code4 ≠ 0 := by
 
 theorem code4_lt : code4 < 2 ^ 24 := by norm_num [code4]
 
+theorem yRows_get {l : ℕ} (hl : l < yRows.size) : yRows[l]! = rrB (yIdx[l]!) :=
+  Odd.map_toArray_get3 rrB yIdx (by simpa [yRows] using hl)
+
+theorem sRows_get {l : ℕ} (hl : l < sRows.size) : sRows[l]! = rrB (sIdx[l]!) :=
+  Odd.map_toArray_get3 rrB sIdx (by simpa [sRows] using hl)
 
 theorem sIdx_mem {l : ℕ} (hl : l < sRows.size) : sIdx[l]! ∈ sIdx := by
   have hl' : l < sIdx.length := by simpa [sRows] using hl
@@ -153,6 +158,10 @@ theorem fix_sBc_omega :
   rw [co1Act_eq_mulVec, matHom_sBc]
   exact (isFixedN_iff rowsSB (by norm_num [code4])).1 hfixB
 
+theorem matHom_gi :
+    matHom (regB gIdx)⁻¹ = rowsMatrix 24 (rrB 43) := by
+  apply matHom_inv_eq
+  rw [matHom_regB, ← rowsMatrix_mulRows, centB_facts.2.2.2.1, rowsMatrix_idRows]
 
 theorem ncard_fix_sBc :
     {v : Vec24 | co1Act sBc v = v}.ncard = 2 ^ 12 := by
@@ -311,6 +320,11 @@ section
 
 attribute [local irreducible] regB regsGB
 
+theorem matHom_gS :
+    ∀ l < sRows.size, matHom (gS l) = rowsMatrix 24 sRows[l]! := by
+  intro l hl
+  rw [sRows_get hl]
+  simpa only [gS] using (matHom_regB (sIdx[l]!))
 
 end
 

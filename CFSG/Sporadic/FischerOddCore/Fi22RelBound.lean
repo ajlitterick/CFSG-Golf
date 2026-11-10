@@ -22,6 +22,9 @@ open scoped Pointwise
   inv_mem' {σ} hσ x y := by
     rw [hσ (σ⁻¹ x) (σ⁻¹ y), perm_apply_inv_self, perm_apply_inv_self]
 
+theorem mem_fi22AutG {σ : Equiv.Perm (Fin 3510)} :
+    σ ∈ fi22AutG ↔ ∀ x y, fi22Graph.Adj x y ↔ fi22Graph.Adj (σ x) (σ y) :=
+  Iff.rfl
 
 theorem nbrInv_of_mem_fi22AutG
     {σ : Equiv.Perm (Fin 3510)} (hσ : σ ∈ fi22AutG) :

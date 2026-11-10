@@ -20,6 +20,12 @@ namespace OuterActionPair
 
 variable {π₁ : Q₁ →* P} {π₂ : Q₂ →* P} {θ : π₁.ker ≃* π₂.ker} {q₁ q₁' : Q₁} {q₂ q₂' : Q₂}
 
+theorem iff_mul_mul_inv :
+    OuterActionPair π₁ π₂ θ q₁ q₂ ↔ π₂ q₂ = π₁ q₁ ∧ ∀ x : π₁.ker,
+      q₂ * ((θ x : π₂.ker) : Q₂) * q₂⁻¹ = ((θ (MulAut.conjNormal q₁ x) : π₂.ker) : Q₂) := by
+  refine and_congr_right fun _ => forall_congr' fun x => ?_
+  rw [← MulAut.conjNormal_apply]
+  exact ⟨fun h => congrArg Subtype.val h, fun h => Subtype.ext h⟩
 
 theorem one : OuterActionPair π₁ π₂ θ 1 1 := ⟨by simp, fun x => by simp⟩
 
@@ -147,5 +153,10 @@ theorem exists_mulEquiv_of_outer_action_of_closure (hπ₁ : Function.Surjective
     ∃ ψ : Q₁ ≃* Q₂, (∀ x : π₁.ker, ψ x = θ x) ∧ ∀ q, π₂ (ψ q) = π₁ q :=
   exists_mulEquiv_of_outer_action π₁ π₂ θ hπ₁ hZ₁ hZ₂ (exists_pair_of_closure hS h)
 
+theorem hom_ext_of_extends (hZ₂ : center π₂.ker = ⊥) {ψ ψ' : Q₁ →* Q₂}
+    (hψ : ∀ x : π₁.ker, ψ x = θ x) (hψ' : ∀ x : π₁.ker, ψ' x = θ x)
+    (hπ : ∀ q, π₂ (ψ q) = π₁ q) (hπ' : ∀ q, π₂ (ψ' q) = π₁ q) : ψ = ψ' :=
+  MonoidHom.ext fun q => OuterActionPair.unique hZ₂ (OuterActionPair.of_hom hψ hπ q)
+    (OuterActionPair.of_hom hψ' hπ' q)
 
 end CFSG.Sporadic.Recognition.LyonsSims

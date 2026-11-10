@@ -605,6 +605,10 @@ theorem hasBits_one
     : HasBits K 1 oneBits :=
   toEnd_oneBits.symm
 
+theorem hasBits_eltElement
+    [CharP K 2] (α : Root Tag.E6) :
+    HasBits K ((rootOperatorFamily Tag.E6).eltElement α 1) (pack (eltBits (rootPos α))) :=
+  (toEnd_pack_eltBits α).symm
 
 inductive Letter
   | x (i : Fin 6)
@@ -633,6 +637,23 @@ theorem hasBits
     rw [HasBits, bits, ← nBits_eq_nCols, toEnd_pack_nBits]
     rfl
 
+theorem elt_mul_self
+    [CharP K 2] : ∀ l : Letter, l.elt K * l.elt K = 1
+  | x i => by
+    rw [elt, ← xElement_add, CharTwo.add_self_eq_zero, xElement_zero]
+  | n i => by
+    have hu : (-1 : Kˣ) = 1 := Units.ext (by simp [CharTwo.neg_eq])
+    have h : (weylElement Tag.E6 K (idx i))⁻¹ = weylElement Tag.E6 K (idx i) :=
+      Subtype.ext (by
+        change (weylElt Tag.E6 K (idx i) 1)⁻¹ = weylElt Tag.E6 K (idx i) 1
+        rw [weylElt_inv, hu])
+    rw [elt]
+    nth_rw 1 [← h]
+    exact inv_mul_cancel _
+
+theorem elt_inv
+    [CharP K 2] (l : Letter) : (l.elt K)⁻¹ = l.elt K :=
+  inv_eq_of_mul_eq_one_right (l.elt_mul_self)
 
 end Letter
 
@@ -661,5 +682,29 @@ theorem evalG_singleton
     (l : Letter) : evalG K [l] = l.elt K := by
   simp
 
+theorem evalG_inv
+    [CharP K 2] : ∀ w : List Letter, (evalG K w)⁻¹ = evalG K w.reverse
+  | [] => by simp
+  | l :: w => by
+    rw [evalG_cons, mul_inv_rev, evalG_inv w, Letter.elt_inv, List.reverse_cons, evalG_append,
+      evalG_singleton]
+
+theorem hasBits_evalG
+    [CharP K 2] : ∀ w : List Letter, HasBits K (evalG K w) (evalB w)
+  | [] => hasBits_one
+  | l :: w => by
+    rw [evalG_cons]
+    exact l.hasBits.mul (hasBits_evalG w)
+
+theorem evalG_eq_evalG_iff
+    [CharP K 2] (w w' : List Letter) :
+    evalG K w = evalG K w' ↔ evalB w % 2 ^ 6084 = evalB w' % 2 ^ 6084 :=
+  (hasBits_evalG w).eq_iff (hasBits_evalG w')
+
+theorem eltElement_eq_evalG_iff
+    [CharP K 2] (α : Root Tag.E6) (w : List Letter) :
+    (rootOperatorFamily Tag.E6).eltElement α 1 = evalG K w ↔
+      pack (eltBits (rootPos α)) % 2 ^ 6084 = evalB w % 2 ^ 6084 :=
+  (hasBits_eltElement α).eq_iff (hasBits_evalG w)
 
 end CFSG.LieType.SeitzGeneration.ExcHighThree.E6Bits

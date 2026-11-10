@@ -92,6 +92,9 @@ theorem LayerHyp.of_stand3 {K₀ : Subgroup G} (hs : AscStand3 Ω K₀) (hx : x 
   quot := hypOmegaGenU_of_modU (MemberType.cert_sl2 3 1)
     (Q3T7.hypOmegaModU_layerFam3 hs (isPGroup_zpowers_of_sq hx) hne)
 
+theorem exactCore3_le_exactLayer3' {K : Subgroup G} (hK : K ∈ tqMembers3 Ω x) :
+    exactCore3 x K ≤ exactLayer3 Ω x :=
+  exactCore3_le_exactLayer3 hK
 
 theorem subgroupOf_mem_exactPair3 {K : Subgroup G} (hK : K ∈ tqMembers3 Ω x) :
     (exactCore3 x K).subgroupOf (exactLayer3 Ω x) ∈ exactPair3 Ω x :=

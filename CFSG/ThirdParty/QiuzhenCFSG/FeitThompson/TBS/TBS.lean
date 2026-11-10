@@ -22,6 +22,26 @@ open scoped Pointwise commutatorElement IsMulCommutative
 
 universe u
 
+/--
+Book-faithful statement of Huppert--Blackburn X.1.12.
+
+For odd prime `p`, if `A` is a `p`-subgroup of the `p`-constrained group `G`,
+every order-`p` element of `C_G(A)` lies in `A`, `A` normalizes `K`, and
+`K ∩ A = 1`, then `K ≤ O_{p'}(G)`.
+-/
+@[expose]
+public def CFSG.thompsonBenderSignalizerLemmaStatement
+    (G : Type u) [Group G] [Finite G]
+    (p : ℕ) [Fact p.Prime] : Prop :=
+  p ≠ 2 →
+    PConstrainedGroup (G := G) p →
+      ∀ A K : Subgroup G,
+        IsPGroup p A →
+          (∀ x : G,
+            x ∈ Subgroup.centralizer (A : Set G) → orderOf x = p → x ∈ A) →
+            A ≤ Subgroup.normalizer (K : Set G) →
+              K ⊓ A = ⊥ →
+                K ≤ pPrimeCore p G
 
 /--
 The immediate order-`p` obstruction used in X.1.10(c): under the
@@ -45,6 +65,16 @@ public theorem CFSG.thompson_bender_eq_one_of_mem_K_centralizer_order_p
     simpa [hK_inf_A] using (show x ∈ K ⊓ A from ⟨hxK, hxA⟩)
   simpa using hxbot
 
+/-- A normal subgroup of order prime to `p` is contained in `O_{p'}(G)`. -/
+public theorem CFSG.thompson_bender_le_pPrimeCore_of_normal_coprime
+    {G : Type u} [Group G]
+    (p : ℕ) {K : Subgroup G} [K.Normal]
+    (hK_coprime : Nat.Coprime p (Nat.card K)) :
+    K ≤ pPrimeCore p G := by
+  exact
+    le_sSup
+      (show K ∈ {L : Subgroup G | L.Normal ∧ Nat.Coprime p (Nat.card L)} from
+        ⟨inferInstance, hK_coprime⟩)
 
 /--
 If a subgroup lies in `O_{p',p}(G)` and has order prime to `p`, then it lies in
@@ -602,6 +632,38 @@ public theorem CFSG.thompson_bender_action_range_le_fixing_of_subtype_le_central
   apply Subtype.ext
   simpa [φ, hKleNormP, Subgroup.normalizerMonoidHom_apply_apply_coe] using hconj
 
+/--
+If the conjugation image of `K` fixes `D ≤ P`, then every element of `D`
+centralizes `K` in the ambient group.
+-/
+public theorem CFSG.thompson_bender_subtype_le_centralizer_of_action_range_le_fixing
+    {G : Type u} [Group G]
+    {P K : Subgroup G} [P.Normal] {D : Subgroup P}
+    (hRangeFix :
+      let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let φ : K →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+      φ.range ≤ fixingSubgroup (M := MulAut P) (α := P) (D : Set P)) :
+    ∀ x : P, x ∈ D → (x : G) ∈ Subgroup.centralizer (K : Set G) := by
+  classical
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change φ.range ≤ fixingSubgroup (M := MulAut P) (α := P) (D : Set P) at hRangeFix
+  intro x hxD
+  rw [Subgroup.mem_centralizer_iff]
+  intro k hk
+  let kK : K := ⟨k, hk⟩
+  have hfix_mem : φ kK ∈ fixingSubgroup (M := MulAut P) (α := P) (D : Set P) :=
+    hRangeFix ⟨kK, rfl⟩
+  rw [mem_fixingSubgroup_iff] at hfix_mem
+  have hfix_x : φ kK x = x := hfix_mem x hxD
+  have hconj : k * (x : G) * k⁻¹ = (x : G) := by
+    simpa [φ, kK, hKleNormP, Subgroup.normalizerMonoidHom_apply_apply_coe] using
+      congrArg Subtype.val hfix_x
+  simpa [mul_assoc] using congrArg (fun t : G => t * k) hconj
 
 /--
 If `D` is characteristic in `H`, then every element normalizing `H` also
@@ -709,6 +771,43 @@ public theorem CFSG.thompson_bender_exists_pCore_mem_noncentralizing_of_not_map_
   by_contra hne
   exact hnone ⟨x, hxD, k, hk, hne⟩
 
+/--
+If a subgroup `D ≤ O_p(G)` has exponent `p` and lies in the centralizer of
+`A`, then `D` centralizes the `p'` signalizer subgroup `K`.
+-/
+public theorem CFSG.thompson_bender_pCore_exponent_p_subgroup_centralizes_K_of_le_centralizer_A
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} [Fact p.Prime] {A K : Subgroup G}
+    (hcentral_order_p :
+      ∀ x : G,
+        x ∈ Subgroup.centralizer (A : Set G) → orderOf x = p → x ∈ A)
+    (hA_le_normalizer_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hK_coprime : Nat.Coprime p (Nat.card K))
+    {D : Subgroup (pCore p G)}
+    (hDexp : Monoid.exponent (↥D) = p)
+    (hDcentA : ∀ x : pCore p G, x ∈ D → (x : G) ∈ Subgroup.centralizer (A : Set G)) :
+    ∀ x : pCore p G, x ∈ D → (x : G) ∈ Subgroup.centralizer (K : Set G) := by
+  intro x hxD
+  by_cases hxone : x = 1
+  · subst hxone
+    simp
+  · let xD : D := ⟨x, hxD⟩
+    have hxD_ne : xD ≠ 1 := by
+      intro hxD_one
+      exact hxone (by simpa [xD] using congrArg Subtype.val hxD_one)
+    have hxpowD : xD ^ p = 1 := by
+      have hdiv : Monoid.exponent (↥D) ∣ p := by simp [hDexp]
+      exact Monoid.exponent_dvd_iff_forall_pow_eq_one.mp hdiv xD
+    have hxorderD : orderOf xD = p := orderOf_eq_prime hxpowD hxD_ne
+    have hxorderP : orderOf x = p := by
+      simpa [xD, Subgroup.orderOf_coe] using hxorderD
+    have hxorderG : orderOf (x : G) = p := by
+      simpa [Subgroup.orderOf_coe] using hxorderP
+    exact
+      thompson_bender_order_p_pCore_mem_centralizer_A_centralizes_K
+        (G := G) (p := p) (A := A) (K := K)
+        hcentral_order_p hA_le_normalizer_K hK_coprime
+        x.property (hDcentA x hxD) hxorderG
 
 /--
 If the conjugation image of a `p'` subgroup `K` on a normal subgroup `P` lands
@@ -825,6 +924,19 @@ public theorem CFSG.thompson_bender_gamma_top_of_critical_witness
     exact trivial
   · exact ⟨hnorm, hnot⟩
 
+/--
+A `Γ` witness gives a concrete element of its critical subgroup not centralized
+by `K`.
+-/
+public theorem CFSG.thompson_bender_gammaWitness_noncentralizing_pair
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {X D : Subgroup (pCore p G)}
+    (hD : TBSGammaWitness (G := G) p A K X D) :
+    ∃ x : pCore p G, x ∈ D ∧ ∃ k : G, k ∈ K ∧ k * (x : G) ≠ (x : G) * k := by
+  rcases hD with ⟨_hDX, _hDchar, _hDcomm, _hDclass, _hDexp, _hnorm, hnot⟩
+  exact
+    thompson_bender_exists_pCore_mem_noncentralizing_of_not_map_le_centralizer
+      (G := G) (p := p) (D := D) (K := K) hnot
 
 /-- A `Γ` member contains a concrete element not centralized by `K`. -/
 public theorem CFSG.thompson_bender_gamma_noncentralizing_pair
@@ -868,6 +980,89 @@ public theorem CFSG.thompson_bender_gamma_exists_nonfixed_action
     simpa [mul_assoc] using congrArg (fun t : G => t * k) hconj
   exact hne hcomm
 
+/-- The conjugation action image of a `p'` subgroup has element orders coprime to `p`. -/
+public theorem CFSG.thompson_bender_conjAction_order_coprime_of_card_coprime
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {P K : Subgroup G} [P.Normal]
+    (hKcop : Nat.Coprime p (Nat.card K)) (k : K) :
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    Nat.Coprime p (orderOf (φ k)) := by
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change Nat.Coprime p (orderOf (φ k))
+  exact Nat.Coprime.of_dvd_right
+    ((orderOf_map_dvd (ψ := φ) k).trans (orderOf_dvd_natCard k)) hKcop
+
+/-- A `Γ` member yields a nontrivial conjugation-action automorphism of p-prime order. -/
+public theorem CFSG.thompson_bender_gamma_exists_nontrivial_conjAction_of_card_coprime
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {X : Subgroup (pCore p G)}
+    (hKcop : Nat.Coprime p (Nat.card K))
+    (hX : TBSGamma (G := G) p A K X) :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    ∃ k : K, φ k ≠ 1 ∧ Nat.Coprime p (orderOf (φ k)) := by
+  obtain ⟨k, x, _hxX, hnonfix⟩ :=
+    thompson_bender_gamma_exists_nonfixed_action
+      (G := G) (p := p) (A := A) (K := K) hX
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change ∃ k : K, φ k ≠ 1 ∧ Nat.Coprime p (orderOf (φ k))
+  refine ⟨k, ?_, ?_⟩
+  · intro hkone
+    have hfixx : φ k x = x := by
+      simp [hkone]
+    exact hnonfix (by simpa [φ, P, hKleNormP] using hfixx)
+  · exact
+      thompson_bender_conjAction_order_coprime_of_card_coprime
+        (G := G) (p := p) (P := pCore p G) (K := K) hKcop k
+
+/-- Every `Γ` member is nontrivial. -/
+public theorem CFSG.thompson_bender_gamma_ne_bot
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {X : Subgroup (pCore p G)}
+    (hX : TBSGamma (G := G) p A K X) :
+    X ≠ ⊥ := by
+  obtain ⟨x, hxX, _k, _hk, hne⟩ :=
+    thompson_bender_gamma_noncentralizing_pair
+      (G := G) (p := p) (A := A) (K := K) hX
+  intro hXbot
+  have hxone : x = 1 := by
+    have hxbot : x ∈ (⊥ : Subgroup (pCore p G)) := by
+      simpa [hXbot] using hxX
+    simpa using hxbot
+  exact hne (by simp [hxone])
+
+/-- A cardinal-minimal `Γ` member is nontrivial. -/
+public theorem CFSG.thompson_bender_minimal_gamma_ne_bot
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    B ≠ ⊥ :=
+  thompson_bender_gamma_ne_bot (G := G) (p := p) (A := A) (K := K) hB.1
+
+/-- A witness for `X ∈ Γ` also makes the witness subgroup itself a `Γ` member. -/
+public theorem CFSG.thompson_bender_gamma_self_of_witness
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {X D : Subgroup (pCore p G)}
+    (hD : TBSGammaWitness (G := G) p A K X D) :
+    TBSGamma (G := G) p A K D := by
+  rcases hD with ⟨_hDX, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  refine ⟨D, ?_, hDchar, hDcomm, hDclass, hDexp, ?_⟩
+  · intro x hx
+    exact hx
+  · exact ⟨hnorm, hnot⟩
 
 /-- In a cardinal-minimal `Γ` member, every chosen `Γ` witness is the member itself. -/
 public theorem CFSG.thompson_bender_minimal_gamma_eq_witness
@@ -885,6 +1080,20 @@ public theorem CFSG.thompson_bender_minimal_gamma_eq_witness
   have hcard : Nat.card B ≤ Nat.card D := hB.2 D hDgamma
   exact Subgroup.eq_of_le_of_card_ge hDB hcard
 
+/-- A minimal `Γ` member is characteristic in `O_p(G)`. -/
+public theorem CFSG.thompson_bender_minimal_gamma_characteristic
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    B.Characteristic := by
+  rcases hB.1 with ⟨D, hD⟩
+  rcases hD with ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  have hEq : D = B := by
+    exact thompson_bender_minimal_gamma_eq_witness
+      (G := G) (p := p) (A := A) (K := K)
+      (B := B) (D := D) hB
+      ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  simpa [hEq] using hDchar
 
 /-- The commutator condition transfers from a witness to a minimal `Γ` member. -/
 public theorem CFSG.thompson_bender_minimal_gamma_commutator_le_centerIn
@@ -901,6 +1110,21 @@ public theorem CFSG.thompson_bender_minimal_gamma_commutator_le_centerIn
       ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
   simpa [hEq] using hDcomm
 
+/-- A minimal `Γ` member has nilpotency class at most two. -/
+public theorem CFSG.thompson_bender_minimal_gamma_nilpotencyClassLe_two
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    NilpotencyClassLe 2 (↥B) := by
+  rcases hB.1 with ⟨D, hD⟩
+  rcases hD with ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  have hEq : D = B := by
+    exact thompson_bender_minimal_gamma_eq_witness
+      (G := G) (p := p) (A := A) (K := K)
+      (B := B) (D := D) hB
+      ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  subst B
+  simpa using hDclass
 
 /-- A minimal `Γ` member has exponent `p`. -/
 public theorem CFSG.thompson_bender_minimal_gamma_exponent_eq
@@ -1134,6 +1358,91 @@ public theorem CFSG.thompson_bender_pCore_subgroup_conjAction_mem_of_le_normaliz
   have hφeq : φ l x = y := Subtype.ext hval
   simpa [hφeq] using hyB
 
+/-- The induced conjugation action of `A` preserves a minimal `Γ` member. -/
+public theorem CFSG.thompson_bender_minimal_gamma_A_conjAction_mem
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B)
+    (a : A) {x : pCore p G} (hxB : x ∈ B) :
+    let P : Subgroup G := pCore p G
+    let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : A →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+    φ a x ∈ B :=
+  thompson_bender_pCore_subgroup_conjAction_mem_of_le_normalizer
+    (G := G) (p := p) (L := A) (B := B)
+    (thompson_bender_minimal_gamma_A_le_normalizer
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB) a hxB
+
+/-- The induced conjugation action of `K` preserves a minimal `Γ` member. -/
+public theorem CFSG.thompson_bender_minimal_gamma_K_conjAction_mem
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B)
+    (k : K) {x : pCore p G} (hxB : x ∈ B) :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    φ k x ∈ B :=
+  thompson_bender_pCore_subgroup_conjAction_mem_of_le_normalizer
+    (G := G) (p := p) (L := K) (B := B)
+    (thompson_bender_minimal_gamma_K_le_normalizer
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB) k hxB
+
+/--
+If an element of a minimal `Γ` member is fixed by the conjugation action of
+`A`, then it is fixed by the conjugation action of `K`.
+-/
+public theorem CFSG.thompson_bender_minimal_gamma_fixed_by_A_fixed_by_K
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} [Fact p.Prime] {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hcent :
+      ∀ x : G,
+        x ∈ Subgroup.centralizer (A : Set G) → orderOf x = p → x ∈ A)
+    (hA_norm_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hKcop : Nat.Coprime p (Nat.card K))
+    (hB : TBSGammaMinimal (G := G) p A K B)
+    {x : pCore p G} (hxB : x ∈ B) (hxne : x ≠ 1)
+    (hxFixedA :
+      let P : Subgroup G := pCore p G
+      let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let ψ : A →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+      ∀ a : A, ψ a x = x) :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    ∀ k : K, φ k x = x := by
+  let P : Subgroup G := pCore p G
+  let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let ψ : A →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change ∀ k : K, φ k x = x
+  change ∀ a : A, ψ a x = x at hxFixedA
+  have hxCentA : (x : G) ∈ Subgroup.centralizer (A : Set G) := by
+    rw [Subgroup.mem_centralizer_iff]
+    intro a ha
+    let aA : A := ⟨a, ha⟩
+    have hfix : ψ aA x = x := hxFixedA aA
+    have hconj : a * (x : G) * a⁻¹ = (x : G) := by
+      simpa [ψ, aA, hAleNormP, P, Subgroup.normalizerMonoidHom_apply_apply_coe] using
+        congrArg Subtype.val hfix
+    simpa [mul_assoc] using congrArg (fun t : G => t * a) hconj
+  exact
+    thompson_bender_minimal_gamma_mem_centralizer_A_fixed_by_conjAction
+      (G := G) (p := p) (A := A) (K := K) (B := B)
+      hcent hA_norm_K hKcop hB hxB hxne hxCentA
 
 /--
 Pointwise bridge between ambient centralizer membership and fixedness under the
@@ -1286,6 +1595,69 @@ public theorem CFSG.thompson_bender_pCore_mem_centralizer_iff_mem_fixedPointSubg
     intro l
     simpa [MulAction.compHom_smul_def] using hx l
 
+/-- Membership in `B ∩ fixedPointSubgroup` is the same as membership in
+`B` plus ambient centralization of the acting subgroup. -/
+public theorem CFSG.thompson_bender_pCore_mem_inf_fixedPointSubgroup_iff
+    {G : Type u} [Group G]
+    {p : ℕ} {L : Subgroup G} {B : Subgroup (pCore p G)} {x : pCore p G} :
+    let P : Subgroup G := pCore p G
+    let hLleNormP : L ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : L →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hLleNormP)
+    letI : MulDistribMulAction L P := MulDistribMulAction.compHom P φ
+    x ∈ B ⊓ fixedPointSubgroup L P ↔
+      x ∈ B ∧ (x : G) ∈ Subgroup.centralizer (L : Set G) := by
+  let P : Subgroup G := pCore p G
+  let hLleNormP : L ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : L →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hLleNormP)
+  let : MulDistribMulAction L P := MulDistribMulAction.compHom P φ
+  change x ∈ B ⊓ fixedPointSubgroup L P ↔
+      x ∈ B ∧ (x : G) ∈ Subgroup.centralizer (L : Set G)
+  constructor
+  · intro hx
+    exact ⟨hx.1,
+      (thompson_bender_pCore_mem_centralizer_iff_mem_fixedPointSubgroup
+        (G := G) (p := p) (L := L) (x := x)).mpr hx.2⟩
+  · intro hx
+    exact ⟨hx.1,
+      (thompson_bender_pCore_mem_centralizer_iff_mem_fixedPointSubgroup
+        (G := G) (p := p) (L := L) (x := x)).mp hx.2⟩
+
+/--
+Extracts the element-level centralizer witness from a nontrivial
+`B ∩ fixedPointSubgroup`.
+-/
+public theorem CFSG.thompson_bender_pCore_exists_nontrivial_mem_centralizer_of_inf_fixedPointSubgroup_ne_bot
+    {G : Type u} [Group G]
+    {p : ℕ} {L : Subgroup G} {B : Subgroup (pCore p G)}
+    (hNontr :
+      (let P : Subgroup G := pCore p G
+       let hLleNormP : L ≤ Subgroup.normalizer (P : Set G) :=
+          Subgroup.le_normalizer_of_normal (H := P)
+       let φ : L →* MulAut P :=
+          (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hLleNormP)
+       letI : MulDistribMulAction L P := MulDistribMulAction.compHom P φ
+       B ⊓ fixedPointSubgroup L P) ≠ ⊥) :
+    ∃ u : pCore p G,
+      u ∈ B ∧ u ≠ 1 ∧ (u : G) ∈ Subgroup.centralizer (L : Set G) := by
+  let P : Subgroup G := pCore p G
+  let hLleNormP : L ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : L →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hLleNormP)
+  let : MulDistribMulAction L P := MulDistribMulAction.compHom P φ
+  change B ⊓ fixedPointSubgroup L P ≠ ⊥ at hNontr
+  rcases Subgroup.ne_bot_iff_exists_ne_one.mp hNontr with ⟨u, hu_ne⟩
+  have hu :
+      (u : P) ∈ B ∧ (u : G) ∈ Subgroup.centralizer (L : Set G) :=
+    (thompson_bender_pCore_mem_inf_fixedPointSubgroup_iff
+      (G := G) (p := p) (L := L) (B := B) (x := (u : P))).mp u.property
+  refine ⟨u, hu.1, ?_, hu.2⟩
+  intro hu_one
+  exact hu_ne (Subtype.ext hu_one)
 
 /--
 A finite `p`-group of operators on a nontrivial finite `p`-group has a
@@ -1363,6 +1735,406 @@ public theorem CFSG.thompson_bender_inf_fixedPointSubgroup_ne_bot_of_pgroup_acti
     apply Subtype.ext
     simpa using congrArg Subtype.val hx
 
+/--
+A nonfixed point for the induced `K` action gives a nontrivial displacement
+element inside the minimal `Γ` member.
+-/
+public theorem CFSG.thompson_bender_minimal_gamma_exists_nontrivial_conjAction_displacement
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      ∃ c : P, c ∈ B ∧ c ≠ 1 ∧ c = φ k x * x⁻¹ := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      ∃ c : P, c ∈ B ∧ c ≠ 1 ∧ c = φ k x * x⁻¹
+  intro k x hxB hxnonfix
+  refine ⟨φ k x * x⁻¹, ?_, ?_, rfl⟩
+  · exact B.mul_mem
+      (thompson_bender_minimal_gamma_K_conjAction_mem
+        (G := G) (p := p) (A := A) (K := K) (B := B) hB k hxB)
+      (B.inv_mem hxB)
+  · intro hdisp
+    exact hxnonfix (mul_inv_eq_one.mp hdisp)
+
+/--
+The subgroup generated by displacement elements `φ k x * x⁻¹` for a fixed
+induced `K`-action element.
+-/
+@[expose]
+public def CFSG.TBSConjActionDisplacementSubgroup
+    {G : Type u} [Group G]
+    (p : ℕ) (K : Subgroup G) (B : Subgroup (pCore p G)) (k : K) :
+    Subgroup (pCore p G) := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  exact Subgroup.closure {c : P | ∃ x : P, x ∈ B ∧ c = φ k x * x⁻¹}
+
+/-- The fixed-`k` displacement subgroup is a `p`-group inside `O_p(G)`. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroup_isPGroup
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)} (k : K) :
+    IsPGroup p (TBSConjActionDisplacementSubgroup (G := G) p K B k) :=
+  (pCore_isPGroup (G := G) (p := p)).to_subgroup
+    (TBSConjActionDisplacementSubgroup (G := G) p K B k)
+
+/-- The subgroup generated by all displacement elements `φ k x * x⁻¹`, for `k ∈ K`. -/
+@[expose]
+public def CFSG.TBSConjActionDisplacementSubgroupAll
+    {G : Type u} [Group G]
+    (p : ℕ) (K : Subgroup G) (B : Subgroup (pCore p G)) :
+    Subgroup (pCore p G) := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  exact Subgroup.closure {c : P | ∃ k : K, ∃ x : P, x ∈ B ∧ c = φ k x * x⁻¹}
+
+/-- The fixed-`k` displacement subgroup lies in the all-`K` displacement subgroup. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroup_le_all
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)} (k : K) :
+    TBSConjActionDisplacementSubgroup (G := G) p K B k ≤
+      TBSConjActionDisplacementSubgroupAll (G := G) p K B := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  rw [TBSConjActionDisplacementSubgroup, TBSConjActionDisplacementSubgroupAll,
+    Subgroup.closure_le]
+  intro c hc
+  rcases hc with ⟨x, hxB, rfl⟩
+  exact Subgroup.subset_closure ⟨k, x, hxB, rfl⟩
+
+/-- The all-`K` displacement subgroup is a `p`-group inside `O_p(G)`. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_isPGroup
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)} :
+    IsPGroup p (TBSConjActionDisplacementSubgroupAll (G := G) p K B) :=
+  (pCore_isPGroup (G := G) (p := p)).to_subgroup
+    (TBSConjActionDisplacementSubgroupAll (G := G) p K B)
+
+/-- The fixed-`k` displacement subgroup of a minimal `Γ` member lies in `B`. -/
+public theorem CFSG.thompson_bender_minimal_gamma_displacementSubgroup_le
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) (k : K) :
+    TBSConjActionDisplacementSubgroup (G := G) p K B k ≤ B := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  rw [TBSConjActionDisplacementSubgroup, Subgroup.closure_le]
+  intro c hc
+  rcases hc with ⟨x, hxB, rfl⟩
+  exact B.mul_mem
+    (thompson_bender_minimal_gamma_K_conjAction_mem
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB k hxB)
+    (B.inv_mem hxB)
+
+/-- The all-`K` displacement subgroup of a minimal `Γ` member lies in `B`. -/
+public theorem CFSG.thompson_bender_minimal_gamma_displacementSubgroupAll_le
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    TBSConjActionDisplacementSubgroupAll (G := G) p K B ≤ B := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  rw [TBSConjActionDisplacementSubgroupAll, Subgroup.closure_le]
+  intro c hc
+  rcases hc with ⟨k, x, hxB, rfl⟩
+  exact B.mul_mem
+    (thompson_bender_minimal_gamma_K_conjAction_mem
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB k hxB)
+    (B.inv_mem hxB)
+
+/-- If `B` is invariant under the induced `K` action, the all-`K`
+displacement subgroup lies in `B`. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_le_of_isInvariant
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hInv :
+      let P : Subgroup G := pCore p G
+      let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let φ : K →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+      letI : MulDistribMulAction K P := MulDistribMulAction.compHom P φ
+      IsInvariant K P B) :
+    TBSConjActionDisplacementSubgroupAll (G := G) p K B ≤ B := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  let : MulDistribMulAction K P := MulDistribMulAction.compHom P φ
+  change IsInvariant K P B at hInv
+  let : IsInvariant K P B := hInv
+  rw [TBSConjActionDisplacementSubgroupAll, Subgroup.closure_le]
+  intro c hc
+  rcases hc with ⟨k, x, hxB, rfl⟩
+  exact B.mul_mem
+    ((IsInvariant.invariant (A := K) (G := P) (H := B) k x).1 hxB)
+    (B.inv_mem hxB)
+
+/--
+The all-`K` displacement subgroup maps into the usual action commutator
+subgroup of a `K`-invariant subgroup `B`.
+-/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_le_commutatorAction_map_subtype_of_isInvariant
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hInv :
+      let P : Subgroup G := pCore p G
+      let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let φ : K →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+      letI : MulDistribMulAction K P := MulDistribMulAction.compHom P φ
+      IsInvariant K P B) :
+    (let P : Subgroup G := pCore p G
+     let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+     let φ : K →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+     letI : MulDistribMulAction K P := MulDistribMulAction.compHom P φ
+     letI : IsInvariant K P B := hInv
+     TBSConjActionDisplacementSubgroupAll (G := G) p K B ≤
+        (commutatorAction (A := K) (G := B)).map B.subtype) := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  let : MulDistribMulAction K P := MulDistribMulAction.compHom P φ
+  change IsInvariant K P B at hInv
+  let : IsInvariant K P B := hInv
+  let C : Subgroup B := commutatorAction (A := K) (G := B)
+  have hCnorm : C.Normal := by
+    simpa [C] using (commutatorAction_normal (G := B) (A := K))
+  rw [TBSConjActionDisplacementSubgroupAll, Subgroup.closure_le]
+  intro c hc
+  rcases hc with ⟨k, x, hxB, rfl⟩
+  let xb : B := ⟨x, hxB⟩
+  let yb : B := k • xb
+  have hstd : xb⁻¹ * yb ∈ C := by
+    change xb⁻¹ * yb ∈ commutatorAction (A := K) (G := B)
+    rw [commutatorAction_eq_closure]
+    exact Subgroup.subset_closure ⟨k, xb, rfl⟩
+  have hconj : yb * (xb⁻¹ * yb) * yb⁻¹ ∈ C :=
+    Subgroup.Normal.conj_mem hCnorm (xb⁻¹ * yb) hstd yb
+  refine Subgroup.mem_map.mpr ⟨yb * (xb⁻¹ * yb) * yb⁻¹, hconj, ?_⟩
+  have hyb_val : (yb : P) = φ k x := by
+    change k • (x : P) = φ k x
+    exact MulAction.compHom_smul_def φ k x
+  change ((yb * (xb⁻¹ * yb) * yb⁻¹ : B) : P) = φ k x * x⁻¹
+  simp [xb, yb, hyb_val, mul_assoc]
+
+/-- A nonfixed point makes the fixed-`k` displacement subgroup nontrivial. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroup_ne_bot_of_nonfixed
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)} :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      TBSConjActionDisplacementSubgroup (G := G) p K B k ≠ ⊥ := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      TBSConjActionDisplacementSubgroup (G := G) p K B k ≠ ⊥
+  intro k x hxB hxnonfix
+  refine Subgroup.ne_bot_iff_exists_ne_one.mpr ?_
+  refine ⟨⟨φ k x * x⁻¹, ?_⟩, ?_⟩
+  · rw [TBSConjActionDisplacementSubgroup]
+    exact Subgroup.subset_closure ⟨x, hxB, rfl⟩
+  · intro hdisp
+    exact hxnonfix (mul_inv_eq_one.mp (Subtype.ext_iff.mp hdisp))
+
+/-- A nonfixed point makes the all-`K` displacement subgroup nontrivial. -/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_ne_bot_of_nonfixed
+    {G : Type u} [Group G]
+    {p : ℕ} {K : Subgroup G} {B : Subgroup (pCore p G)} :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φ : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      TBSConjActionDisplacementSubgroupAll (G := G) p K B ≠ ⊥ := by
+  let P : Subgroup G := pCore p G
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φ : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  change ∀ k : K, ∀ x : P, x ∈ B → φ k x ≠ x →
+      TBSConjActionDisplacementSubgroupAll (G := G) p K B ≠ ⊥
+  intro k x hxB hxnonfix hAllBot
+  have hfixed_ne :
+      TBSConjActionDisplacementSubgroup (G := G) p K B k ≠ ⊥ :=
+    thompson_bender_conjAction_displacementSubgroup_ne_bot_of_nonfixed
+      (G := G) (p := p) (K := K) (B := B) k x hxB hxnonfix
+  have hlebot :
+      TBSConjActionDisplacementSubgroup (G := G) p K B k ≤ ⊥ := by
+    simpa [hAllBot] using
+      thompson_bender_conjAction_displacementSubgroup_le_all
+        (G := G) (p := p) (K := K) (B := B) k
+  exact hfixed_ne (le_bot_iff.mp hlebot)
+
+/--
+The all-`K` displacement subgroup is stable under one element of the induced
+`A` action, provided `A` normalizes `K` and preserves `B`.
+-/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_A_mem
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hA_norm_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hBInv :
+      let P : Subgroup G := pCore p G
+      let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let φA : A →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+      letI : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+      IsInvariant A P B)
+    (a : A) {c : pCore p G}
+    (hc : c ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B) :
+    let P : Subgroup G := pCore p G
+    let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φA : A →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+    φA a c ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B := by
+  let P : Subgroup G := pCore p G
+  let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φA : A →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φK : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  let : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+  change IsInvariant A P B at hBInv
+  let : IsInvariant A P B := hBInv
+  change φA a c ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B
+  let S : Set P := {c : P | ∃ k : K, ∃ x : P, x ∈ B ∧ c = φK k x * x⁻¹}
+  rw [TBSConjActionDisplacementSubgroupAll] at hc ⊢
+  change c ∈ Subgroup.closure S at hc
+  change φA a c ∈ Subgroup.closure S
+  refine Subgroup.closure_induction
+    (p := fun y _ => φA a y ∈ Subgroup.closure S) (x := c)
+    ?_ ?_ ?_ ?_ hc
+  · intro y hy
+    change ∃ k : K, ∃ x : P, x ∈ B ∧ y = φK k x * x⁻¹ at hy
+    rcases hy with ⟨k, x, hxB, rfl⟩
+    have hxB' : φA a x ∈ B :=
+      (IsInvariant.invariant (A := A) (G := P) (H := B) a x).1 hxB
+    let k' : K := thompson_bender_conjKOfANormalizes (G := G) hA_norm_K a k
+    have hcomp : φA a (φK k x) = φK k' (φA a x) := by
+      simpa [P, φA, φK, hAleNormP, hKleNormP, k'] using
+        thompson_bender_pCore_conjAction_A_comp_K_eq_conjK
+          (G := G) (p := p) (A := A) (K := K) hA_norm_K a k x
+    have hgen :
+        φA a (φK k x * x⁻¹) = φK k' (φA a x) * (φA a x)⁻¹ := by
+      simp [hcomp]
+    exact Subgroup.subset_closure ⟨k', φA a x, hxB', hgen⟩
+  · simp
+  · intro x y _ _ hx hy
+    simpa using (Subgroup.mul_mem (Subgroup.closure S) hx hy)
+  · intro x _ hx
+    simpa using (Subgroup.inv_mem (Subgroup.closure S) hx)
+
+/--
+The all-`K` displacement subgroup is invariant under the induced `A` action
+when `A` normalizes `K` and preserves `B`.
+-/
+public theorem CFSG.thompson_bender_conjAction_displacementSubgroupAll_A_isInvariant
+    {G : Type u} [Group G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hA_norm_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hBInv :
+      let P : Subgroup G := pCore p G
+      let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+        Subgroup.le_normalizer_of_normal (H := P)
+      let φA : A →* MulAut P :=
+        (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+      letI : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+      IsInvariant A P B) :
+    let P : Subgroup G := pCore p G
+    let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φA : A →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+    letI : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+    IsInvariant A P (TBSConjActionDisplacementSubgroupAll (G := G) p K B) := by
+  let P : Subgroup G := pCore p G
+  let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φA : A →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+  let : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+  change IsInvariant A P (TBSConjActionDisplacementSubgroupAll (G := G) p K B)
+  refine ⟨?_⟩
+  intro a x
+  constructor
+  · intro hx
+    change φA a x ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B
+    exact
+      thompson_bender_conjAction_displacementSubgroupAll_A_mem
+        (G := G) (p := p) (A := A) (K := K) (B := B)
+        hA_norm_K hBInv a hx
+  · intro hx
+    change φA a x ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B at hx
+    have hpre :
+        φA a⁻¹ (φA a x) ∈
+          TBSConjActionDisplacementSubgroupAll (G := G) p K B :=
+      thompson_bender_conjAction_displacementSubgroupAll_A_mem
+        (G := G) (p := p) (A := A) (K := K) (B := B)
+        hA_norm_K hBInv a⁻¹ hx
+    simpa using hpre
+
+/-- The all-`K` displacement subgroup of a minimal `Γ` member is `K`-invariant. -/
+public theorem CFSG.thompson_bender_minimal_gamma_displacementSubgroupAll_K_isInvariant
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    let P : Subgroup G := pCore p G
+    let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φK : K →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+    letI : MulDistribMulAction K P := MulDistribMulAction.compHom P φK
+    IsInvariant K P (TBSConjActionDisplacementSubgroupAll (G := G) p K B) := by
+  exact
+    thompson_bender_conjAction_displacementSubgroupAll_A_isInvariant
+      (G := G) (p := p) (A := K) (K := K) (B := B)
+      (Subgroup.le_normalizer (H := K))
+      (thompson_bender_minimal_gamma_K_conjAction_isInvariant
+        (G := G) (p := p) (A := A) (K := K) (B := B) hB)
 
 /--
 Direct intersection form of coprime action on an abelian group: the fixed
@@ -1972,6 +2744,138 @@ public theorem CFSG.thompson_bender_minimal_gamma_baer_contradiction
     simpa [hbot] using (show m ∈ fixedPointSubgroup K M ⊓ C from ⟨hmFixK, hmComm⟩)
   exact hmne (Subgroup.mem_bot.mp hmBot)
 
+/--
+For a minimal `Γ` member, the all-`K` displacement subgroup has a nontrivial
+point fixed by the induced `A` action.
+-/
+public theorem CFSG.thompson_bender_minimal_gamma_all_displacement_inf_fixedPoint_ne_bot
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} [Fact p.Prime] {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hA_p : IsPGroup p A)
+    (hA_norm_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    let P : Subgroup G := pCore p G
+    let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+      Subgroup.le_normalizer_of_normal (H := P)
+    let φA : A →* MulAut P :=
+      (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+    letI : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+    TBSConjActionDisplacementSubgroupAll (G := G) p K B ⊓
+      fixedPointSubgroup A P ≠ ⊥ := by
+  let P : Subgroup G := pCore p G
+  let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φA : A →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+  let : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+  change
+    TBSConjActionDisplacementSubgroupAll (G := G) p K B ⊓
+      fixedPointSubgroup A P ≠ ⊥
+  have hBInv :
+      IsInvariant A P B := by
+    simpa [P, φA, hAleNormP] using
+      thompson_bender_minimal_gamma_A_conjAction_isInvariant
+        (G := G) (p := p) (A := A) (K := K) (B := B) hB
+  have hAllInv :
+      IsInvariant A P (TBSConjActionDisplacementSubgroupAll (G := G) p K B) := by
+    simpa [P, φA, hAleNormP] using
+      thompson_bender_conjAction_displacementSubgroupAll_A_isInvariant
+        (G := G) (p := p) (A := A) (K := K) (B := B)
+        hA_norm_K (by simpa [P, φA, hAleNormP] using hBInv)
+  let : IsInvariant A P (TBSConjActionDisplacementSubgroupAll (G := G) p K B) := hAllInv
+  obtain ⟨k, x, hxB, hxnonfix⟩ :=
+    thompson_bender_gamma_exists_nonfixed_action
+      (G := G) (p := p) (A := A) (K := K) (X := B) hB.1
+  let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φK : K →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+  have hAllNe :
+      TBSConjActionDisplacementSubgroupAll (G := G) p K B ≠ ⊥ := by
+    simpa [P, φK, hKleNormP] using
+      thompson_bender_conjAction_displacementSubgroupAll_ne_bot_of_nonfixed
+        (G := G) (p := p) (K := K) (B := B) k x hxB hxnonfix
+  exact
+    thompson_bender_inf_fixedPointSubgroup_ne_bot_of_pgroup_action
+      (P := P) (A := A) (p := p)
+      (B := TBSConjActionDisplacementSubgroupAll (G := G) p K B)
+      (thompson_bender_conjAction_displacementSubgroupAll_isPGroup
+        (G := G) (p := p) (K := K) (B := B))
+      hA_p hAllNe
+
+/--
+Element form of the preceding fixed-point step: a minimal `Γ` member contains
+a nontrivial all-displacement element centralizing `A`.
+-/
+public theorem CFSG.thompson_bender_minimal_gamma_exists_nontrivial_all_displacement_centralizer_A
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} [Fact p.Prime] {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hA_p : IsPGroup p A)
+    (hA_norm_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    ∃ u : pCore p G,
+      u ∈ B ∧
+        u ∈ TBSConjActionDisplacementSubgroupAll (G := G) p K B ∧
+          u ≠ 1 ∧ (u : G) ∈ Subgroup.centralizer (A : Set G) := by
+  let P : Subgroup G := pCore p G
+  let hAleNormP : A ≤ Subgroup.normalizer (P : Set G) :=
+    Subgroup.le_normalizer_of_normal (H := P)
+  let φA : A →* MulAut P :=
+    (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hAleNormP)
+  let : MulDistribMulAction A P := MulDistribMulAction.compHom P φA
+  have hNontr :
+      TBSConjActionDisplacementSubgroupAll (G := G) p K B ⊓
+        fixedPointSubgroup A P ≠ ⊥ := by
+    simpa [P, φA, hAleNormP] using
+      thompson_bender_minimal_gamma_all_displacement_inf_fixedPoint_ne_bot
+        (G := G) (p := p) (A := A) (K := K) (B := B)
+        hA_p hA_norm_K hB
+  obtain ⟨u, huAll, hune, huCentA⟩ :=
+    thompson_bender_pCore_exists_nontrivial_mem_centralizer_of_inf_fixedPointSubgroup_ne_bot
+      (G := G) (p := p) (L := A)
+      (B := TBSConjActionDisplacementSubgroupAll (G := G) p K B) hNontr
+  exact ⟨u,
+    thompson_bender_minimal_gamma_displacementSubgroupAll_le
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB huAll,
+    huAll, hune, huCentA⟩
+
+/-- The ambient image of a minimal `Γ` member is not centralized by `K`. -/
+public theorem CFSG.thompson_bender_minimal_gamma_not_le_centralizer
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    ¬ B.map (pCore p G).subtype ≤ Subgroup.centralizer (K : Set G) := by
+  rcases hB.1 with ⟨D, hD⟩
+  rcases hD with ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  have hEq : D = B := by
+    exact thompson_bender_minimal_gamma_eq_witness
+      (G := G) (p := p) (A := A) (K := K)
+      (B := B) (D := D) hB
+      ⟨hDB, hDchar, hDcomm, hDclass, hDexp, hnorm, hnot⟩
+  subst B
+  simpa using hnot
+
+/-- For a minimal `Γ` member, the conjugation image of `K` does not fix `B` pointwise. -/
+public theorem CFSG.thompson_bender_minimal_gamma_not_action_range_le_fixing
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} {A K : Subgroup G} {B : Subgroup (pCore p G)}
+    (hB : TBSGammaMinimal (G := G) p A K B) :
+    ¬
+      (let P : Subgroup G := pCore p G
+       let hKleNormP : K ≤ Subgroup.normalizer (P : Set G) :=
+          Subgroup.le_normalizer_of_normal (H := P)
+       let φ : K →* MulAut P :=
+          (Subgroup.normalizerMonoidHom (H := P)).comp (Subgroup.inclusion hKleNormP)
+       φ.range ≤ fixingSubgroup (M := MulAut P) (α := P) (B : Set P)) := by
+  intro hfix
+  exact
+    thompson_bender_minimal_gamma_not_le_centralizer
+      (G := G) (p := p) (A := A) (K := K) (B := B) hB
+      ((thompson_bender_pCore_subgroup_map_le_centralizer_iff
+        (G := G) (p := p) (D := B) (K := K)).2
+        (thompson_bender_subtype_le_centralizer_of_action_range_le_fixing
+          (G := G) (P := pCore p G) (K := K) (D := B) (by
+            simpa using hfix)))
 
 /-- A nonempty `Γ` has a cardinal-minimal member. -/
 public theorem CFSG.thompson_bender_exists_minimal_gamma_of_nonempty
@@ -2239,3 +3143,20 @@ public theorem CFSG.thompson_bender_signalizer_lemma
       hA_le_normalizer_K hK_inf_A hK_coprime
   exact thompson_bender_le_pPrimeCore_of_le_Op_p'p hK_le_Op hK_coprime
 
+/-- Pointwise application form of `thompson_bender_signalizer_lemma`. -/
+public theorem CFSG.thompson_bender_signalizer_lemma_apply
+    {G : Type u} [Group G] [Finite G]
+    {p : ℕ} [Fact p.Prime] (hpodd : p ≠ 2)
+    (hconstrained : PConstrainedGroup (G := G) p)
+    {A K : Subgroup G}
+    (hA_p : IsPGroup p A)
+    (hcentral_order_p :
+      ∀ x : G,
+        x ∈ Subgroup.centralizer (A : Set G) → orderOf x = p → x ∈ A)
+    (hA_le_normalizer_K : A ≤ Subgroup.normalizer (K : Set G))
+    (hK_inf_A : K ⊓ A = ⊥)
+    {x : G} (hx : x ∈ K) :
+    x ∈ pPrimeCore p G :=
+  thompson_bender_signalizer_lemma
+    (G := G) (p := p) hpodd hconstrained hA_p hcentral_order_p
+    hA_le_normalizer_K hK_inf_A hx

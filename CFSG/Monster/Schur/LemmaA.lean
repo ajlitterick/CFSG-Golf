@@ -79,6 +79,8 @@ theorem vec_inv (x : D.P) : D.vec x⁻¹ = - D.vec x := by
 theorem vec_sq (x : D.P) : D.vec (x * x) = 0 := by
   rw [D.vec_mul, char2]
 
+theorem vec_comm (x y : D.P) : D.vec (x * y) = D.vec (y * x) := by
+  rw [D.vec_mul, D.vec_mul, add_comm]
 
 theorem vec_comm' (x y : D.P) : D.vec (x * y * x⁻¹ * y⁻¹) = 0 := by
   rw [D.vec_mul, D.vec_mul, D.vec_mul, D.vec_inv, D.vec_inv]

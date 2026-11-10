@@ -127,6 +127,11 @@ instance instInhabitedN7Q7 : Inhabited N7 := ⟨e0N⟩
   !vtxF c γ u bu || sameVec u r || adjF u r bu βr || hubNbr hub β2 u bu ||
     wl.any fun p => adjF u p.1 bu p.2
 
+@[expose, inline] def coordsLt (c : N7) : Bool :=
+  c.x0 < 49 && c.x1 < 49 && c.x2 < 49 && c.x3 < 49 && c.x4 < 49 && c.x5 < 49 && c.x6 < 49
+
+@[expose] def rootIdx (c : N7) (γ : Nat) : Option Nat :=
+  (List.range 48).find? fun k => vtxF c γ (mkC c (k + 1)) (hDiag (mkC c (k + 1)))
 
 @[expose] def rowLoops (c : N7) (γ : Nat) (r : N7) (βr β2 : Nat) (hub : Array (Bool × N7 × Nat))
     (wl : List (N7 × Nat)) : Bool :=
@@ -142,5 +147,14 @@ instance instInhabitedN7Q7 : Inhabited N7 := ⟨e0N⟩
   let hub := hubTable c γ β2 r (hDiag r)
   rowLoops c γ r (hDiag r) β2 hub (fallbackA c γ hub β2 ++ fallbackB c γ hub β2)
 
+@[expose] def q7FastRow (row : Array Nat) : Bool :=
+  let c := rowN row
+  let γ := herN c c
+  coordsLt c && c.x3 == 1 && isFFN c &&
+    match rootIdx c γ with
+    | none => false
+    | some k => rowCore c γ k
+
+@[expose] def q7FastCheck : Bool := q7RepsData.all q7FastRow
 
 end CFSG.ClassicalInvolution.PhanB3.S.Std.Q7

@@ -99,5 +99,6 @@ theorem prime_sq_dvd_card_subgroup {G : Type*} [Group G] (H : Subgroup G) {p : �
   · intro k hk h
     exact hyx k hk (by simpa using congrArg Subtype.val h)
 
+theorem sevenProg_lt : ∀ ins ∈ sevenProg, ins.lt sevenN = true := by decide +kernel
 
 end CFSG.Sporadic.Bridge.B

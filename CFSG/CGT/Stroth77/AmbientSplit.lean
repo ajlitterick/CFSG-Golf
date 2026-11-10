@@ -388,4 +388,15 @@ theorem exists_square_root_c
       simpa [d'C, dC, sC, cC] using this
 
 
+theorem exists_square_root_c_of_hasStrothType
+    [Finite G] {m : ℕ} {B C S : Subgroup G}
+    (hB : HasStrothType B (StrothTypeIndex.t100 m))
+    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set G))
+    (hrel : Nat.card C = 2 * Nat.card B)
+    (hL : hB.data.L ≤ Subgroup.normalizer C)
+    (hH : NoInvolutionsCentralizing S B) (hCS : C ≤ S) (hne : C ≠ B) :
+    ∃ d : G, d ∈ C ∧ d ∉ B ∧ d * d = (hB.data.c : G) :=
+  exists_square_root_c hB.data hBC hC hrel (hL hB.data.u_mem_L) (hL hB.data.ρ_mem_L)
+    hH hCS hne
+
 end CFSG.CGT.Stroth77

@@ -102,6 +102,11 @@ theorem torus_comm (k m : Kˣ) (z : Coord J) :
       hermitianTorusAction J m (hermitianTorusAction J k z) := by
   rw [← torus_mul_apply, ← torus_mul_apply, mul_comm]
 
+theorem t_snd_central {z : Coord J} (k : Kˣ) :
+    (hermitianTorusAction J k z).1.2 * ((k : K) * J.conj (k : K)) = z.1.2 := by
+  have hk := k.ne_zero
+  have hck : J.conj (k : K) ≠ 0 := (map_ne_zero J.conj).2 hk
+  rw [torus_snd]; field_simp
 
 theorem weylCoord_fst (z : Coord J) : (weylCoord J z).1.1 = -z.1.1 / J.conj z.1.2 :=
   congrArg Prod.fst (weylCoord_val J z)
@@ -200,6 +205,9 @@ theorem t_mhalf_snd (z : Coord J) : (hermitianTorusAction J (-H.u2⁻¹) z).1.2 
   rw [torus_snd, Units.val_neg, Units.val_inv_eq_inv_val, u2_val, map_neg, map_inv₀, map_ofNat]
   field_simp; ring
 
+theorem t_mtwo_fst (z : Coord J) : 2 * (hermitianTorusAction J (-H.u2) z).1.1 = -z.1.1 := by
+  have := H.two_ne
+  rw [torus_fst, Units.val_neg, u2_val, map_neg, map_ofNat]; field_simp
 
 theorem t_mtwo_snd (z : Coord J) : 4 * (hermitianTorusAction J (-H.u2) z).1.2 = z.1.2 := by
   have := H.two_ne

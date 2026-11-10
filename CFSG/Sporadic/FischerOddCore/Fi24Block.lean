@@ -44,6 +44,39 @@ theorem isConj_t2_fi24R2 :
       fi24R2 :=
   MonoidHom.map_isConj fi23ToJ isConj_fi23U2_fi23U3.2
 
+theorem CTI_Fi24prime_504_fixed_point_centralizer_has_no_components
+    {s : CFSG.Sporadic.Fi24.J}
+    (hs : orderOf s = 2) (h504 : Nat.card {k : Fin 306936 // s • k = k} = 504) :
+    (Nat.card ↥(Subgroup.centralizer ({s} : Set CFSG.Sporadic.Fi24.J)) = 160526499840 ∧
+      ∃ Q : Subgroup ↥(Subgroup.centralizer ({s} : Set CFSG.Sporadic.Fi24.J)), Q.Normal ∧
+        Nat.card Q = 8192 ∧ Subgroup.centralizer (Q : Set _) ≤ Q) ∧
+    ∀ B : Subgroup ↥(Subgroup.centralizer ({s} : Set CFSG.Sporadic.Fi24.J)), ¬ IsComponent B := by
+  have hs2 : s * s = 1 := by rw [← sq, ← hs, pow_orderOf_eq_one]
+  have hs1 : s ≠ 1 := fun h => by rw [h, orderOf_one] at hs; omega
+  have hconj : IsConj fi24R2 s := by
+    rcases CFSG.Sporadic.Fi24.isConj_tJ_or_r2 CFSG.Fischer.polarFacts
+        CFSG.Sporadic.Fi23.d1_mem_localClass CFSG.Sporadic.Fi23.involution_cover hs2 hs1 with
+      h | h
+    · exfalso
+      obtain ⟨c, hc⟩ := isConj_iff.1 h.symm
+      have := card_fix_conj c CFSG.Sporadic.Fi24.tJ
+      rw [hc, h504, card_fix_tJ] at this
+      omega
+    · exact (h.trans isConj_t2_fi24R2).symm
+  obtain ⟨c, hc⟩ := isConj_iff.1 hconj
+  have e : ↥(Subgroup.centralizer ({fi24R2} : Set CFSG.Sporadic.Fi24.J)) ≃*
+      ↥(Subgroup.centralizer ({s} : Set CFSG.Sporadic.Fi24.J)) :=
+    (centralizerMulEquiv (MulAut.conj c) fi24R2).trans
+      (MulEquiv.subgroupCongr (by rw [MulAut.conj_apply, hc]))
+  obtain ⟨hcard, Q, hQn, hQcard, hQc⟩ := fi24R2_centralizer_structure
+  obtain ⟨Q', hQ'n, hQ'card, hQ'c⟩ := @exists_selfCentralizing_card_of_mulEquiv
+    ↥(Subgroup.centralizer ({s} : Set CFSG.Sporadic.Fi24.J))
+    ↥(Subgroup.centralizer ({fi24R2} : Set CFSG.Sporadic.Fi24.J)) inferInstance inferInstance
+    e.symm Q hQn hQc
+  rw [hQcard] at hQ'card
+  refine ⟨⟨by rw [← Nat.card_congr e.toEquiv]; exact hcard, Q', hQ'n, hQ'card, hQ'c⟩,
+    fun B => not_isComponent_of_selfCentralizing hQ'n
+      (IsPGroup.of_card (n := 13) (by rw [hQ'card]; norm_num)) hQ'c B⟩
 
 theorem CTI_Fi24prime_involution_local_components_simple_quotient_divisible_by_eleven
     {S : Type*} [Group S] (e : S ≃* Blueprint.NativeSporadic.Fi24prime) (s : S)

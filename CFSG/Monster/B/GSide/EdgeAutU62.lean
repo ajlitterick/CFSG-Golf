@@ -452,5 +452,10 @@ theorem p1Quot_mulAut_eq_conj
   obtain ⟨e⟩ := CFSG.Monster.B.TwoA.Sp8.nonempty_p1Quot_PSU62
   exact mulAut_eq_conj_of_mulEquiv e PSU62_mulAut_eq_conj τ
 
+theorem Usig_mulAut_eq_conj
+    (τ : MulAut Usig) : ∃ g, τ = MulAut.conj g := by
+  obtain ⟨e⟩ := CFSG.Monster.B.TwoA.Sp8.nonempty_p1Quot_PSU62
+  exact mulAut_eq_conj_of_mulEquiv (CFSG.Monster.B.TwoA.Sp8.p1QuotEquiv.symm.trans e)
+    PSU62_mulAut_eq_conj τ
 
 end CFSG.Monster.B.GSide

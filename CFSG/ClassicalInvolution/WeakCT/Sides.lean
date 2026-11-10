@@ -42,6 +42,8 @@ theorem comp_blk_injective {X : Type} [Group X] {θ : SL(3, K) →* X}
 theorem blk_mem_Bs (s : Fin 2) (A : SL(2, K)) : blk K s A ∈ Bs K s :=
   ⟨A, rfl⟩
 
+theorem Ds_le_Bs (s : Fin 2) : Ds K s ≤ Bs K s :=
+  Subgroup.map_le_range _ _
 
 theorem map_Ds {X : Type*} [Group X] (θ : SL(3, K) →* X) (s : Fin 2) :
     (Ds K s).map θ = (diagTorus2 K).map (θ.comp (blk K s)) :=

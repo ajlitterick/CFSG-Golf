@@ -113,6 +113,9 @@ theorem y433Img_mul_self
   · rw [y433Img_of_lt (by omega)]
     exact y433M_fiE_mul_self (y433Sigma_lt (by omega))
 
+theorem y433Img_inv
+    {c : ℕ} (hc : c < 11) : (y433Img c)⁻¹ = y433Img c :=
+  inv_eq_of_mul_eq_one_right (y433Img_mul_self hc)
 
 theorem evalWord_y433Img (R : List ℕ) (hR : ∀ c ∈ R, c < 11) :
     evalWord y433Img R = fiMkW (y433RelW R) := by
@@ -288,5 +291,10 @@ theorem closure_y433M_Iio_ten :
     Subgroup.closure (y433M '' (yGen 4 3 3 '' Set.Iio 10)) = fiK := by
   rw [y433M_image_Iio_ten, closure_fiE_Iio_ten]
 
+theorem fiK_le_range_y433M :
+    fiK ≤ y433M.range := by
+  rw [← closure_y433M_Iio_ten, Subgroup.closure_le]
+  rintro _ ⟨_, ⟨c, hc, rfl⟩, rfl⟩
+  exact ⟨yGen 4 3 3 c, rfl⟩
 
 end CFSG.Monster.Existence

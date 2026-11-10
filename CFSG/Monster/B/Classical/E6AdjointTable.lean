@@ -547,6 +547,17 @@ theorem bracket_lab_lvec
     rw [lvec_cons, map_add, ih fun l' h' => hL l' (List.mem_cons_of_mem _ h'),
       toVec_one_shiftLeft' hl, bracket_lab, List.map_cons, List.sum_cons]
 
+theorem bracket_lvec_lab
+    (c : Fin 78) {L : List ℕ} (hL : ∀ l ∈ L, l < 78) :
+    bracket R (lvec R L) (Finsupp.single (lab c) 1) =
+      toVec R (xorMap (fun l => brMask l c) L) := by
+  rw [toVec_xorMap]
+  induction L with
+  | nil => simp [lvec_nil]
+  | cons l L ih =>
+    have hl : l < 78 := hL l List.mem_cons_self
+    rw [lvec_cons, map_add, LinearMap.add_apply, ih fun l' h' => hL l' (List.mem_cons_of_mem _ h'),
+      toVec_one_shiftLeft' hl, bracket_lab, List.map_cons, List.sum_cons]
 
 theorem form_lab_lvec
     (a : Fin 78) {L : List ℕ} (hL : ∀ l ∈ L, l < 78) :

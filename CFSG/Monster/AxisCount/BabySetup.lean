@@ -259,6 +259,11 @@ theorem natCard_Cgen :
   natCard_Cgen_eq_babyTotal_mul_Jstar babySetup rfl rfl vv_zero babySetup_disjoint
     babySetup_orb_injective babySetup_M babySetup_L babySetup_v_mem_orbit
 
+theorem natCard_orbit_Cgen_aStarMinus :
+    Nat.card (MulAction.orbit Cgen aStarMinus) = 11707448673375 := by
+  have h := natCard_Cgen_eq_orbit_mul_Jstar
+  rw [natCard_Cgen] at h
+  exact (Nat.eq_of_mul_eq_mul_right Nat.card_pos h).symm
 
 theorem natCard_Cbar :
     Nat.card Cbar = 4154781481226426191177580544000000 :=

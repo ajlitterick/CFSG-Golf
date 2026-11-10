@@ -90,6 +90,9 @@ structure MatrixFacts : Prop where
   F_wf : RowsWF matF
   F_size : matF.size = 781
 
+theorem matW_mulW' {X Y : Array W} (hX : RowsWF X) (hY : RowsWF Y) (hYs : Y.size = 781) :
+    matW 781 781 (mulW X Y) = matW 781 781 X * matW 781 781 Y :=
+  matW_mulW (by norm_num) hX hY (by omega)
 
 theorem matW_ne_of_eqRows {X : Array W} (hX : canonRows 781 X = true)
     (h : eqRows 781 X (idW 781) = false) : matW 781 781 X ≠ 1 := by
@@ -104,6 +107,37 @@ theorem matW_ne_of_eqRows {X : Array W} (hX : canonRows 781 X = true)
   rw [this] at h
   exact absurd h (by decide)
 
+theorem matrixFacts_of (h : matrixChecks () = true) : MatrixFacts := by
+  unfold matrixChecks at h
+  simp only [Bool.and_eq_true, Bool.not_eq_true'] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨hAc, hBc⟩, hFc⟩, hA2⟩, hB3⟩, hAB⟩, hA1⟩, hB1⟩, hAB1⟩, hAF⟩, hBF⟩ := h
+  have hFw := RowsWF.of_canonRows hFc
+  have hFs := (canonRows_spec hFc).1
+  have hAB_w : RowsWF (mulW matA matB) := RowsWF.mulW rowsWF_matA rowsWF_matB
+  have hmAB : matW 781 781 (mulW matA matB) = mA * mB := by
+    rw [matW_mulW' rowsWF_matA rowsWF_matB matB_size, matW_matA, matW_matB]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, hFw, hFs⟩
+  · have := congrArg (matW 781 781) (eq_of_eqRows hA2).2
+    rwa [matW_mulW' rowsWF_matA rowsWF_matA matA_size, matW_idW (by norm_num), matW_matA] at this
+  · have := congrArg (matW 781 781) (eq_of_eqRows hB3).2
+    rwa [matW_mulW' rowsWF_matB (RowsWF.mulW rowsWF_matB rowsWF_matB)
+        (by rw [mulW_size, matB_size]),
+      matW_mulW' rowsWF_matB rowsWF_matB matB_size, matW_idW (by norm_num), matW_matB] at this
+  · have := congrArg (matW 781 781) (eq_of_eqRows hAB).2
+    rwa [matW_powW (by norm_num) hAB_w (by rw [mulW_size, matA_size]), hmAB,
+      matW_idW (by norm_num)] at this
+  · have := matW_ne_of_eqRows hAc hA1
+    rwa [matW_matA] at this
+  · have := matW_ne_of_eqRows hBc hB1
+    rwa [matW_matB] at this
+  · have := matW_ne_of_eqRows (canonRows_mulW hAc hBc) hAB1
+    rwa [hmAB] at this
+  · have := congrArg (matW 781 781) (eq_of_eqRows hAF).2
+    rwa [matW_mulW' (RowsWF.mulW rowsWF_matAT hFw) rowsWF_matA matA_size,
+      matW_mulW' rowsWF_matAT hFw hFs, matW_matAT, matW_matA] at this
+  · have := congrArg (matW 781 781) (eq_of_eqRows hBF).2
+    rwa [matW_mulW' (RowsWF.mulW rowsWF_matBT hFw) rowsWF_matB matB_size,
+      matW_mulW' rowsWF_matBT hFw hFs, matW_matBT, matW_matB] at this
 
 private theorem zmod3_pow3_eq_one : ∀ x : ZMod 3, x ^ 3 = 1 → x = 1 := by decide
 

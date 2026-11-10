@@ -210,6 +210,7 @@ instance : Decidable C4 := by
   unfold C4
   infer_instance
 
+@[expose] def s8Check28 : Bool := decide K0 && decide C2 && decide C3 && decide C4
 
 end CFSG.Quasithin.H13.S8F
 

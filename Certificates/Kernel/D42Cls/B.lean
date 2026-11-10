@@ -37,6 +37,30 @@ theorem w2OK : wOK TW W2 1 = true := by decide +kernel
 theorem classOK' : classOK (wordP ls kW) n N (sW.map (wordP ls))
     (sW.map fun w => wordP ls w.reverse) roots = true := by decide +kernel
 
+theorem rowsNeg : rowsOK N (T.set 0 (T.getD 0 0 ^^^ 2)) TW DP Vm (sW.map (wordP ls)) rows 0 =
+    false := by decide +kernel
+
+theorem crNeg : crOK (T.set 3 (T.getD 3 0 ^^^ 8)) CR 0 = false := by decide +kernel
+
+theorem keyNeg : rootsOK ls (wordP ls kW) Vm N (wordP ls [14, 16, 17]) (wordP ls [15, 12, 15, 5])
+    (sW.map (wordP ls)) (sW.map fun w => wordP ls w.reverse) CR W1 W2
+    ((roots.take 1).map fun rt => (rt.1, rt.2.1, rt.2.2.1 + 1, rt.2.2.2)) 0 = false := by
+  decide +kernel
+
+theorem stabNeg : rootsOK ls (wordP ls kW) Vm N (wordP ls [14, 16, 17]) (wordP ls [15, 12, 15, 5])
+    (sW.map (wordP ls)) (sW.map fun w => wordP ls w.reverse) CR W1 W2
+    ((roots.take 1).map fun rt => (rt.1, rt.2.1.drop 1, rt.2.2)) 0 = false := by
+  decide +kernel
+
+theorem genNeg : rootsOK ls (wordP ls kW) Vm N (wordP ls [14, 16, 17]) (wordP ls [15, 12, 15, 5])
+    (sW.map (wordP ls)) (sW.map fun w => wordP ls w.reverse) CR W1 W2
+    (((roots.filter fun rt => !rt.2.2.2.1.isEmpty).take 1).map fun rt =>
+      (rt.1, rt.2.1, rt.2.2.1, rt.2.2.2.1.drop 1, rt.2.2.2.2)) 0 = false := by
+  decide +kernel
+
+theorem classNeg : classOK (wordP ls kW) (n + 1) N (sW.map (wordP ls))
+    (sW.map fun w => wordP ls w.reverse) roots = false := by
+  decide +kernel
 
 end CFSG.KD.D42B
 

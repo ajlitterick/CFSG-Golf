@@ -24,6 +24,12 @@ abbrev S7 : Type := Perm (Fin 7)
   [1, r, r ^ 2, r ^ 3, s, s * r, s * r ^ 2, s * r ^ 3, f0, r * f0, r ^ 2 * f0, r ^ 3 * f0, s * f0,
     s * r * f0, s * r ^ 2 * f0, s * r ^ 3 * f0]
 
+theorem T0list_cases {P : S7 → Prop} (h : ∀ x ∈ T0list, P x) :
+    P 1 ∧ P r ∧ P (r ^ 2) ∧ P (r ^ 3) ∧ P s ∧ P (s * r) ∧ P (s * r ^ 2) ∧ P (s * r ^ 3) ∧ P f0 ∧
+      P (r * f0) ∧ P (r ^ 2 * f0) ∧ P (r ^ 3 * f0) ∧ P (s * f0) ∧ P (s * r * f0) ∧
+      P (s * r ^ 2 * f0) ∧ P (s * r ^ 3 * f0) := by
+  simp only [T0list, List.mem_cons, List.not_mem_nil, or_false, forall_eq_or_imp, forall_eq] at h
+  exact h
 
 theorem mem_T0list_iff {x : S7} : x ∈ T0list ↔
     x = 1 ∨ x = r ∨ x = r ^ 2 ∨ x = r ^ 3 ∨ x = s ∨ x = s * r ∨ x = s * r ^ 2 ∨ x = s * r ^ 3 ∨
@@ -1031,6 +1037,16 @@ theorem centralizer_rsq_equiv :
     simp [Nat.card_eq_fintype_card, Fintype.card_perm]
     decide
 
+theorem range_PsiD : PsiD.range = centralizer ({r ^ 2} : Set S7) := by
+  apply Subgroup.eq_of_le_of_card_ge
+  · rintro _ ⟨⟨d, σ⟩, rfl⟩
+    exact PsiD_mem d σ
+  · rw [card_centralizer_rsq]
+    have : Nat.card PsiD.range = Nat.card (D8 × Perm (Fin 3)) :=
+      (Nat.card_congr (MonoidHom.ofInjective PsiD_injective).toEquiv).symm
+    rw [this, Nat.card_prod, card_D8]
+    simp [Nat.card_eq_fintype_card, Fintype.card_perm]
+    decide
 
 theorem map_conj_centralizer_singleton (c f : S7) :
     (centralizer ({f} : Set S7)).map (MulAut.conj c).toMonoidHom =
@@ -1250,6 +1266,9 @@ theorem emb6_apply (σ : Perm (Fin 6)) (x : Fin 6) : emb6 σ (ι6 x) = ι6 (σ x
 
 theorem emb6_injective : Function.Injective emb6 := Equiv.Perm.viaEmbeddingHom_injective ι6
 
+theorem sign_emb6 (σ : Perm (Fin 6)) : sign (emb6 σ) = sign σ := by
+  let _ : DecidablePred (fun x => x ∈ Set.range ι6) := fun x => Classical.propDecidable _
+  exact sign_extendDomain σ (Equiv.ofInjective ι6 ι6.injective)
 
 theorem rho6_injective : Function.Injective rho6 := by
   rw [injective_iff_map_eq_one]
@@ -1578,6 +1597,41 @@ theorem klein_le (K : Subgroup S7) {a b : S7} {ha : a * a = 1} {hb : b * b = 1}
   · exact h2
   · exact K.mul_mem h1 h2
 
+theorem klein_eq_klein {a b a' b' : S7} {ha : a * a = 1} {hb : b * b = 1} {hab : a * b = b * a}
+    {ha' : a' * a' = 1} {hb' : b' * b' = 1} {hab' : a' * b' = b' * a'}
+    (h1 : a' ∈ klein a b ha hb hab) (h2 : b' ∈ klein a b ha hb hab)
+    (h3 : a ∈ klein a' b' ha' hb' hab') (h4 : b ∈ klein a' b' ha' hb' hab') :
+    klein a b ha hb hab = klein a' b' ha' hb' hab' :=
+  le_antisymm (klein_le _ h3 h4) (klein_le _ h1 h2)
+
+theorem klein_map_conj (a b : S7) (ha : a * a = 1) (hb : b * b = 1) (hab : a * b = b * a) (c : S7)
+    (ha' : (c * a * c⁻¹) * (c * a * c⁻¹) = 1) (hb' : (c * b * c⁻¹) * (c * b * c⁻¹) = 1)
+    (hab' : (c * a * c⁻¹) * (c * b * c⁻¹) = (c * b * c⁻¹) * (c * a * c⁻¹)) :
+    (klein a b ha hb hab).map (MulAut.conj c).toMonoidHom =
+      klein (c * a * c⁻¹) (c * b * c⁻¹) ha' hb' hab' := by
+  apply le_antisymm
+  · rintro _ ⟨x, hx, rfl⟩
+    have hx' := mem_klein.mp hx
+    show c * x * c⁻¹ ∈ klein (c * a * c⁻¹) (c * b * c⁻¹) ha' hb' hab'
+    rw [mem_klein]
+    rcases hx' with rfl | rfl | rfl | rfl
+    · left; group
+    · right; left; rfl
+    · right; right; left; rfl
+    · right; right; right; group
+  · apply klein_le
+    · exact ⟨a, (mem_klein.mpr (Or.inr (Or.inl rfl))), rfl⟩
+    · exact ⟨b, (mem_klein.mpr (Or.inr (Or.inr (Or.inl rfl)))), rfl⟩
+
+theorem klein_eq_mul {a b : S7} (ha : a * a = 1) (hb : b * b = 1) (hab : a * b = b * a)
+    (hb' : (a * b) * (a * b) = 1) (hab' : a * (a * b) = (a * b) * a) :
+    klein a b ha hb hab = klein a (a * b) ha hb' hab' := by
+  apply klein_eq_klein
+  · exact mem_klein.mpr (Or.inr (Or.inl rfl))
+  · exact mem_klein.mpr (Or.inr (Or.inr (Or.inr rfl)))
+  · exact mem_klein.mpr (Or.inr (Or.inl rfl))
+  · refine mem_klein.mpr (Or.inr (Or.inr (Or.inr ?_)))
+    rw [← mul_assoc, ha, one_mul]
 
 @[expose] def Surv8 : List S7 :=
   [s * r, s * r ^ 3, s * swap 4 5, s * swap 4 6, s * swap 5 6, s * r ^ 2 * swap 4 5,
@@ -1951,6 +2005,8 @@ theorem emb4_swap (i j : Fin 4) : emb4 (swap i j) = swap (ι4 i) (ι4 j) := by
 
 @[expose] def tt : S7 := swap 0 1 * swap 4 5
 
+theorem mem_AA_iff {x : S7} : x ∈ AA ↔ ∃ σ ∈ alternatingGroup (Fin 4), emb4 σ = x :=
+  Iff.rfl
 
 theorem AA_fix : ∀ a ∈ AA, ∀ i : Fin 7, 4 ≤ i.val → a i = i := by
   rintro _ ⟨σ, -, rfl⟩ i hi
@@ -2185,6 +2241,11 @@ theorem w4_mul (σ τ : Perm (Fin 4)) : w4 (σ * τ) = w4 σ * w4 τ := by
     rcases Int.units_eq_one_or (sign τ) with h2 | h2 <;>
     simp [h1, h2, f0_mul_self]
 
+theorem sign_w4 (σ : Perm (Fin 4)) : sign (w4 σ) = sign σ := by
+  unfold w4
+  rcases Int.units_eq_one_or (sign σ) with h1 | h1
+  · simp [h1]
+  · simp [h1, f0_isSwap.sign_eq]
 
 theorem w4_apply_of_lt (σ : Perm (Fin 4)) (x : Fin 7) (hx : x.val < 4) : w4 σ x = x := by
   unfold w4
@@ -2265,6 +2326,12 @@ theorem emb3_apply (σ : Perm (Fin 3)) (x : Fin 3) : emb3 σ (ι3 x) = ι3 (σ x
   classical
   exact Equiv.Perm.viaEmbedding_apply σ _ x
 
+theorem emb3_apply_of_ge' (σ : Perm (Fin 3)) (x : Fin 7) (hx : x.val < 4) : emb3 σ x = x :=
+  emb3_apply_of_lt σ x hx
+
+theorem sign_emb3 (σ : Perm (Fin 3)) : sign (emb3 σ) = sign σ := by
+  let _ : DecidablePred (fun x => x ∈ Set.range ι3) := fun x => Classical.propDecidable _
+  exact sign_extendDomain σ (Equiv.ofInjective ι3 ι3.injective)
 
 theorem emb3_swap (i j : Fin 3) : emb3 (swap i j) = swap (ι3 i) (ι3 j) := by
   apply Equiv.ext
@@ -2503,6 +2570,25 @@ theorem emb4_mem_normalizer (σ : Perm (Fin 4)) : emb4 σ ∈ normalizer (Vsub :
     rw [e] at this
     exact this
 
+theorem commute_mem_normalizer_Vsub (x : S7) (hx : ∀ v ∈ Vsub, v * x = x * v) :
+    x ∈ normalizer (Vsub : Set S7) := by
+  rw [Subgroup.mem_normalizer_iff]
+  intro h
+  have e : ∀ v : S7, v * x = x * v → x * v * x⁻¹ = v := fun v hv => by
+    calc x * v * x⁻¹ = (v * x) * x⁻¹ := by rw [hv]
+      _ = v := by group
+  constructor
+  · intro hh
+    rw [e h (hx h hh)]
+    exact hh
+  · intro hh
+    have h1 := hx _ hh
+    have : h = x * h * x⁻¹ := by
+      calc h = x⁻¹ * ((x * h * x⁻¹) * x) := by group
+        _ = x⁻¹ * (x * (x * h * x⁻¹)) := by rw [h1]
+        _ = x * h * x⁻¹ := by group
+    rw [this]
+    exact hh
 
 end VType6
 

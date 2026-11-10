@@ -223,6 +223,9 @@ theorem proj_transvection_mem_rootSL2 {a b : Fin n} (hab : a ≠ b) (c : K) :
     LinearFlag.proj n K (SpecialLinearGroup.transvection hab c) ∈ rootSL2 a b :=
   proj_transvection_mem_blockSL hab (by simp) (by simp) c
 
+theorem proj_transvection_mem_rootSL2' {a b : Fin n} (hab : a ≠ b) (c : K) :
+    LinearFlag.proj n K (SpecialLinearGroup.transvection hab.symm c) ∈ rootSL2 a b :=
+  proj_transvection_mem_blockSL hab.symm (by simp) (by simp) c
 
 @[expose] def reindexSpecialLinear {ι κ : Type*} [Fintype ι] [DecidableEq ι] [Fintype κ]
     [DecidableEq κ] (e : ι ≃ κ) : SpecialLinearGroup ι K ≃* SpecialLinearGroup κ K where
@@ -425,6 +428,14 @@ theorem exists_perm_apply_eq_apply_eq {a b c d : Fin n} (hab : a ≠ b) (hcd : c
   · rw [Equiv.trans_apply, Equiv.swap_apply_left, Equiv.swap_apply_of_ne_of_ne h1.symm hcd]
   · rw [Equiv.trans_apply, Equiv.swap_apply_left]
 
+theorem exists_conj_rootSL2 (a b c d : Fin n) (hab : a ≠ b) (hcd : c ≠ d) :
+    ∃ g : LinearFlag.projectiveSL n K,
+      (rootSL2 a b).map (MulAut.conj g).toMonoidHom = rootSL2 c d := by
+  obtain ⟨σ, hσa, hσb⟩ := exists_perm_apply_eq_apply_eq hab hcd
+  obtain ⟨g, hg⟩ := exists_conj_blockSL (K := K) σ {a, b}
+  refine ⟨g, ?_⟩
+  rw [rootSL2, hg, rootSL2, Finset.map_insert, Finset.map_singleton, Equiv.coe_toEmbedding, hσa,
+    hσb]
 
 theorem blockEmbed_transvection (I : Finset (Fin n)) {i j : I} (hij : i ≠ j) (c : K) :
     blockEmbed I (SpecialLinearGroup.transvection hij c) =

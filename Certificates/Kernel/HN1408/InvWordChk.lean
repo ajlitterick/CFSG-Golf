@@ -16,6 +16,12 @@ theorem azWords_ok : azWordsK = true := by quickRfl
 
 theorem bWords_ok : bWordsK = true := by quickRfl
 
+theorem azWords_neg : (!wordsInK classaz.centGens classz.centGens
+    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1] u2W) = true := by
+  quickRfl
+
+theorem bWords_neg : (!wordsInK classb.centGens [wordA, wordB] [0, 0, 0, 0, 0, 0] bW) = true := by
+  quickRfl
 
 end CFSG.KD.HN1408.CzInv
 

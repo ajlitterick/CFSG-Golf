@@ -7,6 +7,7 @@ namespace CFSG.Sporadic.FischerOddCore
 @[expose] def fi22Cent3510Text : String :=
   include_str "../../../Certificates/Data/CFSGNative/FischerOddCore/fi22-cent-3510.txt"
 
+@[expose] def fi22CentLineCount : Nat := 306
 
 @[expose] def fi22CentCases : List Nat :=
     [0, 1, 3, 4, 5]
@@ -73,6 +74,8 @@ namespace CFSG.Sporadic.FischerOddCore
     [[2, 180, 3, 2, 48, 32, 8, 2, 2], [54, 20, 2, 16, 8, 4, 3, 2], [360, 56, 27, 10, 2, 8, 4, 3,
     2], [56, 27, 10, 2, 8, 4, 3, 2]]
 
+@[expose] def fi22CentRefFixed : List Nat :=
+    [182, 72, 360, 64]
 
 @[expose] def fi22SearchBase : List Nat :=
     [1122, 1226, 1920, 2321, 2506, 47, 0, 1, 6, 2]
@@ -86,6 +89,8 @@ namespace CFSG.Sporadic.FischerOddCore
 @[expose] def fi22SearchAccStart : Nat :=
     304
 
+@[expose] def fi22SearchPruningOrder : Nat :=
+    1769472
 
 @[expose] def fi22SearchNodeData :
     List (List Nat × List (Nat × Nat) × List Nat × Nat × Nat) := [
@@ -261,5 +266,15 @@ namespace CFSG.Sporadic.FischerOddCore
   ([1122, 2321, 2743, 1226, 2506, 47, 185, 14, 27], [(1995, 137)], [44], 0, 0),
   ([1122, 2321, 2743, 1226, 2506, 47, 185, 14, 27, 1995], [], [], 2, 0)]
 
+@[expose] def fi22SearchOrbitSizes : List (List Nat) :=
+    [[6], [3, 2], [2, 2], [1, 1, 1], [1, 1], [48], [32], [8], [2], [2], [], [48], [32], [8], [2],
+    [2], [], [1, 1], [48], [32], [8], [2], [2], [], [48], [32], [8], [2], [2], [], [1, 1], [48],
+    [32], [8], [2], [2], [], [48], [32], [8], [2], [2], [], [1, 1, 1], [1, 1], [48], [32], [8],
+    [2], [2], [], [48], [32], [8], [2], [2], [], [1, 1], [48], [32], [8], [2], [2], [], [48],
+    [32], [8], [2], [2], [], [1, 1], [48], [32], [8], [2], [2], [], [48], [32], [8], [2], [2], [],
+    [3, 1], [1, 1, 1], [1, 1], [48], [32], [8], [2], [2], [], [48], [32], [8], [2], [2], [], [1,
+    1], [48], [32], [8], [2], [2], [], [48], [32], [8], [2], [2], [], [1, 1], [48], [32], [8],
+    [2], [2], [], [48], [32], [8], [2], [2], [], [3], [1, 1], [48], [32], [8], [2], [2], [], [48],
+    [32], [8], [2], [2], []]
 
 end CFSG.Sporadic.FischerOddCore

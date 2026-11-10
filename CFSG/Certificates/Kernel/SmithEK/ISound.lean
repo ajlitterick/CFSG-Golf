@@ -196,6 +196,9 @@ theorem spanData_of {L : List Nat} (hL : L.length = 20) :
   · intro i h1 h2
     simp [spanData, hE]
 
+theorem basL_length_echelon (L : List Nat) :
+    (basL L).length = ((gensL L).foldl insertVec []).length := by
+  simp [basL]
 
 theorem chkI_of {T : List (List (List (List Nat)))} {P W : List Nat} {Bs : List (List Nat)}
     (hP : uPts () = P.toArray) (hPl : P.length = 693)

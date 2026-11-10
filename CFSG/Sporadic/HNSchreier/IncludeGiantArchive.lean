@@ -27,6 +27,8 @@ public meta section
 open Lean Meta Elab Term
 open CFSG.Sporadic.HNSchreier
 
+private def packedExpr (w n : Nat) : Expr :=
+  mkApp2 (mkConst ``KernelBytes.packed) (mkNatLit w) (mkNatLit n)
 
 private partial def packArchive (e : Expr) (proof : Bool) : MetaM (Nat × Nat × Expr) := do
   let e := e.consumeMData

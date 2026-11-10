@@ -163,6 +163,7 @@ theorem l_row_zero (y : Fin 6 → F4) (j : Fin 6) : l y (coord 0 j) = 0 := by
 theorem ψ_l_grey (y : Fin 6 → F4) (j : Fin 6) : ψ (l y) (Fin.castAdd 6 j) = 0 := by
   rw [ψ_grey, l_apply_coord, l_apply_coord, l_apply_coord, lCol_lower]
 
+theorem ψ_g_coloured : ∀ j k : Fin 6, ψ (g j) (Fin.natAdd 6 k) = 0 := by decide
 
 theorem G_sup_H : G ⊔ H = C := by
   refine le_antisymm (sup_le G_le_C H_le_C) ?_
@@ -185,5 +186,17 @@ theorem G_sup_H : G ⊔ H = C := by
   · exact hH _ v₃_mem
   · exact hH _ (H₆.smul_mem α v₃_mem)
 
+theorem disjoint_G_H : Disjoint G H := by
+  rw [Submodule.disjoint_def]
+  rintro x hxG ⟨y, -, rfl⟩
+  have hG : ∀ k : Fin 6, ψ (l y) (Fin.natAdd 6 k) = 0 := by
+    intro k
+    have : G ≤ LinearMap.ker (LinearMap.proj (Fin.natAdd 6 k) ∘ₗ ψ) :=
+      Submodule.span_le.2 (Set.range_subset_iff.2 fun j => ψ_g_coloured j k)
+    exact this hxG
+  refine eq_zero_of_mem_C_of_ψ_eq_zero (G_le_C hxG) (funext fun k => ?_)
+  fin_cases k
+  exacts [ψ_l_grey y 0, ψ_l_grey y 1, ψ_l_grey y 2, ψ_l_grey y 3, ψ_l_grey y 4, ψ_l_grey y 5,
+    hG 0, hG 1, hG 2, hG 3, hG 4, hG 5]
 
 end CFSG.Monster.Code

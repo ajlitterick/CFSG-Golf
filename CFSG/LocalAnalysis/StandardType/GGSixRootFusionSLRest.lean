@@ -368,6 +368,9 @@ theorem ggSixRootFusionSLRepResidualInput_of_alpha (hα : GGSLSixAlphaInput) :
     · refine SLRep.ggRootFusionWitnessAlt_residual_four hc hle hcardF hf2 hζ hl5 hn ?_
       exact SLRest.half_mul_pred_ne_of_mod_four (by obtain ⟨j, rfl⟩ := hlo; omega)
 
+theorem ggSixRootFusionSLRepInput_of_nonsplit_alpha (hN : GGSixRootFusionSLRepNonsplitInput)
+    (hα : GGSLSixAlphaInput) : GGSixRootFusionSLRepInput :=
+  ggSixRootFusionSLRepInput_of_nonsplit_residual hN (ggSixRootFusionSLRepResidualInput_of_alpha hα)
 
 end Inputs
 

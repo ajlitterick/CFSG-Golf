@@ -34,5 +34,19 @@ namespace CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KData
     146, 105, 65, 109, 93, 151, 79, 30, 152, 108, 135, 119, 161, 38, 31, 134, 90, 50,
     124, 34, 122, 76, 139, 63, 102, 117, 74, 92, 66, 80, 155, 150, 53, 121, 64, 132]
 
+@[expose] def model3Check (_ : Unit := ()) : Bool :=
+  let w := tword 18 m3aT m3bT
+  let one := tid 18
+  validT 18 m3aT && validT 18 m3bT && w (sW 15) == one && w (sW 3) != one &&
+    w (sW 5) != one && w (0 :: sW 5) == w (sW 5 ++ [0]) && w (1 :: sW 5) == w (sW 5 ++ [1]) &&
+    w [0, 0] == one && w [1, 1, 1, 1] == one && w (List.replicate 5 [0, 1, 1]).flatten == one
+
+@[expose] def model6Check (_ : Unit := ()) : Bool :=
+  let w := tword 162 m6aT m6bT
+  let one := tid 162
+  validT 162 m6aT && validT 162 m6bT && w (sW 30) == one && w (sW 15) != one &&
+    w (sW 10) != one && w (sW 6) != one && w (0 :: sW 5) == w (sW 5 ++ [0]) &&
+    w (1 :: sW 5) == w (sW 5 ++ [1]) && w [0, 0] == w (sW 15) && w [1, 1, 1, 1] == w (sW 15) &&
+    w (List.replicate 5 [0, 1, 1]).flatten == one
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KData

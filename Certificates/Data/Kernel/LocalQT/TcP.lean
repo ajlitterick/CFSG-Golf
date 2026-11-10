@@ -60,6 +60,25 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim
       (runP n w (pidn n w) prog (fun r1 _ _ => targTc n w targets r1)) List.nil List.nil
       (nat_lit 0))))
 
+@[expose] noncomputable def selTc (idn : Nat) (r1 : List Nat) (len : Nat) (idx S : List Nat) :
+    Bool :=
+  List.rec (motive := fun _ => List Nat → Bool)
+    (fun S => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) S)
+    (fun k _ ih S => List.rec (motive := fun _ => Bool) false
+      (fun s S' _ => bAnd(Nat.blt k len, bAnd(Nat.beq (regTc idn r1 len k) s, ih S'))) S) idx S
+
+@[expose] noncomputable def pushP (G GI : List Nat) (k : List Nat → List Nat → Nat → Bool) :
+    List Nat → List Nat → Nat → Bool :=
+  List.rec (motive := fun _ => List Nat → List Nat → List Nat → Nat → Bool)
+    (fun _ r1 r2 len => k r1 r2 len)
+    (fun g _ ih GI' r1 r2 len => List.rec (motive := fun _ => Bool) false
+      (fun gi GI'' _ => ih GI'' (List.cons g r1) (List.cons gi r2) (Nat.succ len)) GI') G GI
+
+@[expose] noncomputable def runSelP (n w : Nat) (G GI : List Nat) (prog : List (Int × Int))
+    (idx S : List Nat) : Bool :=
+  bAnd(idK n w (mask w), bAnd(gensTc n w G GI,
+    pushP G GI (runP n w (pidn n w) prog (fun r1 _ len => selTc (pidn n w) r1 len idx S))
+      List.nil List.nil (nat_lit 0)))
 
 end CFSG.KC.LQT.TC
 

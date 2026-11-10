@@ -22,6 +22,7 @@ theorem parent_lt (c : ℕ) (hc : 0 < c) : parent c < c := by
 
 theorem edges_parent : ∀ p ∈ edges, 0 < p.2 ∧ p.2 < 11 ∧ parent p.2 = p.1 := by decide
 
+theorem yEdges_eq : yEdges 4 3 3 = edges := by decide
 
 @[expose] def edgeB (s t : ℕ) : Bool := decide ((s, t) ∈ edges)
 

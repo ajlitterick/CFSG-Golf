@@ -11,6 +11,12 @@ universe u v
 
 variable {k : Type u} [Field k]
 
+theorem ringKrullDim_le_of_injective {A B : Type v} [CommRing A] [IsDomain A] [Algebra k A]
+    [Algebra.FiniteType k A] [CommRing B] [IsDomain B] [Algebra k B] [Algebra.FiniteType k B]
+    (f : A →ₐ[k] B) (hf : Function.Injective f) : ringKrullDim A ≤ ringKrullDim B := by
+  rw [TauCeti.ringKrullDim_eq_toNat_trdeg k A, TauCeti.ringKrullDim_eq_toNat_trdeg k B]
+  exact_mod_cast Cardinal.toNat_le_toNat (trdeg_le_of_injective f hf)
+    trdeg_lt_aleph0_of_finiteType
 
 theorem ringKrullDim_quotient_lt_of_ne_bot {A : Type v} [CommRing A] [IsDomain A] [Algebra k A]
     [Algebra.FiniteType k A] {I : Ideal A} (hI : I ≠ ⊥) :

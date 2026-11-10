@@ -87,6 +87,7 @@ theorem mem_ker_iff {y : T} : y ∈ E.ψ.ker ↔ ∃ k : ZMod 2, y = E.zz k := b
     refine ⟨(k.val : ℤ), ?_⟩
     rw [zpow_z, Int.cast_natCast, ZMod.natCast_zmod_val]
 
+theorem zz_mem_ker (k : ZMod 2) : E.zz k ∈ E.ψ.ker := E.mem_ker_iff.2 ⟨k, rfl⟩
 
 theorem exists_unique_zz {x y : T} (h : E.ψ x = E.ψ y) : ∃! k : ZMod 2, x = y * E.zz k := by
   have hmem : y⁻¹ * x ∈ E.ψ.ker := by
@@ -99,6 +100,7 @@ theorem exists_unique_zz {x y : T} (h : E.ψ x = E.ψ y) : ∃! k : ZMod 2, x = 
     have : y * E.zz l = y * E.zz k := by rw [← hl, ← hk]; group
     exact mul_left_cancel this
 
+theorem mul_zz_comm (k : ZMod 2) (t : T) : t * E.zz k = E.zz k * t := (E.zz_central k t).symm
 
 theorem mul_zz_mul (k : ZMod 2) (x y : T) : x * E.zz k * y = x * y * E.zz k := by
   rw [mul_assoc, E.zz_central k y, ← mul_assoc]

@@ -11,6 +11,9 @@ namespace CFSG.Sporadic.J4.QT
 
 open CFSG.Sporadic.J4.Native
 
+theorem obs_wf :
+    wfRows e5Rows = true ∧ wfRows gRows = true ∧ wfRows yRows = true :=
+  Certificates.certificate4023.1
 
 theorem obs_y_sq : eqRows (mulRows yRows yRows) idRows = true :=
   Certificates.certificate4023.2.1

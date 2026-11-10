@@ -52,6 +52,26 @@ theorem card_fixed_involution
   · rw [conj_pow, hg2, mul_one, mul_inv_cancel]
   · rwa [Ne, conj_eq_one_iff]
 
+theorem exists_card_fixed
+    {n : ℕ} (hn : n ∈ ({54, 182, 694} : Set ℕ)) :
+    ∃ g : J, g ^ 2 = 1 ∧ g ≠ 1 ∧ (Finset.univ.filter fun i : Fin 3510 => g • i = i).card = n := by
+  have key : ∀ w ∈ fixWords, ∃ g : J, g ^ 2 = 1 ∧ g ≠ 1 ∧
+      (Finset.univ.filter fun i : Fin 3510 => g • i = i).card = w.2 := fun w hw =>
+    ⟨_, fixExact_spec (rep_wordTab w.1 (inv_parts.2.1 w hw).1) (inv_parts.2.1 w hw).2⟩
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
+  rcases hn with rfl | rfl | rfl
+  · exact key ([0, 8, 31], 54) (by simp [fixWords])
+  · exact key ([0, 8], 182) (by simp [fixWords])
+  · exact key ([0], 694) (by simp [fixWords])
+
+theorem card_fixed_involution_eq :
+    {n | ∃ g : J, g ^ 2 = 1 ∧ g ≠ 1 ∧
+      (Finset.univ.filter fun i : Fin 3510 => g • i = i).card = n} = {54, 182, 694} := by
+  ext n
+  constructor
+  · rintro ⟨g, hg2, hg1, rfl⟩
+    exact card_fixed_involution hg2 hg1
+  · exact exists_card_fixed
 
 theorem card_fixed_involution_D :
     ∀ g : J, g ^ 2 = 1 → g ≠ 1 →

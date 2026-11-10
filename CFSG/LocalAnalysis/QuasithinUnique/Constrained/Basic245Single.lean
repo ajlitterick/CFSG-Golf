@@ -667,6 +667,12 @@ theorem c56_single_data (hN : NaturalModuleStructure)
   · refine hcent y hy ?_ u hu
     rwa [o4] at hyP
 
+theorem blockUEqO2Single (hN : NaturalModuleStructure) :
+    BlockUEqO2Single := by
+  intro G _ _ T M H S L hcs hj hL
+  obtain ⟨M₀, hSM, hMT, h2⟩ := exists_index_two hcs
+  obtain ⟨-, -, -, -, -, -, -, -, -, hUeq⟩ := single_rank1 hN hcs hj hL hSM hMT h2
+  exact le_antisymm (C1.blockU_le_blockQ (isShort hcs)) hUeq
 
 end C56
 

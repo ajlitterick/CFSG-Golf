@@ -62,6 +62,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KS.PEnum
     (fun b _ ih cs => List.rec (motive := fun _ => Bool) false
       (fun c cs' _ => bAnd(Nat.beq (m305mul m b) (m305mul (m305prod bs c) m), ih cs')) cs)) bs cs
 
+@[expose] noncomputable def m305ord (p k : Nat) : Bool :=
+  bAnd(Nat.beq (ppow 275 9 (mask 9) m305id p k) m305id, bIf(Nat.beq p m305id, false, true))
 
 @[expose] noncomputable def m305comm (p q : Nat) : Bool :=
   allN 275 (fun i => Nat.beq (pg 9 (mask 9) p (pg 9 (mask 9) q i))

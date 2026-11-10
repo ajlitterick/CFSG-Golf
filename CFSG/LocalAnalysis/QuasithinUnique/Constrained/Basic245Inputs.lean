@@ -67,6 +67,9 @@ theorem lemma245_C56_7_iff : Lemma245_C56_7 ↔
     conjJoin S L ≠ L →
     ∀ M₀ : Subgroup G, S ≤ M₀ → M₀ ≤ T → S.relIndex M₀ = 2 → C56_7Concl S H L M₀
 
+@[expose] def BlockUEqO2Single : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
+    conjJoin S L = L → ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) → blockU L = blockQ L
 
 @[expose] def C61Concl (T H S L : Subgroup G) : Prop :=
   (S.relIndex (normT T S) = 2 ∧

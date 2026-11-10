@@ -68,11 +68,31 @@ theorem gens_ok : allLt 5 (fun j => j3StrongArrs[j]!.size == 6156 &&
   rewrite [inv_eq j hj, arr_eq j hj, (invEqK_sound (allN_spec PJ3Check.perm j hj)).2]
   simp [unpack]
 
+theorem inv_lt : decide (j3InvWord < 2 ^ 3240) = true := by
+  have h := PJ3F.j3InvHex.ok.hexAt_lt 0 810
+  rewrite [(by norm_num : 4 * 810 = 3240)] at h
+  rewrite [j3InvWord]
+  exact decide_eq_true h
 
 theorem stab_eq : j3StabData = PJ3St.R := by
   rewrite [j3StabData, PJ3St.eq, tokK_sound PJ3Cert.tok, PJ3Enc.parse_encOM]
   rfl
 
+theorem forms_of (h : Le70Str j3FormsHex) :
+    allLt 6156 (fun r => decide (hexAt j3FormsHex.toUTF8 (810 * r) 810 < 2 ^ 3240)) = true := by
+  rewrite [allLt_iff]
+  intro r _
+  have h' := h.hexAt_lt (810 * r) 810
+  rewrite [(by norm_num : 4 * 810 = 3240)] at h'
+  exact decide_eq_true h'
+
+theorem certOK_of_forms
+    (hF : allLt 6156 (fun r => decide (hexAt j3FormsHex.toUTF8 (810 * r) 810 < 2 ^ 3240)) = true) :
+    j3CertOK = true := by
+  obtain ⟨h7, h8, h9, h10, h11, h12⟩ := stab_checks PJ3Cert.stab
+  unfold j3CertOK
+  exact with_of _ _ PJ3St.R stab_eq monomials_checks.1 monomials_checks.2 hF inv_lt
+    (by simp [j3StrongArrs]) gens_ok h7 h8 h9 h10 h11 h12
 
 end CertificateChecks.KernelSporSch.PJ3Cert
 

@@ -73,6 +73,8 @@ theorem H_le_normalizer : H ≤ NN := by
   · exact y_mem_normalizer
   · exact Subgroup.le_normalizer z_mem_N
 
+theorem N_normal_in_H : (N.subgroupOf H).Normal :=
+  (Subgroup.normal_subgroupOf_iff_le_normalizer N_le_H).2 H_le_normalizer
 
 theorem conj_mem_N_of_mem_K
     {k n : J} (hk : k ∈ K) (hn : n ∈ N) : k * n * k⁻¹ ∈ N :=

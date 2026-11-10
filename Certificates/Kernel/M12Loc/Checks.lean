@@ -43,6 +43,23 @@ theorem psi_rows_2 : psiRows (D.TNa.drop 48) D.TNa = true := by decide +kernel
 
 theorem psi_val : psiValOK D.TNa = true := by decide +kernel
 
+theorem nz_list_neg : listOK (predP zT) D.TT idxNP D.TNP.reverse = false := by decide +kernel
+
+theorem count_NP_neg : countOK (predN [xT, yT] P0T) D.TNP 107 = false := by decide +kernel
+
+theorem orb_neg : orbOK D.W.reverse = false := by decide +kernel
+
+theorem psi_neg : psiRows [tid] [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 10]] = false := by
+  decide +kernel
+
+theorem psi_val_neg : psiValOK [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] = false := by decide +kernel
+
+theorem T3_eq : CFSG.RankThree.PartTwo.Toolkit.perms3.map CFSG.RankThree.PartTwo.Toolkit.ptab = T3L := by
+  decide +kernel
+
+theorem T4e_eq : (CFSG.RankThree.PartTwo.Toolkit.perms4.filter fun σ => decide (Equiv.Perm.sign σ = 1)).map
+    CFSG.RankThree.PartTwo.Toolkit.ptab = T4eL := by
+  decide +kernel
 
 end CertificateChecks.KernelM12Loc
 

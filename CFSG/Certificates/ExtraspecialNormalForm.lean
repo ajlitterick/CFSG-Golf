@@ -130,6 +130,15 @@ theorem collect_zero_right (c : Fin n → Fin n → ZMod 2) (v : Fin n → ZMod 
     collect c v 0 = 0 := by
   simp [collect]
 
+theorem collect_single (c : Fin n → Fin n → ZMod 2) (v : Fin n → ZMod 2) (j : Fin n) :
+    collect c v (Pi.single j 1) = ∑ k, if j < k then c k j * v k else 0 := by
+  unfold collect
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [Finset.sum_eq_single j]
+  · simp
+  · intro j' _ hj'
+    simp [hj']
+  · simp
 
 theorem Rel.tail {q : Fin (n + 1) → G} {c : Fin (n + 1) → Fin (n + 1) → ZMod 2}
     (h : Rel z q c) :
@@ -214,6 +223,18 @@ theorem nf_mul_zpow (h : Rel z q c) (s b : ZMod 2) (v : Fin n → ZMod 2) :
     nf z q s v * z ^ b.val = nf z q (s + b) v := by
   rw [← nf_zero_vec z q b, nf_mul_nf h, collect_zero_right, add_zero, add_zero]
 
+theorem nf_mul_q (h : Rel z q c) (s : ZMod 2) (v : Fin n → ZMod 2) (j : Fin n) :
+    nf z q s v * q j =
+      nf z q (s + ∑ k, if j < k then c k j * v k else 0) (v + Pi.single j 1) := by
+  rw [← nf_single z q j, nf_mul_nf h, collect_single, add_zero]
+
+theorem nf_mul_q_of_symm (h : Rel z q c) (hsymm : ∀ i j, c i j = c j i) (s : ZMod 2)
+    (v : Fin n → ZMod 2) (j : Fin n) :
+    nf z q s v * q j =
+      nf z q (s + ∑ k, if j < k then c j k * v k else 0) (v + Pi.single j 1) := by
+  have e : (∑ k, if j < k then c k j * v k else 0) = ∑ k, if j < k then c j k * v k else 0 :=
+    Finset.sum_congr rfl fun k _ => by rw [hsymm k j]
+  rw [nf_mul_q h, e]
 
 theorem nf_mul_z (h : Rel z q c) (s : ZMod 2) (v : Fin n → ZMod 2) :
     nf z q s v * z = nf z q (s + 1) v := by
@@ -309,6 +330,10 @@ theorem injective_of_card_ge (h : Rel z q c)
   intro a b hab
   exact hbij.1 (Subtype.ext hab)
 
+theorem injective_iff_card (h : Rel z q c) :
+    Function.Injective (Function.uncurry (nf z q)) ↔
+      Nat.card (Subgroup.closure (insert z (Set.range q))) = 2 ^ (n + 1) :=
+  ⟨card_closure h, fun hc => injective_of_card_ge h hc.ge⟩
 
 theorem eq_of_nf_eq (hinj : Function.Injective (Function.uncurry (nf z q)))
     {s t : ZMod 2} {v w : Fin n → ZMod 2} (h : nf z q s v = nf z q t w) : s = t ∧ v = w :=
@@ -403,6 +428,9 @@ theorem Rel.symm_of_injective (h : Rel z q c)
     (hinj : Function.Injective (Function.uncurry (nf z q))) (i j : Fin n) : c i j = c j i :=
   h.symm_of_ne_one (ne_one_of_injective hinj) i j
 
+theorem Rel.diag_of_injective (h : Rel z q c)
+    (hinj : Function.Injective (Function.uncurry (nf z q))) (i : Fin n) : c i i = 0 :=
+  h.diag_eq_zero (ne_one_of_injective hinj) i
 
 theorem nf_sq_eq_one_iff (h : Rel z q c) (hinj : Function.Injective (Function.uncurry (nf z q)))
     (s : ZMod 2) (v : Fin n → ZMod 2) : nf z q s v ^ 2 = 1 ↔ qf c v = 0 := by
@@ -413,6 +441,22 @@ theorem nf_sq_eq_one_iff (h : Rel z q c) (hinj : Function.Injective (Function.un
   · rw [h1, val_one_two, pow_one]
     exact iff_of_false hz1 (by decide)
 
+theorem card_sq_eq_one (h : Rel z q c) (hinj : Function.Injective (Function.uncurry (nf z q))) :
+    Nat.card {x : ↥(Subgroup.closure (insert z (Set.range q))) // x ^ 2 = 1} =
+      2 * Nat.card {v : Fin n → ZMod 2 // qf c v = 0} := by
+  let f : ZMod 2 × {v : Fin n → ZMod 2 // qf c v = 0} →
+      {x : ↥(Subgroup.closure (insert z (Set.range q))) // x ^ 2 = 1} :=
+    fun p => ⟨⟨nf z q p.1 p.2.1, nf_mem_closure z q p.1 p.2.1⟩, Subtype.ext
+      ((nf_sq_eq_one_iff h hinj _ _).2 p.2.2)⟩
+  have hf : Function.Bijective f := by
+    constructor
+    · rintro ⟨s, v, hv⟩ ⟨t, w, hw⟩ hst
+      obtain ⟨rfl, rfl⟩ := eq_of_nf_eq hinj (congrArg (fun x => (x.1 : G)) hst)
+      rfl
+    · rintro ⟨⟨x, hx⟩, hx2⟩
+      obtain ⟨s, v, rfl⟩ := (mem_closure_iff h).1 hx
+      exact ⟨(s, ⟨v, (nf_sq_eq_one_iff h hinj s v).1 (congrArg Subtype.val hx2)⟩), rfl⟩
+  rw [← Nat.card_congr (Equiv.ofBijective f hf), Nat.card_prod, Nat.card_zmod]
 
 theorem commute_of_mem_closure (h : Rel z q c) {x : G}
     (hx : x ∈ Subgroup.closure (insert z (Set.range q))) : Commute z x := by
@@ -620,6 +664,13 @@ theorem theta_apply_eq_mk (h : Rel z q c) (s : ZMod 2) (v : Fin n → ZMod 2) :
   rw [e]
   exact zpow_mem_center h _
 
+theorem theta_single (h : Rel z q c) (j : Fin n) :
+    theta h (Multiplicative.ofAdd (Pi.single j 1)) =
+      (QuotientGroup.mk ⟨q j, q_mem_closure z q j⟩ :
+        ↥(Subgroup.closure (insert z (Set.range q))) ⧸
+          Subgroup.center ↥(Subgroup.closure (insert z (Set.range q)))) := by
+  rw [theta_apply_eq_mk h 0 (Pi.single j 1)]
+  exact congrArg QuotientGroup.mk (Subtype.ext (nf_single z q j))
 
 theorem theta_surjective (h : Rel z q c) : Function.Surjective (theta h) := by
   intro x
@@ -652,6 +703,18 @@ theorem theta_injective (h : Rel z q c) (hinj : Function.Injective (Function.unc
         Subgroup.center ↥(Subgroup.closure (insert z (Set.range q))) :=
   MulEquiv.ofBijective (theta h) ⟨theta_injective h hinj hnd, theta_surjective h⟩
 
+@[expose] def thetaAddEquiv (h : Rel z q c) (hinj : Function.Injective (Function.uncurry (nf z q)))
+    (hnd : Nondegenerate c) :
+    (Fin n → ZMod 2) ≃+
+      Additive (↥(Subgroup.closure (insert z (Set.range q))) ⧸
+        Subgroup.center ↥(Subgroup.closure (insert z (Set.range q)))) :=
+  MulEquiv.toAdditiveRight (thetaEquiv h hinj hnd)
+
+theorem thetaEquiv_apply (h : Rel z q c) (hinj : Function.Injective (Function.uncurry (nf z q)))
+    (hnd : Nondegenerate c) (v : Fin n → ZMod 2) :
+    thetaEquiv h hinj hnd (Multiplicative.ofAdd v) =
+      QuotientGroup.mk ⟨nf z q 0 v, nf_mem_closure z q 0 v⟩ :=
+  rfl
 
 theorem card_quotient_center (h : Rel z q c)
     (hinj : Function.Injective (Function.uncurry (nf z q))) (hnd : Nondegenerate c) :

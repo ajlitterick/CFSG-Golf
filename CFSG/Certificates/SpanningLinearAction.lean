@@ -77,5 +77,18 @@ theorem generatedLinearRestriction_range (X : Set V) (hX : X.Finite)
   rw [MonoidHom.range_comp, hrange, MonoidHom.map_closure, ← Set.range_comp']
   rfl
 
+theorem invariant_spanning_linear_action (X : Set V) (hX : X.Finite)
+    (hspan : Submodule.span K X = ⊤) (A : I → V ≃ₗ[K] V)
+    (hA : ∀ i, Set.MapsTo (A i) X X) :
+    ∃ ρ : Subgroup.closure (Set.range A) →* Equiv.Perm X,
+      (∀ (g : Subgroup.closure (Set.range A)) (x : X),
+        ((ρ g) x : V) = (g : V ≃ₗ[K] V) (x : V)) ∧
+      Function.Injective ρ ∧
+      ρ.range = Subgroup.closure (Set.range fun i =>
+        ρ ⟨A i, Subgroup.subset_closure ⟨i, rfl⟩⟩) := by
+  refine ⟨generatedLinearRestriction X hX A hA, fun _ _ => rfl, ?_,
+    generatedLinearRestriction_range X hX A hA⟩
+  exact (linearSetRestriction_injective X hspan).comp
+    (Subgroup.inclusion_injective (generated_linear_le_stabilizer X hX A hA))
 
 end CFSG.Certificates

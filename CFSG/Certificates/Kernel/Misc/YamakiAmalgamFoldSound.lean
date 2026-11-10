@@ -35,6 +35,30 @@ theorem gfold_sound {K : α → κ} {V : α → β} {P : κ → β → Prop} :
         exact hP a List.mem_cons_self
       · exact h0 y v hv
 
+theorem gfold_mono {K : α → κ} {V : α → β} :
+    ∀ (l : List α) (m : Std.HashMap κ β) (y : κ), m.contains y = true →
+      (gfold K V l m).contains y = true
+  | [], _, _, h => h
+  | a :: l, m, y, h => by
+    unfold gfold
+    rw [List.foldl_cons]
+    refine gfold_mono l _ y ?_
+    split
+    · exact h
+    · rw [Std.HashMap.contains_insert, h, Bool.or_true]
+
+theorem gfold_contains {K : α → κ} {V : α → β} :
+    ∀ (l : List α) (m : Std.HashMap κ β) (a : α), a ∈ l → (gfold K V l m).contains (K a) = true
+  | [], _, _, h => absurd h List.not_mem_nil
+  | b :: l, m, a, h => by
+    unfold gfold
+    rw [List.foldl_cons]
+    rcases List.mem_cons.1 h with rfl | h
+    · refine gfold_mono l _ _ ?_
+      split
+      · assumption
+      · rw [Std.HashMap.contains_insert, beq_self_eq_true, Bool.true_or]
+    · exact gfold_contains l _ a h
 
 theorem gfold_contains_iff {K : α → κ} {V : α → β} :
     ∀ (l : List α) (m : Std.HashMap κ β) (y : κ),
@@ -191,6 +215,10 @@ theorem invA_get {t : Array ℕ} (hb : ∀ i < 64, t[i]! < 64)
   rw [getElem!_pos A (t[i]!) hk]
   exact Option.some.inj e
 
+theorem size_invA (t : Array ℕ) (hb : ∀ i < 64, t[i]! < 64)
+    (hinj : ∀ i < 64, ∀ j < 64, t[i]! = t[j]! → i = j) : (invA t).size = 64 := by
+  rw [invA_eq]
+  exact (setFold_spec t hb hinj 64 le_rfl).1
 
 theorem invA_comp {t : Array ℕ} (hb : ∀ i < 64, t[i]! < 64)
     (hinj : ∀ i < 64, ∀ j < 64, t[i]! = t[j]! → i = j) : compA (invA t) t = idA () :=

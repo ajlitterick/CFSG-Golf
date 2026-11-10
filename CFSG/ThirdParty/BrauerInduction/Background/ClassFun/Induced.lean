@@ -344,6 +344,45 @@ section AveragingFormula
 variable {k : Type u} [Field k] [CharZero k]
 variable {G : Type v} [Group G] [Fintype G]
 
+open Classical in
+
+/--
+The standard averaging formula for induction, written as a sum over all
+elements of `G`.
+-/
+lemma ind_apply_eq_inv_mul_sum
+    (H : Subgroup G) (φ : ClassFun k H) (g : G) :
+    ind H φ g =
+      (Nat.card H : k)⁻¹ *
+        ∑ x : G,
+          if hx : x⁻¹ * g * x ∈ H then
+            φ ⟨x⁻¹ * g * x, hx⟩
+          else
+            0 := by
+  rw [ind_apply]
+  let f : G → k := indSummand H φ g
+  calc
+    _ = ∑ q : G ⧸ H, f q.out := by
+      apply Finset.sum_congr
+      · ext q
+        simp
+      · intro q _
+        rfl
+    _ = (Nat.card H : k)⁻¹ * ∑ x : G, f x := by
+      have hsum :
+          (∑ x : G, f x) =
+            (Nat.card H : k) * ∑ q : G ⧸ H, f q.out := by
+        simpa using
+          Subgroup.sum_of_left_coset_constant
+            H f (indSummand_mul_right H φ g)
+      rw [hsum]
+      have hcard : (Nat.card H : k) ≠ 0 := by
+        have hcardNat : Nat.card H ≠ 0 := by
+          exact (Nat.card_ne_zero).mpr ⟨⟨1⟩, inferInstance⟩
+        exact_mod_cast hcardNat
+
+      rw [← mul_assoc, inv_mul_cancel₀ hcard, one_mul]
+
 
 end AveragingFormula
 

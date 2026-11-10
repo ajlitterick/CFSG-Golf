@@ -63,6 +63,11 @@ theorem WW_inv {w : List Int} (hw : LetM 7 w) {x : Nat} (hx : x < 245520) :
   unfold WW invW
   exact h
 
+theorem GZ_inv' {l : Int} (hl : l ≠ 0 ∧ l.natAbs ≤ 7) {y : Nat} (hy : y < 245520) :
+    GZ TT UU l (GZ TT UU (-l) y) = y := by
+  have h := GZ_inv (l := -l) ⟨by omega, by omega⟩ hy
+  rw [neg_neg] at h
+  exact h.2
 
 theorem WW_inv' {w : List Int} (hw : LetM 7 w) {x : Nat} (hx : x < 245520) :
     WW w (WW (invW w) x) = x := by

@@ -97,6 +97,11 @@ private def summandHom {R M V : Type*} [Semiring R] [AddCommMonoid M] [Module R 
       Subgroup.coe_mul, LinearEquiv.mul_apply]
     rw [hG _ h.2 v]
 
+private theorem summandHom_apply {R M V : Type*} [Semiring R] [AddCommMonoid M] [Module R M]
+    [AddCommMonoid V] [Module R V] (G : Subgroup (M ≃ₗ[R] M)) (ι : V →ₗ[R] M)
+    (π : M →ₗ[R] V) (hπι : ∀ v, π (ι v) = v) (hG : ∀ g ∈ G, ∀ v, ι (π (g (ι v))) = g (ι v))
+    (g : ↥G) (v : V) : summandHom G ι π hπι hG g v = π ((g : M ≃ₗ[R] M) (ι v)) :=
+  rfl
 
 private def summandOHom {R M V : Type*} [CommSemiring R] [AddCommMonoid M] [Module R M]
     [AddCommMonoid V] [Module R V] (Q : QuadraticForm R M) (Q' : QuadraticForm R V)
@@ -109,6 +114,13 @@ private def summandOHom {R M V : Type*} [CommSemiring R] [AddCommMonoid M] [Modu
       change Q' (π ((g : M ≃ₗ[R] M) (ι v))) = Q' v
       rw [← hι, hG _ g.2 v, TauCeti.QuadraticMap.map_app_of_mem_orthogonalGroup (hGQ g.2), hι]
 
+private theorem summandOHom_apply {R M V : Type*} [CommSemiring R] [AddCommMonoid M] [Module R M]
+    [AddCommMonoid V] [Module R V] (Q : QuadraticForm R M) (Q' : QuadraticForm R V)
+    (G : Subgroup (M ≃ₗ[R] M)) (hGQ : G ≤ TauCeti.QuadraticMap.orthogonalGroup Q)
+    (ι : V →ₗ[R] M) (π : M →ₗ[R] V) (hπι : ∀ v, π (ι v) = v) (hι : ∀ v, Q (ι v) = Q' v)
+    (hG : ∀ g ∈ G, ∀ v, ι (π (g (ι v))) = g (ι v)) (g : ↥G) (v : V) :
+    (summandOHom Q Q' G hGQ ι π hπι hι hG g : V ≃ₗ[R] V) v = π ((g : M ≃ₗ[R] M) (ι v)) :=
+  rfl
 
 private theorem apply_eq_of_summandOHom_eq_one {R M V : Type*} [CommSemiring R] [AddCommMonoid M]
     [Module R M] [AddCommMonoid V] [Module R V] (Q : QuadraticForm R M) (Q' : QuadraticForm R V)

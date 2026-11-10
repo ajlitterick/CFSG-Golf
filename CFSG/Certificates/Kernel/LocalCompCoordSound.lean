@@ -105,6 +105,7 @@ theorem frameRoots_facts {L : List (List ℤ)} {RK : ℕ → ℕ} {SO FR : ℕ} 
   unfold frameRootL
   rw [← hv, idxOf_root hb hs hlt]
 
+theorem frameImg_zero (RK : ℕ → ℕ) (FR x : ℕ) : frameImg RK FR 0 x = x := rfl
 
 noncomputable def fs (RK : ℕ → ℕ) (FR a k y : ℕ) : ℕ :=
   nIf(Nat.beq (Nat.land (Nat.shiftRight a k) (nat_lit 1)) (nat_lit 1),

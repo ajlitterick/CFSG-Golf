@@ -109,6 +109,13 @@ theorem rep_of_eqA_left {t u : Array ℕ} {τ : Perm (Fin n)} (ht : Rep n t τ)
   rw [beq_iff_eq, ht x] at this
   exact this.symm
 
+theorem eqA_comm {t u : Array ℕ} : eqA n t u = eqA n u t := by
+  unfold eqA
+  congr 1
+  funext i _
+  rw [Bool.eq_iff_iff]
+  simp only [beq_iff_eq]
+  exact ⟨Eq.symm, Eq.symm⟩
 
 theorem rep_swapA {a b : ℕ} (ha : a < n) (hb : b < n) :
     Rep n (swapA n a b) (swap ⟨a, ha⟩ ⟨b, hb⟩) := fun x => by
@@ -260,6 +267,14 @@ theorem mem_gensA (hn : 8 ≤ n) (hn' : n ≤ 11) :
     simp only [gensA, Array.mem_map, List.mem_toArray]
     exact ⟨sw, hsw, rfl⟩
 
+theorem genPerms_sq (hn : 8 ≤ n) (hn' : n ≤ 11)
+    (h : (gensA n).all (fun x => eqA n (mulA n x x) (idA n)) = true) :
+    ∀ σ ∈ genPerms n, σ * σ = 1 := by
+  intro σ hσ
+  obtain ⟨x, hx, hxσ⟩ := (mem_gensA hn hn').2 σ hσ
+  rw [Array.all_eq_true'] at h
+  have := h x hx
+  exact (eqA_iff (rep_mulA hxσ hxσ) rep_idA).1 this
 
 structure TableSpec (n : ℕ) [NeZero n] (tab : Array (Array ℕ)) (card : ℕ) : Prop where
   size : tab.size = card
@@ -268,6 +283,83 @@ structure TableSpec (n : ℕ) [NeZero n] (tab : Array (Array ℕ)) (card : ℕ) 
   inj : ∀ (k l : ℕ) (hk : k < tab.size) (hl : l < tab.size) (σ : Perm (Fin n)),
     Rep n tab[k] σ → Rep n tab[l] σ → k = l
 
+theorem tableSpec_of_tableOK (hn : 8 ≤ n) (hn' : n ≤ 11) {tab : Array (Array ℕ)}
+    {par lab : Array ℕ} {card : ℕ} (hcard : 0 < card)
+    (h : tableOK n (gensA n) tab par lab card = true) : TableSpec n tab card := by
+  simp only [tableOK, Bool.and_eq_true, beq_iff_eq] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩, h7⟩, h8⟩ := h
+  have hsize : 0 < tab.size := by rw [h1]; exact hcard
+  have hgen := mem_gensA hn hn'
+  have hsq := genPerms_sq hn hn' h5
+  have hid : Rep n tab[0] 1 := by
+    have := rep_of_eqA_left (rep_idA (n := n)) (by
+      rw [eqA_comm]
+      simpa [getElem!_pos, hsize] using h4)
+    exact this
+  have hmem : ∀ k (hk : k < tab.size), ∃ σ ∈ P0 n, Rep n tab[k] σ := by
+    intro k
+    induction k using Nat.strong_induction_on with
+    | _ k ih =>
+      intro hk
+      rcases Nat.eq_zero_or_pos k with rfl | hkpos
+      · exact ⟨1, one_mem _, hid⟩
+      · rw [nat_all_iff] at h6
+        have h6k := h6 k hk
+        simp only [Bool.or_eq_true, beq_iff_eq, Bool.and_eq_true, decide_eq_true_eq] at h6k
+        rcases h6k with h0 | ⟨⟨hp, hl⟩, he⟩
+        · omega
+        · obtain ⟨σ', hσ', hrep⟩ := ih (par[k]!) hp (by omega)
+          have hgmem : (gensA n)[lab[k]!]'hl ∈ gensA n := Array.getElem_mem _
+          obtain ⟨τ, hτ, hτrep⟩ := hgen.1 _ hgmem
+          have hrep' := rep_mulA hrep hτrep
+          rw [getElem!_pos tab (par[k]!) (by omega), getElem!_pos (gensA n) (lab[k]!) hl,
+            getElem!_pos tab k hk] at he
+          exact ⟨σ' * τ, mul_mem hσ' (subset_closure hτ), rep_of_eqA_left hrep' he⟩
+  have hmem' : ∀ a ∈ tab, ∃ σ ∈ P0 n, Rep n a σ := by
+    intro a ha
+    obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 ha
+    exact hmem k hk
+  have hsurj : ∀ σ ∈ P0 n, ∃ a ∈ tab, Rep n a σ := by
+    have step : ∀ (x y : Perm (Fin n)), (∃ a ∈ tab, Rep n a x) → y ∈ genPerms n →
+        ∃ a ∈ tab, Rep n a (x * y) := by
+      rintro x y ⟨a, ha, hax⟩ hy
+      obtain ⟨g', hg', hg'rep⟩ := hgen.2 y hy
+      obtain ⟨k, hk, rfl⟩ := Array.mem_iff_getElem.1 ha
+      rw [nat_all_iff] at h7
+      have h7k := h7 k hk
+      rw [Array.all_eq_true'] at h7k
+      have := h7k g' hg'
+      rw [Array.any_eq_true'] at this
+      obtain ⟨y', hy', hey⟩ := this
+      rw [getElem!_pos tab k hk] at hey
+      exact ⟨y', hy', rep_of_eqA_left (rep_mulA hax hg'rep) hey⟩
+    intro σ hσ
+    refine Subgroup.closure_induction_right (p := fun x _ => ∃ a ∈ tab, Rep n a x) ?_ ?_ ?_ hσ
+    · exact ⟨tab[0], Array.getElem_mem _, hid⟩
+    · intro x hx y hy ih
+      exact step x y ih hy
+    · intro x hx y hy ih
+      have : y⁻¹ = y := inv_eq_of_mul_eq_one_right (hsq y hy)
+      rw [this]
+      exact step x y ih hy
+  have hinj : ∀ (k l : ℕ) (hk : k < tab.size) (hl : l < tab.size) (σ : Perm (Fin n)),
+      Rep n tab[k] σ → Rep n tab[l] σ → k = l := by
+    intro k l hk hl σ hkσ hlσ
+    by_contra hne
+    have key : ∀ k l (hk : k < tab.size) (hl : l < tab.size), l < k →
+        ∀ σ : Perm (Fin n), Rep n tab[k] σ → Rep n tab[l] σ → False := by
+      intro k l hk hl hlk σ hkσ hlσ
+      rw [nat_all_iff] at h8
+      have := h8 k hk
+      rw [nat_all_iff] at this
+      have := this l hlk
+      rw [getElem!_pos tab k hk, getElem!_pos tab l hl] at this
+      have h' : eqA n tab[k] tab[l] = true := (eqA_iff hkσ hlσ).2 rfl
+      simp [h'] at this
+    rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+    · exact key l k hl hk hlt σ hlσ hkσ
+    · exact key k l hk hl hlt σ hkσ hlσ
+  exact ⟨h1, hmem', hsurj, hinj⟩
 
 theorem TableSpec.card_eq {tab : Array (Array ℕ)} {card : ℕ} (T : TableSpec n tab card) :
     Nat.card (P0 n) = card := by
@@ -626,6 +718,14 @@ structure SylowGood (n : ℕ) (Q : Subgroup (Perm (Fin n))) : Prop where
   half : ∃ t ∈ Q, IsoI t ∧ (∀ p ∈ Q, t * p = p * t) ∧
     ∃ s ∈ Q, DblI s ∧ s * t = t * s ∧ IsoI (s * t)
 
+theorem sylowGood_of_check [NeZero n] (hn : 8 ≤ n) (hn' : n ≤ 11) {card : ℕ} (hcard : 0 < card)
+    (h : sylowCheck n card = true) : Nat.card (P0 n) = card ∧ SylowGood n (P0 n) := by
+  simp only [sylowCheck, Bool.and_eq_true] at h
+  obtain ⟨⟨⟨⟨⟨⟨hT, -⟩, hnbr⟩, hconn⟩, hrank⟩, h8⟩, hhalf⟩ := h
+  have T := tableSpec_of_tableOK hn hn' hcard hT
+  obtain ⟨h8a, h8b⟩ := eight_of_eightOK T h8
+  exact ⟨T.card_eq, nbr_of_nbrOK T hnbr, conn_of_connOK T hconn,
+    rank_of_rankOK T hrank, h8a, h8b, half_of_halfOK T hhalf⟩
 
 @[expose] def conjSub (g : Perm (Fin n)) (Q : Subgroup (Perm (Fin n))) : Subgroup (Perm (Fin n)) :=
   Q.map (MulAut.conj g).toMonoidHom

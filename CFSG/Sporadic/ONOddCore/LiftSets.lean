@@ -9,6 +9,25 @@ namespace CFSG.Sporadic.ONOddCore
 
 open CFSG.ONSchreier CFSG.ONSchreier.Native CFSG.PSL3Four.Native CFSG.Sporadic.ON.Native
 
+theorem closure_liftPair_map
+    {e : LiftEntry} :
+    (Subgroup.closure (liftPair e '' {j | j < 3})).map (Pv.prod Pv).subtype =
+      Subgroup.closure ((fun j => ((hGen j : Equiv.Perm (Fin N)), (liftImg e j :
+        Equiv.Perm (Fin N)))) '' {j | j < 3}) := by
+  rw [MonoidHom.map_closure, ← Set.image_comp]
+  rfl
+
+theorem fst_image_lift
+    (e : LiftEntry) :
+    Prod.fst '' ((fun j => ((hGen j : Equiv.Perm (Fin N)), (liftImg e j :
+      Equiv.Perm (Fin N)))) '' {j | j < 3}) = {g | g ∈ onMgens} := by
+  ext g
+  simp only [Set.mem_image, Set.mem_ofPred_eq, mem_onMgens_iff]
+  constructor
+  · rintro ⟨_, ⟨j, hj, rfl⟩, rfl⟩
+    exact ⟨j, hj, rfl⟩
+  · rintro ⟨j, hj, rfl⟩
+    exact ⟨_, ⟨j, hj, rfl⟩, rfl⟩
 
 theorem exists_liftHom
     {k : ℕ} (hk : k < 12) {e : LiftEntry} (he : e ∈ (recK k).lifts) :

@@ -46,6 +46,10 @@ theorem gLift_conj_DQ (p : AutPerm) (δ : Cocode) :
     gLift p * rhoEquiv (DQ δ) * (gLift p)⁻¹ = rhoEquiv (DQ (permD p δ)) := by
   rw [gLift_conj_rhoEquiv, conjQ_gPair_DQ]
 
+theorem gLift_conj_XQ (p : AutPerm) (a : C) (s : ZMod 2) :
+    gLift p * rhoEquiv (XQ ⟨a, s⟩) * (gLift p)⁻¹ =
+      rhoEquiv (zQ ^ (gammaP p a).val * XQ ⟨permC p a, s⟩) := by
+  rw [gLift_conj_rhoEquiv, conjQ_gPair_XQ]
 
 theorem commute_of_conj_eq {G : Type*} [Group G] {g t : G} (h : g * t * g⁻¹ = t) :
     g * t = t * g := by
@@ -129,5 +133,35 @@ theorem kappa_gLift_mul_kappa_hE0 {p : AutPerm} (hp : FixesPair01 p) (hg : gLift
       group
     rw [e, map_mul, kappa_tStar, one_mul]
 
+theorem gLift_def (p : AutPerm) :
+    gLift p = hE0 ^ (epsP p).val * thetaEquiv ⟨(sU p, PO p), sU_PO_mem_Pvis p⟩ := rfl
+
+theorem hE0_def : hE0 = rhoEquiv (DQ (Submodule.Quotient.mk (Pi.single 0 1))) := rfl
+
+theorem gammaP_def (p : AutPerm) (a : C) :
+    gammaP p a = kappaP p a + epsP p * (permC p a : Fin 24 → ZMod 2) 0 := rfl
+
+theorem even_code_permutation_lifts_centralize_triality (p : AutPerm) :
+    epsP p = kappaP p ΩC ∧
+    hE0 = rhoEquiv (DQ (Submodule.Quotient.mk (Pi.single 0 1))) ∧
+    gLift p = hE0 ^ (epsP p).val * thetaEquiv ⟨(sU p, PO p), sU_PO_mem_Pvis p⟩ ∧
+    gLift p ∈ Gvis ∧
+    gLift p * tauB = tauB * gLift p ∧
+    (∀ δ : Cocode, gLift p * rhoEquiv (DQ δ) * (gLift p)⁻¹ = rhoEquiv (DQ (permD p δ))) ∧
+    (∀ (a : C) (s : ZMod 2), gLift p * rhoEquiv (XQ ⟨a, s⟩) * (gLift p)⁻¹ =
+      rhoEquiv (zQ ^ (gammaP p a).val * XQ ⟨permC p a, s⟩)) ∧
+    (∀ a : C, gammaP p a = kappaP p a + epsP p * (permC p a : Fin 24 → ZMod 2) 0) ∧
+    gammaP p ΩC = 0 ∧
+    (((p : Equiv.Perm (Fin 24)) 0 = 0 ∧ (p : Equiv.Perm (Fin 24)) 1 = 1) ∨
+        ((p : Equiv.Perm (Fin 24)) 0 = 1 ∧ (p : Equiv.Perm (Fin 24)) 1 = 0) →
+      gLift p * tStar = tStar * gLift p ∧ hE0 ∈ Jstar ∧
+      ∃ hg : gLift p ∈ Cgen,
+        kappa ⟨gLift p, hg⟩ * taubar = taubar * kappa ⟨gLift p, hg⟩ ∧
+        kappa ⟨gLift p, hg⟩ * kappa ⟨hE0, hE0_mem_Cgen⟩ =
+          kappa ⟨hE0, hE0_mem_Cgen⟩ * kappa ⟨gLift p, hg⟩) :=
+  ⟨rfl, hE0_def, gLift_def p, gLift_mem_Gvis p, gLift_mul_tauB p, gLift_conj_DQ p,
+    gLift_conj_XQ p, gammaP_def p, gammaP_ΩC p, fun hp =>
+      ⟨gLift_mul_tStar hp, hE0_mem_Jstar, gLift_mem_Cgen hp, kappa_gLift_mul_taubar _,
+        kappa_gLift_mul_kappa_hE0 hp _⟩⟩
 
 end CFSG.Monster.B.TwoA

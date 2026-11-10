@@ -27,6 +27,7 @@ from collections import defaultdict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import text_reach as T  # noqa: E402
 
+PREFIX_IN_RE = re.compile(r"^(universe|open|set_option|omit|include|attribute)\b.*\bin\s*$")
 DOC_RE = re.compile(r'"(?:\\.|[^"\\])*"|--[^\n]*|/-.*?-/', re.S)
 
 
@@ -78,6 +79,10 @@ def process(path: str, rows: list[tuple[int, int, str, str]], apply: bool):
             j -= 1
         if j >= 0 and j in doc_end:
             s = doc_end[j]
+        # prefix lines (`universe w in`, `attribute [...] in`, `open ... in`) directly above the
+        # declaration belong to it; left behind they attach to whatever follows
+        while s > 0 and PREFIX_IN_RE.match(lines[s - 1]):
+            s -= 1
         for i in range(s, e):
             kill[i] = True
         done += 1

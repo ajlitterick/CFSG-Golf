@@ -42,6 +42,9 @@ theorem rep_fi22OuterZ :
     Rep 3510 (fi22OuterStrong3510 1)[0]! fi22OuterZ :=
   rep_fi22OuterField (by norm_num) (by decide)
 
+theorem fi22OuterTPointsNat_lt :
+    ∀ x ∈ fi22OuterTPointsNat, x < 3510 :=
+  fi22Outer_check.2.2.2.2.2.2.2.1
 
 theorem fi22T_facts : ChainCheckFacts 3510
     ((fi22OuterStrong3510 4).extract 0 fi22OuterTGenCount) (fi22OuterStrong3510 4)
@@ -160,6 +163,17 @@ theorem isInv3_iff (x : Fin 1024 × Fin 32 × Fin 4) :
     cases allLt 3510 (fun p => tr3 fi22TLevels x.1 x.2.1 x.2.2
       (tr3 fi22TLevels x.1 x.2.1 x.2.2 p) == p) <;> simp
 
+theorem mem_fi22OuterR_iff (x : Fin 3510) :
+    x ∈ fi22OuterR ↔ fi22OuterTPointsNat.contains (x : ℕ) = true := by
+  have hlt := fi22OuterTPointsNat_lt
+  rw [List.contains_iff_mem, fi22OuterR, fi22FinList, List.mem_map]
+  constructor
+  · rintro ⟨y, hy, rfl⟩
+    show y % 3510 ∈ fi22OuterTPointsNat
+    rw [Nat.mod_eq_of_lt (hlt y hy)]
+    exact hy
+  · intro hx
+    exact ⟨x, hx, Fin.ext (Nat.mod_eq_of_lt x.2)⟩
 
 theorem conjOK3_spec {x y : Fin 1024 × Fin 32 × Fin 4} {u : Array ℕ}
     {U : Equiv.Perm (Fin 3510)} (hu : Rep 3510 u U)
@@ -171,5 +185,9 @@ theorem conjOK3_spec {x y : Fin 1024 × Fin 32 × Fin 4} {u : Array ℕ}
     fi22TProd_apply x (fi22TProd y p), fi22TProd_apply y p, ← hu p]
   exact beq_iff_eq.1 (allLt_spec h p.2)
 
+theorem filter_fixed_fi22OuterXRep {i : ℕ} (hi : i < 3) :
+    (Finset.univ.filter fun p => fi22OuterXRep i p = p) =
+      Finset.univ.filter fun p : Fin 3510 => ((fi22OuterStrong3510 6)[i]!)[p.val]! = p.val :=
+  Finset.filter_congr fun p _ => by rw [(rep_fi22OuterXRep hi) p, Fin.val_inj]
 
 end CFSG.Monster.B.Fischer

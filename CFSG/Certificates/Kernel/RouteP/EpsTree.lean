@@ -132,6 +132,33 @@ theorem epsTreeOK_of (tabs : Array Table)
       getElem!_map_range _ (by omega)]
     exact hd i hi j hj
 
+variable {G : Type*} [Group G]
+
+@[expose] def epsProd (e : Nat → G) : Nat → G
+  | 0 => 1
+  | k + 1 => e (lowBit (k + 1)) * epsProd e (k + 1 - 1 <<< lowBit (k + 1))
+termination_by k => k
+decreasing_by exact sub_lowBit_lt (Nat.succ_pos k)
+
+theorem epsProd_zero (e : Nat → G) : epsProd e 0 = 1 := by rw [epsProd]
+
+theorem epsProd_pos (e : Nat → G) {k : Nat} (hk : 0 < k) :
+    epsProd e k = e (lowBit k) * epsProd e (k - 1 <<< lowBit k) := by
+  obtain ⟨k, rfl⟩ : ∃ k', k = k' + 1 := ⟨k - 1, by omega⟩
+  rw [epsProd]
+
+theorem epsPt_eq_idx [MulAction G (Fin degree)] {tabs : Array Table} {e : Nat → G}
+    (he : ∀ j < 11, Rep degree tabs[epsReg j]! (e j)) {p : Nat} (hp : p < degree) (k : Nat) :
+    epsPt tabs p k = idx degree (epsProd e k) p := by
+  induction k using Nat.strongRecOn with
+  | _ k ih =>
+    by_cases hk : 0 < k
+    · rw [epsPt_pos tabs p hk, epsProd_pos e hk, idx_mul, ← ih _ (sub_lowBit_lt hk)]
+      have hlt : epsPt tabs p (k - 1 <<< lowBit k) < degree := by
+        rw [ih _ (sub_lowBit_lt hk)]
+        exact idx_lt _ hp
+      exact he _ (lowBit_lt k) _ hlt
+    · rw [show k = 0 by omega, epsPt_zero, epsProd_zero, idx_one]
 
 end CFSG.KS.RouteP
 

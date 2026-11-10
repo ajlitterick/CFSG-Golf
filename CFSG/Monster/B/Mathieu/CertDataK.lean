@@ -68,5 +68,65 @@ open CFSG.KD.Mathieu
 @[expose] noncomputable def MathieuCertificateK (t : String) : Option GroupRecord :=
   certificateFileK.groups.find? fun r => r.group == t
 
+@[expose] def natDigits : ℕ → ℕ → List Char → List Char
+  | 0, _, acc => acc
+  | f + 1, m, acc =>
+    if m < 10 then Char.ofNat (48 + m) :: acc else natDigits f (m / 10) (Char.ofNat (48 + m % 10) :: acc)
+
+@[expose] def jsonNat (m : ℕ) : List Char := natDigits (m + 1) m []
+
+@[expose] def jsonInt (z : ℤ) : List Char :=
+  if z < 0 then '-' :: jsonNat z.natAbs else jsonNat z.natAbs
+
+@[expose] def jsonStr (s : String) : List Char := '"' :: (s.toList ++ ['"'])
+
+@[expose] def jsonSep {α : Type} (f : α → List Char) : List α → List Char
+  | [] => []
+  | [a] => f a
+  | a :: l => f a ++ (',' :: jsonSep f l)
+
+@[expose] def jsonArr {α : Type} (f : α → List Char) (l : List α) : List Char :=
+  '[' :: (jsonSep f l ++ [']'])
+
+@[expose] def jsonKey (k : List Char) : List Char := '"' :: (k ++ ['"', ':'])
+
+@[expose] def jsonChain (c : ChainRecord) : List Char :=
+  '{' :: (jsonKey ['d', 'e', 'g', 'r', 'e', 'e'] ++ jsonNat c.degree ++ ',' ::
+    jsonKey ['g', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 's'] ++
+    jsonArr (jsonArr jsonNat) c.generators ++ ',' :: jsonKey ['b', 'a', 's', 'e'] ++
+    jsonArr jsonNat c.base ++ ',' ::
+    jsonKey ['s', 't', 'r', 'o', 'n', 'g', '_', 'g', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 's'] ++
+    jsonArr (jsonArr jsonNat) c.strongGenerators ++ ',' ::
+    jsonKey ['d', 'e', 'r', 'i', 'v', 'a', 't', 'i', 'o', 'n', 's'] ++
+    jsonArr (jsonArr jsonInt) c.derivations ++ ['}'])
+
+@[expose] def jsonNG (ng : NormalGenRecord) : List Char :=
+  '{' :: (jsonKey ['r', 'e', 'p', 'r', 'e', 's', 'e', 'n', 't', 'a', 't', 'i', 'v', 'e'] ++
+    jsonArr jsonNat ng.representative ++ ',' ::
+    jsonKey ['c', 'o', 'n', 'j', 'u', 'g', 'a', 't', 'o', 'r', 's'] ++
+    jsonArr (jsonArr jsonInt) ng.conjugators ++ ',' :: jsonKey ['c', 'h', 'a', 'i', 'n'] ++
+    jsonChain ng.chain ++ ['}'])
+
+@[expose] def jsonSylow (s : SylowRecord) : List Char :=
+  '{' :: (jsonKey ['p', 'r', 'i', 'm', 'e'] ++ jsonNat s.prime ++ ',' ::
+    jsonKey ['g', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 's'] ++
+    jsonArr (jsonArr jsonNat) s.generators ++ ',' ::
+    jsonKey ['n', 'o', 'r', 'm', 'a', 'l', '_', 'g', 'e', 'n', 'e', 'r', 'a', 't', 'i', 'o', 'n'] ++
+    jsonArr jsonNG s.normalGeneration ++ ['}'])
+
+@[expose] def jsonGroup (r : GroupRecord) : List Char :=
+  '{' :: (jsonKey ['g', 'r', 'o', 'u', 'p'] ++ jsonStr r.group ++ ',' ::
+    jsonKey ['s', 'e', 'e', 'd', '_', 'p', 'a', 't', 'h', 's'] ++ jsonArr jsonStr r.seedPaths ++
+    ',' :: jsonKey ['c', 'h', 'a', 'i', 'n'] ++ jsonChain r.chain ++ ',' ::
+    jsonKey ['s', 'y', 'l', 'o', 'w', 's'] ++ jsonArr jsonSylow r.sylows ++ ['}'])
+
+@[expose] def jsonFile (f : CertificateFile) : List Char :=
+  '{' :: (jsonKey ['s', 'c', 'h', 'e', 'm', 'a', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n'] ++
+    jsonNat f.schemaVersion ++ ',' ::
+    jsonKey ['d', 'e', 's', 'c', 'r', 'i', 'p', 't', 'i', 'o', 'n'] ++ jsonStr f.description ++
+    ',' :: jsonKey ['p', 'e', 'r', 'm', 'u', 't', 'a', 't', 'i', 'o', 'n', '_', 'c', 'o', 'n', 'v',
+      'e', 'n', 't', 'i', 'o', 'n'] ++
+    jsonStr f.permutationConvention ++ ',' :: jsonKey ['g', 'r', 'o', 'u', 'p', 's'] ++
+    jsonArr jsonGroup f.groups ++ ['}', '\n'])
 
 end CFSG.Monster.B.Mathieu

@@ -75,5 +75,13 @@ theorem MinCounter.false (hM : MinCounter Ω) (hI : Sec3Inputs) (hesc : Goldschm
     simpa [mul_assoc] using h2
   exact ((h314.1 K hK).mp hKA).2.1 rfl
 
+theorem asc76Theorem4_of_finalStep (h22 : Lemma22Four) (h26 : L26.Asc76Lemma26) (h28 : Asc76Lemma28)
+    (hfin : Asc76FinalStep) : Asc76Theorem4 :=
+  asc76Theorem4_of_forall_not_minCounter fun _ _ _ _ hM =>
+    hM.false ⟨h22, benderFacts, h26, h28⟩ goldschmidtEscape hfin
+
+theorem asc76Theorem1_of_finalStep (h22 : Lemma22Four) (h26 : L26.Asc76Lemma26) (h28 : Asc76Lemma28)
+    (hfin : Asc76FinalStep) : Asc76Theorem1 :=
+  asc76Theorem1_of_theorem4 benderFacts (asc76Theorem4_of_finalStep h22 h26 h28 hfin)
 
 end CFSG.ComponentClassification.Asc76X

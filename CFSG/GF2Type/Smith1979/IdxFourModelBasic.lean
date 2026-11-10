@@ -54,6 +54,15 @@ abbrev IsInvRows (r : Array ℕ) : Prop := mulR r (invR r) = idR ∧ mulR (invR 
 
 theorem rowsE_apply (r : Array ℕ) (h : IsInvRows r) (x : V12) : rowsE r h x = linOfRows r x := rfl
 
+theorem rowsE_mul {r s : Array ℕ} (hr : IsInvRows r) (hs : IsInvRows s) (hrs : IsInvRows (mulR r s)) :
+    rowsE (mulR r s) hrs = rowsE r hr * rowsE s hs :=
+  LinearEquiv.ext fun x => by
+    rw [LinearEquiv.mul_apply, rowsE_apply, rowsE_apply, rowsE_apply, linOfRows_mulR]
+
+theorem rowsE_eq_of_rows_eq {r s : Array ℕ} (hr : IsInvRows r) (hs : IsInvRows s) (h : r = s) :
+    rowsE r hr = rowsE s hs := by
+  subst h
+  rfl
 
 theorem rowsE_mem {N : Subgroup (V12 ≃ₗ[ZMod 2] V12)} {r : Array ℕ} (hr : IsInvRows r)
     (h : Rep N r) : rowsE r hr ∈ N := by
@@ -62,6 +71,20 @@ theorem rowsE_mem {N : Subgroup (V12 ≃ₗ[ZMod 2] V12)} {r : Array ℕ} (hr : 
   rw [← this]
   exact hU
 
+theorem rep_of_mem {N : Subgroup (V12 ≃ₗ[ZMod 2] V12)} {r : Array ℕ} (hok : okRows r = true)
+    (hr : IsInvRows r) (h : rowsE r hr ∈ N) : Rep N r :=
+  ⟨hok, rowsE r hr, h, fun _ => rfl⟩
+
+theorem okRows_invR (r : Array ℕ) : okRows (invR r) = true := by
+  simp only [okRows, invR, Bool.and_eq_true, beq_iff_eq, Array.all_eq_true']
+  refine ⟨by simp, fun x hx => ?_⟩
+  simp only [List.mem_toArray, List.mem_map, List.mem_range] at hx
+  obtain ⟨j, -, rfl⟩ := hx
+  cases h : (List.range 4096).find? fun n => appN r n == 2 ^ j with
+  | none => simp
+  | some n =>
+    have := List.mem_of_find?_eq_some h
+    simpa using List.mem_range.1 this
 
 theorem okRows_of {r : Array ℕ} (h1 : r.size = 12) (h2 : ∀ x ∈ r.toList, x < 4096) :
     okRows r = true := by
@@ -136,6 +159,8 @@ theorem gensOK_m0Gens : GensOK m0Gens :=
 theorem gensOK_e0Gens : GensOK e0Gens :=
   gensOK_of_pairs invPairs invPairs_ok (by decide +kernel)
 
+theorem gensOK_n0Gens : GensOK n0Gens :=
+  gensOK_of_pairs invPairs invPairs_ok (by decide +kernel)
 
 theorem isInvRows_of_mem {r : Array ℕ} (h : ∃ p ∈ invPairs, p.1 = r) : IsInvRows r := by
   obtain ⟨p, hp, rfl⟩ := h
@@ -147,6 +172,12 @@ theorem isInvRows_of_mem {r : Array ℕ} (h : ∃ p ∈ invPairs, p.1 = r) : IsI
 theorem isInvRows_omegaRows : IsInvRows omegaRows :=
   isInvRows_of_mem (by decide +kernel)
 theorem isInvRows_s12Rows : IsInvRows s12Rows :=
+  isInvRows_of_mem (by decide +kernel)
+theorem isInvRows_s6Rows : IsInvRows s6Rows :=
+  isInvRows_of_mem (by decide +kernel)
+theorem isInvRows_sigRows : IsInvRows sigRows :=
+  isInvRows_of_mem (by decide +kernel)
+theorem isInvRows_y3Rows : IsInvRows y3Rows :=
   isInvRows_of_mem (by decide +kernel)
 
 theorem rep_mono {N N' : Subgroup (V12 ≃ₗ[ZMod 2] V12)} (h : N ≤ N') {r : Array ℕ} (hr : Rep N r) :
@@ -170,6 +201,29 @@ theorem E0_le_M0 : E0 ≤ M0 := by
   · exact rep_M0_a5
   · exact rep_gen gensOK_m0Gens (by simp [m0Gens])
 
+@[expose] def d5Words : List (List ℕ) :=
+  [[0, 2, 0, 2, 2], [2, 2, 0, 0, 2], [1, 2, 2, 0, 0, 2, 1, 1, 1, 1],
+   [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 2, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 2, 2, 1, 0, 0, 1,
+    1, 1, 1, 0, 0, 1],
+   [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 2, 1, 1]]
+
+theorem d5Words_eq : (d5Words.map (wordRows e0Gens)) = d5Rows := by decide +kernel
+
+theorem rep_E0_d5 : ∀ r ∈ d5Rows, Rep E0 r := by
+  intro r hr
+  rw [← d5Words_eq] at hr
+  obtain ⟨w, hw, rfl⟩ := List.mem_map.1 hr
+  refine rep_word gensOK_e0Gens w ?_
+  intro i hi
+  have : ∀ w ∈ d5Words, ∀ i ∈ w, i < 3 := by decide
+  simpa [e0Gens] using this w hw i hi
+
+theorem N0_le_M0 : N0 ≤ M0 := by
+  refine genGrp_le_of_rep fun g hg => ?_
+  simp only [n0Gens, List.mem_append, List.mem_cons, List.mem_nil_iff, or_false] at hg
+  rcases hg with hg | rfl | rfl | rfl
+  · exact rep_mono E0_le_M0 (rep_E0_d5 g hg)
+  all_goals exact rep_gen gensOK_m0Gens (by simp [m0Gens])
 
 theorem gammaUN_of {r : Array ℕ} (h1 : r.size = 12) (h2 : ∀ x ∈ r.toList, x < 4096)
     (h3 : (List.range 4096).all (fun n => q0b (appN r n) == q0b n) = true)
@@ -206,6 +260,9 @@ theorem M0_le_gammaU : M0 ≤ gammaU := by
   · exact rep_gammaU_sig
   · exact rep_gammaU_y3
 
+theorem E0_le_gammaU : E0 ≤ gammaU := E0_le_M0.trans M0_le_gammaU
+
+theorem N0_le_gammaU : N0 ≤ gammaU := N0_le_M0.trans M0_le_gammaU
 
 theorem linOfRows_omegaRows (x : V12) : linOfRows omegaRows x = theta0 x := by
   have hf : linOfRows omegaRows = theta0 := linMap_ext fun j => by
@@ -220,6 +277,11 @@ theorem omegaE_apply (x : V12) : omegaE x = theta0 x := linOfRows_omegaRows x
 
 @[expose] noncomputable def s12e : V12 ≃ₗ[ZMod 2] V12 := rowsE s12Rows isInvRows_s12Rows
 
+@[expose] noncomputable def s6e : V12 ≃ₗ[ZMod 2] V12 := rowsE s6Rows isInvRows_s6Rows
+
+@[expose] noncomputable def sige : V12 ≃ₗ[ZMod 2] V12 := rowsE sigRows isInvRows_sigRows
+
+@[expose] noncomputable def y3R : V12 ≃ₗ[ZMod 2] V12 := rowsE y3Rows isInvRows_y3Rows
 
 theorem rowsE_comm {r s : Array ℕ} (hr : IsInvRows r) (hs : IsInvRows s) (h : mulR r s = mulR s r) :
     rowsE r hr * rowsE s hs = rowsE s hs * rowsE r hr :=
@@ -230,8 +292,23 @@ theorem rowsE_comm {r s : Array ℕ} (hr : IsInvRows r) (hs : IsInvRows s) (h : 
 theorem s12e_comm_omegaE : s12e * omegaE = omegaE * s12e :=
   rowsE_comm _ _ (by decide +kernel)
 
+theorem s6e_comm_omegaE : s6e * omegaE = omegaE * s6e :=
+  rowsE_comm _ _ (by decide +kernel)
+
+theorem y3R_comm_omegaE : y3R * omegaE = omegaE * y3R :=
+  rowsE_comm _ _ (by decide +kernel)
+
+theorem sige_omegaE : sige * omegaE = omegaE * omegaE * sige := by
+  have h : mulR sigRows omegaRows = mulR omegaRows (mulR omegaRows sigRows) := by decide +kernel
+  refine LinearEquiv.ext fun x => ?_
+  simp only [LinearEquiv.mul_apply, sige, omegaE, rowsE_apply]
+  rw [← linOfRows_mulR sigRows omegaRows, ← linOfRows_mulR omegaRows sigRows,
+    ← linOfRows_mulR omegaRows (mulR omegaRows sigRows), h]
 
 theorem s12e_mem_M0 : s12e ∈ M0 := rowsE_mem _ (rep_gen gensOK_m0Gens (by simp [m0Gens]))
+theorem s6e_mem_M0 : s6e ∈ M0 := rowsE_mem _ (rep_gen gensOK_m0Gens (by simp [m0Gens]))
+theorem sige_mem_M0 : sige ∈ M0 := rowsE_mem _ (rep_gen gensOK_m0Gens (by simp [m0Gens]))
+theorem y3R_mem_M0 : y3R ∈ M0 := rowsE_mem _ (rep_gen gensOK_m0Gens (by simp [m0Gens]))
 
 @[expose] def thetaWord : List ℕ :=
   [1, 1, 1, 1, 0, 1, 2, 2, 1, 0, 2, 1, 1, 1, 1, 2, 0, 1, 1, 1, 1, 2, 1, 2, 2, 0, 2, 1, 1, 0, 2, 2,
@@ -256,6 +333,9 @@ theorem E0_comm_omegaE : ∀ g ∈ E0, g * omegaE = omegaE * g := by
   exact fun g hg => (Subgroup.mem_centralizer_iff.1 (h hg) _ rfl).symm
 
 theorem okRows_s12Rows : okRows s12Rows = true := (gensOK_m0Gens _ (by simp [m0Gens])).1
+theorem okRows_s6Rows : okRows s6Rows = true := (gensOK_m0Gens _ (by simp [m0Gens])).1
+theorem okRows_sigRows : okRows sigRows = true := (gensOK_m0Gens _ (by simp [m0Gens])).1
+theorem okRows_y3Rows : okRows y3Rows = true := (gensOK_m0Gens _ (by simp [m0Gens])).1
 theorem okRows_omegaRows : okRows omegaRows = true := okRows_of (by rfl) (by decide)
 
 end CFSG.GF2Type.Smith1979.IdxFour

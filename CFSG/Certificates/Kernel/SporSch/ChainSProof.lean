@@ -95,6 +95,28 @@ theorem chainS_elem_proved (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D
   have hr := imageList_of_prep pr
   exact ⟨⟨r, chainS_mem_proved hQ hA hB hnd hr hc hs⟩, hr⟩
 
+theorem chainS_card (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (hA : imageList gA = (unpack n w (PS 0)).toList)
+    (hB : imageList gB = (unpack n w (PS 1)).toList) (hnd : base.toList.Nodup) :
+    Nat.card (gen2 gA gB) = ordK LR nb :=
+  chainS_card_proved hQ hA hB hnd
+
+theorem chainS_mem (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (hA : imageList gA = (unpack n w (PS 0)).toList)
+    (hB : imageList gB = (unpack n w (PS 1)).toList) (hnd : base.toList.Nodup)
+    {g : Equiv.Perm (Fin n)} {X : Nat}
+    (hX : imageList g = (unpack n w X).toList) (hc : canonK n w (mask w) (n * w) X = true)
+    (hs : siftK n w (mask w) (n * w) (pidn n w) LR TRI BP nb 0 X = true) :
+    g ∈ gen2 gA gB :=
+  chainS_mem_proved hQ hA hB hnd hX hc hs
+
+theorem chainS_elem (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
+    (hA : imageList gA = (unpack n w (PS 0)).toList)
+    (hB : imageList gB = (unpack n w (PS 1)).toList) (hnd : base.toList.Nodup) {X : Nat}
+    (hc : canonK n w (mask w) (n * w) X = true)
+    (hs : siftK n w (mask w) (n * w) (pidn n w) LR TRI BP nb 0 X = true) :
+    ∃ g : gen2 gA gB, imageList (g : Equiv.Perm (Fin n)) = (unpack n w X).toList :=
+  chainS_elem_proved hQ hA hB hnd hc hs
 
 end CFSG.KS.SporSch.MBT
 

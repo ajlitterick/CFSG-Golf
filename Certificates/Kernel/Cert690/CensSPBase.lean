@@ -21,6 +21,7 @@ theorem baseOK : baseS (gkOf GrpP.O GrpP.S GrpP.inv 40320) (ldata false ()).Llis
 set_option maxHeartbeats 0 in
 theorem candsEq : (candidatesOf false (ldata false ()).Llist).toList = cands := by decide +kernel
 
+theorem singEq : singL false = sing := by decide +kernel
 
 theorem bEq : b0Of false = b := by decide +kernel
 

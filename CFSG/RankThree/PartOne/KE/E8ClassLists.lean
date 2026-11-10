@@ -86,6 +86,7 @@ theorem setOfList_eq {A B : List (List ℤ)} (h1 : ∀ l ∈ A, l ∈ B) (h2 : �
   · rintro ⟨l, hl, rfl⟩
     exact ⟨l, h2 l hl, rfl⟩
 
+@[expose] def e8unit (i : ℕ) : List ℤ := List.ofFn fun k : Fin Tag.E8.rank => if k.val = i then 1 else 0
 
 @[expose] def e8D4RootList : List (List ℤ) := [
     [0, -1, -1, -2, -1, 0, 0, 0], [0, -1, -1, -1, -1, 0, 0, 0], [0, -1, -1, -1, 0, 0, 0, 0],

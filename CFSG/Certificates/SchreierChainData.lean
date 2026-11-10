@@ -12,11 +12,19 @@ abbrev SchreierLetter (j : ℕ) := Fin j × Bool
 @[expose] def schreierLetterCode {j : ℕ} (a : SchreierLetter j) : ℤ :=
   if a.2 then (a.1.val + 1 : ℕ) else -((a.1.val + 1 : ℕ) : ℤ)
 
+theorem schreierLetterCode_bounds {j : ℕ} (a : SchreierLetter j) :
+    1 ≤ (schreierLetterCode a).natAbs ∧ (schreierLetterCode a).natAbs ≤ j := by
+  rcases a with ⟨h, sign⟩
+  cases sign <;> simp [schreierLetterCode] <;> omega
 
 @[expose] def schreierWordValue {G : Type*} [Group G] {r : ℕ}
     (S : Fin r → G) (j : ℕ) (hj : j ≤ r) (w : List (SchreierLetter j)) : G :=
   Quiver.SchreierGraph.evalWord (fun h : Fin j => S ⟨h.val, h.isLt.trans_le hj⟩) w
 
+theorem schreier_word_zero (w : List (SchreierLetter 0)) : w = [] := by
+  cases w with
+  | nil => rfl
+  | cons a _ => exact Fin.elim0 a.1
 
 theorem schreierWordValue_nil {G : Type*} [Group G] {r : ℕ}
     (S : Fin r → G) (j : ℕ) (hj : j ≤ r) :
@@ -250,6 +258,16 @@ theorem orbitTables_get {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseCount)
     (i : ℕ) : Bool :=
   schreierSiftSucceeds (Q.siftLevels Q.orbitTables i) h
 
+theorem sift_terminal {n : ℕ} (Q : RawSchreierDatum n) (h : Equiv.Perm (Fin n)) :
+    Q.sift h Q.baseCount = true ↔ h = 1 := by
+  have hdrop : (List.finRange Q.baseCount).drop Q.baseCount = [] := by
+    exact List.drop_eq_nil_iff.2 (by simp)
+  simpa only [sift, siftLevels, hdrop, List.map_nil] using schreierSiftSucceeds_nil h
+
+theorem sift_empty_base {n : ℕ} (Q : RawSchreierDatum n)
+    (hbase : Q.baseCount = 0) (h : Equiv.Perm (Fin n)) :
+    Q.sift h 0 = true ↔ h = 1 := by
+  simpa only [hbase] using Q.sift_terminal h
 
 @[expose] def orbitPoints {n : ℕ} (Q : RawSchreierDatum n) (i : Fin Q.baseCount) :
     Set (Fin n) := (Q.orbitSearch i).points

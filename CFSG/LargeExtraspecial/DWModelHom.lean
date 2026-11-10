@@ -17,6 +17,11 @@ structure Splitting where
   σ : (Additive V ≃ₗ[ZMod 2] Additive V) →* H
   conjLinear_σ : ∀ f, conjLinear V (σ f) = f
 
+theorem zmod_two_eq_one_of_isUnit {a : ZMod 2} (h : IsUnit a) : a = 1 := by
+  have h0 := h.ne_zero
+  revert h0
+  revert a
+  decide
 
 namespace Splitting
 

@@ -82,6 +82,8 @@ theorem kHd : andB (andB (Nat.beq SOP.cnt 256) (penumHdK e SOP.cnt 256 SOP.T SOP
 @[expose] noncomputable def covSl (_s : Nat) : Bool :=
   allN 256 fun i => coverK 1782 11 3 ON OT e (r32 SOW i) (SOP.T i)
 
+theorem kNeg : notB (coverK 1782 11 3 ON OT e (Nat.add (r32 SOW 1) 1) (SOP.T 1)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.S27215
 

@@ -475,5 +475,25 @@ theorem exists_split (S : Setting G M L)
     change transl (a m) * S.psiM hc m = transl b
     rw [ha, show S.psiM hc m = 1 by rw [hm_eq, psiM_repM S hC1 hc], mul_one]
 
+theorem exists_split_mem (S : Setting G M L)
+    (hF : ModelFacts) (hD : DModelFacts)
+    (hc : HexaCoord (blockU L) R (hallPts (blockU L) L) rep)
+    (hC1 : Subgroup.centralizer (L : Set G) = ⊥) :
+    ∃ Φ : ↥M →* Equiv.Perm (Fin 64), Function.Injective Φ ∧
+      (∀ m : ↥M, ∃ a : Fin 64, Φ m = transl a * S.psiM hc m) ∧
+      (∀ (m : ↥M) (b : Fin 64), (m : G) = rep b → Φ m = transl b) ∧
+      ∀ (b : Fin 64) (m : ↥M), ∃ m' : ↥M,
+        Φ m' = transl b * S.psiM hc m ∧ S.psiM hc m' = S.psiM hc m := by
+  obtain ⟨Φ, hinj, hform, hrep⟩ := exists_split S hF hD hc hC1
+  refine ⟨Φ, hinj, hform, hrep, ?_⟩
+  intro b m
+  obtain ⟨a, ha⟩ := hform m
+  let c : Fin 64 := xorF b a
+  have hc_eq : xorF c a = b := by
+    show xorF (xorF b a) a = b
+    rw [xorF_assoc, xorF_self, xorF_zero]
+  refine ⟨repM S hc c * m, ?_, ?_⟩
+  · rw [map_mul, hrep (repM S hc c) c rfl, ha, ← mul_assoc, ← transl_xorF, hc_eq]
+  · rw [map_mul, psiM_repM S hC1 hc, one_mul]
 
 end CFSG.CGT.Hall82.Setting

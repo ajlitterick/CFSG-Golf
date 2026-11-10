@@ -45,6 +45,29 @@ theorem blkTrivOK_spec {k : ℕ} {b : Array ℕ} {T : Table} {g : Equiv.Perm (Fi
   rw [ap_eq_val hT p, beq_iff_eq] at hp
   simp only [blkF, hp]
 
+private theorem b_eq_of_blkF_eq {k : ℕ} {b : Array ℕ} (hbk : ∀ p : Fin 1408, b[p.val]! ≤ k)
+    {p q : Fin 1408} (h : blkF k b p = blkF k b q) : b[p.val]! = b[q.val]! := by
+  have hp := hbk p
+  have hq := hbk q
+  by_cases hA : b[p.val]! < k <;> by_cases hB : b[q.val]! < k
+  · simp only [blkF, dif_pos hA, dif_pos hB, Option.some.injEq, Fin.mk.injEq] at h
+    exact h
+  · simp only [blkF, dif_pos hA, dif_neg hB, reduceCtorEq] at h
+  · simp only [blkF, dif_neg hA, dif_pos hB, reduceCtorEq] at h
+  · omega
+
+theorem blkTrivOK_of_fix {k : ℕ} {b : Array ℕ} (hbk : ∀ p : Fin 1408, b[p.val]! ≤ k) {T : Table}
+    {g : Equiv.Perm (Fin 1408)} (hT : Rep 1408 T g) (h : ∀ p, blkF k b (g p) = blkF k b p) :
+    blkTrivOK b T = true := by
+  rw [blkTrivOK, allIn_eq_true]
+  intro p _ hp
+  have h1 := ap_eq_val hT ⟨p, hp⟩
+  have h2 := b_eq_of_blkF_eq hbk (h ⟨p, hp⟩)
+  change (b[ap T p]! == b[p]!) = true
+  rw [beq_iff_eq]
+  change ap T (⟨p, hp⟩ : Fin 1408).val = (g ⟨p, hp⟩).val at h1
+  simp only [h1]
+  exact h2
 
 theorem blkSurjOK_spec {k : ℕ} {b : Array ℕ} (hb : b.size = 1408) (h : blkSurjOK k b = true) :
     ∀ j : Fin k, ∃ p : Fin 1408, blkF k b p = some j := by
@@ -104,6 +127,9 @@ theorem gensOK_of_blkDataOK {d : BlkData} (h : blkDataOK d = true) : gensOK = tr
   simp only [blkDataOK, Bool.and_eq_true, beq_iff_eq] at h
   exact h.1.1.1.1.1.1.1
 
+theorem blkData_words_ok {d : BlkData} (h : blkDataOK d = true) : d.gens.all wordOK = true := by
+  simp only [blkDataOK, Bool.and_eq_true, beq_iff_eq] at h
+  exact h.1.1.2
 
 theorem blkData_labs_perm {d : BlkData} (h : blkDataOK d = true) :
     ∀ g ∈ d.labs, permOK d.k g = true := by
@@ -114,6 +140,16 @@ theorem blkImage_spec {d : BlkData} {m : ℕ} (h : blkDataOK d = true) (hk : d.k
     (hi : blkImageOK d m = true) : Nat.card ↥(genOf d.k d.labs) = m :=
   (enumOK_spec hk (blkData_labs_perm h) hi).1
 
+theorem blkData_blk_le {d : BlkData} (h : blkDataOK d = true) :
+    ∀ p : Fin 1408, d.blk[p.val]! ≤ d.k := by
+  simp only [blkDataOK, Bool.and_eq_true, beq_iff_eq] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨hg, hsz⟩, hbk⟩, hsurj⟩, hlen⟩, hw⟩, hp⟩, hmap⟩ := h
+  intro p
+  have hlt : p.val < d.blk.size := by rw [hsz]; exact p.2
+  have hmem : d.blk[p.val]! ∈ d.blk := by
+    rw [getElem!_pos d.blk p.val hlt]
+    exact Array.getElem_mem hlt
+  exact of_decide_eq_true (Array.all_eq_true'.1 hbk _ hmem)
 
 theorem blkTriv_closure_set {k : ℕ} {b : Array ℕ} {T : Set (Equiv.Perm (Fin 1408))}
     (h : ∀ t ∈ T, ∀ p : Fin 1408, blkF k b (t p) = blkF k b p) :
@@ -141,6 +177,27 @@ theorem blkTriv_closure {k : ℕ} {b : Array ℕ} {ws : List (List ℕ)} (hg : g
   exact fun p => blkTrivOK_spec (rep_elemW_of_gensOK hg (List.all_eq_true.1 hw w hwm))
     (List.all_eq_true.1 h w hwm) p
 
+theorem trivInjOK_iff {k : ℕ} {b : Array ℕ} (hbk : ∀ p : Fin 1408, b[p.val]! ≤ k) {L : Array Table}
+    {S : Set (Equiv.Perm (Fin 1408))} (hL : IsEnumSet 1408 L S) :
+    trivInjOK b (idT 1408) L = true ↔
+      ∀ g ∈ S, (∀ p : Fin 1408, blkF k b (g p) = blkF k b p) → g = 1 := by
+  refine hL.forall_iff _ (fun g => (∀ p : Fin 1408, blkF k b (g p) = blkF k b p) → g = 1) ?_
+  intro x g hx
+  have hid : tblEq 1408 x (idT 1408) = true ↔ g = 1 :=
+    tblEq_iff_eq hx (Rep.idT (by norm_num))
+  constructor
+  · intro h hfix
+    have htriv := blkTrivOK_of_fix hbk hx hfix
+    simp only [Bool.or_eq_true, Bool.not_eq_true'] at h
+    rcases h with h | h
+    · rw [htriv] at h
+      exact absurd h (by simp)
+    · exact hid.1 h
+  · intro H
+    simp only [Bool.or_eq_true, Bool.not_eq_true']
+    by_cases htriv : blkTrivOK b x = true
+    · exact Or.inr (hid.2 (H (fun p => blkTrivOK_spec hx htriv p)))
+    · exact Or.inl (by simpa using htriv)
 
 theorem sqOneOK_iff {L : Array Table} {S : Set (Equiv.Perm (Fin 1408))} (hL : IsEnumSet 1408 L S) :
     sqOneOK (idT 1408) L = true ↔ ∀ g ∈ S, g * g = 1 := by
@@ -148,5 +205,10 @@ theorem sqOneOK_iff {L : Array Table} {S : Set (Equiv.Perm (Fin 1408))} (hL : Is
   intro x g hx
   exact tblEq_iff_eq (Rep.compT hx hx) (Rep.idT (by norm_num))
 
+theorem sqInOK_iff {L V : Array Table} {S T : Set (Equiv.Perm (Fin 1408))} (hL : IsEnumSet 1408 L S)
+    (hV : IsEnumSet 1408 V T) : sqInOK L V = true ↔ ∀ g ∈ S, g * g ∈ T := by
+  refine hL.forall_iff _ (fun g => g * g ∈ T) ?_
+  intro x g hx
+  exact hV.memT_iff (Rep.compT hx hx)
 
 end CFSG.EvenSporadicStandard.HNRecog

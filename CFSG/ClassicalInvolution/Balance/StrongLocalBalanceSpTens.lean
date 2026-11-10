@@ -54,6 +54,9 @@ theorem Rot_transpose_mul_self : (Rot : Matrix (Fin 2) (Fin 2) F)ᵀ * Rot = 1 :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Rot, Matrix.mul_apply, Fin.sum_univ_two]
 
+theorem Rot_mul_self : (Rot : Matrix (Fin 2) (Fin 2) F) * Rot = -1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Rot, Matrix.mul_apply, Fin.sum_univ_two]
 
 theorem gram_eq_tens : gram F 2 = tens (J0 : Matrix (Fin 2) (Fin 2) F) 1 := by
   simp only [gram, tens, J0]
@@ -69,6 +72,13 @@ theorem tens_one_Rot_symplectic :
 
 theorem mat_xSw : mat 2 F xSw = tens 1 Rot := rfl
 
+theorem xSw_mul_self : (xSw : StatedSp 2 F) * xSw = negOne := by
+  refine mat_injective ?_
+  rw [map_mul, mat_xSw, tens_mul, mat_negOne, Rot_mul_self]
+  simp only [one_mul]
+  ext i j
+  rcases i with a | a <;> rcases j with b | b <;> fin_cases a <;> fin_cases b <;>
+    simp [tens, Matrix.neg_apply]
 
 theorem tens_coeff {a a' b b' : Matrix (Fin 2) (Fin 2) F}
     (h : tens a 1 + tens b Rot = tens a' 1 + tens b' Rot) : a = a' ∧ b = b' := by

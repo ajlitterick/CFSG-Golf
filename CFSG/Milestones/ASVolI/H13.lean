@@ -39,6 +39,16 @@ abbrev ComplementQuotient24 : Type := PM24 ⧸ Subgroup.zpowers (G6.allOnes 24)
     (QuotientGroup.mk representative : ComplementQuotient24) = coset ∧
       wt24 representative = weight
 
+theorem wt24_eq_card (v : PM24) :
+    wt24 v = (Finset.univ.filter fun i : Fin 24 => Multiplicative.toAdd v i ≠ 0).card := by
+  unfold wt24
+  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
+
+theorem allOnes24_mul_self : G6.allOnes 24 * G6.allOnes 24 = 1 := by
+  apply Multiplicative.toAdd.injective
+  funext i
+  change (1 : ZMod 2) + 1 = 0
+  decide
 
 theorem sq24 (x : PM24) : x * x = 1 := by
   apply Multiplicative.toAdd.injective
@@ -48,6 +58,111 @@ theorem sq24 (x : PM24) : x * x = 1 := by
   revert y
   decide
 
+theorem inv24_eq (x : PM24) : x⁻¹ = x := inv_eq_of_mul_eq_one_right (sq24 x)
+
+theorem allOnes24_zpow (k : ℤ) :
+    G6.allOnes 24 ^ k = 1 ∨ G6.allOnes 24 ^ k = G6.allOnes 24 := by
+  have hsq : G6.allOnes 24 ^ (2 : ℤ) = 1 := (zpow_two _).trans allOnes24_mul_self
+  obtain ⟨n, rfl | rfl⟩ := Int.even_or_odd' k
+  · left
+    have h2 : G6.allOnes 24 ^ (2 * n) = (G6.allOnes 24 ^ (2 : ℤ)) ^ n := zpow_mul _ _ _
+    rw [h2, hsq]
+    exact one_zpow n
+  · right
+    have h3 : G6.allOnes 24 ^ (2 * n + 1) = G6.allOnes 24 ^ (2 * n) * G6.allOnes 24 :=
+      zpow_add_one _ _
+    have h2 : G6.allOnes 24 ^ (2 * n) = (G6.allOnes 24 ^ (2 : ℤ)) ^ n := zpow_mul _ _ _
+    rw [h3, h2, hsq]
+    exact (congrArg (fun x => x * G6.allOnes 24) (one_zpow n)).trans (one_mul _)
+
+theorem cocodeWt24_spec (coset : Cocode24) :
+    (∃ representative : PM24,
+      (QuotientGroup.mk representative : Cocode24) = coset ∧
+        wt24 representative = cocodeWt24 coset) ∧
+    (∀ representative : PM24,
+      (QuotientGroup.mk representative : Cocode24) = coset →
+        cocodeWt24 coset ≤ wt24 representative) := by
+  obtain ⟨r, rfl⟩ := QuotientGroup.mk_surjective coset
+  have hne : {weight : ℕ | ∃ representative : PM24,
+      (QuotientGroup.mk representative : Cocode24) = QuotientGroup.mk r ∧
+        wt24 representative = weight}.Nonempty :=
+    ⟨wt24 r, r, rfl, rfl⟩
+  exact ⟨Nat.sInf_mem hne, fun representative hrep => Nat.sInf_le ⟨representative, hrep, rfl⟩⟩
+
+theorem hasComplementWeight24_mk_iff (representative : PM24) (weight : ℕ) :
+    HasComplementWeight24 (QuotientGroup.mk representative) weight ↔
+      weight = wt24 representative ∨
+        weight = wt24 (representative * G6.allOnes 24) := by
+  have e : (representative * G6.allOnes 24)⁻¹ * representative = G6.allOnes 24 := by
+    rw [inv24_eq, mul_right_comm, sq24, one_mul]
+  have key : ∀ r : PM24,
+      (QuotientGroup.mk r : ComplementQuotient24) = QuotientGroup.mk representative ↔
+        r = representative ∨ r = representative * G6.allOnes 24 := by
+    intro r
+    rw [QuotientGroup.eq, Subgroup.mem_zpowers_iff]
+    constructor
+    · rintro ⟨k, hk⟩
+      rcases allOnes24_zpow k with h | h
+      · left
+        exact inv_mul_eq_one.1 (hk.symm.trans h)
+      · right
+        have h1 : r⁻¹ * representative = G6.allOnes 24 := hk.symm.trans h
+        have h2 : representative = r * G6.allOnes 24 := inv_mul_eq_iff_eq_mul.1 h1
+        rw [h2, mul_assoc, allOnes24_mul_self, mul_one]
+    · rintro (rfl | rfl)
+      · exact ⟨0, (zpow_zero _).trans (inv_mul_cancel _).symm⟩
+      · exact ⟨1, (zpow_one _).trans e.symm⟩
+  unfold HasComplementWeight24
+  constructor
+  · rintro ⟨r, hr, hw⟩
+    rcases (key r).1 hr with rfl | rfl
+    · exact Or.inl hw.symm
+    · exact Or.inr hw.symm
+  · rintro (h | h)
+    · exact ⟨representative, rfl, h.symm⟩
+    · exact ⟨representative * G6.allOnes 24, (key _).2 (Or.inr rfl), h.symm⟩
+
+theorem wt24_complement (representative : PM24) :
+    wt24 (representative * G6.allOnes 24) = 24 - wt24 representative := by
+  have hz : ∀ x : ZMod 2, x + 1 ≠ 0 ↔ x = 0 := by decide
+  rw [wt24_eq_card, wt24_eq_card]
+  have hfilt : (Finset.univ.filter fun i : Fin 24 =>
+      Multiplicative.toAdd (representative * G6.allOnes 24) i ≠ 0) =
+        Finset.univ.filter fun i : Fin 24 => Multiplicative.toAdd representative i = 0 :=
+    Finset.filter_congr fun i _ => hz _
+  rw [hfilt]
+  have hsplit := Finset.card_filter_add_card_filter_not (s := (Finset.univ : Finset (Fin 24)))
+    (fun i : Fin 24 => Multiplicative.toAdd representative i = 0)
+  rw [Finset.card_univ, Fintype.card_fin] at hsplit
+  simp only [ne_eq] at hsplit ⊢
+  omega
+
+theorem wt24_eY (support : Finset (Fin 24)) : wt24 (eY support) = support.card := by
+  rw [wt24_eq_card]
+  congr 1
+  ext i
+  by_cases h : i ∈ support <;> simp [eY, h]
+
+theorem pairVec_eq_eY_pair (a b : Fin 24) (distinct : a ≠ b) :
+    pairVec a b = eY {a, b} := by
+  apply Multiplicative.toAdd.injective
+  funext i
+  simp only [pairVec, unitVec, toAdd_mul, toAdd_ofAdd, Pi.add_apply, eY, Finset.mem_insert,
+    Finset.mem_singleton, Pi.single_apply]
+  by_cases ha : i = a
+  · have hb : ¬ i = b := fun h => distinct (ha.symm.trans h)
+    simp [ha, hb, distinct]
+  · by_cases hb : i = b
+    · simp [ha, hb, Ne.symm distinct]
+    · simp [ha, hb]
+
+theorem mem_pairKer_iff_dot24 (a b : Fin 24) (representative : PM24) :
+    representative ∈ pairKer a b ↔ dot24 representative (pairVec a b) = 0 := by
+  have hdot : dot24 representative (pairVec a b) =
+      Multiplicative.toAdd representative a + Multiplicative.toAdd representative b := by
+    simp [dot24, pairVec, unitVec, Pi.single_apply, mul_add, mul_ite, Finset.sum_add_distrib]
+  rw [hdot]
+  exact Iff.rfl
 
 theorem h13_zmod2_cases (x : ZMod 2) : x = 0 ∨ x = 1 := by
   revert x
@@ -65,6 +180,11 @@ theorem eY_empty : eY (∅ : Finset (Fin 24)) = 1 := by
   funext i
   simp [toAdd_eY]
 
+theorem eY_inj {S T : Finset (Fin 24)} (h : eY S = eY T) : S = T := by
+  ext i
+  have h' := congrArg (fun v : PM24 => Multiplicative.toAdd v i) h
+  simp only [toAdd_eY] at h'
+  by_cases hS : i ∈ S <;> by_cases hT : i ∈ T <;> simp [hS, hT] at h' ⊢
 
 theorem dot24_comm (x y : PM24) : dot24 x y = dot24 y x := by
   unfold dot24
@@ -92,6 +212,24 @@ theorem sum_toAdd_eY (Y : Finset (Fin 24)) :
   ext k
   simp
 
+theorem mem_coreMod_iff_dot_allOnes (v : PM24) :
+    v ∈ G6.coreMod 24 ↔ dot24 v (G6.allOnes 24) = 0 := by
+  rw [G6.mem_coreMod]
+  unfold dot24
+  simp [G6.allOnes]
+
+theorem golay_dot_eq_zero {c d : PM24} (hc : c ∈ golayC) (hd : d ∈ golayC) : dot24 c d = 0 :=
+  CFSG.Monster.Code.dotProduct_eq_zero ((mem_golayC_iff' c).1 hc) ((mem_golayC_iff' d).1 hd)
+
+theorem allOnes_mem_golayC : G6.allOnes 24 ∈ golayC :=
+  (mem_golayC_iff' _).2 CFSG.Monster.Code.Ω_mem_C
+
+theorem golayC_le_coreMod : golayC ≤ G6.coreMod 24 := fun x hx =>
+  (mem_coreMod_iff_dot_allOnes x).2 (golay_dot_eq_zero hx allOnes_mem_golayC)
+
+theorem golay_mem_of_dot (w : PM24) (h : ∀ c ∈ golayC, dot24 w c = 0) : w ∈ golayC := by
+  refine (mem_golayC_iff' w).2 ((CFSG.Monster.Code.mem_C_iff_forall_dotProduct _).2 fun y hy => ?_)
+  exact h (Multiplicative.ofAdd y) ((mem_golayC_iff' _).2 (by simpa using hy))
 
 theorem hammingNorm_le_of_support (x : Fin 24 → ZMod 2) (S : Finset (Fin 24))
     (h : ∀ i, x i ≠ 0 → i ∈ S) : hammingNorm x ≤ S.card := by
@@ -161,6 +299,315 @@ theorem smul_finset_eq_map (g : Equiv.Perm (Fin 24)) (S : Finset (Fin 24)) :
   · intro hx
     exact ⟨g.symm x, hx, by simp⟩
 
+theorem dot24_permAct (σ : Equiv.Perm (Fin 24)) (u v : PM24) :
+    dot24 (G6.permAct 24 σ u) (G6.permAct 24 σ v) = dot24 u v := by
+  unfold dot24
+  simp only [G6.permAct_apply]
+  exact Equiv.sum_comp σ⁻¹ (fun i => Multiplicative.toAdd u i * Multiplicative.toAdd v i)
+
+theorem exists_dot24_ne_zero {u : PM24} (hu : u ≠ 1) : ∃ v : PM24, dot24 u v ≠ 0 := by
+  have hex : ∃ i, Multiplicative.toAdd u i ≠ 0 := by
+    by_contra h
+    push_neg at h
+    apply hu
+    apply Multiplicative.toAdd.injective
+    funext i
+    simpa using h i
+  obtain ⟨i, hi⟩ := hex
+  refine ⟨eY {i}, ?_⟩
+  rw [dot24_eY, Finset.sum_singleton]
+  exact hi
+
+theorem exists_dot_coreMod_of_golay_not_zpowers (c : PM24) (hc : c ∈ golayC)
+    (hcz : c ∉ Subgroup.zpowers (G6.allOnes 24)) :
+    ∃ w ∈ G6.coreMod 24, dot24 c w ≠ 0 := by
+  have hnc : ∃ i j : Fin 24, Multiplicative.toAdd c i ≠ Multiplicative.toAdd c j := by
+    by_contra h
+    push_neg at h
+    apply hcz
+    have hc' : c = 1 ∨ c = G6.allOnes 24 := by
+      rcases h13_zmod2_cases (Multiplicative.toAdd c 0) with h0 | h0
+      · left
+        apply Multiplicative.toAdd.injective
+        funext i
+        rw [h i 0, h0]
+        rfl
+      · right
+        apply Multiplicative.toAdd.injective
+        funext i
+        rw [h i 0, h0]
+        rfl
+    rcases hc' with rfl | rfl
+    · exact Subgroup.one_mem _
+    · exact Subgroup.mem_zpowers _
+  obtain ⟨i, j, hij⟩ := hnc
+  have hne : i ≠ j := fun h => hij (congrArg _ h)
+  refine ⟨eY {i, j}, ?_, ?_⟩
+  · rw [G6.mem_coreMod, sum_toAdd_eY, Finset.card_pair hne]
+    decide
+  · rw [dot24_eY, Finset.sum_pair hne]
+    revert hij
+    generalize Multiplicative.toAdd c i = x
+    generalize Multiplicative.toAdd c j = y
+    revert x y
+    decide
+
+theorem zmod2_add_eq_zero_iff (x y : ZMod 2) : x + y = 0 ↔ x = y := by
+  revert x y
+  decide
+
+theorem h13_add_self (x : ZMod 2) : x + x = 0 := by
+  revert x
+  decide
+
+theorem exists_golay_dot_of_not_mem_coreMod_pair (a b : Fin 24) (hab : a ≠ b) (w : PM24)
+    (hw : ∀ c ∈ golayC ⊓ pairKer a b, dot24 c w = 0) :
+    w ∈ golayC ⊔ Subgroup.zpowers (pairVec a b) := by
+  have hp_not : pairVec a b ∉ golayC := by
+    rw [pairVec_eq_eY_pair a b hab]
+    intro h
+    have h2 := (eY_mem_golayC_iff {a, b} (by rw [Finset.card_pair hab]; norm_num)).1 h
+    simp at h2
+  have hc0 : ∃ c0 ∈ golayC, dot24 c0 (pairVec a b) ≠ 0 := by
+    by_contra h
+    push_neg at h
+    exact hp_not (golay_mem_of_dot _ fun c hc => by rw [dot24_comm]; exact h c hc)
+  obtain ⟨c0, hc0g, hc0p⟩ := hc0
+  have hkey : ∀ c ∈ golayC, dot24 c w = dot24 c (pairVec a b) * dot24 c0 w := by
+    intro c hc
+    rcases h13_zmod2_cases (dot24 c (pairVec a b)) with hg | hg
+    · have hD : c ∈ golayC ⊓ pairKer a b := ⟨hc, (mem_pairKer_iff_dot24 a b c).2 hg⟩
+      rw [hw c hD, hg, zero_mul]
+    · have hc0' : dot24 c0 (pairVec a b) = 1 := by
+        rcases h13_zmod2_cases (dot24 c0 (pairVec a b)) with h0 | h0
+        · exact absurd h0 hc0p
+        · exact h0
+      have hmem : c * c0 ∈ golayC ⊓ pairKer a b := by
+        refine ⟨Subgroup.mul_mem golayC hc hc0g, (mem_pairKer_iff_dot24 a b _).2 ?_⟩
+        rw [dot24_mul_left, hg, hc0']
+        decide
+      have h1 := hw _ hmem
+      rw [dot24_mul_left] at h1
+      rw [hg, one_mul]
+      exact (zmod2_add_eq_zero_iff _ _).1 h1
+  rcases h13_zmod2_cases (dot24 c0 w) with hl | hl
+  · have hw0 : ∀ c ∈ golayC, dot24 w c = 0 := fun c hc => by
+      rw [dot24_comm, hkey c hc, hl, mul_zero]
+    exact (le_sup_left : golayC ≤ golayC ⊔ Subgroup.zpowers (pairVec a b))
+      (golay_mem_of_dot w hw0)
+  · have hu : w * pairVec a b ∈ golayC := by
+      apply golay_mem_of_dot
+      intro c hc
+      rw [dot24_mul_left, dot24_comm w c, dot24_comm (pairVec a b) c, hkey c hc, hl, mul_one]
+      exact h13_add_self _
+    have hwp : w = (w * pairVec a b) * pairVec a b := by
+      rw [mul_assoc, sq24, mul_one]
+    rw [hwp]
+    exact (golayC ⊔ Subgroup.zpowers (pairVec a b)).mul_mem
+      ((le_sup_left : golayC ≤ golayC ⊔ Subgroup.zpowers (pairVec a b)) hu)
+      ((le_sup_right : Subgroup.zpowers (pairVec a b) ≤ golayC ⊔ Subgroup.zpowers (pairVec a b))
+        (Subgroup.mem_zpowers _))
+
+theorem zpow_involution (x : PM24) (k : ℤ) : x ^ k = 1 ∨ x ^ k = x := by
+  have hsq : x ^ (2 : ℤ) = 1 := (zpow_two _).trans (sq24 x)
+  obtain ⟨n, rfl | rfl⟩ := Int.even_or_odd' k
+  · left
+    have h2 : x ^ (2 * n) = (x ^ (2 : ℤ)) ^ n := zpow_mul _ _ _
+    rw [h2, hsq]
+    exact one_zpow n
+  · right
+    have h3 : x ^ (2 * n + 1) = x ^ (2 * n) * x := zpow_add_one _ _
+    have h2 : x ^ (2 * n) = (x ^ (2 : ℤ)) ^ n := zpow_mul _ _ _
+    rw [h3, h2, hsq]
+    exact (congrArg (fun y => y * x) (one_zpow n)).trans (one_mul _)
+
+theorem allOnes_ne_one : G6.allOnes 24 ≠ 1 := by
+  intro h
+  have h0 := congrArg (fun v : PM24 => Multiplicative.toAdd v 0) h
+  simp [G6.allOnes] at h0
+
+theorem card_zpowers_involution (x : PM24) (hx : x ≠ 1) :
+    Nat.card (Subgroup.zpowers x) = 2 := by
+  rw [Nat.card_zpowers]
+  apply orderOf_eq_prime
+  · rw [pow_two]
+    exact sq24 x
+  · exact hx
+
+theorem natCard_eq_two_mul_of_cover {G : Type*} [Group G] (H K : Subgroup G) (g : G)
+    (hgK : g ∉ K) (hg : g * g = 1) (hgH : g ∈ H) (hKH : K ≤ H)
+    (hcov : ∀ x ∈ H, x ∈ K ∨ x * g ∈ K) :
+    Nat.card H = 2 * Nat.card K := by
+  let f : K × Bool → H := fun p =>
+    ⟨(p.1 : G) * (if p.2 then g else 1), by
+      cases p.2
+      · simpa using hKH p.1.2
+      · exact H.mul_mem (hKH p.1.2) hgH⟩
+  have hf : Function.Bijective f := by
+    constructor
+    · rintro ⟨⟨k1, hk1⟩, b1⟩ ⟨⟨k2, hk2⟩, b2⟩ h
+      have h' : k1 * (if b1 then g else 1) = k2 * (if b2 then g else 1) := congrArg Subtype.val h
+      cases b1 <;> cases b2
+      · have hk : k1 = k2 := by simpa using h'
+        subst hk
+        rfl
+      · exfalso
+        have hk : k1 = k2 * g := by simpa using h'
+        apply hgK
+        have hgeq : g = (k2 : G)⁻¹ * k1 := by rw [hk, inv_mul_cancel_left]
+        rw [hgeq]
+        exact K.mul_mem (K.inv_mem hk2) hk1
+      · exfalso
+        have hk : k1 * g = k2 := by simpa using h'
+        apply hgK
+        have hgeq : g = (k1 : G)⁻¹ * k2 := by rw [← hk, inv_mul_cancel_left]
+        rw [hgeq]
+        exact K.mul_mem (K.inv_mem hk1) hk2
+      · have hk : k1 = k2 := by simpa using h'
+        subst hk
+        rfl
+    · rintro ⟨x, hx⟩
+      rcases hcov x hx with hxK | hxK
+      · exact ⟨(⟨⟨x, hxK⟩, false⟩), Subtype.ext (by simp [f])⟩
+      · refine ⟨(⟨⟨x * g, hxK⟩, true⟩), Subtype.ext ?_⟩
+        simp only [f, if_true]
+        rw [mul_assoc, hg, mul_one]
+  have hcard := Nat.card_eq_of_bijective f hf
+  rw [Nat.card_prod, Nat.card_eq_fintype_card (α := Bool), Fintype.card_bool] at hcard
+  omega
+
+theorem natCard_golayC : Nat.card golayC = 4096 := by
+  rw [← CFSG.Monster.Code.card_CFin, ← Nat.card_eq_finsetCard]
+  exact Nat.card_congr
+    { toFun := fun x => ⟨Multiplicative.toAdd (x : PM24), (CFSG.Monster.Code.mem_CFin).2 x.2⟩
+      invFun := fun y => ⟨Multiplicative.ofAdd (y : Fin 24 → ZMod 2),
+        (CFSG.Monster.Code.mem_CFin).1 y.2⟩
+      left_inv := fun _ => rfl
+      right_inv := fun _ => rfl }
+
+theorem natCard_PM24 : Nat.card PM24 = 2 ^ 24 := by
+  rw [Nat.card_congr Multiplicative.ofAdd.symm]
+  simp [Nat.card_eq_fintype_card]
+
+theorem natCard_top_PM24 : Nat.card (⊤ : Subgroup PM24) = 2 ^ 24 := by
+  rw [Nat.card_congr Subgroup.topEquiv.toEquiv, natCard_PM24]
+
+theorem natCard_coreMod : Nat.card (G6.coreMod 24) = 2 ^ 23 := by
+  have h := natCard_eq_two_mul_of_cover (⊤ : Subgroup PM24) (G6.coreMod 24) (eY {0}) ?_ ?_
+    ?_ le_top ?_
+  · rw [natCard_top_PM24] at h
+    have h2 : (2 : ℕ) ^ 24 = 2 * 2 ^ 23 := by norm_num
+    rw [h2] at h
+    exact (Nat.eq_of_mul_eq_mul_left (by norm_num) h).symm
+  · rw [G6.mem_coreMod, sum_toAdd_eY]
+    simp
+  · exact sq24 _
+  · exact Subgroup.mem_top _
+  · intro x _
+    have hs : ∑ i, Multiplicative.toAdd (x * eY {0}) i = ∑ i, Multiplicative.toAdd x i + 1 := by
+      simp only [toAdd_mul, Pi.add_apply, Finset.sum_add_distrib, sum_toAdd_eY,
+        Finset.card_singleton]
+      norm_num
+    rcases h13_zmod2_cases (∑ i, Multiplicative.toAdd x i) with h0 | h0
+    · left
+      rw [G6.mem_coreMod]
+      exact h0
+    · right
+      rw [G6.mem_coreMod, hs, h0]
+      decide
+
+theorem natCard_golay_sup (p : PM24) (hpG : p ∉ golayC) (hp : p * p = 1) :
+    Nat.card ↥(golayC ⊔ Subgroup.zpowers p) = 2 * Nat.card golayC := by
+  refine natCard_eq_two_mul_of_cover (golayC ⊔ Subgroup.zpowers p) golayC p hpG hp ?_ le_sup_left ?_
+  · exact (le_sup_right : Subgroup.zpowers p ≤ golayC ⊔ Subgroup.zpowers p) (Subgroup.mem_zpowers p)
+  intro x hx
+  obtain ⟨y, hy, z, hz, hyz⟩ := Subgroup.mem_sup.1 hx
+  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hz
+  rcases zpow_involution p k with h | h
+  · left
+    have e1 : y * p ^ k = y := by
+      rw [h]
+      exact mul_one y
+    have hxy : x = y := hyz.symm.trans e1
+    rw [hxy]
+    exact hy
+  · right
+    have e2 : y * p ^ k * p = y := by
+      rw [h, mul_assoc, hp, mul_one]
+    have hxy : x * p = y := by
+      rw [← hyz]
+      exact e2
+    rw [hxy]
+    exact hy
+
+theorem pairVec_not_mem_golayC (a b : Fin 24) (hab : a ≠ b) : pairVec a b ∉ golayC := by
+  rw [pairVec_eq_eY_pair a b hab]
+  intro h'
+  have h2 := (eY_mem_golayC_iff {a, b} (by rw [Finset.card_pair hab]; norm_num)).1 h'
+  simp at h2
+
+theorem exists_golay_dot_pairVec_ne (a b : Fin 24) (hab : a ≠ b) :
+    ∃ c0 ∈ golayC, dot24 c0 (pairVec a b) ≠ 0 := by
+  by_contra h
+  push_neg at h
+  exact pairVec_not_mem_golayC a b hab (golay_mem_of_dot _ fun c hc => by
+    rw [dot24_comm]
+    exact h c hc)
+
+theorem natCard_golay_pair (a b : Fin 24) (hab : a ≠ b) :
+    Nat.card ↥(golayC ⊓ pairKer a b) = 2048 := by
+  obtain ⟨c0, hc0, hc0p⟩ := exists_golay_dot_pairVec_ne a b hab
+  have hc1 : dot24 c0 (pairVec a b) = 1 := by
+    rcases h13_zmod2_cases (dot24 c0 (pairVec a b)) with h0 | h0
+    · exact absurd h0 hc0p
+    · exact h0
+  have h := natCard_eq_two_mul_of_cover golayC (golayC ⊓ pairKer a b) c0 ?_ (sq24 c0) hc0
+    inf_le_left ?_
+  · rw [natCard_golayC] at h
+    omega
+  · intro hK
+    have h1 := (mem_pairKer_iff_dot24 a b c0).1 (Subgroup.mem_inf.1 hK).2
+    rw [hc1] at h1
+    exact one_ne_zero h1
+  · intro x hx
+    by_cases hxp : dot24 x (pairVec a b) = 0
+    · left
+      exact Subgroup.mem_inf.2 ⟨hx, (mem_pairKer_iff_dot24 a b x).2 hxp⟩
+    · right
+      have hx1 : dot24 x (pairVec a b) = 1 := by
+        rcases h13_zmod2_cases (dot24 x (pairVec a b)) with h0 | h0
+        · exact absurd h0 hxp
+        · exact h0
+      refine Subgroup.mem_inf.2 ⟨Subgroup.mul_mem golayC hx hc0, (mem_pairKer_iff_dot24 a b _).2 ?_⟩
+      rw [dot24_mul_left, hx1, hc1]
+      decide
+
+theorem rk_eq_of_natCard {W : Type*} [Group W] (k : ℕ) (h : Nat.card W = 2 ^ k) :
+    CFSG.Quasithin.rk W = k := by
+  unfold CFSG.Quasithin.rk
+  rw [h, padicValNat.prime_pow]
+
+theorem rk_golayC : CFSG.Quasithin.rk ↥golayC = 12 :=
+  rk_eq_of_natCard 12 (by rw [natCard_golayC]; norm_num)
+
+theorem rk_top_PM24 : CFSG.Quasithin.rk ↥(⊤ : Subgroup PM24) = 24 :=
+  rk_eq_of_natCard 24 natCard_top_PM24
+
+theorem rk_coreMod : CFSG.Quasithin.rk ↥(G6.coreMod 24) = 23 :=
+  rk_eq_of_natCard 23 natCard_coreMod
+
+theorem rk_zpowers_allOnes : CFSG.Quasithin.rk ↥(Subgroup.zpowers (G6.allOnes 24)) = 1 :=
+  rk_eq_of_natCard 1 (by rw [card_zpowers_involution _ allOnes_ne_one]; norm_num)
+
+theorem rk_golay_sup (a b : Fin 24) (hab : a ≠ b) :
+    CFSG.Quasithin.rk ↥(golayC ⊔ Subgroup.zpowers (pairVec a b)) = 13 :=
+  rk_eq_of_natCard 13 (by
+    rw [natCard_golay_sup _ (pairVec_not_mem_golayC a b hab) (sq24 _), natCard_golayC]
+    norm_num)
+
+theorem rk_golay_pair (a b : Fin 24) (hab : a ≠ b) :
+    CFSG.Quasithin.rk ↥(golayC ⊓ pairKer a b) = 11 :=
+  rk_eq_of_natCard 11 (by rw [natCard_golay_pair a b hab]; norm_num)
 
 @[expose] def M24g : Subgroup S24 := AutPerm
 
@@ -212,11 +659,150 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.ASVolI.ChH CFSG.Quasithin.H.Mathieu
 
+theorem golayC_eq_closure_octads :
+    golayC = Subgroup.closure {vector : PM24 |
+      ∃ octad : Finset (Fin 24), IsOctad octad ∧ eY octad = vector} := by
+  set S : Set PM24 := {vector : PM24 |
+    ∃ octad : Finset (Fin 24), IsOctad octad ∧ eY octad = vector} with hS
+  have hbasis : ∀ i : Fin 12, Multiplicative.ofAdd (CFSG.Monster.Code.B i) ∈ Subgroup.closure S := by
+    intro i
+    have hsupp : (Finset.univ.filter fun j : Fin 24 => CFSG.Monster.Code.B i j ≠ 0).card = 8 := by
+      have h8 := CFSG.Monster.Code.wt_B i
+      unfold hammingNorm at h8
+      exact h8
+    have heY : eY (Finset.univ.filter fun j : Fin 24 => CFSG.Monster.Code.B i j ≠ 0) =
+        Multiplicative.ofAdd (CFSG.Monster.Code.B i) := by
+      unfold eY
+      congr 1
+      funext j
+      rcases h13_zmod2_cases (CFSG.Monster.Code.B i j) with h0 | h0 <;> simp [h0]
+    have hoct : IsOctad (Finset.univ.filter fun j : Fin 24 => CFSG.Monster.Code.B i j ≠ 0) := by
+      refine ⟨hsupp, ?_⟩
+      rw [heY]
+      exact (mem_golayC_iff' _).2 (by simpa using CFSG.Monster.Code.B_mem_C i)
+    have hmem : eY (Finset.univ.filter fun j : Fin 24 => CFSG.Monster.Code.B i j ≠ 0) ∈ S :=
+      ⟨_, hoct, rfl⟩
+    have := Subgroup.subset_closure hmem
+    rwa [heY] at this
+  let K : Submodule (ZMod 2) (Fin 24 → ZMod 2) :=
+    { carrier := {x | Multiplicative.ofAdd x ∈ Subgroup.closure S}
+      add_mem' := fun {x y} hx hy => by
+        have e : Multiplicative.ofAdd (x + y) = Multiplicative.ofAdd x * Multiplicative.ofAdd y :=
+          ofAdd_add x y
+        show Multiplicative.ofAdd (x + y) ∈ Subgroup.closure S
+        rw [e]
+        exact Subgroup.mul_mem _ hx hy
+      zero_mem' := by
+        show Multiplicative.ofAdd (0 : Fin 24 → ZMod 2) ∈ Subgroup.closure S
+        rw [ofAdd_zero]
+        exact Subgroup.one_mem _
+      smul_mem' := fun c {x} hx => by
+        show Multiplicative.ofAdd (c • x) ∈ Subgroup.closure S
+        rcases h13_zmod2_cases c with h0 | h0
+        · rw [h0, zero_smul, ofAdd_zero]
+          exact Subgroup.one_mem _
+        · rw [h0, one_smul]
+          exact hx }
+  have hle : Submodule.span (ZMod 2) (Set.range CFSG.Monster.Code.B) ≤ K := by
+    rw [Submodule.span_le]
+    rintro _ ⟨i, rfl⟩
+    exact hbasis i
+  rw [CFSG.Monster.Code.span_B] at hle
+  apply le_antisymm
+  · intro x hx
+    have h : Multiplicative.ofAdd (Multiplicative.toAdd x) ∈ Subgroup.closure S :=
+      hle ((mem_golayC_iff' x).1 hx)
+    rwa [ofAdd_toAdd] at h
+  · refine (Subgroup.closure_le _).2 ?_
+    rintro v ⟨O, hO, rfl⟩
+    exact hO.2
 
 theorem mem_M23g_iff (a : Fin 24) (g : Equiv.Perm (Fin 24)) :
     g ∈ M23g a ↔ g ∈ M24g ∧ g a = a := by
   simp [M23g, Subgroup.mem_inf, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def]
 
+theorem mem_M22g_iff (a b : Fin 24) (g : Equiv.Perm (Fin 24)) :
+    g ∈ M22g a b ↔ g ∈ M24g ∧ g a = a ∧ g b = b := by
+  simp [M22g, Subgroup.mem_inf, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def, and_assoc]
+
+theorem smul_pair_eq_iff (g : Equiv.Perm (Fin 24)) (a b : Fin 24) (hab : a ≠ b) :
+    g • ({a, b} : Finset (Fin 24)) = {a, b} ↔
+      (g a = a ∧ g b = b) ∨ (g a = b ∧ g b = a) := by
+  have hmem : ∀ x, x ∈ g • ({a, b} : Finset (Fin 24)) ↔
+      ∃ y ∈ ({a, b} : Finset (Fin 24)), g y = x := by
+    intro x
+    rw [Finset.mem_smul_finset]
+    simp
+  constructor
+  · intro h
+    have ha : g a = a ∨ g a = b := by
+      have hm : g a ∈ ({a, b} : Finset (Fin 24)) := by
+        rw [← h, hmem]
+        exact ⟨a, by simp, rfl⟩
+      simpa using hm
+    have hb : g b = a ∨ g b = b := by
+      have hm : g b ∈ ({a, b} : Finset (Fin 24)) := by
+        rw [← h, hmem]
+        exact ⟨b, by simp, rfl⟩
+      simpa using hm
+    have hA : ∃ y, (y = a ∨ y = b) ∧ g y = a := by
+      have hm : a ∈ g • ({a, b} : Finset (Fin 24)) := by
+        rw [h]
+        simp
+      rw [hmem] at hm
+      obtain ⟨y, hy, hgy⟩ := hm
+      exact ⟨y, by simpa using hy, hgy⟩
+    have hinj : g a ≠ g b := fun e => hab (g.injective e)
+    obtain ⟨y, hy, hgy⟩ := hA
+    rcases hy with hy | hy <;> rw [hy] at hgy
+    · left
+      refine ⟨hgy, ?_⟩
+      rcases hb with hb | hb
+      · exact absurd (hb.trans hgy.symm).symm hinj
+      · exact hb
+    · right
+      refine ⟨?_, hgy⟩
+      rcases ha with ha | ha
+      · exact absurd (ha.trans hgy.symm) hinj
+      · exact ha
+  · rintro (⟨h1, h2⟩ | ⟨h1, h2⟩)
+    · rw [smul_finset_eq_map]
+      ext x
+      simp [h1, h2]
+    · rw [smul_finset_eq_map]
+      ext x
+      simp [h1, h2]
+      tauto
+
+theorem mem_M2ab_iff (a b : Fin 24) (hab : a ≠ b) (g : Equiv.Perm (Fin 24)) :
+    g ∈ M2ab a b ↔ g ∈ M24g ∧ ((g a = a ∧ g b = b) ∨ (g a = b ∧ g b = a)) := by
+  simp only [M2ab, Subgroup.mem_inf, MulAction.mem_stabilizer_iff]
+  rw [smul_pair_eq_iff g a b hab]
+
+theorem map_conj_eq_of_iff (τ : Equiv.Perm (Fin 24)) (hτ : τ ∈ M24g)
+    (H T : Subgroup (Equiv.Perm (Fin 24)))
+    (P Q : Equiv.Perm (Fin 24) → Prop)
+    (hT : ∀ x, x ∈ T ↔ x ∈ M24g ∧ P x)
+    (hH : ∀ h, h ∈ H ↔ h ∈ M24g ∧ Q h)
+    (hPQ : ∀ h, P (τ * h * τ⁻¹) ↔ Q h) :
+    H.map (MulAut.conj τ).toMonoidHom = T := by
+  ext x
+  rw [Subgroup.mem_map]
+  constructor
+  · rintro ⟨h, hh, rfl⟩
+    have hhh := (hH h).1 hh
+    rw [hT]
+    refine ⟨?_, (hPQ h).2 hhh.2⟩
+    exact M24g.mul_mem (M24g.mul_mem hτ hhh.1) (M24g.inv_mem hτ)
+  · intro hx
+    rw [hT] at hx
+    have hconj : (MulAut.conj τ).toMonoidHom (τ⁻¹ * x * τ) = x := by
+      show τ * (τ⁻¹ * x * τ) * τ⁻¹ = x
+      group
+    refine ⟨τ⁻¹ * x * τ, (hH _).2 ⟨?_, (hPQ _).1 ?_⟩, hconj⟩
+    · exact M24g.mul_mem (M24g.mul_mem (M24g.inv_mem hτ) hx.1) hτ
+    · rw [show τ * (τ⁻¹ * x * τ) * τ⁻¹ = x by group]
+      exact hx.2
 
 @[expose] def H_13_1_partial : Prop :=
   ((∀ g ∈ M24g, ∀ u v : PM24, dot24 (G6.permAct 24 g u) (G6.permAct 24 g v) = dot24 u v) ∧
@@ -270,6 +856,41 @@ theorem mem_M23g_iff (a : Fin 24) (g : Equiv.Perm (Fin 24)) :
   (∀ a b : Fin 24, ∀ representative : PM24,
     representative ∈ pairKer a b ↔ dot24 representative (pairVec a b) = 0)
 
+theorem permAct_eY_eq_iff (g : Equiv.Perm (Fin 24)) (S T : Finset (Fin 24)) :
+    G6.permAct 24 g (eY S) = eY T ↔ S.map g.toEmbedding = T := by
+  rw [permAct_eY]
+  constructor
+  · exact eY_inj
+  · intro h
+    rw [h]
+
+theorem perm_single_eq_iff (g : Equiv.Perm (Fin 24)) (a : Fin 24) :
+    G6.permAct 24 g (eY {a}) = eY {a} ↔ g a = a := by
+  rw [permAct_eY_eq_iff, Finset.map_singleton, Finset.singleton_inj]
+  rfl
+
+theorem perm_single_mem_iff (g : Equiv.Perm (Fin 24)) (a : Fin 24) :
+    G6.permAct 24 g (eY {a}) * (eY {a})⁻¹ ∈ golayC ↔ g a = a := by
+  rw [inv24_eq, permAct_eY, eY_mul_eY_mem_golayC_iff (({a} : Finset (Fin 24)).map g.toEmbedding) ({a} : Finset (Fin 24))
+    (by simp),
+    Finset.map_singleton, Finset.singleton_inj]
+  rfl
+
+theorem perm_pair_eq_iff (g : Equiv.Perm (Fin 24)) (a b : Fin 24) (hab : a ≠ b) :
+    G6.permAct 24 g (eY {a, b}) = eY {a, b} ↔ (g a = a ∧ g b = b) ∨ (g a = b ∧ g b = a) := by
+  rw [permAct_eY_eq_iff, ← smul_finset_eq_map, smul_pair_eq_iff g a b hab]
+
+theorem perm_pair_mem_iff (g : Equiv.Perm (Fin 24)) (a b : Fin 24) (hab : a ≠ b) :
+    G6.permAct 24 g (eY {a, b}) * (eY {a, b})⁻¹ ∈ golayC ↔
+      (g a = a ∧ g b = b) ∨ (g a = b ∧ g b = a) := by
+  rw [inv24_eq, permAct_eY, eY_mul_eY_mem_golayC_iff (({a, b} : Finset (Fin 24)).map g.toEmbedding)
+    ({a, b} : Finset (Fin 24)) (by rw [Finset.card_map, Finset.card_pair hab]; norm_num), ← smul_finset_eq_map,
+    smul_pair_eq_iff g a b hab]
+
+theorem pairVec_mem_coreMod_of_ne (a b : Fin 24) (hab : a ≠ b) :
+    pairVec a b ∈ G6.coreMod 24 := by
+  rw [pairVec_eq_eY_pair a b hab, G6.mem_coreMod, sum_toAdd_eY, Finset.card_pair hab]
+  decide
 
 @[expose] noncomputable def conjOn22 (g : ↥mog22plus) : ↥mog22 ≃* ↥mog22 where
   toFun h := ⟨(g : Equiv.Perm (Fin 24)) * h * (g : Equiv.Perm (Fin 24))⁻¹,
@@ -353,6 +974,107 @@ theorem conjHom22_bijective : Function.Bijective conjHom22 := by
   rw [card_mulAut_congr mog22EquivM22, card_mog22plus]
   omega
 
+@[expose] noncomputable def mog22plusIso : ↥mog22plus ≃* MulAut ↥mog22 :=
+  MulEquiv.ofBijective conjHom22 conjHom22_bijective
+
+theorem nonempty_iso_M23g (a : Fin 24) :
+    Nonempty (↥(M23g a) ≃* ↥CFSG.Blueprint.NativeSporadic.M23) := by
+  obtain ⟨b, hb⟩ := exists_ne a
+  obtain ⟨τ, hτ, hτ0, -⟩ := CFSG.Monster.B.TwoA.autPerm_maps_two a b hb.symm
+  have hmap : mog23.map (MulAut.conj τ).toMonoidHom = M23g a := by
+    refine map_conj_eq_of_iff τ hτ mog23 (M23g a) (fun x => x a = a) (fun h => h 0 = 0)
+      (fun x => mem_M23g_iff a x) (fun h => ?_) (fun h => ?_)
+    · show h ∈ M24g ⊓ stab 0 ↔ _
+      rw [Subgroup.mem_inf, mem_stab_iff]
+    · have e : τ⁻¹ a = 0 := by rw [← hτ0, Equiv.Perm.inv_def, Equiv.symm_apply_apply]
+      show (τ * h * τ⁻¹) a = a ↔ h 0 = 0
+      simp only [Equiv.Perm.mul_apply, e]
+      rw [← hτ0, EmbeddingLike.apply_eq_iff_eq]
+  exact ⟨(MulEquiv.subgroupCongr hmap).symm.trans
+    ((MulEquiv.subgroupMap (MulAut.conj τ) mog23).symm.trans mog23EquivM23)⟩
+
+theorem nonempty_iso_M22g (a b : Fin 24) (hab : a ≠ b) :
+    Nonempty (↥(M22g a b) ≃* ↥CFSG.Blueprint.NativeSporadic.M22) := by
+  obtain ⟨τ, hτ, hτ0, hτ1⟩ := CFSG.Monster.B.TwoA.autPerm_maps_two a b hab
+  have hmap : mog22.map (MulAut.conj τ).toMonoidHom = M22g a b := by
+    refine map_conj_eq_of_iff τ hτ mog22 (M22g a b) (fun x => x a = a ∧ x b = b)
+      (fun h => h 0 = 0 ∧ h 1 = 1) (fun x => mem_M22g_iff a b x) (fun h => ?_) (fun h => ?_)
+    · show h ∈ M24g ⊓ stab 0 ⊓ stab 1 ↔ _
+      rw [Subgroup.mem_inf, Subgroup.mem_inf, mem_stab_iff, mem_stab_iff]
+      exact ⟨fun ⟨⟨h1, h2⟩, h3⟩ => ⟨h1, h2, h3⟩, fun ⟨h1, h2, h3⟩ => ⟨⟨h1, h2⟩, h3⟩⟩
+    · have e0 : τ⁻¹ a = 0 := by rw [← hτ0, Equiv.Perm.inv_def, Equiv.symm_apply_apply]
+      have e1 : τ⁻¹ b = 1 := by rw [← hτ1, Equiv.Perm.inv_def, Equiv.symm_apply_apply]
+      show (τ * h * τ⁻¹) a = a ∧ (τ * h * τ⁻¹) b = b ↔ h 0 = 0 ∧ h 1 = 1
+      simp only [Equiv.Perm.mul_apply, e0, e1]
+      rw [← hτ0, ← hτ1, EmbeddingLike.apply_eq_iff_eq, EmbeddingLike.apply_eq_iff_eq]
+  exact ⟨(MulEquiv.subgroupCongr hmap).symm.trans
+    ((MulEquiv.subgroupMap (MulAut.conj τ) mog22).symm.trans mog22EquivM22)⟩
+
+theorem nonempty_iso_M2ab (a b : Fin 24) (hab : a ≠ b) :
+    Nonempty (↥(M2ab a b) ≃* MulAut ↥CFSG.Blueprint.NativeSporadic.M22) := by
+  obtain ⟨τ, hτ, hτ0, hτ1⟩ := CFSG.Monster.B.TwoA.autPerm_maps_two a b hab
+  have hmap : mog22plus.map (MulAut.conj τ).toMonoidHom = M2ab a b := by
+    refine map_conj_eq_of_iff τ hτ mog22plus (M2ab a b)
+      (fun x => (x a = a ∧ x b = b) ∨ (x a = b ∧ x b = a))
+      (fun h => (h 0 = 0 ∧ h 1 = 1) ∨ (h 0 = 1 ∧ h 1 = 0))
+      (fun x => mem_M2ab_iff a b hab x) (fun h => ?_) (fun h => ?_)
+    · show h ∈ M24g ⊓ stabPair01 ↔ _
+      rw [Subgroup.mem_inf]
+      exact Iff.rfl
+    · have e0 : τ⁻¹ a = 0 := by rw [← hτ0, Equiv.Perm.inv_def, Equiv.symm_apply_apply]
+      have e1 : τ⁻¹ b = 1 := by rw [← hτ1, Equiv.Perm.inv_def, Equiv.symm_apply_apply]
+      show ((τ * h * τ⁻¹) a = a ∧ (τ * h * τ⁻¹) b = b) ∨ ((τ * h * τ⁻¹) a = b ∧ (τ * h * τ⁻¹) b = a)
+        ↔ (h 0 = 0 ∧ h 1 = 1) ∨ (h 0 = 1 ∧ h 1 = 0)
+      simp only [Equiv.Perm.mul_apply, e0, e1]
+      rw [← hτ0, ← hτ1]
+      simp only [EmbeddingLike.apply_eq_iff_eq]
+  exact ⟨(MulEquiv.subgroupCongr hmap).symm.trans
+    ((MulEquiv.subgroupMap (MulAut.conj τ) mog22plus).symm.trans
+      (mog22plusIso.trans (MulAut.congr mog22EquivM22)))⟩
+
+theorem H_13_1_partial_holds : H_13_1_partial := by
+  refine ⟨⟨fun g _ u v => dot24_permAct g u v, fun u hu => exists_dot24_ne_zero hu,
+      fun v => mem_coreMod_iff_dot_allOnes v, golayC_le_coreMod, allOnes_mem_golayC⟩,
+    ⟨fun u hu v hv => golay_dot_eq_zero hu hv, fun w hw => golay_mem_of_dot w hw⟩,
+    ⟨rk_golayC, ?_, ?_, ?_⟩,
+    ⟨fun c hc hcz => exists_dot_coreMod_of_golay_not_zpowers c hc hcz, ?_⟩, ?_⟩
+  · rw [rk_top_PM24, rk_golayC]
+  · rw [rk_coreMod, rk_golayC]
+  · rw [rk_golayC, rk_zpowers_allOnes]
+  · intro w _ hw
+    by_contra h
+    push_neg at h
+    exact hw (golay_mem_of_dot w fun c hc => by
+      rw [dot24_comm]
+      exact h c hc)
+  · intro a b hab
+    refine ⟨⟨fun g _ => ⟨perm_single_eq_iff g a, perm_single_mem_iff g a⟩,
+      nonempty_iso_M23g a, ?_, nonempty_iso_M22g a b hab, ?_, nonempty_iso_M2ab a b hab⟩,
+      pairVec_mem_coreMod_of_ne a b hab, ?_, ?_, ?_, ?_⟩
+    · intro g hg
+      rw [mem_M22g_iff]
+      refine ⟨?_, ?_⟩
+      · simp only [perm_single_eq_iff, hg, true_and]
+      · simp only [perm_single_mem_iff, hg, true_and]
+    · intro g hg
+      rw [mem_M2ab_iff a b hab]
+      refine ⟨?_, ?_⟩
+      · simp only [perm_pair_eq_iff g a b hab, hg, true_and]
+      · simp only [perm_pair_mem_iff g a b hab, hg, true_and]
+    · rw [rk_coreMod, rk_golay_sup a b hab]
+    · rw [rk_golay_pair a b hab, rk_zpowers_allOnes]
+    · exact fun c hc hcz => exists_dot_coreMod_of_golay_not_zpowers c (Subgroup.mem_inf.1 hc).1 hcz
+    · intro w _ hw
+      by_contra h
+      push_neg at h
+      exact hw (exists_golay_dot_of_not_mem_coreMod_pair a b hab w fun c hc => h c hc)
+
+theorem as_H_13_1 : H_13_1 := by
+  refine ⟨H_13_1_partial_holds, golayC_eq_closure_octads, fun support => wt24_eY support,
+    cocodeWt24_spec, fun representative weight => hasComplementWeight24_mk_iff representative weight,
+    fun representative => wt24_complement representative,
+    fun a b hab => pairVec_eq_eY_pair a b hab, fun a b representative =>
+      mem_pairKer_iff_dot24 a b representative⟩
 
 end H13Cert
 
@@ -362,9 +1084,51 @@ end H13Cert
     IsMathModule isCode d a b (Ld d a b) ρ →
       Nat.card V = 2 ^ (if d = 22 then 10 else 11) ∧ IsAbsIrredMod ρ.range
 
+private theorem isAbsIrredMod_of_facts {V : Type} [CommGroup V] {L : Subgroup (MulAut V)} {m : ℕ}
+    (hm : m ≠ 0) (hcard : Nat.card V = 2 ^ m) (hirr : CFSG.Quasithin.H.ModelIrr.IrredAct L)
+    (hC : Subgroup.centralizer (L : Set (MulAut V)) = ⊥) : IsAbsIrredMod L := by
+  have hfin : Finite V := Nat.finite_of_card_ne_zero (by rw [hcard]; positivity)
+  have hnt : Nontrivial V := by
+    refine Finite.one_lt_card_iff_nontrivial.1 ?_
+    rw [hcard]
+    exact Nat.one_lt_two_pow hm
+  obtain ⟨x, hx⟩ := exists_ne (1 : V)
+  refine ⟨⟨fun h => hx (Subgroup.mem_bot.1 (h ▸ Subgroup.mem_top x)), fun U _ hU => hirr U hU⟩,
+    fun θ hθ => CFSG.Quasithin.H.ModelIrr.endo_eq_zero_or_id hirr hC θ hθ⟩
 
 section H13Two
 
+theorem as_H_13_2 : H_13_2 := by
+  intro isCode d hd a b hab V _ ρ hρ
+  obtain ⟨β, hβ⟩ := hρ
+  rcases hd with rfl | rfl | rfl
+  · cases isCode
+    · have hM : MathieuCocode22 ρ.range ⊤ ⊥ :=
+        ⟨a, b, hab, ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.cocode22_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 10) (by norm_num) hcard hirr hC⟩
+    · have hM : MathieuCode22 ρ.range ⊤ ⊥ :=
+        ⟨a, b, hab, ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.code22_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 10) (by norm_num) hcard hirr hC⟩
+  · cases isCode
+    · have hM : MathieuCocode23 ρ.range ⊤ ⊥ :=
+        ⟨a, ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.cocode23_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 11) (by norm_num) hcard hirr hC⟩
+    · have hM : MathieuCode23 ρ.range ⊤ ⊥ :=
+        ⟨a, ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.code23_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 11) (by norm_num) hcard hirr hC⟩
+  · cases isCode
+    · have hM : MathieuCocode24 ρ.range ⊤ ⊥ :=
+        ⟨ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.cocode24_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 11) (by norm_num) hcard hirr hC⟩
+    · have hM : MathieuCode24 ρ.range ⊤ ⊥ :=
+        ⟨ρ.rangeRestrict, (realizesVia_iff _ _ _ _ _).2 ⟨β, hβ⟩⟩
+      obtain ⟨hcard, hirr, hC⟩ := CFSG.Quasithin.H.ModelIrr.code24_facts hM
+      exact ⟨hcard, isAbsIrredMod_of_facts (m := 11) (by norm_num) hcard hirr hC⟩
 
 end H13Two
 

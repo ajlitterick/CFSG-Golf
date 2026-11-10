@@ -66,6 +66,10 @@ theorem tauB_mul_tStar : tauB * tStar = tStar * tauB := by
   rw [tStar_eq_hCocode]
   exact (hCocode_mul_tauB_even (pair_ΩC_deltaPair 0 1)).symm
 
+theorem tauB_aStar : tauB aStar = aStar := by
+  have h := (commute_iff_of_eq_tAxis aStar_mem_axisOrbit tAxis_aStar.symm tauB_mem_Gmat).1
+    tauB_mul_tStar
+  exact h
 
 theorem closure_le_centralizer_tStar :
     Subgroup.closure (insert tauB ((Gvis ⊓ Subgroup.centralizer {tStar} :
@@ -76,5 +80,13 @@ theorem closure_le_centralizer_tStar :
   · exact ⟨tauB_mem_Gmat, Subgroup.mem_centralizer_singleton_iff.2 tauB_mul_tStar⟩
   · exact ⟨Hmat_le_Gmat hg.1, hg.2⟩
 
+theorem even_cocode_centralizes_triality :
+    (∀ δ : Cocode, pair ΩC δ = 0 → rhoEquiv (DQ δ) * tauB = tauB * rhoEquiv (DQ δ)) ∧
+    tStar = rhoEquiv (DQ (deltaPair 0 1)) ∧ tauB * tStar = tStar * tauB ∧ tauB aStar = aStar ∧
+    Subgroup.closure (insert tauB ((Gvis ⊓ Subgroup.centralizer {tStar} :
+      Subgroup (SpaceB ≃ₗ[ℚ] SpaceB)) : Set (SpaceB ≃ₗ[ℚ] SpaceB))) ≤
+      Gmat ⊓ Subgroup.centralizer {tStar} :=
+  ⟨fun _ hδ => hCocode_mul_tauB_even hδ, rfl, tauB_mul_tStar, tauB_aStar,
+    closure_le_centralizer_tStar⟩
 
 end CFSG.Monster.B

@@ -351,6 +351,35 @@ theorem twoA_QhatS_eq :
     rw [← sEquiv_labelS_eq_cV0]
     exact isConj_sEquiv_iff.2 (isConj_labelS_of_mem_jClass ht)
 
+theorem ncard_twoA_QhatS :
+    {a : Shat | a ∈ QhatS ∧ IsConj (cV0 : Shat) a}.ncard = 4600 := by
+  rw [twoA_QhatS_eq, Set.ncard_image_of_injective _ sEquiv.injective, ← rs1_eq,
+    ncard_jClass_rs1]
+
+theorem mul_xs_mem_jClass
+    {t : Sbp} (ht : t ∈ jClass (qS 1)) : t * xs ∈ jClass (qS 1) := by
+  rw [jClass_eq_fiber (qS_mem 1) (psiS_qS_ne_zero (by decide))] at ht ⊢
+  refine ⟨Qs.mul_mem ht.1 xs_mem, ?_⟩
+  rw [psiS_mul ht.1 xs_mem, psiS_xs, add_zero]
+  exact ht.2
+
+theorem isConj_mul_xhatS_of_twoA
+    {a : Shat} (ha : a ∈ QhatS) (hc : IsConj (cV0 : Shat) a) :
+    IsConj (cV0 : Shat) (a * xhatS) := by
+  have hmem : a ∈ sEquiv '' jClass (qS 1) := by
+    rw [← twoA_QhatS_eq]
+    exact ⟨ha, hc⟩
+  obtain ⟨t, ht, rfl⟩ := hmem
+  have h := (twoA_QhatS_eq.symm ▸ (⟨t * xs, mul_xs_mem_jClass ht, rfl⟩ :
+    sEquiv (t * xs) ∈ sEquiv '' jClass (qS 1)) : sEquiv (t * xs) ∈
+      {a : Shat | a ∈ QhatS ∧ IsConj (cV0 : Shat) a})
+  rw [map_mul, sEquiv_xs] at h
+  exact h.2
+
+theorem cV0_mem_QhatS :
+    (cV0 : Shat) ∈ QhatS := by
+  rw [← sEquiv_labelS_eq_cV0, sEquiv_mem_QhatS]
+  exact labelS_mem
 
 @[expose] def FixesPt (s a : Shat) : Prop := s * a * s⁻¹ = a ∨ s * a * s⁻¹ = a * xhatS
 

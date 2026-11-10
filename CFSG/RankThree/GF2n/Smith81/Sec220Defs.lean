@@ -16,6 +16,15 @@ variable {G : Type} [Group G]
 
 @[expose] def Nv (v : G) : Subgroup G := Subgroup.normalizer (Subgroup.zpowers v : Set G)
 
+@[expose] def Mv (M : Subgroup G) (v : G) : Subgroup G := M ⊓ Cv v
+
+@[expose] def Qv (Q : Subgroup G) (v : G) : Subgroup G := Q ⊓ Cv v
+
+theorem mem_Cv {v g : G} : g ∈ Cv v ↔ g * v = v * g := Subgroup.mem_centralizer_singleton_iff
+
+@[expose] def IsDihOddZ (Z : Subgroup G) (z v : G) : Prop :=
+  (∃ x y : G, IsConj z x ∧ IsConj z y ∧ Commute x z ∧ Commute y z ∧ v = x * y) ∧
+    Odd (orderOf v) ∧ 1 < orderOf v
 
 @[expose] def ZConjBy (H Z : Subgroup G) : Set (Subgroup G) :=
   {A | ∃ y ∈ H, A = conjSubgroup y Z}

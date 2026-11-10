@@ -46,6 +46,8 @@ theorem oneClass (S : Setup G) : ∀ u v : G, orderOf u = 2 → orderOf v = 2 �
 
 theorem card_H (S : Setup G) : Nat.card S.H = 40320 := S.cover.nat_card_eq
 
+theorem isCentralInvolution (S : Setup G) : IsCentralInvolution S.z :=
+  ⟨S.order_z, exists_sylow_central_of_cover8 S.order_z S.cover⟩
 
 theorem exists_central_involution {T : Subgroup G} (hT : IsPGroup 2 T) (hne : T ≠ ⊥) :
     ∃ u ∈ T, orderOf u = 2 ∧ ∀ t ∈ T, t * u = u * t := by

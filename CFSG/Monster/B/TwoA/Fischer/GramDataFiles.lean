@@ -18,6 +18,23 @@ namespace CFSG.Monster.B.TwoA.Fischer
 
 open Lean (Json)
 
+@[expose] def dAlgText : String :=
+  dAlgText0 ++ dAlgText1 ++ dAlgText2 ++ dAlgText3 ++ dAlgText4 ++ dAlgText5
+
+@[expose] def dAdjText : String := dAdjText0 ++ dAdjText1
+
+@[expose] def jsonStrPairs (j : Json) : Except String (List (String × String)) := do
+  (← j.getObj?).toArray.toList.mapM fun p => do pure (p.1, ← p.2.getStr?)
+
+@[expose] def jsonNatPairs (j : Json) : Except String (List (Nat × Nat)) := do
+  (← j.getObj?).toArray.toList.mapM fun p => do
+    match p.1.toNat? with
+    | some k => pure (k, ← p.2.getNat?)
+    | none => throw s!"key {p.1} is not a natural number"
+
+@[expose] def jsonKeys (s : String) : Except String (List String) := do
+  let o ← (← Json.parse s).getObj?
+  pure (o.toArray.map (·.1)).toList
 
 structure DAlgCandidate where
   name : String
@@ -54,6 +71,50 @@ structure DAlgFile where
   limits : List String
   deriving DecidableEq, Inhabited
 
+@[expose] def DAlgCandidate.ofJson (j : Json) : Except String DAlgCandidate := do
+  pure
+    { name := ← j.getObjValAs? String "name"
+      vector := ← j.getObjValAs? Nat "vector"
+      adjointRank := ← j.getObjValAs? Nat "adjoint_rank"
+      commutingNativeLabels := ← j.getObjValAs? (List Nat) "commuting_native_labels"
+      commutingNativeLabelCount := ← j.getObjValAs? Nat "commuting_native_label_count"
+      rootFormulaOperator := ← j.getObjValAs? (List Nat) "root_formula_operator"
+      rootFormulaInvolutive := ← j.getObjValAs? Bool "root_formula_involutive"
+      rootFormulaIsometry := ← j.getObjValAs? Bool "root_formula_isometry"
+      rootFormulaLieAutomorphism := ← j.getObjValAs? Bool "root_formula_Lie_automorphism" }
+
+@[expose] def DAlgFile.ofJson (j : Json) : Except String DAlgFile := do
+  let cs ← (← (← j.getObjVal? "candidate_ambient_vectors").getArr?).toList.mapM
+    DAlgCandidate.ofJson
+  pure
+    { author := ← j.getObjValAs? String "author"
+      generatedAt := ← j.getObjValAs? String "generated_at"
+      status := ← j.getObjValAs? String "status"
+      inputSha256 := ← jsonStrPairs (← j.getObjVal? "input_sha256")
+      graphDegree := ← j.getObjValAs? Nat "graph_degree"
+      noncommutationMatrixBinaryRank := ← j.getObjValAs? Nat "noncommutation_matrix_binary_rank"
+      basisNativePoints := ← j.getObjValAs? (List Nat) "basis_native_points"
+      noncommutationBasisRowsHex := ← j.getObjValAs? (List String)
+        "noncommutation_basis_rows_hex"
+      noncommutationRowCoordinates := ← j.getObjValAs? (List Nat)
+        "noncommutation_row_coordinates"
+      invariantBilinearFormRows := ← j.getObjValAs? (List Nat) "invariant_bilinear_form_rows"
+      basisProductTable := ← j.getObjValAs? (List (List Nat)) "basis_product_table"
+      basisVersusAllPointsProductChecks := ← j.getObjValAs? Nat
+        "basis_versus_all_points_product_checks"
+      distinctBasisJacobiTriples := ← j.getObjValAs? Nat "distinct_basis_Jacobi_triples"
+      fourPermutationGenerators := ← j.getObjValAs? (List (List Nat))
+        "four_permutation_generators"
+      fourModuleGeneratorColumns := ← j.getObjValAs? (List (List Nat))
+        "four_module_generator_columns"
+      cliqueLabelSpanDimension := ← j.getObjValAs? Nat "clique_label_span_dimension"
+      cliqueFixedVector := ← j.getObjValAs? Nat "clique_fixed_vector"
+      bracketSeedHexadVertex := ← j.getObjValAs? Nat "bracket_seed_hexad_vertex"
+      candidateAmbientVectors := cs
+      limits := ← j.getObjValAs? (List String) "limits" }
+
+@[expose] def dAlgFile : Except String DAlgFile := do
+  DAlgFile.ofJson (← Json.parse dAlgText)
 
 @[expose] def hexStr0x (n : Nat) : String := "0x" ++ String.ofList (Nat.toDigits 16 n)
 
@@ -132,6 +193,38 @@ structure DAdjFile where
   limits : List String
   deriving DecidableEq, Inhabited
 
+@[expose] def DAdjFile.ofJson (j : Json) : Except String DAdjFile := do
+  pure
+    { author := ← j.getObjValAs? String "author"
+      generatedAt := ← j.getObjValAs? String "generated_at"
+      status := ← j.getObjValAs? String "status"
+      inputSha256 := ← jsonStrPairs (← j.getObjVal? "input_sha256")
+      rootBasisOrder := ← j.getObjValAs? String "root_basis_order"
+      e6BasisProductTable := ← j.getObjValAs? (List (List Nat)) "E6_basis_product_table"
+      e6BilinearFormRows := ← j.getObjValAs? (List Nat) "E6_bilinear_form_rows"
+      e6DistinctBasisJacobiTriples := ← j.getObjValAs? Nat "E6_distinct_basis_Jacobi_triples"
+      e6InvariantFormBasisTriples := ← j.getObjValAs? Nat "E6_invariant_form_basis_triples"
+      e6SimpleOperatorParametersChecked := ← j.getObjValAs? Nat
+        "E6_simple_operator_parameters_checked"
+      diagramBasisPermutation := ← j.getObjValAs? (List Nat) "diagram_basis_permutation"
+      diagramFixedIndices := ← j.getObjValAs? (List Nat) "diagram_fixed_indices"
+      diagramTwoCycles := ← j.getObjValAs? (List (List Nat)) "diagram_two_cycles"
+      nativeBasisPoints := ← j.getObjValAs? (List Nat) "native_basis_points"
+      nativeBasisLabelWords := ← j.getObjValAs? (List (List Nat)) "native_basis_label_words"
+      nativeGramMinorRows := ← j.getObjValAs? (List Nat) "native_Gram_minor_rows"
+      nativeGramMinorEchelon := ← jsonNatPairs (← j.getObjVal? "native_Gram_minor_echelon")
+      nativeCoordinatePairingsChecked := ← j.getObjValAs? Nat
+        "native_coordinate_pairings_checked"
+      cliqueSpanRank := ← j.getObjValAs? Nat "clique_span_rank"
+      cliqueFixedMask := ← j.getObjValAs? Nat "clique_fixed_mask"
+      cliqueFixedCoordinates := ← j.getObjValAs? Nat "clique_fixed_coordinates"
+      fGeneratorColumns := ← j.getObjValAs? (List (List Nat)) "F_generator_columns"
+      fFixedConstraintEchelon := ← jsonNatPairs (← j.getObjVal? "F_fixed_constraint_echelon")
+      fFixedDimension := ← j.getObjValAs? Nat "F_fixed_dimension"
+      limits := ← j.getObjValAs? (List String) "limits" }
+
+@[expose] def dAdjFile : Except String DAdjFile := do
+  DAdjFile.ofJson (← Json.parse dAdjText)
 
 @[expose] def dAdjRec : DAdjFile where
   author := "/root/type_v_exclusion"

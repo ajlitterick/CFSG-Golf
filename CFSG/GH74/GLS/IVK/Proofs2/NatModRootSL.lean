@@ -331,6 +331,7 @@ theorem xi₁_add (e : V₁) (c c' : F) : hV.xi₁ e (c + c') = hV.xi₁ e c * h
 theorem xi₂_add (e : V₁) (c c' : F) : hV.xi₂ e (c + c') = hV.xi₂ e c * hV.xi₂ e c' := by
   simp only [xi₂, xi₁_add, map_mul]
 
+theorem xi₁_one (e : V₁) : hV.xi₁ e 1 = e := hV.ell_one e
 
 theorem xi₁_mul (e : V₁) (c d : F) : hV.ell c (hV.xi₁ e d) = hV.xi₁ e (c * d) :=
   hV.ell_mul c d e
@@ -358,6 +359,48 @@ theorem comm_low (e : V₁) (c d : F) :
       hV.ell ((d⁻¹ : Fˣ) : F) (hV.xi₁ e (d * c)) := rfl
   rw [this, xi₁_mul, ← mul_assoc, ← Units.val_mul, inv_mul_cancel, Units.val_one, one_mul]
 
+theorem torus₁ (e : V₁) (a : Fˣ) (c : F) :
+    π (diagSL a) * hV.xi₁ e c * (π (diagSL a))⁻¹ = hV.xi₁ e (a * c) := by
+  rw [hV.diag_conj_one, xi₁_mul]
+
+theorem xi₂_eq_comm (e : V₁) (c : F) : (hV.xi₂ e c : G) = ⁅π (lowerSL c), (e : G)⁆ := by
+  have h := hV.comm_low e 1 c
+  rw [mul_one, xi₁_one] at h
+  exact h.symm
+
+theorem torus₂ (e : V₁) (a : Fˣ) (c : F) :
+    π (diagSL a) * hV.xi₂ e c * (π (diagSL a))⁻¹ = hV.xi₂ e ((a⁻¹ : Fˣ) * c) := by
+  rw [hV.xi₂_eq_comm e c]
+  have hconj : ∀ x y : G, π (diagSL a) * ⁅x, y⁆ * (π (diagSL a))⁻¹ =
+      ⁅π (diagSL a) * x * (π (diagSL a))⁻¹,
+        π (diagSL a) * y * (π (diagSL a))⁻¹⁆ := by
+    intro x y
+    simp only [commutatorElement_def]
+    group
+  have hlow : π (diagSL a) * π (lowerSL c) * (π (diagSL a))⁻¹ =
+      π (lowerSL (((a⁻¹ : Fˣ) : F) ^ 2 * c)) := by
+    rw [← map_mul, ← map_inv, ← map_mul, diagSL_mul_lowerSL, mul_inv_cancel_right]
+  have he : π (diagSL a) * (e : G) * (π (diagSL a))⁻¹ = hV.xi₁ e a := by
+    have := hV.torus₁ e a 1
+    rwa [xi₁_one, mul_one] at this
+  rw [hconj, hlow, he, comm_low]
+  congr 2
+  have ha : (a : F) ≠ 0 := a.ne_zero
+  simp only [Units.val_inv_eq_inv_val]
+  field_simp
+
+theorem weyl₂ (e : V₁) (c : F) :
+    π (weylSL 1) * hV.xi₂ e c * (π (weylSL 1))⁻¹ = hV.xi₁ e c := by
+  rw [(hV.weyl_conj 1 _).1, ← lamEquiv_apply, xi₂, MulEquiv.apply_symm_apply]
+
+theorem weyl₁ (e : V₁) (c : F) :
+    π (weylSL 1) * hV.xi₁ e c * (π (weylSL 1))⁻¹ = hV.xi₂ e (-c) := by
+  rw [← hV.weyl₂ e c]
+  have h := hV.torus₂ e (-1) c
+  have hc : (((-1 : Fˣ)⁻¹ : Fˣ) : F) * c = -c := by simp
+  rw [hc, ← weylSL_one_mul_self, map_mul] at h
+  rw [← h]
+  group
 
 theorem xi₁_injective (e : V₁) (he : e ≠ 1) : Function.Injective (hV.xi₁ e) := by
   intro c c' h

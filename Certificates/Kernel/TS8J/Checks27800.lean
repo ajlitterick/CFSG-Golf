@@ -80,6 +80,23 @@ theorem ch27800za : zaGo M RT ZA AC = true := by quickRfl
 
 theorem ch27800rows : rowsOK M RT zc ac ZA = true := by quickRfl
 
+theorem neg27800gen : notB (genOK LT G ([0] :: GW.tail)) = true := by quickRfl
+
+theorem neg27800cw : notB (cwOK LT E (0 :: CW) zc ac) = true := by quickRfl
+
+theorem neg27800tree : notB (treeOK E (RP 0) (PA 0) (LA 0 + 256)) = true := by quickRfl
+
+theorem neg27800rec : notB (recR E G (RP 0 + 1) 0 1) = true := by quickRfl
+
+theorem neg27800mt : notB (mtR (fun a => M a + 256) (RP 0) (PA 0) (LA 0) 0 1) = true := by quickRfl
+
+theorem neg27800iv : notB (ivOK M (IV 0 + 1)) = true := by quickRfl
+
+theorem neg27800sort : notB (sortOK E (SO 0 + 1) (SI 0)) = true := by quickRfl
+
+theorem neg27800z : notB (zOK M RT ZA (ZC.set 1 (4, 0))) = true := by quickRfl
+
+theorem neg27800row : notB (rowsOK M RT 0 0 ZA) = true := by quickRfl
 
 end CFSG.KD.TS8J
 

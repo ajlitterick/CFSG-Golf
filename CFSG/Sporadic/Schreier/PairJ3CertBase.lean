@@ -64,6 +64,8 @@ abbrev J3V : Type := Fin 80 → ZMod 2
 
 @[expose] def j3StabIdx : List ℕ := [0, 2, 3, 4]
 
+@[expose] def j3H0 : Subgroup (Equiv.Perm (Fin 6156)) :=
+  Subgroup.closure {g | ∃ j ∈ j3StabIdx, j3StrongPerm j = g}
 
 theorem j3Chain_strong_get (j : Fin j3Chain.strongCount) :
     j3Chain.strong.get j = j3StrongPerm j :=

@@ -51,6 +51,18 @@ theorem ψ_conj {q : List ℕ} (hq : ∀ g ∈ q, g < 12) {r : ℕ} (hr : r < 30
   rw [wp_conj, map_mul, map_mul, map_inv, τ_g0_zero, mul_inv_rev, mul_inv_rev, inv_inv, uT_inv,
     mul_assoc]
 
+theorem act_conj_own {q : List ℕ} (hq : ∀ g ∈ q, g < 12) :
+    act (τ (wp q)⁻¹ * uT * τ (wp q)) (ψ (walk CFSG.KD.Fi24Fix.TG q 37886)) =
+      ψ (walk CFSG.KD.Fi24Fix.TG q 37886) := by
+  have h0 : CFSG.KD.Fi24Fix.TG 0 37886 = 37886 := by decide +kernel
+  have hx := ψ_walk_τ hq (r := 37886) (by norm_num)
+  have h1 : act uT (ψ 37886) = ψ 37886 := by
+    rw [← τ_g0_zero, ← ψ_TG (by norm_num) (by norm_num), h0]
+  rw [hx, ← act_mul]
+  have e : τ (wp q)⁻¹ * uT * τ (wp q) * (τ (List.map g0 q).prod)⁻¹ = τ (wp q)⁻¹ * uT := by
+    rw [mul_assoc (τ (wp q)⁻¹ * uT), show τ (wp q) * (τ (List.map g0 q).prod)⁻¹ = 1 from
+      mul_inv_cancel _, mul_one]
+  rw [e, act_mul, h1, map_inv]
 
 theorem oq_lt : ∀ g ∈ OQ2 ++ OQ4 ++ OQ6, g < 12 := by decide +kernel
 

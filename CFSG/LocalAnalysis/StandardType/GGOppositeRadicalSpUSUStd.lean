@@ -201,6 +201,11 @@ theorem IsSULevel.le {n M : ℕ} {ℓ : Fin n → ℕ} (h : IsSULevel M ℓ) (a 
   have := h a
   omega
 
+theorem IsSULevel.comp_rev {n M : ℕ} {ℓ : Fin n → ℕ} (h : IsSULevel M ℓ) :
+    IsSULevel M (ℓ ∘ Fin.rev) := fun a => by
+  simp only [Function.comp_apply, Fin.rev_rev]
+  rw [add_comm]
+  exact h a
 
 variable (σ hσ) in
 theorem isSelfDual_stdFlag_su {n M : ℕ} {ℓ : Fin n → ℕ} (h : IsSULevel M ℓ) :

@@ -257,6 +257,10 @@ theorem gamD_cr_single_empty (i j : Fin n) :
     rw [signSet_posS, signSet_posS] at this
     exact Finset.insert_ne_empty j {i} this.symm
 
+theorem posS_ne_empty_single (i : Fin n) : posS n {i} ≠ posS n ∅ := fun h => by
+  have := congrArg (signSet n) h
+  rw [signSet_posS, signSet_posS] at this
+  exact Finset.singleton_ne_empty i this
 
 theorem gamD_pos (a b : DI n) :
     gamD n b (posD n a).1 (posD n a).2 = if a = b then 1 else 0 := by

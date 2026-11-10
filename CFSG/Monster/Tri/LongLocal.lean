@@ -228,6 +228,21 @@ theorem card_fibre_le_two (hf : IsCovering f) (ht : LiftsMarked f lg) (hH : H.Pr
   · right
     rw [← hend, h.liftEnd_eq hf ht a ha]
 
+theorem ncard_fibre_le_two (hf : IsCovering f) (ht : LiftsMarked f lg) (hH : H.Preconnected)
+    {x : V} (τ : G.Walk x x)
+    (hτ : ∀ p : G.Walk x x, MarkedHomotopic lg p .nil ∨ MarkedHomotopic lg p τ) :
+    (f ⁻¹' {x}).ncard ≤ 2 := by
+  by_cases hne : (f ⁻¹' {x}).Nonempty
+  · obtain ⟨a, ha⟩ := hne
+    have hsub : f ⁻¹' {x} ⊆ {a, hf.liftEnd τ a ha} := fun b hb => by
+      rcases card_fibre_le_two hf ht hH τ hτ ha hb with h | h
+      · exact Or.inl h
+      · exact Or.inr h
+    refine (Set.ncard_le_ncard hsub (Set.toFinite _)).trans ?_
+    refine (Set.ncard_insert_le _ _).trans ?_
+    simp
+  · rw [Set.not_nonempty_iff_eq_empty.1 hne]
+    simp
 
 end Fibres
 

@@ -55,6 +55,9 @@ theorem pAct_eq_colsAct (w m : ℕ) : ∀ n p x, x < 2 ^ n → pAct w m n p x = 
       · rw [h]
         rfl
 
+theorem length_fields (w m p : ℕ) : ∀ n, (fields w m p n).length = n
+  | 0 => rfl
+  | n + 1 => by simp [fields, length_fields w m _ n]
 
 theorem pAct_lt {w : ℕ} : ∀ n p x, pAct w (2 ^ w - 1) n p x < 2 ^ w
   | 0, _, _ => Nat.two_pow_pos w

@@ -189,6 +189,8 @@ theorem core_of (b o : Bool) {R : Perm (Fin 6) → Prop} {ls : List (Perm (Fin 6
 
 theorem memA_walk : walkK 6 (all4 (qMem aK LAc)) 6 0 0 0 = true := by decide +kernel
 
+theorem memB_walk : walkK 6 (all4 (qMem bK fun b o => LAc b !o)) 6 0 0 0 = true := by
+  decide +kernel
 
 theorem mem_of {t : Bool → ℕ → Bool} {L : Bool → Bool → List ℕ}
     (hw : walkK 6 (all4 (qMem t L)) 6 0 0 0 = true) (b o : Bool) {R : Perm (Fin 6) → Prop}
@@ -248,6 +250,15 @@ theorem card_eq (P : Perm (Fin 6) → Prop) [DecidablePred P] (q : ℕ → Bool)
     (hP : ∀ σ, P σ ↔ q (enc σ) = true) : Fintype.card {σ // P σ} = cntK 6 q 6 0 0 0 := by
   rw [Fintype.card_subtype, Finset.filter_congr (fun σ _ => hP σ), card_filter_eq_cntK]
 
+theorem and_iff {P Q : Perm (Fin 6) → Prop} {p q : ℕ → Bool} (hP : ∀ σ, P σ ↔ p (enc σ) = true)
+    (hQ : ∀ σ, Q σ ↔ q (enc σ) = true) (σ : Perm (Fin 6)) :
+    (P σ ∧ Q σ) ↔ (p (enc σ) && q (enc σ)) = true := by
+  rw [Bool.and_eq_true, ← hP, ← hQ]
+
+theorem conj_iff {t : ℕ → Bool} (hA : ∀ σ, A σ ↔ t (enc σ) = true) {f : Perm (Fin 6)} {F Fi : ℕ}
+    (hF : enc f = F) (hFi : enc f⁻¹ = Fi) (σ : Perm (Fin 6)) :
+    A (f⁻¹ * σ * f) ↔ t (mulK 6 (mulK 6 Fi (enc σ)) F) = true := by
+  rw [hA, enc_mul h16, enc_mul h16, hF, hFi]
 
 theorem rA_iff (b o : Bool) (σ : Perm (Fin 6)) :
     ((b = false ∨ sign σ = 1) ∧ (if o then InP1 σ else InP2 σ)) ↔

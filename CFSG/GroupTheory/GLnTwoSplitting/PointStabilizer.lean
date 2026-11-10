@@ -56,6 +56,9 @@ theorem mem_stab {e₀ : E} {g : G} : g ∈ X.stab e₀ ↔ X.π g e₀ = e₀ :
 
 variable {X}
 
+theorem mem_centre {e₀ : E} {g : G} :
+    g ∈ X.centre e₀ ↔ X.π g e₀ = e₀ ∧ ∀ w, X.π g w + w ∈ (ZMod 2) ∙ e₀ :=
+  Iff.rfl
 
 theorem centre_le_stab (e₀ : E) : X.centre e₀ ≤ X.stab e₀ := fun _ hg => hg.1
 

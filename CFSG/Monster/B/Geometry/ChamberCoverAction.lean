@@ -95,6 +95,7 @@ noncomputable instance : Inv (X.LiftPair c₀) where
 theorem mul_aut (z w : X.LiftPair c₀) : (z * w).aut = z.aut * w.aut := rfl
 theorem mul_cl (z w : X.LiftPair c₀) : (z * w).cl = X.liftAct c₀ z w.cl := rfl
 theorem one_aut : (1 : X.LiftPair c₀).aut = 1 := rfl
+theorem one_cl : (1 : X.LiftPair c₀).cl = X.coverBase c₀ := rfl
 theorem inv_aut (z : X.LiftPair c₀) : (z⁻¹).aut = z.aut⁻¹ := rfl
 
 theorem liftAct_mul (z w : X.LiftPair c₀) (d : X.Cover c₀) :
@@ -171,6 +172,11 @@ theorem smul_cls (z : X.LiftPair c₀) {γ δ : List (I × C)} (hγ : X.IsGaller
     z • X.cls c₀ δ = X.cls c₀ (γ ++ galleryMap (z.aut : Equiv.Perm C) δ) :=
   liftAct_cls z hγ hz hδ
 
+theorem mul_cl_cls (z w : X.LiftPair c₀) {γ η : List (I × C)} (hγ : X.IsGallery c₀ γ)
+    (hz : z.cl = X.cls c₀ γ) (hη : X.IsGallery c₀ η) (hw : w.cl = X.cls c₀ η) :
+    (z * w).cl = X.cls c₀ (γ ++ galleryMap (z.aut : Equiv.Perm C) η) := by
+  rw [mul_cl, hw]
+  exact liftAct_cls z hγ hz hη
 
 theorem coverProj_smul (z : X.LiftPair c₀) (d : X.Cover c₀) :
     X.coverProj c₀ (z • d) = (z.aut : Equiv.Perm C) (X.coverProj c₀ d) :=
@@ -241,6 +247,18 @@ theorem liftPerm_injective (hX : X.Connected) : Function.Injective (X.liftPerm c
   · rw [← smul_coverBase, hz']
     rfl
 
+theorem exists_ker_eq_deck {g : Equiv.Perm (X.Cover c₀)} (hg : g ∈ (X.universalCover c₀).typeAut)
+    (hgπ : ∀ d, X.coverProj c₀ (g d) = X.coverProj c₀ d) :
+    ∃ z ∈ (X.liftProj c₀).ker, X.liftPerm c₀ z = g := by
+  set z : X.LiftPair c₀ := ⟨1, g (X.coverBase c₀), by rw [hgπ]; simp⟩
+  refine ⟨z, rfl, ?_⟩
+  have := eq_of_coverProj_comp_eq (f := (z • ·)) (g := g) (isMorphism_smul z)
+    (isMorphism_of_mem_typeAut hg) (by
+      funext d
+      simp only [Function.comp_apply, coverProj_smul, hgπ]
+      rfl) (a := X.coverBase c₀) (smul_coverBase z)
+  ext d
+  exact congrFun this d
 
 theorem coverProj_smul_of_mem_ker {z : X.LiftPair c₀} (hz : z ∈ (X.liftProj c₀).ker)
     (d : X.Cover c₀) : X.coverProj c₀ (z • d) = X.coverProj c₀ d := by
@@ -283,6 +301,21 @@ theorem exists_ker_smul_eq {d d' : X.Cover c₀} (h : X.coverProj c₀ d = X.cov
 variable (X c₀) in
 noncomputable abbrev pi2 : Subgroup (X.LiftPair c₀) := (X.liftProj c₀).ker
 
+noncomputable def pi2Equiv : X.pi2 c₀ ≃ {a : X.Cover c₀ // X.coverProj c₀ a = c₀} where
+  toFun z := ⟨z.1.cl, by rw [z.1.proj_eq, mem_ker_liftProj_iff.mp z.2]; rfl⟩
+  invFun a := ⟨⟨1, a.1, by rw [a.2]; rfl⟩, rfl⟩
+  left_inv z := by
+    refine Subtype.ext (LiftPair.ext ?_ rfl)
+    exact (mem_ker_liftProj_iff.mp z.2).symm
+  right_inv a := rfl
+
+theorem pi2_mul_cl (z w : X.pi2 c₀) {lam mu : List (I × C)} (hlam : X.IsGallery c₀ lam)
+    (hz : z.1.cl = X.cls c₀ lam) (hmu : X.IsGallery c₀ mu) (hw : w.1.cl = X.cls c₀ mu) :
+    (z * w).1.cl = X.cls c₀ (lam ++ mu) := by
+  rw [Subgroup.coe_mul, mul_cl_cls z.1 w.1 hlam hz hmu hw, mem_ker_liftProj_iff.mp z.2]
+  have h1 : galleryMap (⇑(1 : Equiv.Perm C)) mu = mu := by simp
+  change X.cls c₀ (lam ++ galleryMap (⇑(1 : Equiv.Perm C)) mu) = _
+  rw [h1]
 
 variable (X c₀) in
 noncomputable abbrev liftSubgroup (H : Subgroup X.typeAut) : Subgroup (X.LiftPair c₀) :=
@@ -349,6 +382,44 @@ theorem bijOn_liftProj_stabilizer (hX : X.Connected) (H : Subgroup X.typeAut) {J
       exact this
     · rw [map_mul, MonoidHom.mem_ker.mp hv, one_mul]
 
+theorem chamber_universal_cover_action_lifting (hX : X.Connected) (H : Subgroup X.typeAut) :
+    (∀ z : X.LiftPair c₀, X.liftPerm c₀ z ∈ (X.universalCover c₀).typeAut) ∧
+    Function.Injective (X.liftPerm c₀) ∧
+    (∀ (z w : X.LiftPair c₀) (γ η : List (I × C)), X.IsGallery c₀ γ → z.cl = X.cls c₀ γ →
+      X.IsGallery c₀ η → w.cl = X.cls c₀ η →
+        (z * w).aut = z.aut * w.aut ∧
+          (z * w).cl = X.cls c₀ (γ ++ galleryMap (z.aut : Equiv.Perm C) η)) ∧
+    (∀ (z : X.LiftPair c₀) (γ δ : List (I × C)), X.IsGallery c₀ γ → z.cl = X.cls c₀ γ →
+      X.IsGallery c₀ δ → z • X.cls c₀ δ = X.cls c₀ (γ ++ galleryMap (z.aut : Equiv.Perm C) δ)) ∧
+    Set.SurjOn (X.liftProj c₀) (X.liftSubgroup c₀ H) H ∧
+    (∀ (z : X.LiftPair c₀) (d : X.Cover c₀),
+      X.coverProj c₀ (z • d) = (X.liftProj c₀ z : Equiv.Perm C) (X.coverProj c₀ d)) ∧
+    X.pi2 c₀ ≤ X.liftSubgroup c₀ H ∧
+    (∀ z ∈ X.liftSubgroup c₀ H, X.liftProj c₀ z = 1 ↔ z ∈ X.pi2 c₀) ∧
+    (∀ g ∈ (X.universalCover c₀).typeAut, (∀ d, X.coverProj c₀ (g d) = X.coverProj c₀ d) →
+      ∃ z ∈ X.pi2 c₀, X.liftPerm c₀ z = g) ∧
+    (∀ z ∈ X.pi2 c₀, ∀ d : X.Cover c₀, X.coverProj c₀ (z • d) = X.coverProj c₀ d) ∧
+    (∀ z ∈ X.pi2 c₀, ∀ d : X.Cover c₀, z • d = d → z = 1) ∧
+    (∀ d d' : X.Cover c₀, X.coverProj c₀ d = X.coverProj c₀ d' → ∃ z ∈ X.pi2 c₀, z • d = d') ∧
+    (∀ (J : Set I) (a : X.Cover c₀), IsResidueIso (X.universalCover c₀) X (X.coverProj c₀) J a →
+      Set.BijOn (X.liftProj c₀)
+        {z | z ∈ X.liftSubgroup c₀ H ∧
+          (fun d : X.Cover c₀ => z • d) '' (X.universalCover c₀).residue J a =
+          (X.universalCover c₀).residue J a}
+        {h | h ∈ H ∧ (h : Equiv.Perm C) '' X.residue J (X.coverProj c₀ a) =
+          X.residue J (X.coverProj c₀ a)}) := by
+  refine ⟨liftPerm_mem_typeAut, liftPerm_injective hX, fun z w γ η hγ hz hη hw =>
+    ⟨rfl, mul_cl_cls z w hγ hz hη hw⟩, fun z γ δ hγ hz hδ => smul_cls z hγ hz hδ, ?_,
+    coverProj_smul, fun z hz => ?_, fun z _ => MonoidHom.mem_ker.symm, fun g hg hgπ =>
+    exists_ker_eq_deck hg hgπ, fun z hz d => coverProj_smul_of_mem_ker hz d,
+    fun z hz d hd => eq_one_of_mem_ker_of_smul_eq hX hz hd, fun d d' h => exists_ker_smul_eq h,
+    fun J a hR => bijOn_liftProj_stabilizer hX H hR⟩
+  · intro h hh
+    obtain ⟨u, hu⟩ := liftProj_surjective (c₀ := c₀) hX h
+    exact ⟨u, by change X.liftProj c₀ u ∈ H; rw [hu]; exact hh, hu⟩
+  · change X.liftProj c₀ z ∈ H
+    rw [MonoidHom.mem_ker.mp hz]
+    exact one_mem H
 
 end ChamberSystem
 

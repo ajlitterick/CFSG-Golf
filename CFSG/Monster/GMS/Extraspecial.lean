@@ -285,6 +285,32 @@ theorem exists_elementary_card_eight [Finite H] (hQ : ExtraspecialData Q w) {X :
   obtain ⟨U, C, hUX, -, hwU, hU2, -, hUcard, -⟩ := key 3 le_rfl
   exact ⟨U, hUX, hwU, by rw [hUcard]; norm_num, hU2⟩
 
+theorem exists_elementary_card_sixteen [Finite H] (hQ : ExtraspecialData Q w) {X : Subgroup H}
+    (hX : X ≤ Q) (hwX : w ∈ X) (hcard : 2 ^ 9 ≤ Nat.card X) :
+    ∃ E : Subgroup H, E ≤ X ∧ w ∈ E ∧ Nat.card E = 16 ∧ ∀ e ∈ E, e * e = 1 := by
+  obtain ⟨E, hEX, hwE, hEcard, hE2⟩ := hQ.exists_elementary_card_eight hX hcard
+  obtain ⟨E₁, hEE₁, hwE₁, hE₁card, hE₁mem⟩ :=
+    exists_subgroup_card_two_mul_of_mul_self_eq_one hQ.mul_self hwE
+      (fun u hu => (hQ.central u (hX (hEX hu))).symm)
+  refine ⟨E₁, ?_, hwE₁, by rw [hE₁card, hEcard], ?_⟩
+  · intro g hg
+    rcases (hE₁mem g).mp hg with h | h
+    · exact hEX h
+    · have : w * (w * g) = g := by rw [← mul_assoc, hQ.mul_self, one_mul]
+      rw [← this]
+      exact X.mul_mem hwX (hEX h)
+  · intro g hg
+    rcases (hE₁mem g).mp hg with h | h
+    · exact hE2 g h
+    · obtain ⟨a, ha⟩ : ∃ a, a = w * g := ⟨_, rfl⟩
+      rw [← ha] at h
+      have hga : g = w * a := by rw [ha, ← mul_assoc, hQ.mul_self, one_mul]
+      have hca : w * a = a * w := (hQ.central a (hX (hEX h))).symm
+      rw [hga]
+      calc w * a * (w * a) = w * (a * w) * a := by group
+        _ = w * (w * a) * a := by rw [← hca]
+        _ = (w * w) * (a * a) := by group
+        _ = 1 := by rw [hQ.mul_self, hE2 a h, one_mul]
 
 end ExtraspecialData
 

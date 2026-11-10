@@ -139,8 +139,20 @@ theorem invGraph_adj (x y : Fin 1782) :
 
 @[expose] def invFusionConj (r : ℕ) : Equiv.Perm (Fin 1782) := permC 1782 (invFusionConjArr r)
 
+@[expose] def invOddGen (i r k : ℕ) : Equiv.Perm (Fin 1782) := permC 1782 (invOddGenArrs i r)[k]!
+
+@[expose] def invOddLine (i r k : ℕ) : Equiv.Perm (Fin 1782) :=
+  permC 1782 (invOddLineArrs i r)[k]!
 
 @[expose] def invInnerGen (i j : ℕ) : Equiv.Perm (Fin 1782) := permC 1782 (invInnerGenArrs i)[j]!
 
+@[expose] def invOddConj (i r k : ℕ) : Equiv.Perm (Fin 1782) :=
+  ((((invOddCoreWords.getD i []).getD r []).getD k []).map fun l => invInnerGen i (l - 1)).prod
+
+@[expose] def leBytes (g : Equiv.Perm (Fin 1782)) : List ℕ :=
+  (List.finRange 1782).flatMap fun x => [(g x : ℕ) % 256, (g x : ℕ) / 256]
+
+@[expose] def IsCanonical (x : Equiv.Perm (Fin 1782)) (p : ℕ) : Prop :=
+  ∀ k, 1 ≤ k → k < p → leBytes x ≤ leBytes (x ^ k)
 
 end CFSG.Sporadic.SuzOddCore

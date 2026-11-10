@@ -15,6 +15,11 @@ open CFSG.KC.Enum CFSG.KC.LL CFSG.KS.SporSch CFSG.KD.LgHNX CFSG.Sporadic.HNSchre
 
 theorem bindV : walkOK (vecAt TX) (hnsOrbitData ()).vectors (nat_lit 0) = true := by quickRfl
 
+theorem neg_vecAt : Bool.not (vecAt TX (nat_lit 1) (fldW (getRec TX (nat_lit 464) (nat_lit 0))
+    (nat_lit 0) (nat_lit 399))) = true := by quickRfl
+theorem neg_walk : Bool.not (walkOK (vecAt TX) (.leaf (nat_lit 399) (nat_lit 1)
+    (fldW (getRec TX (nat_lit 464) (nat_lit 1)) (nat_lit 0) (nat_lit 399))) (nat_lit 0)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.HNXBind
 

@@ -23,6 +23,14 @@ theorem bridgePA_mem : bridgePA ∈ AutPerm := mem_AutPerm_of_basis bridgePA_bas
 
 theorem bridgePB_mem : bridgePB ∈ AutPerm := mem_AutPerm_of_basis bridgePB_basis bridgePB_basis'
 
+theorem permWord_bridgePA_B : ∀ j : Fin 12,
+    permWord bridgePA (B j) = coeffWord (bridgePACoeff.getD j 0) := by decide +kernel
+
+theorem permWord_bridgePB_B : ∀ j : Fin 12,
+    permWord bridgePB (B j) = coeffWord (bridgePBCoeff.getD j 0) := by decide +kernel
+
+theorem bridgeDiffWord_eq : ∀ t : Fin 11,
+    bridgeDiffWord t = coeffWord (bridgeDiffCoeff.getD t 0) := by decide +kernel
 
 private def spanMask : List ℕ :=
   [1131, 1058, 2234, 1387, 3669, 3021, 2534, 2822, 3334, 1763, 1294, 3526]
@@ -31,6 +39,10 @@ private theorem B_eq_sum_diff : ∀ k : Fin 12, B k =
     ∑ t : Fin 11, (if (spanMask.getD k 0).testBit t then bridgeDiffWord t else 0) +
       (if (spanMask.getD k 0).testBit 11 then Ω else 0) := by decide +kernel
 
+private theorem bridgeGen_mem (s : Fin 2) : bridgeGen s ∈ AutPerm := by
+  fin_cases s
+  · exact bridgePA_mem
+  · exact bridgePB_mem
 
 private theorem bridgeGen_mem_pair (s : Fin 2) :
     bridgeGen s ∈ ({bridgePA, bridgePB} : Set (Equiv.Perm (Fin 24))) := by

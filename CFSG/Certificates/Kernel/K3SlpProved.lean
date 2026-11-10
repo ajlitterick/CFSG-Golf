@@ -25,6 +25,11 @@ theorem bA {a b : Bool} : Bool.rec (motive := fun _ => Bool) false b a = true �
     a = true ∧ b = true := by
   cases a <;> simp
 
+theorem bIt {c : Bool} (h : Bool.rec (motive := fun _ => Bool) true false c = true) :
+    c = false := by
+  cases c
+  · rfl
+  · exact absurd h (by decide)
 
 abbrev Cn (K : K3C) (P : Nat) : Prop := canonK K.n K.w (mask K.w) (K.n * K.w) P = true
 
@@ -60,6 +65,9 @@ theorem pw_facts (hs : szOK K.n K.w = true) {P : Nat} (hP : Cn K P) :
     rw [← tb_pc hP h1, h2]
     rfl
 
+theorem pg_lt {P i : Nat} (hP : Cn K P) (hi : i < K.n) : pg K.w (mask K.w) P i < 2 ^ 32 := by
+  have := unpack_lt (i := i) hP
+  rwa [CFSG.KS.Raw.Orb.unpack_get hi] at this
 
 theorem ap_tb {P i : Nat} (hP : Cn K P) (hi : i < K.n) : ap (tb K P) i = pg K.w (mask K.w) P i := by
   rw [ap_tabT _ (unpack_lt hP), CFSG.KS.Raw.Orb.unpack_get hi]

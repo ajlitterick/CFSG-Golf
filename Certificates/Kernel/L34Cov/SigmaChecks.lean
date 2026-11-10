@@ -32,6 +32,27 @@ theorem ch22219stab_k : sgStabOK YT = true := by decide +kernel
 
 theorem ch22219sort_k : sgSortOK YT SO SI = true := by decide +kernel
 
+theorem ch22219ab_neg : (!sgAbOK GT (patchT SgAB 1 (SgAB 2)) UAC.codes UBC.codes) = true := by
+  decide +kernel
+
+theorem ch22219ab_neg2 : (!sgAbOK GT SgAB (UBC.codes.take 2 ++ UAC.codes.drop 2)
+    (UAC.codes.take 2 ++ UBC.codes.drop 2)) = true := by
+  decide +kernel
+
+theorem ch22219cj_neg : (!sgCjOK GT YT (patchT AlX.F 1
+    (Nat.add (AlX.F 1) (Nat.shiftLeft 48 12)))) = true := by
+  decide +kernel
+
+theorem ch22219fix_neg :
+    (!sgFixOK fun k => GT (nIf(Nat.beq k 0, 1, nIf(Nat.beq k 1, 0, k)))) = true := by
+  decide +kernel
+
+theorem ch22219orb_neg : (!sgOrbOK GT (patchT OB 104 (OB 0))) = true := by decide +kernel
+
+theorem ch22219stab_neg : (!sgStabOK (patchT YT 2303 (GT 0))) = true := by decide +kernel
+
+theorem ch22219sort_neg : (!sgSortOK YT (patchT (patchT SO 0 (SO 1)) 1 (SO 0)) SI) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

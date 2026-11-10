@@ -395,6 +395,25 @@ theorem delta_cases
     rw [hcdef, mul_inv_eq_iff_eq_mul] at this
     exact this
 
+theorem delta_word
+    {k j : ℕ} (hk : IsRank k) (hj : j < 15) :
+    wordS' (liftWordZ k ++ liftWordZ k ++ liftWordZ k ++ invWord (centWordN k j) ++ liftWordZ k ++
+      centWordN k j) = deltaElt k j := by
+  rw [wordS'_append, wordS'_append, wordS'_append, wordS'_append, wordS'_append,
+    wordS'_liftWordZ hk, wordS'_invWord (centWordN_letters hk hj), deltaElt, centElt, hs_inv hk]
+
+theorem delta_letters {k j : ℕ} (hk : IsRank k) (hj : j < 15) :
+    ∀ l ∈ liftWordZ k ++ liftWordZ k ++ liftWordZ k ++ invWord (centWordN k j) ++ liftWordZ k ++
+      centWordN k j, IsLetter2 l := by
+  intro l hl
+  simp only [List.mem_append] at hl
+  rcases hl with ((((h | h) | h) | h) | h) | h
+  · exact liftWordZ_letters hk l h
+  · exact liftWordZ_letters hk l h
+  · exact liftWordZ_letters hk l h
+  · exact invWord_letters (centWordN_letters hk hj) l h
+  · exact liftWordZ_letters hk l h
+  · exact centWordN_letters hk hj l h
 
 theorem rankOfT_eq {k j : ℕ} (hk : IsRank k) (hj : j < 15) :
     Dyadic.rankOfT (rankOff k + j) = k := by

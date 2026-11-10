@@ -78,11 +78,27 @@ namespace CFSG.Monster.Existence.B433Cover
 
 @[expose] def nodeWord (j : Nat) : List Nat := (nodeData.getD j (0, [])).2
 
+theorem nodeData_length : nodeData.length = 23 := by decide
 
 theorem nodeParent_lt : ∀ j < 23, 0 < j → nodeParent j < j := by decide
 
 theorem nodeWord_lt : ∀ j < 23, ∀ l ∈ nodeWord j, l < 10 := by decide +kernel
 
+theorem nodeParent_table : (List.range 23).map nodeParent =
+    [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 5, 6, 7] := by decide +kernel
+
+theorem nodeWord_length_table : (List.range 23).map (fun j => (nodeWord j).length) =
+    [0, 0, 37, 60, 72, 85, 85, 97, 108, 108, 144, 72, 84, 96, 96, 108, 84, 85, 85, 61, 0, 0,
+      84] := by
+  decide +kernel
+
+theorem nodeParent_zero : nodeParent 0 = 0 := rfl
+
+theorem nodeWord_zero : nodeWord 0 = [] := rfl
+
+theorem nodeParent_one : nodeParent 1 = 0 := rfl
+
+theorem nodeWord_one : nodeWord 1 = [] := rfl
 
 end CFSG.Monster.Existence.B433Cover
 

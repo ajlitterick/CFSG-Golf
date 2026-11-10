@@ -14,10 +14,13 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Open
 
 theorem permZ_apply (u : Fin 24 → ℤ) (j : Fin 24) : permZ u j = u (sigma.symm j) := rfl
 
+theorem permZ_symm_apply (x : Fin 24 → ℤ) (i : Fin 24) : permZ.symm x i = x (sigma i) := rfl
 
 theorem sum_permZ (u : Fin 24 → ℤ) : ∑ j, permZ u j = ∑ i, u i :=
   Equiv.sum_comp sigma.symm u
 
+theorem sum_permZ_mul (u v : Fin 24 → ℤ) : ∑ j, permZ u j * permZ v j = ∑ i, u i * v i :=
+  Equiv.sum_comp sigma.symm fun i => u i * v i
 
 theorem sum_permZ_sq (u : Fin 24 → ℤ) : ∑ j, permZ u j ^ 2 = ∑ i, u i ^ 2 :=
   Equiv.sum_comp sigma.symm fun i => u i ^ 2
@@ -127,6 +130,9 @@ theorem mem_monsterLeech_iff (x : Fin 24 → ℤ) : x ∈ monsterLeech ↔ permZ
   · intro hx
     exact AddSubgroup.subset_closure ((isLeechVector_iff x).2 hx)
 
+theorem mem_monsterLeech_iff_isLeechVector (x : Fin 24 → ℤ) :
+    x ∈ monsterLeech ↔ MonsterIsLeechVector x :=
+  (mem_monsterLeech_iff x).trans (isLeechVector_iff x).symm
 
 theorem monsterLeech_eq_map : monsterLeech = mogLattice.map permZ.toLinearMap.toAddMonoidHom := by
   ext x
@@ -141,5 +147,10 @@ theorem monsterLeech_eq_map : monsterLeech = mogLattice.map permZ.toLinearMap.to
   (AddEquiv.addSubgroupMap permZ.toAddEquiv mogLattice).trans
     (AddEquiv.addSubgroupCongr monsterLeech_eq_map.symm)
 
+theorem coe_leechEquiv (u : mogLattice) : ((leechEquiv u : monsterLeech) : Fin 24 → ℤ) = permZ u :=
+  rfl
+
+theorem coe_leechEquiv_symm (v : monsterLeech) :
+    ((leechEquiv.symm v : mogLattice) : Fin 24 → ℤ) = permZ.symm v := rfl
 
 end CFSG.Monster.Existence.Compat

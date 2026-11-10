@@ -39,6 +39,11 @@ theorem IsPair.symm {K₁ K₂ Ka Kb : Subgroup G} (hp : IsPair K₁ K₂ Ka Kb)
   · exact Or.inr ⟨h.2, h.1⟩
   · exact Or.inl ⟨h.2, h.1⟩
 
+theorem isPair_of_comp {K₁ K₂ K : Subgroup G} (hK : K = K₁ ∨ K = K₂) :
+    ∃ K', IsPair K₁ K₂ K K' := by
+  rcases hK with rfl | rfl
+  · exact ⟨K₂, Or.inl ⟨rfl, rfl⟩⟩
+  · exact ⟨K₁, Or.inr ⟨rfl, rfl⟩⟩
 
 namespace M4
 

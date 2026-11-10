@@ -12,6 +12,8 @@ open CFSG.KC.Over77 CFSG.KC.Enum
 
 theorem c12630t0 : idK (T 0) = true := by decide +kernel
 
+theorem c12630gens : (canon A && canon B && canon Z && canon Sig && S.length == 9 &&
+    allN 9 (fun k => canon (nth S k))) = true := by decide +kernel
 
 end CFSG.KD.Over77
 

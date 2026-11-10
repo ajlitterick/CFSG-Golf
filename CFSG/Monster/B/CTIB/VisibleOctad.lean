@@ -125,6 +125,30 @@ theorem commute_of_octA_fix
       ((conjNormal_cosetRep_one t).trans (congrArg rhoN hfix)))
   exact (mul_inv_eq_iff_eq_mul.1 h1).symm
 
+theorem mem_ker_octA_iff
+    (v : Additive VisMod) :
+    v ∈ LinearMap.ker
+        ((repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) - 1) ↔
+      ∃ u : rhoQvis, (u : Gvis) * cosetRep 1 = cosetRep 1 * u ∧
+        v = Additive.ofMul (QuotientGroup.mk u) := by
+  refine (mem_ker_sub_one_iff _ v).trans (Iff.intro (fun hv => ?_) (fun hu => ?_))
+  · have hx := QuotientGroup.mk_surjective (Additive.toMul v)
+    obtain ⟨u, hu⟩ := hx
+    have ht := rhoN_surjective u
+    obtain ⟨t, ht⟩ := ht
+    have hv' : Additive.ofMul (QuotientGroup.mk (rhoN t) : VisMod) = v :=
+      (congrArg (fun y : rhoQvis => Additive.ofMul (QuotientGroup.mk y : VisMod)) ht).trans
+        (congrArg Additive.ofMul hu)
+    have hfix := commute_of_octA_fix t
+      ((congrArg (repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) hv').trans
+        (hv.trans hv'.symm))
+    exact ⟨rhoN t, hfix, hv'.symm⟩
+  · obtain ⟨u, hu, hv⟩ := hu
+    have h1 : MulAut.conjNormal (cosetRep 1) u = u := Subtype.ext
+      ((MulAut.conjNormal_apply _ _).trans (mul_inv_eq_iff_eq_mul.2 hu.symm))
+    exact (congrArg (repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) hv).trans
+      ((repVis_apply _ _).trans ((congrArg (fun y : rhoQvis =>
+        Additive.ofMul (QuotientGroup.mk y : VisMod)) h1).trans hv.symm))
 
 theorem classRep_zero_eq_cosetRep_one
     : classRep 0 = cosetRep 1 := by
@@ -169,10 +193,71 @@ theorem natCard_octU :
   rw [← hc, inf_comm, ← Subgroup.inf_subgroupOf_right]
   exact (Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_right).toEquiv).symm
 
+theorem natCard_zRho : Nat.card zRho = 2 := by
+  have h := Subgroup.card_eq_card_quotient_mul_card_subgroup zRho
+  rw [CFSG.Monster.Existence.natCard_rhoQvis, show Nat.card (rhoQvis ⧸ zRho) = 2 ^ 24 from
+    natCard_visMod] at h
+  omega
+
+@[expose] noncomputable def octUMap :
+    (Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis →* VisMod :=
+  (QuotientGroup.mk' zRho).comp ((Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis).subtype
+
+theorem zRho_le_octU :
+    zRho ≤ (Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis :=
+  Subgroup.zpowers_le.2 (Subgroup.mem_subgroupOf.2 (Subgroup.mem_centralizer_singleton_iff.2
+    (mul_inv_eq_iff_eq_mul.1 ((MulAut.conjNormal_apply _ _).symm.trans
+      (congrArg Subtype.val (conjNormal_rhoN_zQ (cosetRep 1))))).symm))
+
+theorem octUMap_apply
+    (u : (Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis) :
+    octUMap u = QuotientGroup.mk (u : rhoQvis) := rfl
+
+theorem ker_octUMap :
+    octUMap.ker = zRho.subgroupOf
+    ((Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis) := by
+  ext u
+  exact (MonoidHom.mem_ker.trans ((congrArg (· = 1) (octUMap_apply u)).to_iff.trans
+    (QuotientGroup.eq_one_iff _))).trans Subgroup.mem_subgroupOf.symm
+
+theorem natCard_range_octUMap :
+    Nat.card octUMap.range = 2 ^ 16 := by
+  have h := Subgroup.card_eq_card_quotient_mul_card_subgroup octUMap.ker
+  rw [Nat.card_congr (QuotientGroup.quotientKerEquivRange octUMap).toEquiv, ker_octUMap,
+    Nat.card_congr (Subgroup.subgroupOfEquivOfLe zRho_le_octU).toEquiv, natCard_zRho] at h
+  have hU : Nat.card ((Subgroup.centralizer {cosetRep 1}).subgroupOf rhoQvis) = 2 ^ 17 := by
+    rw [← natCard_octU, inf_comm, ← Subgroup.inf_subgroupOf_right]
+    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_right).toEquiv
+  omega
+
+theorem mem_range_octUMap_iff
+    (x : VisMod) :
+    x ∈ octUMap.range ↔ ∃ u : rhoQvis, (u : Gvis) * cosetRep 1 = cosetRep 1 * u ∧
+      x = QuotientGroup.mk u := by
+  constructor
+  · rintro ⟨u, rfl⟩
+    exact ⟨u, Subgroup.mem_centralizer_singleton_iff.1 (Subgroup.mem_subgroupOf.1 u.2), rfl⟩
+  · rintro ⟨u, hu, rfl⟩
+    exact ⟨⟨u, Subgroup.mem_subgroupOf.2 (Subgroup.mem_centralizer_singleton_iff.2 hu)⟩, rfl⟩
 
 instance finite_visMod : Finite VisMod :=
   Nat.finite_of_card_ne_zero (by rw [natCard_visMod]; norm_num)
 
+
+theorem natCard_ker_octA :
+    Nat.card (LinearMap.ker
+    ((repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) - 1)) = 2 ^ 16 :=
+  (Nat.card_congr (Equiv.subtypeEquiv Additive.toMul fun v =>
+    (mem_ker_octA_iff v).trans ((exists_congr fun u => and_congr_right fun _ =>
+      (⟨fun h => congrArg Additive.toMul h, fun h => congrArg Additive.ofMul h⟩ :
+        v = Additive.ofMul (QuotientGroup.mk u) ↔ Additive.toMul v = QuotientGroup.mk u)).trans
+        (mem_range_octUMap_iff _).symm))).trans natCard_range_octUMap
+
+theorem finrank_range_octA :
+    Module.finrank (ZMod 2) (LinearMap.range
+      ((repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) - 1)) = 8 :=
+  (finrank_range_sub_one_eq _ finrank_visMod (natCard_ker_octA.trans (by rw [Nat.card_zmod]))).trans
+    (by norm_num)
 
 theorem isShortCoord_qP_three_sixty :
     IsShortCoord (coordOf (qP 0 3 60)) := by
@@ -211,5 +296,18 @@ theorem orderOf_cosetRep_one :
   orderOf_eq_prime ((sq _).trans cosetRep_one_sq) fun h =>
     cosetRep_one_not_mem_Qmat (h ▸ Qmat.one_mem)
 
+theorem visible_octad_involution_full_fixed_space :
+    orderOf (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB) = 2 ∧
+    (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB) ∉ Qmat ∧
+    Module.finrank (ZMod 2) (LinearMap.range
+      ((repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) - 1)) = 8 ∧
+    Nat.card (rhoQvis ⊓ Subgroup.centralizer {cosetRep 1} : Subgroup Gvis) = 2 ^ 17 ∧
+    (∀ v : Additive VisMod, v ∈ LinearMap.ker
+        ((repVis (cosetRep 1) : Additive VisMod →ₗ[ZMod 2] Additive VisMod) - 1) ↔
+      ∃ u : rhoQvis, (u : Gvis) * cosetRep 1 = cosetRep 1 * u ∧
+        v = Additive.ofMul (QuotientGroup.mk u)) ∧
+    ∃ g ∈ Gmat, g * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB) * g⁻¹ = tStar :=
+  ⟨orderOf_cosetRep_one, cosetRep_one_not_mem_Qmat, finrank_range_octA, natCard_octU,
+    mem_ker_octA_iff, exists_conj_cosetRep_one_tStar⟩
 
 end CFSG.Monster.B.CTIB

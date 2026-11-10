@@ -81,5 +81,15 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.Sch
 
 @[expose] def sylTwoEnum : Array Table := (mulClosureH 275 sylTwoGens 200).1
 
+@[expose] def cubeT (n : Nat) (h : Table) : Table := compT n h (compT n h h)
+
+@[expose] def pow729T (n : Nat) (h : Table) : Table :=
+  cubeT n (cubeT n (cubeT n (cubeT n (cubeT n (cubeT n h)))))
+
+@[expose] def thrWitness (n : Nat) (y c ci : Table) : Bool :=
+  !tblEq n (pow729T n (compT n y (compT n (compT n c y) ci))) (idT n)
+
+@[expose] def thrCoverOK (n : Nat) (cs ys : Array Table) : Bool :=
+  ys.all fun y => cs.any fun c => thrWitness n y c (invT n c)
 
 end CFSG.Sporadic.Recognition.McLAS

@@ -46,6 +46,11 @@ theorem xB_mem_BR_iff {u : SpaceB} : xB u ∈ BR ↔ u ∈ BR := by
   rw [← xB_xB u]
   exact mem_BR_iff.2 (isDyadicVec_xB (mem_BR_iff.1 h))
 
+theorem map_xB_BR : BR.map ((xB : SpaceB →ₗ[ℚ] SpaceB).restrictScalars dyadic) = BR := by
+  ext u
+  refine ⟨?_, fun h => ⟨xB u, xB_mem_BR_iff.2 h, xB_xB u⟩⟩
+  rintro ⟨v, hv, rfl⟩
+  exact xB_mem_BR_iff.2 hv
 
 theorem mem_eigenspace_xB_one {u : SpaceB} :
     u ∈ End.eigenspace (xB : End ℚ SpaceB) 1 ↔ u.2.2 = 0 := by
@@ -86,6 +91,10 @@ theorem mem_eigenspace_xB_neg_one {u : SpaceB} :
   LinearMap.prod (LinearMap.fst ℚ symMat (SpaceX × SpaceW))
     (LinearMap.fst ℚ SpaceX SpaceW ∘ₗ LinearMap.snd ℚ symMat (SpaceX × SpaceW))
 
+theorem eigenspace_xB_one : End.eigenspace (xB : End ℚ SpaceB) 1 = LinearMap.ker projW := by
+  ext u
+  rw [mem_eigenspace_xB_one, LinearMap.mem_ker]
+  rfl
 
 theorem eigenspace_xB_neg_one :
     End.eigenspace (xB : End ℚ SpaceB) (-1) = LinearMap.ker projAX := by
@@ -93,6 +102,15 @@ theorem eigenspace_xB_neg_one :
   rw [mem_eigenspace_xB_neg_one, LinearMap.mem_ker, Prod.ext_iff]
   rfl
 
+theorem finrank_eigenspace_xB_one : finrank ℚ (End.eigenspace (xB : End ℚ SpaceB) 1) = 98580 := by
+  rw [eigenspace_xB_one]
+  have hsurj : LinearMap.range projW = ⊤ := by
+    rw [LinearMap.range_eq_top]
+    intro N
+    exact ⟨(0, 0, N), rfl⟩
+  have h := LinearMap.finrank_range_add_finrank_ker projW
+  rw [hsurj, finrank_top, finrank_W, finrank_B] at h
+  omega
 
 theorem finrank_eigenspace_xB_neg_one :
     finrank ℚ (End.eigenspace (xB : End ℚ SpaceB) (-1)) = 98304 := by

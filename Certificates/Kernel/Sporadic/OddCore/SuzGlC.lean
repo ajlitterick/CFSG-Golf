@@ -27,6 +27,7 @@ theorem kTG' : allN 4 (fun i => Nat.beq (T (Nat.succ i)) (SuzC1ET.G i)) = true :
 
 theorem kCent : centRSearch pK zK = true := by quickRfl
 
+theorem negCent : Bool.not (centRSearch pK (fun _ x => zK 0 x)) = true := by quickRfl
 
 theorem rtabs_get {k : Nat} (hk : k < 64) : rtabs[k]! = resTab ttabs[k]! :=
   map_get _ (by rw [ttabs_size']; exact hk)

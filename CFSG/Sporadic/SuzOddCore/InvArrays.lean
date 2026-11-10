@@ -163,6 +163,7 @@ def invFusionRun (k : Nat) : Array Nat := hexTable 3 1782 (1782 * k) invFusionTe
 
 @[expose] def invRepArr (i : Nat) : Array Nat := invRun i 0
 
+@[expose] def invFullStart (_i : Nat) : Nat := 1
 
 @[expose] def invInnerStart (i : Nat) : Nat :=
   1 + invFullGenCounts.getD i 0 + invFullStrongCounts.getD i 0

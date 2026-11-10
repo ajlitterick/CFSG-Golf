@@ -16,6 +16,59 @@ section Group
 
 variable {M : Type*} [Group M]
 
+theorem wit_conj {r k c g : M} (hkr : k * r = r * k)
+    (h1 : ((k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹)) *
+      ((k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹)) = 1)
+    (h2 : (k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹) ≠ 1)
+    (h3 : (k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹) ≠ r) :
+    (c * ((k⁻¹ * g * k) * c * (k⁻¹ * g * k)⁻¹)) * (c * ((k⁻¹ * g * k) * c * (k⁻¹ * g * k)⁻¹)) =
+      1 ∧ c * ((k⁻¹ * g * k) * c * (k⁻¹ * g * k)⁻¹) ≠ 1 ∧
+      c * ((k⁻¹ * g * k) * c * (k⁻¹ * g * k)⁻¹) ≠ r := by
+  have e : c * ((k⁻¹ * g * k) * c * (k⁻¹ * g * k)⁻¹) =
+      k⁻¹ * ((k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹)) * k := by group
+  rw [e]
+  generalize (k * c * k⁻¹) * (g * (k * c * k⁻¹) * g⁻¹) = x at h1 h2 h3
+  have ex : x = k * (k⁻¹ * x * k) * k⁻¹ := by group
+  refine ⟨?_, fun h => h2 ?_, fun h => h3 ?_⟩
+  · calc k⁻¹ * x * k * (k⁻¹ * x * k) = k⁻¹ * (x * x) * k := by group
+      _ = 1 := by rw [h1]; group
+  · rw [ex, h]
+    group
+  · rw [ex, h, hkr]
+    group
+
+theorem cqCheck_of_sylow [DecidableEq M] (K S : Subgroup M) [Finite K] {r : M}
+    (hr : ∀ k ∈ K, k * r = r * k) (hr2 : r * r = 1) (L : List M) (hL : ∀ g, g ∈ L ↔ g ∈ K)
+    (hSK : S ≤ K) (hS : IsPGroup 2 S) (hidx : ¬ 2 ∣ (S.subgroupOf K).index)
+    (hw : ∀ c ∈ S, c * c = r → ∃ g ∈ K, (c * (g * c * g⁻¹)) * (c * (g * c * g⁻¹)) = 1 ∧
+      c * (g * c * g⁻¹) ≠ 1 ∧ c * (g * c * g⁻¹) ≠ r) :
+    Nobq.cqCheck r L = true := by
+  simp only [Nobq.cqCheck, List.all_eq_true, Bool.or_eq_true, decide_eq_true_eq,
+    List.any_eq_true]
+  intro c hcL
+  by_cases hcr : c * c = r
+  swap
+  · exact Or.inl hcr
+  right
+  have hcK := (hL c).1 hcL
+  have hSp : IsPGroup 2 (S.subgroupOf K) := hS.comap_of_injective K.subtype K.subtype_injective
+  have hu : (⟨c, hcK⟩ : K) ^ (2 ^ 2) = 1 := by
+    apply Subtype.ext
+    have e : c ^ (2 ^ 2) = (c * c) * (c * c) := by
+      rw [show (2 : ℕ) ^ 2 = 2 + 2 from rfl, pow_add, sq]
+    simp only [Subgroup.coe_pow, Subgroup.coe_one]
+    rw [e, hcr, hr2]
+  obtain ⟨k, hk⟩ := Nobq.exists_conj_mem_of_twoPow (S.subgroupOf K) hSp hidx hu
+  have hs : (k : M) * c * (k : M)⁻¹ ∈ S := by
+    simpa [Subgroup.mem_subgroupOf] using hk
+  have hkr := hr k k.2
+  have hss : ((k : M) * c * (k : M)⁻¹) * ((k : M) * c * (k : M)⁻¹) = r := by
+    calc ((k : M) * c * (k : M)⁻¹) * ((k : M) * c * (k : M)⁻¹) =
+        (k : M) * (c * c) * (k : M)⁻¹ := by group
+      _ = r := by rw [hcr, hkr]; group
+  obtain ⟨g, hgK, h1, h2, h3⟩ := hw _ hs hss
+  refine ⟨(k : M)⁻¹ * g * k, (hL _).2 (K.mul_mem (K.mul_mem (K.inv_mem k.2) hgK) k.2), ?_⟩
+  exact wit_conj hkr h1 h2 h3
 
 end Group
 

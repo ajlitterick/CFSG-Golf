@@ -15,12 +15,14 @@ theorem pairC_sum : ∑ q ∈ range 276, (xTerm permMonoC 0 (Model.thetaN 0 ^^^ 
     xTerm permMonoC 63 (Model.thetaN 63 ^^^ pairD q)) = 0 :=
   (pairScanT_eq pe_PC).symm.trans pairC
 
+theorem pairBadC : pairScanT PBadC (betaTabT PBadC) ≠ 0 := by decide +kernel
 
 theorem wScanC : wScanT PC (betaTabT PC) = 16 := by decide +kernel
 
 theorem wTrC : wTr (Native.GD.ofGen (Native.mkCtx ()) (.perm permMonoC)) = 16 :=
   (wScanT_eq pe_PC).symm.trans wScanC
 
+theorem wScanBadC : wScanT PBadC (betaTabT PBadC) ≠ 16 := by decide +kernel
 
 theorem latTrC : latTr (Native.GD.ofGen (Native.mkCtx ()) (.perm permMonoC)) = 0 := by
   rw [latTr_perm]

@@ -12,6 +12,8 @@ open CFSG.Quasithin CFSG.Quasithin.H.Mathieu CFSG.Quasithin.H.Mathieu.H12Cert
   CFSG.Quasithin.H13.MatNCert CFSG.Open
 open CFSG.ASVolI.ChH (cenIn ptStab)
 
+@[expose] def sigOf (Pg : ℕ → List ℕ) (n : ℕ) (w : List ℕ) : List ℕ :=
+  (List.range n).map fun i => spanMask ((Pg i).map (mvN (tW w)))
 
 theorem spanMask_eq_iff {b b' : List ℕ} (hb : ∀ c ∈ b, c < 4096) (hb' : ∀ c ∈ b', c < 4096) :
     spanMask b = spanMask b' ↔ spanSub b = spanSub b' := by

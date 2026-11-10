@@ -47,6 +47,14 @@ theorem symmetrizer_apply_self (t : ReeTag) (i : Fin t.tag.rank) :
     simp only [Pi.smul_apply, smul_eq_mul, RingHom.id_apply]
     ring
 
+theorem dualMap_single (t : ReeTag) (i : Fin t.tag.rank) :
+    t.dualMap (Pi.single i 1) = (t.scale i : ℚ) • Pi.single (t.perm i) 1 := by
+  funext j
+  simp only [dualMap, LinearMap.coe_mk, AddHom.coe_mk, Pi.smul_apply, smul_eq_mul,
+    Pi.single_apply, Equiv.symm_apply_eq]
+  split_ifs with h
+  · simp [h]
+  · simp
 
 @[expose] def quadForm (t : ReeTag) (α : Fin t.tag.rank → ℤ) : ℤ :=
   α ⬝ᵥ (t.tag.symmetrizedCartan *ᵥ α)
@@ -209,6 +217,10 @@ theorem shortRoots_union_longRoots (t : ReeTag) :
     · exact Or.inl ⟨hα, h⟩
     · exact Or.inr ⟨hα, h⟩
 
+theorem disjoint_shortRoots_longRoots (t : ReeTag) : Disjoint t.shortRoots t.longRoots := by
+  rw [Set.disjoint_left]
+  rintro α ⟨hα, h1⟩ ⟨-, hp⟩
+  exact (lengthParam_eq_one_iff_ne hα).1 h1 hp
 
 theorem bijOn_dualRoot (t : ReeTag) : Set.BijOn t.dualRoot t.longRoots t.shortRoots := by
   refine ⟨fun α hα => ⟨isRoot_dualRoot hα.1, (lengthParam_dualRoot_eq_one_iff hα.1).2 ?_⟩,
@@ -236,10 +248,30 @@ theorem ncard_shortRoots (t : ReeTag) : t.shortRoots.ncard = t.halfRootCount := 
   rw [shortRoots_eq, Set.ncard_coe_finset]
   cases t <;> decide +kernel
 
+theorem ncard_longRoots (t : ReeTag) : t.longRoots.ncard = t.halfRootCount := by
+  rw [longRoots_eq, Set.ncard_coe_finset]
+  cases t <;> decide +kernel
 
 end ReeTag
 
 open ReeTag
 
+theorem exceptional_root_duality (t : ReeTag) :
+    (∀ α, IsRoot t.tag α →
+      (t.lengthParam α = 1 ∨ t.lengthParam α = t.prime) ∧
+      (IsRoot t.tag (t.dualRoot α) ∧ t.duality α = fun j => (t.dualRoot α j : ℚ)) ∧
+      t.duality (t.dualRoot α) = (fun j => (α j : ℚ)) ∧
+      t.lengthParam (t.dualRoot α) * t.lengthParam α = t.prime ∧
+      (0 < height (t.dualRoot α) ↔ 0 < height α) ∧
+      ∀ i, t.duality (reflect t.tag i α) =
+        fun j => (reflect t.tag (t.perm i) (t.dualRoot α) j : ℚ)) ∧
+    (∀ i, t.duality (Pi.single i 1) = fun j => ((Pi.single (t.perm i) 1 : Fin _ → ℤ) j : ℚ)) ∧
+    t.shortRoots.ncard = t.halfRootCount ∧ t.longRoots.ncard = t.halfRootCount := by
+  refine ⟨fun α hα => ⟨lengthParam_eq hα, ⟨isRoot_dualRoot hα, duality_eq_dualRoot hα⟩, ?_,
+    lengthParam_dualRoot_mul hα, height_dualRoot_pos_iff hα, fun i => ?_⟩, fun i => ?_,
+    ncard_shortRoots t, ncard_longRoots t⟩
+  · rw [duality_eq_dualRoot (isRoot_dualRoot hα), dualRoot_dualRoot hα]
+  · rw [duality_eq_dualRoot (.reflect i hα), dualRoot_reflect hα]
+  · rw [duality_eq_dualRoot (.basis i), dualRoot_single]
 
 end CFSG.LieType.Ree

@@ -275,6 +275,36 @@ def Marking.root {kind : Kind} {p exponent : ℕ} {H : Type} [Group H]
     (marking : Marking kind p exponent H) (root : PositiveRoot) (negative : Bool) : Subgroup H :=
   (nativeRoot kind (p ^ exponent) marking.basis root negative).map marking.transport
 
+def Marking.positiveUnipotent {kind : Kind} {p exponent : ℕ} {H : Type} [Group H]
+    (marking : Marking kind p exponent H) : Subgroup H :=
+  Subgroup.closure {actor | ∃ root, RootAllowed kind root ∧ actor ∈ marking.root root false}
+
+def Marking.fullCompatibility {kind : Kind} {p exponent : ℕ} {H : Type} [Group H]
+    (marking : Marking kind p exponent H) : Prop :=
+  (∀ root, RootAllowed kind root → ∀ negative parameter central,
+    ParameterAllowed kind (p ^ exponent) root parameter central →
+    ∃ actor : nativeGroup kind (p ^ exponent) marking.field,
+      (actor : GL (Coord kind) marking.field).val =
+        markedMatrix kind (p ^ exponent) marking.basis root negative parameter central) ∧
+  marking.parabolic false ≠ marking.parabolic true ∧
+  marking.parabolic false ⊓ marking.parabolic true = marking.borel ∧
+  (∀ subgroup : Subgroup H,
+    (marking.borel ≤ subgroup ∧ subgroup ≠ ⊤ ∧
+      ∀ larger : Subgroup H, subgroup < larger → larger = ⊤) ↔
+      (subgroup = marking.parabolic false ∨ subgroup = marking.parabolic true)) ∧
+  (IsPGroup p marking.positiveUnipotent ∧ ¬ p ∣ marking.positiveUnipotent.index ∧
+    marking.borel = Subgroup.normalizer (marking.positiveUnipotent : Set H)) ∧
+  (kind ≠ .L3 → marking.parabolic false ≤
+    Subgroup.normalizer (marking.root .longOne false : Set H))
+
+def FullCompatibilityGoal : Prop :=
+  ∀ kind p exponent (H : Type) [Group H] (marking : Marking kind p exponent H),
+    marking.fullCompatibility
+
+def BasisExistenceGoal : Prop :=
+  ∀ kind p exponent (K : Type) [Field K] [Finite K], p.Prime → 1 ≤ exponent →
+    Nat.card K = (if kind = .U4 ∨ kind = .U5 then (p ^ exponent) ^ 2 else p ^ exponent) →
+    ∃ basis : GL (Coord kind) K, BasisCompatible kind (p ^ exponent) K basis
 
 end CFSG.ASVolI.ChF.ClassicalRoots
 
@@ -376,6 +406,100 @@ def smallImage (marking : SmallModel K ≃* H)
     (localSubgroup : Subgroup (Parent K)) : Subgroup H :=
   (smallLocal K localSubgroup).map marking.toMonoidHom
 
+def fullOrderedLocals (marking : FullModel K ≃* H)
+    (borel points lines : Subgroup H) : Prop :=
+  borel = fullImage K marking (positiveBorel K) ∧
+    points = fullImage K marking (pointParabolic K) ∧
+    lines = fullImage K marking (lineParabolic K)
+
+def smallOrderedLocals (marking : SmallModel K ≃* H)
+    (borel points lines : Subgroup H) : Prop :=
+  Nat.card K = 2 ∧
+    borel = smallImage K marking (positiveBorel K) ∧
+    points = smallImage K marking (pointParabolic K) ∧
+    lines = smallImage K marking (lineParabolic K)
+
+def fullRootInvolution (marking : FullModel K ≃* H)
+    (root : Lattice) (element : H) : Prop :=
+  element ≠ 1 ∧ element * element = 1 ∧
+    ∃ conjugator : H, conjugator * element * conjugator⁻¹ ∈
+      fullImage K marking (rootSubgroup K root)
+
+def smallInvolution (element : H) : Prop :=
+  element ≠ 1 ∧ element * element = 1
+
+def smallOrdinaryRootTrace (marking : SmallModel K ≃* H)
+    (root : Lattice) : Subgroup H :=
+  smallImage K marking (rootSubgroup K root)
+
+structure FullMarking (p exponent : ℕ) where
+  prime : p.Prime
+  positive_exponent : 1 ≤ exponent
+  finite : Finite K
+  field_order : Nat.card K = p ^ exponent
+  identification : FullModel K ≃* H
+
+structure SmallMarking where
+  finite : Finite K
+  field_order : Nat.card K = 2
+  identification : SmallModel K ≃* H
+
+def fullCompatibilityGoal : Prop :=
+  ∀ (p exponent : ℕ), p.Prime → 1 ≤ exponent →
+    Nat.card K = p ^ exponent →
+    IsLieParabolics p (⊤ : Subgroup (FullModel K))
+      (fullLocal K (positiveBorel K))
+      (fullLocal K (pointParabolic K)) (fullLocal K (lineParabolic K)) ∧
+    fullLocal K (pointParabolic K) ≤
+      Subgroup.normalizer (fullLocal K (longRoot K) : Set (FullModel K)) ∧
+    fullLocal K (pointParabolic K) ⊔ fullLocal K (lineParabolic K) = ⊤
+
+def smallCompatibilityGoal : Prop :=
+  Nat.card K = 2 →
+    IsLieParabolics 2 (⊤ : Subgroup (SmallModel K))
+      (smallLocal K (positiveBorel K))
+      (smallLocal K (pointParabolic K)) (smallLocal K (lineParabolic K)) ∧
+    smallLocal K (pointParabolic K) ⊔ smallLocal K (lineParabolic K) = ⊤ ∧
+    ∀ first second : SmallModel K,
+      smallInvolution first → smallInvolution second →
+      ∃ conjugator : SmallModel K, conjugator * first * conjugator⁻¹ = second
+
+def smallUnitaryRecognitionGoal : Prop :=
+  Nat.card K = 2 →
+    ∃ (extensionField : Type) (_ : Field extensionField) (_ : Finite extensionField),
+      Nat.card extensionField = 9 ∧
+      Nonempty (SmallModel K ≃* CFSG.Open.StatedProj
+        (CFSG.Open.StatedSU 3 3 extensionField))
+
+def smallParentAssemblyGoal : Prop :=
+  Nat.card K = 2 →
+    ∃ inclusion : SmallModel K →* FullModel K,
+      Function.Injective inclusion ∧ inclusion.range.index = 2 ∧
+      (∀ element : Derived K,
+        inclusion ((QuotientGroup.mk' (Subgroup.center (Derived K))) element) =
+          (QuotientGroup.mk' (Subgroup.center (Parent K)))
+            (derivedInclusion K element)) ∧
+      (smallLocal K (positiveBorel K)).map inclusion =
+        inclusion.range ⊓ fullLocal K (positiveBorel K) ∧
+      (smallLocal K (pointParabolic K)).map inclusion =
+        inclusion.range ⊓ fullLocal K (pointParabolic K) ∧
+      (smallLocal K (lineParabolic K)).map inclusion =
+        inclusion.range ⊓ fullLocal K (lineParabolic K) ∧
+      ((smallLocal K (pointParabolic K)).map inclusion).relIndex
+        (fullLocal K (pointParabolic K)) = 2 ∧
+      ((smallLocal K (lineParabolic K)).map inclusion).relIndex
+        (fullLocal K (lineParabolic K)) = 2
+
+def generatorCompletenessGoal : Prop :=
+  (∀ index : Fin 2, ∀ parameter : K,
+    ∃ element : Parent K,
+      (element.1 : Module.End K (RootModule Tag.G2 K)) =
+        xOp Tag.G2 K index parameter) ∧
+    (∀ word : List (Fin 2), ∃ representative : Parent K,
+      (representative.1 : Module.End K (RootModule Tag.G2 K)) =
+        weylWordOperator K word) ∧
+    ∀ root : Lattice, IsRoot Tag.G2 root →
+      Nat.card ↥(rootSubgroup K root) = Nat.card K
 
 end CFSG.ASVolI.ChF.G2Native
 
@@ -428,6 +552,13 @@ variable (sigma : K →+* K)
   ![![1, 0, 0, 0], ![0, 0, 1, 0], ![1, 0, 1, 0], ![0, 1, 1, 1],
     ![1, 1, 1, 1], ![1, 1, 2, 1]]
 
+@[expose] def IsTrialityOrbitElement (root : Fin Tag.D4.rank → ℤ) (parameter : K)
+    (element : ModGL Tag.D4 K) : Prop :=
+  ∃ factors : Fin 3 → ModGL Tag.D4 K,
+    (∀ index : Fin 3, IsAbsoluteRootElement Tag.D4 K
+      (permLattice (τ := Tag.D4) (TwistTag.D4.perm ^ (index : ℕ)) root)
+      ((sigma ^ (index : ℕ)) parameter) (factors index)) ∧
+    element = factors 0 * factors 1 * factors 2
 
 @[expose] def trialityOrbitRoot (root : Fin Tag.D4.rank → ℤ) :
     Subgroup (ModGL Tag.D4 K) :=
@@ -457,10 +588,32 @@ variable (sigma : K →+* K)
     (CFSG.Blueprint.twistedFixedGroup TwistTag.D4 K sigma ⊓
       relativeWeyl Tag.D4 K (if index = 0 then [0, 1, 3] else [2]))
 
+@[expose] def reeSigma (exponent : ℕ) (parameter : K) : K :=
+  parameter ^ (2 ^ (exponent + 1))
 
 @[expose] def reeFourSeed : Fin 4 → Fin Tag.F4.rank → ℤ :=
   ![![0, 0, 1, 0], ![0, 1, 0, 0], ![0, 1, 1, 0], ![0, 1, 2, 0]]
 
+@[expose] def IsReeTwoElement (exponent : ℕ) (parameter : K)
+    (element : ModGL Tag.F4 K) : Prop :=
+  ∃ first second : ModGL Tag.F4 K,
+    IsAbsoluteRootElement Tag.F4 K (Pi.single 3 1) parameter first ∧
+    IsAbsoluteRootElement Tag.F4 K (Pi.single 0 1) (reeSigma K exponent parameter) second ∧
+    element = first * second
+
+@[expose] def reeMiddlePositive : Subgroup (ModGL Tag.F4 K) :=
+  ⨆ index : Fin 4, absoluteRoot Tag.F4 K (reeFourSeed index)
+
+@[expose] def IsReeFourElement (exponent : ℕ) (firstParameter secondParameter : K)
+    (element : ModGL Tag.F4 K) : Prop :=
+  element ∈ reeFixedGroup Tag.F4 K reeF4Perm
+    (fun index => if index ∈ reeF4Long then 2 ^ exponent else 2 ^ (exponent + 1)) ∧
+  ∃ factors : Fin 4 → ModGL Tag.F4 K,
+    IsAbsoluteRootElement Tag.F4 K (reeFourSeed 0) firstParameter (factors 0) ∧
+    (∃ parameter, IsAbsoluteRootElement Tag.F4 K (reeFourSeed 1) parameter (factors 1)) ∧
+    IsAbsoluteRootElement Tag.F4 K (reeFourSeed 2) secondParameter (factors 2) ∧
+    (∃ parameter, IsAbsoluteRootElement Tag.F4 K (reeFourSeed 3) parameter (factors 3)) ∧
+    element = factors 0 * factors 1 * factors 2 * factors 3
 
 @[expose] def reeTwoRoot (exponent : ℕ) : Subgroup (ModGL Tag.F4 K) :=
   reeFixedGroup Tag.F4 K reeF4Perm
@@ -468,6 +621,17 @@ variable (sigma : K →+* K)
       (absoluteRoot Tag.F4 K (Pi.single 0 1) ⊔
         absoluteRoot Tag.F4 K (Pi.single 3 1))
 
+@[expose] def reeFourRoot (exponent : ℕ) : Subgroup (ModGL Tag.F4 K) :=
+  reeFixedGroup Tag.F4 K reeF4Perm
+    (fun index => if index ∈ reeF4Long then 2 ^ exponent else 2 ^ (exponent + 1)) ⊓
+      reeMiddlePositive K
+
+@[expose] def ReeMiddleFactorizationGoal : Prop :=
+  ∀ exponent, Nat.card K = 2 ^ (2 * exponent + 1) →
+    ∀ element : ModGL Tag.F4 K,
+      element ∈ reeFourRoot K exponent ↔
+        ∃ firstParameter secondParameter,
+          IsReeFourElement K exponent firstParameter secondParameter element
 
 @[expose] def reeGroup (exponent : ℕ) : Subgroup (ModGL Tag.F4 K) :=
   reeFixedGroup Tag.F4 K reeF4Perm
@@ -491,6 +655,8 @@ variable (sigma : K →+* K)
     (actor : Module.End K (RootModule tag K)) = weylWordOperator tag K word ∧
     ∃ generator ∈ root, element = actor * generator * actor⁻¹}
 
+@[expose] def trialityReflectionWord (index : Fin 2) : List (Fin Tag.D4.rank) :=
+  if index = 0 then [0, 1, 3] else [2]
 
 @[expose] def trialityLongRoot : Subgroup (ModGL Tag.D4 K) :=
   fixedWeylConjugate Tag.D4 K (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
@@ -500,6 +666,8 @@ variable (sigma : K →+* K)
   fixedWeylConjugate Tag.D4 K (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
     [2, 0, 1, 3] (trialityPositiveRoot K sigma 0)
 
+@[expose] def reeReflectionWord (index : Fin 2) : List (Fin Tag.F4.rank) :=
+  if index = 0 then [0, 3] else [1, 2, 1, 2]
 
 @[expose] def reeMiddleCentralRoot (exponent : ℕ) : Subgroup (ModGL Tag.F4 K) :=
   reeGroup K exponent ⊓
@@ -530,6 +698,15 @@ variable {Ambient : Type} [Group Ambient]
 
 variable {Model GroupTarget : Type} [Group Model] [Group GroupTarget]
 
+@[expose] def HasCommonMarking (borel firstParabolic secondParabolic firstRoot secondRoot :
+    Subgroup Model) (targetBorel targetFirstParabolic targetSecondParabolic
+    targetFirstRoot targetSecondRoot : Subgroup GroupTarget) : Prop :=
+  ∃ identification : Model ≃* GroupTarget,
+    borel.map identification.toMonoidHom = targetBorel ∧
+    firstParabolic.map identification.toMonoidHom = targetFirstParabolic ∧
+    secondParabolic.map identification.toMonoidHom = targetSecondParabolic ∧
+    firstRoot.map identification.toMonoidHom = targetFirstRoot ∧
+    secondRoot.map identification.toMonoidHom = targetSecondRoot
 
 end CFSG.ASVolI.ChF.ExceptionalRoots
 
@@ -749,6 +926,11 @@ noncomputable def NativeChart.coordinatePayload {kind : GLKind} {prime degree : 
     NativeCoordinates kind prime degree core :=
   (Classical.choice chart.payload_nonempty).1
 
+theorem NativeChart.coordinatePayload_fits {kind : GLKind} {prime degree : ℕ}
+    {E : Type} [Group E] {core : Subgroup E}
+    (chart : NativeChart kind prime degree core) :
+    chart.PayloadFits chart.coordinatePayload :=
+  (Classical.choice chart.payload_nonempty).2
 
 def NativeChart.Matches {kind : GLKind} {prime degree : ℕ}
     {E : Type} [Group E] {core : Subgroup E} (chart : NativeChart kind prime degree core)
@@ -771,6 +953,16 @@ def NativeChart.C2Involution {prime degree : ℕ}
     ∃ conjugator ∈ core, ∃ long ∈ chart.longRoot, ∃ short ∈ chart.shortRoot,
       long ≠ 1 ∧ short ≠ 1 ∧ conjugator * element * conjugator⁻¹ = long * short
 
+def NativeChart.TransportedBy {kind : GLKind} {prime degree : ℕ}
+    {E Target : Type} [Group E] [Group Target] {core : Subgroup E}
+    (chart : NativeChart kind prime degree core) (targetCore : Subgroup Target)
+    (targetChart : NativeChart kind prime degree targetCore) (comparison : E ≃* Target) : Prop :=
+  core.map comparison.toMonoidHom = targetCore ∧
+    chart.borel.map comparison.toMonoidHom = targetChart.borel ∧
+    chart.points.map comparison.toMonoidHom = targetChart.points ∧
+    chart.lines.map comparison.toMonoidHom = targetChart.lines ∧
+    chart.longRoot.map comparison.toMonoidHom = targetChart.longRoot ∧
+    chart.shortRoot.map comparison.toMonoidHom = targetChart.shortRoot
 
 structure HypF_4_4g (κ : GLKind) (p f : ℕ) {E : Type} [Group E] (Gp M₁ M₂ : Subgroup E) : Prop where
   finite : Finite E
@@ -789,6 +981,10 @@ noncomputable def HypF_4_4g.chart {κ : GLKind} {p f : ℕ}
     (hyp : HypF_4_4g κ p f Gp M₁ M₂) : NativeChart κ p f Gp :=
   Classical.choose hyp.lie_amalgam
 
+theorem HypF_4_4g.chart_matches {κ : GLKind} {p f : ℕ}
+    {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
+    (hyp : HypF_4_4g κ p f Gp M₁ M₂) : hyp.chart.Matches M₁ M₂ :=
+  Classical.choose_spec hyp.lie_amalgam
 
 structure HypF_4_4 (κ : GLKind) (p f : ℕ) {E : Type} [Group E] (Gp M₁ M₂ : Subgroup E) : Prop
     extends HypF_4_4g κ p f Gp M₁ M₂ where
@@ -1322,6 +1518,10 @@ open CFSG.Open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankT
 @[expose] def ClassMeetsCenter {E : Type} [Group E] (S : Subgroup E) (C : ConjClasses E) : Prop :=
   ∃ z ∈ C.carrier, z ∈ ctr S
 
+@[expose] def LegacyShortRootInv {E : Type} [Group E] (κ : GLKind) (Gp M₁ M₂ : Subgroup E) (t : E) : Prop :=
+  t ∈ Gp ∧ t ≠ 1 ∧ t * t = 1 ∧
+    (if κ = GLKind.Sp4 then t ∈ ctr (oPPrime 2 (Gp ⊓ M₂))
+      else ¬ ∃ g ∈ Gp, g * t * g⁻¹ ∈ ctr (pCoreOf 2 (Gp ⊓ (M₁ ⊓ M₂))))
 
 @[expose] def IsShortRootInv {E : Type} [Group E] (κ : GLKind)
     (Gp M₁ M₂ : Subgroup E) (element : E) : Prop :=
@@ -1339,6 +1539,23 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
 open CFSG.ASVolI.ChF
 
+@[expose] def F_4_27_partial : Prop :=
+  ∀ (κ : GLKind) (f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E),
+    HypF_4_4 κ 2 f Gp M₁ M₂ → Gp = ⊤ →
+    ((κ = .L3 ∨ κ = .G2d) → Set.ncard (InvClasses E) = 1) ∧
+    (κ = .Sp4 → Set.ncard (InvClasses E) = 3 ∧
+      ∀ C ∈ InvClasses E, ClassMeetsCenter (pCoreOf 2 (M₁ ⊓ M₂)) C) ∧
+    ((κ ≠ .L3 ∧ κ ≠ .Sp4 ∧ κ ≠ .G2d) → Set.ncard (InvClasses E) = 2 ∧
+      ∃! C : ConjClasses E, C ∈ InvClasses E ∧ ClassMeetsCenter (pCoreOf 2 (M₁ ⊓ M₂)) C) ∧
+    (κ ≠ .L3 →
+      (∀ z ∈ ctr (oPPrime 2 M₁), z ≠ 1 →
+        (κ ≠ .G2d → z * z = 1) ∧ Subgroup.centralizer ({z} : Set E) ≤ M₁ ∧
+          oPPrime 2 M₁ = oPPrime 2 (Subgroup.centralizer ({z} : Set E)) ∧
+          ((κ ≠ .U4 ∧ κ ≠ .U5) → oPPrime 2 M₁ = Subgroup.centralizer ({z} : Set E))) ∧
+      (κ ≠ .G2d → ∃ t ∈ pCoreOf 2 M₂, IsShortRootInv κ Gp M₁ M₂ t ∧
+        Subgroup.centralizer ({t} : Set E) ≤ M₂)) ∧
+    (κ = .L3 → ∀ z ∈ ctr (pCoreOf 2 (M₁ ⊓ M₂)), z ≠ 1 →
+      pCoreOf 2 (M₁ ⊓ M₂) = pCoreOf 2 (Subgroup.centralizer ({z} : Set E)))
 
 @[expose] def F_4_27 : Prop :=
   ∀ (κ : GLKind) (f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E)
@@ -1705,6 +1922,42 @@ open CFSG.ASVolI.ChF
       s₂ ∉ MiOne β ε ⊓ MiTwo β ε ∧ s₂ * s₂ = 1
 
 
+theorem F_4_49.conditional (statement : F_4_49) : F_4_49_conditional := statement.1
+
+theorem F_4_49.exists_full_conclusions (statement : F_4_49)
+    (κ : GLKind) (f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E)
+    (Y : Type) [Group Y] (β : Cpl M₁ M₂ Y) (M : Type) [Group M]
+    (ε : Y →* M) (z : M) (hyp : HypF_4_31 κ f Gp M₁ M₂ β ε z)
+    (notL43 : ¬ IsL43 M) (kind : κ = .L3)
+    (T : Subgroup M) (sylow : IsSylowOf 2 T (MiOne β ε ⊓ MiTwo β ε))
+    (Bbar : Subgroup E) (hall : IsHallTwoPrime Bbar (M₁ ⊓ M₂)) :
+    ∃ s₁ s₂ : M,
+      s₁ ∈ MiOne β ε ∧ s₁ ∈ Subgroup.normalizer ((imB β ε Bbar : Subgroup M) : Set M) ∧
+      s₁ ∉ MiOne β ε ⊓ MiTwo β ε ∧ s₁ * s₁ = 1 ∧
+      s₂ ∈ MiTwo β ε ∧ s₂ ∈ Subgroup.normalizer ((imB β ε Bbar : Subgroup M) : Set M) ∧
+      s₂ ∉ MiOne β ε ⊓ MiTwo β ε ∧ s₂ * s₂ = 1 ∧
+      (cj s₁ (ctr T) ∈ BInvMembers (imB β ε Bbar) (ctr T) (pCoreOf 2 (oPPrime 2 (GiOne Gp β ε))) ∧
+        ∀ W ∈ BInvMembers (imB β ε Bbar) (ctr T) (pCoreOf 2 (oPPrime 2 (GiOne Gp β ε))),
+          W = cj s₁ (ctr T)) ∧
+      (cj s₂ (ctr T) ∈ BInvMembers (imB β ε Bbar) (ctr T) (pCoreOf 2 (oPPrime 2 (GiTwo Gp β ε))) ∧
+        ∀ W ∈ BInvMembers (imB β ε Bbar) (ctr T) (pCoreOf 2 (oPPrime 2 (GiTwo Gp β ε))),
+          W = cj s₂ (ctr T)) ∧
+      (∀ g ∈ Subgroup.normalizer ((imB β ε Bbar : Subgroup M) : Set M),
+        (∃ b ∈ imB β ε Bbar, b * g ≠ 1 ∧ (b * g) * (b * g) = 1) ∨ T ⊓ cj g T = T ∨
+          T ⊓ cj g T = cj s₁ (ctr T) ∨ T ⊓ cj g T = cj s₂ (ctr T)) ∧
+      ((s₁ * s₂) ^ 3 ∈ imB β ε Bbar ∧ s₁ * s₂ ∉ imB β ε Bbar) ∧
+      β.IsApartment κ.m {u : β.Γ | ∃ w : β.G0,
+        epsG β ε w ∈ Subgroup.closure {s₁, s₂} ⊔ imB β ε Bbar ∧
+          (u = w • β.xv ∨ u = w • β.lv)} := by
+  obtain ⟨s₁, s₂, memberOne, normalOne, outsideOne, invOne,
+    memberTwo, normalTwo, outsideTwo, invTwo⟩ :=
+    statement.2 κ f E Gp M₁ M₂ Y β M ε z hyp notL43 kind Bbar hall
+  have conclusions := statement.1 κ f E Gp M₁ M₂ Y β M ε z hyp notL43 kind
+    T sylow Bbar hall s₁ s₂ memberOne normalOne outsideOne invOne
+    memberTwo normalTwo outsideTwo invTwo
+  exact ⟨s₁, s₂, memberOne, normalOne, outsideOne, invOne,
+    memberTwo, normalTwo, outsideTwo, invTwo, conclusions⟩
+
 end CFSG.ASVolI
 
 namespace CFSG.ASVolI.ChF
@@ -1844,10 +2097,31 @@ open CFSG.Blueprint CFSG.Blueprint.Chevalley
 
 variable {E : Type} [Group E]
 
+@[expose] def IsSp4RootPair (f : ℕ) (Gp Xlong Xshort : Subgroup E) : Prop :=
+  Xlong ≤ Gp ∧ Xshort ≤ Gp ∧
+    ∃ (K : Type) (_ : Field K) (_ : Finite K), Nat.card K = 2 ^ f ∧
+      ∃ e : ↥Gp ≃* StatedProj (StatedSp 2 K),
+        (∀ x : ↥Gp, (x : E) ∈ Xlong ↔ ∃ (a : K) (A : ↥(StatedSp 2 K)),
+          e x = (QuotientGroup.mk A : StatedProj (StatedSp 2 K)) ∧
+          ((A : Matrix.GeneralLinearGroup (Fin 2 ⊕ Fin 2) K) :
+            Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) =
+              1 + Matrix.single (Sum.inl 0) (Sum.inr 0) a) ∧
+        (∀ x : ↥Gp, (x : E) ∈ Xshort ↔ ∃ (a : K) (A : ↥(StatedSp 2 K)),
+          e x = (QuotientGroup.mk A : StatedProj (StatedSp 2 K)) ∧
+          ((A : Matrix.GeneralLinearGroup (Fin 2 ⊕ Fin 2) K) :
+            Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) =
+              1 + Matrix.single (Sum.inl 0) (Sum.inr 1) a +
+                Matrix.single (Sum.inl 1) (Sum.inr 0) a)
 
 @[expose] def cenIn (Gp : Subgroup E) (t : E) : Subgroup E :=
   Gp ⊓ Subgroup.centralizer ({t} : Set E)
 
+@[expose] def LegacyFieldCentralizerInv (κ : GLKind) (f : ℕ) (Gp : Subgroup E) (t : E) : Prop :=
+  t ∉ Gp ∧ t * t = 1 ∧ κ ≠ GLKind.U4 ∧ κ ≠ GLKind.U5 ∧
+    ∃ f₀ : ℕ, f = 2 * f₀ ∧ IsGenLie ↥(cenIn Gp t) κ 2 f₀
+
+@[expose] def LegacyGraphCentralizerInv (κ : GLKind) (f : ℕ) (Gp : Subgroup E) (t : E) : Prop :=
+  t ∉ Gp ∧ t * t = 1 ∧ (κ = GLKind.U4 ∨ κ = GLKind.U5) ∧ IsGenLie ↥(cenIn Gp t) GLKind.Sp4 2 f
 
 @[expose] def HasMatrixFieldAction {ι : Type} [Fintype ι] [DecidableEq ι]
     (K : Type) [Field K] (H : Subgroup (Matrix.GeneralLinearGroup ι K))
@@ -1921,6 +2195,12 @@ variable {E : Type} [Group E]
   κ = GLKind.U4 ∧ ∃ s z : E, t = s * z ∧ IsGraphInv κ f Gp s ∧ IsSp4LongRootInv (cenIn Gp s) z ∧
     s * z = z * s
 
+@[expose] def IsL3RootGroup (Gp : Subgroup E) (X : Subgroup E) : Prop :=
+  X ≤ Gp ∧ ∃ (K : Type) (_ : Field K) (_ : Finite K) (e : ↥Gp ≃* StatedProj (StatedSL 3 K))
+    (v w : Fin 3 → K), v ≠ 0 ∧ w ≠ 0 ∧ (∑ i, w i * v i) = 0 ∧
+    ∀ x : ↥Gp, (x : E) ∈ X ↔ ∃ (a : K) (A : ↥(StatedSL 3 K)),
+      e x = (QuotientGroup.mk A : StatedProj (StatedSL 3 K)) ∧
+      ((A : Matrix.GeneralLinearGroup (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = 1 + a • Matrix.vecMulVec v w
 
 def NativeRepresentativeAction {Representatives Model : Type}
     [Group Representatives] [Group Model] (Gp : Subgroup E)
@@ -2091,6 +2371,16 @@ def NativeChart.GraphFixedMarkingGoal {kind : GLKind} {degree : ℕ} {Gp : Subgr
             conjugator * ⟨element, hElement⟩ * conjugator⁻¹ ∈
               marking.root .longOne false)
 
+def UnitaryMarkedRootRankGoal : Prop :=
+  ∀ classical degree (H : Type) [Group H]
+    (marking : ClassicalRoots.Marking classical 2 degree H),
+    (classical = .U4 ∨ classical = .U5) →
+    ∀ parameter central : marking.field,
+      parameter ≠ 0 →
+      Matrix.rank (ClassicalRoots.markedMatrix classical (2 ^ degree) marking.basis
+        .sum false parameter central - 1) = 2 ∧
+      (ClassicalRoots.markedMatrix classical (2 ^ degree) marking.basis
+        .sum false parameter central) ^ 2 = 1
 
 end FieldGraph
 
@@ -2161,6 +2451,37 @@ open CFSG.ASVolI.ChF
     ∀ Tb : Subgroup E, IsSylowOf 2 Tb (M₁ ⊓ M₂) →
     ∀ fb : ↥(M₁ ⊓ M₂), (fb : E) ∈ Tb → chart.IsGraphInv (fb : E) →
       ¬ IsConj z (bM β ε fb)
+
+@[expose] def F_4_37_partial : Prop :=
+  ∀ (κ : GLKind) (f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E) (Y : Type) [Group Y]
+    (β : Cpl M₁ M₂ Y) (M : Type) [Group M] (ε : Y →* M) (z : M),
+    HypF_4_31 κ f Gp M₁ M₂ β ε z →
+    ∀ Tb : Subgroup E, IsSylowOf 2 Tb (M₁ ⊓ M₂) →
+    ∀ fb : ↥(M₁ ⊓ M₂), (fb : E) ∈ Tb →
+      (fb : E) ∉ pCoreOf 2 (Gp ⊓ (M₁ ⊓ M₂)) → (fb : E) * (fb : E) = 1 →
+      (IsFieldInv κ f Gp (fb : E) ∨ IsGraphInv κ f Gp (fb : E)) →
+      IsSylowOf 2 (pCoreOf 2 (Gp ⊓ (M₁ ⊓ M₂)) ⊓ Subgroup.centralizer ({(fb : E)} : Set E))
+        (cenIn Gp (fb : E)) →
+      (((∃ f₀ : ℕ, f = 2 * f₀ ∧ κ ≠ .U4 ∧ κ ≠ .U5 ∧ IsGenLie ↥(cenIn Gp (fb : E)) κ 2 f₀) ∨
+          ((κ = .U4 ∨ κ = .U5) ∧ IsGenLie ↥(cenIn Gp (fb : E)) GLKind.Sp4 2 f)) ∧
+      (cenIn (Gp ⊓ M₁) (fb : E) ⊔ cenIn (Gp ⊓ M₂) (fb : E) = cenIn Gp (fb : E) ∧
+        ((cenIn (Gp ⊓ M₁) (fb : E)).subgroupOf M₁).map (f1 (c := β)) ⊓
+            ((cenIn (Gp ⊓ M₂) (fb : E)).subgroupOf M₂).map (f2 (c := β)) =
+          ((cenIn (Gp ⊓ (M₁ ⊓ M₂)) (fb : E)).subgroupOf (M₁ ⊓ M₂)).map (bmap β)) ∧
+      ((∀ e ∈ Subgroup.centralizer ({(fb : E)} : Set E), ∀ d ∈ cenIn Gp (fb : E),
+          e * d * e⁻¹ ∈ cenIn Gp (fb : E)) ∧
+        Subgroup.centralizer ((cenIn Gp (fb : E) : Subgroup E) : Set E) ⊓
+            Subgroup.centralizer ({(fb : E)} : Set E) = Subgroup.zpowers (fb : E) ∧
+        (∀ e ∈ Subgroup.centralizer ({(fb : E)} : Set E), ∃ d ∈ cenIn Gp (fb : E),
+          ∃ h ∈ Subgroup.centralizer ({(fb : E)} : Set E) ⊓ (M₁ ⊓ M₂), e = d * h) ∧
+        (∀ g ∈ Subgroup.centralizer ({(fb : E)} : Set E),
+          g ∈ Subgroup.normalizer ((cenIn (Gp ⊓ (M₁ ⊓ M₂)) (fb : E) : Subgroup E) : Set E) →
+            g ∈ Subgroup.normalizer ((cenIn (Gp ⊓ M₁) (fb : E) : Subgroup E) : Set E)) ∧
+        IsLieParabolics 2 (cenIn Gp (fb : E)) (cenIn (Gp ⊓ (M₁ ⊓ M₂)) (fb : E))
+          (cenIn (Gp ⊓ M₁) (fb : E)) (cenIn (Gp ⊓ M₂) (fb : E)))) ∧
+      (IsSylowOf 2 (imB β ε Tb ⊓ Subgroup.centralizer ({bM β ε fb} : Set M))
+          (Subgroup.centralizer ({bM β ε fb} : Set M)) ∨
+        (κ = .U4 ∧ f = 1 ∧ Nonempty (E ≃* MulAut ↥Gp) ∧ Nonempty (E ≃* β.G0) ∧ IsL43 M))
 
 
 end CFSG.ASVolI
@@ -2270,10 +2591,30 @@ variable {E Y : Type} [Group E] [Group Y]
         (∀ generator, extensionCompletion.φ2 generator = generator.val) ∧
         (∀ edge, extensionCompletion.φ12 edge = edge.val)
 
+@[expose] def F437CentralizerAssembly : Prop :=
+  ∀ (κ : GLKind) (degree : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E)
+    (Y : Type) [Group Y] (β : Cpl M₁ M₂ Y) (M : Type) [Group M]
+    (ε : Y →* M) (z : M), HypF_4_31 κ degree Gp M₁ M₂ β ε z →
+    ∀ Tb : Subgroup E, IsSylowOf 2 Tb (M₁ ⊓ M₂) →
+    ∀ fb : ↥(M₁ ⊓ M₂), (fb : E) ∈ Tb →
+      (fb : E) ∉ pCoreOf 2 (Gp ⊓ (M₁ ⊓ M₂)) →
+      (fb : E) * (fb : E) = 1 →
+      (IsFieldInv κ degree Gp (fb : E) ∨ IsGraphInv κ degree Gp (fb : E)) →
+      IsSylowOf 2
+        (pCoreOf 2 (Gp ⊓ (M₁ ⊓ M₂)) ⊓ Subgroup.centralizer ({(fb : E)} : Set E))
+        (cenIn Gp (fb : E)) →
+      F437RestrictionAssembly Gp M₁ M₂ β (fb : E) ∧
+      ((∃ subfieldDegree : ℕ, degree = 2 * subfieldDegree ∧ κ ≠ .U4 ∧ κ ≠ .U5 ∧
+          F437QuotientAssembly Gp M₁ M₂ (fb : E) κ subfieldDegree) ∨
+        ((κ = .U4 ∨ κ = .U5) ∧
+          F437QuotientAssembly Gp M₁ M₂ (fb : E) .Sp4 degree))
 
 end CFSG.ASVolI.ChF
 
 namespace CFSG.ASVolI
+
+@[expose] def F_4_37_fieldGraph_partial : Prop :=
+  F_4_37_partial ∧ ChF.F437CentralizerAssembly
 
 
 open CFSG.Open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam
@@ -2327,12 +2668,21 @@ open CFSG.ASVolI.ChF
 
 @[expose] def F_4_44 : Prop := F_4_44_partial
 
+theorem F_4_44.partial (statement : F_4_44) : F_4_44_partial := statement
 
 end CFSG.ASVolI
 
 namespace CFSG.ASVolI.ChF.G2Native
 
 variable (K : Type) [Field K] {H : Type} [Group H]
+
+def fullEvenShortCompatibilityGoal : Prop :=
+  ∀ exponent : ℕ, 1 ≤ exponent → Nat.card K = 2 ^ exponent →
+    ∀ marking : FullModel K ≃* H, ∀ element : H,
+      LegacyShortRootInv GLKind.G2 (⊤ : Subgroup H)
+        (fullImage K marking (pointParabolic K))
+        (fullImage K marking (lineParabolic K)) element ↔
+      fullRootInvolution K marking highestShort element
 
 
 end CFSG.ASVolI.ChF.G2Native
@@ -2364,6 +2714,8 @@ def Marking.image {native : OrderedDictionary Model} {core : Subgroup E}
 def Marking.borel {native : OrderedDictionary Model} {core : Subgroup E}
     (marking : Marking native core) : Subgroup E := marking.image native.borel
 
+def Marking.points {native : OrderedDictionary Model} {core : Subgroup E}
+    (marking : Marking native core) : Subgroup E := marking.image native.pointParabolic
 
 def Marking.lines {native : OrderedDictionary Model} {core : Subgroup E}
     (marking : Marking native core) : Subgroup E := marking.image native.lineParabolic
@@ -2374,6 +2726,68 @@ def Marking.longRoot {native : OrderedDictionary Model} {core : Subgroup E}
 def Marking.shortRoot {native : OrderedDictionary Model} {core : Subgroup E}
     (marking : Marking native core) : Subgroup E := marking.image native.shortRoot
 
+structure ExtensionFrame (native : OrderedDictionary Model)
+    (core first second : Subgroup E) where
+  marking : Marking native core
+  finite : Finite E
+  normal : core.Normal
+  centralizer_trivial : Subgroup.centralizer (core : Set E) = ⊥
+  middle_eq : core ⊓ (first ⊓ second) = marking.borel
+  first_eq : core ⊓ first = marking.points
+  second_eq : core ⊓ second = marking.lines
+  generated : first ⊔ second = ⊤
+  split : ∀ element : E, ∃ inner ∈ core, ∃ middle ∈ first ⊓ second,
+    element = inner * middle
+  fixes_point_type : ∀ element : E,
+    element ∈ Subgroup.normalizer (marking.borel : Set E) →
+      element ∈ Subgroup.normalizer (marking.points : Set E)
+  fixes_line_type : ∀ element : E,
+    element ∈ Subgroup.normalizer (marking.borel : Set E) →
+      element ∈ Subgroup.normalizer (marking.lines : Set E)
+
+def imageInFirst (first : Subgroup E) {second : Subgroup E} (completion : Cpl first second Y)
+    (localSubgroup : Subgroup E) : Subgroup Y :=
+  (localSubgroup.subgroupOf first).map completion.φ1
+
+def imageInSecond (second : Subgroup E) {first : Subgroup E} (completion : Cpl first second Y)
+    (localSubgroup : Subgroup E) : Subgroup Y :=
+  (localSubgroup.subgroupOf second).map completion.φ2
+
+def imageInMiddle (first second : Subgroup E) (completion : Cpl first second Y)
+    (localSubgroup : Subgroup E) : Subgroup Y :=
+  (localSubgroup.subgroupOf (first ⊓ second)).map completion.φ12
+
+structure CompletionFrame (native : OrderedDictionary Model)
+    (core first second : Subgroup E) (completion : Cpl first second Y)
+    extends ExtensionFrame native core first second where
+  faithful : completion.IsFaithful
+
+def CompletionFrame.borelImage {native : OrderedDictionary Model}
+    {core first second : Subgroup E} {completion : Cpl first second Y}
+    (frame : CompletionFrame native core first second completion) : Subgroup Y :=
+  imageInMiddle first second completion frame.marking.borel
+
+def CompletionFrame.pointImage {native : OrderedDictionary Model}
+    {core first second : Subgroup E} {completion : Cpl first second Y}
+    (frame : CompletionFrame native core first second completion) : Subgroup Y :=
+  imageInFirst first completion frame.marking.points
+
+def CompletionFrame.lineImage {native : OrderedDictionary Model}
+    {core first second : Subgroup E} {completion : Cpl first second Y}
+    (frame : CompletionFrame native core first second completion) : Subgroup Y :=
+  imageInSecond second completion frame.marking.lines
+
+def CompletionFrame.generatedCoreImage {native : OrderedDictionary Model}
+    {core first second : Subgroup E} {completion : Cpl first second Y}
+    (frame : CompletionFrame native core first second completion) : Subgroup Y :=
+  frame.pointImage ⊔ frame.lineImage
+
+def theoremF431Scope (kind : GLKind) (exponent : ℕ) : Prop :=
+  kind ≠ .G2d ∧ ¬ (kind = .L3 ∧ exponent = 1)
+
+def alternatingSixCompletion (first second : Subgroup E)
+    (completion : Cpl first second Y) : Prop :=
+  completion.IsFaithful ∧ Nonempty (Y ≃* alternatingGroup (Fin 6))
 
 variable (K : Type) [Field K]
 
@@ -2410,6 +2824,43 @@ def tits : OrderedDictionary
   longRoot := ExceptionalRoots.derivedImage _ (ExceptionalRoots.reeLongRoot K 0)
   shortRoot := ExceptionalRoots.derivedImage _ (ExceptionalRoots.reeShortRoot K 0)
 
+def g2Full : OrderedDictionary (G2Native.FullModel K) where
+  borel := G2Native.fullLocal K (G2Native.positiveBorel K)
+  pointParabolic := G2Native.fullLocal K (G2Native.pointParabolic K)
+  lineParabolic := G2Native.fullLocal K (G2Native.lineParabolic K)
+  longRoot := G2Native.fullLocal K (G2Native.longRoot K)
+  shortRoot := G2Native.fullLocal K (G2Native.shortRoot K)
+
+def g2Derived : OrderedDictionary (G2Native.SmallModel K) where
+  borel := G2Native.smallLocal K (G2Native.positiveBorel K)
+  pointParabolic := G2Native.smallLocal K (G2Native.pointParabolic K)
+  lineParabolic := G2Native.smallLocal K (G2Native.lineParabolic K)
+  longRoot := G2Native.smallLocal K (G2Native.longRoot K)
+  shortRoot := G2Native.smallLocal K (G2Native.shortRoot K)
+
+def reeOrderedLocalsGoal : Prop :=
+  ∀ exponent : ℕ, ExceptionalRoots.ReeScope K exponent →
+    let native := ree K exponent
+    let q := 2 ^ (2 * exponent + 1)
+    IsLieParabolics 2 (⊤ : Subgroup
+      (ExceptionalRoots.reeGroup K exponent ⧸
+        Subgroup.center (ExceptionalRoots.reeGroup K exponent)))
+      native.borel native.pointParabolic native.lineParabolic ∧
+    native.borel.relIndex native.pointParabolic = q ^ 2 + 1 ∧
+    native.borel.relIndex native.lineParabolic = q + 1 ∧
+    native.pointParabolic ≤ Subgroup.normalizer (native.longRoot : Set _)
+
+def trialityOrderedLocalsGoal : Prop :=
+  ∀ (sigma : K →+* K) (prime degree : ℕ),
+    ExceptionalRoots.TrialityScope K sigma prime degree →
+    let native := triality K sigma
+    let q := prime ^ degree
+    IsLieParabolics prime (⊤ : Subgroup
+      (CFSG.Blueprint.DerivedCentralQuotient (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)))
+      native.borel native.pointParabolic native.lineParabolic ∧
+    native.borel.relIndex native.pointParabolic = q ^ 3 + 1 ∧
+    native.borel.relIndex native.lineParabolic = q + 1 ∧
+    native.pointParabolic ≤ Subgroup.normalizer (native.longRoot : Set _)
 
 def titsParentAssemblyGoal : Prop :=
   ExceptionalRoots.ReeScope K 0 →
@@ -2447,6 +2898,37 @@ namespace CFSG.ASVolI.ChF
 open CFSG.Open CFSG.Quasithin CFSG.Blueprint CFSG.Blueprint.Chevalley
 open CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
 
+@[expose] def NativeChartCompatibilityGoal : Prop :=
+  ∀ (kind : GLKind) (prime degree : ℕ) (E : Type) [Group E]
+    (core : Subgroup E) (chart : NativeChart kind prime degree core),
+      IsLieParabolics prime core chart.borel chart.points chart.lines ∧
+        (kind ≠ .L3 → chart.points ≤ Subgroup.normalizer (chart.longRoot : Set E))
+
+@[expose] def NativeChartExistenceGoal : Prop :=
+  ∀ (kind : GLKind) (prime degree : ℕ) (E : Type) [Group E] (core : Subgroup E),
+    IsGenLie core kind prime degree → Nonempty (NativeChart kind prime degree core)
+
+@[expose] def ExceptionalChartInvolutionGoal : Prop :=
+  ∀ (kind : GLKind) (degree : ℕ) (E : Type) [Group E]
+    (core : Subgroup E) (chart : NativeChart kind 2 degree core),
+    (kind = .G2d →
+      (∃ representative ∈ chart.longRoot,
+        representative ≠ 1 ∧ representative * representative = 1) ∧
+      ∀ element : E, element ∈ core → element ≠ 1 → element * element = 1 →
+        chart.RootInvolution false element) ∧
+    ((kind = .D4tw ∨ kind = .F4tw ∨ kind = .Tits) →
+      ∃ long ∈ chart.longRoot, ∃ short ∈ chart.shortRoot,
+        long ≠ 1 ∧ long * long = 1 ∧ short ≠ 1 ∧ short * short = 1 ∧
+        (¬ ∃ conjugator ∈ core, conjugator * long * conjugator⁻¹ = short) ∧
+        (∀ element : E, chart.RootInvolution false element ↔
+          element ∈ core ∧ ∃ conjugator ∈ core,
+            conjugator * element * conjugator⁻¹ = long) ∧
+        (∀ element : E, chart.RootInvolution true element ↔
+          element ∈ core ∧ ∃ conjugator ∈ core,
+            conjugator * element * conjugator⁻¹ = short) ∧
+        (∀ element : E, element ∈ core → element ≠ 1 → element * element = 1 →
+          chart.RootInvolution false element ∨ chart.RootInvolution true element))
+
 
 end CFSG.ASVolI.ChF
 
@@ -2454,6 +2936,121 @@ namespace CFSG.ASVolI.ChF
 
 open CFSG.Open
 
+
+theorem burnsideF4a_relIndex_ge_three {E : Type} [Group E] [Finite E] {p : ℕ} (hp : p.Prime)
+    {H B P : Subgroup E} (hBP : B ≤ P) (hPH : P ≤ H) (hne : B ≠ P)
+    (hS : ∃ S : Subgroup E, IsSylowOf p S H ∧ B = H ⊓ Subgroup.normalizer (S : Set E)) :
+    3 ≤ B.relIndex P := by
+  obtain ⟨S, ⟨hSH, hSp, hSidx⟩, hB⟩ := hS
+  haveI : Fact p.Prime := ⟨hp⟩
+  have hSB : S ≤ B := by
+    rw [hB]; exact le_inf hSH Subgroup.le_normalizer
+  have hSP : S ≤ P := hSB.trans hBP
+  have h1 : IsPGroup p (S.subgroupOf P) := hSp.comap_subtype
+  have hdvd : S.relIndex P ∣ S.relIndex H :=
+    ⟨P.relIndex H, (Subgroup.relIndex_mul_relIndex S P H hSP hPH).symm⟩
+  have h2 : ¬ p ∣ (S.subgroupOf P).index := fun h => hSidx (h.trans hdvd)
+  let T : Sylow p ↥P := h1.toSylow h2
+  have hN : Subgroup.normalizer (T : Set ↥P) = B.subgroupOf P := by
+    ext x
+    show x ∈ Subgroup.normalizer ((S.subgroupOf P : Subgroup ↥P) : Set ↥P) ↔ x ∈ B.subgroupOf P
+    rw [Subgroup.mem_normalizer_iff, Subgroup.mem_subgroupOf, hB, Subgroup.mem_inf,
+      Subgroup.mem_normalizer_iff]
+    constructor
+    · intro hx
+      refine ⟨hPH x.2, fun y => ?_⟩
+      constructor
+      · intro hy
+        exact (hx ⟨y, hSP hy⟩).1 hy
+      · intro hy
+        have hyP : y ∈ P := by
+          have hxinv : (x : E)⁻¹ * ((x : E) * y * (x : E)⁻¹) * (x : E) ∈ P :=
+            P.mul_mem (P.mul_mem (P.inv_mem x.2) (hSP hy)) x.2
+          simpa [mul_assoc] using hxinv
+        exact (hx ⟨y, hyP⟩).2 hy
+    · rintro ⟨-, hx⟩ y
+      exact hx y
+  have hcard : Nat.card (Sylow p ↥P) = B.relIndex P := by
+    rw [Sylow.card_eq_index_normalizer T, hN]; rfl
+  have hmod : Nat.card (Sylow p ↥P) ≡ 1 [MOD p] := card_sylow_modEq_one p ↥P
+  have hne1 : B.relIndex P ≠ 1 := fun h => hne (le_antisymm hBP (Subgroup.relIndex_eq_one.mp h))
+  have hpos : 0 < B.relIndex P := hcard ▸ Nat.card_pos
+  have hp2 := hp.two_le
+  have h1p : 1 % p = 1 := Nat.mod_eq_of_lt hp.one_lt
+  have hmod' : B.relIndex P % p = 1 := by
+    have := hmod
+    unfold Nat.ModEq at this
+    rw [hcard, h1p] at this
+    exact this
+  have hdm := Nat.div_add_mod (B.relIndex P) p
+  rw [hmod'] at hdm
+  have hq : 1 ≤ B.relIndex P / p := by
+    refine Nat.one_le_iff_ne_zero.mpr fun h0 => hne1 ?_
+    rw [h0, mul_zero, zero_add] at hdm
+    exact hdm.symm
+  have : p * 1 ≤ p * (B.relIndex P / p) := Nat.mul_le_mul_left p hq
+  omega
+
+theorem burnsideF4a_parabolics_bounds {E : Type} [Group E] {p : ℕ} {H B P₁ P₂ : Subgroup E}
+    (h : IsLieParabolics p H B P₁ P₂) :
+    B ≤ P₁ ∧ P₁ ≤ H ∧ B ≠ P₁ ∧ B ≤ P₂ ∧ P₂ ≤ H ∧ B ≠ P₂ := by
+  obtain ⟨-, hne, -, hmax⟩ := h
+  have h1 := (hmax P₁).2 (Or.inl rfl)
+  have h2 := (hmax P₂).2 (Or.inr rfl)
+  refine ⟨h1.1, h1.2.1, ?_, h2.1, h2.2.1, ?_⟩
+  · intro hB
+    by_cases hlt : B < P₂
+    · exact h2.2.2.1 (h1.2.2.2 P₂ (hB ▸ hlt) h2.2.1)
+    · exact hne (hB ▸ eq_of_le_of_not_lt h2.1 hlt)
+  · intro hB
+    by_cases hlt : B < P₁
+    · exact h1.2.2.1 (h2.2.2.2 P₁ (hB ▸ hlt) h1.2.1)
+    · exact hne (hB ▸ (eq_of_le_of_not_lt h1.1 hlt).symm)
+
+open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion in
+theorem burnsideF4a_thick {E : Type} [Group E] [Finite E] {p : ℕ} (hp : p.Prime)
+    {Gp M₁ M₂ : Subgroup E}
+    (hP : IsLieParabolics p Gp (Gp ⊓ (M₁ ⊓ M₂)) (Gp ⊓ M₁) (Gp ⊓ M₂)) :
+    2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qOne ∧ 2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qTwo := by
+  obtain ⟨hB1, hP1, hne1, hB2, hP2, hne2⟩ := burnsideF4a_parabolics_bounds hP
+  have h31 := burnsideF4a_relIndex_ge_three hp hB1 hP1 hne1 hP.1
+  have h32 := burnsideF4a_relIndex_ge_three hp hB2 hP2 hne2 hP.1
+  refine ⟨?_, ?_⟩
+  · have hle : (Gp ⊓ (M₁ ⊓ M₂)).relIndex (Gp ⊓ M₁) ≤ (M₁ ⊓ M₂).relIndex M₁ := by
+      have e : Gp ⊓ (M₁ ⊓ M₂) = (M₁ ⊓ M₂) ⊓ (Gp ⊓ M₁) := by
+        ext x; simp only [Subgroup.mem_inf]; tauto
+      rw [e, Subgroup.inf_relIndex_right]
+      exact Subgroup.relIndex_le_of_le_right inf_le_right
+        Subgroup.index_ne_zero_of_finite
+    have : 3 ≤ (M₁ ⊓ M₂).relIndex M₁ := h31.trans hle
+    show 2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).α1.range.index - 1
+    rw [show (RankTwoAmalgam.ofSubgroups M₁ M₂).α1.range = (M₁ ⊓ M₂).subgroupOf M₁ from
+      Subgroup.inclusion_range (inf_le_left : M₁ ⊓ M₂ ≤ M₁)]
+    exact Nat.le_sub_of_add_le this
+  · have hle : (Gp ⊓ (M₁ ⊓ M₂)).relIndex (Gp ⊓ M₂) ≤ (M₁ ⊓ M₂).relIndex M₂ := by
+      have e : Gp ⊓ (M₁ ⊓ M₂) = (M₁ ⊓ M₂) ⊓ (Gp ⊓ M₂) := by
+        ext x; simp only [Subgroup.mem_inf]; tauto
+      rw [e, Subgroup.inf_relIndex_right]
+      exact Subgroup.relIndex_le_of_le_right inf_le_right
+        Subgroup.index_ne_zero_of_finite
+    have : 3 ≤ (M₁ ⊓ M₂).relIndex M₂ := h32.trans hle
+    show 2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).α2.range.index - 1
+    rw [show (RankTwoAmalgam.ofSubgroups M₁ M₂).α2.range = (M₁ ⊓ M₂).subgroupOf M₂ from
+      Subgroup.inclusion_range (inf_le_right : M₁ ⊓ M₂ ≤ M₂)]
+    exact Nat.le_sub_of_add_le this
+
+theorem burnsideF4a_prime_of_isGenLie {H : Type} [Group H] {κ : GLKind} {p f : ℕ}
+    (h : IsGenLie H κ p f) : p.Prime := by
+  cases κ
+  · exact h.1
+  · exact h.1
+  · exact h.1
+  · exact h.1
+  · exact h.1 ▸ Nat.prime_two
+  · exact h.1
+  · exact h.1
+  · exact h.1 ▸ Nat.prime_two
+  · exact h.1 ▸ Nat.prime_two
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion in
 theorem burnsideF4a_two_lt_encard_nbrs {α : RankTwoAmalgam.{0}} {Y : Type} [Group Y]
@@ -2486,6 +3083,16 @@ theorem burnsideF4a_hval {α : RankTwoAmalgam.{0}} {Y : Type} [Group Y] {c : α.
   CosetGeom.exists_nbr_ne (burnsideF4a_two_lt_encard_nbrs hc h1 h2).1
     (burnsideF4a_two_lt_encard_nbrs hc h1 h2).2 v a b
 
+open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion in
+theorem burnsideF4a_thick_of_hyp (hcompat : NativeChartCompatibilityGoal) {κ : GLKind}
+    {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E} (hyp : HypF_4_4g κ p f Gp M₁ M₂) :
+    2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qOne ∧ 2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qTwo := by
+  haveI := hyp.finite
+  have hp := burnsideF4a_prime_of_isGenLie hyp.model
+  obtain ⟨h1, h2, h3⟩ := hyp.chart_matches
+  have hlp := (hcompat κ p f E Gp hyp.chart).1
+  rw [← h1, ← h2, ← h3] at hlp
+  exact burnsideF4a_thick hp hlp
 
 end CFSG.ASVolI.ChF
 
@@ -2495,28 +3102,163 @@ universe u v w
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_card_kernels {D : Type u} [Preorder D] {α : Amalgam.{u, v} D} {G : Type w}
+    [Group G] (μ : Amalgam.Completion α G) :
+    Nat.card ↥{K : Subgroup (Amalgam.gp α) |
+        ∃ a : Amalgam.Aut α, K = (Amalgam.Completion.act a μ).hat.ker} =
+      (Amalgam.Completion.stabilizer μ).index := by
+  classical
+  let f : Amalgam.Aut α → Subgroup (Amalgam.gp α) := fun a => (Amalgam.Completion.act a μ).hat.ker
+  have key : ∀ a b : Amalgam.Aut α,
+      f a = f b ↔ a⁻¹ * b ∈ Amalgam.Completion.stabilizer μ := by
+    intro a b
+    show (Amalgam.Completion.act a μ).hat.ker = (Amalgam.Completion.act b μ).hat.ker ↔ _
+    rw [← Amalgam.Completion.isEquivalent_iff_ker_hat_eq, Amalgam.Completion.mem_stabilizer]
+    constructor
+    · intro h
+      have h1 := Amalgam.Completion.IsEquivalent.act h a⁻¹
+      rw [Amalgam.Completion.act_inv_act, ← Amalgam.Completion.act_mul] at h1
+      exact h1.symm
+    · intro h
+      have h1 := Amalgam.Completion.IsEquivalent.act h a
+      rw [← Amalgam.Completion.act_mul, mul_inv_cancel_left] at h1
+      exact h1.symm
+  have hset : {K : Subgroup (Amalgam.gp α) | ∃ a, K = f a} = Set.range f := by
+    ext K
+    simp only [Set.mem_setOf_eq, Set.mem_range]
+    exact ⟨fun ⟨a, ha⟩ => ⟨a, ha.symm⟩, fun ⟨a, ha⟩ => ⟨a, ha.symm⟩⟩
+  rw [hset]
+  let g : Amalgam.Aut α ⧸ Amalgam.Completion.stabilizer μ → Set.range f :=
+    Quotient.lift (fun a => (⟨f a, a, rfl⟩ : Set.range f)) (by
+      intro a b hab
+      exact Subtype.ext ((key a b).2 (QuotientGroup.leftRel_apply.mp hab)))
+  have hg : Function.Bijective g := by
+    constructor
+    · intro x y hxy
+      induction x using Quotient.inductionOn with | _ a =>
+      induction y using Quotient.inductionOn with | _ b =>
+      exact Quotient.sound (QuotientGroup.leftRel_apply.mpr ((key a b).1 (congrArg Subtype.val hxy)))
+    · rintro ⟨K, a, rfl⟩
+      exact ⟨Quotient.mk _ a, rfl⟩
+  exact (Nat.card_congr (Equiv.ofBijective g hg)).symm
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_F411_two {E : Type} [Group E] {M₁ M₂ : Subgroup E}
+    (ι : Cpl M₁ M₂ ↥(M₁ ⊔ M₂)) (hι : ι.toCompletion.IsFaithful) :
+    Nat.card ↥{K : Subgroup (Amalgam.gp (RankTwoAmalgam.ofSubgroups M₁ M₂).toAmalgam) |
+          ∃ a : Amalgam.Aut (RankTwoAmalgam.ofSubgroups M₁ M₂).toAmalgam,
+            K = ((Amalgam.Completion.act a ι.toCompletion).hat).ker} =
+        ((Amalgam.Completion.sigma ι.toCompletion hι).range).index := by
+  rw [Amalgam.Completion.range_sigma]
+  exact burnsideF4a_card_kernels ι.toCompletion
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_F411_one_mp {κ : GLKind} {p f : ℕ} {E : Type} [Group E]
+    {Gp M₁ M₂ : Subgroup E} (hyp : HypF_4_4 κ p f Gp M₁ M₂) {Y : Type} [Group Y]
+    (μ : Cpl M₁ M₂ Y) (ι : Cpl M₁ M₂ ↥(M₁ ⊔ M₂))
+    (h : Amalgam.Completion.IsQuasiEquivalent μ.toCompletion ι.toCompletion) :
+    Nonempty (E ≃* μ.G0) := by
+  obtain ⟨φ, -, -⟩ := h
+  have h1 : M₁ ⊔ M₂ = ⊤ := hyp.gen
+  have h2 : μ.φ1.range ⊔ μ.φ2.range = ⊤ := μ.gen
+  exact ⟨((Subgroup.topEquiv (G := E)).symm.trans (MulEquiv.subgroupCongr h1.symm)).trans
+    (φ.symm.trans ((Subgroup.topEquiv (G := Y)).symm.trans (MulEquiv.subgroupCongr h2.symm)))⟩
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+def burnsideF4a_F411Rigid : Prop :=
+  ∀ (κ : GLKind) (p f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E),
+    HypF_4_4 κ p f Gp M₁ M₂ →
+    ∀ ι : Cpl M₁ M₂ ↥(M₁ ⊔ M₂), ι = incl M₁ M₂ →
+    ∀ (Y : Type) [Group Y] (μ : Cpl M₁ M₂ Y), μ.IsFaithful → Nonempty (E ≃* μ.G0) →
+      Amalgam.Completion.IsQuasiEquivalent μ.toCompletion ι.toCompletion
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_F411_of_rigid (hR : burnsideF4a_F411Rigid) : F_4_11 := by
+  intro κ p f E _ Gp M₁ M₂ hyp ι hι
+  refine ⟨fun Y _ μ hμ => ⟨fun h => burnsideF4a_F411_one_mp hyp μ ι h,
+    fun h => hR κ p f E Gp M₁ M₂ hyp ι hι Y μ hμ h⟩, fun hι' => ?_⟩
+  exact burnsideF4a_F411_two ι hι'
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_F46_three {E : Type} [Group E] {M₁ M₂ : Subgroup E} {Y : Type} [Group Y]
+    (β : Cpl M₁ M₂ Y) (hβ : β.IsFaithful) (ι : Cpl M₁ M₂ ↥(M₁ ⊔ M₂)) (hι : ι.IsFaithful) :
+    (∃ r : PermQuasiEquiv ↥(stv ι ι.xv) (PathSet ι.graph ι.xv) ↥(stv β β.xv) (PathSet β.graph β.xv),
+        (∀ a : (RankTwoAmalgam.ofSubgroups M₁ M₂).G1,
+          ((r.grp ⟨f1 (c := ι) a, MulAction.mem_stabilizer_iff.mpr (f1_smul_xv a)⟩ : ↥(stv β β.xv)) :
+            β.G0) = f1 (c := β) a) ∧
+        ∀ pp : PathSet ι.graph ι.xv, (r.set pp).1 = pp.1 ∧ (pp.NoBack ↔ (r.set pp).NoBack)) ∧
+    (∃ r : PermQuasiEquiv ↥(stv ι ι.lv) (PathSet ι.graph ι.lv) ↥(stv β β.lv) (PathSet β.graph β.lv),
+        (∀ a : (RankTwoAmalgam.ofSubgroups M₁ M₂).G2,
+          ((r.grp ⟨f2 (c := ι) a, MulAction.mem_stabilizer_iff.mpr (f2_smul_lv a)⟩ : ↥(stv β β.lv)) :
+            β.G0) = f2 (c := β) a) ∧
+        ∀ pp : PathSet ι.graph ι.lv, (r.set pp).1 = pp.1 ∧ (pp.NoBack ↔ (r.set pp).NoBack)) := by
+  refine ⟨?_, ?_⟩
+  · obtain ⟨q, h1, h2, h3⟩ := lemma_F46_3_x ι β hι hβ
+    refine ⟨q, fun a => ?_, fun pp => ⟨h2 pp, (h3 pp).symm⟩⟩
+    exact congrArg Subtype.val (h1 a ⟨f1 (c := ι) a, MulAction.mem_stabilizer_iff.mpr (f1_smul_xv a)⟩
+      ⟨f1 (c := β) a, MulAction.mem_stabilizer_iff.mpr (f1_smul_xv a)⟩ rfl rfl)
+  · obtain ⟨q, h1, h2, h3⟩ := lemma_F46_3_l ι β hι hβ
+    refine ⟨q, fun a => ?_, fun pp => ⟨h2 pp, (h3 pp).symm⟩⟩
+    exact congrArg Subtype.val (h1 a ⟨f2 (c := ι) a, MulAction.mem_stabilizer_iff.mpr (f2_smul_lv a)⟩
+      ⟨f2 (c := β) a, MulAction.mem_stabilizer_iff.mpr (f2_smul_lv a)⟩ rfl rfl)
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_facts46 (hF : F_4_6) {κ : GLKind} {p f : ℕ} {E : Type} [Group E]
+    {Gp M₁ M₂ : Subgroup E} (hyp : HypF_4_4 κ p f Gp M₁ M₂)
+    (hthick : 2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qOne ∧
+      2 ≤ (RankTwoAmalgam.ofSubgroups M₁ M₂).qTwo)
+    {Y : Type} [Group Y] (β : Cpl M₁ M₂ Y) (hβ : β.IsFaithful) : β.Facts46 κ.m := by
+  have h := hF κ p f E Gp M₁ M₂ hyp Y β hβ (incl M₁ M₂) rfl
+  obtain ⟨h12, -, -, h467, h58⟩ := h
+  have hval := burnsideF4a_hval hβ hthick.1 hthick.2
+  have hm : 2 ≤ κ.m := by cases κ <;> simp [GLKind.m]
+  refine ⟨hβ, hthick.1, hthick.2, hm, ?_, ?_, ?_, ?_⟩
+  · intro n hn a q hq
+    obtain ⟨-, hsph, -, huniq, -⟩ := (h467 n hn.le a q hq).2 hn
+    exact ⟨hsph, huniq⟩
+  · intro a q hq
+    exact (h58 a q hq).2.1
+  · intro a q hq
+    rcases (h58 a q hq).2.2.2 with h | ⟨-, -, -, h⟩ | ⟨-, -, -, -, -, h⟩ | ⟨-, -, -, -, -, h⟩
+    · exact Or.inl h
+    · exact Or.inr h
+    · exact Or.inr h
+    · exact Or.inr h
+  · intro a ha
+    by_cases hκ : κ = .G2d ∨ κ = .Tits
+    · exact ((h12 a).2 ⟨hyp.canonical hκ, hκ⟩).1 ha
+    · have hlie : IsLieExtAmalgam M₁ M₂ := ⟨κ, p, f, Gp, not_or.mp hκ, hyp⟩
+      have ht := (h12 a).1 hlie
+      exact fun q q' hq hq' => GPath.trans_le hval ht 1 κ.m rfl q q' hq hq'
 
 open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion
   CFSG.ASVolI.ChF in
+theorem burnsideF4a_facts46_of_compat (hF : F_4_6) (hcompat : NativeChartCompatibilityGoal)
+    {κ : GLKind} {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
+    (hyp : HypF_4_4 κ p f Gp M₁ M₂) {Y : Type} [Group Y] (β : Cpl M₁ M₂ Y)
+    (hβ : β.IsFaithful) : β.Facts46 κ.m :=
+  burnsideF4a_facts46 hF hyp (burnsideF4a_thick_of_hyp hcompat hyp.toHypF_4_4g) β hβ
 
+open CFSG.ASVolI.ChF in
+def burnsideF4a_F43Exceptional : Prop :=
+  ∀ (κ : GLKind) (p f : ℕ) (E : Type) [Group E] (Gp M₁ M₂ : Subgroup E),
+    HypF_4_4g κ p f Gp M₁ M₂ → (κ = .G2d ∨ κ = .Tits) →
+    (κ = .G2d → IsGenLie (MulAut ↥Gp) .G2 2 1) ∧ (κ = .Tits → IsGenLie (MulAut ↥Gp) .F4tw 2 1) ∧
+    (IsLieExtAmalgam M₁ M₂ ∨ (Gp = ⊤ ∧ (κ = .G2d ∨ κ = .Tits)))
+
+open CFSG.ASVolI.ChF in
+theorem burnsideF4a_F43_of (h : burnsideF4a_F43Exceptional) : F_4_3 := by
+  intro κ p f E _ Gp M₁ M₂ hyp
+  by_cases hκ : κ = .G2d ∨ κ = .Tits
+  · exact h κ p f E Gp M₁ M₂ hyp hκ
+  · exact ⟨fun h' => absurd (Or.inl h') hκ, fun h' => absurd (Or.inr h') hκ,
+      Or.inl ⟨κ, p, f, Gp, not_or.mp hκ, ⟨hyp, fun h'' => absurd h'' hκ⟩⟩⟩
 
 end CFSG.ASVolI
 
@@ -2524,10 +3266,436 @@ namespace CFSG.ASVolI.ChF
 
 open CFSG.Open
 
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+theorem burnsideF4a_map_reeRelationGroup
+    {τ : Tag} {K L : Type} [Field K] [Field L] (φ : K ≃+* L)
+    (ρ : Equiv.Perm (Fin τ.rank)) (e : Fin τ.rank → ℕ) :
+    (reeRelationGroup τ K ρ e).map
+        ((modGLCongr τ φ).toMonoidHom.prodMap (modGLCongr τ φ).toMonoidHom) =
+      reeRelationGroup τ L ρ e := by
+  unfold reeRelationGroup
+  rw [MonoidHom.map_closure]
+  congr 1
+  have hinj : Function.Injective (entrywiseCongr (τ := τ) φ.toRingHom) := fun A B hAB => by
+    rw [← entrywiseCongr_symm_comp φ A, hAB, entrywiseCongr_symm_comp]
+  ext gh
+  constructor
+  · rintro ⟨gh', ⟨i, c, hc⟩, rfl⟩
+    refine ⟨i, φ c, ?_⟩
+    rcases hc with ⟨h1, h2⟩ | ⟨h1, h2⟩
+    · left
+      refine ⟨?_, ?_⟩
+      · show ((modGLCongr τ φ gh'.1 : ModGL τ L) : Module.End L (RootModule τ L)) = _
+        rw [coe_modGLCongr, h1, entrywiseCongr_xOp]
+      · show ((modGLCongr τ φ gh'.2 : ModGL τ L) : Module.End L (RootModule τ L)) = _
+        rw [coe_modGLCongr, h2, entrywiseCongr_xOp, map_pow]
+    · right
+      refine ⟨?_, ?_⟩
+      · show ((modGLCongr τ φ gh'.1 : ModGL τ L) : Module.End L (RootModule τ L)) = _
+        rw [coe_modGLCongr, h1, entrywiseCongr_yOp]
+      · show ((modGLCongr τ φ gh'.2 : ModGL τ L) : Module.End L (RootModule τ L)) = _
+        rw [coe_modGLCongr, h2, entrywiseCongr_yOp, map_pow]
+  · rintro ⟨i, c, hc⟩
+    refine ⟨((modGLCongr τ φ).symm gh.1, (modGLCongr τ φ).symm gh.2), ⟨i, φ.symm c, ?_⟩, ?_⟩
+    · have hc1 : ∀ g : ModGL τ L, entrywiseCongr φ.toRingHom
+          (((modGLCongr τ φ).symm g : ModGL τ K) : Module.End K (RootModule τ K)) =
+            (g : Module.End L (RootModule τ L)) := fun g => by
+        rw [← coe_modGLCongr, MulEquiv.apply_symm_apply]
+      rcases hc with ⟨h1, h2⟩ | ⟨h1, h2⟩
+      · left
+        refine ⟨hinj ?_, hinj ?_⟩
+        · show _ = _
+          rw [hc1, h1, entrywiseCongr_xOp, RingEquiv.apply_symm_apply]
+        · show _ = _
+          rw [hc1, h2, entrywiseCongr_xOp, map_pow, RingEquiv.apply_symm_apply]
+      · right
+        refine ⟨hinj ?_, hinj ?_⟩
+        · show _ = _
+          rw [hc1, h1, entrywiseCongr_yOp, RingEquiv.apply_symm_apply]
+        · show _ = _
+          rw [hc1, h2, entrywiseCongr_yOp, map_pow, RingEquiv.apply_symm_apply]
+    · ext <;> simp
+
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+theorem burnsideF4a_map_reeFixedGroup
+    {τ : Tag} {K L : Type} [Field K] [Field L] (φ : K ≃+* L)
+    (ρ : Equiv.Perm (Fin τ.rank)) (e : Fin τ.rank → ℕ) :
+    (reeFixedGroup τ K ρ e).map (modGLCongr τ φ).toMonoidHom = reeFixedGroup τ L ρ e := by
+  unfold reeFixedGroup
+  rw [Subgroup.map_inf _ _ (modGLCongr τ φ).toMonoidHom (modGLCongr τ φ).injective,
+    map_adjointGroup,
+    ← burnsideF4a_map_reeRelationGroup φ ρ e]
+  congr 1
+  ext x
+  simp only [Subgroup.mem_map, Subgroup.mem_comap, MonoidHom.prod_apply, MonoidHom.id_apply,
+    MulEquiv.coe_toMonoidHom]
+  constructor
+  · rintro ⟨y, hy, rfl⟩
+    exact ⟨(y, y), hy, rfl⟩
+  · rintro ⟨⟨a, b⟩, hab, h⟩
+    have h1 : (modGLCongr τ φ) a = x := congrArg Prod.fst h
+    have h2 : (modGLCongr τ φ) b = x := congrArg Prod.snd h
+    have hb : b = a := (modGLCongr τ φ).injective (h2.trans h1.symm)
+    subst hb
+    exact ⟨b, hab, h1⟩
+
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+noncomputable def burnsideF4a_reeFixedQuotientCongr
+    {τ : Tag} {K L : Type} [Field K] [Field L]
+    (φ : K ≃+* L) (ρ : Equiv.Perm (Fin τ.rank)) (e : Fin τ.rank → ℕ) :
+    ↥(reeFixedGroup τ K ρ e) ⧸ Subgroup.center ↥(reeFixedGroup τ K ρ e) ≃*
+      ↥(reeFixedGroup τ L ρ e) ⧸ Subgroup.center ↥(reeFixedGroup τ L ρ e) :=
+  centerQuotientCongr (modGLCongr τ φ) (burnsideF4a_map_reeFixedGroup φ ρ e)
+
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+noncomputable def burnsideF4a_reeDerivedQuotientCongr
+    {τ : Tag} {K L : Type} [Field K] [Field L]
+    (φ : K ≃+* L) (ρ : Equiv.Perm (Fin τ.rank)) (e : Fin τ.rank → ℕ) :
+    DerivedCentralQuotient (reeFixedGroup τ K ρ e) ≃*
+      DerivedCentralQuotient (reeFixedGroup τ L ρ e) :=
+  centerQuotientCongr (modGLCongr τ φ) (by
+    rw [Subgroup.map_commutator, burnsideF4a_map_reeFixedGroup φ ρ e])
+
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+noncomputable def burnsideF4a_adjointDerivedQuotientCongr
+    {τ : Tag} {K L : Type} [Field K]
+    [Field L] (φ : K ≃+* L) :
+    DerivedCentralQuotient (adjointGroup τ K) ≃* DerivedCentralQuotient (adjointGroup τ L) :=
+  centerQuotientCongr (modGLCongr τ φ) (by
+    rw [Subgroup.map_commutator, map_adjointGroup])
+
+
+open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.ClassicalInvolution.Upgrade in
+open CFSG.Adapters.RankTwoModelTransports
+  (glCongr glCongr_statedSL glCongr_statedSp glCongr_statedSU glCongr_statedScalars statedProjCongr) in
+theorem burnsideF4a_isGenLie_equiv
+    {H H' : Type} [Group H] [Group H'] {κ : GLKind} {p f : ℕ}
+    (h : IsGenLie H κ p f) (h' : IsGenLie H' κ p f) : Nonempty (H ≃* H') := by
+  cases κ
+  · obtain ⟨-, -, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, K', _, _, hc', ⟨e'⟩⟩ := h'
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((statedProjCongr (glCongr φ) (glCongr_statedSL φ 3)
+      (glCongr_statedScalars φ)).trans e'.symm)⟩
+  · obtain ⟨-, -, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, K', _, _, hc', ⟨e'⟩⟩ := h'
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((statedProjCongr (glCongr φ) (glCongr_statedSp φ 2)
+      (glCongr_statedScalars φ)).trans e'.symm)⟩
+  · exact untwistedChevalleyModel_unique h.2.2 h'.2.2
+  · exact twistedChevalleyModel_unique h.2.2 h'.2.2
+  · obtain ⟨-, -, h1 | h1⟩ := h <;> obtain ⟨-, -, h1' | h1'⟩ := h'
+    · obtain ⟨-, K, _, _, hc, ⟨e⟩⟩ := h1
+      obtain ⟨-, K', _, _, hc', ⟨e'⟩⟩ := h1'
+      let φ := fieldIsoOfCard (hc.trans hc'.symm)
+      exact ⟨e.trans ((burnsideF4a_reeFixedQuotientCongr φ reeF4Perm _).trans e'.symm)⟩
+    · have := h1.1; have := h1'.1; omega
+    · have := h1.1; have := h1'.1; omega
+    · obtain ⟨-, a, ha, K, _, _, hc, ⟨e⟩⟩ := h1.2
+      obtain ⟨-, a', ha', K', _, _, hc', ⟨e'⟩⟩ := h1'.2
+      have haa : a = a' := by omega
+      subst haa
+      let φ := fieldIsoOfCard (hc.trans hc'.symm)
+      exact ⟨e.trans ((burnsideF4a_reeDerivedQuotientCongr φ reeF4Perm _).trans e'.symm)⟩
+  · obtain ⟨-, -, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, K', _, _, hc', ⟨e'⟩⟩ := h'
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((statedProjCongr (glCongr φ) (glCongr_statedSU φ 4 (p ^ f))
+      (glCongr_statedScalars φ)).trans e'.symm)⟩
+  · obtain ⟨-, -, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, K', _, _, hc', ⟨e'⟩⟩ := h'
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((statedProjCongr (glCongr φ) (glCongr_statedSU φ 5 (p ^ f))
+      (glCongr_statedScalars φ)).trans e'.symm)⟩
+  · obtain ⟨-, -, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, K', _, _, hc', ⟨e'⟩⟩ := h'
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((burnsideF4a_adjointDerivedQuotientCongr φ).trans e'.symm)⟩
+  · obtain ⟨-, -, -, a, ha, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨-, -, -, a', ha', K', _, _, hc', ⟨e'⟩⟩ := h'
+    have haa : a = a' := by omega
+    subst haa
+    let φ := fieldIsoOfCard (hc.trans hc'.symm)
+    exact ⟨e.trans ((burnsideF4a_reeDerivedQuotientCongr φ reeF4Perm _).trans e'.symm)⟩
+
+theorem burnsideF4a_isGenLie_card_eq
+    {H H' : Type} [Group H] [Group H'] {κ : GLKind} {p f : ℕ}
+    (h : IsGenLie H κ p f) (h' : IsGenLie H' κ p f) : Nat.card H = Nat.card H' :=
+  Nat.card_congr (Classical.choice (burnsideF4a_isGenLie_equiv h h')).toEquiv
+
+
+theorem burnsideF4a_hermitianGram_mul_self (n : ℕ) (K : Type) [Field K] :
+    ClassicalRoots.hermitianGram n K * ClassicalRoots.hermitianGram n K = 1 := by
+  ext i j
+  simp only [Matrix.mul_apply, ClassicalRoots.hermitianGram, Matrix.one_apply]
+  by_cases hij : i = j
+  · subst hij
+    rw [Finset.sum_eq_single ⟨n - 1 - i, by omega⟩]
+    · have h1 : (i : ℕ) + (n - 1 - i) + 1 = n := by omega
+      have h2 : (n - 1 - (i : ℕ)) + i + 1 = n := by omega
+      simp [h1, h2]
+    · intro b _ hb
+      by_cases h : (i : ℕ) + b + 1 = n
+      · exfalso; apply hb; ext; simp; omega
+      · simp [h]
+    · intro h; exact absurd (Finset.mem_univ _) h
+  · rw [if_neg hij]
+    refine Finset.sum_eq_zero fun k _ => ?_
+    by_cases h1 : (i : ℕ) + k + 1 = n
+    · by_cases h2 : (k : ℕ) + j + 1 = n
+      · exfalso; apply hij; ext; omega
+      · simp [h2]
+    · simp [h1]
+
+open CFSG.LieType.Universal.Unitary CFSG.LieType.BorelTits CFSG.LieType.Steinberg in
+theorem burnsideF4a_hermitian_basis {K : Type} [Field K] [Finite K] {p e : ℕ} (hp : p.Prime)
+    (hK : Nat.card K = (p ^ e) ^ 2) (n : ℕ) :
+    ∃ B : GL (Fin n) K,
+      ((B : Matrix (Fin n) (Fin n) K).map (fun x => x ^ (p ^ e))).transpose *
+        (B : Matrix (Fin n) (Fin n) K) = ClassicalRoots.hermitianGram n K := by
+  haveI : Fact p.Prime := ⟨hp⟩
+  haveI := Fintype.ofFinite K
+  haveI : CharP K p := charP_of_card_eq_prime_pow (p := p) (f := e * 2)
+    (by rw [← Nat.card_eq_fintype_card, hK, ← pow_mul])
+  have hGsym : conjTr (unitaryInvolution K p e) (ClassicalRoots.hermitianGram n K) =
+      ClassicalRoots.hermitianGram n K := by
+    ext i j
+    simp only [conjTr, Matrix.transpose_apply, Matrix.map_apply, ClassicalRoots.hermitianGram]
+    by_cases h : (j : ℕ) + i + 1 = n
+    · rw [if_pos h, if_pos (by omega), map_one]
+    · rw [if_neg h, if_neg (by omega), map_zero]
+  have hdet : (ClassicalRoots.hermitianGram n K).det ≠ 0 := by
+    intro h0
+    have := congrArg Matrix.det (burnsideF4a_hermitianGram_mul_self n K)
+    rw [Matrix.det_mul, h0, mul_zero, Matrix.det_one] at this
+    exact zero_ne_one this
+  obtain ⟨P, hP⟩ := exists_conjTr_mul_mul_eq_one hK hGsym hdet
+  refine ⟨P⁻¹, ?_⟩
+  have hσ : ∀ M : Matrix (Fin n) (Fin n) K,
+      (M.map (fun x => x ^ (p ^ e))).transpose = conjTr (unitaryInvolution K p e) M := by
+    intro M
+    simp only [conjTr]
+    congr 1
+  rw [hσ]
+  have h2 : (P : Matrix (Fin n) (Fin n) K) * ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) = 1 :=
+    Units.mul_inv P
+  have h3 : conjTr (unitaryInvolution K p e) ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *
+      conjTr (unitaryInvolution K p e) (P : Matrix (Fin n) (Fin n) K) = 1 := by
+    rw [← conjTr_mul, h2, conjTr_one]
+  calc conjTr (unitaryInvolution K p e) ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *
+        ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)
+      = conjTr (unitaryInvolution K p e) ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *
+        (conjTr (unitaryInvolution K p e) (P : Matrix (Fin n) (Fin n) K) *
+          ClassicalRoots.hermitianGram n K * (P : Matrix (Fin n) (Fin n) K)) *
+        ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) := by rw [hP, mul_one]
+    _ = ClassicalRoots.hermitianGram n K := by
+      calc _ = (conjTr (unitaryInvolution K p e) ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *
+              conjTr (unitaryInvolution K p e) (P : Matrix (Fin n) (Fin n) K)) *
+            ClassicalRoots.hermitianGram n K *
+            ((P : Matrix (Fin n) (Fin n) K) * ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)) := by
+            simp only [mul_assoc]
+        _ = _ := by rw [h3, h2, one_mul, mul_one]
+
+theorem burnsideF4a_basisExistence : ClassicalRoots.BasisExistenceGoal := by
+  intro kind p exponent K _ _ hp _ hK
+  cases kind
+  · exact ⟨1, rfl⟩
+  · exact ⟨1, rfl⟩
+  · obtain ⟨B, hB⟩ := burnsideF4a_hermitian_basis hp (by simpa using hK) 4
+    exact ⟨B, hB⟩
+  · obtain ⟨B, hB⟩ := burnsideF4a_hermitian_basis hp (by simpa using hK) 5
+    exact ⟨B, hB⟩
+
+theorem burnsideF4a_chart_of_coordinates {kind : GLKind} {prime degree : ℕ} {E : Type} [Group E]
+    {core : Subgroup E} (c : NativeCoordinates kind prime degree core) :
+    Nonempty (NativeChart kind prime degree core) := by
+  cases c with
+  | classical m hk marking =>
+    refine ⟨{ borel := marking.borel.map core.subtype
+              points := (marking.parabolic false).map core.subtype
+              lines := (marking.parabolic true).map core.subtype
+              longRoot := (marking.root (if m = .L3 then .a13 else .longOne) false).map core.subtype
+              shortRoot := (marking.root (if m = .L3 then .a12 else .sum) false).map core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inl ⟨m, hk, marking, ?_, ?_, ?_, ?_, ?_⟩
+    all_goals rfl
+  | g2 hk hp hd K card ident =>
+    refine ⟨{ borel := (G2Native.fullImage K ident (G2Native.positiveBorel K)).map core.subtype
+              points := (G2Native.fullImage K ident (G2Native.pointParabolic K)).map core.subtype
+              lines := (G2Native.fullImage K ident (G2Native.lineParabolic K)).map core.subtype
+              longRoot := (G2Native.fullImage K ident (G2Native.longRoot K)).map core.subtype
+              shortRoot := (G2Native.fullImage K ident (G2Native.shortRoot K)).map core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inr (Or.inl ⟨hk, hp, hd, K, inferInstance, inferInstance, card, ident, ?_, ?_, ?_, ?_, ?_⟩)
+    all_goals rfl
+  | g2Derived hk hp hd K card ident =>
+    refine ⟨{ borel := (G2Native.smallImage K ident (G2Native.positiveBorel K)).map core.subtype
+              points := (G2Native.smallImage K ident (G2Native.pointParabolic K)).map core.subtype
+              lines := (G2Native.smallImage K ident (G2Native.lineParabolic K)).map core.subtype
+              longRoot := (G2Native.smallImage K ident (G2Native.longRoot K)).map core.subtype
+              shortRoot := (G2Native.smallImage K ident (G2Native.shortRoot K)).map core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inr (Or.inr (Or.inl ⟨hk, hp, hd, K, inferInstance, inferInstance, card, ident,
+      ?_, ?_, ?_, ?_, ?_⟩))
+    all_goals rfl
+  | triality hk K sigma scope ident =>
+    refine ⟨{ borel := ((ExceptionalRoots.derivedImage
+                 (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
+                 (ExceptionalRoots.trialityBorel K sigma)).map ident.toMonoidHom).map core.subtype
+              points := ((ExceptionalRoots.derivedImage
+                 (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
+                 (ExceptionalRoots.trialityParabolic K sigma 0)).map ident.toMonoidHom).map
+                   core.subtype
+              lines := ((ExceptionalRoots.derivedImage
+                 (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
+                 (ExceptionalRoots.trialityParabolic K sigma 1)).map ident.toMonoidHom).map
+                   core.subtype
+              longRoot := ((ExceptionalRoots.derivedImage
+                 (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
+                 (ExceptionalRoots.trialityLongRoot K sigma)).map ident.toMonoidHom).map
+                   core.subtype
+              shortRoot := ((ExceptionalRoots.derivedImage
+                 (CFSG.Blueprint.twistedFixedGroup .D4 K sigma)
+                 (ExceptionalRoots.trialityShortRoot K sigma)).map ident.toMonoidHom).map
+                   core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inr (Or.inr (Or.inr (Or.inl ⟨hk, scope.1, scope.2.1, K, inferInstance,
+      inferInstance, sigma, scope, ident, ?_, ?_, ?_, ?_, ?_⟩)))
+    all_goals rfl
+  | ree hk hp exponent hd K scope ident =>
+    refine ⟨{ borel := ((ExceptionalRoots.centralImage (ExceptionalRoots.reeGroup K exponent)
+                 (ExceptionalRoots.reeBorel K exponent)).map ident.toMonoidHom).map core.subtype
+              points := ((ExceptionalRoots.centralImage (ExceptionalRoots.reeGroup K exponent)
+                 (ExceptionalRoots.reeParabolic K exponent 1)).map ident.toMonoidHom).map
+                   core.subtype
+              lines := ((ExceptionalRoots.centralImage (ExceptionalRoots.reeGroup K exponent)
+                 (ExceptionalRoots.reeParabolic K exponent 0)).map ident.toMonoidHom).map
+                   core.subtype
+              longRoot := ((ExceptionalRoots.centralImage (ExceptionalRoots.reeGroup K exponent)
+                 (ExceptionalRoots.reeLongRoot K exponent)).map ident.toMonoidHom).map
+                   core.subtype
+              shortRoot := ((ExceptionalRoots.centralImage (ExceptionalRoots.reeGroup K exponent)
+                 (ExceptionalRoots.reeShortRoot K exponent)).map ident.toMonoidHom).map
+                   core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inr (Or.inr (Or.inr (Or.inr ⟨hp, exponent, K, inferInstance, inferInstance,
+      inferInstance, scope, Or.inl ⟨hk, hd, ident, ?_, ?_, ?_, ?_, ?_⟩⟩)))
+    all_goals rfl
+  | tits hk hp hd K scope ident =>
+    refine ⟨{ borel := ((ExceptionalRoots.derivedImage (ExceptionalRoots.reeGroup K 0)
+                 (ExceptionalRoots.reeBorel K 0)).map ident.toMonoidHom).map core.subtype
+              points := ((ExceptionalRoots.derivedImage (ExceptionalRoots.reeGroup K 0)
+                 (ExceptionalRoots.reeParabolic K 0 1)).map ident.toMonoidHom).map core.subtype
+              lines := ((ExceptionalRoots.derivedImage (ExceptionalRoots.reeGroup K 0)
+                 (ExceptionalRoots.reeParabolic K 0 0)).map ident.toMonoidHom).map core.subtype
+              longRoot := ((ExceptionalRoots.derivedImage (ExceptionalRoots.reeGroup K 0)
+                 (ExceptionalRoots.reeLongRoot K 0)).map ident.toMonoidHom).map core.subtype
+              shortRoot := ((ExceptionalRoots.derivedImage (ExceptionalRoots.reeGroup K 0)
+                 (ExceptionalRoots.reeShortRoot K 0)).map ident.toMonoidHom).map core.subtype
+              coordinates := ?_ }⟩
+    refine Or.inr (Or.inr (Or.inr (Or.inr ⟨hp, 0, K, inferInstance, inferInstance, inferInstance,
+      scope, Or.inr ⟨hk, hd, rfl, ident, ?_, ?_, ?_, ?_, ?_⟩⟩)))
+    all_goals rfl
+
+noncomputable def burnsideF4a_marking {kind : ClassicalRoots.Kind} {prime degree : ℕ} {E : Type}
+    [Group E] {core : Subgroup E} (hp : prime.Prime) (hf : 1 ≤ degree) (K : Type) [Field K]
+    [Finite K]
+    (hc : Nat.card K = if kind = .U4 ∨ kind = .U5 then (prime ^ degree) ^ 2 else prime ^ degree)
+    (B : GL (ClassicalRoots.Coord kind) K)
+    (hB : ClassicalRoots.BasisCompatible kind (prime ^ degree) K B)
+    (e : StatedProj (ClassicalRoots.nativeGroup kind (prime ^ degree) K) ≃* core) :
+    ClassicalRoots.Marking kind prime degree core :=
+  { field := K, fieldStructure := inferInstance, finiteField := inferInstance, prime := hp,
+    exponent_pos := hf, field_card := hc, basis := B, basis_compatible := hB,
+    identification := e }
+
+def burnsideF4a_ReePerfect : Prop :=
+  ∀ (K : Type) [Field K] [Finite K] [CharP K 2] (a : ℕ), 1 ≤ a → Nat.card K = 2 ^ (2 * a + 1) →
+    ⁅ExceptionalRoots.reeGroup K a, ExceptionalRoots.reeGroup K a⁆ = ExceptionalRoots.reeGroup K a
+
+theorem burnsideF4a_nativeChartExistence_of (hRee : burnsideF4a_ReePerfect) :
+    NativeChartExistenceGoal := by
+  intro kind prime degree E _ core h
+  cases kind
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.classical (.L3) rfl
+      (burnsideF4a_marking hp hf K (by simpa using hc) 1 rfl e.symm))
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.classical (.Sp4) rfl
+      (burnsideF4a_marking hp hf K (by simpa using hc) 1 rfl e.symm))
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.g2 rfl hp hf K hc e.symm)
+  · obtain ⟨hp, hf, K, _, _, hc, σ, hσ, ⟨e⟩⟩ := h
+    exact burnsideF4a_chart_of_coordinates
+      (NativeCoordinates.triality rfl K σ ⟨hp, hf, hc, hσ⟩ e.symm)
+  · obtain ⟨hp2, -, ⟨hd1, K, _, _, hc, ⟨e⟩⟩ | ⟨hd3, -, a, ha, K, _, _, hc, ⟨e⟩⟩⟩ := h
+    · subst hp2
+      subst hd1
+      haveI := Fintype.ofFinite K
+      haveI : CharP K 2 := charP_of_card_eq_prime (p := 2) (by rw [← Nat.card_eq_fintype_card, hc])
+      exact burnsideF4a_chart_of_coordinates
+        (NativeCoordinates.ree rfl rfl 0 rfl K
+          (by show Nat.card K = 2 ^ (2 * 0 + 1); rw [hc]; norm_num) e.symm)
+    · subst hp2
+      haveI := Fintype.ofFinite K
+      haveI : CharP K 2 := charP_of_card_eq_prime_pow (p := 2) (f := degree)
+        (by rw [← Nat.card_eq_fintype_card, hc])
+      have hK : Nat.card K = 2 ^ (2 * a + 1) := by rw [hc, ha]
+      have hperf := hRee K a (by omega) hK
+      let E' : ↥⁅ExceptionalRoots.reeGroup K a, ExceptionalRoots.reeGroup K a⁆ ≃*
+          ↥(ExceptionalRoots.reeGroup K a) := MulEquiv.subgroupCongr hperf
+      let iso : CFSG.Blueprint.DerivedCentralQuotient (ExceptionalRoots.reeGroup K a) ≃*
+          (↥(ExceptionalRoots.reeGroup K a) ⧸ Subgroup.center ↥(ExceptionalRoots.reeGroup K a)) :=
+        QuotientGroup.congr _ _ E' (Subgroup.map_center_eq E')
+      exact burnsideF4a_chart_of_coordinates
+        (NativeCoordinates.ree rfl rfl a ha K hK (iso.symm.trans e.symm).symm.symm)
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨B, hB⟩ := burnsideF4a_hermitian_basis hp (by simpa using hc) 4
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.classical (.U4) rfl
+      (burnsideF4a_marking hp hf K (by simpa using hc) B hB e.symm))
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    obtain ⟨B, hB⟩ := burnsideF4a_hermitian_basis hp (by simpa using hc) 5
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.classical (.U5) rfl
+      (burnsideF4a_marking hp hf K (by simpa using hc) B hB e.symm))
+  · obtain ⟨hp, hf, K, _, _, hc, ⟨e⟩⟩ := h
+    exact burnsideF4a_chart_of_coordinates (NativeCoordinates.g2Derived rfl hp hf K hc e.symm)
+  · obtain ⟨hp2, hd1, -, a, ha, K, _, _, hc, ⟨e⟩⟩ := h
+    subst hp2
+    subst hd1
+    have ha0 : a = 0 := by omega
+    subst ha0
+    haveI := Fintype.ofFinite K
+    haveI : CharP K 2 := charP_of_card_eq_prime_pow (p := 2) (f := 1)
+      (by rw [← Nat.card_eq_fintype_card, hc])
+    exact burnsideF4a_chart_of_coordinates
+      (NativeCoordinates.tits rfl rfl rfl K (by show Nat.card K = 2 ^ (2 * 0 + 1); rw [hc]) e.symm)
+
+
+open CFSG.LieType.Ree in
+theorem burnsideF4a_reePerfect :
+    burnsideF4a_ReePerfect := by
+  intro K _ _ _ a ha hK
+  letI : CharP K ReeTag.F4.prime := inferInstanceAs (CharP K 2)
+  have h1 : _root_.commutator (ReeTag.F4.reeGamma K a) = ⊤ :=
+    ReeTag.commutator_reeGamma_eq_top ha hK
+  have h2 : ReeTag.F4.reeGamma K a = ExceptionalRoots.reeGroup K a :=
+    ReeTag.reeGamma_eq_reeFixedGroup (t := ReeTag.F4) (K := K) (a := a)
+  have h3 := Subgroup.map_subtype_commutator (ReeTag.F4.reeGamma K a)
+  rw [h1, ← MonoidHom.range_eq_map, Subgroup.range_subtype] at h3
+  rw [← h2]
+  exact h3.symm
+
+
+theorem burnsideF4a_nativeChartExistence :
+    NativeChartExistenceGoal :=
+  burnsideF4a_nativeChartExistence_of burnsideF4a_reePerfect
 
 end CFSG.ASVolI.ChF
 
 namespace CFSG.ASVolI.ChF
 
+theorem nativeChartExistence :
+    NativeChartExistenceGoal :=
+  burnsideF4a_nativeChartExistence
 
 end CFSG.ASVolI.ChF

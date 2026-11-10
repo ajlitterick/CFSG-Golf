@@ -75,6 +75,33 @@ theorem u35PkCheck_of (h1 : constsOK = true) (h2 : repsOK = true) (h3 : nOK = tr
 theorem u35PkCheck_true : u35PkCheck = true :=
   u35PkCheck_of ch7159k ch7159r ch7159n ch7159l ch7159t covK_true gu2All_true
 
+noncomputable def onesB : Nat := Nat.div (Nat.sub (Nat.shiftLeft 1 162) 1) (Nat.sub (Nat.shiftLeft 1 18) 1)
+
+theorem ch7159x1 : bIf(eltK onesB, false, true) = true := by quickRfl
+
+theorem ch7159x2 :
+    bIf(strictB (mulAB SA (aToB (getK nW 25))) (refK (getK nW 25) 3), false, true) = true := by
+  quickRfl
+
+theorem ch7159x3 : bIf(gu2R (bToA onesB) 1 1, false, true) = true := by quickRfl
+
+theorem ch7159x4 :
+    bIf(covC 2481 0 (List.rec (motive := fun _ => List Nat) [] (fun _ t _ => t) cov0), false, true)
+      = true := by
+  quickRfl
+
+theorem ch7159x5 : bIf(unitK (bToA onesB), false, true) = true := by quickRfl
+
+theorem ch7159x6 : bIf(nChk (bToA (dB 12)), false, true) = true := by quickRfl
+
+theorem ch7159x7 : bIf(canA (Nat.add (getK repW 0) 5), false, true) = true := by quickRfl
+
+theorem ch7159x8 :
+    strictB (bToA (mulAB (getK repW 0) (y0B 494))) (fun ZA => strictB (mulAB ZA (dB 1)) fun XB =>
+      strictB (bToA XB) fun XA => bIf(strictB (mulAB SA XB) (refK XA 5), false,
+        bIf(strictB (mulAB RA XB) (refK XA 5), false, strictB (mulAB R2A XB) (refK XA 5))))
+      = true := by
+  quickRfl
 
 end U35Pk
 

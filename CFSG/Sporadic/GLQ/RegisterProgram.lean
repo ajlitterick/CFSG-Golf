@@ -29,6 +29,8 @@ variable {G : Type*} [Group G]
 
 @[expose] def runProg (R : ℕ → G) (prog : List Instr) : ℕ → G := prog.foldl Instr.run R
 
+@[expose] def runStages (x y : G) (stages : List (List Instr)) : ℕ → G :=
+  stages.foldl (fun R prog => runProg (initRegs (R 1) (R 2)) prog) (initRegs x y)
 
 @[expose] def letter (x y : G) (l : ℤ) : G :=
   if l = 1 then x else if l = -1 then x⁻¹ else if l = 2 then y else if l = -2 then y⁻¹ else 1
@@ -70,6 +72,18 @@ theorem runProg_mem (H : Subgroup G) (prog : List Instr) :
     intro R hR r
     exact ih (fun r => run_mem H hR ins r) r
 
+theorem runStages_mem (H : Subgroup G) {x y : G} (hx : x ∈ H) (hy : y ∈ H)
+    (stages : List (List Instr)) (r : ℕ) : runStages x y stages r ∈ H := by
+  unfold runStages
+  suffices h : ∀ (stages : List (List Instr)) {R : ℕ → G}, (∀ r, R r ∈ H) → ∀ r,
+      stages.foldl (fun R prog => runProg (initRegs (R 1) (R 2)) prog) R r ∈ H by
+    exact h stages (initRegs_mem H hx hy) r
+  intro stages
+  induction stages with
+  | nil => intro R hR r; exact hR r
+  | cons prog stages ih =>
+    intro R hR r
+    exact ih (runProg_mem H prog (initRegs_mem H (hR 1) (hR 2))) r
 
 theorem signedWord_mem (H : Subgroup G) {x y : G} (hx : x ∈ H) (hy : y ∈ H) (w : List ℤ) :
     signedWord x y w ∈ H := by
@@ -108,6 +122,8 @@ variable [Inhabited M]
 @[expose] def runProgN (R : Array (M × M)) (prog : List Instr) : Array (M × M) :=
   prog.foldl (Instr.runN O) R
 
+@[expose] def runStagesN (n : ℕ) (x y : M × M) (stages : List (List Instr)) : Array (M × M) :=
+  stages.foldl (fun R prog => runProgN O (initRegsN O n R[1]! R[2]!) prog) (initRegsN O n x y)
 
 @[expose] def letterN (x y : M × M) (l : ℤ) : M :=
   if l = 1 then x.1 else if l = -1 then x.2 else if l = 2 then y.1 else if l = -2 then y.2
@@ -231,6 +247,25 @@ theorem regsRep_runProg [Inhabited M] {n : ℕ} (prog : List Instr)
     rw [List.all_cons, Bool.and_eq_true] at hprog
     exact ih hprog.2 (regsRep_run hR hprog.1)
 
+theorem regsRep_runStages [Inhabited M] {n : ℕ} (hn : 3 ≤ n) {x y : G} {X Y : M × M}
+    (hx : Rep Sp φ x X) (hy : Rep Sp φ y Y) (stages : List (List Instr))
+    (hst : stages.all (fun prog => prog.all (Instr.lt n)) = true) :
+    RegsRep Sp φ n (runStages x y stages) (runStagesN O n X Y stages) := by
+  unfold runStages runStagesN
+  suffices h : ∀ (stages : List (List Instr)),
+      stages.all (fun prog => prog.all (Instr.lt n)) = true →
+      ∀ {R : ℕ → G} {Rn : Array (M × M)}, RegsRep Sp φ n R Rn →
+        RegsRep Sp φ n (stages.foldl (fun R prog => runProg (initRegs (R 1) (R 2)) prog) R)
+          (stages.foldl (fun R prog => runProgN O (initRegsN O n R[1]! R[2]!) prog) Rn) by
+    exact h stages hst (regsRep_initRegs hx hy)
+  intro stages
+  induction stages with
+  | nil => intro _ R Rn hR; exact hR
+  | cons prog stages ih =>
+    intro hst R Rn hR
+    rw [List.all_cons, Bool.and_eq_true] at hst
+    exact ih hst.2 (regsRep_runProg prog hst.1
+      (regsRep_initRegs (hR.2 1 (by omega)) (hR.2 2 (by omega))))
 
 theorem rep_letter {x y : G} {X Y : M × M} (hx : Rep Sp φ x X) (hy : Rep Sp φ y Y) (l : ℤ) :
     Sp.WF (letterN O X Y l) ∧ Sp.toMat (letterN O X Y l) = φ (letter x y l) := by

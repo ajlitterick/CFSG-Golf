@@ -110,6 +110,7 @@ theorem native_thetaBit : @Native.thetaBit = @Model.thetaBit := by
   rw [native_pairN, native_thetaN]
   all_goals rfl
 
+theorem native_Pauli : Native.Pauli = Model.Pauli := rfl
 
 theorem native_Pauli_s : @Native.Pauli.s = @Model.Pauli.s := rfl
 
@@ -225,6 +226,7 @@ theorem native_xiGTerm : @Native.xiGTerm = @Model.xiGTerm := by
   rw [native_qGN, native_mu0N, native_shiftN, native_pi0N]
   all_goals rfl
 
+theorem native_Key : Native.Key = Model.Key := rfl
 
 theorem native_Key_A : @Native.Key.A = @Model.Key.A := rfl
 
@@ -382,5 +384,6 @@ theorem native_recPerms : Native.recPerms = Model.recPerms := rfl
 
 theorem native_qPauli : @Native.qPauli = @Model.qPauli := rfl
 
+theorem native_frameCode : @Native.frameCode = @Model.frameCode := rfl
 
 end CFSG.Monster.B.Rep4371

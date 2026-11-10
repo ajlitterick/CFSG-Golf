@@ -420,6 +420,61 @@ theorem eq_one_of_bel_fix {x : G} (hx : x ∈ M.S0) (hb : (M.bel : G) * x * (M.b
   rw [M.χ_ker, Subgroup.mem_subgroupOf] at hk
   exact hk
 
+theorem commutator_S0_B : ⁅M.S0, M.B⁆ = M.S0 := by
+  refine le_antisymm ?_ ?_
+  · rw [Subgroup.commutator_le]
+    intro x hx g hg
+    obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hg
+    have hbk : ∀ n : ℕ, ∀ y ∈ M.S0, (M.bel : G) ^ n * y * ((M.bel : G) ^ n)⁻¹ ∈ M.S0 := by
+      intro n
+      induction n with
+      | zero => intro y hy; simpa using hy
+      | succ n ih =>
+        intro y hy
+        have := M.bel_conj_S0 (ih y hy)
+        rw [pow_succ']
+        convert this using 1
+        group
+    obtain ⟨n, hn⟩ := exists_nat_zpow (by norm_num) M.bel_pow_three k
+    have hmem := hbk n x⁻¹ (M.S0.inv_mem hx)
+    rw [← hn] at hmem
+    show x * (M.bel : G) ^ k * x⁻¹ * ((M.bel : G) ^ k)⁻¹ ∈ M.S0
+    have e : x * (M.bel : G) ^ k * x⁻¹ * ((M.bel : G) ^ k)⁻¹ =
+        x * ((M.bel : G) ^ k * x⁻¹ * ((M.bel : G) ^ k)⁻¹) := by group
+    rw [e]
+    exact M.S0.mul_mem hx hmem
+  ·
+    classical
+    have hmem : ∀ x : M.S0, ⁅(x : G), (M.bel : G)⁆ ∈ M.S0 := fun x => by
+      rw [commutatorElement_def]
+      have e : (x : G) * M.bel * (x : G)⁻¹ * (M.bel : G)⁻¹ =
+          (x : G) * ((M.bel : G) * (x : G)⁻¹ * (M.bel : G)⁻¹) := by group
+      rw [e]
+      exact M.S0.mul_mem x.2 (M.bel_conj_S0 (M.S0.inv_mem x.2))
+    let f : M.S0 → M.S0 := fun x => ⟨_, hmem x⟩
+    have hf : Function.Injective f := by
+      intro x y h
+      have h' : ⁅(x : G), (M.bel : G)⁆ = ⁅(y : G), (M.bel : G)⁆ := congrArg Subtype.val h
+      rw [commutatorElement_def, commutatorElement_def] at h'
+      have h2 : (x : G) * M.bel * (x : G)⁻¹ = (y : G) * M.bel * (y : G)⁻¹ := by
+        have := congrArg (· * (M.bel : G)) h'
+        simpa using this
+      have hfix : (M.bel : G) * ((y : G)⁻¹ * x) * (M.bel : G)⁻¹ = (y : G)⁻¹ * x := by
+        calc (M.bel : G) * ((y : G)⁻¹ * x) * (M.bel : G)⁻¹
+            = (y : G)⁻¹ * ((y : G) * M.bel * (y : G)⁻¹) * x * (M.bel : G)⁻¹ := by group
+          _ = (y : G)⁻¹ * ((x : G) * M.bel * (x : G)⁻¹) * x * (M.bel : G)⁻¹ := by rw [h2]
+          _ = (y : G)⁻¹ * x := by group
+      have := M.eq_one_of_bel_fix (M.S0.mul_mem (M.S0.inv_mem y.2) x.2) hfix
+      rw [inv_mul_eq_one] at this
+      exact Subtype.ext this.symm
+    intro x hx
+    obtain ⟨y, hy⟩ := Finite.surjective_of_injective hf ⟨x, hx⟩
+    have : ⁅(y : G), (M.bel : G)⁆ = x := congrArg Subtype.val hy
+    rw [← this]
+    exact Subgroup.commutator_mem_commutator y.2 (Subgroup.mem_zpowers _)
+
+theorem lemma_J23_1 : ⁅M.S0, M.B⁆ = M.S0 ∧ Nat.card M.S0 = 4 ∧ IsElemAbelian 2 M.S0 :=
+  ⟨M.commutator_S0_B, M.card_S0, M.S0_elem⟩
 
 theorem lemma_J23_2 (g : G) : g * M.z * g⁻¹ ∉ M.S0 := by
   intro h

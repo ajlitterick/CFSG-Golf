@@ -104,5 +104,18 @@ theorem natCard_NU :
     Nat.card_congr (Subgroup.subgroupOfEquivOfLe CU_le_NU).toEquiv, natCard_CU] at h
   exact h
 
+theorem native_rank_two_plane_stabilizer :
+    Module.finrank (ZMod 2) Uplane = 2 ∧
+    (∀ k : Kstab v0, k ∈ NU ⊓ Mfr ↔ (k : OLq) ∈ monoSub ceqFtwoHyp) ∧
+    (∀ k : Kstab v0, k ∈ CU ↔ (k : OLq) ∈ monoSub cbothFtwoHyp) ∧
+    Nonempty (↥(NU ⊓ Mfr) ≃* SDD ceqFtwoHyp) ∧ Nonempty (CU ≃* SDD cbothFtwoHyp) ∧
+    Nonempty (NU ⧸ CU.subgroupOf NU ≃* GL (Fin 2) (ZMod 2)) ∧
+    Nat.card NU = 11796480 ∧ Nat.card CU = 1966080 ∧
+    Nat.card (CFSG.pCore 2 CU) = 2 ^ 14 ∧
+    Nonempty (CU ⧸ CFSG.pCore 2 CU ≃* Equiv.Perm (Fin 5)) :=
+  ⟨finrank_Uplane, mem_NUw_iff, mem_CU_iff,
+    ⟨nuwEquivMono.trans (monoSubEquiv ceqFtwoHyp).symm⟩,
+    ⟨cuEquivMono.trans (monoSubEquiv cbothFtwoHyp).symm⟩, ⟨nuQuotEquiv⟩, natCard_NU,
+    natCard_CU, natCard_pCore_CU, ⟨cuQuotEquiv⟩⟩
 
 end CFSG.Monster.B.TwoA

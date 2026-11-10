@@ -28,6 +28,11 @@ private theorem tau_zero :
   rw [coe_tau, fromBlocks_one]
   rfl
 
+private theorem inv_tau {C : Matrix (Fin 2) (Fin 2) K} (hC : Cᵀ = C) :
+    (tau hC)⁻¹ = tau (C := -C) (by rw [transpose_neg, hC]) := by
+  refine inv_eq_of_mul_eq_one_right ?_
+  rw [tau_mul_tau]
+  exact (tau_congr _ _ (add_neg_cancel C)).trans tau_zero
 
 private theorem transpose_nsmul {C : Matrix (Fin 2) (Fin 2) K} (hC : Cᵀ = C) (n : ℕ) :
     (n • C)ᵀ = n • C := by
@@ -103,6 +108,32 @@ private noncomputable def psiAdd : symAdd K →+ Additive (Urad (K := K)) where
     apply Additive.ext
     exact psi_mul C E
 
+private theorem psi_inj : Function.Injective (psi (K := K)) := by
+  intro C E h
+  have hval : proj 2 K (tau (symAdd_transpose C)) =
+      proj 2 K (tau (symAdd_transpose E)) := congrArg Subtype.val h
+  have hker : (tau (symAdd_transpose C))⁻¹ * tau (symAdd_transpose E) ∈
+      spScalars 2 K := QuotientGroup.eq.mp hval
+  have htau : (tau (symAdd_transpose C))⁻¹ * tau (symAdd_transpose E) =
+      tau (C := E.1 - C.1)
+        (by rw [transpose_sub, symAdd_transpose C, symAdd_transpose E]) := by
+    rw [inv_tau]
+    rw [tau_mul_tau (show (-C.1)ᵀ = -C.1 by rw [transpose_neg, symAdd_transpose C])
+      (symAdd_transpose E)]
+    exact tau_congr _ _ (by rw [sub_eq_add_neg, add_comm])
+  rw [htau, Subgroup.mem_subgroupOf] at hker
+  obtain ⟨c, hc⟩ := hker
+  have hm : Matrix.scalar (Fin 2 ⊕ Fin 2) (c : K) = fromBlocks 1 (E.1 - C.1) 0 1 := by
+    rw [← Matrix.GeneralLinearGroup.coe_scalar, hc, coe_tau]
+  have hzero : E.1 - C.1 = 0 := by
+    ext i j
+    have h := congrFun₂ hm (Sum.inl i) (Sum.inr j)
+    simpa [Matrix.scalar_apply, Matrix.fromBlocks_apply₁₂] using h.symm
+  exact Subtype.ext (sub_eq_zero.mp hzero).symm
+
+private theorem psiAdd_inj : Function.Injective (psiAdd (K := K)) := by
+  intro C E h
+  exact psi_inj (congrArg Additive.toMul h)
 
 private theorem psiAdd_surj : Function.Surjective (psiAdd (K := K)) := by
   intro u

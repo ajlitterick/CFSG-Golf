@@ -57,6 +57,7 @@ theorem mem_all_of_det_ne_zero (x : M2) (h : x.det ≠ 0) : x ∈ all := by
   revert a b c d
   decide +kernel
 
+theorem mul_inv_self : ∀ x ∈ all, mul x (inv x) = one := by decide +kernel
 
 theorem eq_inv_of_mul_eq_one : ∀ x ∈ all, ∀ y ∈ all, mul x y = one → y = inv x := by
   decide +kernel
@@ -103,6 +104,9 @@ theorem toM2_inv (g : GL (Fin 2) (ZMod 3)) : toM2 g⁻¹ = (toM2 g).inv := by
     rw [← toM2_mul, mul_inv_cancel, toM2_one]
   exact M2.eq_inv_of_mul_eq_one _ (toM2_mem_all g) _ (toM2_mem_all g⁻¹) h1
 
+theorem toM2_sq (g : GL (Fin 2) (ZMod 3)) : toM2 (g * g) = (toM2 g).sq := by
+  rw [toM2_mul]
+  rfl
 
 theorem toM2_cube (g : GL (Fin 2) (ZMod 3)) : toM2 (g ^ 3) = (toM2 g).cube := by
   rw [pow_three, toM2_mul, toM2_mul]

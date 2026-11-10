@@ -47,6 +47,23 @@ section Collapse
 
 variable {m : ℕ}
 
+theorem mem_closure_of_subsetCheckCC (ws : List (List (Fin m × Bool))) (S : List ℕ)
+    {cap : ℕ} (h : subsetCheckCC ws S cap 1 = true) {G : Type*} [Group G] (y : Fin m → G)
+    (hy : ∀ w ∈ ws, wprod y w = 1) (i : Fin m) :
+    y i ∈ Subgroup.closure (y '' {j | j ∈ subsetOf m S}) := by
+  set rels := {r : FreeGroup (Fin m) | r ∈ ws.map FreeGroup.mk}
+  obtain ⟨hfi, hle⟩ := index_le_of_subsetCheckCC ws S h
+  have htop : genSub rels (subsetOf m S) = ⊤ :=
+    Subgroup.index_eq_one.mp (Nat.le_antisymm hle (Nat.pos_of_ne_zero hfi.index_ne_zero))
+  have hmem : (PresentedGroup.of i : PG m ws) ∈ genSub rels (subsetOf m S) := by
+    rw [htop]
+    exact Subgroup.mem_top _
+  have hmap := Subgroup.mem_map_of_mem (pgHom y hy) hmem
+  rw [MonoidHom.map_closure, pgHom_of] at hmap
+  refine Subgroup.closure_mono ?_ hmap
+  rintro _ ⟨x, ⟨j, hj, rfl⟩, rfl⟩
+  rw [pgHom_of]
+  exact Set.mem_image_of_mem y hj
 
 end Collapse
 

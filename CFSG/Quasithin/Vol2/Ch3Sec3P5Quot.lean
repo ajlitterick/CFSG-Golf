@@ -15,6 +15,9 @@ abbrev PQ : Type := ↥permQuot6Model.sec ⧸ permQuot6Model.ker.subgroupOf perm
 
 @[expose] def amb (x : ↥permQuot6Model.sec) : G6.PermMod 6 := x.1
 
+theorem amb_mul (x y : ↥permQuot6Model.sec) : amb (x * y) = amb x * amb y := rfl
+
+theorem amb_one : amb 1 = 1 := rfl
 
 @[expose] noncomputable def crdHom : PQ →* Multiplicative P5.Vec5 :=
   QuotientGroup.lift _

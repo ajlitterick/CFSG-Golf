@@ -252,6 +252,9 @@ theorem det_gfix (β γ : K) : (gfix β γ).det = 1 := by
   rw [Matrix.det_succ_row_zero]
   simp [gfix, Fin.sum_univ_succ, Matrix.det_succ_row_zero, Matrix.submatrix, Fin.succAbove]
 
+theorem map_gfix (β γ : K) : (gfix β γ).map h.bar = gfix (h.bar β) (h.bar γ) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> hblocks_norm
 
 theorem blk_mul_gfix {β γ b f : K} (h1 : b * h.bar γ = β * f) (h2 : b * γ = h.bar β * f) :
     blk 0 b f 0 * gfix (h.bar β) (h.bar γ) = gfix β γ * blk 0 b f 0 := by

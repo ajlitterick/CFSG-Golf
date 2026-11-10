@@ -116,5 +116,74 @@ deriving DecidableEq
 
 @[expose] def lineIn (dl : List Cd) (t : Cd) : List Cd := dl.filter (commB t)
 
+@[expose] def ckLists (sl : List Cd) : Bool :=
+  gu3s.length == 648 && decide gu3s.Nodup && sl.length == 36 && decide sl.Nodup
+
+@[expose] def ckRoot (cs il : List Cd) : Bool :=
+  let qs := cs.filter fun c => c.m == I3
+  (qs.all fun q => powC q 4 == e0) &&
+    il.all fun c => c.m == I3 || qs.any fun q => mulC q q == tau0 && commB q c
+
+@[expose] def ckInv (il sl dl : List Cd) : Bool :=
+  let ps := (dl.flatMap fun a => dl.map fun b => (a, b)).filterMap fun p =>
+    if p.1 != p.2 && commB p.1 p.2 then some (mulC p.1 p.2) else none
+  il.all fun c => c == tau0 || sl.contains c || ps.contains c
+
+@[expose] def ckClass (sl : List Cd) : Bool :=
+  sl.all fun t => gu3s.any fun A => mm A (sl.headD e0).m == mm t.m A &&
+    ([(0 : ZMod 2), 1].any fun e => v3s.any fun a =>
+      mulC ⟨e, a, A⟩ (sl.headD e0) == mulC t ⟨e, a, A⟩)
+
+@[expose] def ckOrd (dl : List Cd) : Bool :=
+  dl.all fun a => dl.all fun b =>
+    mulC (mulC a b) (mulC a b) == e0 || mulC (mulC (mulC a b) (mulC a b)) (mulC a b) == e0
+
+@[expose] def ckLine (sl dl : List Cd) : Bool :=
+  (sl.all fun t => (lineIn dl t).length == 5) &&
+    (sl.all fun t => (lineIn dl t).all fun a => (lineIn dl t).all fun b => commB a b) &&
+    (sl.all fun t => sl.all fun t' => !(commB t t') || sl.all fun s => commB t s == commB t' s) &&
+    (sl.all fun t => (lineIn dl t).all fun a => (lineIn dl t).all fun b =>
+      (lineIn dl t).all fun a' => (lineIn dl t).all fun b' => a == b || a' == b' ||
+        mulC a b != mulC a' b' || (a == a' && b == b') || (a == b' && b == a')) &&
+    sl.all fun t => !(dl.contains (mulC tau0 t))
+
+@[expose] def ckNZ (dl wl : List Cd) : Bool :=
+  (dl.all fun x => wl.all fun v => pow72 (mulC x v) == e0) &&
+    ((dl.toFinset ×ˢ wl.toFinset).filter fun p => tau0 ∈ zpowL (mulC p.1 p.2)).card == 1188
+
+@[expose] def ckNW (sl dl wl : List Cd) : Bool :=
+  let t := sl.headD e0
+  (((lineIn dl t).toFinset ×ˢ (wl.filter (commB t)).toFinset).filter fun p =>
+    mulC tau0 t ∈ zpowL (mulC p.1 p.2)).card == 3
+
+@[expose] def ckSwap (il sl : List Cd) : Bool :=
+  sl.all fun p => sl.all fun p' => p == p' || !(commB p p') ||
+    ((il.toFinset.filter fun v => mulC v p == mulC p' v).card == 16 &&
+      sl.all fun q => q == p || q == p' || !(commB p q) ||
+        il.all fun v => !(mulC v p == mulC p' v && commB v q))
+
+@[expose] def ckCent (cs sl : List Cd) : Bool :=
+  (cs.filter (commB (sl.headD e0))).toFinset.card == 2304
+
+@[expose] def ckCenter (cs : List Cd) : Bool :=
+  cs.all fun c => !(cgens.all (commB c)) || c == e0 || c == tau0
+
+@[expose] def ckSmall : Bool :=
+  unitB I3 && mulC e0 e0 == e0 && cgens.all fun g => unitB g.m
+
+@[expose] def qtsCheck (cs il sl dl wl : List Cd) : Bool :=
+  ckSmall && ckLists sl && ckRoot cs il && ckInv il sl dl && ckClass sl && ckOrd dl &&
+    ckLine sl dl && ckNZ dl wl && ckNW sl dl wl && ckSwap il sl && ckCent cs sl && ckCenter cs
+
+@[expose] def qtsOK : Bool :=
+  let cs := codes
+  let il := cs.filter isInv
+  let sq := cs.map fun s => mulC s s
+  let sl := il.filter fun c => c.m != I3 && sq.contains c
+  let dl := tau0 :: sl
+  let wl := il.filter fun c => !(dl.contains c)
+  qtsCheck cs il sl dl wl
+
+theorem qtsOK_eq : qtsOK = qtsCheck codes il sl dl wl := rfl
 
 end CFSG.LargeExtraspecial.AS35QTS

@@ -216,6 +216,18 @@ abbrev Vertex : Type _ :=
 @[expose] def vertex₂ : D.Vertex :=
   ⟨(D.P₂ : Set X) * {1}, Or.inr ⟨1, rfl⟩⟩
 
+@[expose] def graphMinusTop : SimpleGraph D.Vertex where
+  Adj v v' := D.graph.Adj v v' ∧ ¬ ((v : Set X) ∩ (v' : Set X) ⊆ dc D.B D.N D.w₀)
+  symm := ⟨fun _ _ h => ⟨D.graph.symm.symm _ _ h.1, by simpa only [Set.inter_comm] using h.2⟩⟩
+  loopless := ⟨fun _ h => D.graph.loopless.irrefl _ h.1⟩
+
+@[expose] def sideOne (i : ℕ) : Set D.Vertex :=
+  {v | D.graphMinusTop.dist v D.vertex₁ = i ∧
+    D.graphMinusTop.dist v D.vertex₁ < D.graphMinusTop.dist v D.vertex₂}
+
+@[expose] def sideTwo (i : ℕ) : Set D.Vertex :=
+  {v | D.graphMinusTop.dist v D.vertex₂ = i ∧
+    D.graphMinusTop.dist v D.vertex₂ < D.graphMinusTop.dist v D.vertex₁}
 
 @[expose] def Uminus : Set X :=
   chainProd D.root ((intList 1 n).map Neg.neg)

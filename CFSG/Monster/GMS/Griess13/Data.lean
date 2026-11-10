@@ -35,6 +35,8 @@ theorem mat_pow (g : G) (n : ℕ) : mat (g ^ n) = mat g ^ n := by
   | zero => rw [pow_zero, pow_zero, mat_one]
   | succ n ih => rw [pow_succ, pow_succ, mat_mul, ih]
 
+theorem co1Act_apply (g : G) (v : Fin 24 → ZMod 2) :
+    CFSG.Monster.GMS.co1Act g v = mat g *ᵥ v := rfl
 
 abbrev dat : CFSG.Sporadic.SmallF2.Native.VecData := CFSG.Sporadic.Co1.Native.co1Data
 

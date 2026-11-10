@@ -18,6 +18,26 @@ namespace CertificateChecks.KernelD4
 
 open CFSG.RankThree.PartTwo.Sec4.Item434D42
 
+meta def lcV : List Nat := lineCert.pts.toList.map (CFSG.KS.RawGen.pack 3)
+
+meta def lcE : List Nat := lineCert.edges.toList.map (CFSG.KS.RawGen.pack 12)
+
+meta def lcP : List Nat :=
+  (List.range 18).map fun k => CFSG.KS.RawGen.pack 12 (lineCert.edges.map fun r => r[k]!)
+
+meta def lcG : List Nat := genCodes.toList.map (CFSG.KS.RawGen.pack 3)
+
+meta def lcC : List Nat :=
+  (List.range 22).map fun s => Id.run do
+    let mut c := 1
+    for i in [0:117 * s] do
+      for j in lineCert.edges[i]! do
+        if j + 1 > c then c := j + 1
+    return c
+
+meta def lcS : List Nat :=
+  ((List.range 2457).toArray.qsort fun a b =>
+    keyV lineCert.pts[a]! < keyV lineCert.pts[b]!).toList
 
 end CertificateChecks.KernelD4
 

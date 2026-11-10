@@ -56,5 +56,11 @@ theorem mclWordConds_iff {G : Type*} [Group G] {x y : G} (hx : orderOf x = 2) :
     rw [hxi, hyi] at h2
     simpa only [mul_assoc] using h2
 
+@[expose] def mclB0 : Array (Array ℕ) := blockOf 275 [levelArr PairMcL.levels 0]
+
+@[expose] def mclBs : List (Array (Array ℕ)) :=
+  [blockOf 275 [levelArr PairMcL.levels 1], blockOf 275 ([2, 3, 4].map (levelArr PairMcL.levels))]
+
+theorem mcl_blocks_eq : PairMcL.blocks = mclB0 :: mclBs := rfl
 
 end CFSG.Sporadic.SmallOddCore

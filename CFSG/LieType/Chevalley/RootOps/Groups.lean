@@ -173,6 +173,15 @@ theorem weylElt_mul_elt (i : Fin τ.rank) (α : Root τ) (c : R) :
     smul_smul, mul_pow, Int.cast_pow]
   exact Finset.sum_congr rfl fun k _ => by rw [mul_comm]
 
+theorem weylElt_inv_mul_elt (i : Fin τ.rank) (α : Root τ) (c : R) :
+    (((weylElt τ R i 1)⁻¹ : (Module.End R (RootModule τ R))ˣ) :
+        Module.End R (RootModule τ R)) * F.elt R (simple τ i • α) c =
+      F.elt R α ((F.sign i α : R) * c) *
+        (((weylElt τ R i 1)⁻¹ : (Module.End R (RootModule τ R))ˣ) :
+          Module.End R (RootModule τ R)) := by
+  have h := F.weylElt_mul_elt i α ((F.sign i α : R) * c)
+  rw [← mul_assoc, F.sign_cast_mul_self, one_mul] at h
+  rw [Units.inv_mul_eq_iff_eq_mul, ← mul_assoc, h, Units.mul_inv_cancel_right]
 
 theorem weylElt_mul_elt_mul_inv (i : Fin τ.rank) (α : Root τ) (c : R) :
     (weylElt τ R i 1 : Module.End R (RootModule τ R)) * F.elt R α c *
@@ -181,6 +190,12 @@ theorem weylElt_mul_elt_mul_inv (i : Fin τ.rank) (α : Root τ) (c : R) :
       F.elt R (simple τ i • α) ((F.sign i α : R) * c) := by
   rw [F.weylElt_mul_elt, Units.mul_inv_cancel_right]
 
+theorem weylElt_inv_mul_elt_mul (i : Fin τ.rank) (α : Root τ) (c : R) :
+    (((weylElt τ R i 1)⁻¹ : (Module.End R (RootModule τ R))ˣ) :
+        Module.End R (RootModule τ R)) * F.elt R (simple τ i • α) c *
+        (weylElt τ R i 1 : Module.End R (RootModule τ R)) =
+      F.elt R α ((F.sign i α : R) * c) := by
+  rw [F.weylElt_inv_mul_elt, Units.inv_mul_cancel_right]
 
 variable (R) in
 theorem exists_elt_eq_conj (α : Root τ) :

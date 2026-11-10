@@ -109,5 +109,17 @@ theorem ruC_eq_centralizer :
     ruC = ruP ⊓ Subgroup.centralizer {ruZ} :=
   Subgroup.eq_of_le_of_card_ge ruC_le_centralizer (card_centralizer_ruZ_le.trans card_ruC.ge)
 
+theorem ruC_eq_centralizer_center :
+    ruC = ruP ⊓ Subgroup.centralizer ((Subgroup.center ruS).map ruS.subtype : Set _) := by
+  rw [center_ruS, Subgroup.zpowers_eq_closure, Subgroup.centralizer_closure]
+  exact ruC_eq_centralizer
+
+theorem AT_Ru_intrinsic_involution_centralizer :
+    orderOf ruZ = 2 ∧ {x : Fin 4060 | ruZ x = x}.ncard = 92 ∧
+    593775 ≤ (Set.range fun g : ruP =>
+      (g : Equiv.Perm (Fin 4060)) • {x : Fin 4060 | ruZ x = x}).ncard ∧
+    ruC = ruP ⊓ Subgroup.centralizer {ruZ} ∧
+    ruC = ruP ⊓ Subgroup.centralizer ((Subgroup.center ruS).map ruS.subtype : Set _) :=
+  ⟨orderOf_ruZ, ruFixSet_ncard, ruFix_translates, ruC_eq_centralizer, ruC_eq_centralizer_center⟩
 
 end CFSG.Sporadic.RuSchreier

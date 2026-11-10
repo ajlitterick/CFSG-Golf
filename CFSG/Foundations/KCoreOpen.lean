@@ -15,6 +15,9 @@ theorem knownSimpleOrders_isoTransfer :
   rw [← Nat.card_congr e.toEquiv]
   exact h
 
+theorem knownSimpleOrders_isoInvariant :
+    KCore.IsoInvariant.{u} (fun S _ => Nat.card S ∈ knownSimpleOrders) :=
+  fun e h => knownSimpleOrders_isoTransfer e.symm h
 
 theorem isCatalogGroup_isoTransfer :
     KCore.IsoTransfer.{u, v} @IsCatalogGroup @IsCatalogGroup :=
@@ -23,6 +26,9 @@ theorem isCatalogGroup_isoTransfer :
 theorem isCatalogGroup_isoInvariant : KCore.IsoInvariant.{u} @IsCatalogGroup :=
   fun e h => isCatalogGroup_isoTransfer e.symm h
 
+theorem isKProperByOrder_iff_kProperNonab {G : Type u} [Group G] :
+    IsKProperByOrder G ↔ KCore.KProperNonab (fun S _ => Nat.card S ∈ knownSimpleOrders) G :=
+  Iff.rfl
 
 theorem IsKProperByOrder.of_surjective {G : Type u} {H : Type v} [Group G] [Group H]
     (hK : IsKProperByOrder G) (f : G →* H) (hf : Function.Surjective f) : IsKProperByOrder H := by

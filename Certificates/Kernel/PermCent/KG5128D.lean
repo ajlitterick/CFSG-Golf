@@ -23,5 +23,7 @@ theorem kPart : (((elemsC QP).filter fun y => orderIsC y 4).filter fun y =>
     pairInvC ws (cOf pa) y).length = 192 := by
   decide +kernel
 
+theorem kNegD : ((elemsC QP).any fun g => eq22C g (cOf pa) (cOf pb) g) = false := by
+  decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5128

@@ -18,5 +18,15 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG.Monster.B CFSG.Monster.B.Pinned CFSG.Monster.B.Primes.Native in
+theorem certificate3160 :
+    (wordG genA₁ genA₂ word7.toList ^ 1) ^ 7 = 1 ∧ wordG genA₁ genA₂ word7.toList ^ 1 ≠ 1 ∧
+    (wordG genA₁ genA₂ word13.toList ^ 2) ^ 13 = 1 ∧ wordG genA₁ genA₂ word13.toList ^ 2 ≠ 1 ∧
+    (wordG genA₁ genA₂ word17.toList ^ 2) ^ 17 = 1 ∧ wordG genA₁ genA₂ word17.toList ^ 2 ≠ 1 ∧
+    (wordG genA₁ genA₂ word19.toList ^ 1) ^ 19 = 1 ∧ wordG genA₁ genA₂ word19.toList ^ 1 ≠ 1 ∧
+    (wordG genA₁ genA₂ word31.toList ^ 1) ^ 31 = 1 ∧ wordG genA₁ genA₂ word31.toList ^ 1 ≠ 1 ∧
+    (wordG genA₁ genA₂ word47.toList ^ 1) ^ 47 = 1 ∧ wordG genA₁ genA₂ word47.toList ^ 1 ≠ 1 := by
+  rw [KernelBM.genA₁_eq_stripMat, KernelBM.genA₂_eq_stripMat]
+  exact KernelBM.PrimeOrd.six_facts
 
 end Certificates

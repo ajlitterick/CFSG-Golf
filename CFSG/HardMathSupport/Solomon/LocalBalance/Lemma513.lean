@@ -345,6 +345,8 @@ theorem rho_eq_one_iff {L : Subgroup G} {g : G} (hg : g ∈ Subgroup.normalizer 
   rw [rho_of_mem hg]
   exact (mem_centralizerQuot_iff_barAut' 3 ⟨g, hg⟩).symm
 
+theorem le_normalizer_of_centralizerQuot (L U : Subgroup G) {g : G}
+    (hg : g ∈ centralizerQuot L U) : g ∈ Subgroup.normalizer (L : Set G) := hg.1
 
 theorem rho_eq_one_of_commute {L : Subgroup G} {b : G} (hbN : b ∈ Subgroup.normalizer (L : Set G))
     (hbc : ∀ l ∈ L, b * l = l * b) : rho L b = 1 := by
@@ -1464,6 +1466,8 @@ def rhoSub (L : Subgroup G) (R : Subgroup (MulAut (barOf 3 L))) : Subgroup G whe
     rintro g ⟨hg, hgR⟩
     exact ⟨inv_mem hg, by rw [rho_inv hg]; exact inv_mem hgR⟩
 
+theorem mem_rhoSub {L : Subgroup G} {R : Subgroup (MulAut (barOf 3 L))} {g : G} :
+    g ∈ rhoSub L R ↔ g ∈ Subgroup.normalizer (L : Set G) ∧ rho L g ∈ R := Iff.rfl
 
 theorem exists_mem_inf_not_mem_zpowers [Finite G] {A' C B' : Subgroup G} {b : G} (hb3 : b ^ 3 = 1)
     (hb1 : b ≠ 1) (hCB' : C ≤ B') (hA'B' : A' ≤ B') (hCcard : Nat.card C = 27)

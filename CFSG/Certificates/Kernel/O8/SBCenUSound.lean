@@ -268,6 +268,13 @@ theorem blkU_eq {AR MR : ℕ → ℕ} {mul : ℕ → ℕ → ℕ} {F : ℕ → �
   congr 1
   ring
 
+theorem conjB_sound {mul : ℕ → ℕ → ℕ} {F : ℕ → ℕ} {z a n : ℕ} (h : conjB mul F z a n = true) :
+    ∀ i < n, mul z (a + i) = mul (F (F (a + i))) z := by
+  intro i hi
+  have := @recAnd (fun i => strictB (Nat.add a i) fun y => strictB (F y) fun u => strictB (F u) fun v =>
+    Nat.beq (mul z y) (mul v z)) n h i hi
+  simp only [cen_strictB, Nat.add_eq] at this
+  exact Nat.eq_of_beq_eq_true this
 
 end CFSG.KC.SBCenU
 

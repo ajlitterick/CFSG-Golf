@@ -174,5 +174,34 @@ theorem isCompatible_sU_PO (p : AutPerm) : IsCompatible (sU p) (PO p) := by
 theorem sU_PO_mem_Pvis (p : AutPerm) : (sU p, PO p) ∈ Pvis :=
   ⟨isDyadicSpinNormalizer_sU p, isCompatible_sU_PO p⟩
 
+theorem code_permutation_compatible_spin_lift (p : AutPerm) :
+    (∀ a a' b : C, betaP p (a + a') b = betaP p a b + betaP p a' b) ∧
+    (∀ a b b' : C, betaP p a (b + b') = betaP p a b + betaP p a b') ∧
+    (∀ a : C, betaP p a a = 0) ∧
+    (∀ a b : C, betaBilin p a b = betaP p a b) ∧ (betaBilin p).IsAlt ∧
+    (∀ a b : C, kappaP p (a + b) + kappaP p a + kappaP p b = betaP p a b) ∧
+    smat p = spm ℚ (sPerm p) (sSign p) ∧ Function.Bijective (sPerm p) ∧
+    (∀ i : SpinIdx, sPerm p i = (i.1 + kappaP p ΩC, π₀ (permC p i.2)) ∧
+      sSign p i = kappaP p i.2 + (i.1 + kappaP p ΩC) * μ₀ (permC p i.2)) ∧
+    (∀ x : Fin 24 → ZMod 2,
+      permD p (Submodule.Quotient.mk x) = Submodule.Quotient.mk (permWord p x)) ∧
+    (∀ δ : Cocode, (sU p)⁻¹ * DU δ * sU p = DU (permD p δ)) ∧
+    (∀ (a : C) (s : ZMod 2),
+      (sU p)⁻¹ * XU ⟨a, s⟩ * sU p = zU ^ (kappaP p a).val * XU ⟨permC p a, s⟩) ∧
+    (((sU p)⁻¹ : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) = (smat p)ᵀ ∧
+    (∀ δ : Cocode, (smat p)ᵀ * Dmat δ * smat p = Dmat (permD p δ)) ∧
+    (∀ (a : C) (s : ZMod 2),
+      (smat p)ᵀ * Xmat ⟨a, s⟩ * smat p = sgn (kappaP p a) • Xmat ⟨permC p a, s⟩) ∧
+    PU p ∈ latticeO ∧ mat (PO p) = Pmat p ∧ (sU p, PO p) ∈ Pvis ∧
+    (∀ (η : ZMod 2) (c : C₀), E η c ᵥ* smat p =
+        sgn (kappaP p c + (η + kappaP p ΩC) * μ₀ (permC p c)) •
+          E (η + kappaP p ΩC) (π₀ (permC p c)) ∧
+      (π₀ (permC p c) : C) = permC p c + μ₀ (permC p c) • ΩC) :=
+  ⟨betaP_add_left p, betaP_add_right p, betaP_self p, betaBilin_apply p, betaBilin_isAlt p,
+    kappaP_add p, smat_eq_spm p, sPerm_bijective p, fun _ => ⟨rfl, rfl⟩, permD_mk p,
+    sU_conj_DU p, fun a s => sU_conj_XU p ⟨a, s⟩, coe_sU_inv p,
+    smat_transpose_mul_Dmat_mul_smat p, fun a s => smat_transpose_mul_Xmat_mul_smat p ⟨a, s⟩,
+    PU_mem_latticeO p, mat_PO p, sU_PO_mem_Pvis p,
+    fun η c => ⟨E_vecMul_smat p η c, coe_π₀ _⟩⟩
 
 end CFSG.Monster.Visible

@@ -28,6 +28,9 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Sporadic.RuSchreier
   (List.range 8).all (fun i => a[b[i]!]! == b[a[i]!]!) &&
     eqA 4060 (compA 4060 a b) (compA 4060 b a)
 
+@[expose] def sqIterA : ℕ → Array ℕ → Array ℕ
+  | 0, t => t
+  | k + 1, t => sqIterA k (compA 4060 t t)
 
 @[expose] def cjA (h hi t : Array ℕ) : Array ℕ := compA 4060 (compA 4060 h t) hi
 
@@ -88,6 +91,13 @@ theorem commA_iff {a b : Array ℕ} {g h : Equiv.Perm (Fin 4060)} (ha : Rep 4060
     rw [compA_get hi'] at h1 h2
     rw [beq_iff_eq, h1, h2, he]
 
+theorem rep_sqIterA {t : Array ℕ} {g : Equiv.Perm (Fin 4060)} (ht : Rep 4060 t g) :
+    ∀ k, Rep 4060 (sqIterA k t) (g ^ 2 ^ k)
+  | 0 => by simpa [sqIterA] using ht
+  | k + 1 => by
+    rw [sqIterA, pow_succ, mul_comm, pow_mul]
+    have := rep_sqIterA (rep_compA ht ht) k
+    rwa [← sq] at this
 
 theorem rep_cjA {h hi t : Array ℕ} {hg tg : Equiv.Perm (Fin 4060)} (hh : Rep 4060 h hg)
     (hhi : Rep 4060 hi hg⁻¹) (ht : Rep 4060 t tg) : Rep 4060 (cjA h hi t) (hg * tg * hg⁻¹) :=

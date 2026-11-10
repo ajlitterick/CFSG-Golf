@@ -70,6 +70,7 @@ theorem wordElt_memS0 : ∀ {w : List ℕ}, (∀ k ∈ w, k < 4) →
 
 @[expose] def A1 : hsChain.originalSubgroup := ⟨hsGen 1, hsGen_mem 1 (by norm_num)⟩
 
+theorem order_A1 : orderOf (A1 : Equiv.Perm (Fin 3850)) = 5 := hs_word_orders.2.1
 
 theorem orderOf_conj' {G : Type*} [Group G] (g x : G) : orderOf (g * x * g⁻¹) = orderOf x := by
   have := MulEquiv.orderOf_eq (MulAut.conj g) x

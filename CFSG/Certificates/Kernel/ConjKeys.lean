@@ -81,6 +81,16 @@ theorem card_inf_centralizer_eq_of_conj_keys (H : Subgroup G) [Finite H] (x : G)
   have h2 : Nat.card ↥(H ⊓ centralizer ({x} : Set G)) ≤ m := Nat.le_of_mul_le_mul_left hle' hN
   omega
 
+theorem eq_inf_centralizer_of_conj_keys (H : Subgroup G) [Finite H] (x : G) {N : ℕ} (c : ℕ → G)
+    (hc : ∀ j < N, c j ∈ H) {α : Type*} (key : G → α)
+    (hk : ∀ i < N, ∀ j < N, key (c i * x * (c i)⁻¹) = key (c j * x * (c j)⁻¹) → i = j)
+    {K : Subgroup G} (hK : K ≤ H ⊓ centralizer ({x} : Set G)) (hcard : N * Nat.card K = Nat.card H) :
+    K = H ⊓ centralizer ({x} : Set G) := by
+  have hcK := card_inf_centralizer_eq_of_conj_keys H x hcard c hc key hk [K]
+    (fun L hL => by rw [List.mem_singleton.mp hL]; exact hK) (by simp)
+  have : Finite ↥(H ⊓ centralizer ({x} : Set G)) :=
+    Finite.of_injective _ (Subgroup.inclusion_injective (inf_le_left (b := centralizer {x})))
+  exact Subgroup.eq_of_le_of_card_ge hK hcK.le
 
 open CFSG.Certificates CFSG.Certificates.ChainArrays CFSG.Certificates.Native
   CFSG.Monster.B.Co2 CFSG.Sporadic.Schreier CFSG.Sporadic.Schreier.PairNative

@@ -23,6 +23,7 @@ open CFSG.KC CFSG.KC.B4A CFSG.KC.YModel CFSG.YGroups CFSG.Certificates.CosetEnum
   w_smul := fun _ => rfl
   stab_comm := fun c _ => by rw [mul_one, one_mul]
 
+theorem setupB_H : setupB.H = psi.range := rfl
 
 theorem relIndex_map_eq_index {E G' : Type*} [Group E] [Group G'] (φ : E →* G') (P : Subgroup E)
     (hker : φ.ker ≤ P) : (P.map φ).relIndex φ.range = P.index := by

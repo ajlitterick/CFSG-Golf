@@ -342,6 +342,7 @@ theorem bezOK_append {q1 ZT D : ℕ} {s p t : List ℕ} {P1 g0 a b c : ℕ}
   rw [bezOK_eq] at h1 h2 ⊢
   exact allFrom_append h1 h2
 
+theorem allFrom_zero {f : ℕ → Bool} {b : ℕ} : allFrom 0 b f = true := rfl
 
 theorem chainOK_zero {m F g dg q1 ET b : ℕ} : chainOK m F g dg q1 ET b 0 = true := rfl
 

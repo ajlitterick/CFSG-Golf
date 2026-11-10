@@ -93,6 +93,24 @@ instance instGroup : Group PG :=
     (fun a => toPerm_injective (by rw [toPerm_mul, toPerm_one, one_mul]))
     (fun a => toPerm_injective (by rw [toPerm_mul, toPerm_inv, toPerm_one, inv_mul_cancel]))
 
+@[expose] def toPermHom : PG →* P24 where
+  toFun := toPerm
+  map_one' := toPerm_one
+  map_mul' := toPerm_mul
+
+theorem toPerm_mem_PO (x : PG) : toPerm x ∈ PO := ⟨x.t, x.j, rfl⟩
+
+theorem range_toPermHom : toPermHom.range = PO := by
+  ext y
+  constructor
+  · rintro ⟨x, rfl⟩
+    exact toPerm_mem_PO x
+  · rintro ⟨t, j, rfl⟩
+    exact ⟨⟨t, j⟩, rfl⟩
+
+theorem card_PG : Nat.card PG = 128 := by
+  rw [Nat.card_congr equiv, Nat.card_eq_fintype_card, Fintype.card_prod, Fintype.card_fin,
+    Fintype.card_fin]
 
 end PG
 

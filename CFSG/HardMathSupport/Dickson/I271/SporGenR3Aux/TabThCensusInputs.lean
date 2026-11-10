@@ -26,6 +26,11 @@ set_option compiler.extract_closed false
   .pow 19 12 17, .mul 17 6 18, .mul 18 12 19, .mul 16 19 20, .mul 19 16 21, .pow 10 20 22
   ]
 
+@[expose] def nU : Nat := 23
+
+@[expose] def regsU (_ : Unit := ()) : Array (Array V4) :=
+  slpRows (rowsOf seedA) (rowsOf seedB) nU progU
+
 
 open CFSG.RankThree.PartTwo.Sec4.Item434SporTh CFSG.RankThree.PartTwo.Sec4.Item434SporE81
   CFSG.Monster.B.Fischer CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocal

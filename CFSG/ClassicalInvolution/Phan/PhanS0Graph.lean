@@ -35,6 +35,11 @@ theorem cycleHomotopic_nil_of_conj {x y : V} (q : G.Walk x y) (c : G.Walk y y)
 
 variable {E}
 
+theorem Tri.adj_left {x y z : V} (h : Tri E x y z) : G.Adj x y := h.1
+
+theorem Tri.adj_mid {x y z : V} (h : Tri E x y z) : G.Adj y z := h.2.1
+
+theorem Tri.adj_right {x y z : V} (h : Tri E x y z) : G.Adj z x := h.2.2.1
 
 theorem cycleHomotopic_cone_three {u v w z e : V} (huv : G.Adj u v) (hvw : G.Adj v w)
     (hwz : G.Adj w z) (hu : G.Adj u e) (hv : G.Adj v e) (hw : G.Adj w e) (hz : G.Adj z e)

@@ -377,6 +377,9 @@ theorem derived_eq_matrixLayer [Finite F] (hb : b ≠ 1) :
   QuotientGroup.liftEquiv _ (psi_surjective F b m hm heven Sigma hSigma)
     (psi_ker F b m hm heven Sigma hSigma).symm
 
+theorem matrixQuotientEquiv_mk (h : SemilinearExtension F b m hm heven Sigma hSigma) :
+    matrixQuotientEquiv F b m hm heven Sigma hSigma (QuotientGroup.mk h) =
+      psi F b m hm heven Sigma hSigma h := rfl
 
 @[expose] def abelianizationEquiv [Finite F] (hb : b ≠ 1) :
     Abelianization (SemilinearExtension F b m hm heven Sigma hSigma) ≃*
@@ -809,6 +812,27 @@ end CompleteLinearCharacterFamily
 
 section AllOriginalRepresentativeValues
 
+theorem scalarResidueHom_intCast (n : ℕ) (hn : 0 < n) (z : ℂˣ) (hz : z ^ n = 1)
+    (j : ℤ) :
+    scalarResidueHom n hn z hz (Multiplicative.ofAdd (j : ZMod n)) = z ^ j := by
+  have hone : scalarResidueHom n hn z hz (Multiplicative.ofAdd (1 : ZMod n)) = z := by
+    simpa only [Nat.cast_one, pow_one] using scalarResidueHom_natCast n hn z hz 1
+  have hj : Multiplicative.ofAdd (j : ZMod n) =
+      (Multiplicative.ofAdd (1 : ZMod n)) ^ j := by
+    rw [← ofAdd_zsmul]
+    apply Multiplicative.toAdd.injective
+    change (j : ZMod n) = j • (1 : ZMod n)
+    simp only [zsmul_eq_mul, mul_one]
+  rw [hj, map_zpow, hone]
+
+theorem rootCharacter_intCast (n : ℕ) (hn : 0 < n) (zeta : ℂ)
+    (hroot : IsPrimitiveRoot zeta n) (r : ℕ) (j : ℤ) :
+    (rootCharacter n hn zeta hroot r (Multiplicative.ofAdd (j : ZMod n)) : ℂ) =
+      zeta ^ ((r : ℤ) * j) := by
+  rw [rootCharacter, scalarResidueHom_intCast, Units.val_zpow_eq_zpow_val,
+    Units.val_pow_eq_pow_val]
+  change (zeta ^ r) ^ j = zeta ^ ((r : ℤ) * j)
+  rw [← zpow_natCast, ← _root_.zpow_mul]
 
 variable (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
 variable (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b)
@@ -826,6 +850,20 @@ theorem linearCharacter_residue_formula (r : Fin m) (s : Fin (Nat.card Sigma))
   simpa only [ZMod.natCast_zmod_val] using linearCharacter_formula F b m hm heven
     Sigma hSigma sigma0 hgen zetaM zetaD hrootM hrootD r s X j.val k
 
+theorem linearCharacter_integer_formula (r : Fin m) (s : Fin (Nat.card Sigma))
+    (X : SpecialLinearGroup (Fin 2) F) (j k : ℤ) :
+    (linearCharacter F b m hm heven Sigma hSigma sigma0 hgen zetaM zetaD hrootM hrootD r s
+      ⟨quotientClass F b m hm heven X (j : ZMod (2 * m)), sigma0 ^ k⟩ : ℂ) =
+      zetaM ^ ((r.val : ℤ) * j) * zetaD ^ ((s.val : ℤ) * k) := by
+  have hfield : (fieldGeneratorEquiv F Sigma sigma0 hgen).symm (sigma0 ^ k) =
+      Multiplicative.ofAdd (k : ZMod (Nat.card Sigma)) :=
+    zmodMulEquivOfGenerator_symm_apply_zpow hgen rfl k
+  change (rootCharacter m hm zetaM hrootM r.val
+    (Multiplicative.ofAdd (ZMod.castHom (dvd_mul_left m 2) (ZMod m)
+      (j : ZMod (2 * m)))) : ℂ) *
+    (rootCharacter (Nat.card Sigma) Nat.card_pos zetaD hrootD s.val
+      ((fieldGeneratorEquiv F Sigma sigma0 hgen).symm (sigma0 ^ k)) : ℂ) = _
+  rw [map_intCast, hfield, rootCharacter_intCast, rootCharacter_intCast]
 
 end AllOriginalRepresentativeValues
 

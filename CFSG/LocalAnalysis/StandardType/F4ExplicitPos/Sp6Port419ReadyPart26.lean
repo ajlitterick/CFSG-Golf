@@ -237,6 +237,28 @@ theorem units_map_entrywiseHom_bcGL_algebraMap
     exact Units.ext rfl
   rw [hm, bcGL_comp, frobenius_comp_algebraMap Fr hFr]
 
+theorem units_map_entrywiseHom_j_algebraMap
+    (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ Nat.card K) {τ : Tag} (g : adjointGroup τ K) :
+    Units.map (entrywiseHom Fr) ((j (algebraMap K L) g : adjointGroup τ L) : ModGL τ L) =
+      ((j (algebraMap K L) g : adjointGroup τ L) : ModGL τ L) := by
+  rw [j_apply]
+  exact units_map_entrywiseHom_bcGL_algebraMap Fr hFr (g : ModGL τ K)
+
+theorem map_bcGL_adjointGroup_le_fixed (Fr : L →+* L)
+    (hFr : ∀ c, Fr c = c ^ Nat.card K) {τ : Tag} :
+    ((adjointGroup τ K).map (bcGL (algebraMap K L)) : Set (ModGL τ L)) ⊆
+      {g | Units.map (entrywiseHom Fr) g = g} := by
+  rintro g ⟨h, _hh, rfl⟩
+  exact units_map_entrywiseHom_bcGL_algebraMap Fr hFr h
+
+theorem units_map_entrywiseHom_bcGL_frobeniusAlgHom [Fintype K] {τ : Tag} (g : ModGL τ K) :
+    Units.map (entrywiseHom (FiniteField.frobeniusAlgHom K L).toRingHom)
+        (bcGL (algebraMap K L) g) =
+      bcGL (algebraMap K L) g := by
+  refine units_map_entrywiseHom_bcGL_algebraMap (τ := τ)
+    (FiniteField.frobeniusAlgHom K L).toRingHom (fun c => ?_) g
+  rw [AlgHom.toRingHom_eq_coe, RingHom.coe_coe, FiniteField.frobeniusAlgHom_apply,
+    Nat.card_eq_fintype_card]
 
 end Frobenius
 
@@ -367,6 +389,31 @@ theorem bcGL_eltUnit
   rw [coe_bcGL, RootOperatorFamily.coe_eltUnit, RootOperatorFamily.coe_eltUnit]
   exact baseChangeEnd_elt f F α c
 
+theorem map_j_rootSubgroup_le
+    (f : R →+* S) (F : RootOperatorFamily τ) (α : Root τ) :
+    (F.rootSubgroup R α).map (j f) ≤ F.rootSubgroup S α := by
+  intro x hx
+  obtain ⟨g, hg, rfl⟩ := hx
+  obtain ⟨c, rfl⟩ := (F.mem_rootSubgroup (K := R)).1 hg
+  rw [F.mem_rootSubgroup]
+  refine ⟨f c, ?_⟩
+  refine Subtype.ext ?_
+  rw [RootOperatorFamily.coe_eltElement, j_apply, RootOperatorFamily.coe_eltElement]
+  exact (bcGL_eltUnit f F α c).symm
+
+theorem map_j_rootSubgroup_eq_of_surjective
+    (f : R →+* S) (hf : Function.Surjective f)
+    (F : RootOperatorFamily τ) (α : Root τ) :
+    (F.rootSubgroup R α).map (j f) = F.rootSubgroup S α := by
+  refine le_antisymm (map_j_rootSubgroup_le f F α) ?_
+  intro x hx
+  obtain ⟨d, rfl⟩ := (F.mem_rootSubgroup (K := S)).1 hx
+  obtain ⟨c, rfl⟩ := hf d
+  rw [Subgroup.mem_map]
+  refine ⟨F.eltElement α c, F.eltElement_mem_rootSubgroup α c, ?_⟩
+  refine Subtype.ext ?_
+  rw [RootOperatorFamily.coe_eltElement, j_apply, RootOperatorFamily.coe_eltElement]
+  exact bcGL_eltUnit f F α c
 
 theorem j_eltElement
     (f : R →+* S) (F : RootOperatorFamily τ) (α : Root τ) (c : R) :
@@ -375,6 +422,10 @@ theorem j_eltElement
   rw [RootOperatorFamily.coe_eltElement, j_apply, RootOperatorFamily.coe_eltElement]
   exact bcGL_eltUnit f F α c
 
+theorem j_eltElement_neg
+    (f : R →+* S) (F : RootOperatorFamily τ) (α : Root τ) (c : R) :
+    j f (F.eltElement (-α) c) = F.eltElement (-α) (f c) :=
+  j_eltElement f F (-α) c
 
 theorem map_j_xPar
     (f : R →+* S) (F : RootOperatorFamily τ) (γ : Fin τ.rank → ℤ) (c : R) :
@@ -393,15 +444,67 @@ theorem rootGroup_of_isRoot_no117
   classical
   exact dite_eq_left h
 
+theorem rootGroup_of_not_isRoot_no117
+    {F : RootOperatorFamily τ} {K : Type} [Field K]
+    {γ : Fin τ.rank → ℤ} (h : ¬IsRoot τ γ) :
+    rootGroup F K γ = ⊥ := by
+  classical
+  exact dite_eq_right h
+
+theorem map_j_rootGroup_le
+    (f : R →+* S) (F : RootOperatorFamily τ) (γ : Fin τ.rank → ℤ) :
+    (rootGroup F R γ).map (j f) ≤ rootGroup F S γ := by
+  by_cases h : IsRoot τ γ
+  · rw [rootGroup_of_isRoot_no117 (F := F) (K := R) h,
+        rootGroup_of_isRoot_no117 (F := F) (K := S) h]
+    exact map_j_rootSubgroup_le f F ⟨γ, h⟩
+  · rw [rootGroup_of_not_isRoot_no117 (F := F) (K := R) h,
+        rootGroup_of_not_isRoot_no117 (F := F) (K := S) h]
+    simp
+
+theorem map_j_rootGroup_eq_of_surjective
+    (f : R →+* S) (hf : Function.Surjective f)
+    (F : RootOperatorFamily τ) (γ : Fin τ.rank → ℤ) :
+    (rootGroup F R γ).map (j f) = rootGroup F S γ := by
+  by_cases h : IsRoot τ γ
+  · rw [rootGroup_of_isRoot_no117 (F := F) (K := R) h,
+        rootGroup_of_isRoot_no117 (F := F) (K := S) h]
+    exact map_j_rootSubgroup_eq_of_surjective f hf F ⟨γ, h⟩
+  · rw [rootGroup_of_not_isRoot_no117 (F := F) (K := R) h,
+        rootGroup_of_not_isRoot_no117 (F := F) (K := S) h]
+    simp
 
 section F4
 
+theorem bcGL_rootOperatorFamily_F4_eltUnit
+    (f : R →+* S) (α : Root Tag.F4) (c : R) :
+    bcGL f ((rootOperatorFamily Tag.F4).eltUnit R α c) =
+      (rootOperatorFamily Tag.F4).eltUnit S α (f c) :=
+  bcGL_eltUnit f (rootOperatorFamily Tag.F4) α c
+
+theorem map_j_rootOperatorFamily_F4_rootSubgroup_le
+    (f : R →+* S) (α : Root Tag.F4) :
+    ((rootOperatorFamily Tag.F4).rootSubgroup R α).map (j f) ≤
+      (rootOperatorFamily Tag.F4).rootSubgroup S α :=
+  map_j_rootSubgroup_le f (rootOperatorFamily Tag.F4) α
 
 theorem f4Datum_rootGroup_eq
     (K : Type) [Field K] (γ : Fin (Tag.rank Tag.F4) → ℤ) :
     (f4Datum K).rootGroup γ = rootGroup (rootOperatorFamily Tag.F4) K γ :=
   rfl
 
+theorem map_j_f4Datum_rootGroup_le
+    (f : R →+* S) (γ : Fin (Tag.rank Tag.F4) → ℤ) :
+    ((f4Datum R).rootGroup γ).map (j f) ≤ (f4Datum S).rootGroup γ := by
+  rw [f4Datum_rootGroup_eq R γ, f4Datum_rootGroup_eq S γ]
+  exact map_j_rootGroup_le f (rootOperatorFamily Tag.F4) γ
+
+theorem map_j_f4Datum_rootGroup_eq_of_surjective
+    (f : R →+* S)
+    (hf : Function.Surjective f) (γ : Fin (Tag.rank Tag.F4) → ℤ) :
+    ((f4Datum R).rootGroup γ).map (j f) = (f4Datum S).rootGroup γ := by
+  rw [f4Datum_rootGroup_eq R γ, f4Datum_rootGroup_eq S γ]
+  exact map_j_rootGroup_eq_of_surjective f hf (rootOperatorFamily Tag.F4) γ
 
 end F4
 
@@ -422,6 +525,23 @@ theorem f4_repsCheck_without68 : repsCheck .F4 f4Reps = true := by
 theorem f4_coverCheck_without68 : coverCheck .F4 f4Reps f4Cover = true := by
   decide +kernel
 
+theorem f4_commContained_without68
+    (K : Type) [Field K]
+    (i : Fin Tag.F4.rank) (β : Root Tag.F4) (hβ : 0 < height β.1)
+    (hne : β ≠ simpleRoot Tag.F4 i) :
+    (rootOperatorFamily Tag.F4).CommContained K (simpleRoot Tag.F4 i) β :=
+  commContained_of_checks K dataChecks_F4.valid dataChecks_F4.tab
+    f4_repsCheck_without68 f4_coverCheck_without68 i β hβ hne
+
+noncomputable def f4RootSubgroups
+    (K : Type) [Field K] :
+    RootSubgroups Tag.F4 K :=
+  (rootOperatorFamily Tag.F4).toRootSubgroups K (f4_commContained_without68 K)
+
+noncomputable def f4RootData
+    (K : Type) [Field K] [Finite K] :
+    RootGroupData (rootCombinatorics Tag.F4) (adjointGroup Tag.F4 K) :=
+  (f4RootSubgroups K).toRootGroupData
 
 end CFSG.StandardType.F4ExplicitPos.Check68
 

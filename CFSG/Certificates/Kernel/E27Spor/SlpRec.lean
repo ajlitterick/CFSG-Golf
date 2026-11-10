@@ -31,6 +31,12 @@ theorem rowsR_getD {d : ℕ} (R : ℕ → ℕ) (k : ℕ) {r : ℕ} (hr : r < d) 
   rw [rowsR, mkL_getD _ d 0 r hr, Nat.zero_add]
   rfl
 
+theorem nthM_eq : ∀ (L : List (List (List ℕ))) (k : ℕ), nthM L k = L.getD k []
+  | [], _ => rfl
+  | _ :: _, 0 => rfl
+  | _ :: L, k + 1 => by
+    rw [List.getD_cons_succ, ← nthM_eq L k]
+    rfl
 
 theorem nthR_eq : ∀ (L : List (List ℕ)) (r : ℕ), nthR L r = L.getD r []
   | [], _ => rfl

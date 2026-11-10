@@ -18,6 +18,7 @@ namespace CFSG.GH74.M12.Hyp
   | [] => tid
   | l :: w => tmul (letterT l) (wordT w)
 
+theorem XT_eq : XT = [3, 2, 1, 0, 4, 10, 9, 7, 8, 6, 5, 11] := by decide +kernel
 
 theorem JT_eq : JT = tpow FT 4 := by decide +kernel
 
@@ -35,6 +36,7 @@ theorem wordG2_eq : wordT wordG2 = g2T := by decide +kernel
 
 theorem wordG3_eq : wordT wordG3 = g3T := by decide +kernel
 
+theorem wordH_conj : tmul (tmul (wordT wordH) JT) (tinv (wordT wordH)) = XT := by decide +kernel
 
 theorem mem_QT_iff {t : List Nat} : t ∈ QT ↔ t ∈ HT ∧ t.take 4 ∈ V4pre := by
   simp [QT, List.mem_filter]
@@ -109,6 +111,11 @@ theorem hyp_core_checks_7 :
     (∀ c ∈ HT, ∀ q ∈ Q2T, tmul (tmul c q) (tinv c) ∈ Q2T) :=
   Certificates.certificate5135.2.2.2.2.2.2.1
 
+theorem hyp_core_checks_8 :
+    (∀ x ∈ QT, ∀ y ∈ QT, tpow x 4 = tid → tpow x 2 ≠ tid →
+         tmul y y = tpow x 2 → tmul y x = tmul (tpow x 3) y →
+           (x ∈ Q1T ∧ y ∈ Q1T) ∨ (x ∈ Q2T ∧ y ∈ Q2T)) :=
+  Certificates.certificate5135.2.2.2.2.2.2.2.1
 
 theorem hyp_core_checks_9 :
     (BT.length = 64) ∧
@@ -138,6 +145,8 @@ theorem HT_length : HT.length = 192 :=
 theorem HT_nodup : HT.Nodup :=
   hyp_core_checks_1.2.2.1
 
+theorem JT_mem_HT : JT ∈ HT :=
+  hyp_core_checks_1.2.2.2
 
 theorem HT_cover :
     ∀ a0 ∈ List.range 4, ∀ a1 ∈ List.range 4, ∀ a2 ∈ List.range 4,
@@ -145,6 +154,12 @@ theorem HT_cover :
       a1 ≠ a3 → a2 ≠ a3 → 4 ≤ a4 → ∃ t ∈ HT, t.take 5 = [a0, a1, a2, a3, a4] :=
   hyp_core_checks_2
 
+theorem HT_center :
+    ∀ t ∈ HT, (∀ s ∈ HT, tmul t s = tmul s t) → t = tid ∨ t = JT :=
+  hyp_core_checks_3.1
+
+theorem HT_noncomm : ∃ c ∈ HT, ∃ d ∈ HT, tcomm c d ≠ tid :=
+  hyp_core_checks_3.2.1
 
 theorem QT_length : QT.length = 32 :=
   hyp_core_checks_3.2.2.1
@@ -186,27 +201,61 @@ theorem QT_order3 : ∀ x ∈ HT, tmul x (tmul x x) = tid → x ≠ tid →
     ∀ q ∈ QT, tmul q x = tmul x q → q = tid ∨ q = JT :=
   hyp_core_checks_5.2.1
 
+theorem XT_mem_QT : XT ∈ QT :=
+  hyp_core_checks_5.2.2.1
+
+theorem XT_ne_JT : XT ≠ JT :=
+  hyp_core_checks_5.2.2.2.1
+
+theorem Q1T_length : Q1T.length = 8 :=
+  hyp_core_checks_5.2.2.2.2.1
+
+theorem Q2T_length : Q2T.length = 8 :=
+  hyp_core_checks_5.2.2.2.2.2
+
+theorem Q1T_nodup : Q1T.Nodup :=
+  hyp_core_checks_6.1
+
+theorem Q2T_nodup : Q2T.Nodup :=
+  hyp_core_checks_6.2.1
 
 theorem Q1T_sub : ∀ t ∈ Q1T, t ∈ QT :=
   hyp_core_checks_6.2.2.1
 
+theorem Q2T_sub : ∀ t ∈ Q2T, t ∈ QT :=
+  hyp_core_checks_6.2.2.2.1
 
 theorem tid_mem_Q1T : tid ∈ Q1T :=
   hyp_core_checks_6.2.2.2.2.1
 
+theorem tid_mem_Q2T : tid ∈ Q2T :=
+  hyp_core_checks_6.2.2.2.2.2
 
 theorem Q1T_mul : ∀ s ∈ Q1T, ∀ t ∈ Q1T, tmul s t ∈ Q1T :=
   hyp_core_checks_7.1
 
+theorem Q2T_mul : ∀ s ∈ Q2T, ∀ t ∈ Q2T, tmul s t ∈ Q2T :=
+  hyp_core_checks_7.2.1
 
 theorem Q1T_inv : ∀ s ∈ Q1T, tinv s ∈ Q1T :=
   hyp_core_checks_7.2.2.1
 
+theorem Q2T_inv : ∀ s ∈ Q2T, tinv s ∈ Q2T :=
+  hyp_core_checks_7.2.2.2.1
 
 theorem Q1T_normal :
     ∀ c ∈ HT, ∀ q ∈ Q1T, tmul (tmul c q) (tinv c) ∈ Q1T :=
   hyp_core_checks_7.2.2.2.2.1
 
+theorem Q2T_normal :
+    ∀ c ∈ HT, ∀ q ∈ Q2T, tmul (tmul c q) (tinv c) ∈ Q2T :=
+  hyp_core_checks_7.2.2.2.2.2
+
+theorem Q8_classification :
+    ∀ x ∈ QT, ∀ y ∈ QT, tpow x 4 = tid → tpow x 2 ≠ tid →
+    tmul y y = tpow x 2 → tmul y x = tmul (tpow x 3) y →
+      (x ∈ Q1T ∧ y ∈ Q1T) ∨ (x ∈ Q2T ∧ y ∈ Q2T) :=
+  hyp_core_checks_8
 
 theorem BT_length : BT.length = 64 :=
   hyp_core_checks_9.1
@@ -235,6 +284,11 @@ theorem NT_mem_BT : NT ∈ BT :=
 theorem FT_mem_BT : FT ∈ BT :=
   hyp_core_checks_10.2.2.1
 
+theorem JT_mem_BT : JT ∈ BT :=
+  hyp_core_checks_10.2.2.2.1
+
+theorem XT_mem_BT : XT ∈ BT :=
+  hyp_core_checks_10.2.2.2.2.1
 
 theorem BT_central_involution :
     ∀ s ∈ BT, (∀ t ∈ BT, tmul s t = tmul t s) →

@@ -117,6 +117,14 @@ theorem top_ne_neg_single (hk : τ.cartan i k = -1) :
   have := congrFun h k
   simp [ne_of_cartan_eq_neg_one hk] at this
 
+theorem stringDown_top (hk : τ.cartan i k = -1) :
+    stringDown τ i (Pi.single k 1 + Pi.single i 1) = 1 := by
+  have hki := ne_of_cartan_eq_neg_one hk
+  obtain ⟨-, -, htr⟩ := root_string_transport (isRoot_single τ k) i
+    (single_ne_single_of_ne hki) (single_ne_neg_single_of k i)
+  obtain ⟨-, -, -, -, hd⟩ := htr 1 (by omega) (by rw [stringUp_single_eq_one hk]; norm_num)
+  rw [one_smul, stringDown_single_eq_zero hk] at hd
+  omega
 
 theorem stringUp_top (hk : τ.cartan i k = -1) :
     stringUp τ i (Pi.single k 1 + Pi.single i 1) = 0 := by

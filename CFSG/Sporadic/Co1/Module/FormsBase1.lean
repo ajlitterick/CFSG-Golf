@@ -209,5 +209,28 @@ theorem q₀_co1Act
   have := q₀_smul h v
   rwa [smul_eq_mulVec, hh] at this
 
+theorem F₀_isUnit : IsUnit F₀ := by
+  refine (Matrix.isUnit_iff_isUnit_det F₀).2 ?_
+  have h := congrArg Matrix.det F₀_mul_inv
+  rw [Matrix.det_mul, Matrix.det_one] at h
+  exact IsUnit.of_mul_eq_one _ h
+
+theorem F₀_ne_zero : F₀ ≠ 0 := by
+  intro h
+  have := F₀_mul_inv
+  rw [h, Matrix.zero_mul] at this
+  exact zero_ne_one this
+
+theorem F₀_eq_rows :
+    F₀ = rowsMatrix 24 #[8388608, 10379264, 4321280, 1679360, 4710400, 81920,
+    11182080, 13221888, 16683008, 9777152, 8183808, 11567104, 975620, 3397214, 11318454, 15105500,
+    6169276, 16363858, 14276370, 3626442, 3092234, 14347584, 2590100, 2542531] := by
+  rw [← forms_data.2.2.2.2.2.2.2.2.2.2.2.2.2.2, rowsMatrix_f0Rows]
+
+theorem q₀_ne_zero : q₀ ≠ 0 := by
+  intro h
+  have := q₀_v₃
+  rw [h] at this
+  exact zero_ne_one this
 
 end CFSG.Sporadic.Co1.Module

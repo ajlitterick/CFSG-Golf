@@ -23,6 +23,8 @@ open scoped Matrix
 
 theorem ePauli_mem_Ebar (i : Fin 23) : ePauli i ∈ Ebar := kappa_rho_mem_Ebar (qElt_mem_centralizer i)
 
+theorem packetElt_pauli (i : Fin 23) : packetElt ⟨i, by omega⟩ = ePauli i :=
+  congrArg kappa (Subtype.ext (coe_packetGen_of_lt (k := ⟨i, by omega⟩) i.2))
 
 theorem ePauli_zero : ePauli 0 = xbar := by
   rw [ePauli]
@@ -85,5 +87,21 @@ theorem ePauli'_rel (k l : Fin 22) :
   rw [← bL_pauli]
   exact kappa_rho_mul_eq (qElt_mem_centralizer _) (qElt_mem_centralizer _)
 
+theorem packetElt_mem_Jbar {k : ℕ} (hk : k < 47) : packetElt ⟨k, by omega⟩ ∈ Jbar := by
+  by_cases h : k < 23
+  · rw [packetElt_pauli ⟨k, h⟩]
+    exact Ebar_le_Jbar (ePauli_mem_Ebar _)
+  · have he : (⟨k, by omega⟩ : Fin 48) = ⟨23 + (k - 23 : ℕ), by omega⟩ := Fin.ext (by simp; omega)
+    rw [he, packetElt_h ⟨k - 23, by omega⟩]
+    exact kappa_mem_Jbar (hElt_mem_Jstar _)
+
+theorem coe_chiMat (s : Cbar) :
+    ((chiMat s : GL (Fin 4371) ℚ) : Matrix (Fin 4371) (Fin 4371) ℚ) =
+      LinearMap.toMatrix Rbasis Rbasis (chi s : Vst →ₗ[ℚ] Vst) := rfl
+
+theorem coe_chiMat_packetElt
+    (k : Fin 48) :
+    ((chiMat (packetElt k) : GL (Fin 4371) ℚ) : Matrix (Fin 4371) (Fin 4371) ℚ) = (packetN k)ᵀ := by
+  rw [coe_chiMat, toMatrix_chi_packetElt]
 
 end CFSG.Monster.B

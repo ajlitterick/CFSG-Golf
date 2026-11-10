@@ -61,6 +61,12 @@ noncomputable abbrev spt : Nat → Bool := fun i => sylRec (rCode (f64 T i))
 
 theorem sylc_chunks : ∀ k < 32, allR (900 * k) 900 spt = true := sylcK
 
+theorem tab_x_neg : (!tabOK (XP.set 0 (XP.getD 0 0 + 1099511627776)) X1c) = true := by decide +kernel
+
+theorem sylc_neg : (!allR 0 900 fun i => letB (invK (rCode (f64 T i))) fun ci =>
+    letB (cjK (rCode (f64 T i)) ci 29501) fun cx => letB (cjK (rCode (f64 T i)) ci 78797) fun cy =>
+      orB (andB (memP XP cx) (memP (YP.take 20) cy)) (andB (memP (YP.take 20) cx) (memP XP cy))) = true := by
+  decide +kernel
 
 end CertificateChecks.FiveStd
 

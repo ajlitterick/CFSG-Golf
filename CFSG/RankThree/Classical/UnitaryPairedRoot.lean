@@ -102,6 +102,14 @@ theorem coe_gSU (T : Matrix ι ι K) (hT : hadj h T * G * T = G) (hdet : T.det =
       gConj h G P T :=
   rfl
 
+theorem gSU_mul (T T' : Matrix ι ι K) (hT : hadj h T * G * T = G) (hdet : T.det = 1)
+    (hT' : hadj h T' * G * T' = G) (hdet' : T'.det = 1) (hTT : hadj h (T * T') * G * (T * T') = G)
+    (hdetTT : (T * T').det = 1) :
+    gSU h hGG hGadj hP hcard (T * T') hTT hdetTT =
+      gSU h hGG hGadj hP hcard T hT hdet * gSU h hGG hGadj hP hcard T' hT' hdet' := by
+  apply Subtype.ext
+  apply Units.ext
+  rw [Subgroup.coe_mul, Units.val_mul, coe_gSU, coe_gSU, coe_gSU, gConj_mul h hGG hP]
 
 end Transport
 

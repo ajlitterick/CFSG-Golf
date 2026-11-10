@@ -496,6 +496,53 @@ end TightData
 
 namespace TightData
 
+variable {K H Q S : Subgroup G} (d : TightData K H Q S)
+include d
+
+theorem commute_of_normalizer_ne_bot [Finite G] (h62 : TwoGroupTIInput.{u}) {g : G} (hg : g ∈ H)
+    (hne : conjSubgroup g Q ≠ Q) (hgS : conjSubgroup g Q ≤ S)
+    (hN : conjSubgroup g Q ⊓ Subgroup.normalizer (Q : Set G) ≠ ⊥) :
+    Q ⊓ conjSubgroup g Q = ⊥ ∧ ∀ x ∈ Q, ∀ y ∈ conjSubgroup g Q, x * y = y * x := by
+  by_cases hΦ : ∃ x ∈ Q, x * x ≠ 1
+  · have h1 := d.commute_conj hΦ (h := 1) (k := g) H.one_mem hg
+      (by rw [conjSubgroup_one]; exact d.le_S) hgS
+      (by rw [conjSubgroup_one]; exact fun e => hne e.symm)
+    rw [conjSubgroup_one] at h1
+    exact h1
+  · push Not at hΦ
+    have d' := d.conj hg hgS
+    have hbot := d.inf_conj_eq_bot hg hgS hne
+    have hQS : Q ≤ S := d.le_S
+    refine ⟨hbot, ?_⟩
+    have hXS : conjSubgroup g Q ⊔ Q ≤ S := sup_le hgS hQS
+    have hX2 : IsPGroup 2 (conjSubgroup g Q ⊔ Q : Subgroup G) := d.two.to_le hXS
+    have hel : ∀ v ∈ conjSubgroup g Q, v * v = 1 := by
+      rintro _ ⟨q, hq, rfl⟩
+      have : (g * q * g⁻¹) * (g * q * g⁻¹) = g * (q * q) * g⁻¹ := by group
+      show (g * q * g⁻¹) * (g * q * g⁻¹) = 1
+      rw [this, hΦ q hq]; group
+    have hTIV : ∀ x ∈ conjSubgroup g Q ⊔ Q, conjSubgroup x (conjSubgroup g Q) = conjSubgroup g Q ∨
+        conjSubgroup g Q ⊓ conjSubgroup x (conjSubgroup g Q) = ⊥ := fun x hx =>
+      d'.conj_eq_or_inf_eq_bot (Subgroup.le_normalizer (hXS hx))
+    have hTIA : ∀ x ∈ conjSubgroup g Q ⊔ Q, conjSubgroup x Q = Q ∨ Q ⊓ conjSubgroup x Q = ⊥ :=
+      fun x hx => d.conj_eq_or_inf_eq_bot (Subgroup.le_normalizer (hXS hx))
+    have hcross : ∀ x ∈ conjSubgroup g Q ⊔ Q, conjSubgroup x Q ≠ conjSubgroup g Q →
+        conjSubgroup g Q ⊓ conjSubgroup x Q = ⊥ := by
+      intro x hx hx'
+      have hxS : x ∈ S := hXS hx
+      have hmem : conjSubgroup (x * g⁻¹) (conjSubgroup g Q) = conjSubgroup x Q := by
+        rw [conjSubgroup_conjSubgroup]; congr 1; group
+      have hxQ : conjSubgroup x Q ≤ S := by
+        rintro y ⟨a, ha, rfl⟩
+        exact S.mul_mem (S.mul_mem hxS (hQS ha)) (S.inv_mem hxS)
+      have h1 := d'.inf_conj_eq_bot (g := x * g⁻¹) (H.mul_mem (d.le_H hxS) (H.inv_mem hg))
+        (by rw [hmem]; exact hxQ) (by rw [hmem]; exact hx')
+      rwa [hmem] at h1
+    have hcard : Nat.card (conjSubgroup g Q) = Nat.card Q := card_conjSubgroup g Q
+    have hbot' : conjSubgroup g Q ⊓ Q = ⊥ := by rw [inf_comm]; exact hbot
+    have key := h62 (conjSubgroup g Q ⊔ Q) (conjSubgroup g Q) Q hX2 le_sup_left le_sup_right hel hΦ
+      hcard hbot' hTIV hTIA hcross hN
+    exact fun x hx y hy => (key y hy x hx).symm
 
 end TightData
 

@@ -21,6 +21,12 @@ namespace Prop1116
   GLAPPrimeCoreOf p (K ⊓ Subgroup.centralizer ({e} : Set G)) ⊔
     piLayer p (K ⊓ Subgroup.centralizer ({e} : Set G))
 
+@[expose] def InputAltGen : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime → p ≠ 2 → ∀ (X K B : Subgroup G),
+    GLAPComponent p X K → B ≤ X → B ≤ Subgroup.normalizer (K : Set G) → IsElemAbelian p B →
+    2 ≤ CFSG.Open.pRank p B → ∀ n : ℕ, IsAltType n (barOf p K) → ¬ p ∣ n →
+      barX p X K ≤ barX p X (⨆ (e : G) (_ : e ∈ B) (_ : e ≠ 1), Ke p K e) ∨
+        p ^ CFSG.Open.pRank p B < n
 
 @[expose] def InputA7Gen : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (X K B : Subgroup G),
@@ -240,6 +246,164 @@ theorem layer_le {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {m : ℕ} {B M E A : S
     exact barX_mono p hPM
   · exact absurd ⟨A1, hA1, haA1⟩ hnotD
 
+theorem no_bad {p m : ℕ} {B M E A : Subgroup G} {a : G} {K : Subgroup G}
+    (hp : p.Prime) (hp2 : p ≠ 2) (hSec : Sec11 G m p B M E A) (ha : a ∈ A) (ha1 : a ≠ 1)
+    (hK : GLAPComponent p (Cg a) K) (hKM : ¬ K ≤ M)
+    (hnotD : ¬ ∃ A1 : Subgroup G, inD p M A1 ∧ a ∈ A1)
+    (hKPi : Pi19Ty p (barOf p K ⧸ Subgroup.center (barOf p K)))
+    (h111 : Prop111Statement) (hI22 : Input22_3_2) (hI18 : Input18_3_diag) (hI19 : Input19_19)
+    (hNot27 : InputNotL27Pi) (hOmDvd : InputOmegaDvd) (h115 : Prop115Statement) :
+    ¬ ∃ z : ↥(Cg a), (z : G) ∈ E ⊓ A ∧ (z : G) ≠ 1 ∧
+      ((z : G) ∉ Subgroup.normalizer (K : Set G) ∨
+        ∀ q ∈ barX p (Cg a) K, QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z * q =
+          q * QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z) := by
+  classical
+  haveI : Fact p.Prime := ⟨hp⟩
+  rintro ⟨z₀, hz₀A, hz₀1, hbad⟩
+  obtain ⟨hDDp, -⟩ := hSec.pair
+  obtain ⟨-, hDp, hrA0⟩ := hDDp
+  obtain ⟨hSCs, -⟩ := hDp
+  obtain ⟨hSCp, -⟩ := hSCs
+  obtain ⟨-, hAel, -⟩ := hSCp
+  have hAcomm : ∀ x ∈ A, ∀ y ∈ A, x * y = y * x := fun x hx y hy =>
+    congrArg Subtype.val (hAel.1.is_comm.comm ⟨x, hx⟩ ⟨y, hy⟩)
+  have hApow : ∀ x ∈ A, x ^ p = 1 := fun x hx => hAel.2 x hx
+  have hACg : A ≤ Cg a := le_cg_of_mem_elemAbelian hAel ha
+  set A0 : Subgroup G := E ⊓ A with hA0
+  have hA0A : A0 ≤ A := inf_le_right
+  have hA0C : A0 ≤ Cg a := hA0A.trans hACg
+  have hA0el : IsElemAbelian p A0 := l119_isElemAbelian_of_le hA0A hAel
+  have hrA0' : 2 ≤ CFSG.Open.pRank p A0 := hrA0
+  set A0C : Subgroup ↥(Cg a) := A0.subgroupOf (Cg a) with hA0Cdef
+  set Bbar : Subgroup (↥(Cg a) ⧸ GLAPPrimeCore p ↥(Cg a)) :=
+    A0C.map (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a))) with hBbar
+  set Kb : Subgroup (↥(Cg a) ⧸ GLAPPrimeCore p ↥(Cg a)) := barX p (Cg a) K with hKb
+  set 𝓛 := fam p (Cg a) K A0C with h𝓛def
+  set Yb : Subgroup (↥(Cg a) ⧸ GLAPPrimeCore p ↥(Cg a)) := sSup 𝓛 with hYb
+  have hKbc : IsComponentOf Kb ⊤ := l119_isComponent_barX hK
+  have hKbmem : Kb ∈ 𝓛 := fam_base p (Cg a) K A0C
+  have h𝓛c : ∀ X ∈ 𝓛, IsComponentOf X ⊤ := fam_comp hK A0C
+  have hcomm𝓛 : ∀ X ∈ 𝓛, ∀ X' ∈ 𝓛, X ≠ X' → ∀ x ∈ X, ∀ y ∈ X', x * y = y * x := by
+    rintro X ⟨w, -, rfl⟩ X' ⟨w', -, rfl⟩ hne x hx y hy
+    exact l119_conj_comm hK hne hx hy
+  have hYsub : IsSubnormal Yb ⊤ := l119_isSubnormal_sSup_components h𝓛c
+  have hYcomp : ∀ X ∈ 𝓛, IsComponentOf X Yb := fun X hX => l119_isComponentOf_sSup h𝓛c hcomm𝓛 hX
+  have hBcomm : ∀ z ∈ A0C, ∀ w ∈ A0C,
+      QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z * QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) w =
+        QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) w * QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z := by
+    intro z hz w hw
+    rw [← map_mul, ← map_mul]
+    congr 1
+    apply Subtype.ext
+    exact hAcomm _ (hA0A ((Subgroup.mem_subgroupOf).1 hz)) _ (hA0A ((Subgroup.mem_subgroupOf).1 hw))
+  have hBnorm : Bbar ≤ Subgroup.normalizer ((Yb : Subgroup _) : Set _) := by
+    rintro _ ⟨z, hz, rfl⟩
+    exact fam_bar_normalizes A0C hz
+  have hA0Cel : IsElemAbelian p A0C := l119_isElemAbelian_subgroupOf hA0el (Cg a)
+  have hBel : IsElemAbelian p Bbar :=
+    CFSG.SectionRank.isElemAbelian_map hA0Cel _
+  have hB_rank : 2 ≤ CFSG.Open.pRank p Bbar := le_trans hrA0' (l119_pRank_image_ge hp hA0C hA0el)
+  have hKbe : (↥K ⧸ GLAPPrimeCore p ↥K) ≃* ↥Kb := quotEquivBarX hp hK.1 hK.2.1
+  have hKbPi : Pi19Ty p (↥Kb ⧸ Subgroup.center ↥Kb) := pi19Ty_congr p (l119_centerQuot_equiv hKbe) hKPi
+  have hKbdvd : p ∣ Nat.card ↥Kb := by
+    rw [Subgroup.card_eq_card_quotient_mul_card_subgroup (Subgroup.center ↥Kb)]
+    exact dvd_mul_of_dvd_left (pi19Ty_dvd hp hp2 hOmDvd hKbPi) _
+  have hpY : p ∣ Nat.card ↥Yb :=
+    dvd_trans hKbdvd (Subgroup.card_dvd_of_le (le_sSup hKbmem))
+  have htrans : ∀ X ∈ 𝓛, ∀ X' ∈ 𝓛, ∃ b ∈ Bbar, GLBConj b X = X' := by
+    rintro X ⟨w, hw, rfl⟩ X' ⟨w', hw', rfl⟩
+    exact ⟨QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) (w⁻¹ * w'),
+      Subgroup.mem_map_of_mem _ (A0C.mul_mem (A0C.inv_mem hw) hw'), l119_conj_trans w w'⟩
+  have hz₀C : z₀ ∈ A0C := Subgroup.mem_subgroupOf.2 hz₀A
+  have hb₀B : QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀ ∈ Bbar :=
+    Subgroup.mem_map_of_mem _ hz₀C
+  have hz₀pow : z₀ ^ p = 1 := by
+    apply Subtype.ext
+    simpa using hApow _ hz₀A.2
+  have hb₀1 : QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀ ≠ 1 := by
+    intro h
+    apply hz₀1
+    have h2 := l119_eq_one_of_pow_of_mem_core hp hz₀pow ((QuotientGroup.eq_one_iff _).1 h)
+    simpa using congrArg Subtype.val h2
+  have hJb₀ : QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀ ∈ Subgroup.centralizer (Yb : Set _) ∨
+      QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀ ∉ Subgroup.normalizer (Kb : Set _) := by
+    rcases hbad with hN | hC
+    · right
+      intro hb
+      exact hN (l119_mem_normalizer_of_bar hp hK z₀ hb)
+    · left
+      have hYc : Yb ≤ Subgroup.centralizer
+          ({QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀} : Set _) := by
+        refine sSup_le fun X hX => ?_
+        obtain ⟨w, hw, rfl⟩ := hX
+        intro x hx
+        rw [Subgroup.mem_centralizer_iff]
+        intro g hg
+        rw [Set.mem_singleton_iff] at hg
+        rw [hg]
+        exact l119_centralizes_gLBConj (hBcomm z₀ hz₀C w hw) hC x hx
+      rw [Subgroup.mem_centralizer_iff]
+      intro h hh
+      have h2 := hYc hh
+      rw [Subgroup.mem_centralizer_iff] at h2
+      exact (h2 _ (Set.mem_singleton _)).symm
+  have hLayer : ∀ b ∈ Bbar, b ≠ 1 → (b ∈ Subgroup.centralizer (Yb : Set _) ∨
+      b ∉ Subgroup.normalizer (Kb : Set _)) →
+      GLAPLayer p (Yb ⊓ Subgroup.centralizer ({b} : Set _)) ≤ barX p (Cg a) M := by
+    intro b hb hb1 hJ
+    have hbB := hb
+    obtain ⟨z, hz, rfl⟩ := hb
+    have hzA : (z : G) ∈ A0 := Subgroup.mem_subgroupOf.1 hz
+    have hz1 : (z : G) ≠ 1 := by
+      intro h
+      apply hb1
+      have hzeq : z = 1 := Subtype.ext h
+      rw [hzeq, map_one]
+    have hzpow : (z : G) ^ p = 1 := hApow _ hzA.2
+    have hzC : (z : G) ∈ Cg a := z.2
+    have hzp : IsPGroup p (Subgroup.zpowers (z : G)) := l119_isPGroup_zpowers hzpow
+    have hbord : orderOf (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z) = p := by
+      apply orderOf_eq_prime
+      · rw [← map_pow]
+        have hzpow' : z ^ p = 1 := by
+          apply Subtype.ext
+          simpa using hzpow
+        rw [hzpow', map_one]
+      · exact hb1
+    have hdich : QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z ∈ Subgroup.centralizer (Yb : Set _) ∨
+        ∀ X ∈ 𝓛, QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z ∉ Subgroup.normalizer (X : Set _) := by
+      rcases hJ with hC | hN
+      · left
+        exact hC
+      · right
+        rintro X ⟨w, hw, rfl⟩ hmem
+        apply hN
+        exact (l119_normalizer_gLBConj_iff (hBcomm z hz w hw) Kb).1 hmem
+    unfold GLAPLayer
+    refine sSup_le fun Q hQ => ?_
+    obtain ⟨X₀, hX₀, ⟨e0⟩⟩ := hI18 (↥(Cg a) ⧸ GLAPPrimeCore p ↥(Cg a)) p hp Yb 𝓛
+      (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z) hbord (hBnorm hbB) rfl hYcomp hcomm𝓛 hdich Q hQ
+    obtain ⟨w, hw, rfl⟩ := hX₀
+    have eK : ↥(GLBConj (QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) w) Kb) ≃* ↥Kb :=
+      (l119_gLBConj_equiv _ Kb).symm
+    have hQK : Nonempty ((↥Q ⧸ GLAPPrimeCore p ↥Q) ⧸ Subgroup.center (↥Q ⧸ GLAPPrimeCore p ↥Q) ≃*
+        ↥Kb ⧸ Subgroup.center ↥Kb) := ⟨e0.trans (l119_centerQuot_equiv eK)⟩
+    exact layer_le hp hp2 hSec ha ha1 hnotD hI19 hNot27 h115 hzA hz1 hzC hzp hYsub hQ hQK hKbPi
+  have hYM : Yb ≤ barX p (Cg a) M := by
+    have hI22' := hI22 (↥(Cg a) ⧸ GLAPPrimeCore p ↥(Cg a)) p hp Bbar Yb Kb 𝓛 hBel hBnorm
+      hKbmem hB_rank hpY rfl hYcomp hcomm𝓛 htrans
+      ⟨QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) z₀, hb₀B, hb₀1, hJb₀⟩
+    rw [hI22']
+    refine sSup_le ?_
+    rintro Z ⟨b, hb, hb1, hJ, rfl⟩
+    exact hLayer b hb hb1 hJ
+  have hKM' : barX p (Cg a) K ≤ barX p (Cg a) M := le_trans (le_sSup hKbmem) hYM
+  apply hKM
+  intro k hk
+  obtain ⟨m', hm, hmk⟩ := exists_of_barX_le hKM' hk (hK.1 hk)
+  have hmM : m'⁻¹ * k ∈ M := h111 hSec ha ha1 hmk
+  have := M.mul_mem hm hmM
+  simpa using this
 
 end Steps
 

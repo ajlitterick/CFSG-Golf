@@ -36,6 +36,7 @@ theorem getD_mem_of_mem {G : Type*} [Group G] {H : Subgroup G} {l : List G}
   | none => exact H.one_mem
   | some g => exact h g (List.mem_of_getElem? hi)
 
+theorem ruLGen_mem (i : ℕ) : ruLGen i ∈ ruP := getD_mem_of_mem ruLGens_mem _
 
 theorem ruLGen_memL (i : ℕ) : ruLGen i ∈ ruL :=
   getD_mem_of_mem (fun _ hg => Subgroup.subset_closure hg) _
@@ -54,5 +55,39 @@ theorem ruFusH_mem (i : ℕ) : ruFusH i ∈ ruP :=
 theorem ruYp_memL (p : ℕ) : ruYp p ∈ ruL :=
   evalSigned_mem (fun _ hg => Subgroup.subset_closure hg) _
 
+theorem CTUC_Ru_centralizer_and_fusion_witness_data :
+    (ruM1, ruM2) = slotRun ruMProg ruA0 ruA1 ∧ ruRw = evalSigned [ruM1, ruM2] ruRMWord ∧
+    ruWw = evalSigned [ruA0, ruA1] ruAlignmentSeedWord ∧ ruUw = ruWw * ruRw * ruWw⁻¹ * ruA0 ∧
+    ruHw = ruUw ^ 7 * ruWw ∧
+    (∀ i ∈ [1, 2, 3], ruLGen i =
+      ruHw * evalSigned [ruM1, ruM2] (ruLMWords.getD (i - 1) []) * ruHw⁻¹) ∧
+    ruL = Subgroup.closure {ruLGen 1, ruLGen 2, ruLGen 3} ∧
+    (∀ i ∈ [1, 2, 3], ruFusX i = evalSigned ruSGens (ruSylowFusion.getD (i - 1) ([], [], 1)).1 ∧
+      ruFusG i = evalSigned [ruA0, ruA1] (ruSylowFusion.getD (i - 1) ([], [], 1)).2.1 ∧
+      ruFusD i = (ruSylowFusion.getD (i - 1) ([], [], 1)).2.2 ∧
+      ruFusH i = (ruFusG i * ruA0 * (ruFusG i)⁻¹ * ruFusX i) ^ ((ruFusD i - 1) / 2) * ruFusG i) ∧
+    [ruFusD 1, ruFusD 2, ruFusD 3] = [7, 5, 7] ∧
+    ruOddNormalObstructions.map (fun r => r.1) = [5, 7, 13] ∧
+    (∀ p ∈ [5, 7, 13], ruYp p = evalSigned [ruLGen 1, ruLGen 2, ruLGen 3] (ruObsRec p).1 ∧
+      ruObsConj p = 3) ∧
+    ruM1 ∈ ruP ∧ ruM2 ∈ ruP ∧ ruRw ∈ ruP ∧ ruWw ∈ ruP ∧ ruUw ∈ ruP ∧ ruHw ∈ ruP ∧
+    (∀ i, ruLGen i ∈ ruP) ∧ ruL ≤ ruP ∧ (∀ i, ruFusX i ∈ ruS) ∧ (∀ i, ruFusG i ∈ ruP) ∧
+    (∀ i, ruFusH i ∈ ruP) ∧ ∀ p, ruYp p ∈ ruL := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, hp, -⟩ := ruWit_check
+  refine ⟨rfl, rfl, rfl, rfl, rfl, ?_, ?_, fun i _ => ⟨rfl, rfl, rfl, rfl⟩, ?_, hp, ?_,
+    ruM_mem.1, ruM_mem.2, ruRw_mem, ruWw_mem, ruUw_mem, ruHw_mem, ruLGen_mem, ruL_le,
+    ruFusX_mem, ruFusG_mem, ruFusH_mem, ruYp_memL⟩
+  · intro i hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl | rfl <;> rfl
+  · rw [ruL, ruLGens_eq]
+    congr 1
+    ext g
+    simp
+  · simp [ruFusD, ruFusRec, ruSylowFusion]
+  · intro p hp'
+    refine ⟨by rw [ruYp, ruLGens_eq], ?_⟩
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hp'
+    rcases hp' with rfl | rfl | rfl <;> rfl
 
 end CFSG.Sporadic.RuSchreier

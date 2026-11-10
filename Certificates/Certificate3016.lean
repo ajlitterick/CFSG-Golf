@@ -154,6 +154,17 @@ theorem facts (i : ℕ) (hi : i < 7) :
 
 theorem kLen : ∀ j < 3, (eligList j).length = [2048, 128, 64].getD j 0 := by decide +kernel
 
+theorem combI_inj {a b : ℕ} (ha : a < 4096) (hb : b < 4096) (h : combI a = combI b) : a = b := by
+  have h' := kDec
+  rw [List.all_eq_true] at h'
+  have e1 := h' a (List.mem_range.2 ha)
+  have e2 := h' b (List.mem_range.2 hb)
+  rw [beq_iff_eq] at e1 e2
+  rw [← e1, ← e2, h]
+
+theorem validList_nodup : validList.Nodup :=
+  ((List.nodup_range).map_on fun _ ha _ hb e =>
+    combI_inj (List.mem_range.1 ha) (List.mem_range.1 hb) e).filter _
 
 theorem mem_elig {j t : ℕ} {o n : ℕ} (hV : validRec j o n = true) (ht : t < n) :
     valF 24 (recI o t) ∈ eligList j := by

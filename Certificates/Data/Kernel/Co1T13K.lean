@@ -34,6 +34,18 @@ open CFSG.KC.Loop CFSG.KC.M1F2 CFSG.KC.Co1F2 CFSG.KC.Co1B CFSG.KLie.CT CFSG.KC.E
     Bool :=
   andB ((orbsK YT R).all fun v => andB (memK XB v) (inSK XB YT p q v)) (nodupK (orbsK YT R))
 
+@[expose] noncomputable def mtK (YT : List Nat) (r s : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat) (nat_lit 0)
+    (fun t acc => Nat.lor acc (Nat.lor
+      (Nat.shiftLeft (vmF (nat_lit 24) (getL (nat_lit 0) YT t) r) (Nat.mul (nat_lit 24) t))
+      (Nat.shiftLeft (vmF (nat_lit 24) (getL (nat_lit 0) YT t) s)
+        (Nat.mul (nat_lit 24) (Nat.add (nat_lit 12) t)))))
+    (nat_lit 12)
+
+@[expose] noncomputable def invsK (YT R0 R1 NT : List Nat) : Bool :=
+  CFSG.KC.Enum.allN (nat_lit 12) fun i => CFSG.KC.Enum.allN (nat_lit 12) fun j =>
+    Nat.beq (mulWK (mtK YT (getL (nat_lit 0) R0 i) (getL (nat_lit 0) R1 j))
+      (getL (nat_lit 0) NT (Nat.add (Nat.mul (nat_lit 12) i) j))) CFSG.KS.SporSch.M24.idM
 
 end CFSG.KC.Co1T13K
 

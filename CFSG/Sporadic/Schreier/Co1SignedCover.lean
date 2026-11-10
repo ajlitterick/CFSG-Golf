@@ -139,6 +139,9 @@ theorem Q_preserves_T : ∀ g ∈ Q, ∀ v ∈ T, (g : Mat12) *ᵥ v ∈ T := by
 
 theorem qPerm_apply (g : Q) (j : Fin 12) : qPerm g j = lineMap ((g : GL12) : Mat12) j := rfl
 
+theorem qPerm_pattern (g : Q) (i j : Fin 12) :
+    ((g : GL12) : Mat12) i j ≠ 0 ↔ i = qPerm g j :=
+  Q_isMono g g.2 j i
 
 theorem σ_mem_Q (i : Fin 2) : σ i ∈ Q := by
   apply Subgroup.subset_closure

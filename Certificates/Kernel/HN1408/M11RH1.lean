@@ -19,6 +19,12 @@ namespace CFSG.KD.HN1408
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.PEnumR
 
+theorem m11hvF_neg : (!hvF 1408 11 (mask 11) MR1.T (fun i => Nat.succ (MR1V i)) 5) = true := by
+  quickRfl
+
+theorem m11peR_neg : (!penumPtR 1408 11 (mask 11) MR1.GI 2 MR1.cnt MR1.T MR1.PL (fun _ => 0)
+    MR1.SRT MR1.SRI 5) = true := by
+  quickRfl
 
 end CFSG.KD.HN1408
 

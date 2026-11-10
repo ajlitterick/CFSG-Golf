@@ -28,6 +28,10 @@ theorem mem_of_dropN {P : Nat → Prop} {l : List Nat} (h : ∀ x ∈ l, P x) (n
   rw [dropN_eq]
   exact fun x hx => h x (List.mem_of_mem_drop hx)
 
+theorem getN_zero (d : Nat) (l : List Nat) : getN d l 0 = l.headD d := by
+  cases l <;> rfl
+
+theorem keysC_nil : keysC [] = [] := rfl
 
 theorem keysC_cons (e : Nat × Nat × Nat) (c : List (Nat × Nat × Nat)) :
     keysC (e :: c) = Bool.rec (motive := fun _ => List Nat) (keysC c) (e.2.2 :: keysC c)
@@ -39,6 +43,12 @@ theorem appN_eq : ∀ l m : List Nat, appN l m = l ++ m
     have e : appN (x :: l) m = x :: appN l m := rfl
     rw [e, appN_eq l m, List.cons_append]
 
+theorem getC_mem : ∀ (cs : List (List (Nat × Nat × Nat))) (i : Nat), i < cs.length →
+    getC cs i ∈ cs
+  | [], _, h => absurd h (Nat.not_lt_zero _)
+  | c :: _, 0, _ => List.mem_cons_self
+  | c :: cs, i + 1, h => List.mem_cons_of_mem c
+      (getC_mem cs i (by simp only [List.length_cons] at h; omega))
 
 theorem mem_allK : ∀ (cs : List (List (Nat × Nat × Nat))) (k : Nat), k ∈ allK cs →
     ∃ i < cs.length, k ∈ keysC (getC cs i)

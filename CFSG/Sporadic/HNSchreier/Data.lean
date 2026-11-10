@@ -73,6 +73,10 @@ namespace CFSG.Sporadic.HNSchreier.Data
       7, -5, -4, -3, -5, 3, -4, -8, 5, 5, -5, 5, -3, -5, -5, 8, 4, 1, -6, 5, 1, -7, -4, -7, -8, 3,
       -6, -2, -3, 4, -4, 1, -8, 1, -6, 8, 4, -4, 3, 3, -4, -5, -2, 5, -8]]
 
+@[expose] def strongOrders : List Nat := [2, 3, 2, 2, 11, 6, 3, 2, 2]
+
+@[expose] def schreierOrbitSizes : List Nat := [
+    1140000, 362880, 165, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 @[expose] def subgroupProgram : List (Nat × Nat × Nat) := [
     (1, 2, 3), (3, 2, 4), (3, 4, 5), (3, 5, 6), (6, 5, 8), (3, 8, 9), (9, 4, 10), (10, 10, 9),

@@ -14,6 +14,7 @@ open Equiv Equiv.Perm Subgroup CFSG.GH74 CFSG.GH74.GLS
 @[expose] def permV0 : Perm (Fin 8) := swap 3 5 * swap 4 6
 
 theorem permU0_sq : permU0 ^ 2 = 1 := by unfold permU0; decide
+theorem permV0_sq : permV0 ^ 2 = 1 := by unfold permV0; decide
 
 theorem cycleType_permU0 : permU0.cycleType = {2, 2} := by
   unfold permU0
@@ -35,6 +36,7 @@ theorem permV0_comm_permA3 : permV0 * permA3 = permA3 * permV0 := by
 
 theorem permU0_ne_permV0 : permU0 ≠ permV0 := by unfold permU0 permV0; decide
 
+theorem permU0_ne_one : permU0 ≠ 1 := by unfold permU0; decide
 
 theorem permV0_ne_one : permV0 ≠ 1 := by unfold permV0; decide
 

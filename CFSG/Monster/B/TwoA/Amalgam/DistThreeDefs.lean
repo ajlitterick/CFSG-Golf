@@ -22,6 +22,9 @@ theorem mem_sphereDistThree
 @[expose] def xSet
     (v u : CVert) : Set CVert := cgraph.neighborSet u ∩ sphereFour v
 
+theorem mem_xSet
+    {v u w : CVert} : w ∈ xSet v u ↔ w ∈ cgraph.neighborSet u ∧ w ∈ sphereFour v :=
+  Iff.rfl
 
 theorem dist_cvMul
     (v w : CVert) (s : Shat) :
@@ -54,5 +57,15 @@ theorem mem_sphereFour_of_cvMul
   have h := sphereFour_cvMul hw s
   rwa [hv] at h
 
+theorem not_mem_sphereFour_of_cvMul
+    {v w : CVert} {s : Shat} (hv : cvMul v s = v)
+    (hw : w ∉ sphereFour v) : cvMul w s ∉ sphereFour v := by
+  intro h
+  apply hw
+  have hv' : cvMul v s⁻¹ = v := by
+    conv_lhs => rw [← hv]
+    rw [cvMul_inv_cancel]
+  have h' := mem_sphereFour_of_cvMul hv' h
+  rwa [cvMul_inv_cancel] at h'
 
 end CFSG.Monster.B.TwoA.Amalgam

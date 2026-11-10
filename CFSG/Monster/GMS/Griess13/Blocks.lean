@@ -11,6 +11,45 @@ open Finset
 
 section Orbits
 
+theorem eqvGen_of_tree {α : Type*} {step : α → α → Prop} (S : Set α) (root : α) (depth : α → ℕ)
+    (par : α → α) (hpar : ∀ w ∈ S, w ≠ root → par w ∈ S ∧ depth (par w) < depth w ∧
+      step (par w) w) :
+    ∀ w ∈ S, Relation.EqvGen step root w := by
+  have key : ∀ n, ∀ w ∈ S, depth w = n → Relation.EqvGen step root w := by
+    intro n
+    induction n using Nat.strong_induction_on with
+    | _ n ih =>
+      intro w hw hdw
+      by_cases hwr : w = root
+      · subst hwr
+        exact Relation.EqvGen.refl _
+      · obtain ⟨hp, hlt, hstep⟩ := hpar w hw hwr
+        exact (ih (depth (par w)) (hdw ▸ hlt) (par w) hp rfl).trans _ _ _
+          (Relation.EqvGen.rel _ _ hstep)
+  exact fun w hw => key _ w hw rfl
+
+theorem eqvGen_of_trees {α : Type*} {step : α → α → Prop} (S : Set α) (cls : α → Fin 3)
+    (root : Fin 3 → α) (depth : α → ℕ) (par : α → α)
+    (hpar : ∀ w ∈ S, w ≠ root (cls w) →
+      par w ∈ S ∧ cls (par w) = cls w ∧ depth (par w) < depth w ∧ step (par w) w) :
+    ∀ w ∈ S, ∀ w' ∈ S, cls w = cls w' → Relation.EqvGen step w w' := by
+  have key : ∀ n, ∀ w ∈ S, depth w = n → Relation.EqvGen step (root (cls w)) w := by
+    intro n
+    induction n using Nat.strong_induction_on with
+    | _ n ih =>
+      intro w hw hdw
+      by_cases hwr : w = root (cls w)
+      · rw [← hwr]
+        exact Relation.EqvGen.refl _
+      · obtain ⟨hp, hcls, hlt, hstep⟩ := hpar w hw hwr
+        have := ih (depth (par w)) (hdw ▸ hlt) (par w) hp rfl
+        rw [hcls] at this
+        exact this.trans _ _ _ (Relation.EqvGen.rel _ _ hstep)
+  intro w hw w' hw' hc
+  have h1 := key _ w hw rfl
+  have h2 := key _ w' hw' rfl
+  rw [hc] at h1
+  exact h1.symm.trans _ _ _ h2
 
 end Orbits
 
@@ -207,6 +246,19 @@ theorem eK_eq_zero_of_finrank_eq_zero {w : F3Vec}
     (h : Module.finrank (ZMod 2) (LinearMap.range (eK ρ ι w)) = 0) : eK ρ ι w = 0 :=
   LinearMap.range_eq_bot.mp (Submodule.finrank_eq_zero.mp h)
 
+theorem piE_eq_zero_and_finrank_eK_of_orbits (hV : Module.finrank (ZMod 2) V = 24)
+    {R : Finset F3Vec} (hR : IsLineReps R) (cls : F3Vec → Fin 3)
+    (h0 : (R.filter fun w => cls w = 0).card = 12)
+    (h1 : (R.filter fun w => cls w = 1).card = 132)
+    (h2 : (R.filter fun w => cls w = 2).card = 220) {κ : Type*} (g : κ → Γ)
+    (A : κ → Matrix (Fin 6) (Fin 6) (ZMod 3)) (hg : ∀ k, ConjAct ι (g k) (A k))
+    (horbit : ∀ w ∈ R, ∀ w' ∈ R, cls w = cls w' → Relation.EqvGen
+      (fun a b : F3Vec => ∃ k, ∃ c : ZMod 3, c ≠ 0 ∧ Matrix.vecMul b (A k) = c • a) w w')
+    (hnt : ∃ v, ρ (ι v) ≠ 1) :
+    piE ρ ι = 0 ∧ ∀ w ∈ R, Module.finrank (ZMod 2) (LinearMap.range (eK ρ ι w)) =
+      if cls w = 0 then 2 else 0 :=
+  piE_eq_zero_and_finrank_eK ρ ι hV hR cls h0 h1 h2
+    (fun w hw w' hw' hcls => finrank_range_eK_eq_of_eqvGen ρ g A hg (horbit w hw w' hw' hcls)) hnt
 
 theorem exists_basis_of_orbits (hV : Module.finrank (ZMod 2) V = 24)
     {R : Finset F3Vec} (hR : IsLineReps R) (cls : F3Vec → Fin 3)

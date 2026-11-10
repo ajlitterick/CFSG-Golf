@@ -91,6 +91,49 @@ theorem range_clabel
   · rintro ⟨s, rfl⟩
     exact ⟨cvOf s, rfl⟩
 
+@[expose] def CSc : Subgroup Shat := (Subgroup.centralizer {cQ}).comap Shat.subtype
+
+theorem mem_CSc {g : Shat} : g ∈ CSc ↔ (g : Dfull) ∈ Subgroup.centralizer {cQ} := Iff.rfl
+
+theorem clabel_eq_cQ_iff
+    (g : Shat) : clabel (cvOf g) = cQ ↔ g ∈ CSc := by
+  rw [clabel_cvOf, mem_CSc, Subgroup.mem_centralizer_singleton_iff]
+  constructor
+  · intro h
+    have h2 : (g : Dfull) * ((g : Dfull)⁻¹ * cQ * g) = g * cQ := by rw [h]
+    rw [show (g : Dfull) * ((g : Dfull)⁻¹ * cQ * g) = cQ * g by group] at h2
+    exact h2.symm
+  · intro h
+    rw [mul_assoc, ← h, inv_mul_cancel_left]
+
+abbrev EinC :
+    Subgroup CSc := (Eam.subgroupOf Shat).subgroupOf CSc
+
+theorem fiber_rel_iff {g h : CSc} :
+    QuotientGroup.rightRel EinC g h ↔ (((h * g⁻¹ : CSc) : Shat) : Dfull) ∈ Eam :=
+  (QuotientGroup.rightRel_apply (s := EinC)).trans
+    (Subgroup.mem_subgroupOf.trans Subgroup.mem_subgroupOf)
+
+@[expose] def fiberMap :
+    Quotient (QuotientGroup.rightRel EinC) → clabel ⁻¹' {cQ} :=
+  Quotient.lift (fun g : CSc => ⟨cvOf g, (clabel_eq_cQ_iff g).2 g.2⟩) fun _ _ hgh =>
+    Subtype.ext (cvOf_eq_iff.2 (fiber_rel_iff.1 hgh))
+
+theorem fiberMap_bijective :
+    Function.Bijective fiberMap := by
+  constructor
+  · intro u w h
+    obtain ⟨g, rfl⟩ := Quotient.mk_surjective u
+    obtain ⟨k, rfl⟩ := Quotient.mk_surjective w
+    exact Quotient.sound (fiber_rel_iff.2 (cvOf_eq_iff.1 (congrArg Subtype.val h)))
+  · rintro ⟨v, hv⟩
+    obtain ⟨g, rfl⟩ := cvOf_surjective v
+    exact ⟨Quotient.mk _ ⟨g, (clabel_eq_cQ_iff g).1 hv⟩, rfl⟩
+
+theorem natCard_fiber_cQ :
+    Nat.card (clabel ⁻¹' {cQ}) = EinC.index := by
+  rw [← Nat.card_congr (Equiv.ofBijective _ fiberMap_bijective), Subgroup.index,
+    Nat.card_congr (QuotientGroup.quotientRightRelEquivQuotientLeftRel _)]
 
 theorem cvOf_eq_iff_of_X
     {x₁ x₂ : Shat} (h₁ : (x₁ : Dfull) ∈ Xgrp) (h₂ : (x₂ : Dfull) ∈ Xgrp) :

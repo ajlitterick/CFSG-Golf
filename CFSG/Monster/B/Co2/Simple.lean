@@ -218,6 +218,8 @@ theorem natCard_Agrp :
     Nat.card Agrp = 42305421312000 :=
   (Nat.card_congr agrpEquivPgrp.toEquiv).trans natCard_Pgrp
 
+theorem nontrivial_Agrp :
+    Nontrivial Agrp := isSimpleGroup_Agrp.toNontrivial
 
 attribute [local instance] aAction
 

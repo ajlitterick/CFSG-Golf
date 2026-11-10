@@ -267,6 +267,9 @@ theorem x0Gen_zero (hM : MatFacts) : x0Gen 0 = fiveElt := by
   rw [eqRows_iff.1 h0, ← el5_fiveWord]
   exact (QT2A.Mx_el5 hM _).symm
 
+theorem fiveElt_mem_X0Sub (hM : MatFacts) : fiveElt ∈ X0Sub := by
+  rw [← x0Gen_zero hM]
+  exact x0Gen_mem (by norm_num)
 
 theorem x0Gen_comm_lt (hM : MatFacts) {i : ℕ} (hi : i < 8) :
     x0Gen i * fiveElt = fiveElt * x0Gen i := by
@@ -374,6 +377,16 @@ theorem exists_of_mem_pts
   refine ⟨g'⁻¹, X0Sub.inv_mem hg', ?_⟩
   exact smul_w₀_eq (by rw [inv_inv]; exact hg'q)
 
+theorem x0_fixed_points
+    (hM : MatFacts) :
+    ∃ P : Finset Row, P.card = 14 ∧ (∀ p ∈ P, fiveElt • p = p) ∧
+      (∀ g ∈ X0Sub, g • w₀ ∈ P) ∧ ∀ p ∈ P, ∃ g ∈ X0Sub, g • w₀ = p := by
+  refine ⟨x0PtSet, card_x0PtSet, fun p hp => ?_, fun g hg => smul_mem_pts hM hg,
+    fun p hp => exists_of_mem_pts hM hp⟩
+  obtain ⟨g, hg, rfl⟩ := exists_of_mem_pts hM hp
+  have hc : fiveElt * g = g * fiveElt :=
+    (Subgroup.mem_centralizer_singleton_iff.1 (X0Sub_le_centralizer hM hg)).symm
+  rw [← mul_smul, hc, mul_smul, smul_root_of_mem_Hj hM fiveElt_mem_Hj]
 
 theorem orbit_X0Sub_w₀ (hM : MatFacts) :
     MulAction.orbit X0Sub w₀ = (x0PtSet : Set Row) := by
@@ -392,6 +405,9 @@ theorem card_X0Sub_stabilizer (hM : MatFacts) :
     card_X0Sub hM] at h1
   omega
 
+theorem conj_assoc {G : Type*} [Group G] (a b e : G) :
+    (a⁻¹ * b) * e * (a⁻¹ * b)⁻¹ = a⁻¹ * (b * e * b⁻¹) * a := by
+  group
 
 private theorem conj_facts {c m : ℕ} {O : MOrb}
     (h : oOrbOK x0CStep 16 (x0Eta c) O m = true) :
@@ -402,6 +418,26 @@ private theorem conj_facts {c m : ℕ} {O : MOrb}
   obtain ⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩ := h
   exact ⟨h1, eqRows_iff.1 h5, h6⟩
 
+theorem conj_spec (hM : MatFacts) {c m : ℕ} {O : MOrb}
+    (h : oOrbOK x0CStep 16 (x0Eta c) O m = true) :
+    ∀ q < m, ∃ g ∈ X0Sub, Mx (g * eta uJ 11 c * g⁻¹) = rowsMatrix (O.mats[q]!) := by
+  obtain ⟨-, hroot, hat⟩ := conj_facts h
+  intro q
+  induction q using Nat.strong_induction_on with
+  | _ q ih =>
+    intro hq
+    obtain ⟨-, -, -, hpar⟩ := oOrbAt_facts (hat q hq)
+    rcases hpar with h0 | ⟨hp, hl, hst⟩
+    · refine ⟨1, X0Sub.one_mem, ?_⟩
+      subst h0
+      rw [hroot, inv_one, one_mul, mul_one, Mx_eta hM 11 le_rfl c]
+      rfl
+    · obtain ⟨g, hg, hgM⟩ := ih _ hp (lt_trans hp hq)
+      refine ⟨(x0Gen O.lab[q]!)⁻¹ * g, X0Sub.mul_mem (X0Sub.inv_mem (x0Gen_mem hl)) hg, ?_⟩
+      rw [conj_assoc, ← hst]
+      simp only [x0CStep]
+      rw [rowsMatrix_mulRows, rowsMatrix_mulRows, ← hgM, ← Mx_x0Gen hM hl,
+        ← Mx_x0Gen hM (by omega : (O.lab[q]! + 8) % 16 < 16), ← x0Gen_inv hl, map_mul, map_mul]
 
 theorem wfRows_size {X : Array V2} (h : wfRows X = true) : X.size = 112 := by
   simp only [wfRows, Bool.and_eq_true, beq_iff_eq, Array.all_eq_true] at h
@@ -429,5 +465,55 @@ private theorem conj_ok :
   simp only [Bool.and_eq_true] at h
   exact h
 
+theorem X0Sub_involutions
+    (hM : MatFacts) {y : J} (hy : y ∈ X0Sub) (hy2 : y * y = 1)
+    (hne : y ≠ 1) :
+    (∃ g ∈ X0Sub, y = g * eta uJ 11 178 * g⁻¹) ∨ (∃ g ∈ X0Sub, y = g * eta uJ 11 407 * g⁻¹) := by
+  obtain ⟨q, hq, hyq⟩ := (mem_X0Sub_iff hM).1 hy
+  have hsz := orb_facts.1
+  have hwf : wfRows x0Orb.mats[q]! = true := mats_wf hq
+  have hid : eqRows x0Orb.mats[q]! idRows = false := by
+    by_contra hcon
+    rw [Bool.not_eq_false, eqRows_iff] at hcon
+    apply hne
+    apply Mx_injective
+    rw [hyq, hcon, rowsMatrix_idRows, map_one]
+  have hsq : eqRows (mulRows x0Orb.mats[q]! x0Orb.mats[q]!) idRows = true := by
+    rw [eqRows_iff]
+    refine eq_of_rowsMatrix_eq ?_ (wfRows_of idRows_size idRows_wf) ?_
+    · refine wfRows_of ?_ ?_
+      · rw [mulRows_size]
+        exact wfRows_size hwf
+      · exact mulRows_wf _ (wfRows_mem hwf)
+    · rw [rowsMatrix_mulRows, ← hyq, ← map_mul, hy2, map_one, rowsMatrix_idRows]
+  have hmem : x0Orb.mats[q]! ∈ x0Invs := by
+    unfold x0Invs
+    rw [List.mem_filter]
+    refine ⟨?_, ?_⟩
+    · rw [Array.mem_toList_iff, getElem!_pos _ q (by omega)]
+      exact Array.getElem_mem _
+    · rw [Bool.and_eq_true]
+      exact ⟨by simp [hid], hsq⟩
+  obtain ⟨-, hcl⟩ := inv_facts
+  obtain ⟨hT, hZ⟩ := conj_ok
+  rcases hcl _ hmem with ⟨i, hi, he⟩ | ⟨i, hi, he⟩
+  · left
+    have hsz' := (conj_facts hT).1
+    obtain ⟨g, hg, hgM⟩ := conj_spec hM hT i (by omega)
+    refine ⟨g, hg, Mx_injective ?_⟩
+    rw [hyq, hgM, eqRows_iff.1 he, getElem!_pos _ i hi]
+  · right
+    have hsz' := (conj_facts hZ).1
+    obtain ⟨g, hg, hgM⟩ := conj_spec hM hZ i (by omega)
+    refine ⟨g, hg, Mx_injective ?_⟩
+    rw [hyq, hgM, eqRows_iff.1 he, getElem!_pos _ i hi]
+
+theorem x0Invs_length : x0Invs.length = 91 := inv_facts.1
+
+theorem x0ConjT_size :
+    x0ConjT.mats.size = 84 := (conj_facts conj_ok.1).1
+
+theorem x0ConjZ_size :
+    x0ConjZ.mats.size = 7 := (conj_facts conj_ok.2).1
 
 end CFSG.Sporadic.J4.QT2

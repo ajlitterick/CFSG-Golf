@@ -73,6 +73,10 @@ theorem glHRows_eq (k : Nat) : glHRows k = unpackR 22 (if k == 1 then d1K else i
   unfold glHRows
   split_ifs <;> simp only [h0, h1, e1, mulRows_unpack]
 
+theorem f0_neg : ((((List.range 512).filter fun e =>
+    commK (mulV (mulV d1K (qK e)) (frameConjK 1)) zK).length != 127) &&
+    !eqK (qK 1) (qK 2)) = true := by
+  decide +kernel
 
 theorem f0_ok : glF0OK = true := by
   unfold glF0OK glF0kOK glF0Conj glFixZ glF0Valid

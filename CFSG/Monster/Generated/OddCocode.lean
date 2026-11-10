@@ -303,6 +303,7 @@ theorem tauB_inv_mul_hCocode (hδ : pair ΩC δ = 1) :
 
 theorem hCocode_mem_Hmat (δ : Cocode) : hCocode δ ∈ Hmat := rhoEquiv_mem_Gvis _
 
+theorem hCocode_mem_Gmat (δ : Cocode) : hCocode δ ∈ Gmat := Hmat_le_Gmat (hCocode_mem_Hmat δ)
 
 end OddCocode
 

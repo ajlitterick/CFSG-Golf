@@ -32,5 +32,13 @@ theorem jq_vecMul
     conv_rhs => rw [e]
     rw [ih]
 
+theorem R3E_J4_invariant_nonsingular_binary_quadratic_form :
+    (∀ v : Fin 112 → ZMod 2,
+      jq v = (∑ i, ∑ j, if i < j then formF i j * v i * v j else 0) + ∑ i, v i) ∧
+    (∀ u v : Fin 112 → ZMod 2, QuadraticMap.polar jq u v = u ⬝ᵥ (formF *ᵥ v)) ∧
+    (QuadraticMap.polarBilin jq).Nondegenerate ∧
+    ∀ g : J, ∀ v : Fin 112 → ZMod 2,
+      jq (v ᵥ* ((g : GL (Fin 112) (ZMod 2)) : Matrix (Fin 112) (Fin 112) (ZMod 2))) = jq v :=
+  ⟨jq_eq_sum, polar_jq, jq_nondegenerate, fun g v => by rw [← φ_apply]; exact jq_vecMul g v⟩
 
 end CFSG.Sporadic.J4Schreier

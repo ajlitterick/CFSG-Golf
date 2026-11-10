@@ -16,6 +16,24 @@ open CFSG.Certificates.CosetEnumeration
 
 theorem vt_k : vtOK VT = true := by decide +kernel
 
+theorem vt_neg : (!vtOK (Nat.add VT 1)) = true := by decide +kernel
+
+theorem zOne_k : cvId zOne 1 0 0 = true := by decide +kernel
+
+theorem zTwo_k : cvId zTwo 0 1 0 = true := by decide +kernel
+
+theorem zThree_k : cvId zThree 0 0 1 = true := by decide +kernel
+
+theorem zz_k : cvId (wpow zOne 2 ++ wpow zTwo 2) 2 2 0 = true := by decide +kernel
+
+theorem cover_k : cvId ((0, false) :: commWords (coverPairs 0)) 0 0 0 = true ∧
+    cvId ((1, false) :: commWords (coverPairs 1)) 0 0 0 = true := by decide +kernel
+
+theorem zOne_neg : (!cvId zOne 2 0 0) = true := by decide +kernel
+
+theorem zTwo_neg : (!cvId zTwo 2 3 0) = true := by decide +kernel
+
+theorem zThree_neg : (!cvId zThree 0 0 0) = true := by decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

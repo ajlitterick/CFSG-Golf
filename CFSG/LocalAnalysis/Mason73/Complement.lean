@@ -60,6 +60,9 @@ theorem uT_mul_self (hn : 2 ≤ n) : uT (n := n) (by omega) * uT (by omega) = 1 
   rw [uT, el_hv_mul, one_eq_el_hv (by omega), el_hv_eq_el_hv_iff' hn]
   decide
 
+theorem vT_mul_self (hn : 2 ≤ n) : vT (n := n) (by omega) * vT (by omega) = 1 := by
+  rw [vT, el_hv_mul, one_eq_el_hv (by omega), el_hv_eq_el_hv_iff' hn]
+  decide
 
 theorem tT_mul_self (hn : 2 ≤ n) : tT (n := n) (by omega) * tT (by omega) = 1 := by
   rw [tT, el_hv_mul, one_eq_el_hv (by omega), el_hv_eq_el_hv_iff' hn]

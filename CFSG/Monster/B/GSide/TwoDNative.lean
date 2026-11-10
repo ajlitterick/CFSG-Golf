@@ -29,6 +29,8 @@ local notation "βr" s => ((betaRow Dyadic.betaS s : MatBˣ) : MatB)
 @[expose] def P4pS :
     Subgroup Shat := P4p.subgroupOf Shat
 
+theorem coe_t2DS :
+    (t2DS : Dfull) = t2D := rfl
 
 theorem mem_T9S
     {s : Shat} : s ∈ T9S ↔ (s : Dfull) ∈ T9 := Subgroup.mem_subgroupOf
@@ -100,6 +102,9 @@ theorem mem_A8S_or_mul_t2DS_mem
     rw [← mul_assoc, hc]
     exact A8.mul_mem h (Psi_mem_A8 _)
 
+theorem orderOf_xhatS : orderOf xhatS = 2 := by
+  rw [← Subgroup.orderOf_coe]
+  exact orderOf_xhat
 
 theorem rankS_xhatS :
     rankS xhatS = 2048 := by
@@ -574,6 +579,8 @@ theorem qPlus_hyperbolic : ∀ v : V8, ∑ i : Fin 4, qPlusInvMat.mulVec v (Fin.
   (Matrix.toLinearEquiv' qPlusInvMat ⟨qPlusMat, qPlusMat_mul_inv, qPlusInvMat_mul⟩).trans
     (LinearEquiv.funCongrLeft (ZMod 2) (ZMod 2) finSumFinEquiv)
 
+theorem qPlusCoord_apply (v : V8) (s : Fin 4 ⊕ Fin 4) :
+    qPlusCoord v s = qPlusInvMat.mulVec v (finSumFinEquiv s) := rfl
 
 theorem quadPlus_qPlusCoord (v : V8) :
     CFSG.LieType.Universal.Spin.quadPlus 4 (ZMod 2) (qPlusCoord v) = qPlus v := by

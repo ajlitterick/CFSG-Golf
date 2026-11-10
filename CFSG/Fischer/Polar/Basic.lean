@@ -129,6 +129,10 @@ theorem perp_apply_of_mem
     perp (g a) (g b) ↔ perp a b :=
   (isPolarAut_of_mem hg).map_perp a b
 
+theorem apply_tvP_of_mem
+    {g : Equiv.Perm (Fin 693)} (hg : g ∈ T46) (a b : Fin 693) :
+    g (tvP a b) = tvP (g a) (g b) :=
+  (isPolarAut_of_mem hg).map_tvP a b
 
 theorem IsPolarAut.mul_tvP_mul_inv {g : Equiv.Perm (Fin 693)} (hg : IsPolarAut g) (p : Fin 693) :
     g * tvP p * g⁻¹ = tvP (g p) := by

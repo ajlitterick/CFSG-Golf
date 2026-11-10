@@ -61,6 +61,9 @@ theorem deltaHat_not_commute_alpha
   · exact deltaHat_one_not_commute_alpha
   · exact (gxNodeCheck_sound (gxNodeCheck_ok_of h2 h23)).1 h9
 
+theorem xHat_nine : xHat 9 = gammaZero * gxT 9 := by
+  have e : gxParent 9 = 1 := by decide
+  rw [xHat_succ (by omega) (by omega), e, xHat_one]
 
 theorem isConj_xGriess_xHat_nine :
     IsConj xGriess (xHat 9) :=
@@ -70,6 +73,33 @@ theorem not_isConj_tGriess_xHat_nine :
     ¬ IsConj tGriess (xHat 9) := fun h =>
   not_isConj_xGriess_tGriess (isConj_xGriess_xHat_nine.trans h.symm)
 
+theorem not_isConj_tGriess_gammaZero_mul_gxT_nine :
+    ¬ IsConj tGriess (gammaZero * gxT 9) := by
+  rw [← xHat_nine]
+  exact not_isConj_tGriess_xHat_nine
+
+theorem gxT_mul_self
+    (j : ℕ) : gxT j * gxT j = 1 := by
+  unfold gxT
+  have hγ := gammaZero_mul_self
+  calc gxW (gxWord j) * gammaZero * (gxW (gxWord j))⁻¹ *
+        (gxW (gxWord j) * gammaZero * (gxW (gxWord j))⁻¹)
+      = gxW (gxWord j) * (gammaZero * gammaZero) * (gxW (gxWord j))⁻¹ := by group
+    _ = 1 := by rw [hγ]; group
+
+theorem gammaZero_mul_gxT_nine :
+    gammaZero * gxT 9 = gxT 9 * gammaZero := by
+  obtain ⟨c, hc⟩ := isConj_iff.1 isConj_xGriess_xHat_nine
+  have hx : xHat 9 * xHat 9 = 1 := by
+    rw [← hc]
+    calc c * xGriess * c⁻¹ * (c * xGriess * c⁻¹) = c * (xGriess * xGriess) * c⁻¹ := by group
+      _ = 1 := by rw [xGriess_mul_self]; group
+  rw [xHat_nine] at hx
+  have hT := gxT_mul_self 9
+  have hγ := gammaZero_mul_self
+  have h1 : gammaZero * gxT 9 = (gammaZero * gxT 9)⁻¹ := eq_inv_of_mul_eq_one_left hx
+  rw [mul_inv_rev, inv_eq_of_mul_eq_one_right hT, inv_eq_of_mul_eq_one_right hγ] at h1
+  exact h1
 
 theorem isConj_xHat_nine_fiAlpha_mul_deltaHat :
     IsConj (xHat 9) (fiAlpha * deltaHat 9) :=

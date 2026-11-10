@@ -54,6 +54,10 @@ theorem jhatToKv_mem_monoSub
     rw [map_mul]
     rfl
 
+theorem coe_piP
+    (g : Ptwo) :
+    (((piP g : Mfr) : Kstab v0) : OLq) =
+      ((jhatToKv ⟨g, Ptwo_le_Jhat g.2⟩ : Kstab (phi0 (coordOf rStar))) : OLq) := rfl
 
 @[expose] def piC :
     Ctwo →* Mfr := piP.comp (Subgroup.inclusion Ctwo_le_Ptwo)
@@ -262,6 +266,20 @@ theorem Vhat_comm {v w : Dfull} (hv : v ∈ Vhat) (hw : w ∈ Vhat) : v * w = w 
     inv_eq_of_mul_eq_one_right (mul_self_of_mem_Vhat (Vhat.mul_mem hv hw))
   rw [← h3, mul_inv_rev, h1, h2]
 
+theorem Vhat_le_Ctwo : Vhat ≤ Ctwo := fun _ hv =>
+  Subgroup.mem_centralizer_iff.2 fun _ hw => Vhat_comm hw hv
+
+theorem Vhat_le_R2 :
+    Vhat ≤ R2 := by
+  intro v hv
+  have hC := Vhat_le_Ctwo hv
+  rw [mem_R2_iff hC, thetaC, MonoidHom.comp_apply]
+  have h : piC ⟨v, hC⟩ = 1 := by
+    apply Subtype.ext
+    apply Subtype.ext
+    rw [coe_piC, jhatToKv_eq_one_of_mem_Ehat (Vhat_le_Ehat hv)]
+    rfl
+  rw [h, map_one]
 
 theorem fixesPair01_of_mem {q : AutPerm} (hq : q ∈ Ppair) : FixesPair01 q := (mem_Ppair_iff q).1 hq
 

@@ -41,6 +41,9 @@ theorem decW_mod (c : ℕ) : decW (c % 2 ^ 22) = decW c := by
   refine Finset.sum_congr rfl fun t _ => ?_
   rw [bvec_apply, bvec_apply, Nat.testBit_mod_two_pow, decide_eq_true t.2, Bool.true_and]
 
+theorem rowsEnd_congr_decW {A B : Array ℕ} (h : ∀ t < 22, decW A[t]! = decW B[t]!) :
+    rowsEnd A = rowsEnd B :=
+  eq_rowsEnd_of fun t => by rw [rowsEnd_qbW, h t t.2]
 
 @[expose] def decE (n : ℕ) : Module.End (ZMod 2) (Wv v0) := rowsEnd (rowsOf n)
 

@@ -20,6 +20,8 @@ theorem two_mul_hh (hn : 1 ≤ n) : 2 * hh n = 0 := by
 theorem hh_add_hh (hn : 1 ≤ n) : hh n + hh n = 0 := by
   rw [← two_mul, two_mul_hh hn]
 
+theorem neg_hh (hn : 1 ≤ n) : -hh n = hh n := by
+  rw [neg_eq_iff_add_eq_zero, hh_add_hh hn]
 
 theorem hh_mul_natCast_eq_iff (hn : 1 ≤ n) (a b : ℕ) :
     hh n * (a : ZMod (2 ^ n)) = hh n * (b : ZMod (2 ^ n)) ↔ a % 2 = b % 2 := by

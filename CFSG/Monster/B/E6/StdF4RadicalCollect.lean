@@ -40,6 +40,7 @@ theorem zb_true : zb z true = z := rfl
 theorem zb_xor (hz : z * z = 1) (a b : Bool) : zb z (xor a b) = zb z a * zb z b := by
   cases a <;> cases b <;> simp [zb, hz]
 
+theorem lprod_nil (u : ℕ → Bool) : lprod x [] u = 1 := rfl
 
 theorem lprod_cons (i : ℕ) (L : List ℕ) (u : ℕ → Bool) :
     lprod x (i :: L) u = (if u i then x i else 1) * lprod x L u := rfl

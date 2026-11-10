@@ -35,5 +35,9 @@ theorem GSReach.trans {J₀ J L : Subgroup G} (h₁ : GSReach J₀ J) (h₂ : GS
     GSReach J₀ L :=
   gsReach_iff_grammar.2 <| (gsReach_iff_grammar.1 h₁).trans (gsReach_iff_grammar.1 h₂)
 
+theorem GSReach.refl_of_gsUnbalancingTriple {a x : G} {J : Subgroup G}
+    (hU : GSUnbalancingTriple a x J) : GSReach J J :=
+  gsReach_iff_grammar.2 <|
+    GSGrammar.Reach.refl (gsUnbalancingTriple_iff_grammar.1 hU).involutionComponent
 
 end CFSG.ComponentClassification.UnbalancedCorr

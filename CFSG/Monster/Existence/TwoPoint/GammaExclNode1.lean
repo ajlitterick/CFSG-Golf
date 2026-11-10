@@ -31,6 +31,18 @@ theorem deltaHat_one :
   rw [xHat_one, hγ]
   exact gammaZero_mul_fiAlpha_mul_gammaZero
 
+theorem deltaHat_one_mul_betaPrime :
+    deltaHat 1 * betaPrime = betaPrime * deltaHat 1 := by
+  rw [deltaHat_one, betaPrime]
+  have hα := fiAlpha_mul_self
+  have hc := fiBeta_commute_gammaZero
+  calc fiAlpha * gammaZero * fiAlpha * (fiAlpha * fiBeta * fiAlpha)
+      = fiAlpha * gammaZero * (fiAlpha * fiAlpha) * fiBeta * fiAlpha := by simp only [mul_assoc]
+    _ = fiAlpha * (gammaZero * fiBeta) * fiAlpha := by rw [hα, mul_one]; simp only [mul_assoc]
+    _ = fiAlpha * (fiBeta * gammaZero) * fiAlpha := by rw [← hc]
+    _ = fiAlpha * fiBeta * (fiAlpha * fiAlpha) * gammaZero * fiAlpha := by
+        rw [hα, mul_one]; simp only [mul_assoc]
+    _ = fiAlpha * fiBeta * fiAlpha * (fiAlpha * gammaZero * fiAlpha) := by simp only [mul_assoc]
 
 theorem deltaHat_one_not_commute_alpha :
     deltaHat 1 * fiAlpha ≠ fiAlpha * deltaHat 1 := by

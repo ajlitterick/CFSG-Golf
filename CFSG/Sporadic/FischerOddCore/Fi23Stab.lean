@@ -68,6 +68,10 @@ theorem oddCore_inf_centralizer_conj {G : Type*} [Group G] (g a b : G)
       ⊥ :=
   oddCore_eq_bot_of_mulEquiv (centralizerInfEquiv (MulAut.conj g) a b) h
 
+theorem oddCore_inf_centralizer_of_mulEquiv {G H : Type*} [Group G] [Group H] (e : G ≃* H)
+    (a b : G) (h : CFSG.oddCore ↥(Subgroup.centralizer {e a} ⊓ Subgroup.centralizer {e b}) = ⊥) :
+    CFSG.oddCore ↥(Subgroup.centralizer {a} ⊓ Subgroup.centralizer {b}) = ⊥ :=
+  oddCore_eq_bot_of_mulEquiv (centralizerInfEquiv e a b).symm h
 
 theorem oddCore_inf_centralizer_of_central {G : Type*} [Group G] [Finite G] {Q : Type*}
     [Group Q] (M : Subgroup G) (κ : ↥M →* Q) (hκ : Function.Surjective κ)
@@ -102,5 +106,29 @@ theorem oddCore_inf_centralizer_J
   have h' := oddCore_inf_centralizer_conj g Fi23.d (g⁻¹ * s * g) h
   rwa [show g * (g⁻¹ * s * g) * g⁻¹ = s by group] at h'
 
+theorem fi23EquivJ_dFi23 : Fi23.fi23EquivJ Fi23.dFi23 = Fi23.d :=
+  Fi23.fi23EquivJ.apply_symm_apply Fi23.d
+
+theorem CTUC_Fi23_central_cover_involution_stabilizers_odd_core_trivial :
+    (∀ x : Blueprint.NativeSporadic.Fi23, IsConj Fi23.dFi23 x →
+      ∀ s ∈ Subgroup.centralizer {x}, orderOf s = 2 →
+        CFSG.oddCore ↥(Subgroup.centralizer {x} ⊓ Subgroup.centralizer {s}) = ⊥) ∧
+    (∀ s ∈ Subgroup.centralizer {Fi23.dFi23}, orderOf s = 2 →
+      CFSG.oddCore ↥(Subgroup.centralizer {Fi23.dFi23} ⊓ Subgroup.centralizer {s}) = ⊥) := by
+  have main : ∀ x : Blueprint.NativeSporadic.Fi23, IsConj Fi23.dFi23 x →
+      ∀ s ∈ Subgroup.centralizer {x}, orderOf s = 2 →
+        CFSG.oddCore ↥(Subgroup.centralizer {x} ⊓ Subgroup.centralizer {s}) = ⊥ := by
+    intro x hx s hs hs2
+    have hx' : IsConj Fi23.d (Fi23.fi23EquivJ x) := by
+      obtain ⟨c, rfl⟩ := isConj_iff.1 hx
+      refine isConj_iff.2 ⟨Fi23.fi23EquivJ c, ?_⟩
+      rw [map_mul, map_mul, map_inv, fi23EquivJ_dFi23]
+    have hsx : Fi23.fi23EquivJ s * Fi23.fi23EquivJ x = Fi23.fi23EquivJ x * Fi23.fi23EquivJ s := by
+      rw [← map_mul, ← map_mul, Subgroup.mem_centralizer_singleton_iff.1 hs]
+    have hs2' : Fi23.fi23EquivJ s ^ 2 = 1 := by
+      rw [← map_pow, ← hs2, pow_orderOf_eq_one, map_one]
+    exact @oddCore_inf_centralizer_of_mulEquiv Blueprint.NativeSporadic.Fi23 Fi23.J
+      Units.instGroup inferInstance Fi23.fi23EquivJ x s (oddCore_inf_centralizer_J hx' hsx hs2')
+  exact ⟨main, fun s hs hs2 => main _ (IsConj.refl _) s hs hs2⟩
 
 end CFSG.Sporadic.FischerOddCore

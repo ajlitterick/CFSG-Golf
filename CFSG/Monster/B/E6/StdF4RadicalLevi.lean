@@ -168,6 +168,8 @@ theorem leviConjW_lt (k : ℕ) {w : List ℕ} (hw : ∀ j ∈ w, j < 21) :
   · exact flatMap_conjW_lt _ hw
   all_goals exact flatMap_conjW_lt _ (flatMap_conjW_lt _ hw)
 
+theorem headD_mem {i : ℕ} (hi : i < 15) : (orbIdx i).headD 0 ∈ orbIdx i := by
+  interval_cases i <;> decide
 
 theorem lprod_orbIdx_mem
     {u : ℕ → Bool} {i : ℕ} (hi : i < 15)
@@ -208,6 +210,9 @@ theorem leviQCheck :
     inQMask (nfWM (leviConjW k (orbIdx i)))) = true :=
   Certificates.certificate16036.2.2.2.1
 
+theorem leviTCheck :
+    (List.range 6).all (fun k => nfWM (leviConjW k [20]) == nfWM [20]) = true :=
+  Certificates.certificate16036.2.2.2.2.1
 
 @[expose] def zProdM
     (m : ℕ) : ModGL Tag.E6 K :=
@@ -449,5 +454,20 @@ theorem leviL0_le_normalizer_radicalZ :
     leviL0 ≤ Subgroup.normalizer (radicalZ : Set (ModGL Tag.E6 K)) :=
   leviL0_le_normalizer_radicalQ.trans normalizer_radicalQ_le_normalizer_radicalZ
 
+theorem leviGen_comm_rootInvM
+    (k : Fin 6) : leviGen k * rootInvM = rootInvM * leviGen k := by
+  have h := leviTCheck
+  simp only [List.all_eq_true, List.mem_range, beq_iff_eq] at h
+  have hw : ∀ j ∈ [20], j < 21 := by simp
+  have e := leviGen_conj_evalW k [20] hw
+  rw [evalW_eq_of_nfWM_eq (leviConjW_lt _ hw) hw (h k k.2), evalW_singleton, xr_twenty] at e
+  calc leviGen k * rootInvM = (leviGen k * rootInvM * (leviGen k)⁻¹) * leviGen k := by group
+    _ = rootInvM * leviGen k := by rw [e]
+
+theorem leviL0_le_centralizer :
+    leviL0 ≤ Subgroup.centralizer {rootInvM} := by
+  rw [leviL0, Subgroup.closure_le]
+  rintro _ ⟨k, rfl⟩
+  exact Subgroup.mem_centralizer_singleton_iff.2 (leviGen_comm_rootInvM k)
 
 end CFSG.Monster.B.E6.StdF4Radical

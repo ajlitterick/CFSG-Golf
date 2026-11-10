@@ -231,6 +231,10 @@ theorem resA_UmatS (hf : IsParityAut f) (c : ShortIdx) :
   obtain ⟨A, rfl⟩ := hf.resA_surjective B
   rw [hf.resA_trace, coe_UmatS, coe_UmatS, trace_Umat_mul, trace_Umat_mul, hf.qf_lineMap]
 
+theorem apply_Xlift (hf : IsParityAut f) {r : Q} (hr : IsShortCoord (coordOf r)) :
+    f (inX (Xlift r)) = inX ((sgn (centralCoord r) * hf.lineSign ⟨coordOf r, hr⟩) •
+      Xlift (rep (hf.lineMap ⟨coordOf r, hr⟩).1)) := by
+  rw [hf.apply_inX, Xlift_eq hr, map_smul, hf.resX_single, Xlift_rep_eq, smul_smul]
 
 end IsParityAut
 

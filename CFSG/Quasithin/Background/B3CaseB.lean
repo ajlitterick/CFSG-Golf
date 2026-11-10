@@ -17,10 +17,15 @@ variable {n : ℕ}
 @[expose] def regB (n : ℕ) (K : List Tab) : Bool :=
   (List.range n).all (fun j => K.any (fun t => t.getD 0 0 == j))
 
+@[expose] def isHypT (n : ℕ) (K : List Tab) : Bool :=
+  K.all (fun t => (Dc n).contains t) && 2 * K.length == (Dc n).length && !(seteqT K (DLc n))
 
 @[expose] def isE8T (n : ℕ) (K : List Tab) : Bool :=
   n == 8 && K.length == 8 && K.all isEvenT && regB n K
 
+@[expose] def isRepB (n : ℕ) (k : Mod) (K : List Tab) : Bool :=
+  (List.range (n / 2)).any (fun i => seteqT K (AmL n (i + 1))) || seteqT K (DLc n) ||
+    seteqT K (A0L n) || isHypT n K || (k == Mod.ut0 && isE8T n K)
 
 @[expose] def chkNamed (n : ℕ) : Bool :=
   (List.range (n / 2)).all (fun i => chkGen n (gensAm n (i + 1)) && memD (Dl n) (AmL n (i + 1))) &&
@@ -28,6 +33,8 @@ variable {n : ℕ}
   subOK n (DLc n) && memD (Dl n) (DLc n) && memD (Dl n) (Dc n) &&
   (Dc n).all (fun t => (Tl n).contains t)
 
+@[expose] def chkB (n : ℕ) (k : Mod) (e m : ℕ) : Bool :=
+  chkT n e m && chkClassify n k (isRepB n k) && chkNamed n
 
 @[expose] def Hset (n : ℕ) : Set (Subgroup (Gp n)) :=
   {B | ∃ γ : Gp n, ∃ H : Subgroup (Gp n), H ≤ Dsub n ∧ Nat.card (Dsub n) = 2 * Nat.card H ∧

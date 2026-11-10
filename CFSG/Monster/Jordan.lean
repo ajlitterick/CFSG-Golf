@@ -363,5 +363,66 @@ theorem exists_orthogonal_eq_conj :
 
 end Existence
 
+theorem eq_or_eq_neg_of_conj_eq {g g' : Matrix ι ι ℝ} (hg : g ∈ Matrix.orthogonalGroup ι ℝ)
+    (hg' : g' ∈ Matrix.orthogonalGroup ι ℝ)
+    (h : ∀ A : symMat ι, gᵀ * (A : Matrix ι ι ℝ) * g = g'ᵀ * (A : Matrix ι ι ℝ) * g') :
+    g' = g ∨ g' = -g := by
+  rcases isEmpty_or_nonempty ι with hι | ⟨⟨o⟩⟩
+  · exact Or.inl (Subsingleton.elim _ _)
+  have hgg : g * gᵀ = 1 := (mem_orthogonalGroup_iff _ _).1 hg
+  have hgtg : gᵀ * g = 1 := (mem_orthogonalGroup_iff' _ _).1 hg
+  have hg'g' : g' * g'ᵀ = 1 := (mem_orthogonalGroup_iff _ _).1 hg'
+  obtain ⟨k, hk⟩ : ∃ k : Matrix ι ι ℝ, k = g' * gᵀ := ⟨_, rfl⟩
+  have hkk : k * kᵀ = 1 := by
+    rw [hk, transpose_mul, transpose_transpose, Matrix.mul_assoc, ← Matrix.mul_assoc gᵀ, hgtg,
+      Matrix.one_mul, hg'g']
+  have hconj : ∀ A : symMat ι, kᵀ * (A : Matrix ι ι ℝ) * k = A := by
+    intro A
+    rw [hk, transpose_mul, transpose_transpose]
+    calc g * g'ᵀ * (A : Matrix ι ι ℝ) * (g' * gᵀ) = g * (g'ᵀ * A * g') * gᵀ := by
+          simp only [Matrix.mul_assoc]
+      _ = g * (gᵀ * A * g) * gᵀ := by rw [h A]
+      _ = A := by
+          simp only [Matrix.mul_assoc, hgg, Matrix.mul_one]
+          rw [← Matrix.mul_assoc, hgg, Matrix.one_mul]
+  have hcomm : ∀ A : symMat ι, Commute (A : Matrix ι ι ℝ) k := by
+    intro A
+    change (A : Matrix ι ι ℝ) * k = k * A
+    calc (A : Matrix ι ι ℝ) * k = k * kᵀ * A * k := by rw [hkk, Matrix.one_mul]
+      _ = k * (kᵀ * A * k) := by simp only [Matrix.mul_assoc]
+      _ = k * A := by rw [hconj A]
+  have hsingle : Pairwise fun x y => Commute (single x y (1 : ℝ)) k := by
+    intro x y hxy
+    have e : single x y (1 : ℝ) = single x x 1 * (single x y 1 + single y x 1) := by
+      simp [Matrix.mul_add, hxy]
+    rw [e]
+    exact (hcomm (diagUnit x)).mul_left (hcomm (pairUnit x y))
+  obtain ⟨c, hc⟩ := mem_range_scalar_of_commute_single hsingle
+  have hc2 : c * c = 1 := by
+    rw [← hc, scalar_apply, diagonal_transpose, diagonal_mul_diagonal] at hkk
+    simpa using congrFun (congrFun hkk o) o
+  have hg'k : g' = k * g := by rw [hk, Matrix.mul_assoc, hgtg, Matrix.mul_one]
+  rcases mul_self_eq_one_iff.1 hc2 with rfl | rfl
+  · left
+    rw [hg'k, ← hc, map_one, Matrix.one_mul]
+  · right
+    rw [hg'k, ← hc, map_neg, map_one, Matrix.neg_mul, Matrix.one_mul]
+
+theorem symmetric_matrix_isometric_jordan_automorphisms {n : ℕ}
+    (f : symMat (Fin n) ≃ₗ[ℝ] symMat (Fin n))
+    (hJ : ∀ A B, f (jordanMul A B) = jordanMul (f A) (f B))
+    (hT : ∀ A B, trace ((f A : Matrix (Fin n) (Fin n) ℝ) * (f B : Matrix (Fin n) (Fin n) ℝ)) =
+      trace ((A : Matrix (Fin n) (Fin n) ℝ) * (B : Matrix (Fin n) (Fin n) ℝ))) :
+    ∃ g ∈ Matrix.orthogonalGroup (Fin n) ℝ,
+      (∀ A : symMat (Fin n),
+        (f A : Matrix (Fin n) (Fin n) ℝ) = gᵀ * (A : Matrix (Fin n) (Fin n) ℝ) * g) ∧
+      ∀ g' ∈ Matrix.orthogonalGroup (Fin n) ℝ,
+        (∀ A : symMat (Fin n),
+          (f A : Matrix (Fin n) (Fin n) ℝ) = g'ᵀ * (A : Matrix (Fin n) (Fin n) ℝ) * g') →
+          g' = g ∨ g' = -g := by
+  obtain ⟨g, hg, hfg⟩ := exists_orthogonal_eq_conj f.toLinearMap hJ hT
+  refine ⟨g, hg, hfg, fun g' hg' hfg' => eq_or_eq_neg_of_conj_eq hg hg' fun A => ?_⟩
+  rw [← hfg A, ← hfg' A]
+  rfl
 
 end CFSG.Monster.Jordan

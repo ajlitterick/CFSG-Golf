@@ -32,6 +32,10 @@ theorem combo_mem {S : Nat → Prop} (h0 : S 0) (hx : ∀ a b, S a → S b → S
     · exact hB b List.mem_cons_self
     · exact h0
 
+theorem combo_lt {k : Nat} {B : List Nat} (hB : ∀ b ∈ B, b < 2 ^ k) (m : Nat) :
+    combo B m < 2 ^ k :=
+  combo_mem (S := fun a => a < 2 ^ k) (Nat.two_pow_pos k) (fun a b ha hb => Nat.xor_lt_two_pow ha hb)
+    hB m
 
 theorem decode_lt : ∀ (P : List Nat) (a : Nat), decode P a < 2 ^ P.length
   | [], a => by rw [decode_nil]; exact Nat.two_pow_pos 0

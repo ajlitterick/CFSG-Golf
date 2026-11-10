@@ -11,5 +11,10 @@ open CFSG CFSG.ASVolI CFSG.KC.D43 CertificateChecks.KernelD43
 
 namespace Certificates
 
+open CFSG CFSG.ASVolI in
+theorem certificate7801 : ∃ e : Equiv.Perm (Fin 26572), ∀ p : Fin 26572,
+    ((e p : Fin 26572) : ℕ) = (burnsideF48d_phi ())[p.val]! := by
+  obtain ⟨e, he⟩ := exists_perm_of_cube (F := PX.F) (k := 0) phiCube
+  exact ⟨e, fun p => (he p).trans (phi_tab p.2).symm⟩
 
 end Certificates

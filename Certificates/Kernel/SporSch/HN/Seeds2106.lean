@@ -74,6 +74,9 @@ theorem pow_eq {m o e : Nat} (he : 1 ≤ e) (hm : m < 83) (hoe : o + e < 83) (h2
   simp only [e1]
   exact this
 
+theorem ltc_one : ltc 1 = 0 := rfl
+
+theorem ltc_two : ltc 2 = 1 := rfl
 
 theorem word_eq {w : List Nat} {o : Nat} (hn1 : 1 ≤ w.length) (hon : o + w.length < 83)
     (h2 : 2 ≤ o + 1) (hmem : ∀ l ∈ w, l = 1 ∨ l = 2)

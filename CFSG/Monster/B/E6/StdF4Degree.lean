@@ -178,5 +178,11 @@ theorem le_index_of_ne_top
   rw [Subgroup.index_eq_card, Nat.card_eq_fintype_card]
   omega
 
+theorem standard_F4_complex_degree_and_small_index_bound :
+    (∀ (V : Type*) [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+        (ρ : Representation ℂ groupJ V), ρ ≠ Representation.trivial ℂ groupJ V →
+          448 ≤ Module.finrank ℂ V) ∧
+      ∀ H : Subgroup groupJ, H ≠ ⊤ → 449 ≤ H.index :=
+  ⟨fun _ _ _ _ _ hρ => le_finrank_of_ne_trivial hρ, fun _ hH => le_index_of_ne_top hH⟩
 
 end CFSG.Monster.B.E6.StdF4Radical

@@ -30,6 +30,9 @@ theorem commute_of_rows (hφ : Function.Injective φ) {g h : M} {X Y : Array ℕ
     (e : mulRows 24 X Y = mulRows 24 Y X) : g * h = h * g :=
   hφ (by rw [map_mul, map_mul, hg, hh, ← rowsMatrix_mulRows, ← rowsMatrix_mulRows, e])
 
+theorem eq_of_rows (hφ : Function.Injective φ) {g h : M} {X : Array ℕ}
+    (hg : φ g = rowsMatrix 24 X) (hh : φ h = rowsMatrix 24 X) : g = h :=
+  hφ (hg.trans hh.symm)
 
 theorem ne_one_of_rows {g : M} {X : Array ℕ} (hg : φ g = rowsMatrix 24 X)
     (hX : validRows X = true) (h : X ≠ idRows 24) : g ≠ 1 := by
@@ -87,6 +90,32 @@ theorem commute_lineEval {m : G} {regs : List G} (hregs : ∀ g ∈ regs, m * g 
   obtain ⟨p, -, rfl⟩ := List.mem_map.1 hx
   exact (hget p.1).pow_right p.2
 
+theorem map_lineEval {H : Type*} [Group H] (f : G →* H) (regs : List G) (fac : List (ℕ × ℕ)) :
+    f (CFSG.Sporadic.Co1.Module.Odd.lineEval regs fac) =
+      CFSG.Sporadic.Co1.Module.Odd.lineEval (regs.map f) fac := by
+  unfold CFSG.Sporadic.Co1.Module.Odd.lineEval
+  rw [map_list_prod, List.map_map]
+  congr 1
+  refine List.map_congr_left fun p _ => ?_
+  simp only [Function.comp_apply, map_pow]
+  congr 1
+  rw [List.getD_eq_getElem?_getD, List.getD_eq_getElem?_getD, List.getElem?_map]
+  cases regs[p.1]? with
+  | none => simp
+  | some g => simp
+
+theorem runEval_mem (prog : List (List (ℕ × ℕ))) :
+    ∀ {init : List G}, (∀ g ∈ init, g ∈ K) →
+      ∀ g ∈ CFSG.Sporadic.Co1.Module.Odd.runEval init prog, g ∈ K := by
+  induction prog with
+  | nil => intro init h; exact h
+  | cons fac prog ih =>
+    intro init h
+    refine ih fun g hg => ?_
+    rcases List.mem_append.1 hg with hg | hg
+    · exact h g hg
+    · rw [List.mem_singleton.1 hg]
+      exact lineEval_mem K h fac
 
 end Programs
 

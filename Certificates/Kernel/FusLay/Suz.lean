@@ -21,6 +21,10 @@ theorem fus9472_K : fusL lay A B betaSuzP3N betaSuzP3Prog betaSuzP3 = true := by
 
 theorem fus14957_K : fusL lay A B suzFusN suzFusProg suzFus = true := by decide +kernel
 
+theorem fus9472_neg : (!fusL lay B A betaSuzP3N betaSuzP3Prog betaSuzP3) = true := by
+  decide +kernel
+
+theorem fus14957_neg : (!fusL lay B A suzFusN suzFusProg suzFus) = true := by decide +kernel
 
 end CertificateChecks.KernelFusLay.Suz
 

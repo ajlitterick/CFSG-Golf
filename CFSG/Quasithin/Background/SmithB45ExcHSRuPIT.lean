@@ -10,6 +10,7 @@ namespace CFSG.Quasithin.B45Exc.Tab
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Quasithin.H.Mathieu
   CFSG.QuasithinUnique.Setup.X1
 
+@[expose] def commA (n : ℕ) (a b : Array ℕ) : Bool := allLt n fun p => a[b[p]!]! == b[a[p]!]!
 
 @[expose] def prodOK (n : ℕ) (a b c : Array ℕ) : Bool :=
   allLt n fun p => a[b[p]!]! == c[p]! && b[a[p]!]! == c[p]!
@@ -96,6 +97,19 @@ variable {n : ℕ} {T : InvTab n}
 theorem perm_of_le {i : ℕ} (hi : T.m ≤ i) : T.perm i = 1 := by
   rw [perm, ite_eq_right (by omega)]
 
+theorem commA_iff {n : ℕ} {a b : Array ℕ} {g h : Equiv.Perm (Fin n)} (ha : Rep n a g)
+    (hb : Rep n b h) : commA n a b = true ↔ g * h = h * g := by
+  rw [commA, allLt_iff]
+  constructor
+  · intro H
+    refine Equiv.ext fun x => Fin.ext ?_
+    have := H x x.2
+    rw [beq_iff_eq, hb.apply x.2, ha.apply (h x).2, ha.apply x.2, hb.apply (g x).2] at this
+    simpa [Equiv.Perm.mul_apply] using this
+  · intro H p hp
+    rw [beq_iff_eq, hb.apply hp, ha.apply (h ⟨p, hp⟩).2, ha.apply hp, hb.apply (g ⟨p, hp⟩).2]
+    have := congrArg (fun σ : Equiv.Perm (Fin n) => ((σ ⟨p, hp⟩ : Fin n) : ℕ)) H
+    simpa [Equiv.Perm.mul_apply] using this
 
 theorem prodOK_spec {n : ℕ} {a b c : Array ℕ} {g h k : Equiv.Perm (Fin n)} (ha : Rep n a g)
     (hb : Rep n b h) (hc : Rep n c k) (H : prodOK n a b c = true) : g * h = k ∧ h * g = k := by

@@ -266,6 +266,12 @@ theorem u6_transvec_of_kdim_one (hσ : IsUnitaryInvolution σ) (hω : ω + σ ω
   rw [hback]
   exact IsTransvec.conj' hT S
 
+theorem frameInv_mulVec_T0 (hω : ω + σ ω = 1) (j : Fin 3) :
+    ((frameGL σ ω hω)⁻¹ : GL (Fin 6) F).val.mulVec (e3uT0Vec j) =
+      Pi.single (⟨2 * j.val, by omega⟩ : Fin 6) (1 : F) := by
+  have h1 : ((frameGL σ ω hω)⁻¹ : GL (Fin 6) F).val = frameInv σ ω := rfl
+  rw [h1, ← frameMat_mulVec_even (σ := σ) ω j, Matrix.mulVec_mulVec, frameInv_mul_frameMat hω,
+    Matrix.one_mulVec]
 
 theorem mem_e3uU0Sub_iff (hσ : IsUnitaryInvolution σ) (hω : ω + σ ω = 1) (g : SUid σ 6) :
     g ∈ e3uU0Sub σ ↔ ∀ s ∈ S0 F, ((ucF σ hω (g : GL (Fin 6) F) : GL (Fin 6) F) :

@@ -41,6 +41,37 @@ theorem mem_iff_of_maskOf_eq {l l' : List ℕ} (h : maskOf l = maskOf l') (c : �
   rw [testBit_maskOf, testBit_maskOf] at h1
   exact decide_eq_decide.mp h1
 
+@[expose] def treeCheck : List ℕ → List (ℕ × ℕ × ℕ) → Bool
+  | _, [] => true
+  | seen, (v, p, i) :: rest =>
+      seen.contains p && decide (i < 2) && (v == mvN (gG.getD i one12) p) &&
+        treeCheck (v :: seen) rest
+
+private theorem gmv_gU' (i c : ℕ) : gmv (gU i) c = mvN (gG.getD i one12) c := by
+  rw [gmv, gU_val, colsN_decN (validN_getD validN_gG i)]
+
+theorem treeCheck_reach {root : ℕ} {seen : List ℕ} (hseen : ∀ x ∈ seen, ∃ g ∈ G0, gmv g root = x)
+    {t : List (ℕ × ℕ × ℕ)} (h : treeCheck seen t = true) :
+    ∀ e ∈ t, ∃ g ∈ G0, gmv g root = e.1 := by
+  induction t generalizing seen with
+  | nil => simp
+  | cons e t ih =>
+    rcases e with ⟨v, p, i⟩
+    simp only [treeCheck, Bool.and_eq_true, List.contains_iff_mem, decide_eq_true_eq,
+      beq_iff_eq] at h
+    obtain ⟨⟨⟨hp, hi⟩, hv⟩, hrest⟩ := h
+    obtain ⟨g, hg, hgp⟩ := hseen p hp
+    have himg : gmv (gU i * g) root = v := by
+      rw [gmv_mul, hgp, gmv_gU', hv]
+    have hseen' : ∀ x ∈ v :: seen, ∃ g ∈ G0, gmv g root = x := by
+      intro x hx
+      rcases List.mem_cons.mp hx with rfl | hx
+      · exact ⟨gU i * g, G0.mul_mem (gU_mem i) hg, himg⟩
+      · exact hseen x hx
+    intro e' he'
+    rcases List.mem_cons.mp he' with rfl | he'
+    · exact ⟨gU i * g, G0.mul_mem (gU_mem i) hg, himg⟩
+    · exact ih hseen' hrest e' he'
 
 @[expose] def closedAux (m : ℕ) (vs : List ℕ) : Bool :=
   vs.all fun c =>
@@ -89,6 +120,19 @@ theorem gmv_eq_zero_iff (g : Γ12) {c : ℕ} (hc : c < 4096) : gmv g c = 0 ↔ c
     exact congrArg dc h2
   · rintro rfl
     exact gmv_zero g
+
+
+theorem isConjPt_symm {G V : Type*} [Group G] [CommGroup V] {ρ : G →* MulAut V} {X : Subgroup G}
+    {P P' : Subgroup V} (h : IsConjPt ρ X P P') : IsConjPt ρ X P' P := by
+  obtain ⟨g, hg, hPg⟩ := h
+  refine ⟨g⁻¹, X.inv_mem hg, ?_⟩
+  rw [← hPg, Subgroup.map_map]
+  have hcomp : ((ρ g⁻¹).toMonoidHom.comp ((ρ g).toMonoidHom)) = MonoidHom.id V := by
+    ext x
+    change (ρ g⁻¹ * ρ g) x = x
+    rw [← map_mul, inv_mul_cancel, map_one]
+    rfl
+  rw [hcomp, Subgroup.map_id]
 
 
 end CFSG.Quasithin.AppendixH.H12.Model

@@ -101,6 +101,7 @@ theorem r_r (k : Fin 4) (v : Fin 6 → ℤ) : r k (r k v) = v := by
   left_inv v := Subtype.ext (r_r k v.1)
   right_inv v := Subtype.ext (r_r k v.1)
 
+theorem gen_apply (k : Fin 4) (v : Λ) : (gen k v).1 = r k v.1 := rfl
 
 theorem gen_mul_self (k : Fin 4) : gen k * gen k = 1 :=
   Equiv.ext fun v => Subtype.ext (r_r k v.1)

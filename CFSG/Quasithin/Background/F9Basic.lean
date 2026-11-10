@@ -621,6 +621,14 @@ theorem HypF81.toHypF98 [Finite G] (h : HypF81 T V L V₁ H) (hc : Nat.card V₁
           (Subgroup.mem_centralizer_iff.mp hx.2 v hv).symm
     rw [this]; exact bot_le
 
+theorem HypF98.toHypF81 [Finite G] (h : HypF98 T V L V₁ V H) : HypF81 T V L V₁ H :=
+  { sylow := h.sylow, elemAbelian := h.elemAbelian, normalizes_L := h.normalizes_L,
+    oTwoRes_eq := h.oTwoRes_eq, charTwo_L := h.charTwo_L, reduced := h.reduced, cT := h.cT,
+    V₁_ne_bot := h.V₁_ne_bot, V₁_le_V := h.V₁_le_Vp, T_normalizes_V₁ := h.T_normalizes_V₁,
+    weak_a := fun g hne => h.weak_f g (le_of_card_eq_two_of_inf_ne_bot h.card_V₁ hne),
+    V₁_lt_V := h.V₁_lt_Vp, irred := h.irred, H_normalizes_V₁ := h.H_normalizes_V₁,
+    L₁T_le_H := h.L₁T_le_H, charTwo_H := h.charTwo_H, ker_le := h.ker_le,
+    o2_trivial := h.o2_trivial }
 
 namespace HypF98
 

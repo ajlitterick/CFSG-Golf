@@ -142,6 +142,11 @@ theorem not_isConj_of_two_pow_dvd
   rw [hcard] at h'
   exact absurd h' (by norm_num)
 
+theorem not_isConj_of_two_pow_dvd_inf
+    {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0)
+    (M : Subgroup G) {t : G} (h : 2 ^ 41 ∣ Nat.card (M ⊓ Subgroup.centralizer {t} : Subgroup G)) :
+    ¬ IsConj d t :=
+  not_isConj_of_two_pow_dvd ψ inf_le_right ((pow_dvd_pow 2 (by norm_num)).trans h)
 
 theorem not_isConj_map_sEquiv_xs
     {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0)
@@ -210,6 +215,18 @@ theorem natCard_centralizer_inf_cV0_mul
     centralizer_pair_eq_inf native_global_label_bijection_and_full_vertex_centralizer.1]
   exact natCard_vStab_inf_of_dist_three (mem_sphereDistThree.1 hu)
 
+theorem h2C_of_FA_FB
+    (hF : ∀ y : vStab cv0, orderOf y = 2 →
+      Nat.card (Subgroup.centralizer {y}) = 13244506413465600 → y ∈ FA ∪ FB)
+    (hFAB : ∀ y ∈ FA, ¬ IsConj y (cV0 * y)) :
+    ∀ y : vStab cv0, orderOf y = 2 →
+      Nat.card (Subgroup.centralizer {y}) = 13244506413465600 → ¬ IsConj y (cV0 * y) := by
+  intro y hy hc h
+  rcases hF y hy hc with hA | hB
+  · exact hFAB y hA h
+  · have hcc : cV0 * cV0 = 1 := (orderOf_two_iff.1 orderOf_cV0).1
+    have e : cV0 * (cV0 * y) = y := by rw [← mul_assoc, hcc, one_mul]
+    exact hFAB _ hB (by rw [e]; exact h.symm)
 
 theorem map_mem_centralizer_of_commute {S : Type*} [Group S] (Φ : S →* G) {a b : S}
     (h : a * b = b * a) :

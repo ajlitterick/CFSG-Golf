@@ -42,6 +42,9 @@ variable (P : DcSoundCtx Γ n)
 
 theorem hlaw : LabLawful Γ n ptLab (PtValid n) := ptLab_lawful
 
+private theorem els_size : P.els.size = 2 + P.C.ns := by
+  simp [els, P.hsl]
+  omega
 
 theorem els_getD (l : ℕ) : P.els.getD l 1 = (P.a :: P.b :: P.sl).getD l 1 := by
   simp [els, Array.getD_eq_getD_getElem?, List.getD_eq_getElem?_getD]
@@ -84,6 +87,9 @@ theorem act_wordF_eq {w : List ℕ} (hw : ∀ l ∈ w, l < 2 + P.C.ns) {p : ℕ}
     act n (evalElt P.els w) p = wordF P.C.L w p :=
   (P.act_wordF w hw p hp).1
 
+private theorem wordF_lt {w : List ℕ} (hw : ∀ l ∈ w, l < 2 + P.C.ns) {p : ℕ} (hp : p < n) :
+    wordF P.C.L w p < n :=
+  (P.act_wordF w hw p hp).2
 
 theorem labF_eq_lab {w : List ℕ} (hw : ∀ l ∈ w, l < 2 + P.C.ns) :
     labF (wordF P.C.L w) P.C.Δ = lab n ptLab P.C.Δ (evalElt P.els w) := by
@@ -105,6 +111,9 @@ theorem evalElt_eq_wordElt {w : List ℕ} (hw : ∀ l ∈ w, l < 2) :
     rw [evalElt_cons, evalElt_cons, P.els_getD_lt_two (hw l List.mem_cons_self),
       ih (fun l' hl' => hw l' (List.mem_cons_of_mem _ hl'))]
 
+private theorem labF_wordElt (w : List ℕ) (hw : ∀ l ∈ w, l < 2) :
+    labF (wordF P.C.L w) P.C.Δ = lab n ptLab P.C.Δ (wordElt P.a P.b w) := by
+  rw [P.labF_eq_lab (fun l hl => by have := hw l hl; omega), P.evalElt_eq_wordElt hw]
 
 theorem evalElt_mem_S {w : List ℕ} (hw : ∀ l ∈ w, 2 ≤ l ∧ l < 2 + P.C.ns) :
     evalElt P.els w ∈ P.S := by

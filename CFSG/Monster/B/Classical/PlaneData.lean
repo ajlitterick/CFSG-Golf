@@ -24,6 +24,24 @@ open scoped LinearAlgebra.Projectivization
 instance (v : Fin 3 → F4) : Decidable (IsNormalized v) := by
   unfold IsNormalized; infer_instance
 
+@[expose] def lexKey (v : Fin 3 → F4) : ℕ :=
+  16 * (v 0).code.val + 4 * (v 1).code.val + (v 2).code.val
+
+theorem lexKey_lt_iff : ∀ u v : Fin 3 → F4, lexKey u < lexKey v ↔
+    ∃ k : Fin 3, (∀ j : Fin 3, j < k → (u j).code = (v j).code) ∧ (u k).code < (v k).code := by
+  decide +kernel
+
+theorem Ω_spec : (∀ i, IsNormalized (Ω i)) ∧ (∀ v, IsNormalized v → ∃ i, Ω i = v) ∧
+    StrictMono fun i => lexKey (Ω i) := by
+  refine ⟨by decide +kernel, by decide +kernel, ?_⟩
+  intro i j h
+  revert i j
+  decide +kernel
+
+theorem Ω_injective : Function.Injective Ω := by
+  intro i j h
+  revert i j
+  decide +kernel
 
 theorem Ω_ne_zero (i : Fin 21) : Ω i ≠ 0 := by
   revert i

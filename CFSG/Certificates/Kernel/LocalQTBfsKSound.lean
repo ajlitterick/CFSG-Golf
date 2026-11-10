@@ -11,6 +11,9 @@ namespace CFSG.KC.LQT.L
 
 open Equiv CFSG.QuasithinUnique.Vol2Native.A312L.PermLat
 
+theorem brec_t {α : Sort _} (f t : α) : Bool.rec (motive := fun _ => α) f t true = t := rfl
+
+theorem brec_f {α : Sort _} (f t : α) : Bool.rec (motive := fun _ => α) f t false = f := rfl
 
 def ltR (x y : ℕ) : Prop := hashK x < hashK y ∨ (hashK x = hashK y ∧ x < y)
 

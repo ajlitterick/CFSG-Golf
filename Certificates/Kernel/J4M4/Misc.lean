@@ -44,6 +44,8 @@ theorem coords_k : (treeOrd 539 == 16384 && coordsOK kGens && coordsOK fBasis &&
     coordsOK [h136, h266] && coordsOK (treeWv 136) && coordsOK (treeWv 266)) = true := by
   decide +kernel
 
+theorem lens_k : (treeWv 539).length = 4 ∧ (treeBasis 539).length = 4 ∧ y136.length = 4 ∧
+    y266.length = 4 := by decide +kernel
 
 @[expose] noncomputable def gcK : Nat := wordCK (tblC xCode) (tblC xiCode) gWord
 

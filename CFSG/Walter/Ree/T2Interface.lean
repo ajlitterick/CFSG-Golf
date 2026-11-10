@@ -53,6 +53,11 @@ open CFSG.Walter.Ward
 
 @[expose] def PGammaL28.y : PGammaL28 := ⟨pglY, Subgroup.subset_closure (by simp)⟩
 
+theorem pglY_pow_nine : pglY ^ 9 = 1 ∧ pglY ^ 3 ≠ 1 := by decide
+
+theorem pglT_conj : pglT⁻¹ * pglJ * pglT = pglJ ∧
+    (∀ x, (pglT⁻¹ * pglK * pglT) x = mobius 1 4 0 1 x) ∧
+    ∀ x, (pglT⁻¹ * pglY * pglT) x = mobius 6 4 4 2 x := by decide
 
 variable {k : Type} [Field k] [CharP k 3]
 

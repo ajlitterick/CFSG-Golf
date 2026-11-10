@@ -25,5 +25,16 @@ theorem orb_true : od.all (fun p => orbK OT gs gi r p.1 p.2) = true := by decide
 #kc_each CertificateChecks.KernelSyl25002 ch25002
   (fun i => chunkK T OT gs gi z x1 x2 ed sz s1 s2 i) 0 16
 
+set_option maxHeartbeats 0 in
+theorem elem_bad : (!elemK T OT gs gi z (one3 + 1) 0 one3) = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+theorem orb_bad : (!orbK OT gs gi r z 4) = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+theorem glob_bad : (!globK gs gi x1 x1 x2 r c tg ed sz s1 s2) = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+theorem chunk_bad : (!chunkGo T OT gs gi z x1 x2 [] 1 0 0) = true := by decide +kernel
 
 end CertificateChecks.KernelSyl25002

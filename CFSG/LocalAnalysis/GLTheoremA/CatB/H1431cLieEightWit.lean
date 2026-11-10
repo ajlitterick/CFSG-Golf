@@ -130,6 +130,7 @@ theorem rotG_trG_comm {i : Fin 4} (h : i ≠ 3) : Commute (rotG i) (trG 3) := by
   show rotM i * trM 3 = trM 3 * rotM i
   exact rotM_trM_comm i 3 h
 
+@[expose] def «gens» : Set (StatedSp 4 (ZMod 2)) := Set.range fun i : Fin 3 => rotG i.castSucc
 
 @[expose] def E3 : Subgroup (StatedSp 4 (ZMod 2)) := Subgroup.closure «gens»
 

@@ -23,6 +23,17 @@ theorem natCard_zpowers_xhat : Nat.card (Subgroup.zpowers xhat) = 2 ^ 1 :=
 theorem natCard_Vhat_pow : Nat.card Vhat = 2 ^ 2 :=
   isKleinFour_Vhat.card_four.trans (by norm_num)
 
+theorem lt_of_le_of_natCard_eq {H K : Subgroup Dfull} (hle : H ≤ K) {a b : ℕ}
+    (ha : Nat.card H = a) (hb : Nat.card K = b) (hab : a < b) : H < K :=
+  lt_of_le_of_natCard_lt hle (by rw [ha, hb]; exact hab)
+
+theorem zpowers_xhat_lt_Vhat : Subgroup.zpowers xhat < Vhat :=
+  lt_of_le_of_natCard_eq (Subgroup.zpowers_le.2 xhat_mem_Vhat) natCard_zpowers_xhat
+    natCard_Vhat_pow (by norm_num)
+
+theorem Vhat_lt_E3 :
+    Vhat < E3 :=
+  lt_of_le_of_natCard_eq Vhat_le_E3 natCard_Vhat_pow natCard_E3_pow (by norm_num)
 
 theorem normalizer_zpowers_xhat :
     Subgroup.normalizer (Subgroup.zpowers xhat : Set Dfull) = Jhat := by
@@ -78,5 +89,10 @@ theorem natCard_subspaceDim_fin {i j : ℕ} (hji : j ≤ i) :
   rw [card_subspaces (by rw [Module.finrank_fin_fun]; exact hji), ZMod.card,
     Module.finrank_fin_fun]
 
+theorem qBinom_values :
+    [qBinom 2 2 1, qBinom 2 3 1, qBinom 2 3 2, qBinom 2 4 1, qBinom 2 4 2, qBinom 2 4 3,
+      qBinom 2 5 1, qBinom 2 5 2, qBinom 2 5 3, qBinom 2 5 4] =
+      [3, 7, 7, 15, 35, 15, 31, 155, 155, 31] := by
+  decide
 
 end CFSG.Monster.B.TwoA

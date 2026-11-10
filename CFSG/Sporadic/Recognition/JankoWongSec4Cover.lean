@@ -49,6 +49,8 @@ theorem jwPermV_conj_permA3 : jwPermV⁻¹ * permA3 * jwPermV = permA3⁻¹ := b
 theorem jwPermV1_conj_permB3 : jwPermV1⁻¹ * permB3 * jwPermV1 = permB3⁻¹ := by
   unfold jwPermV1 permB3; decide
 
+theorem jwPermV1_conj_permA3 : jwPermV1⁻¹ * permA3 * jwPermV1 = permA3 := by
+  unfold jwPermV1 permA3; decide
 
 theorem jwPermA1_comm_permB3 : jwPermA1 * permB3 = permB3 * jwPermA1 := by
   unfold jwPermA1 permB3; decide

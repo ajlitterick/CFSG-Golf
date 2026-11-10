@@ -33,6 +33,8 @@ theorem twistMat_one (i : ℕ) : twistMat k i (1 : SL(3, F)) = 1 := by
 theorem twistMat_inv_mul (i : ℕ) (g : SL(3, F)) : twistMat k i g⁻¹ * twistMat k i g = 1 := by
   rw [← twistMat_mul, inv_mul_cancel, twistMat_one]
 
+theorem twistMat_mul_inv (i : ℕ) (g : SL(3, F)) : twistMat k i g * twistMat k i g⁻¹ = 1 := by
+  rw [← twistMat_mul, mul_inv_cancel, twistMat_one]
 
 theorem twistMat_det (i : ℕ) (g : SL(3, F)) : (twistMat k i g).det = 1 := by
   rw [twistMat, ← RingHom.map_det, g.2, map_one]
@@ -212,6 +214,9 @@ theorem natRep_apply (i : ℕ) (g : SL(3, F)) : natRep k i g = twistMat k i g :=
 theorem dualRep_apply (i : ℕ) (g : SL(3, F)) : dualRep k i g = (twistMat k i g⁻¹)ᵀ := rfl
 
 theorem locRep_ff (i : ℕ) : locRep (F := F) k false false i = 1 := rfl
+theorem locRep_tf (i : ℕ) : locRep (F := F) k true false i = natRep k i := rfl
+theorem locRep_ft (i : ℕ) : locRep (F := F) k false true i = dualRep k i := rfl
+theorem locRep_tt (i : ℕ) : locRep (F := F) k true true i = adjRep k i := rfl
 
 theorem fin_locDim_ff (j j' : Fin (locDim false false)) : j = j' :=
   Fin.ext (by have h1 := j.isLt; have h2 := j'.isLt; simp only [locDim] at h1 h2; omega)
@@ -292,6 +297,7 @@ theorem adjRep_dT_col (i : ℕ) (r t : Fˣ) (j : Fin 8) :
   fin_cases j <;> simp [co, Matrix.mul_apply, Fin.sum_univ_three, map_mul]
 
 
+theorem locChar_ff (r t : Fˣ) : locChar (F := F) false false r t = 1 := by simp [locChar]
 theorem locChar_tf (r t : Fˣ) : locChar (F := F) true false r t = (r : F) := by simp [locChar]
 theorem locChar_ft (r t : Fˣ) : locChar (F := F) false true r t = ((r * t : Fˣ) : F) := by
   simp [locChar]

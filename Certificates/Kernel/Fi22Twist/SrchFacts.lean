@@ -116,6 +116,9 @@ theorem tc_lt {f : ℕ} (hf : f < 865) : TC f = CFSG.KD.Fi22Twist.TF f := by
   unfold TC
   rw [blt_tt hf]
 
+theorem ttc_lt {f : ℕ} (hf : f < 865) : TTC f = CFSG.KD.Fi22Twist.TT f := by
+  unfold TTC
+  rw [blt_tt hf]
 
 theorem tc_mem : ∀ f < 891, PMap (ap (TC f)) := by
   have hTF := tf_sound tf_all PMap pmap_id pmap_step

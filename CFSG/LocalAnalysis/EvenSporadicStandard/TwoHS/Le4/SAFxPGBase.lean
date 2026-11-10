@@ -38,6 +38,7 @@ theorem pg_ext {x y : PGSp45} (h : x.1.1 = y.1.1) : x = y :=
 
 @[simp] theorem pg_one_val : (1 : PGSp45).1.1 = 1 := rfl
 
+theorem mkPG_self (x : PGSp45) : mkPG x.1.1 x.2 = x := pg_ext rfl
 
 abbrev FM : Type := Array ℕ
 

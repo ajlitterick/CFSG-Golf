@@ -53,5 +53,7 @@ namespace CertificateChecks.KernelCo2Smith
 @[expose] noncomputable def RS (x : Nat) : Nat :=
   Nat.add (Nat.add x (nat_lit 1)) (Nat.shiftLeft (RS0 x) (nat_lit 128))
 
+@[expose] noncomputable def RT (x : Nat) : Nat :=
+  CFSG.KC.Enum.pg (nat_lit 32) (nat_lit 4294967295) (RefTP 0) x
 
 end CertificateChecks.KernelCo2Smith

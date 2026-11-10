@@ -55,6 +55,8 @@ theorem restrictU_apply (k : Kstab v0) (w : U) : (restrictU U hU k w : Wv v0) = 
 @[expose] def restrictQ (k : Kstab v0) : Module.End (ZMod 2) (Wv v0 ⧸ U) :=
   U.mapQ U (wAct v0 k) fun w hw => hU k w hw
 
+theorem restrictQ_mk (k : Kstab v0) (w : Wv v0) :
+    restrictQ U hU k (Submodule.Quotient.mk w) = Submodule.Quotient.mk (wAct v0 k w) := rfl
 
 @[expose] def rhoQ : Kstab v0 →* LinearMap.GeneralLinearGroup (ZMod 2) (Wv v0 ⧸ U) :=
   MonoidHom.mk' (fun k => ⟨restrictQ U hU k⁻¹, restrictQ U hU k,

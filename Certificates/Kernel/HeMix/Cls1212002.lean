@@ -29,6 +29,17 @@ namespace CertificateChecks.KernelHeMix
 
 open CFSG.KC.Enum CFSG.KS CFSG.KC.KGC31P CertificateChecks.KernelSporSch.HeX14
 
+@[expose] noncomputable def TL : List (List Nat) := trPL 42 6 X1Q.LR X1Q.TR 6
+
+@[expose] noncomputable def TA : List Nat := pfilterProducts 42 6 (fun _ => true) TL (pidn 42 6) []
+
+@[expose] noncomputable def IL : List Nat := pfilterProducts 42 6 (pord 42 6 2) TL (pidn 42 6) []
+
+@[expose] noncomputable def RP (i : Nat) : Nat := MR.E (lget MR.OFF i)
+
+@[expose] noncomputable def cntC (i : Nat) : Nat :=
+  CFSG.KC.J2Cover.cntL (fun t => Nat.beq (pcomp 42 6 (mask 6) (RP i) t)
+    (pcomp 42 6 (mask 6) t (RP i))) TA
 
 end CertificateChecks.KernelHeMix
 

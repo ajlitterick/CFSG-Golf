@@ -63,6 +63,9 @@ theorem rep_invT (hn : n < 2 ^ 32) {T : Table} {g : G} (h : Rep n T g) : Rep n (
   unfold ap
   rw [invT_eq_foldl, ← e, hval _ hi, e, toNat_ofNat_of_lt (by omega)]
 
+theorem ap_invT_of_rep (hn : n < 2 ^ 32) {T : Table} {g : G} (h : Rep n T g) {i : ℕ}
+    (hi : i < n) : ap (invT n T) (ap T i) = i := by
+  rw [rep_invT hn h _ (by rw [h i hi]; exact idx_lt g hi), h i hi, idx_inv_idx]
 
 theorem invOK_of_rep {P R : Table} {g : G} (hP : Rep n P g) (hR : Rep n R g⁻¹) :
     invOK n P R = true := by
@@ -196,6 +199,10 @@ theorem runSLP_rep' (hn : n < 2 ^ 32) (prog : List Instr) (regsT : Array Table) 
   obtain ⟨h1, h2⟩ := foldl_stepT_rep' hn prog (regsT, true) regsG hprog hregs
   exact ⟨h1, runSLP_size n prog regsT, h2⟩
 
+theorem runSLP_flag (hn : n < 2 ^ 32) (prog : List Instr) (regsT : Array Table) (regsG : ℕ → G)
+    (hprog : ∀ ins ∈ prog, instrRegsLt regsT.size ins)
+    (hregs : ∀ r < regsT.size, Rep n regsT[r]! (regsG r)) : (runSLP n prog regsT).2 = true :=
+  (runSLP_rep' hn prog regsT regsG hprog hregs).1
 
 end CFSG.KS.RouteP
 

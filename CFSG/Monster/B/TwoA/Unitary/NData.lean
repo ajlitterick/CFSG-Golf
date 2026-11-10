@@ -4,6 +4,19 @@ public section
 
 namespace CFSG.Monster.B.TwoA.Unitary
 
+inductive N6Kind where
+  | permutation
+  | codeSign
+  | xiSign
+deriving DecidableEq, Repr, Inhabited
+
+
+@[expose] def n6Sigma : Nat := 6144
+
+@[expose] def n6Kind : Array N6Kind :=
+  #[.permutation, .permutation, .permutation, .permutation, .permutation, .permutation, .codeSign,
+  .codeSign, .codeSign, .codeSign, .codeSign, .codeSign, .codeSign, .codeSign, .codeSign, .codeSign,
+  .xiSign]
 
 @[expose] def n6PermArr : Array (Array Nat) :=
   #[#[0, 1, 2, 3, 4, 6, 7, 5, 18, 17, 19, 16, 10, 9, 11, 8, 14, 13, 15, 12, 22, 21, 23, 20],

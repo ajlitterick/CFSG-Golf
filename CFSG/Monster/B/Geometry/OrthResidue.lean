@@ -317,6 +317,11 @@ theorem oTailLin_bijective (A : GL (Fin 2) (ZMod 2)) : Function.Bijective (oTail
     rwa [oTailLin_mul, oTailLin_mul, Units.inv_mul, oTailLin_one, oTailLin_one] at this
   · rw [oTailLin_mul, Units.mul_inv, oTailLin_one]
 
+omit [Group W] hpl hlπ hpπ hf hc₀ in
+theorem oProj_oTailLin (A : Matrix (Fin 2) (Fin 2) (ZMod 2)) (v : OV) :
+    oProj (oTailLin A v) = C2E6Overlap.tailLin A (oProj v) := by
+  funext i
+  fin_cases i <;> rfl
 
 omit [Group W] hpl hlπ hpπ hf hc₀ in
 theorem map_oTailLin_cspan (A : Matrix (Fin 2) (Fin 2) (ZMod 2)) {s : Finset (Fin 8)}

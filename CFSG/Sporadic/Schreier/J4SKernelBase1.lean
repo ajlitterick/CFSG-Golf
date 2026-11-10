@@ -26,5 +26,9 @@ theorem N_comm : ∀ a ∈ N, ∀ b ∈ N, a * b = b * a := by
 
 theorem isPGroup_N : IsPGroup 2 N := IsPGroup.of_card card_N
 
+theorem classes_check : ∀ c ∈ ({2, 5, 6} : Finset (Fin 7)), ∀ T : Finset (Fin 7),
+    (c ∈ T → (∑ i ∈ T, subSizesF i) ∣ 501397585920 → T = {c}) ∧
+      ((∑ i ∈ T, subSizesF i) = subSizesF c → T = {c}) :=
+  Certificates.certificate2173
 
 end CFSG.Sporadic.J4Schreier

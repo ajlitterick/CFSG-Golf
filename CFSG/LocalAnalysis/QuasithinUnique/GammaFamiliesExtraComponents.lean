@@ -104,6 +104,14 @@ theorem IsListedComponent.type {M S L : Subgroup G} {z : G} (h : IsListedCompone
 
 end ComponentStatements
 
+@[expose] def Lemma2_3_9_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
+    ∀ (H S T' : Subgroup G) (z : G), IsGamma0 M H → IsSylowTwoOf S (H ⊓ M) →
+      IsSylowTwoOf T' M → S ≤ T' → z ∈ T' ⊓ Subgroup.centralizer (T' : Set G) → z ≠ 1 →
+      z ^ 2 = 1 → ∀ L : Subgroup G, IsComponentIn L H →
+        ⁅L, Subgroup.zpowers z⁆ = L ∧ ¬ L ≤ M ∧
+          ∃ LQ : Subgroup G, IsComponentIn LQ (Subgroup.normalizer (pCoreOf 2 H : Set G)) ∧
+            L ≤ LQ
 
 @[expose] def Lemma2_3_9_7 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
@@ -126,5 +134,16 @@ theorem Lemma2_3_9_7.types (h : Lemma2_3_9_7) : Lemma2_3_9_7_types := by
   obtain ⟨hinn, hlist⟩ := h G T M hset H S T' z hH hS hT' hST' hz hz1 hz2 L hL
   exact ⟨hinn, hlist.type⟩
 
+@[expose] def Lemma2_3_9_6_embedding : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
+    ∀ (H S : Subgroup G), IsGamma0 M H → IsSylowTwoOf S (H ⊓ M) →
+      ∀ L : Subgroup G, IsComponentIn L H →
+        ∃ LQ : Subgroup G, IsComponentIn LQ (Subgroup.normalizer (pCoreOf 2 H : Set G)) ∧ L ≤ LQ
+
+theorem lemma2_3_9_6_of_embedding (hemb : Lemma2_3_9_6_embedding) : Lemma2_3_9_6 := by
+  intro G _ _ T M h H S T' z hH hS hT' hST' hz hz1 hz2 L hL
+  obtain ⟨-, hcomm, hLM, -⟩ :=
+    hH.component_normalized_commutator_not_le h hS hT' hST' hz hz1 hz2 hL
+  exact ⟨hcomm, hLM, hemb G T M h H S hH hS L hL⟩
 
 end CFSG.QuasithinUnique

@@ -76,6 +76,7 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
 
 @[expose] def eA4 : ArrCert := enumBfs 693 chA4.O chA4.base 100
 
+@[expose] def eZ2S : ArrCert := enumBfs 693 chZ2S.O chZ2S.base 100
 
 @[expose] def eX1 : ArrCert := enumBfs 693 chX1.O chX1.base 100
 
@@ -181,6 +182,57 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
   allLt 693 (fun p => fixF.contains p == chA3.O.all fun a => a[p]! == p) &&
     (List.range 5).all fun i => (wA qF[i]!)[fixF[i]!]! == 0
 
+@[expose] def zSCheck : Bool :=
+  allLt eA2.pts.size fun i =>
+    !(chS.O.all fun s => eqA 693 (compA 693 eA2.pts[i]! s) (compA 693 s eA2.pts[i]!)) ||
+      siftA 693 lvZ chZ.B 0 eA2.pts[i]!
+
+@[expose] def zA3Check : Bool :=
+  allLt eA3.pts.size fun i =>
+    (!(chA3.O.all fun s => eqA 693 (compA 693 eA3.pts[i]! s) (compA 693 s eA3.pts[i]!)) ||
+      siftA 693 lvA4 chA4.B 0 eA3.pts[i]!) &&
+    (!(eqA 693 (compA 693 eA3.pts[i]! ae) (compA 693 ae eA3.pts[i]!)) ||
+      siftA 693 lvA4 chA4.B 0 eA3.pts[i]!)
+
+@[expose] def a1Check : Bool :=
+  allLt eA1.pts.size fun i =>
+    (!(chA1.O.all fun s => eqA 693 (compA 693 eA1.pts[i]! s) (compA 693 s eA1.pts[i]!)) ||
+      siftA 693 lvZ chZ.B 0 eA1.pts[i]!) &&
+    siftA 693 lvZ chZ.B 0 (compA 693 eA1.pts[i]! eA1.pts[i]!) &&
+    (chA1.O.all fun s => siftA 693 lvZ chZ.B 0 (commutatorA 693 eA1.pts[i]! s)) &&
+    (!(eqA 693 (compA 693 eA1.pts[i]! ae) (compA 693 ae eA1.pts[i]!)) ||
+      siftA 693 lvX1Z chX1Z.B 0 eA1.pts[i]!) &&
+    (!(chX6Z.O.all fun s => eqA 693 (compA 693 eA1.pts[i]! s) (compA 693 s eA1.pts[i]!)) ||
+      siftA 693 lvA2 chA2.B 0 eA1.pts[i]!)
+
+@[expose] def a4Check : Bool :=
+  allLt eA4.pts.size fun i =>
+    (!(chX1.O.all fun s => eqA 693 (compA 693 eA4.pts[i]! s) (compA 693 s eA4.pts[i]!)) ||
+      siftA 693 lvZ chZ.B 0 eA4.pts[i]!) &&
+    (!(siftA 693 lvA1 chA1.B 0 eA4.pts[i]!) || siftA 693 lvZ2S chZ2S.B 0 eA4.pts[i]!) &&
+    siftA 693 lvX8 chX8.B 0 (commutatorA 693 eA4.pts[i]! aj₀) &&
+    siftA 693 lvX8 chX8.B 0 (commutatorA 693 eA4.pts[i]! aj₀sq) &&
+    (allLt eX1.pts.size fun j => eqA 693 eX1.pts[j]! (idA 693) ||
+      !(siftA 693 lvZ chZ.B 0 (commutatorA 693 eX1.pts[j]! eA4.pts[i]!)) ||
+      siftA 693 lvZ2S chZ2S.B 0 eA4.pts[i]!)
+
+@[expose] def z2sCheck : Bool :=
+  allLt eZ2S.pts.size fun i =>
+    (allLt eX1.pts.size fun j =>
+      siftA 693 lvZ chZ.B 0 (commutatorA 693 eX1.pts[j]! eZ2S.pts[i]!)) &&
+    (!(siftA 693 lvZ2S chZ2S.B 0 (conjA 693 (gA 16) eZ2S.pts[i]!)) ||
+      siftA 693 lvZ chZ.B 0 eZ2S.pts[i]!) &&
+    (!(siftA 693 lvZ2S chZ2S.B 0 (conjA 693 ag232 eZ2S.pts[i]!)) ||
+      siftA 693 lvZ chZ.B 0 eZ2S.pts[i]!)
+
+@[expose] def a2Check : Bool :=
+  allLt eA2.pts.size fun i =>
+    !(siftA 693 lvA1 chA1.B 0 eA2.pts[i]!) || siftA 693 lvX6Z chX6Z.B 0 eA2.pts[i]!
+
+@[expose] def p2Check : Bool :=
+  allLt eK1.pts.size fun i =>
+    !(chA3.O.all fun a => siftA 693 lvA3 chA3.B 0 (conjA 693 eK1.pts[i]! a)) ||
+      siftA 693 lvP2 chP2.B 0 eK1.pts[i]!
 
 @[expose] def uACheck : Bool :=
   validA 693 ae && validA 693 aj₀sq && validA 693 ag232 && chLam.O.all (validA 693) &&

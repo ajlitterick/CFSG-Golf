@@ -59,6 +59,15 @@ theorem IsStrictGallery.dist_eq {x : C} {γ : List (ι × C)} (hγ : IsStrictGal
       cs.wordProd_append]
     simp [galleryType]
 
+theorem IsStrictGallery.dist_take {x : C} {γ : List (ι × C)} (hγ : IsStrictGallery cs δ x γ)
+    (hred : cs.IsReduced (galleryType γ)) (k : ℕ) :
+    δ x (galleryEnd x (γ.take k)) = cs.wordProd ((galleryType γ).take k) := by
+  have hγ' : IsStrictGallery cs δ x (γ.take k) := by
+    have := (isStrictGallery_append (cs := cs) (δ := δ) x (γ.take k) (γ.drop k)).mp
+      (by rwa [List.take_append_drop])
+    exact this.1
+  have ht : galleryType (γ.take k) = (galleryType γ).take k := List.map_take ..
+  rw [hγ'.dist_eq hδ (by rw [ht]; exact hred.take k), ht]
 
 theorem exists_strictGallery {x y : C} {ω : List ι} (hω : cs.IsReduced ω)
     (h : cs.wordProd ω = δ x y) :

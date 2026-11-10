@@ -148,5 +148,40 @@ theorem det_eq_one_of_mul {M N : Matrix (Fin 4) (Fin 4) (ZMod 2)} (h : M * N = 1
 @[expose] noncomputable def sl (a a' : ℕ) : Lin.SLn 4 :=
   if h : toM a * toM a' = 1 then ⟨toM a, det_eq_one_of_mul h⟩ else 1
 
+theorem coe_sl {a a' : ℕ} (h : bmul a a' = idN) : ((sl a a' : Lin.SLn 4) : Matrix (Fin 4) (Fin 4)
+    (ZMod 2)) = toM a := by
+  have h' : toM a * toM a' = 1 := by rw [← toM_bmul, h, toM_idN]
+  simp [sl, h']
+
+theorem mul_eq_idN_symm {a a' : ℕ} (h : bmul a a' = idN) : toM a' * toM a = 1 := by
+  have h' : toM a * toM a' = 1 := by rw [← toM_bmul, h, toM_idN]
+  rw [← Matrix.inv_eq_right_inv h']
+  exact Matrix.nonsing_inv_mul _ (by rw [det_eq_one_of_mul h']; exact isUnit_one)
+
+theorem sl_inv {a a' : ℕ} (h : bmul a a' = idN) (h' : bmul a' a = idN) :
+    (sl a a')⁻¹ = sl a' a := by
+  rw [inv_eq_iff_mul_eq_one]
+  refine Matrix.SpecialLinearGroup.ext _ _ fun i j => ?_
+  simp only [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_one, coe_sl h,
+    coe_sl h']
+  rw [← toM_bmul, h, toM_idN]
+
+theorem sl_mul {a a' b b' : ℕ} (ha : bmul a a' = idN) (hb : bmul b b' = idN)
+    (hab : bmul (bmul a b) (bmul b' a') = idN) :
+    sl (bmul a b) (bmul b' a') = sl a a' * sl b b' := by
+  refine Matrix.SpecialLinearGroup.ext _ _ fun i j => ?_
+  simp only [Matrix.SpecialLinearGroup.coe_mul, coe_sl hab, coe_sl ha, coe_sl hb, toM_bmul]
+
+theorem mem_unitriangular_sl {a a' : ℕ} (h : bmul a a' = idN) :
+    sl a a' ∈ unitriangular 4 (ZMod 2) ↔ uMemB a = true := by
+  rw [uMemB_iff]
+  show ((∀ i j : Fin 4, j < i → ((sl a a' : Lin.SLn 4) : Matrix _ _ (ZMod 2)) i j = 0) ∧
+    ∀ i : Fin 4, ((sl a a' : Lin.SLn 4) : Matrix _ _ (ZMod 2)) i i = 1) ↔ _
+  rw [coe_sl h]
+
+theorem coe_graphFun_sl {a a' : ℕ} (h : bmul a a' = idN) (h' : bmul a' a = idN) :
+    ((BinaryParabolic.graphFun (sl a a') : Lin.SLn 4) : Matrix (Fin 4) (Fin 4) (ZMod 2)) =
+      toM (perm16 a') := by
+  rw [BinaryParabolic.coe_graphFun, sl_inv h h', coe_sl h', toM_perm16]
 
 end CFSG.Quasithin.H13.L32A.C.Levi

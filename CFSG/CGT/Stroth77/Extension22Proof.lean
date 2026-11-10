@@ -406,6 +406,68 @@ def basisElems (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C) {
     (hdC : d ∈ C) : Fin 3 → C :=
   ![⟨d, hdC⟩, ⟨D.a, hBC D.a.2⟩, ⟨D.b, hBC D.b.2⟩]
 
+theorem hasStrothType_t300_of_generator_images
+    (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
+    (hrel : Nat.card C = 2 * Nat.card B) (hL : D.L ≤ Subgroup.normalizer C)
+    {d : S} (hdC : d ∈ C) (hdB : d ∉ B) (hd2 : d * d = (D.c : S))
+    (E : TorusBasisEquiv D hBC d hdC)
+    (huv : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.uv_mem_L) (basisElems D hBC hdC j))) =
+      (Type300.action (m + 1)).φuv (gen (Type300.k (m + 1)) j))
+    (ht : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.t_mem_L) (basisElems D hBC hdC j))) =
+      (Type300.action (m + 1)).φt (gen (Type300.k (m + 1)) j))
+    (hu : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.u_mem_L) (basisElems D hBC hdC j))) =
+      (Type300.action (m + 1)).φu (gen (Type300.k (m + 1)) j))
+    (hρ : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.ρ_mem_L) (basisElems D hBC hdC j))) =
+      (Type300.action (m + 1)).φρ (gen (Type300.k (m + 1)) j)) :
+    HasStrothType C (StrothTypeIndex.t300 (m + 1)) := by
+  let xd : C := ⟨d, hdC⟩
+  let xa : C := ⟨D.a, hBC D.a.2⟩
+  let xb : C := ⟨D.b, hBC D.b.2⟩
+  have hxd : E.e (Additive.ofMul xd) = gen (Type300.k (m + 1)) 0 := E.e_d
+  have hxa : E.e (Additive.ofMul xa) = gen (Type300.k (m + 1)) 1 := E.e_a
+  have hxb : E.e (Additive.ofMul xb) = gen (Type300.k (m + 1)) 2 := E.e_b
+  refine ⟨⟨E.e, D.uv, D.t, D.u, D.ρ, D.uv_sq, D.t_sq, D.uv_comm_t, D.rho_cube, D.u_sq,
+    D.u_rho, D.uv_rho, D.t_rho, D.uv_comm_u, D.t_u, hL D.uv_mem_L, hL D.t_mem_L,
+    hL D.u_mem_L, hL D.ρ_mem_L,
+    conj_eq_of_generator_images (hL D.uv_mem_L) E.e
+      (Type300.action (m + 1)).φuv hxd hxa hxb (huv 0) (huv 1) (huv 2),
+    conj_eq_of_generator_images (hL D.t_mem_L) E.e
+      (Type300.action (m + 1)).φt hxd hxa hxb (ht 0) (ht 1) (ht 2),
+    conj_eq_of_generator_images (hL D.u_mem_L) E.e
+      (Type300.action (m + 1)).φu hxd hxa hxb (hu 0) (hu 1) (hu 2),
+    conj_eq_of_generator_images (hL D.ρ_mem_L) E.e
+      (Type300.action (m + 1)).φρ hxd hxa hxb (hρ 0) (hρ 1) (hρ 2)⟩⟩
+theorem hasStrothType_t310_of_generator_images
+    (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
+    (hrel : Nat.card C = 2 * Nat.card B) (hL : D.L ≤ Subgroup.normalizer C) (hm : 1 ≤ m)
+    {d : S} (hdC : d ∈ C) (hdB : d ∉ B) (hd2 : d * d = (D.c : S))
+    (E : TorusBasisEquiv D hBC d hdC)
+    (huv : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.uv_mem_L) (basisElems D hBC hdC j))) =
+      (Type310.action (m + 1) (by omega)).φuv (gen (Type310.k (m + 1)) j))
+    (ht : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.t_mem_L) (basisElems D hBC hdC j))) =
+      (Type310.action (m + 1) (by omega)).φt (gen (Type310.k (m + 1)) j))
+    (hu : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.u_mem_L) (basisElems D hBC hdC j))) =
+      (Type310.action (m + 1) (by omega)).φu (gen (Type310.k (m + 1)) j))
+    (hρ : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.ρ_mem_L) (basisElems D hBC hdC j))) =
+      (Type310.action (m + 1) (by omega)).φρ (gen (Type310.k (m + 1)) j)) :
+    HasStrothType C (StrothTypeIndex.t310 (m + 1) (by omega)) := by
+  let xd : C := ⟨d, hdC⟩
+  let xa : C := ⟨D.a, hBC D.a.2⟩
+  let xb : C := ⟨D.b, hBC D.b.2⟩
+  have hxd : E.e (Additive.ofMul xd) = gen (Type310.k (m + 1)) 0 := E.e_d
+  have hxa : E.e (Additive.ofMul xa) = gen (Type310.k (m + 1)) 1 := E.e_a
+  have hxb : E.e (Additive.ofMul xb) = gen (Type310.k (m + 1)) 2 := E.e_b
+  refine ⟨⟨E.e, D.uv, D.t, D.u, D.ρ, D.uv_sq, D.t_sq, D.uv_comm_t, D.rho_cube, D.u_sq,
+    D.u_rho, D.uv_rho, D.t_rho, D.uv_comm_u, D.t_u, hL D.uv_mem_L, hL D.t_mem_L,
+    hL D.u_mem_L, hL D.ρ_mem_L,
+    conj_eq_of_generator_images (hL D.uv_mem_L) E.e
+      (Type310.action (m + 1) (by omega)).φuv hxd hxa hxb (huv 0) (huv 1) (huv 2),
+    conj_eq_of_generator_images (hL D.t_mem_L) E.e
+      (Type310.action (m + 1) (by omega)).φt hxd hxa hxb (ht 0) (ht 1) (ht 2),
+    conj_eq_of_generator_images (hL D.u_mem_L) E.e
+      (Type310.action (m + 1) (by omega)).φu hxd hxa hxb (hu 0) (hu 1) (hu 2),
+    conj_eq_of_generator_images (hL D.ρ_mem_L) E.e
+      (Type310.action (m + 1) (by omega)).φρ hxd hxa hxb (hρ 0) (hρ 1) (hρ 2)⟩⟩
 end RelIndexTwo
 
 end CFSG.CGT.Stroth77

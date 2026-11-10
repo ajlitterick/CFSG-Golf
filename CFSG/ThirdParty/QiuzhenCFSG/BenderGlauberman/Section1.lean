@@ -376,6 +376,49 @@ public lemma orbit_fiber_card (H0 U : Subgroup G) [Fintype ↥(LambdaHom H0 U)]
       · simp
   exact hbij
 
+/-- If the stabilizer of `ν` is trivial, the orbit map `l ↦ ΛChar l · ν` is
+injective. -/
+public lemma orbit_map_injective_of_stab_one (H0 U : Subgroup G)
+    [Fintype ↥(LambdaHom H0 U)] (ν : ClassFunction (↥H0))
+    (hstab : (Finset.univ.filter (fun s : LambdaHom H0 U => LambdaChar s.1 * ν = ν)).card = 1) :
+    Function.Injective (fun l : LambdaHom H0 U => LambdaChar l.1 * ν) := by
+  classical
+  intro a b hab
+  change LambdaChar a.1 * ν = LambdaChar b.1 * ν at hab
+  have h : LambdaChar (b⁻¹ * a).1 * ν = ν := by
+    calc
+      LambdaChar (b⁻¹ * a).1 * ν = (LambdaChar b.1)⁻¹ * (LambdaChar a.1 * ν) := by
+            funext x
+            simp [LambdaChar, map_mul, map_inv, Units.val_inv, mul_assoc]
+      _ = (LambdaChar b.1)⁻¹ * (LambdaChar b.1 * ν) := by rw [hab]
+      _ = ν := by
+            rw [← mul_assoc]
+            have h1 : (LambdaChar b.1)⁻¹ * LambdaChar b.1 = 1 := by
+              ext x
+              have hx : (b.1 x : ℂ) ≠ 0 := Units.ne_zero (b.1 x)
+              simp [LambdaChar, hx]
+            rw [h1, one_mul]
+  have hmem : b⁻¹ * a ∈ Finset.univ.filter
+      (fun s : LambdaHom H0 U => LambdaChar s.1 * ν = ν) := by
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, by simpa using h⟩
+  have hone : (1 : LambdaHom H0 U) ∈ Finset.univ.filter
+      (fun s : LambdaHom H0 U => LambdaChar s.1 * ν = ν) :=
+    by
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      have h1 : LambdaChar (1 : ↥(LambdaHom H0 U)).1 = (1 : ClassFunction (↥H0)) := by
+        ext x
+        simp [LambdaChar]
+      rw [h1, one_mul]
+  rcases (Finset.card_eq_one.mp hstab) with ⟨z, hz⟩
+  rw [hz] at hmem hone
+  have hmem' : b⁻¹ * a = z := by simpa using hmem
+  have hone' : (1 : LambdaHom H0 U) = z := by simpa using hone
+  have hEq : b⁻¹ * a = 1 := by
+    rw [hmem', hone']
+  calc
+    a = b * (b⁻¹ * a) := by group
+    _ = b * 1 := by rw [hEq]
+    _ = b := by simp
 
 /-- `orbitSumAll ν x = |Stab ν| · orbitSum ν x` — the fiber decomposition of the
 orbit sum. -/
@@ -693,6 +736,13 @@ public noncomputable def lambda2 (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Nor
   exact Classical.choose (LambdaHom_separates H0 U hK hcomm (witnessIndexTwo H0 U hK hindex)
     (witnessIndexTwo_spec H0 U hK hindex))
 
+private lemma lambda2_separates (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2) :
+    (lambda2 H0 U hK hcomm hindex).1 (witnessIndexTwo H0 U hK hindex) ≠ 1 := by
+  classical
+  exact Classical.choose_spec (LambdaHom_separates H0 U hK hcomm (witnessIndexTwo H0 U hK hindex)
+    (witnessIndexTwo_spec H0 U hK hindex))
 
 /-- The quotient `H0/U` has exactly `2` elements. -/
 private lemma card_quotient_of_index_two (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
@@ -720,6 +770,358 @@ private lemma sq_mem_of_index_two (H0 U : Subgroup G) (hK : (U.subgroupOf H0).No
     exact hpow
   exact (QuotientGroup.eq_one_iff (N := K) (x ^ 2)).mp hq
 
+/-- Every element of the quotient `H0/U` is `1` or the class of `witnessIndexTwo`. -/
+private lemma quotient_dichotomy_of_index_two (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hindex : (U.subgroupOf H0).index = 2) :
+    ∀ y : ↥H0 ⧸ U.subgroupOf H0,
+      y = 1 ∨ y = QuotientGroup.mk' (U.subgroupOf H0) (witnessIndexTwo H0 U hK hindex) := by
+  classical
+  let K := U.subgroupOf H0
+  let w := witnessIndexTwo H0 U hK hindex
+  intro y
+  have hcard : Fintype.card (↥H0 ⧸ K) = 2 := card_quotient_of_index_two H0 U hK hindex
+  have huniv : (Finset.univ : Finset (↥H0 ⧸ K)).card = 2 := by
+    simpa using hcard
+  rcases Finset.card_eq_two.mp huniv with ⟨a, b, hab, huniv2⟩
+  have h1ab : (1 : ↥H0 ⧸ K) = a ∨ (1 : ↥H0 ⧸ K) = b := by
+    have h1 : (1 : ↥H0 ⧸ K) ∈ ({a, b} : Finset (↥H0 ⧸ K)) := by rw [← huniv2]; simp
+    simpa using h1
+  have hwab : QuotientGroup.mk' K w = a ∨ QuotientGroup.mk' K w = b := by
+    have hw : QuotientGroup.mk' K w ∈ ({a, b} : Finset (↥H0 ⧸ K)) := by rw [← huniv2]; simp
+    simpa using hw
+  have hyab : y = a ∨ y = b := by
+    have hy : y ∈ ({a, b} : Finset (↥H0 ⧸ K)) := by rw [← huniv2]; simp
+    simpa using hy
+  have h1w : (1 : ↥H0 ⧸ K) ≠ QuotientGroup.mk' K w := by
+    intro hEq
+    exact witnessIndexTwo_spec H0 U hK hindex
+      ((QuotientGroup.eq_one_iff (N := K) w).mp hEq.symm)
+  rcases h1ab with h1a | h1b
+  · rcases hwab with hwa | hwb
+    · exfalso
+      exact h1w (hwa.trans h1a.symm).symm
+    · rcases hyab with hya | hyb
+      · exact Or.inl (hya.trans h1a.symm)
+      · exact Or.inr (hyb.trans hwb.symm)
+  · rcases hwab with hwa | hwb
+    · rcases hyab with hya | hyb
+      · exact Or.inr (hya.trans hwa.symm)
+      · exact Or.inl (hyb.trans h1b.symm)
+    · exfalso
+      exact h1w (hwb.trans h1b.symm).symm
+
+/-- Elements of `ΛHom H0 U` agree on quotients that are equal modulo `U`. -/
+private lemma lambdaHom_eq_of_quotient_eq (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hindex : (U.subgroupOf H0).index = 2) (l : LambdaHom H0 U) (x y : ↥H0)
+    (hq : QuotientGroup.mk' (U.subgroupOf H0) x = QuotientGroup.mk' (U.subgroupOf H0) y) :
+    l.1 x = l.1 y := by
+  classical
+  let K := U.subgroupOf H0
+  have hyw : x⁻¹ * y ∈ K := by
+    apply (QuotientGroup.eq_one_iff (N := K) (x⁻¹ * y)).mp
+    calc
+      QuotientGroup.mk' K (x⁻¹ * y) = (QuotientGroup.mk' K x)⁻¹ * QuotientGroup.mk' K y := by
+            rw [map_mul, map_inv]
+      _ = 1 := by rw [hq]; exact inv_mul_cancel _
+  have hkill : l.1 (x⁻¹ * y) = 1 := l.2 (x⁻¹ * y) (Subgroup.mem_subgroupOf.mp hyw)
+  calc
+    l.1 x = l.1 x * 1 := (mul_one (l.1 x)).symm
+    _ = l.1 x * l.1 (x⁻¹ * y) := by rw [hkill]
+    _ = l.1 x * (l.1 x⁻¹ * l.1 y) := by rw [map_mul]
+    _ = l.1 x * ((l.1 x)⁻¹ * l.1 y) := by rw [map_inv]
+    _ = l.1 y := by rw [← mul_assoc, mul_inv_cancel, one_mul]
+
+/-- `λ₂(witnessIndexTwo) = -1`. -/
+private lemma lambda2_x0 (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2) :
+    ((lambda2 H0 U hK hcomm hindex).1 (witnessIndexTwo H0 U hK hindex) : ℂ) = -1 := by
+  classical
+  let lam2 := lambda2 H0 U hK hcomm hindex
+  let w := witnessIndexTwo H0 U hK hindex
+  have hsqC : ((lam2.1 w : ℂ) ^ 2) = 1 := by
+    have hsq : (lam2.1 w) ^ 2 = 1 := by
+      calc
+        (lam2.1 w) ^ 2 = lam2.1 (w ^ 2) := by rw [map_pow]
+        _ = 1 := lam2.2 (w ^ 2) (Subgroup.mem_subgroupOf.mp (sq_mem_of_index_two H0 U hK hindex w))
+    simpa using (congrArg (fun u : ℂˣ => (u : ℂ)) hsq)
+  have hcases : (lam2.1 w : ℂ) = 1 ∨ (lam2.1 w : ℂ) = -1 := by
+    rw [← sq_eq_one_iff]
+    exact hsqC
+  have hne1 : (lam2.1 w : ℂ) ≠ 1 := by
+    intro h1
+    exact lambda2_separates H0 U hK hcomm hindex (Units.ext h1)
+  rcases hcases with h1 | hm1
+  · exact (hne1 h1).elim
+  · exact hm1
+
+/-- The dual group `ΛHom H0 U` consists exactly of `1` and `λ₂`. -/
+private lemma lambda2_dichotomy (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2) :
+    ∀ l : LambdaHom H0 U, l.1 = 1 ∨ l.1 = (lambda2 H0 U hK hcomm hindex).1 := by
+  classical
+  let K := U.subgroupOf H0
+  let lam2 := lambda2 H0 U hK hcomm hindex
+  let w := witnessIndexTwo H0 U hK hindex
+  intro l
+  have hpoint (m : LambdaHom H0 U) (y : ↥H0) : m.1 y = 1 ∨ m.1 y = m.1 w := by
+    rcases quotient_dichotomy_of_index_two H0 U hK hindex (QuotientGroup.mk' K y) with hq | hq
+    · left
+      exact m.2 y (Subgroup.mem_subgroupOf.mp ((QuotientGroup.eq_one_iff (N := K) y).mp hq))
+    · right
+      exact lambdaHom_eq_of_quotient_eq H0 U hK hindex m y w hq
+  by_cases hw : l.1 w = 1
+  · left
+    ext y
+    rcases hpoint l y with hy1 | hyw
+    · exact (congrArg (fun u : ℂˣ => (u : ℂ)) hy1).trans (by simp [MonoidHom.one_apply])
+    · exact (congrArg (fun u : ℂˣ => (u : ℂ)) (hyw.trans hw)).trans (by simp [MonoidHom.one_apply])
+  · right
+    ext y
+    have hlwC : (l.1 w : ℂ) = (lam2.1 w : ℂ) := by
+      have hsqC : ((l.1 w : ℂ) ^ 2) = 1 := by
+        have hsq : (l.1 w) ^ 2 = 1 := by
+          calc
+            (l.1 w) ^ 2 = l.1 (w ^ 2) := by rw [map_pow]
+            _ = 1 := l.2 (w ^ 2) (Subgroup.mem_subgroupOf.mp (sq_mem_of_index_two H0 U hK hindex w))
+        simpa using (congrArg (fun u : ℂˣ => (u : ℂ)) hsq)
+      have hcasesC : (l.1 w : ℂ) = 1 ∨ (l.1 w : ℂ) = -1 := by
+        rw [← sq_eq_one_iff]
+        exact hsqC
+      rcases hcasesC with h1 | hm1
+      · exact (hw (Units.ext h1)).elim
+      · rw [hm1]
+        exact (lambda2_x0 H0 U hK hcomm hindex).symm
+    have hl : l.1 y = lam2.1 y := by
+      rcases quotient_dichotomy_of_index_two H0 U hK hindex (QuotientGroup.mk' K y) with hq | hq
+      · calc
+          l.1 y = 1 := l.2 y (Subgroup.mem_subgroupOf.mp ((QuotientGroup.eq_one_iff (N := K) y).mp hq))
+          _ = lam2.1 y := (lam2.2 y (Subgroup.mem_subgroupOf.mp ((QuotientGroup.eq_one_iff (N := K) y).mp hq))).symm
+      · calc
+          l.1 y = l.1 w := lambdaHom_eq_of_quotient_eq H0 U hK hindex l y w hq
+          _ = lam2.1 w := Units.ext hlwC
+          _ = lam2.1 y := (lambdaHom_eq_of_quotient_eq H0 U hK hindex lam2 y w hq).symm
+    exact congrArg (fun u : ℂˣ => (u : ℂ)) hl
+
+/-- `λ₂(x) = -1` for `x ∈ T = H0 \ U`. -/
+private lemma lambda2_T (H0 U : Subgroup G) (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2) (x : ↥H0) (hx : (x : G) ∉ U) :
+    ((lambda2 H0 U hK hcomm hindex).1 x : ℂ) = -1 := by
+  classical
+  let K := U.subgroupOf H0
+  let lam2 := lambda2 H0 U hK hcomm hindex
+  have hsqC : ((lam2.1 x : ℂ) ^ 2) = 1 := by
+    have hsq : (lam2.1 x) ^ 2 = 1 := by
+      calc
+        (lam2.1 x) ^ 2 = lam2.1 (x ^ 2) := by rw [map_pow]
+        _ = 1 := lam2.2 (x ^ 2) (Subgroup.mem_subgroupOf.mp (sq_mem_of_index_two H0 U hK hindex x))
+    simpa using (congrArg (fun u : ℂˣ => (u : ℂ)) hsq)
+  have hcases : (lam2.1 x : ℂ) = 1 ∨ (lam2.1 x : ℂ) = -1 := by
+    rw [← sq_eq_one_iff]
+    exact hsqC
+  by_contra hne
+  rcases hcases with h1 | hm1
+  · have hxK : x ∈ K := by
+      rcases quotient_dichotomy_of_index_two H0 U hK hindex (QuotientGroup.mk' K x) with hq | hq
+      · exact (QuotientGroup.eq_one_iff (N := K) x).mp hq
+      · have hlx : lam2.1 x = lam2.1 (witnessIndexTwo H0 U hK hindex) := by
+          exact lambdaHom_eq_of_quotient_eq H0 U hK hindex lam2 x (witnessIndexTwo H0 U hK hindex) hq
+        have hxC : (lam2.1 x : ℂ) = -1 := by
+          rw [hlx]
+          exact lambda2_x0 H0 U hK hcomm hindex
+        have hneC : (1 : ℂ) ≠ -1 := by norm_num
+        exact (hneC (h1.symm.trans hxC)).elim
+    exfalso
+    exact hx (Subgroup.mem_subgroupOf.mp hxK)
+  · exact hne hm1
+
+/-- Membership in the `Λ`-orbit of `ν` when `|H0 : U| = 2`:
+the orbit is `{ν, λ₂ν}` (possibly a singleton). -/
+private lemma orbit_mem_iff_of_index_two (H0 U : Subgroup G) [Fintype ↥(LambdaHom H0 U)]
+    (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2) (ν μ : ClassFunction (↥H0)) :
+    μ ∈ orbit H0 U ν ↔ μ = ν ∨ μ = LambdaChar (lambda2 H0 U hK hcomm hindex).1 * ν := by
+  classical
+  let lam2 := lambda2 H0 U hK hcomm hindex
+  constructor
+  · intro hμ
+    rcases Finset.mem_image.mp hμ with ⟨l, hl, hEq⟩
+    rcases lambda2_dichotomy H0 U hK hcomm hindex l with h1 | hl2
+    · left
+      have hL : LambdaChar l.1 = (1 : ClassFunction (↥H0)) := by
+        ext y
+        simp [LambdaChar, h1]
+      rw [← hEq, hL, one_mul]
+    · right
+      rw [← hEq, hl2]
+  · intro hμ
+    rcases hμ with hEq | hEq
+    · rw [hEq]
+      refine Finset.mem_image.mpr ?_
+      refine ⟨(1 : LambdaHom H0 U), by simp, ?_⟩
+      have h1 : LambdaChar (1 : ↥(LambdaHom H0 U)).1 = (1 : ClassFunction (↥H0)) := by
+        ext y
+        simp [LambdaChar]
+      rw [h1, one_mul]
+    · rw [hEq]
+      refine Finset.mem_image.mpr ?_
+      refine ⟨lam2, by simp, ?_⟩
+      rfl
+
+/-- The fiber of `repOf` over `i` is in bijection with the orbit of `rep i`. -/
+private lemma fiber_sum_eq_orbit_sum (H0 U : Subgroup G) [Fintype ↥(LambdaHom H0 U)]
+    {ι : Type u} [Fintype ι] (rep : ι → ClassFunction (↥H0))
+    (hrep_irr : ∀ i : ι, IsIrreducibleCharacter (rep i))
+    (hrep : ∀ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+      ∃! i : ι, ν.1 ∈ orbit H0 U (rep i))
+    (f : ClassFunction (↥H0) → ℂ) (i : ι) :
+    (∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i), f ν.1) =
+      ∑ μ ∈ orbit H0 U (rep i), f μ := by
+  classical
+  symm
+  refine Finset.sum_bij (fun μ hμ =>
+      (⟨μ, orbit_mem_isIrreducible H0 U (hrep_irr i) hμ⟩ :
+        {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν})) ?_ ?_ ?_ ?_
+  · intro μ hμ
+    have hgi : Classical.choose
+        (hrep ⟨μ, orbit_mem_isIrreducible H0 U (hrep_irr i) hμ⟩) = i := by
+      exact ((Classical.choose_spec
+        (hrep ⟨μ, orbit_mem_isIrreducible H0 U (hrep_irr i) hμ⟩)).2 i hμ).symm
+    simp [hgi]
+  · intro a ha b hb hEq
+    exact congrArg Subtype.val hEq
+  · intro ν hν
+    have hmem : ν.1 ∈ orbit H0 U (rep (Classical.choose (hrep ν))) :=
+      (Classical.choose_spec (hrep ν)).1
+    have hgi : Classical.choose (hrep ν) = i := (Finset.mem_filter.mp hν).2
+    have hνi : ν.1 ∈ orbit H0 U (rep i) := by rwa [hgi] at hmem
+    refine ⟨ν.1, hνi, ?_⟩
+    exact Subtype.ext rfl
+  · intro μ hμ
+    rfl
+
+/-- Lemma 1.7(iii): in case `|H0 : U| = 2`, with `δⱼ := νⱼ − λ₂νⱼ`, we have
+`χ = Σⱼ (χ, δⱼ*)_G νⱼ` on `T = H0 \ U`. -/
+public theorem lemma_1_7_iii (H0 U : Subgroup G) [Fintype ↥(LambdaHom H0 U)]
+    (hK : (U.subgroupOf H0).Normal)
+    (hcomm : ∀ x y : ↥H0, (x * y) / (y * x) ∈ U.subgroupOf H0)
+    (hindex : (U.subgroupOf H0).index = 2)
+    {ι : Type u} [Fintype ι] (rep : ι → ClassFunction (↥H0))
+    (hrep_irr : ∀ i : ι, IsIrreducibleCharacter (rep i))
+    (hrep : ∀ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+      ∃! i : ι, ν.1 ∈ orbit H0 U (rep i))
+    (χ : ClassFunction G) (hχ : IsGeneralizedCharacter χ) (x : ↥H0) (hx : (x : G) ∉ U) :
+    χ (x : G) =
+      ∑ i : ι, scalarProduct G χ
+        (inducedClassFunction H0 (rep i - LambdaChar (lambda2 H0 U hK hcomm hindex).1 * rep i)) *
+        rep i x := by
+  classical
+  let χH0 : ClassFunction (↥H0) := fun y : ↥H0 => χ (y : G)
+  let lam2 := lambda2 H0 U hK hcomm hindex
+  let L2 : ClassFunction (↥H0) := LambdaChar lam2.1
+  have hii := lemma_1_7_ii H0 U rep hrep_irr hrep χ hχ x
+  have hTsum : (∑ i : ι, scalarProduct (↥H0) χH0 (rep i) * orbitSum H0 U (rep i) x) = 0 := by
+    rw [Finset.sum_eq_zero]
+    intro i hi
+    rw [lemma_1_7_i H0 U hK hcomm (rep i) x hx]
+    ring
+  have hfib : (∑ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+        scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+          ν.1 x) =
+      ∑ i : ι, ∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i),
+        scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep i)) * ν.1 x := by
+    have hfib2 : (∑ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+            ν.1 x) =
+        ∑ i : ι, ∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i),
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+            ν.1 x := by
+      symm
+      exact Finset.sum_fiberwise_of_maps_to (s := Finset.univ) (t := Finset.univ)
+        (g := fun ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν} =>
+          Classical.choose (hrep ν))
+        (f := fun ν =>
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+            ν.1 x)
+        (by intro ν hν; simp)
+    rw [hfib2]
+    refine Finset.sum_congr rfl ?_
+    intro i hi
+    refine Finset.sum_congr rfl ?_
+    intro ν hν
+    have hgi : Classical.choose (hrep ν) = i := (Finset.mem_filter.mp hν).2
+    have href : rep (Classical.choose (hrep ν)) = rep i := by rw [hgi]
+    rw [href]
+  have hfib_iii (i : ι) :
+      (∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i),
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep i)) * ν.1 x) =
+        scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) * rep i x := by
+    classical
+    let h : ClassFunction (↥H0) → ℂ := fun μ =>
+      scalarProduct G χ (inducedClassFunction H0 (μ - rep i)) * μ x
+    have hfib : (∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i), h ν.1) =
+        ∑ μ ∈ orbit H0 U (rep i), h μ :=
+      fiber_sum_eq_orbit_sum H0 U rep hrep_irr hrep h i
+    rw [hfib]
+    by_cases hfix : L2 * rep i = rep i
+    · have horb : orbit H0 U (rep i) = {rep i} := by
+        ext μ
+        rw [orbit_mem_iff_of_index_two H0 U hK hcomm hindex (rep i) μ]
+        rw [hfix, or_self]
+        simp
+      have hz : h (rep i) = 0 := by
+        simp [h, inducedClassFunction_zero, scalarProduct_zero_right]
+      rw [horb, Finset.sum_singleton, hz]
+      simp [hfix, inducedClassFunction_zero, scalarProduct_zero_right]
+    · have horb : orbit H0 U (rep i) = {rep i, L2 * rep i} := by
+        ext μ
+        rw [orbit_mem_iff_of_index_two H0 U hK hcomm hindex (rep i) μ]
+        simp only [Finset.mem_insert, Finset.mem_singleton]
+        rfl
+      have hz : h (rep i) = 0 := by
+        simp [h, inducedClassFunction_zero, scalarProduct_zero_right]
+      have hpair : h (L2 * rep i) =
+          scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) * rep i x := by
+        calc
+          h (L2 * rep i) =
+              scalarProduct G χ (inducedClassFunction H0 (L2 * rep i - rep i)) * (L2 * rep i) x := rfl
+          _ = scalarProduct G χ (inducedClassFunction H0 (-(rep i - L2 * rep i))) *
+                (L2 * rep i) x := by
+                rw [show L2 * rep i - rep i = -(rep i - L2 * rep i) by rw [neg_sub]]
+          _ = - scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) *
+                (L2 * rep i) x := by
+                rw [inducedClassFunction_neg, scalarProduct_neg_right]
+          _ = - scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) *
+                ((lam2.1 x : ℂ) * rep i x) := rfl
+          _ = - scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) * (-1 : ℂ) *
+                rep i x := by
+                rw [lambda2_T H0 U hK hcomm hindex x hx]
+                ring
+          _ = scalarProduct G χ (inducedClassFunction H0 (rep i - L2 * rep i)) * rep i x := by
+                ring
+      rw [horb, Finset.sum_pair (a := rep i) (b := L2 * rep i) (Ne.symm hfix), hz, hpair]
+      ring
+  calc
+    χ (x : G) = (∑ i : ι, scalarProduct (↥H0) χH0 (rep i) * orbitSum H0 U (rep i) x) +
+        (∑ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+            ν.1 x) := hii
+    _ = ∑ ν : {ν : ClassFunction (↥H0) // IsIrreducibleCharacter ν},
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep (Classical.choose (hrep ν)))) *
+            ν.1 x := by
+          rw [hTsum]
+          simp
+    _ = ∑ i : ι, ∑ ν ∈ Finset.univ.filter (fun ν => Classical.choose (hrep ν) = i),
+          scalarProduct G χ (inducedClassFunction H0 (ν.1 - rep i)) * ν.1 x := hfib
+    _ = ∑ i : ι, scalarProduct G χ
+          (inducedClassFunction H0 (rep i - LambdaChar (lambda2 H0 U hK hcomm hindex).1 * rep i)) *
+          rep i x := by
+          refine Finset.sum_congr rfl ?_
+          intro i hi
+          exact hfib_iii i
 
 end Lemma17
 

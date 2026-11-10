@@ -15,6 +15,13 @@ namespace CFSG.Sporadic.Schreier
 open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
   CFSG.Sporadic.Schreier.PairText
 
+@[expose] def mclSchemaVersion : ℕ := 1
+
+@[expose] def mclGroupName : String := "McL"
+
+@[expose] def mclPrime : ℕ := 3
+
+@[expose] def mclDimension : ℕ := 21
 
 @[expose] def mclBasisIdx : List ℕ :=
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21]
@@ -49,11 +56,20 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 
 @[expose] def mclP : Subgroup (Equiv.Perm (Fin 275)) := Subgroup.closure {mclGen 0, mclGen 1}
 
+@[expose] def mclPoint : ℕ := 0
+
+@[expose] def mclStabIdx : List ℕ := [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+@[expose] def mclH0 : Subgroup (Equiv.Perm (Fin 275)) :=
+  Subgroup.closure {g | ∃ j ∈ mclStabIdx, mclStrongPerm j = g}
 
 irreducible_def mclStabOrbits : List (List ℕ) := mclStabData.1
 
 irreducible_def mclMerges : List (ℕ × List (ℕ × ℕ × ℕ)) := mclStabData.2
 
+theorem mclChain_strong_get (j : Fin mclChain.strongCount) :
+    mclChain.strong.get j = mclStrongPerm j :=
+  RawSchreierDatum.ofArrays_strong_get j
 
 theorem mclChain_original_get (k : Fin mclChain.originalCount) :
     mclChain.original.get k = mclGen k :=

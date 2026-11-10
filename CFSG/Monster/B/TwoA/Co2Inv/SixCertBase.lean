@@ -30,6 +30,16 @@ theorem zBasis_comb_xor : ∀ c < 64, ∀ c' < 64,
     Native.actD 6 zBasis c ^^^ Native.actD 6 zBasis c' = Native.actD 6 zBasis (c ^^^ c') := by
   decide +kernel
 
+theorem zBasis_comb_frame : ∀ c < 64, 0 < c →
+    ∃ i < 63, Native.actD 6 zBasis c = frameOrbit[i]! := by
+  decide +kernel
+
+theorem frame_zBasis_comb : ∀ i < 63,
+    ∃ c < 64, 0 < c ∧ Native.actD 6 zBasis c = frameOrbit[i]! := by
+  decide +kernel
+
+theorem frameOrbit_bounds : ∀ i < 63, 0 < frameOrbit[i]! ∧ frameOrbit[i]! < 2 ^ 22 := by
+  decide +kernel
 
 theorem sixRows_spec : ∀ k < 21, ∀ c < 64, Native.actD 6 (sixRows[k]!) c < 64 ∧
     Native.actD 22 (cRows k) (Native.actD 6 zBasis c) =

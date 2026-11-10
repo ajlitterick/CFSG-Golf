@@ -114,6 +114,11 @@ theorem runRows_spec (φ : M →* Matrix (Fin 24) (Fin 24) (ZMod 2)) (prog : Lis
 
 end SLP
 
+theorem rowsKey_eq_ofDigits (x : Array ℕ) : rowsKey x = Nat.ofDigits 16777216 x.toList := by
+  unfold rowsKey
+  induction x.toList with
+  | nil => simp
+  | cons a l ih => simp [List.foldr_cons, Nat.ofDigits_cons, ih]
 
 theorem validRows_size {x : Array ℕ} (h : validRows x = true) : x.size = 24 := by
   simp only [validRows, Bool.and_eq_true, beq_iff_eq] at h
@@ -126,6 +131,13 @@ theorem validRows_lt {x : Array ℕ} (h : validRows x = true) {r : ℕ} (hr : r 
   have hi' : i < x.size := by simpa using hi
   simpa using h.2 i hi'
 
+theorem rowsKey_inj {x y : Array ℕ} (hx : validRows x = true) (hy : validRows y = true)
+    (h : rowsKey x = rowsKey y) : x = y := by
+  rw [rowsKey_eq_ofDigits, rowsKey_eq_ofDigits] at h
+  have hl : x.toList.length = y.toList.length := by
+    rw [Array.length_toList, Array.length_toList, validRows_size hx, validRows_size hy]
+  exact Array.toList_inj.1 (Nat.ofDigits_inj_of_len_eq (by norm_num) hl
+    (fun l hl' => validRows_lt hx hl') (fun l hl' => validRows_lt hy hl') h)
 
 theorem rowsMatrix_injective_of_valid {x y : Array ℕ} (hx : validRows x = true)
     (hy : validRows y = true) (h : rowsMatrix 24 x = rowsMatrix 24 y) : x = y := by
@@ -155,6 +167,63 @@ theorem distinctKeys_nodup {keys : List ℕ} (h : distinctKeys keys = true) : ke
     List.isChain_iff_pairwise.1 (strictInc_isChain _ h)
   exact hp.nodup_iff.1 (List.Pairwise.imp (fun h' => ne_of_lt h') hsorted)
 
+theorem forestOK_sound {P Q roots : Array (Array ℕ)} {F : Forest}
+    (h : forestOK P Q roots F = true) (pp qq : ℕ → NativeSporadic.Co1)
+    (hp : ∀ l < P.size, mat (pp l) = rowsMatrix 24 P[l]!)
+    (hq : ∀ l < Q.size, mat (qq l) = rowsMatrix 24 Q[l]!)
+    (rr : ℕ → NativeSporadic.Co1) (hr : ∀ j < roots.size, mat (rr j) = rowsMatrix 24 roots[j]!)
+    (Inv : ℕ → NativeSporadic.Co1 → Prop) (hroot : ∀ j < roots.size, Inv j (rr j))
+    (hstep : ∀ l < P.size, l < Q.size → ∀ j x, Inv j x → Inv j (pp l * x * qq l)) :
+    ∃ f : ℕ → NativeSporadic.Co1,
+      (∀ i < F.pts.size, F.rt[i]! < roots.size ∧ Inv F.rt[i]! (f i) ∧
+        mat (f i) = rowsMatrix 24 F.pts[i]!) ∧
+      ∀ i < F.pts.size, ∀ j < F.pts.size, f i = f j → i = j := by
+  unfold forestOK at h
+  simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq, List.all_eq_true,
+    List.mem_range] at h
+  obtain ⟨⟨⟨⟨⟨hroots, hpar⟩, hlab⟩, hrt⟩, hall⟩, hdist⟩ := h
+  have hvalid : ∀ i < F.pts.size, validRows F.pts[i]! = true := by
+    intro i hi
+    have hp := hall i hi
+    simp only [forestPointOK, Bool.and_eq_true] at hp
+    exact hp.1
+  have hmain : ∀ i, i < F.pts.size → ∃ x : NativeSporadic.Co1,
+      F.rt[i]! < roots.size ∧ Inv F.rt[i]! x ∧ mat x = rowsMatrix 24 F.pts[i]! := by
+    intro i
+    induction i using Nat.strong_induction_on with
+    | _ i ih =>
+      intro hi
+      have hp := hall i hi
+      simp only [forestPointOK, Bool.and_eq_true] at hp
+      obtain ⟨-, hp2⟩ := hp
+      by_cases hir : i < roots.size
+      · simp only [hir, ↓reduceIte, Bool.and_eq_true, beq_iff_eq] at hp2
+        obtain ⟨hpt, hrti⟩ := hp2
+        refine ⟨rr i, ?_, ?_, ?_⟩
+        · rw [hrti]; exact hir
+        · rw [hrti]; exact hroot i hir
+        · rw [hpt, hr i hir]
+      · simp only [hir, ↓reduceIte, Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at hp2
+        obtain ⟨⟨⟨⟨hpar', hlab'⟩, hlabQ⟩, hrt'⟩, hpt⟩ := hp2
+        obtain ⟨x', hlt', hinv', hmat'⟩ := ih (F.par[i]!) hpar' (by omega)
+        refine ⟨pp (F.lab[i]!) * x' * qq (F.lab[i]!), ?_, ?_, ?_⟩
+        · rw [hrt']; exact hlt'
+        · rw [hrt']; exact hstep _ hlab' hlabQ _ _ hinv'
+        · rw [hpt, stepRows, rowsMatrix_mulRows, rowsMatrix_mulRows, map_mul, map_mul,
+            hp _ hlab', hq _ hlabQ, hmat']
+  choose! x hx using hmain
+  refine ⟨x, fun i hi => hx i hi, ?_⟩
+  intro i hi j hj hij
+  have hm : rowsMatrix 24 F.pts[i]! = rowsMatrix 24 F.pts[j]! := by
+    rw [← (hx i hi).2.2, ← (hx j hj).2.2, hij]
+  have hpe := rowsMatrix_injective_of_valid (hvalid i hi) (hvalid j hj) hm
+  have hnd := distinctKeys_nodup hdist
+  have hlen : (F.pts.toList.map rowsKey).length = F.pts.size := by simp
+  have hgi : (F.pts.toList.map rowsKey)[i]'(hlen ▸ hi) = rowsKey F.pts[i]! := by
+    simp [getElem!_pos F.pts i hi]
+  have hgj : (F.pts.toList.map rowsKey)[j]'(hlen ▸ hj) = rowsKey F.pts[j]! := by
+    simp [getElem!_pos F.pts j hj]
+  exact (List.Nodup.getElem_inj_iff hnd).1 (hgi.trans ((congrArg rowsKey hpe).trans hgj.symm))
 
 theorem vecMulN_lt (R : Array ℕ) (hR : ∀ j : ℕ, R[j]?.getD 0 < 2 ^ 24) (v : ℕ) :
     vecMulN 24 R v < 2 ^ 24 := by
@@ -413,5 +482,21 @@ theorem nondeg_of_gramOK {Ms : List (Array ℕ)}
       rw [h1] at this
       exact absurd this (by decide)
 
+theorem eq_one_of_faithfulOK {Zs : Array (Array ℕ)} {W : List ℕ}
+    (h : faithfulOK Zs W = true) (hW : ∀ x ∈ W, x < 2 ^ 24) {z : Array ℕ} (hz : z ∈ Zs)
+    {g : NativeSporadic.Co1} (hg : mat g = rowsMatrix 24 z)
+    (hfix : ∀ x ∈ W, co1Act g (toVecD 24 x) = toVecD 24 x) : g = 1 := by
+  simp only [faithfulOK, Array.all_eq_true, Bool.or_eq_true, beq_iff_eq, List.any_eq_true,
+    Bool.not_eq_true'] at h
+  obtain ⟨i, hi, rfl⟩ := Array.mem_iff_getElem.1 hz
+  rcases h i hi with h1 | ⟨x, hx, hfx⟩
+  · apply mat_injective
+    rw [hg, h1, rowsMatrix_idRows, map_one]
+  · exfalso
+    have hnot : ¬ isFixedN (transposeRows 24 Zs[i]) x = true := by simpa using hfx
+    rw [isFixedN_iff _ (hW x hx)] at hnot
+    apply hnot
+    rw [← hg]
+    exact hfix x hx
 
 end CFSG.Sporadic.Co1.Module.Odd

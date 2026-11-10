@@ -37,6 +37,7 @@ theorem sum_nD : ∑ i, nD i = 173067388 := by decide
 theorem prim_nD : ∀ S : Finset (Fin 6), (1 + ∑ i ∈ S, nD i) ∣ (1 + ∑ i, nD i) → S = ∅ ∨ S = Finset.univ := by
   decide
 
+theorem nD_inj : Function.Injective nD := by decide
 
 theorem dc_data : Nat.card Kz ≤ 501397585920 ∧ ∃ wr : ℕ → J,
     (∀ g : J, g ∈ Kz ∨ ∃ i : Fin 6, g ∈ dcSet Kz (wr i.val)) ∧

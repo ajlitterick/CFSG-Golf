@@ -60,6 +60,8 @@ theorem harS_base : bAnd(allN 4 (fun j => invK (HC.F (Nat.succ j))),
 @[expose] noncomputable def hsD (k : Nat) : Bool :=
   slK SD.cnt (hsortPtKF 3850 12 (mask 12) SD.cnt SD.T SD.HS SD.HSI) (Nat.mul 64 k) 64
 
+theorem ch26132hsD_neg : hsortPtKF 3850 12 (mask 12) SD.cnt (fun _ => 0) SD.HS SD.HSI 0 = false := by
+  decide +kernel
 
 @[expose] noncomputable def clD (k : Nat) : Bool :=
   slK (Nat.mul SD.cnt 8) (findPtK SD.cnt SD.T (prodQK 3850 12 (mask 12) 8 SD.T (bothK 4 SD.GI SDI))

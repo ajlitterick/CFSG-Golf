@@ -14,6 +14,9 @@ public section
 
 namespace CertificateChecks.KernelQ8W.J3
 
+theorem ryNeg : (!CFSG.KC.BfsPin.runSlY 6156 13 J3Q.ng J3Q.N j3KeysArr.toList J3Q.G J3Q.T
+    (fun i => J3Q.E (i + 1)) 32 J3Q.C 0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelQ8W.J3
 

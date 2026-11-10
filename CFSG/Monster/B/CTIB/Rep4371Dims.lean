@@ -52,6 +52,54 @@ theorem finrank_Tplus :
     Module.finrank ℚ (Tplus isShortCoord_rStar) = 2048 := by
   rw [Tplus_eq_span, finrank_span_eq_card linearIndependent_RrawT, Fintype.card_fin]
 
+theorem disjoint_blocks_A : Disjoint blockA (blockX ⊔ blockW) := by
+  rw [Submodule.disjoint_def]
+  intro v hA hXW
+  obtain ⟨x, hx, w, hw, rfl⟩ := Submodule.mem_sup.1 hXW
+  have h1 : (x + w).1 = 0 := by simp [hx.1, hw.1]
+  exact Prod.ext h1 (Prod.ext hA.1 hA.2)
+
+theorem disjoint_blocks_X : Disjoint blockX (blockA ⊔ blockW) := by
+  rw [Submodule.disjoint_def]
+  intro v hX hAW
+  obtain ⟨x, hx, w, hw, rfl⟩ := Submodule.mem_sup.1 hAW
+  have h1 : (x + w).2.1 = 0 := by simp [hx.1, hw.2]
+  exact Prod.ext hX.1 (Prod.ext h1 hX.2)
+
+theorem disjoint_blocks_W : Disjoint blockW (blockA ⊔ blockX) := by
+  rw [Submodule.disjoint_def]
+  intro v hW hAX
+  obtain ⟨x, hx, w, hw, rfl⟩ := Submodule.mem_sup.1 hAX
+  have h1 : (x + w).2.2 = 0 := by simp [hx.2, hw.2]
+  exact Prod.ext hW.1 (Prod.ext hW.2 h1)
+
+theorem iSupIndep_three {M : Type*} [AddCommGroup M] [Module ℚ M] {A B C : Submodule ℚ M}
+    (h1 : Disjoint A (B ⊔ C)) (h2 : Disjoint B (A ⊔ C)) (h3 : Disjoint C (A ⊔ B)) :
+    iSupIndep ![A, B, C] := by
+  intro i
+  fin_cases i
+  · refine h1.mono_right (iSup₂_le fun j hj => ?_)
+    fin_cases j
+    · exact absurd rfl hj
+    · exact le_sup_left
+    · exact le_sup_right
+  · refine h2.mono_right (iSup₂_le fun j hj => ?_)
+    fin_cases j
+    · exact le_sup_left
+    · exact absurd rfl hj
+    · exact le_sup_right
+  · refine h3.mono_right (iSup₂_le fun j hj => ?_)
+    fin_cases j
+    · exact le_sup_left
+    · exact le_sup_right
+    · exact absurd rfl hj
+
+theorem iSupIndep_summands :
+    iSupIndep ![Across isShortCoord_rStar, Xdiff isShortCoord_rStar, Tplus isShortCoord_rStar] :=
+  iSupIndep_three
+    (disjoint_blocks_A.mono Across_le_blockA (sup_le_sup Xdiff_le_blockX Tplus_le_blockW))
+    (disjoint_blocks_X.mono Xdiff_le_blockX (sup_le_sup Across_le_blockA Tplus_le_blockW))
+    (disjoint_blocks_W.mono Tplus_le_blockW (sup_le_sup Across_le_blockA Xdiff_le_blockX))
 
 theorem Vst_eq_sup :
     Vst = Across isShortCoord_rStar ⊔ Xdiff isShortCoord_rStar ⊔ Tplus isShortCoord_rStar :=
@@ -89,5 +137,24 @@ theorem iSupIndep_comap_subtype {M : Type*} [AddCommGroup M] [Module ℚ M] (N :
     iSup₂_le fun j hj => Submodule.comap_mono (le_iSup₂ (f := fun j (_ : j ≠ i) => p j) j hj)
   exact Subtype.ext (Submodule.disjoint_def.1 (h i) _ hv (hle hv'))
 
+theorem iSupIndep_V : iSupIndep ![V23, V2300, V2048] := by
+  have h := iSupIndep_comap_subtype Vst iSupIndep_summands
+  convert h using 1
+  funext i
+  fin_cases i <;> rfl
+
+theorem sup_V : V23 ⊔ V2300 ⊔ V2048 = ⊤ := by
+  rw [eq_top_iff]
+  rintro ⟨v, hv⟩ -
+  have hv' := hv
+  rw [Vst_eq_sup] at hv'
+  obtain ⟨y, hy, t, ht, rfl⟩ := Submodule.mem_sup.1 hv'
+  obtain ⟨a, ha, x, hx, rfl⟩ := Submodule.mem_sup.1 hy
+  have e : (⟨a + x + t, hv⟩ : Vst) =
+      ⟨a, Across_le_Vst ha⟩ + ⟨x, Xdiff_le_Vst hx⟩ + ⟨t, Tplus_le_Vst ht⟩ := rfl
+  rw [e]
+  exact Submodule.add_mem _ (Submodule.add_mem _
+    (Submodule.mem_sup_left (Submodule.mem_sup_left ha))
+    (Submodule.mem_sup_left (Submodule.mem_sup_right hx))) (Submodule.mem_sup_right ht)
 
 end CFSG.Monster.B.CTIB

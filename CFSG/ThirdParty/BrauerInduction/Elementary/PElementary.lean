@@ -116,6 +116,27 @@ lemma mem_C_iff_pRegular [Fact p.Prime]
     rw [← hg_eq, hq1, mul_one]
     exact cC
 
+/--
+In a `p`-elementary group, the cyclic prime-to-`p` part is finite.
+-/
+lemma finite_C [Fact p.Prime]
+    (e : PElementary p G) :
+    Finite e.C := by
+  obtain ⟨g, hg⟩ := isCyclic_iff_exists_zpowers_eq_top.mp e.C_isCyclic
+  have hp_reg : IsPRegular p (g : G) := e.C_isPRegular g.property
+  have hfin : IsOfFinOrder (g : G) := IsPRegular.isOfFinOrder p hp_reg
+  have h_ord : 0 < orderOf g := by
+    have h_ordG : 0 < orderOf (g : G) := orderOf_pos_iff.mpr hfin
+    simp only [Subgroup.orderOf_coe] at h_ordG ⊢
+    exact h_ordG
+  let φ : Subgroup.zpowers g ≃ e.C :=
+    (MulEquiv.subgroupCongr hg).toEquiv.trans Subgroup.topEquiv.toEquiv
+  have h_card : Nat.card e.C = Nat.card (Subgroup.zpowers g) :=
+    Nat.card_congr φ.symm
+  have h_pos : 0 < Nat.card e.C := by
+    rw [h_card, Nat.card_zpowers]
+    exact h_ord
+  exact (Nat.card_pos_iff.mp h_pos).2
 
 /--
 Every element of a `p`-elementary group has finite order.
@@ -129,6 +150,33 @@ lemma isOfFinOrder [Fact p.Prime]
     (IsPRegular.isOfFinOrder p (e.C_isPRegular hc))
     (IsPSingular.isOfFinOrder p (e.isPSingular_of_mem_P hq))
 
+/--
+The order of the cyclic factor of a `p`-elementary group is coprime to `p`.
+-/
+lemma card_C_coprime_p [Fact p.Prime]
+    (e : PElementary p G) :
+    Nat.Coprime (Nat.card e.C) p := by
+  haveI : IsCyclic e.C := e.C_isCyclic
+  letI : CommGroup e.C := IsCyclic.commGroup
+  haveI : Finite e.C := e.finite_C
+
+  obtain ⟨g, hg⟩ : ∃ g : e.C, orderOf g = Monoid.exponent e.C := by
+    apply Monoid.exists_orderOf_eq_exponent
+    exact Monoid.ExponentExists.of_finite
+
+  have hg_regG : IsPRegular p (g : G) := e.C_isPRegular g.property
+
+  have hg_coprimeG : Nat.Coprime (orderOf (g : G)) p :=
+    IsPRegular.order_coprime p hg_regG
+
+  have hg_coprimeC : Nat.Coprime (orderOf g) p := by
+    simpa [Subgroup.orderOf_coe] using hg_coprimeG
+
+  have : Nat.Coprime (Monoid.exponent e.C) p := by
+    simpa [hg] using hg_coprimeC
+
+  rw [← IsCyclic.exponent_eq_card]
+  exact this
 
 lemma inf_C_P_eq_bot [Fact p.Prime]
     (e : PElementary p G) : e.C ⊓ e.P = ⊥ := by
@@ -153,6 +201,28 @@ The product map `C × P → G` is an isomorphism for a `p`-elementary group.
       intro g _
       exact e.decompose g)).trans Subgroup.topEquiv
 
+/--
+The `P`-part of a `p`-elementary group is finite if the whole group is finite.
+-/
+private lemma finite_P_of_finite
+    (e : PElementary p G) [Finite G] :
+    Finite e.P := inferInstance
+
+lemma isNilpotent_of_finite_P [Fact p.Prime]
+    (e : PElementary p G) [Finite e.P] :
+    Group.IsNilpotent G := by
+  have : Group.IsNilpotent e.C :=
+    haveI := e.C_isCyclic; inferInstance
+  have : Group.IsNilpotent e.P :=
+    IsPGroup.isNilpotent e.P_isPGroup
+  exact Group.nilpotent_of_mulEquiv e.mulEquivProd
+
+lemma isNilpotent
+    [Fact p.Prime] [Finite G]
+    (e : PElementary p G) :
+    Group.IsNilpotent G := by
+  haveI : Finite e.P := finite_P_of_finite e
+  exact e.isNilpotent_of_finite_P
 
 /-- The centralizer of `x`. -/
 abbrev Z (x : G) : Subgroup G := Subgroup.centralizer ({x})
@@ -199,6 +269,36 @@ lemma P_of_Z_le_Z (x : G) : P_of_Z p x ≤ Z x := by
   intro g _
   exact g.property
 
+lemma card_P_of_Z_eq_card_P_in_Z [Fact p.Prime] (x : G) :
+    Nat.card ↥(P_of_Z p x)
+      =
+    Nat.card ↥((P_in_Z p x : Subgroup (Z x))) := by
+  simpa [P_of_Z, PElementary.inclZ] using
+    (Subgroup.card_map_of_injective (f := inclZ x) Subtype.coe_injective)
+
+/--
+The index of the chosen Sylow `p`-subgroup in the centralizer of `x` is not
+divisible by `p`.
+-/
+lemma p_not_dvd_cardCentralizer_div_cardP
+    [Fact p.Prime] (x : G) [Finite (Z x)] :
+    ¬ p ∣ (Nat.card (Z x : Set G) / Nat.card (P_of_Z p x)) := by
+  rw [PElementary.card_P_of_Z_eq_card_P_in_Z x]
+
+  haveI : Finite (P_in_Z p x : Subgroup (Z x)) := inferInstance
+  haveI : (P_in_Z p x : Subgroup (Z x)).FiniteIndex := inferInstance
+
+  have h_div :
+      Nat.card ↥(Z x : Set G) /
+          Nat.card ↥(P_in_Z p x : Subgroup (Z x))
+        =
+      (P_in_Z p x : Subgroup (Z x)).index := by
+    exact Nat.div_eq_of_eq_mul_left
+      Nat.card_pos
+      (Subgroup.index_mul_card (P_in_Z p x : Subgroup (Z x))).symm
+
+  rw [h_div]
+  exact Sylow.not_dvd_index (PElementary.P_in_Z p x)
 
 /--
 If every element of `C` commutes with every element of `P`, then every element
@@ -297,6 +397,102 @@ The underlying group is `Cyc x ⊔ P_of_Z p x`.
       exact h_eq
 }
 
+/--
+A subgroup of a `p`-elementary group is `p`-elementary.
+
+The cyclic and `p`-group parts are obtained by intersecting the original parts
+with the subgroup.
+-/
+@[expose] def ofSubgroup [Fact p.Prime]
+    (e : PElementary p G) (K : Subgroup G) :
+    PElementary p K where
+  C := Subgroup.comap (Subgroup.subtype K) e.C
+  P := Subgroup.comap (Subgroup.subtype K) e.P
+
+  C_isCyclic := by
+    let C_K : Subgroup K := Subgroup.comap (Subgroup.subtype K) e.C
+    let K_C : Subgroup e.C := Subgroup.comap (Subgroup.subtype e.C) K
+    have hKC : IsCyclic K_C := by
+      haveI : IsCyclic e.C := e.C_isCyclic
+      exact Subgroup.isCyclic_of_le (show K_C ≤ ⊤ by
+        intro x hx
+        trivial)
+    exact
+      (MulEquiv.isCyclic
+        (Subgroup.comapSubtypeCommEquiv (G := G) K e.C).symm).mp hKC
+  P_isPGroup := by
+    let P_K : Subgroup K := Subgroup.comap (Subgroup.subtype K) e.P
+    let f : P_K →* e.P :=
+      { toFun := fun x => ⟨((x : K) : G), x.property⟩
+        map_one' := rfl
+        map_mul' := by
+          intro x y
+          rfl }
+    have hf : Function.Injective f := by
+      intro x y hxy
+      have hG : ((x : K) : G) = ((y : K) : G) := by
+        simpa [f] using congrArg (fun z : e.P => (z : G)) hxy
+      apply Subtype.ext
+      apply Subtype.ext
+      exact hG
+    exact IsPGroup.of_injective e.P_isPGroup f hf
+  C_isPRegular := by
+    intro c hc
+    exact (IsPRegular.subtype_iff (p := p) c).1 (e.C_isPRegular hc)
+  comm := by
+    intro c q hc hq
+    exact (Subgroup.commute_subtype_iff c q).1 (e.comm hc hq)
+  decompose := by
+    intro k
+    rcases e.decompose (k : G) with ⟨c, hc, q, hq, hk_eq⟩
+    have hk_fin : IsOfFinOrder (k : G) := e.isOfFinOrder (k : G)
+    obtain ⟨hq_eq, hc_eq⟩ :=
+      Group.pSingular_pRegular_unique p hk_fin
+        (by rw [← hk_eq, (e.comm hc hq).eq])
+        hk_eq
+        (e.isPSingular_of_mem_P hq)
+        (e.C_isPRegular hc)
+    refine
+      ⟨⟨c, hc_eq ▸ Subgroup.zpow_mem K k.property _⟩, hc,
+       ⟨q, hq_eq ▸ Subgroup.zpow_mem K k.property _⟩, hq, ?_⟩
+    ext
+    exact hk_eq
+
+/--
+Transport a `p`-elementary structure across a group isomorphism.
+-/
+@[expose] def ofMulEquiv {G : Type u} {G' : Type v} [Group G] [Group G']
+    (eG : PElementary p G) (φ : G ≃* G') : PElementary p G' where
+  C := eG.C.map φ.toMonoidHom
+  P := eG.P.map φ.toMonoidHom
+  C_isCyclic := by
+    have hf_inj : Function.Injective φ.toMonoidHom := φ.injective
+    let ψ := eG.C.equivMapOfInjective φ.toMonoidHom hf_inj
+    exact (MulEquiv.isCyclic ψ).mp eG.C_isCyclic
+  P_isPGroup := IsPGroup.map eG.P_isPGroup φ.toMonoidHom
+  C_isPRegular := by
+    rintro _ ⟨y, hy, rfl⟩
+    have horder : orderOf (φ.toMonoidHom y) = orderOf y := by
+      simp only [MulEquiv.toMonoidHom_eq_coe, MonoidHom.coe_coe, MulEquiv.orderOf_eq]
+    have hy_reg : (orderOf y).Coprime p := by
+      rw [← horder]
+      simpa [IsPRegular] using eG.C_isPRegular hy
+    simpa [IsPRegular, horder] using hy_reg
+  comm := by
+    rintro _ _ ⟨x, hx, rfl⟩ ⟨y, hy, rfl⟩
+    exact (eG.comm hx hy).map φ.toMonoidHom
+  decompose := by
+    intro g'
+    obtain ⟨c, hc, q, hq, h_eq⟩ := eG.decompose (φ.symm g')
+    refine ⟨φ c, ⟨c, hc, rfl⟩, φ q, ⟨q, hq, rfl⟩, ?_⟩
+    rw [← map_mul, h_eq, φ.apply_symm_apply]
+
+/--
+Transport a `p`-elementary structure across a multiplicative equivalence.
+-/
+abbrev mapEquiv {G : Type u} {G' : Type v} [Group G] [Group G']
+    (eG : PElementary p G) (φ : G ≃* G') :
+    PElementary p G' := PElementary.ofMulEquiv eG φ
 
 /--
 In the `p`-elementary subgroup associated to a `p`-regular element `r`, the
@@ -348,6 +544,43 @@ lemma mem_associatedSubgroup_fiber [Fact p.Prime]
       simp only [Subgroup.mem_centralizer_iff, Set.mem_singleton_iff] at h_comm
       exact (commute_iff_eq r s).mpr (h_comm r rfl)
 
+/--
+If a `p`-singular element acts on `G ⧸ H`, then the number of fixed cosets
+is congruent modulo `p` to the total number of cosets.
+-/
+lemma card_fixedPoints_pSingular_modEq
+    [hp : Fact p.Prime]
+    (H : Subgroup G) [H.FiniteIndex] (s : G) (hs : IsPSingular p s) :
+    Nat.card { c : G ⧸ H // s • c = c } ≡ Nat.card (G ⧸ H) [MOD p] := by
+  let zs := Subgroup.zpowers s
+  have h_pgroup : IsPGroup p zs := by
+    intro ⟨g, hg⟩
+    rcases hs with ⟨k, hk⟩
+    use k
+    obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.mp hg
+    ext
+    simp only [Subgroup.coe_pow, Subgroup.coe_one]
+    rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast]
+    have hs_one : s ^ (p ^ k) = 1 := by rw [← hk, pow_orderOf_eq_one]
+    rw [hs_one, one_zpow]
+
+  have h_fix_eq : Nat.card { c : G ⧸ H // s • c = c } =
+                  Nat.card (MulAction.fixedPoints zs (G ⧸ H)) := by
+    apply Nat.card_congr
+    refine { toFun := fun ⟨c, hc⟩ => ⟨c, ?_⟩,
+             invFun := fun ⟨c, hc⟩ => ⟨c, ?_⟩,
+             left_inv := fun _ => by ext; rfl,
+             right_inv := fun _ => by ext; rfl }
+    · intro ⟨g, hg⟩
+      let cStab : Subgroup G := MulAction.stabilizer G c
+      have hs_cStab : s ∈ cStab := by change s • c = c;  simpa using hc
+      rcases (Subgroup.mem_zpowers_iff.mp hg) with ⟨n, rfl⟩
+      have : (s ^ n) ∈ cStab := by exact cStab.zpow_mem hs_cStab n
+      exact MulAction.mem_stabilizer_iff.mp this
+    · exact hc ⟨s, Subgroup.mem_zpowers s⟩
+
+  rw [h_fix_eq]
+  exact (h_pgroup.card_modEq_card_fixedPoints (G ⧸ H)).symm
 
 end PElementary
 
@@ -355,6 +588,122 @@ namespace IsPElementary
 
 open BrauerInduction
 
+variable {p : ℕ} {G : Type u} [Group G]
+
+/--
+Transport `p`-elementarity across a multiplicative equivalence.
+-/
+lemma ofMulEquiv
+    (p : ℕ)
+    {G : Type u} {G' : Type v} [Group G] [Group G']
+    (hG : IsPElementary p G) (e : G ≃* G') :
+    IsPElementary p G' := by
+  obtain ⟨eG⟩ := hG
+  exact ⟨PElementary.ofMulEquiv eG e⟩
+
+/--
+Unpack the definition of `IsPElementary` into explicit cyclic, `p`-group,
+commutativity, and decomposition data.
+-/
+lemma iff :
+    IsPElementary p G ↔ ∃ (C P : Subgroup G),
+      IsCyclic C ∧ IsPGroup p P ∧
+      (∀ {c : G}, c ∈ C → IsPRegular p c) ∧
+      (∀ {c q : G}, c ∈ C → q ∈ P → Commute c q) ∧
+      (∀ h : G, ∃ c ∈ C, ∃ q ∈ P, c * q = h) := by
+  constructor
+  · intro hG
+    obtain ⟨e⟩ := hG
+    exact ⟨e.C, e.P, e.C_isCyclic, e.P_isPGroup,
+           e.C_isPRegular, e.comm, e.decompose⟩
+  · intro h
+    obtain ⟨C, P, C_cyc, P_pg, C_reg, comm, decomp⟩ := h
+    exact ⟨{
+      C := C,
+      P := P,
+      C_isCyclic := C_cyc,
+      P_isPGroup := P_pg,
+      C_isPRegular := C_reg,
+      comm := comm,
+      decompose := decomp
+    }⟩
+
+/--
+A `p`-group is `p`-elementary, with trivial cyclic prime-to-`p` part.
+-/
+lemma ofIsPGroup
+    (hG : IsPGroup p G) : IsPElementary p G := by
+  rw [IsPElementary.iff]
+  refine ⟨⊥, ⊤, isCyclic_of_subsingleton, ?_, ?_, ?_, ?_⟩
+  · exact IsPGroup.of_equiv hG Subgroup.topEquiv.symm
+  · intro c hc
+    rw [Subgroup.mem_bot] at hc
+    rw [hc]
+    exact IsPRegular.one p
+  · intro c q hc _
+    rw [Subgroup.mem_bot] at hc
+    rw [hc]
+    exact Commute.one_left q
+  · intro g
+    use 1, Subgroup.one_mem ⊥, g, Subgroup.mem_top g
+    rw [one_mul]
+
+/--
+A finite cyclic group is `p`-elementary.
+
+The cyclic generator decomposes into its `p`-regular and `p`-singular parts.
+-/
+lemma of_isCyclic [Finite G] [h_cyc : IsCyclic G]
+    [Fact p.Prime] : IsPElementary p G := by
+  refine ⟨?_⟩
+  let x := Classical.choose (IsCyclic.exists_generator (α := G))
+  have hx_gen := Classical.choose_spec (IsCyclic.exists_generator (α := G))
+  have hfx : IsOfFinOrder x := isOfFinOrder_of_finite x
+  let x_reg  := Group.pRegular p x
+  let x_sing := Group.pSingular p x
+  exact {
+    C := Subgroup.zpowers x_reg
+    P := Subgroup.zpowers x_sing
+    C_isCyclic := Subgroup.isCyclic_zpowers x_reg
+    P_isPGroup := by
+      rw [← IsPSingular.iff_zpowers_isPGroup]
+      exact Group.isPSingular_pSingular p x
+    C_isPRegular := by
+      intro c hc
+      have h_dvd : orderOf c ∣ orderOf x_reg := orderOf_dvd_of_mem_zpowers hc
+      have h_reg_gen : IsPRegular p x_reg := Group.isPRegular_pRegular p hfx
+      exact Nat.Coprime.coprime_dvd_left h_dvd h_reg_gen
+    comm := by
+      intro c s hc hs
+      obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.mp hc
+      obtain ⟨m, rfl⟩ := Subgroup.mem_zpowers_iff.mp hs
+      apply Commute.zpow_zpow
+      exact Group.pRegular_pSingular_commute p rfl
+    decompose := by
+      intro h
+      obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp (hx_gen h)
+      use x_reg ^ k, Subgroup.zpow_mem _ (Subgroup.mem_zpowers x_reg) k
+      use x_sing ^ k, Subgroup.zpow_mem _ (Subgroup.mem_zpowers x_sing) k
+      rw [← Commute.mul_zpow (Group.pDecomp_commute p x).symm]
+      rw [Group.pDecomp' p hfx]
+      exact hk
+  }
+
+/--
+The bottom subgroup, regarded as a group, is `p`-elementary.
+-/
+lemma bot [Fact p.Prime] :
+      IsPElementary (G := (⊥ : Subgroup G)) p := by
+  exact ofIsPGroup (p := p) (G := (⊥ : Subgroup G)) IsPGroup.of_bot
+
+/--
+The cyclic subgroup generated by a finite-order element is `p`-elementary.
+-/
+lemma zpowers_of_isOfFinOrder [Fact p.Prime]
+    (x : G) (hx : IsOfFinOrder x) :
+    IsPElementary p (Subgroup.zpowers x) := by
+  haveI : Finite (Subgroup.zpowers x) := Finite.of_equiv _ (finEquivZPowers hx)
+  exact of_isCyclic (p := p) (G := Subgroup.zpowers x)
 
 end IsPElementary
 

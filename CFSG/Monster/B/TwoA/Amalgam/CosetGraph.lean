@@ -75,6 +75,10 @@ theorem inv_mem_stepSet
   rw [← doubleCoset_inv ha]
   exact Set.inv_mem_inv.2 hd
 
+theorem stepSet_subset_Shat :
+    stepSet ⊆ Shat := by
+  rintro _ ⟨x, hx, a, ha, -, y, hy, rfl⟩
+  exact Shat.mul_mem (Shat.mul_mem (Eam_le_Shat hx) (Ehat_le_Shat ha)) (Eam_le_Shat hy)
 
 theorem stepRel_symm
     {v w : CVert} (h : stepRel v w) : stepRel w v := by

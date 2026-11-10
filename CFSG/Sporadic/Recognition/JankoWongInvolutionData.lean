@@ -139,6 +139,8 @@ end IsCover8
 
 @[expose] def permD : Perm (Fin 8) := swap 0 3 * swap 1 5 * swap 2 4 * swap 6 7
 
+theorem permT_sq : permT ^ 2 = 1 := by unfold permT; decide
+theorem permD_sq : permD ^ 2 = 1 := by unfold permD; decide
 
 theorem cycleType_permT : permT.cycleType = {2, 2, 2, 2} := by
   unfold permT

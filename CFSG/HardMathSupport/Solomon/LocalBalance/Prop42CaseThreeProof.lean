@@ -128,6 +128,9 @@ theorem glaPPrimeCoreOf_eq_inf_of_isSubnormal {p : ℕ} (hp : p.Prime) {S Y : Su
     (h : IsSubnormal S Y) : GLAPPrimeCoreOf p S = S ⊓ GLAPPrimeCoreOf p Y := by
   exact (glaPPrimeCoreOf_inf_eq_of_isSubnormal hp h).symm
 
+theorem barOf_equiv_barX {p : ℕ} (hp : p.Prime) {S Y : Subgroup G} (h : IsSubnormal S Y) :
+    Nonempty (barOf p S ≃* ↥(barX p Y S)) := by
+  exact ⟨quotEquivBarX hp (isSubnormal_le' h) h⟩
 
 theorem glaPComponent_self {p : ℕ} (hp : p.Prime) {Y K : Subgroup G}
     (h : GLAPComponent p Y K) : GLAPComponent p K K := by

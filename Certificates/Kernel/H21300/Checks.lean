@@ -39,6 +39,15 @@ end CFSG.KD.H21300.Gen
 
 namespace CFSG.KD.H21300
 
+theorem covU : covB LUs UC = true := by decide +kernel
+
+theorem covT : covB LTs TC = true := by decide +kernel
+
+theorem chk_ok : chkH TC UC HC = true := by decide +kernel
+
+theorem neg21300_cov : (!covB LUs TC) = true := by decide +kernel
+
+theorem neg21300_hint : (!chkH TC UC HB) = true := by decide +kernel
 
 end CFSG.KD.H21300
 

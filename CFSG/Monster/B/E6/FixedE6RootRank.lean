@@ -304,5 +304,24 @@ theorem finrank_range_adL_add_of_commute
   · exact absurd hi (by decide)
   · exact absurd hi (by decide)
 
+theorem fixed_E6_root_adjoint_ranks_and_commuting_sums :
+    (∀ g : stdGroup, rootVecOf (g * rootInv * g⁻¹) = actStar (SemidirectProduct.inl g) a0L) ∧
+    (∀ a u : fixedL, adL a u = bracketL a u) ∧
+    (∀ a : fixedL, finrank (ZMod 2) (LinearMap.range (adL a)) =
+      finrank K (LinearMap.range (ad K (a : V)))) ∧
+    (∀ a ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q},
+      finrank (ZMod 2) (LinearMap.range (adL a)) = 22) ∧
+    (∀ q₁ q₂ : stdGroup, IsConj rootInv q₁ → IsConj rootInv q₂ →
+      (bracketL (rootVecOf q₁) (rootVecOf q₂) = 0 ↔ Commute q₁ q₂)) ∧
+    ∀ q₁ q₂ : stdGroup, IsConj rootInv q₁ → IsConj rootInv q₂ →
+      rootVecOf q₁ ≠ rootVecOf q₂ → Commute q₁ q₂ →
+        (finrank (ZMod 2) (LinearMap.range (adL (rootVecOf q₁ + rootVecOf q₂))) = 22 ∨
+          finrank (ZMod 2) (LinearMap.range (adL (rootVecOf q₁ + rootVecOf q₂))) = 32) ∧
+        (rootVecOf q₁ + rootVecOf q₂ ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q} ↔
+          finrank (ZMod 2) (LinearMap.range (adL (rootVecOf q₁ + rootVecOf q₂))) = 22) :=
+  ⟨rootVecOf_conj_rootInv, fun _ _ => rfl,
+    finrank_range_adL, fun _ ha => finrank_range_adL_of_mem ha,
+    fun _ _ h₁ h₂ => bracketL_eq_zero_iff_commute h₁ h₂,
+    fun _ _ h₁ h₂ hne hc => finrank_range_adL_add_of_commute h₁ h₂ hne hc⟩
 
 end CFSG.Monster.B.E6.FixedE6Root

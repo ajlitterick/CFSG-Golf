@@ -347,6 +347,9 @@ theorem H_θ2 : S.H S.W.θ2 = 2 * q * ((q : ℂ) ^ 2 - 1) := by
   rw [H, S.val_J'.1, S.N_eq, S.W.deg2]
   exact H2_alg q e S.e_cases S.q_add_e_ne_zero
 
+theorem H_θ3 : S.H S.W.θ3 = 2 * q * ((q : ℂ) ^ 2 - 1) := by
+  rw [H, S.val_J'.2.1, S.N_eq, S.W.deg3]
+  exact H2_alg q e S.e_cases S.q_add_e_ne_zero
 
 theorem H_θ4 : S.H S.W.θ4 = q * (e * q + 1) * (e * q + 3) := by
   rw [H, S.val_J'.2.2.1, S.N_eq, S.W.deg4]

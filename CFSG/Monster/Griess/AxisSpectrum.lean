@@ -190,6 +190,24 @@ theorem axis_mul_self (hr : IsShortCoord (coordOf r)) :
     change _ = (16 : ℚ) • Nm (axis r)
     simp [Nm_axis]
 
+theorem bform_axis_self (hr : IsShortCoord (coordOf r)) : bform (axis r) (axis r) = 8 := by
+  have hσ := sgn_sq (centralCoord r)
+  rw [bform_apply]
+  change trace (Am (axis r) * Am (axis r)) + ∑ c, xs (axis r) c * xs (axis r) c +
+    ∑ j, ∑ i, Nm (axis r) j i * Nm (axis r) j i = 8
+  rw [Am_axis, Nm_axis, Matrix.smul_mul, Matrix.mul_smul, axisE_mul_self hr, trace_smul,
+    trace_smul, trace_axisE hr]
+  have hs : ∑ c, xs (axis r) c * xs (axis r) c = 4 := by
+    rw [Finset.sum_eq_single (shortCls hr)]
+    · rw [xs_axis_apply hr, ite_eq_left rfl]
+      linear_combination 4 * hσ
+    · intro d _ hd
+      rw [xs_axis_apply hr, ite_eq_right hd, zero_mul]
+    · intro h
+      exact absurd (Finset.mem_univ _) h
+  rw [hs]
+  simp
+  norm_num
 
 theorem uQ_dotProduct_uQ (c d : ShortIdx) : uQ c ⬝ᵥ uQ d = 8 * (alphaS c d : ℚ) := by
   have h := eight_mul_alphaS c d
@@ -603,6 +621,10 @@ theorem axis_mul_axis_zQ (hr : IsShortCoord (coordOf r)) : gmul (axis r) (axis (
   · rw [axisMul_W hr, Nm_axis_zQ hr]
     simp
 
+theorem bform_axis_axis_zQ (hr : IsShortCoord (coordOf r)) :
+    bform (axis (zQ * r)) (axis (zQ * r)) = 8 := by
+  have h := bform_axis_self (isShortCoord_zQ_mul hr)
+  exact h
 
 theorem trace_mul_axisE (hr : IsShortCoord (coordOf r)) (A : Matrix (Fin 24) (Fin 24) ℚ) :
     trace (A * (axisE r : Matrix (Fin 24) (Fin 24) ℚ)) = qf (shortCls hr) A / 32 := by
@@ -713,6 +735,20 @@ theorem cubicQ_of_eigenvalue (f : SpaceB →ₗ[ℚ] SpaceB) {v : SpaceB} {μ : 
   rw [cubicQ_apply, hv, map_smul, hv, map_smul, map_smul, hv]
   module
 
+theorem axis_eigen16_iff (hr : IsShortCoord (coordOf r)) (v : SpaceB) :
+    gmul (axis r) v = (16 : ℚ) • v ↔ v ∈ Submodule.span ℚ {axis r} := by
+  constructor
+  · intro hv
+    have h1 := cubicQ_of_eigenvalue (gmul (axis r)) hv
+    rw [cubicQ_axis_eq hr] at h1
+    have h2 : v = ((2976 : ℚ)⁻¹ * (2976 * (bform v (axis r) / 8))) • axis r := by
+      rw [← smul_smul, h1, smul_smul]
+      norm_num
+    rw [h2]
+    exact Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _)
+  · intro hv
+    obtain ⟨t, rfl⟩ := Submodule.mem_span_singleton.1 hv
+    rw [map_smul, axis_mul_self hr, smul_comm]
 
 theorem isUnit_two_axis_sub (hr : IsShortCoord (coordOf r)) :
     IsUnit ((2 : ℚ) • gmul (axis r) - (16 : ℚ) • LinearMap.id) := by
@@ -732,5 +768,111 @@ theorem isUnit_two_axis_sub (hr : IsShortCoord (coordOf r)) :
     module
   exact (smul_eq_zero.1 hq').resolve_left (by norm_num)
 
+theorem axis_eigen_decomposition (hr : IsShortCoord (coordOf r)) (v : SpaceB) :
+    ∃ v₁ v₂ v₃ v₄ : SpaceB, v = v₁ + v₂ + v₃ + v₄ ∧ gmul (axis r) v₁ = (16 : ℚ) • v₁ ∧
+      gmul (axis r) v₂ = 0 ∧ gmul (axis r) v₃ = (4 : ℚ) • v₃ ∧
+      gmul (axis r) v₄ = (1 / 2 : ℚ) • v₄ := by
+  set L := gmul (axis r)
+  set w := perpPart r v
+  have hw : cubicQ L w = 0 := cubicQ_axis_perp hr (isPerpAx_perpPart hr v)
+  rw [cubicQ_apply] at hw
+  refine ⟨(bform v (axis r) / 8) • axis r,
+    (bform v (axis (zQ * r)) / 8) • axis (zQ * r) +
+      (1 / 2 : ℚ) • (L (L w) - (9 / 2 : ℚ) • L w + (2 : ℚ) • w),
+    (1 / 14 : ℚ) • (L (L w) - (1 / 2 : ℚ) • L w),
+    (-(4 / 7) : ℚ) • (L (L w) - (4 : ℚ) • L w), ?_, ?_, ?_, ?_, ?_⟩
+  · conv_lhs => rw [eq_perpPart_add r v]
+    module
+  · rw [map_smul, axis_mul_self hr, smul_comm]
+  · rw [map_add, map_smul, map_smul, axis_mul_axis_zQ hr, smul_zero, zero_add, map_add, map_sub,
+      map_smul, map_smul]
+    rw [show L (L (L w)) - (9 / 2 : ℚ) • L (L w) + (2 : ℚ) • L w = 0 from hw, smul_zero]
+  · rw [map_smul, map_sub, map_smul]
+    have : L (L (L w)) = (9 / 2 : ℚ) • L (L w) - (2 : ℚ) • L w := by
+      rw [← sub_eq_zero, ← hw]
+      module
+    rw [this]
+    module
+  · rw [map_smul, map_sub, map_smul]
+    have : L (L (L w)) = (9 / 2 : ℚ) • L (L w) - (2 : ℚ) • L w := by
+      rw [← sub_eq_zero, ← hw]
+      module
+    rw [this]
+    module
+
+theorem inW_smul' (t : ℚ) (N : SpaceW) : inW (t • N) = t • inW N := by
+  rw [inW, inW, Prod.smul_mk, Prod.smul_mk, smul_zero, smul_zero]
+
+theorem axis_mul_inW (hr : IsShortCoord (coordOf r)) (N : SpaceW) :
+    gmul (axis r) (inW N) = inW (N * ((4 : ℚ)⁻¹ • (1 : Matrix (Fin 24) (Fin 24) ℚ) +
+      (2 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ)) -
+      (4 : ℚ)⁻¹ • (((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N *
+        (1 - (8 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ)))) := by
+  refine Prod.ext (Subtype.ext ?_) (Prod.ext (funext fun d => ?_) ?_)
+  · rw [axisMul_A hr]
+    simp
+  · rw [axisMul_X hr]
+    simp [qf_zero]
+  · rw [axisMul_W hr, coe_Q_eq_sgn_smul_Rmat hr]
+    change _ = N * ((4 : ℚ)⁻¹ • (1 : Matrix (Fin 24) (Fin 24) ℚ) +
+      (2 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ)) -
+      (4 : ℚ)⁻¹ • (sgn (centralCoord r) • Rmat (shortCls hr) * N *
+        (1 - (8 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ)))
+    simp only [Nm_inW, Matrix.mul_add, Matrix.mul_sub, Matrix.mul_smul, Matrix.mul_one,
+      Matrix.smul_mul]
+    module
+
+theorem axis_mul_inW_neg (hr : IsShortCoord (coordOf r)) {N : SpaceW}
+    (hN : ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = -N) :
+    gmul (axis r) (inW N) = (2 : ℚ)⁻¹ • inW N := by
+  rw [axis_mul_inW hr, hN, ← inW_smul']
+  congr 1
+  simp only [Matrix.mul_add, Matrix.mul_sub, Matrix.mul_smul, Matrix.mul_one, Matrix.neg_mul]
+  module
+
+theorem axis_mul_inW_pos_line (hr : IsShortCoord (coordOf r)) {N : SpaceW}
+    (hN : ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = N)
+    (hE : N * (axisE r : Matrix (Fin 24) (Fin 24) ℚ) = N) :
+    gmul (axis r) (inW N) = (4 : ℚ) • inW N := by
+  rw [axis_mul_inW hr, hN, ← inW_smul']
+  congr 1
+  simp only [Matrix.mul_add, Matrix.mul_sub, Matrix.mul_smul, Matrix.mul_one, hE]
+  module
+
+theorem axis_mul_inW_pos_perp (hr : IsShortCoord (coordOf r)) {N : SpaceW}
+    (hN : ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = N)
+    (hE : N * (axisE r : Matrix (Fin 24) (Fin 24) ℚ) = 0) :
+    gmul (axis r) (inW N) = 0 := by
+  rw [axis_mul_inW hr, hN]
+  simp only [Matrix.mul_add, Matrix.mul_sub, Matrix.mul_smul, Matrix.mul_one, hE, smul_zero,
+    add_zero, sub_zero]
+  rw [show (4 : ℚ)⁻¹ • N - (4 : ℚ)⁻¹ • N = 0 from sub_self _]
+  rfl
+
+theorem short_spin_axis_spectrum (r : Q) (hr : IsShortCoord (coordOf r)) :
+    gmul (axis r) (axis r) = (16 : ℚ) • axis r ∧ bform (axis r) (axis r) = 8 ∧
+    (∀ v, gmul (axis r) v = (16 : ℚ) • v ↔ v ∈ Submodule.span ℚ {axis r}) ∧
+    (∀ v : SpaceB, ∃ v₁ v₂ v₃ v₄ : SpaceB, v = v₁ + v₂ + v₃ + v₄ ∧
+      gmul (axis r) v₁ = (16 : ℚ) • v₁ ∧ gmul (axis r) v₂ = 0 ∧
+      gmul (axis r) v₃ = (4 : ℚ) • v₃ ∧ gmul (axis r) v₄ = (1 / 2 : ℚ) • v₄) ∧
+    iSupIndep (Module.End.eigenspace (gmul (axis r))) ∧
+    (∀ v, gmul (axis r) (cubicQ (gmul (axis r)) v) - (16 : ℚ) • cubicQ (gmul (axis r)) v = 0) ∧
+    (∀ v, cubicQ (gmul (axis r)) v = gmul (axis r) (gmul (axis r) (gmul (axis r) v)) -
+      (9 / 2 : ℚ) • gmul (axis r) (gmul (axis r) v) + (2 : ℚ) • gmul (axis r) v) ∧
+    IsUnit ((2 : ℚ) • gmul (axis r) - (16 : ℚ) • LinearMap.id) ∧
+    (∀ N : SpaceW, gmul (axis r) (inW N) = inW (N * ((4 : ℚ)⁻¹ • (1 : Matrix (Fin 24) (Fin 24) ℚ) +
+      (2 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ)) -
+      (4 : ℚ)⁻¹ • (((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N *
+        (1 - (8 : ℚ) • (axisE r : Matrix (Fin 24) (Fin 24) ℚ))))) ∧
+    (∀ N : SpaceW, ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = -N →
+      gmul (axis r) (inW N) = (2 : ℚ)⁻¹ • inW N) ∧
+    (∀ N : SpaceW, ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = N →
+      N * (axisE r : Matrix (Fin 24) (Fin 24) ℚ) = N → gmul (axis r) (inW N) = (4 : ℚ) • inW N) ∧
+    (∀ N : SpaceW, ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) * N = N →
+      N * (axisE r : Matrix (Fin 24) (Fin 24) ℚ) = 0 → gmul (axis r) (inW N) = 0) :=
+  ⟨axis_mul_self hr, bform_axis_self hr, axis_eigen16_iff hr, axis_eigen_decomposition hr,
+    Module.End.eigenspaces_iSupIndep _, quartic_axis hr, fun _ => rfl, isUnit_two_axis_sub hr,
+    axis_mul_inW hr, fun _ hN => axis_mul_inW_neg hr hN,
+    fun _ hN hE => axis_mul_inW_pos_line hr hN hE, fun _ hN hE => axis_mul_inW_pos_perp hr hN hE⟩
 
 end CFSG.Monster.Griess

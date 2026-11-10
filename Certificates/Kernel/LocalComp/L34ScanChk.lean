@@ -19,6 +19,8 @@ theorem kCanonC : andB (allN 64 fun c => canonK 42 6 (mask 6) (42 * 6) (L34C1.P 
       (allN 60 fun c => canonK 42 6 (mask 6) (42 * 6) (L34C3.P c))) = true := by
   quickRfl
 
+theorem kNeg : notB (fixK 42 6 (pidn 42 6) 0 L34C2.P (pidn 42 6) (RP 1)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Scan
 

@@ -48,6 +48,7 @@ theorem kGensGR : sumOK GR.S (wSel E8.S) RG grL = true := by quickRfl
 theorem kOrdGR : Nat.beq (rcnt (GR.LR 0) * rcnt (GR.LR 1) * rcnt (GR.LR 2) * rcnt (GR.LR 3) *
     rcnt (GR.LR 4) * rcnt (GR.LR 5) * rcnt (GR.LR 6)) 2580480 = true := by quickRfl
 
+theorem kGensGRNeg : (!sumOK GR.S (wSel E8.S) RG [0, 2, 3, 4, 6, 5, 7, 8]) = true := by quickRfl
 
 end CertificateChecks.KernelAE6E8
 

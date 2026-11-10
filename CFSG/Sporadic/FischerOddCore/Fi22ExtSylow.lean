@@ -179,6 +179,10 @@ theorem fi22ExtV_inv_conj_mem_T0
       convert this using 1
       group
 
+theorem mem_fi22ExtSx
+    {g : Equiv.Perm (Fin 3510)} :
+    g ∈ fi22ExtSx ↔ g ∈ fi22ExtT0 ∨ g * fi22ExtV ∈ fi22ExtT0 :=
+  Iff.rfl
 
 theorem fi22ExtS_eq_Sx :
     fi22ExtS = fi22ExtSx := by
@@ -362,5 +366,21 @@ theorem fi22ExtRes_injective :
     card_fi22ExtSmallChain, card_fi22ExtS] at h
   exact Subgroup.eq_bot_of_card_eq _ (by omega)
 
+theorem CTUC_Fi22_extension_Sylow_faithful_action :
+    fi22ExtQ ∈ fi22P ∧ fi22ExtV ∈ fi22R ∧ fi22ExtV ∉ fi22P ∧ fi22ExtV ^ 2 ∈ fi22ExtT0 ∧
+    fi22ExtT0.map (MulAut.conj fi22ExtV).toMonoidHom = fi22ExtT0 ∧
+    Subgroup.closure {g | ∃ k < 9, fi22ExtSubGen k = g} = fi22ExtT0 ∧
+    Subgroup.closure {g | ∃ k < 10, fi22ExtFullGen k = g} = fi22ExtS ∧
+    fi22ExtS ≤ fi22R ∧ Nat.card fi22ExtS = 262144 ∧
+    (∃ Q : Sylow 2 fi22R, (Q : Subgroup fi22R) = fi22ExtS.subgroupOf fi22R) ∧
+    fi22ExtS ≤ embStab fi22ExtDeltaPt ∧ Function.Injective fi22ExtRes ∧
+    (∀ (k : ℕ) (hk : k < 10),
+      fi22ExtRes ⟨fi22ExtFullGen k, fi22ExtFullGen_mem hk⟩ = fi22ExtPerm256 k) ∧
+    ValidSchreier fi22ExtSmallChain ∧ fi22ExtRes.range = fi22ExtSmallChain.originalSubgroup ∧
+    Nat.card fi22ExtSmallChain.originalSubgroup = 262144 :=
+  ⟨fi22ExtQ_mem, fi22ExtV_mem_R, fi22ExtV_not_mem, fi22ExtV_sq_mem, fi22ExtV_conj_eq,
+    fi22ExtT0_eq_closure.symm, fi22ExtS_eq_closure_full.symm, fi22ExtS_le_R, card_fi22ExtS,
+    fi22ExtS_sylow, fi22ExtS_le_embStab, fi22ExtRes_injective, fun _ hk => fi22ExtRes_fullGen hk,
+    fi22ExtSmallChain_valid, fi22ExtRes_range, card_fi22ExtSmallChain⟩
 
 end CFSG.Sporadic.FischerOddCore

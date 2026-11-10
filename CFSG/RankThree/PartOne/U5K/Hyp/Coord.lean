@@ -528,6 +528,11 @@ theorem conj_mem_Ssub {u s : hypSU hK 2 1} (hu : u ∈ hypUnitriangular hK 2 1) 
     (mem_Ssub_iff hs').1 hs]
   ring
 
+theorem conj_mem_Vsub {u v : hypSU hK 2 1} (hu : u ∈ hypUnitriangular hK 2 1)
+    (hv : v ∈ Vsub hK) : u * v * u⁻¹ ∈ Vsub hK := by
+  obtain ⟨a, x, C, -, hu'⟩ := exists_coord hu
+  obtain ⟨-, Y, hY⟩ := hv
+  exact mem_Vsub_of_mat (U_conj_V hu' hY)
 
 theorem Vsub_comm {v v' : hypSU hK 2 1} (hv : v ∈ Vsub hK) (hv' : v' ∈ Vsub hK) :
     v * v' = v' * v := by

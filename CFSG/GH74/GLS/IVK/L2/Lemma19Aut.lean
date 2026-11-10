@@ -84,6 +84,57 @@ theorem actHom_coe (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (κ : ↥Kha
     (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) : H →* PGammaL2 F :=
   (thetaEquiv hodd h3).symm.toMonoidHom.comp (psl2AutHom.comp (actHom φ))
 
+theorem theta_lam (hodd : Odd (Nat.card F)) (h3 : 3 < Nat.card F)
+    (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (h : H) :
+    thetaEquiv hodd h3 (lam hodd h3 φ h) = psl2MulAutOf (actHom φ h) := by
+  simp [lam, psl2AutHom]
+
+theorem lam_coe (hodd : Odd (Nat.card F)) (h3 : 3 < Nat.card F)
+    (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (κ : ↥Khat) :
+    lam hodd h3 φ (κ : H) = SemidirectProduct.inl
+      (Matrix.ProjectiveSpecialLinearGroup.toPGL (QuotientGroup.mk' _ (φ κ))) := by
+  apply (thetaEquiv hodd h3).injective
+  rw [theta_lam hodd h3, thetaEquiv_inl hodd h3, actHom_coe, psl2MulAutOf_conj hodd h3]
+
+theorem actHom_eq_conj (hodd : Odd (Nat.card F)) (h3 : 3 < Nat.card F)
+    (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (h : H) (j : SpecialLinearGroup (Fin 2) F)
+    (hh : lam hodd h3 φ h = SemidirectProduct.inl
+      (Matrix.ProjectiveSpecialLinearGroup.toPGL (QuotientGroup.mk' _ j))) :
+    actHom φ h = MulAut.conj j := by
+  have hF2 : ringChar F ≠ 2 := ringChar_ne_two_of_odd_card hodd
+  apply eq_conj_of_inv_mul_conj_mem_center hF2
+  intro b
+  have e : psl2MulAutOf (actHom φ h) = psl2MulAutOf (MulAut.conj j) := by
+    rw [← theta_lam hodd h3, hh, thetaEquiv_inl hodd h3, psl2MulAutOf_conj hodd h3]
+  have e2 := congrArg (fun a : MulAut (PSL2 F) => a (QuotientGroup.mk' _ b)) e
+  simp only [psl2MulAutOf_mk] at e2
+  exact QuotientGroup.eq.1 e2
+
+theorem mem_of_lam_eq_inl (hC : centralizer (Khat : Set H) ≤ Khat) (hodd : Odd (Nat.card F))
+    (h3 : 3 < Nat.card F) (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (h : H)
+    (j : SpecialLinearGroup (Fin 2) F)
+    (hh : lam hodd h3 φ h = SemidirectProduct.inl
+      (Matrix.ProjectiveSpecialLinearGroup.toPGL (QuotientGroup.mk' _ j))) : h ∈ Khat := by
+  have hact := actHom_eq_conj hodd h3 φ h j hh
+  set j' : ↥Khat := φ.symm j with hj'
+  have hcent : ((j' : H)⁻¹ * h) ∈ centralizer (Khat : Set H) := by
+    rw [Subgroup.mem_centralizer_iff]
+    intro κ hκ
+    have h1 := congrArg (fun a : MulAut (SpecialLinearGroup (Fin 2) F) => a (φ ⟨κ, hκ⟩)) hact
+    simp only [actHom_apply, MulAut.conj_apply] at h1
+    have h2 : (MulAut.conjNormal h ⟨κ, hκ⟩ : ↥Khat) = j' * ⟨κ, hκ⟩ * j'⁻¹ := by
+      apply φ.injective
+      rw [h1, map_mul, map_mul, map_inv, hj', MulEquiv.apply_symm_apply]
+    have h3' := congrArg Subtype.val h2
+    rw [MulAut.conjNormal_apply] at h3'
+    have h3'' : h * κ * h⁻¹ = (j' : H) * κ * (j' : H)⁻¹ := by simpa using h3'
+    calc κ * ((j' : H)⁻¹ * h) = (j' : H)⁻¹ * ((j' : H) * κ * (j' : H)⁻¹) * h := by group
+      _ = (j' : H)⁻¹ * (h * κ * h⁻¹) * h := by rw [← h3'']
+      _ = (j' : H)⁻¹ * h * κ := by group
+  have := hC hcent
+  have h4 : h = (j' : H) * ((j' : H)⁻¹ * h) := by group
+  rw [h4]
+  exact Khat.mul_mem j'.2 this
 
 end Act
 
@@ -98,6 +149,77 @@ open CFSG.Semidihedral.SemilinearOuterQuotient (SquareClass)
   ((pGammaL2DetClass F (isOddPrimePower_card_of_odd hodd)).comp (lam hodd h3 φ)).prod
     (SemidirectProduct.rightHom.comp (lam hodd h3 φ))
 
+theorem psiH_apply (hodd : Odd (Nat.card F)) (h3 : 3 < Nat.card F)
+    (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (h : H) :
+    psiH hodd h3 φ h = (pGammaL2DetClass F (isOddPrimePower_card_of_odd hodd) (lam hodd h3 φ h),
+      (lam hodd h3 φ h).right) := rfl
+
+theorem ker_psiH (hC : centralizer (Khat : Set H) ≤ Khat) (hodd : Odd (Nat.card F))
+    (h3 : 3 < Nat.card F) (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) :
+    (psiH hodd h3 φ).ker = Khat := by
+  have hK := isOddPrimePower_card_of_odd hodd
+  ext h
+  rw [MonoidHom.mem_ker, psiH_apply, Prod.mk_eq_one]
+  constructor
+  · rintro ⟨hd, hr⟩
+    obtain ⟨y, hy⟩ := (left_mem_range_toPGL_iff hK (lam hodd h3 φ h)).2 hd
+    obtain ⟨j, rfl⟩ := QuotientGroup.mk'_surjective _ y
+    have hh : lam hodd h3 φ h = SemidirectProduct.inl
+        (Matrix.ProjectiveSpecialLinearGroup.toPGL (QuotientGroup.mk' _ j)) := by
+      apply SemidirectProduct.ext
+      · rw [SemidirectProduct.left_inl]; exact hy.symm
+      · rw [SemidirectProduct.right_inl]; exact hr
+    exact mem_of_lam_eq_inl hC hodd h3 φ h j hh
+  · intro hh
+    have e := lam_coe hodd h3 φ ⟨h, hh⟩
+    simp only at e
+    refine ⟨?_, ?_⟩
+    · rw [e, pGammaL2DetClass_apply]
+      simp only [SemidirectProduct.left_inl]
+      exact (mem_range_toPGL_iff_pglDet _).1 ⟨_, rfl⟩
+    · rw [e]
+      simp
+
+
+theorem sign_h (hC : centralizer (Khat : Set H) ≤ Khat) (hodd : Odd (Nat.card F))
+    (h3 : 3 < Nat.card F) (φ : ↥Khat ≃* SpecialLinearGroup (Fin 2) F) (h : H)
+    (hev : Even (orderOf (lam hodd h3 φ h).right)) :
+    pGammaL2DetClass F (isOddPrimePower_card_of_odd hodd) (lam hodd h3 φ h) = 1 := by
+  have hK := isOddPrimePower_card_of_odd hodd
+  have h2 : (2 : F) ≠ 0 := CFSG.Semidihedral.OddFieldSL2.two_ne_zero_of_odd_card F hodd
+  by_contra hne
+  set x := lam hodd h3 φ h with hx
+  set n := orderOf x.right with hn
+  have hn1 : h ^ n ∈ Khat := by
+    rw [← ker_psiH hC hodd h3 φ, MonoidHom.mem_ker, map_pow]
+    refine Prod.ext ?_ ?_
+    · obtain ⟨m, hm⟩ := hev
+      show (psiH hodd h3 φ h).1 ^ n = 1
+      rw [hm, ← two_mul, pow_mul]
+      have := squareClass_sq (pGammaL2DetClass F hK x)
+      show ((pGammaL2DetClass F hK) x ^ 2) ^ m = 1
+      rw [this, one_pow]
+    · show (psiH hodd h3 φ h).2 ^ n = 1
+      exact pow_orderOf_eq_one x.right
+  set κ : ↥Khat := ⟨h ^ n, hn1⟩ with hκ
+  obtain ⟨G, hG⟩ := Matrix.ProjGenLinGroup.mk_surjective x.left
+  have hθ : pGammaL2ToMulAutPSL2 F hK h3 x = psl2MulAutOf (actHom φ h) :=
+    theta_lam hodd h3 φ h
+  have hα := semilinear_of_pGammaL2 hodd h3 (actHom φ h) x hθ G hG
+  have hk : actHom φ h ^ n = MulAut.conj (φ κ) := by
+    rw [← map_pow, ← actHom_coe]
+  have hαk : actHom φ h (φ κ) = φ κ := by
+    rw [actHom_apply]
+    congr 1
+    apply Subtype.ext
+    rw [MulAut.conjNormal_apply]
+    show h * h ^ n * h⁻¹ = h ^ n
+    rw [(Commute.self_pow h n).eq, mul_inv_cancel_right]
+  have hsq := sign_lemma_matrix h2 (actHom φ h) G x.right hα (φ κ) hk hαk
+  apply hne
+  rw [← left_mem_range_toPGL_iff hK, ← hG,
+    pgl2_mk_mem_psl2_range_iff_det_isSquare, Matrix.GeneralLinearGroup.val_det_apply]
+  exact hsq
 
 end Psi
 
@@ -178,6 +300,25 @@ end GrpCyc
 
 section Main19a
 
+open CFSG.Semidihedral.SemilinearOuterQuotient (SquareClass)
+
+theorem ivk_1_9_a : IVK_1_9_a := by
+  intro F _ _ hF H _ _ Khat _ hC hK
+  obtain ⟨hKS⟩ := hK
+  have hodd : Odd (Nat.card F) := hF.1
+  have h3 : 3 < Nat.card F := hF.2
+  have hK' := isOddPrimePower_card_of_odd hodd
+  let φ : ↥Khat ≃* Matrix.SpecialLinearGroup (Fin 2) F :=
+    hKS.trans (CFSG.Assembly.LowTwoRank.specialLinearGroupEquivStatedSL 2 F).symm
+  have hker := ker_psiH hC hodd h3 φ
+  have e1 : H ⧸ Khat ≃* (psiH hodd h3 φ).range :=
+    (QuotientGroup.quotientMulEquivOfEq hker.symm).trans
+      (QuotientGroup.quotientKerEquivRange (psiH hodd h3 φ))
+  rw [e1.isCyclic]
+  have : IsCyclic (F ≃+* F) := isCyclic_ringEquiv F
+  refine isCyclic_of_sign (CFSG.Semidihedral.SemilinearOuterQuotient.squareClass_card_two F hK') _ ?_
+  rintro _ ⟨h, rfl⟩ hev
+  exact sign_h hC hodd h3 φ h hev
 
 end Main19a
 

@@ -38,6 +38,10 @@ variable (K : Type) [Field K]
     weylElt F4.tag K (1 : Fin 4) 1 * weylElt F4.tag K (2 : Fin 4) 1
 
 
+theorem coe_titsG0
+    : ((titsG0 K : adjointGroup F4.tag K) : ModGL F4.tag K) = titsGen0 K :=
+  rfl
+
 theorem weylElt_conj_xUnit_eq_pinnedX
     (h2 : (2 : K) = 0) :
     weylElt F4.tag K (2 : Fin 4) 1 * xUnit F4.tag K (1 : Fin 4) 1 *

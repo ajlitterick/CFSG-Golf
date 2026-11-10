@@ -12,6 +12,7 @@ namespace CFSG.Sporadic.HNOddCore.Native
 open CFSG.Sporadic.He.Native CFSG.ONSchreier.Native CFSG.Sporadic.HNSchreier
 open CFSG.Sporadic.HNSchreier.Native
 
+@[expose] def invRanks : List Nat := [56, 64, 56]
 
 theorem inv_rank_cert : invRankChecks rowsA rowsB invRankRows = true :=
   Certificates.certificate2090

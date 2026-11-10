@@ -44,6 +44,28 @@ set_option compiler.extract_closed false
       let M := wordRowsL regs W[p * a + b]!
       eqRows (mulRows M (mulRows (powRowsN X a) (powRowsN Y b))) (mulRows Z M))
 
+@[expose] def cubeRows (X Y C : Array V4) (p row : Nat) : Array (Array (Array V4)) :=
+  Array.ofFn (n := p) fun i => Array.ofFn (n := p) fun j => Array.ofFn (n := p) fun k =>
+    rowAt (mulRows (mulRows (powRowsN X i.val) (powRowsN Y j.val)) (powRowsN C k.val)) row
+
+@[expose] def cubeOK (X Y C : Array V4) (p row : Nat) : Bool :=
+  let T := cubeRows X Y C p row
+  eqRows (powRowsN X p) idRows && eqRows (powRowsN Y p) idRows &&
+    eqRows (mulRows C X) (mulRows X C) && eqRows (mulRows C Y) (mulRows Y C) &&
+    (List.range p).all fun i => (List.range p).all fun j => (List.range p).all fun k =>
+      (T[i]![j]![k]!).wf && (List.range p).all fun i' => (List.range p).all fun j' =>
+        (List.range p).all fun k' =>
+          (i == i' && j == j' && k == k') || !(T[i]![j]![k]!).beq (T[i']![j']![k']!)
+
+@[expose] def conj3OK (regs : Array (Array V4)) (X Y C : Array V4) (p : Nat)
+    (W : Array (List Nat)) : Bool :=
+  (List.range p).all fun i => (List.range p).all fun j => (List.range p).all fun k =>
+    i + j + k == 0 ||
+      ((W[p * p * i + p * j + k]!).all (fun r => decide (r < regs.size)) &&
+        let M := wordRowsL regs W[p * p * i + p * j + k]!
+        eqRows (mulRows M (mulRows (mulRows (powRowsN X i) (powRowsN Y j)) (powRowsN C k)))
+          (mulRows C M))
+
 
 structure CoreList where
   n : Nat
@@ -53,5 +75,22 @@ structure CoreList where
   inv : Array Nat
   wit : Array (List Nat)
 
+@[expose] def witProd (E : Array (Array V4)) (inv : Array Nat) (i : Nat) (l : List Nat) :
+    Array V4 :=
+  l.foldl (fun P j => mulRows P (mulRows (mulRows E[j]! E[i]!) E[inv[j]!]!)) E[i]!
+
+@[expose] def coreListOK (regs : Array (Array V4)) (Z : Array V4) (D : CoreList) : Bool :=
+  let E := D.words.map (wordRowsL regs)
+  decide (D.words.size = D.n) && decide (D.inv.size = D.n) && decide (D.wit.size = D.n) &&
+    D.words.all (fun w => w.all fun r => decide (r < regs.size)) &&
+    D.wit.all (fun l => l.all fun j => decide (j < D.n)) &&
+    D.inv.all (fun j => decide (j < D.n)) &&
+    E.all (fun X => eqRows (mulRows X Z) (mulRows Z X)) &&
+    E.all (fun X => (rowAt X D.row).wf) &&
+    (List.range D.n).all (fun i => (List.range i).all fun j =>
+      !(rowAt E[i]! D.row).beq (rowAt E[j]! D.row)) &&
+    (List.range D.n).all (fun i => eqRows (mulRows E[i]! E[D.inv[i]!]!) idRows) &&
+    (List.range D.n).all (fun i => eqRows E[i]! idRows ||
+      rowsDiffer (powRowsN (witProd E D.inv i D.wit[i]!) D.m) idRows)
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlpNative

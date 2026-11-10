@@ -88,6 +88,9 @@ theorem pt_eq_pt_iff {v w : V} (hv0 : v ≠ 0) (hw0 : w ≠ 0) (hv : herm v v = 
   rw [← Projectivization.mk_eq_mk_iff' F4 v w hv0 hw0]
   exact Subtype.ext_iff
 
+theorem pt_smul_eq {v : V} (hv0 : v ≠ 0) (hv : herm v v = 0) {c : F4}
+    (hcv0 : c • v ≠ 0) (hcv : herm (c • v) (c • v) = 0) : pt (c • v) hcv0 hcv = pt v hv0 hv :=
+  (pt_eq_pt_iff _ _ _ _).mpr ⟨c, rfl⟩
 
 theorem smul_pt (g : SU frobeniusF4 6) {v : V} (hv0 : v ≠ 0) (hv : herm v v = 0) :
     g • pt v hv0 hv = pt (g • v) ((smul_ne_zero_iff_ne g).mpr hv0)

@@ -12,6 +12,8 @@ namespace CFSG.Sporadic.HNSchreier
 open CFSG.Sporadic.F5 CFSG.Sporadic.F5.Native CFSG.Sporadic.He.Native
 open CFSG.Sporadic.HNSchreier.Native Matrix
 
+theorem toMat_rowsM : toMat 5 133 rowsM = formM := by
+  rw [rowsM, toMat_rowsOf, formM_eq]
 
 theorem form_pres {C : Matrix (Fin 133) (Fin 133) (ZMod 5)} (hC : Cᵀ * formM * C = formM)
     (x y : Fin 133 → ZMod 5) : (C *ᵥ x) ⬝ᵥ (formM *ᵥ (C *ᵥ y)) = x ⬝ᵥ (formM *ᵥ y) := by
@@ -50,9 +52,45 @@ theorem beta_invariant
       rw [beta_eq, beta_eq, vL_a1, vL_a1, form_pres form_parts.2.2.2]
   exact hle hg i j
 
+theorem toVec_bytesToNats (v : ByteArray) : toVec 5 133 (bytesToNats v) = toVecB 133 v := by
+  funext j
+  rw [toVec_apply, bytesToNats_get]
+  rfl
+
+@[irreducible] def sigR : Array (Array ℕ) := sigRows (hnsData.orbit ()) rowsM Data.baseList
+
+theorem sigR_eq : sigR = sigRows (hnsData.orbit ()) rowsM Data.baseList := by unfold sigR; rfl
+
+@[irreducible] def sigS : Array ByteArray :=
+  sigsOf (hnsData.orbit ()) (frTable 22 133 sigR) hnsData.n
+
+theorem sigS_eq : sigS = sigsOf (hnsData.orbit ()) (frTable 22 133 sigR) hnsData.n := by
+  unfold sigS; rfl
+
+theorem sigS_get {i : ℕ} (hi : i < nPts) :
+    sigS[i]! = mulW 22 133 (frTable 22 133 sigR) (hnsData.orbit ()).keys[i]! := by
+  rw [sigS_eq, sigsOf, getElem!_ofFn _ (show i < hnsData.n from hi)]
+
+theorem sigR_get {k : ℕ} (hk : k < 22) :
+    sigR[k]! = mulVec 5 133 rowsM (bytesToNats (hnsData.orbit ()).keys[baseIndex k]!) := by
+  rw [sigR_eq, sigRows, getElem!_pos _ k (by simp [base_facts.1, hk])]
+  simp only [List.getElem_toArray, List.getElem_map, baseIndex]
+  rw [List.getD_eq_getElem _ _ (by rw [base_facts.1]; exact hk)]
 
 theorem baseIndex_lt' {k : ℕ} (hk : k < 22) : baseIndex k < hnsData.n := baseIndex_lt hk
 
+theorem sig_coord (i : X) (k : Fin 22) :
+    toVecB 22 sigS[i.val]! k = beta i ⟨baseIndex k, baseIndex_lt' k.isLt⟩ := by
+  rw [sigS_get i.isLt, toVecB_mulW (by norm_num) (by norm_num) _ (keys_canon' i.isLt)]
+  rw [beta_eq, vL_eq i.isLt, vL_eq (baseIndex_lt k.isLt)]
+  have hrow : ∀ j : Fin 133, toMatR 22 133 sigR k j = (formM *ᵥ PK (baseIndex k)) j := by
+    intro j
+    have e := congrFun (toVec_mulVec 5 133 rowsM
+      (bytesToNats (hnsData.orbit ()).keys[baseIndex k]!)) j
+    rw [← sigR_get k.isLt, toVec_bytesToNats, toMat_rowsM] at e
+    exact e
+  show ∑ j, toMatR 22 133 sigR k j * PK i j = ∑ j, PK i j * (formM *ᵥ PK (baseIndex k)) j
+  exact Finset.sum_congr rfl fun j _ => by rw [hrow j, mul_comm]
 
 abbrev baseX (k : Fin 22) : X := ⟨baseIndex k, baseIndex_lt' k.isLt⟩
 
@@ -108,5 +146,23 @@ theorem eq_one_of_fix_base
   rw [h1, map_one] at this
   exact this.symm
 
+abbrev baseSet : Set X := {x | ∃ k : Fin 22, x = baseX k}
+
+theorem ph_inf_fixing_base :
+    PH ⊓ fixingSubgroup (Equiv.Perm X) baseSet = ⊥ := by
+  rw [eq_bot_iff]
+  intro g hg
+  obtain ⟨hgP, hgfix⟩ := Subgroup.mem_inf.1 hg
+  rw [Subgroup.mem_bot]
+  refine eq_one_of_fix_base hgP fun k => ?_
+  have := (mem_fixingSubgroup_iff (Equiv.Perm X)).1 hgfix (baseX k) ⟨k, rfl⟩
+  rwa [Equiv.Perm.smul_def] at this
+
+theorem fam_hn_twenty_two_vector_separating_base :
+    formMᵀ = formM ∧ formM.det ≠ 0 ∧ matAᵀ * formM * matA = formM ∧
+      matBᵀ * formM * matB = formM ∧ (∀ g ∈ PH, ∀ i j : X, beta (g i) (g j) = beta i j) ∧
+      PH ⊓ fixingSubgroup (Equiv.Perm X) baseSet = ⊥ :=
+  ⟨form_parts.1, form_parts.2.1, form_parts.2.2.1, form_parts.2.2.2,
+    fun _ hg => beta_invariant hg, ph_inf_fixing_base⟩
 
 end CFSG.Sporadic.HNSchreier

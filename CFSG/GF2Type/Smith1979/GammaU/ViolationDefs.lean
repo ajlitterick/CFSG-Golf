@@ -15,6 +15,10 @@ open CFSG.GF2Type.Smith1979.GammaU CFSG.GF2Type.Smith1979.GammaU.StepA
 abbrev St : Type := ℕ × Array ℕ × Array ℕ
 
 
+@[expose] def withInv (gs : List (Array ℕ)) : List (Array ℕ × Array ℕ) :=
+  gs.map fun g => (g, invR g)
+
+
 @[expose] def okRows (r : Array ℕ) : Bool := r.size == 12 && r.all (· < 4096)
 
 

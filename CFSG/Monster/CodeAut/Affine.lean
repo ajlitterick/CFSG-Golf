@@ -419,5 +419,27 @@ theorem affine_of_linearIndependent (hd : d ∈ C) (hw : hammingNorm d = 8)
       have h2 := mt (hmem.2 i) hi
       rw [h1, not_not.1 h2]
 
+theorem octad_complement_affine_code (hd : d ∈ C) (hw : hammingNorm d = 8) :
+    Module.finrank (ZMod 2) (CJc d) = 5 ∧
+    (Ω + d ∈ CJc d ∧ ∀ i, d i = 0 → (Ω + d) i = 1) ∧
+    (∀ a ∈ CJc d, a ≠ 0 → a ≠ Ω + d → hammingNorm a = 8) ∧
+    ∀ b : Module.Basis (Fin 5) (ZMod 2) (CJc d), (b 0 : Fin 24 → ZMod 2) = Ω + d →
+      Function.Bijective (fun (i : {i // d i = 0}) (k : Fin 4) => (b k.succ : Fin 24 → ZMod 2) i) ∧
+      ∀ a : Fin 24 → ZMod 2, a ∈ CJc d ↔ (∀ i, a i ≠ 0 → d i = 0) ∧
+        ∃ (c₀ : ZMod 2) (t : Fin 4 → ZMod 2), ∀ i : {i // d i = 0},
+          a i = c₀ + ∑ k, t k * (b k.succ : Fin 24 → ZMod 2) i := by
+  refine ⟨finrank_CJc hd hw, ⟨Ω_add_mem_CJc hd, fun i hi => Ω_add_apply_of_eq_zero hi⟩,
+    fun a ha h0 hΩ => hammingNorm_of_mem_CJc hd hw ha h0 hΩ, fun b hb => ?_⟩
+  have hcons : (Fin.cons (Ω + d) (fun k => (b k.succ : Fin 24 → ZMod 2)) :
+      Fin 5 → Fin 24 → ZMod 2) = fun j => (b j : Fin 24 → ZMod 2) := by
+    funext j
+    refine Fin.cases ?_ (fun k => ?_) j
+    · simp [hb]
+    · simp
+  have hli : LinearIndependent (ZMod 2) (Fin.cons (Ω + d) (fun k => (b k.succ : Fin 24 → ZMod 2)) :
+      Fin 5 → Fin 24 → ZMod 2) := by
+    rw [hcons]
+    exact b.linearIndependent.map' (CJc d).subtype (Submodule.ker_subtype _)
+  exact affine_of_linearIndependent hd hw (fun k => (b k.succ).2) hli
 
 end CFSG.Monster.Code

@@ -33,6 +33,8 @@ theorem flagOK_parts {N : ℕ} {K₁ K₂ P Pi : PM} {ns : List ℕ} {stds₁ st
   refine ⟨hP, hPi, ?_, h1, h2⟩
   rw [← PM.toMat_mul P Pi hP hPi, PM.toMat_eq_of_eqm hid, PM.toMat_idm]
 
+theorem toVec_mem_flagSub {N n : ℕ} {v : PV} (h : PV.lowZero n v = true) :
+    PV.toVec N v ∈ flagSub FieldFour N n := fun _ hk => PV.get_eq_zero_of_lowZero h hk
 
 theorem resW_toVec {N n0 d : ℕ} (h : n0 + d ≤ N) (v : PV) :
     resW FieldFour N n0 d (PV.toVec N v) = PV.toVec d (v.shr n0) := by

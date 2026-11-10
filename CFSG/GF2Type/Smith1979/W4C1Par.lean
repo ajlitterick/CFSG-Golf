@@ -34,6 +34,9 @@ theorem apply_inv_apply' (g : Γ) (d : V) : ρ g (ρ g⁻¹ d) = d := by
   rw [← LinearEquiv.mul_apply, ← map_mul, mul_inv_cancel, map_one]
   rfl
 
+theorem inv_apply_apply' (g : Γ) (d : V) : ρ g⁻¹ (ρ g d) = d := by
+  rw [← LinearEquiv.mul_apply, ← map_mul, inv_mul_cancel, map_one]
+  rfl
 
 variable (hO : ∀ g, ρ g ∈ TauCeti.QuadraticMap.orthogonalGroup Q)
   (hD : ∀ g, ∀ d ∈ D, ρ g d ∈ D)
@@ -68,6 +71,7 @@ theorem map_E (g : Γ) : (perp Q D).map (ρ g : V →ₗ[ZMod 2] V) = perp Q D :
     ext d
     simp only [LinearEquiv.ofSubmodules_apply, LinearEquiv.mul_apply, map_mul]
 
+theorem resD_apply (g : Γ) (d : D) : ((resD ρ hD g d : D) : V) = ρ g d := rfl
 
 abbrev subE (Q : QuadraticForm (ZMod 2) V) (D : Submodule (ZMod 2) V) :
     Submodule (ZMod 2) (perp Q D) :=

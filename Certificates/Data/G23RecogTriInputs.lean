@@ -94,5 +94,8 @@ open CFSG.GH74.QTGen4.Recog.G23 CFSG.CosetTable
 
 @[expose] def modelPairs : List (Fin 6 × Fin 6) := [(0, 0), (1, 1), (2, 3), (3, 2)]
 
+@[expose] def collapseCheck (k₁ k₂ : Fin 6) : Bool :=
+  subsetCheck (cfgWords k₁ k₂) [0, 1, 2, 3] 100000 1 &&
+    subsetCheck (restrictWords (subsetOf 6 [0, 1, 2, 3]) (cfgWords k₁ k₂)) [] 100000 288
 
 end CFSG.GH74.QTGen4.Recog.G23.P7

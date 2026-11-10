@@ -111,5 +111,50 @@ theorem orderOf_tStar :
     show betaG rootInv = rootInv from apply_rootInv_of_mem_betaGroup betaElt', rootInv_mul_self,
     map_one]
 
+theorem standard_field_involution_F4_and_root_centralizer_orders :
+    (∀ g : stdGroup, (g : ModGL Tag.E6 K) ∈ groupJ ↔
+      Commute (SemidirectProduct.inl g : GStar) betaStarElt) ∧
+    (groupJ : Subgroup (ModGL TwistTag.E6.tag K)) =
+      (twistedFixedGroup TwistTag.E6 (ZMod 2) (RingHom.id (ZMod 2))).map
+        (baseChangeGL (algebraMap (ZMod 2) K)) ∧
+    (∃ Ψ : groupJ ≃* adjointGroup Tag.F4 (ZMod 2),
+      ∀ (g : twistedFixedGroup TwistTag.E6 (ZMod 2) (RingHom.id (ZMod 2))) (x : groupJ),
+        ((x : ModGL Tag.E6 K) : ModGL TwistTag.E6.tag K) =
+            baseChangeGL (algebraMap (ZMod 2) K) (g : ModGL TwistTag.E6.tag (ZMod 2)) →
+          (Ψ x : ModGL Tag.F4 (ZMod 2)) = e6FixedToF4 (ZMod 2) g) ∧
+    Nat.card groupJ = 3311126603366400 ∧
+    Nat.card (Subgroup.centralizer ({tJ} : Set groupJ)) = 47563407360 ∧
+    (∀ γ : GStar, γ ∈ Subgroup.centralizer {betaStarElt} ↔
+      (γ.left : ModGL Tag.E6 K) ∈ groupJ) ∧
+    (∃ e : (groupJ.subgroupOf stdGroup) × betaGroup ≃* Subgroup.centralizer {betaStarElt},
+      ∀ x, (e x : GStar) =
+        SemidirectProduct.inl (x.1 : stdGroup) * SemidirectProduct.inr x.2) ∧
+    Nat.card (Subgroup.centralizer {betaStarElt}) = 6622253206732800 ∧
+    (∀ γ : GStar, γ ∈ Subgroup.centralizer {rootStar * betaStarElt} ↔
+      (γ.left : ModGL Tag.E6 K) ∈ groupJ ⊓ Subgroup.centralizer {rootInvM}) ∧
+    (∃ e : ((groupJ ⊓ Subgroup.centralizer {rootInvM}).subgroupOf stdGroup) × betaGroup ≃*
+        Subgroup.centralizer {rootStar * betaStarElt},
+      ∀ x, (e x : GStar) =
+        SemidirectProduct.inl (x.1 : stdGroup) * SemidirectProduct.inr x.2) ∧
+    Nat.card (Subgroup.centralizer {rootStar * betaStarElt}) = 95126814720 ∧
+    orderOf betaStarElt = 2 ∧ orderOf (rootStar * betaStarElt) = 2 ∧
+    ∀ a : stdGroup, (SemidirectProduct.inl a * betaStarElt : GStar) ^ 2 = 1 →
+      Xor (∃ g : stdGroup, SemidirectProduct.inl g * (SemidirectProduct.inl a * betaStarElt) *
+          (SemidirectProduct.inl g)⁻¹ = betaStarElt)
+        (∃ g : stdGroup, SemidirectProduct.inl g * (SemidirectProduct.inl a * betaStarElt) *
+          (SemidirectProduct.inl g)⁻¹ = rootStar * betaStarElt) :=
+  ⟨mem_groupJ_iff_commute, groupJ_eq_canonical, exists_groupJ_mulEquiv_F4, card_groupJ,
+    card_centralizer_tJ,
+    fun γ => by
+      rw [centralizer_betaStarElt, mem_starSub, Subgroup.mem_subgroupOf],
+    ⟨(prodStar groupJ_fixed).trans (MulEquiv.subgroupCongr centralizer_betaStarElt.symm),
+      fun x => coe_prodStar groupJ_fixed x⟩,
+    card_centralizer_betaStarElt,
+    fun γ => by
+      rw [centralizer_tStar, mem_starSub, Subgroup.mem_subgroupOf],
+    ⟨(prodStar centJ_fixed).trans (MulEquiv.subgroupCongr centralizer_tStar.symm),
+      fun x => coe_prodStar centJ_fixed x⟩,
+    card_centralizer_tStar, orderOf_betaStarElt, orderOf_tStar,
+    fun _ ha => xor_conj_of_sq_eq_one ha⟩
 
 end CFSG.Monster.B.E6.FieldInvF4

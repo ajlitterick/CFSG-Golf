@@ -119,5 +119,8 @@ abbrev K5 : Subgroup Dfull := Subgroup.normalizer (E5 : Set Dfull)
 
 @[expose] def Z5 : Subgroup Dfull := Subgroup.centralizer (E5 : Set Dfull)
 
+theorem Z4_le_K4 : Z4 ≤ K4 := Subgroup.centralizer_le_normalizer _
+
+theorem Z5_le_K5 : Z5 ≤ K5 := Subgroup.centralizer_le_normalizer _
 
 end CFSG.Monster.B.TwoA

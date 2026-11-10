@@ -96,6 +96,9 @@ theorem Ginl_isSimpleGroup :
     IsSimpleGroup Ginl :=
   @MulEquiv.isSimpleGroup _ _ _ _ stdGroup_isSimpleGroup stdGroupEquivGinl.symm
 
+theorem Ginl_not_comm :
+    ¬ IsMulCommutative Ginl := fun h => stdGroup_not_comm
+  ⟨⟨fun a b => stdGroupEquivGinl.injective (by rw [map_mul, map_mul, h.is_comm.comm])⟩⟩
 
 section Cover
 

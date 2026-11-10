@@ -44,6 +44,11 @@ variable {G : Type} [Group G] [Finite G] {U : Type} [Group U]
     LieModel (↥(LargeEvenLayer (G₀ ⊓ Subgroup.centralizer {y})) ⧸
       Subgroup.center ↥(LargeEvenLayer (G₀ ⊓ Subgroup.centralizer {y}))) .PSL 3 2 f
 
+theorem ggSixTrialityCase_iff {p : ℕ} {B : Subgroup G} {x : G} {L D J : Subgroup G}
+    {Δ : UniversalRootDatum U} {t : StatedLieTag} {n f : ℕ} {ψ : U →* G} {y : G} :
+    GGSixTrialityCase p B x L D J Δ t n f ψ y ↔
+      GGTrialityCaseAt p (ggG0 p B x L D J) Δ t n f ψ y :=
+  Iff.rfl
 
 @[expose] def GGHasTripleValue {p : ℕ} (w : ZMod p → ZMod p) : Prop :=
   ∃ j₁ j₂ j₃ : ZMod p, j₁ ≠ j₂ ∧ j₁ ≠ j₃ ∧ j₂ ≠ j₃ ∧ w j₁ = w j₂ ∧ w j₁ = w j₃
@@ -82,6 +87,16 @@ section Inputs
       (∀ m ∈ Subgroup.normalizer (G₀ : Set G), m⁻¹ * y * m ∉ Bs) →
         Nat.card Bs = p ^ (p - 1)
 
+@[expose] def GGSixLinearTorusModelInput : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (Bs G₀ : Subgroup G) (t : StatedLieTag) (n f : ℕ)
+    (ψ : (ggU t n f).K →* G),
+    GGSixFusionSetting p Bs G₀ (ggU t n f).D t n f ψ → GGSixLinearCase p t n f →
+    Nat.card Bs = p ^ (p - 1) →
+      (∀ Q : Subgroup G, Q ≤ Subgroup.normalizer (Bs : Set G) → IsPGroup p Q →
+        IsMulCommutative ↥(Q ⊓ Subgroup.centralizer (Bs : Set G)) ∧
+          Nat.card Q ≤ p * Nat.card ↥(Q ⊓ Subgroup.centralizer (Bs : Set G))) ∧
+      ∀ z ∈ Subgroup.normalizer (Bs : Set G), z ∉ Subgroup.centralizer (Bs : Set G) → z ^ p = 1 →
+        ∃ v : G → ZMod p → ZMod p, GGTorusCoords p Bs G₀ f z v
 
 @[expose] def GGSixTwoLocalRankInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)

@@ -32,5 +32,12 @@ open CFSG.GF2Type.Smith1979.GammaU
   P v && (List.range 4096).all fun n =>
     !(P n) || (S.contains n && gs.all fun g => P (appN g n))
 
+@[expose] def omegaOK (_ : Unit := ()) : Bool := orbitSetOK pGens 12 inOmegab
+
+@[expose] def orbitOK (_ : Unit := ()) : Bool :=
+  orbitSetOK m0Gens 3 inO378b && orbitSetOK m0Gens 15 inO1701b &&
+    orbitSetOK e0Gens 3 inO378b && orbitSetOK e0Gens 15 inO1701b &&
+    ((List.range 4096).filter inO378b).length == 378 &&
+    ((List.range 4096).filter inO1701b).length == 1701
 
 end CFSG.GF2Type.Smith1979.IdxFour.Orb

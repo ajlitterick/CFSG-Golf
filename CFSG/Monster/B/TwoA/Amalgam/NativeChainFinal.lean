@@ -72,5 +72,16 @@ theorem native_cgraph_triangulable :
     CFSG.Monster.B.Recog.Triangulable cgraph :=
   cgraph_triangulable_of_ambient ambientRootOrbitsHyp
 
+theorem native_universal_completion
+    {Y : Type*} [Group Y] (φv : vStab cv0 →* Y) (φe : cvSetStab {cv0, cw0} →* Y)
+    (φt : ∀ j, cvSetStab {cv0, cw0, cu j} →* Y)
+    (hve : ∀ a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0}), φv ⟨a, ha⟩ = φe ⟨a, hb⟩)
+    (hvt : ∀ j a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
+      φv ⟨a, ha⟩ = φt j ⟨a, hb⟩)
+    (het : ∀ j a (ha : a ∈ cvSetStab {cv0, cw0}) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
+      φe ⟨a, ha⟩ = φt j ⟨a, hb⟩) :
+    ∃! Φ : Shat →* Y, (∀ a : vStab cv0, Φ a = φv a) ∧ (∀ a : cvSetStab {cv0, cw0}, Φ a = φe a) ∧
+      ∀ j (a : cvSetStab {cv0, cw0, cu j}), Φ a = φt j a :=
+  native_universal_completion_of_ambient_cu ambientRootOrbitsHyp φv φe φt hve hvt het
 
 end CFSG.Monster.B.TwoA.Amalgam

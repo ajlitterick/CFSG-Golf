@@ -294,6 +294,10 @@ theorem enc_lt {v : V6} (h : v.red) : enc v < 15625 := by
   unfold enc
   omega
 
+theorem enc_dec {i : ℕ} (hi : i < 15625) : enc (dec i) = i := by
+  unfold enc dec encQ decQ
+  simp only
+  omega
 
 theorem V6.beq_eq {v w : V6} (h : v.beq w = true) : v = w := by
   unfold V6.beq at h

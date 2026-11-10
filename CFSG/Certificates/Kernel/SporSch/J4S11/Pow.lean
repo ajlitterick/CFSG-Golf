@@ -95,6 +95,10 @@ theorem vne_sound' (hK : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) {Z : Array Na
   rw [hV, hU, hO, e2]
   exact key
 
+private theorem beq_false' {a b : Nat} (h : a ≠ b) : Nat.beq a b = false := by
+  cases hb : Nat.beq a b
+  · rfl
+  · exact absurd (Nat.eq_of_beq_eq_true hb) h
 
 private theorem strictB_eq' (y : Nat) (k : Nat → Bool) : CFSG.KC.J4Q.strictB y k = k y := by
   cases y <;> rfl

@@ -360,6 +360,26 @@ namespace LyData
 variable {G : Type} [Group G] [Finite G] {t : G}
   {ρ : ↥(centralizer ({t} : Set G)) →* Perm (Fin 11)} {x : ↥(centralizer ({t} : Set G))}
 
+theorem normQuot_mulEquiv_aut (D : LyData G t ρ) (hx3 : x ^ 3 = 1) (hx : ρ x = x1p)
+    (hout : Nat.card (Outer (CentQuot (x : G))) = 2) :
+    Nonempty (NormQuot (x : G) ≃* MulAut (CentQuot (x : G))) := by
+  obtain ⟨hsimple, hnab, -⟩ := D.centQuot_facts hx3 hx
+  have hcen := center_eq_bot_of_simple hsimple hnab
+  have hinj := D.normQuotAutQuot_injective hx3 hx
+  have hcard : Nat.card (MulAut (CentQuot (x : G))) ≤ Nat.card (NormQuot (x : G)) := by
+    rw [card_mulAut_of_outer hcen hout, D.card_normQuot hx3 hx]
+  exact ⟨MulEquiv.ofBijective (normQuotAutQuot : NormQuot (x : G) →* MulAut (CentQuot (x : G)))
+    (hinj.bijective_of_nat_card_le hcard)⟩
+
+theorem lemma43
+    (D : LyData G t ρ) (hx3 : x ^ 3 = 1) (hx : ρ x = x1p) :
+    Nonempty (CentQuot (x : G) ≃* Blueprint.NativeSporadic.McL) ∧
+      Nonempty (NormQuot (x : G) ≃* MulAut Blueprint.NativeSporadic.McL) := by
+  obtain ⟨e⟩ := D.centQuot_mcl hx3 hx
+  refine ⟨⟨e⟩, ?_⟩
+  have hout : Nat.card (Outer (CentQuot (x : G))) = 2 := outer_card_of_equiv_mcl e
+  obtain ⟨f⟩ := D.normQuot_mulEquiv_aut hx3 hx hout
+  exact ⟨f.trans (@MulAut.congr (CentQuot (x : G)) _ Blueprint.NativeSporadic.McL inferInstance e)⟩
 
 omit [Finite G] in
 theorem card_centralizer_eq_three_mul (hx3 : x ^ 3 = 1) (hx : ρ x = x1p) :
@@ -392,5 +412,22 @@ theorem card_centralizer_x1
 
 end LyData
 
+theorem exists_lemma43_of_oneClassDoubleCover
+    {G : Type} [Group G] [Finite G] (hG : OneClassDoubleCover G 11) :
+    ∃ x : G, orderOf x = 3 ∧ Nonempty (CentQuot x ≃* Blueprint.NativeSporadic.McL) ∧
+      Nonempty (NormQuot x ≃* MulAut Blueprint.NativeSporadic.McL) := by
+  obtain ⟨t, ρ, D⟩ := exists_lyData_of_oneClassDoubleCover hG
+  obtain ⟨x, hx3, hx⟩ := D.exists_lift_x1p
+  have hxG3 : (x : G) ^ 3 = 1 := by
+    have := congrArg Subtype.val hx3
+    simpa using this
+  have hx1 : (x : G) ≠ 1 := by
+    intro h
+    have : x = 1 := Subtype.ext h
+    rw [this, map_one] at hx
+    exact (by decide : (1 : Perm (Fin 11)) ≠ x1p) hx
+  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+  obtain ⟨h1, h2⟩ := D.lemma43 hx3 hx
+  exact ⟨(x : G), orderOf_eq_prime hxG3 hx1, h1, h2⟩
 
 end CFSG.Sporadic.Recognition.LyonsSims

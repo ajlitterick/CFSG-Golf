@@ -383,6 +383,9 @@ theorem decomp_unique [Finite V] (hp : p.Prime) (hexp : ∀ v : V, v ^ p = 1) {H
       exact Prod.ext (Subtype.ext h2) (Fin.ext h1)
     · rw [Nat.card_prod, Nat.card_fin, ← H.index_mul_card, hH, mul_comm])
 
+theorem decompEquiv_apply [Finite V] (hp : p.Prime) (hexp : ∀ v : V, v ^ p = 1)
+    {H : Subgroup V} (hH : H.index = p) {u : V} (hu : u ∉ H) (q : ↥H × Fin p) :
+    decompEquiv hp hexp hH hu q = u ^ (q.2 : ℕ) * (q.1 : V) := rfl
 
 theorem decomp_exists [Finite V] (hp : p.Prime) (hexp : ∀ v : V, v ^ p = 1)
     {H : Subgroup V} (hH : H.index = p) {u : V} (hu : u ∉ H) (x : V) :

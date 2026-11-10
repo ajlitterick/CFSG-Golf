@@ -243,5 +243,40 @@ theorem commWord_eval (i : Fin 2) :
   refine List.mem_append_right _ ?_
   fin_cases i <;> simp
 
+private theorem psi_yElt_apply (i : Fin 820) : (psi yElt i : ℕ) = tabB[(i : ℕ)]! :=
+  (rep_tabB i).symm
+
+theorem orderOf_yElt : orderOf yElt = 6 := by
+  have h6 : yElt ^ 6 = 1 := by
+    have := checkWords_eval _
+      (mem_checkWords_of_rels (v := List.replicate 6 ((1 : Fin 2), true))
+        (List.mem_cons_of_mem _ List.mem_cons_self))
+    simpa [wordProd, img2, pow_succ, mul_assoc] using this
+  refine orderOf_eq_of_pow_and_pow_div_prime (by norm_num) h6 fun p hp hdvd => ?_
+  have hp' : p = 2 ∨ p = 3 := by
+    have := (Nat.le_of_dvd (by norm_num) hdvd)
+    interval_cases p <;> first | (left; rfl) | (right; rfl) | (exfalso; revert hdvd; decide) |
+      (exfalso; norm_num at hp)
+  intro h
+  have hpsi : psi yElt ^ (6 / p) = 1 := by rw [← map_pow, h, map_one]
+  have h0 := congrArg (fun σ : Equiv.Perm (Fin 820) => (σ 0 : ℕ)) hpsi
+  rcases hp' with rfl | rfl
+  · simp only [show 6 / 2 = 3 from rfl, pow_succ, pow_zero, one_mul, Equiv.Perm.mul_apply,
+      Equiv.Perm.one_apply] at h0
+    rw [psi_yElt_apply, psi_yElt_apply, psi_yElt_apply] at h0
+    revert h0; decide +kernel
+  · simp only [show 6 / 3 = 2 from rfl, pow_succ, pow_zero, one_mul, Equiv.Perm.mul_apply,
+      Equiv.Perm.one_apply] at h0
+    rw [psi_yElt_apply, psi_yElt_apply] at h0
+    revert h0; decide +kernel
+
+theorem kernelT_eval : ∀ p ∈ kernelT,
+    FreeGroup.lift (fun j : Fin 2 => img2 xElt yElt j.val) (FreeGroup.mk p.1) = 1 := by
+  intro p hp
+  rw [lift_mk_eq_wordProd]
+  refine checkWords_eval _ ?_
+  rw [checkWords, List.map_append, List.map_append]
+  exact List.mem_append_left _ (List.mem_append_right _
+    (List.mem_map_of_mem (List.mem_map_of_mem hp)))
 
 end CFSG.LieType.Multipliers.U43

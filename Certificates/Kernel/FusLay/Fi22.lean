@@ -19,6 +19,8 @@ open CFSG.KC.OpsLayK CFSG.RankThree.PartOne.CTP.Fus
 theorem fus9478_K : fusL lay A B betaFi22P3N betaFi22P3Prog betaFi22P3 = true := by
   decide +kernel
 
+theorem fus9478_neg : (!fusL lay B A betaFi22P3N betaFi22P3Prog betaFi22P3) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelFusLay.Fi22
 

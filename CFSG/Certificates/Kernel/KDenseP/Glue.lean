@@ -591,6 +591,19 @@ theorem itemP_sound {n lg q : ℕ} (hn : 2 ≤ n) (hlg : n ≤ 2 ^ lg) {F : Fix}
   rw [← hf4] at rB
   exact ⟨vA, vB, rA, rB, hf2, hf5, hfn⟩
 
+theorem planP_rep {n lg q : ℕ} (hn : 2 ≤ n) (hlg : n ≤ 2 ^ lg) {F : Fix} {T : MonoTab}
+    {KT TH OCT DU1 : Nat} (hd : dataOKP F T KT TH OCT DU1 = true)
+    (words : ℕ → List Native.Gen) (hL : ∀ σ, ∀ g ∈ words σ, letterOK g = true) (S : ℕ → St)
+    (wit : ℕ → Native.DVec)
+    (hinit : ∀ x < 3, RepN n (wit x) (S x)) (CH : ℕ → ℕ) (nch : ℕ) (IT : List ℕ)
+    (hplan : planOKP words CH nch IT = true)
+    (hch : ∀ k < nch, chunkOKN n lg q F T words S (CH k) = true) (t : ℕ) (ht : t < IT.length) :
+    RepN n (Native.evalWord (words (2 * t)) (wit (IT[t]! % 4)))
+      (S (f20 (CH fld(IT[t]!, 84, 1048575)) 3)) ∧
+    RepN n (Native.evalWord (words (2 * t + 1)) (wit (IT[t]! % 4)))
+      (S (f20 (CH fld(IT[t]!, 84, 1048575)) 4)) :=
+  let h := itemP_sound hn hlg hd words hL S wit hinit CH nch IT hplan hch t ht
+  ⟨h.2.2.1, h.2.2.2.1⟩
 
 theorem planP_sound {n lg q : ℕ} (hn : 2 ≤ n) (hlg : n ≤ 2 ^ lg) (hq : q ∣ 2 ^ n - 1) {F : Fix}
     {T : MonoTab} {KT TH OCT DU1 : Nat} (hd : dataOKP F T KT TH OCT DU1 = true)

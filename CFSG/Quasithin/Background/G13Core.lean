@@ -33,6 +33,7 @@ theorem wmat_mul_self : wmat F * wmat F = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
 
+theorem wmat_inv : (wmat F)⁻¹ = wmat F := inv_eq_of_mul_eq_one_right wmat_mul_self
 
 theorem wmat_lower_left : (wmat F).1 1 0 ≠ 0 := by simp
 

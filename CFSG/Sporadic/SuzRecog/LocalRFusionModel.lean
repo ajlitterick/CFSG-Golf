@@ -76,6 +76,19 @@ theorem reps_facts :
 
 @[expose] def cGens2 : Set (Equiv.Perm (Fin 1782)) := {g | ∃ j < 2, cPerm (2 + 2 * j) = g}
 
+theorem fusionGens_size : fusionGens.size = 10 := Array.size_ofFn
+
+theorem fusionGens_get {k : ℕ} (hk : k < 10) : fusionGens[k]! = cTab k := by
+  rw [fusionGens, getElem!_ofFn' _ hk]
+
+theorem closure_cGens : closure cGens = invE 1 := by
+  refine le_antisymm ((closure_le _).mpr ?_) ?_
+  · rintro _ ⟨k, hk, rfl⟩
+    exact cPerm_mem hk
+  · rw [invE, CFSG.Certificates.RawSchreierDatum.originalSubgroup, closure_le]
+    intro g hg
+    obtain ⟨k, hk, hrep⟩ := gen_rep hg
+    exact subset_closure ⟨k, hk, (rep_cPerm hk).unique hrep⟩
 
 theorem orbGens_size : orbGens.size = 2 := rfl
 
@@ -145,6 +158,9 @@ theorem closure_cGens2 : closure cGens2 = invE 1 := by
 @[expose] noncomputable def lambdaElt (i : ℕ) : ↥(invE 1) :=
   if i = 0 then t1Elt else if i = 1 then lambda2 else if i = 2 then lambda3 else lambda4
 
+theorem rep_lambda4 :
+    CFSG.Monster.B.Co2.Rep 1782 (cWord lambda4Word) (lambda4 : Equiv.Perm (Fin 1782)) :=
+  rep_cWord (by decide)
 
 theorem tabRep_lambda {i : ℕ} (hi : i < 4) :
     TabRep (lambdaTab i) (lambdaElt i : Equiv.Perm (Fin 1782)) := by

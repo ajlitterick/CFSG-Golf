@@ -11,5 +11,11 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG CFSG.ASVolI in
+theorem certificate7551 : burnsideF48s_sp43eCheckGens () = true ∧ burnsideF48s_sp43eCheckRels () = true ∧
+    burnsideF48s_sp43eCheckLetters () = true ∧ burnsideF48s_sp43eCheckClosed () = true ∧
+    burnsideF48s_sp43eCheckCand () = true :=
+  ⟨KernelF48S.gensSp43e_ok, KernelF48S.relsSp43e_ok, KernelF48S.sp43e_checkLetters,
+    KernelF48S.sp43e_checkClosed, KernelF48S.sp43e_checkCand⟩
 
 end Certificates

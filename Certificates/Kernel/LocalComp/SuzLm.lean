@@ -59,6 +59,7 @@ theorem kNine : strictB (SuzB0M.T (LmW 0)) (fun s => strictB (pc s (pc s s)) fun
       true := by
   quickRfl
 
+theorem kNeg : Nat.beq (Nat.mod (fixCnt 0) 27) 0 = true := by quickRfl
 
 end CertificateChecks.KernelLC.SuzLm
 

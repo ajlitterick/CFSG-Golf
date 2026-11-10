@@ -61,6 +61,8 @@ theorem mem_V_iff (hs : Count23Setup V w) (hv : v ∈ Vsharp V) (hv₁ : v₁ �
     · exact V.mul_mem hv.1 hv₁.1
 
 
+
+
 @[expose] def NormV (V : Subgroup G) (n : G) : Prop := ∀ a ∈ V, n * a * n⁻¹ ∈ V
 
 theorem NormV.one : NormV V 1 := fun a ha => by simpa using ha
@@ -84,6 +86,21 @@ theorem NormV.inv [Finite G] {n : G} (h : NormV V n) : NormV V n⁻¹ := by
   rw [this]
   exact b.2
 
+theorem V_comm_winv (hs : Count23Setup V w) {a : G} (ha : a ∈ V) : a * w⁻¹ = w⁻¹ * a := by
+  have hc : a * w = w * a := hs.w_comm a ha
+  have hinv : w⁻¹ = w := inv_eq_of_mul_eq_one_right hs.w_sq
+  rw [hinv]; exact hc
+
+theorem Wset_sq (hs : Count23Setup V w) {x : G} (hx : x ∈ Wset V w) : x * x = 1 := by
+  have h1 : w * x ∈ V := hx
+  have h2 : w * x * (w * x) = 1 := hs.V_sq _ h1
+  have hc' : (w * x) * w⁻¹ = w⁻¹ * (w * x) := V_comm_winv hs h1
+  have hinv : w⁻¹ = w := inv_eq_of_mul_eq_one_right hs.w_sq
+  calc x * x = (w⁻¹ * (w * x)) * (w⁻¹ * (w * x)) := by group
+    _ = w⁻¹ * ((w * x) * w⁻¹) * (w * x) := by group
+    _ = w⁻¹ * (w⁻¹ * (w * x)) * (w * x) := by rw [hc']
+    _ = (w⁻¹ * w⁻¹) * ((w * x) * (w * x)) := by group
+    _ = 1 := by rw [h2, mul_one, hinv, hs.w_sq]
 
 theorem Wset_mul_Wset (hs : Count23Setup V w) {x y : G} (hx : x ∈ Wset V w) (hy : y ∈ Wset V w) :
     x * y ∈ V := by

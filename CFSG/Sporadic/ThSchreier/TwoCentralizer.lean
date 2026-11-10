@@ -70,6 +70,9 @@ theorem forall₂_twoRows4 : List.Forall₂ IsRows twoRows4 twoU4 := by
 theorem forall₂_twoRowsList : List.Forall₂ IsRows twoRowsList twoList :=
   foldl_forall₂ strongWords twoRows4 twoU4 forall₂_twoRows4 native_two_facts.2.2.1
 
+theorem twoList_length : twoList.length = 10 := by
+  rw [← forall₂_twoRowsList.length_eq]
+  exact native_two_facts.2.2.2.1
 
 theorem origWords_eq : wordG (tupleLetters twoList) origWord0 = localX ∧
     wordG (tupleLetters twoList) origWord1 = localY := by
@@ -124,6 +127,10 @@ theorem twoR_eq : twoR = EP 217 := by
   rw [EP_217]
   exact isRows_twoR.eq_of_eqRows isRows_E217 native_two_facts.2.2.2.2.2.2.1
 
+theorem twoR_mul_self : twoR * twoR = 1 := by
+  rw [twoR]
+  have h : twoG * a * twoG⁻¹ * (twoG * a * twoG⁻¹) = twoG * (a * a) * twoG⁻¹ := by group
+  rw [h, AllConj.a_mul_self, mul_one, mul_inv_cancel]
 
 theorem twoR_ne_one : twoR ≠ 1 :=
   isRows_twoR.ne_of_eqRows IsRows.one native_two_facts.2.2.2.2.2.2.2.1
@@ -146,5 +153,31 @@ theorem twoR_not_mem_zpowers : twoR ∉ Subgroup.zpowers z := by
   · rw [e, hk2, zpow_one] at hk
     exact twoR_ne_z hk.symm
 
+theorem ctuc_Th_two_centralizer_data :
+    twoC0 = wordG (pairLetters localX localY) centWord0 ∧
+    twoC1 = wordG (pairLetters localX localY) centWord1 ∧
+    twoK = localY * localY * localX * localY ∧ twoG = transporterV * twoK * transporterV⁻¹ ∧
+    twoR = twoG * a * twoG⁻¹ ∧ twoM1 = M.map (MulAut.conj twoG).toMonoidHom ∧
+    twoList.length = 10 ∧ twoList.take 4 = twoU4 ∧
+    (∀ i < 6, twoList.take (i + 5) =
+      twoStep (twoList.take (i + 4)) (strongWords.getD i [])) ∧
+    (∀ i < 6, ∀ l ∈ strongWords.getD i [], l ≠ 0 ∧ l.natAbs ≤ i + 4) ∧
+    (∀ l ∈ origWord0, l ≠ 0 ∧ l.natAbs ≤ 10) ∧ (∀ l ∈ origWord1, l ≠ 0 ∧ l.natAbs ≤ 10) ∧
+    ∀ u ∈ twoList, u ∈ localH := by
+  refine ⟨rfl, rfl, ?_, rfl, rfl, rfl, twoList_length, ?_, ?_, by decide, by decide, by decide,
+    fun u hu => localH_eq_twoH4 ▸ twoList_mem_twoH4 u hu⟩
+  · simp [twoK, kWord, wordG, pairLetters, mul_assoc]
+  · simp [twoList, strongWords, twoStep, twoU4]
+  · intro i hi
+    interval_cases i <;> simp [twoList, strongWords, twoStep, twoU4]
+
+theorem ctuc_Th_two_centralizer_local_generation :
+    twoC0 * involT = involT * twoC0 ∧ twoC1 * involT = involT * twoC1 ∧
+    localH = Subgroup.closure {twoC0, twoC1, twoK * twoC0 * twoK⁻¹, twoK * twoC1 * twoK⁻¹} ∧
+    twoR = EP 217 ∧ ∃ h : twoR ∈ Q, (⟨twoR, h⟩ : Q) ∉ Subgroup.center Q ∧ orderOf twoR = 2 := by
+  refine ⟨twoC_comm.1, twoC_comm.2, localH_eq_twoH4, twoR_eq, twoR_mem_Q, ?_,
+    orderOf_eq_prime (by rw [sq]; exact twoR_mul_self) twoR_ne_one⟩
+  rw [center_Q, Subgroup.mem_subgroupOf]
+  exact twoR_not_mem_zpowers
 
 end CFSG.Sporadic.ThSchreier

@@ -27,6 +27,11 @@ theorem ρL_lt {c : ℕ} (hc : c < 12) : ρL c < 12 := by
   unfold ρL
   split_ifs <;> omega
 
+theorem ρL_zero : ρL 0 = 0 := rfl
+
+theorem ρL_of_ge {c : ℕ} (hc : 9 ≤ c) : ρL c = c := by
+  unfold ρL
+  split_ifs <;> omega
 
 theorem pairsPreserved_ρL : Relabel.PairsPreserved 4 4 3 4 4 3 ρL := by decide
 
@@ -205,6 +210,7 @@ open Y443
 
 theorem y443LetterOfGen_E2 : y443LetterOfGen y443E2 = 8 := rfl
 
+theorem y443LetterOfGen_D2 : y443LetterOfGen y443D2 = 7 := rfl
 
 theorem y443E2_ne_E1 : y443E2 ≠ y443E1 := by decide
 
@@ -212,6 +218,13 @@ theorem y443E2_ne_D1 : y443E2 ≠ y443D1 := by decide
 
 theorem y443D1_ne_E2 : y443D1 ≠ y443E2 := by decide
 
+theorem y443E1_ne_D2 : y443E1 ≠ y443D2 := by decide
+
+theorem y443D2_ne_E1 : y443D2 ≠ y443E1 := by decide
+
+theorem y443D1_ne_E1 : y443D1 ≠ y443E1 := by decide
+
+theorem y443D2_ne_E2 : y443D2 ≠ y443E2 := by decide
 
 @[expose] def y443RhoSym (s : MonsterY443Gen) : MonsterY443Gen :=
   y443GenOfLetter (ρL (y443LetterOfGen s))
@@ -253,6 +266,12 @@ theorem y443RhoSym_eq_D1_iff {s : MonsterY443Gen} : y443RhoSym s = y443D1 ↔ s 
   · rintro rfl
     exact y443RhoSym_D2
 
+theorem y443RhoSym_eq_D2_iff {s : MonsterY443Gen} : y443RhoSym s = y443D2 ↔ s = y443D1 := by
+  constructor
+  · intro h
+    rw [← y443RhoSym_rhoSym s, h, y443RhoSym_D2]
+  · rintro rfl
+    exact y443RhoSym_D1
 
 theorem y443Rho_gen {c : ℕ} (hc : c < 12) : y443Rho (y443Gen c) = y443Gen (ρL c) := by
   have h1 : y443EquivOpen.symm (y443Gen c) = yGen 4 4 3 c :=
@@ -286,6 +305,14 @@ theorem y443Rho_mem_derived {x : MonsterY443} (hx : x ∈ MonsterY443Derived) :
   rw [y443_mem_derived_iff] at hx ⊢
   rw [y443Parity_rho, hx]
 
+theorem y443Rho_symm : y443Rho.symm = y443Rho :=
+  MulEquiv.ext fun x => y443Rho.symm_apply_eq.2 (y443Rho_rho x).symm
+
+theorem y443Rho_map_derived :
+    MonsterY443Derived.map y443Rho.toMonoidHom = MonsterY443Derived := by
+  ext x
+  rw [Subgroup.mem_map_equiv, y443Rho_symm, y443_mem_derived_iff, y443_mem_derived_iff,
+    y443Parity_rho]
 
 theorem y443EquivOpen_zY' : y443EquivOpen Y443.zY' =
     (y443Gen 0 * y443Gen 9 * y443Gen 10 * y443Gen 11 * y443Gen 5 * y443Gen 6 * y443Gen 1) ^ 9 := by
@@ -335,12 +362,15 @@ theorem y443RhoM_Tl
 @[expose] noncomputable def y443H' : Subgroup MonsterY443Derived :=
   Subgroup.closure (y443T '' {s | s ≠ y443E2})
 
+@[expose] noncomputable def y443K' : Subgroup MonsterY443Derived :=
+  Subgroup.closure (y443T '' {s | s ≠ y443E2 ∧ s ≠ y443D2})
 
 @[expose] noncomputable def y443R : Subgroup MonsterY443Derived :=
   Subgroup.closure (y443T '' {s | s ≠ y443E1 ∧ s ≠ y443E2})
 
 @[expose] noncomputable def y443X' : MonsterY443Derived := y443T y443E2
 
+@[expose] noncomputable def y443Y' : MonsterY443Derived := y443T y443D2
 
 @[expose] noncomputable def y443C' : MonsterY443Derived := y443RhoM y443C
 
@@ -349,6 +379,9 @@ theorem y443RhoM_Tl
 theorem y443T_mem_H' {s : MonsterY443Gen} (hs : s ≠ y443E2) : y443T s ∈ y443H' :=
   Subgroup.subset_closure ⟨s, hs, rfl⟩
 
+theorem y443T_mem_K' {s : MonsterY443Gen} (hs : s ≠ y443E2) (hs' : s ≠ y443D2) :
+    y443T s ∈ y443K' :=
+  Subgroup.subset_closure ⟨s, ⟨hs, hs'⟩, rfl⟩
 
 theorem y443T_mem_R {s : MonsterY443Gen} (hs : s ≠ y443E1) (hs' : s ≠ y443E2) :
     y443T s ∈ y443R :=
@@ -397,6 +430,12 @@ theorem y443RhoM_map_H :
     Set.ext fun s => not_congr y443RhoSym_eq_E1_iff
   rw [y443H, y443H', y443RhoM_map_closure_T, y443RhoSym_image, e]
 
+theorem y443RhoM_map_K :
+    y443K.map y443RhoM.toMonoidHom = y443K' := by
+  have e : {s | y443RhoSym s ≠ y443E1 ∧ y443RhoSym s ≠ y443D1} =
+      {s | s ≠ y443E2 ∧ s ≠ y443D2} :=
+    Set.ext fun s => and_congr (not_congr y443RhoSym_eq_E1_iff) (not_congr y443RhoSym_eq_D1_iff)
+  rw [y443K, y443K', y443RhoM_map_closure_T, y443RhoSym_image, e]
 
 theorem y443RhoM_map_R :
     y443R.map y443RhoM.toMonoidHom = y443R := by
@@ -418,6 +457,10 @@ theorem y443RhoM_X :
   show y443RhoM (y443T y443E1) = y443T y443E2
   rw [y443RhoM_T, y443RhoSym_E1]
 
+theorem y443RhoM_Y :
+    y443RhoM y443Y = y443Y' := by
+  show y443RhoM (y443T y443D1) = y443T y443D2
+  rw [y443RhoM_T, y443RhoSym_D1]
 
 theorem y443RhoM_C : y443RhoM y443C = y443C' := rfl
 
@@ -429,6 +472,36 @@ theorem y443RhoM_mem_H'_iff
     {m : MonsterY443Derived} : y443RhoM m ∈ y443H' ↔ m ∈ y443H := by
   rw [← y443RhoM_map_H', Subgroup.mem_map_equiv, y443RhoM_symm]
 
+@[expose] noncomputable def y443HEquivH' :
+    y443H ≃* y443H' :=
+  (y443RhoM.subgroupMap y443H).trans (MulEquiv.subgroupCongr y443RhoM_map_H)
+
+theorem y443HEquivH'_coe
+    (h : y443H) :
+    ((y443HEquivH' h : y443H') : MonsterY443Derived) = y443RhoM (h : MonsterY443Derived) := rfl
+
+theorem y443_arm_swap_images :
+    y443RhoM y443C = y443C' ∧ y443RhoM y443X = y443X' ∧ y443RhoM y443Y = y443Y' ∧
+      y443H.map y443RhoM.toMonoidHom = y443H' ∧ y443K.map y443RhoM.toMonoidHom = y443K' ∧
+      y443R.map y443RhoM.toMonoidHom = y443R :=
+  ⟨y443RhoM_C, y443RhoM_X, y443RhoM_Y, y443RhoM_map_H, y443RhoM_map_K, y443RhoM_map_R⟩
+
+theorem y443RhoM_C' : y443RhoM y443C' = y443C := y443RhoM_rhoM y443C
+
+@[expose] noncomputable def y443F0Sw : MonsterY443 :=
+  (y443Gen 0 * y443Gen 5 * y443Gen 6 * y443Gen 7 * y443Gen 1 * y443Gen 2 * y443Gen 9) ^ 9
+
+theorem y443Rho_F0 : y443Rho y443F0 = y443F0Sw := by
+  simp only [y443F0, y443F0Sw, map_pow, map_mul, y443Rho_gen (show 0 < 12 by norm_num),
+    y443Rho_gen (show 1 < 12 by norm_num), y443Rho_gen (show 2 < 12 by norm_num),
+    y443Rho_gen (show 3 < 12 by norm_num), y443Rho_gen (show 5 < 12 by norm_num),
+    y443Rho_gen (show 6 < 12 by norm_num), y443Rho_gen (show 9 < 12 by norm_num)]
+  rfl
+
+theorem y443C'_coe :
+    (y443C' : MonsterY443) = y443F0Sw * y443Z := by
+  show ((y443RhoM y443C : MonsterY443Derived) : MonsterY443) = _
+  rw [y443RhoM_coe, y443C_coe, map_mul, y443Rho_F0, y443Rho_Z]
 
 section Transfer
 
@@ -438,6 +511,19 @@ theorem y443H_map_comp_rho :
     y443H.map (f.comp y443RhoM.toMonoidHom) = y443H'.map f := by
   rw [← y443RhoM_map_H, Subgroup.map_map]
 
+theorem y443K_map_comp_rho :
+    y443K.map (f.comp y443RhoM.toMonoidHom) = y443K'.map f := by
+  rw [← y443RhoM_map_K, Subgroup.map_map]
+
+theorem comp_rho_C : f.comp y443RhoM.toMonoidHom y443C = f y443C' := rfl
+
+theorem comp_rho_X :
+    f.comp y443RhoM.toMonoidHom y443X = f y443X' :=
+  congrArg f y443RhoM_X
+
+theorem comp_rho_Y :
+    f.comp y443RhoM.toMonoidHom y443Y = f y443Y' :=
+  congrArg f y443RhoM_Y
 
 theorem injOn_comp_rho_iff :
     Set.InjOn (f.comp y443RhoM.toMonoidHom) y443H ↔ Set.InjOn f y443H' := by
@@ -453,6 +539,14 @@ theorem injOn_comp_rho_iff :
   · intro h a ha b hb hab
     exact y443RhoM.injective (h (y443RhoM_mem_H'_iff.2 ha) (y443RhoM_mem_H'_iff.2 hb) hab)
 
+theorem natCard_H_map_comp_rho :
+    Nat.card (y443H.map (f.comp y443RhoM.toMonoidHom)) = Nat.card (y443H'.map f) := by
+  rw [y443H_map_comp_rho]
+
+theorem comp_rho_X_not_mem_iff :
+    f.comp y443RhoM.toMonoidHom y443X ∉ y443H.map (f.comp y443RhoM.toMonoidHom) ↔
+      f y443X' ∉ y443H'.map f := by
+  rw [y443H_map_comp_rho, comp_rho_X]
 
 end Transfer
 
@@ -460,6 +554,34 @@ section ConjTransfer
 
 variable {G : Type*} [Group G] (f : MonsterY443Derived →* G) (u : G)
 
+theorem comp_rho_eq_conj_of
+    (h : ∀ s : MonsterY443Gen, f (y443RhoM (y443T s)) = u * f (y443T s) * u⁻¹) :
+    f.comp y443RhoM.toMonoidHom = (MulAut.conj u).toMonoidHom.comp f := by
+  have hle : (⊤ : Subgroup MonsterY443Derived) ≤
+      MonoidHom.eqLocus (f.comp y443RhoM.toMonoidHom) ((MulAut.conj u).toMonoidHom.comp f) := by
+    rw [← y443_closure_range_T, Subgroup.closure_le]
+    rintro _ ⟨s, rfl⟩
+    exact h s
+  ext m
+  exact hle (Subgroup.mem_top m)
+
+theorem H'_map_eq_conj_of
+    (h : ∀ s : MonsterY443Gen, f (y443RhoM (y443T s)) = u * f (y443T s) * u⁻¹) :
+    y443H'.map f = (y443H.map f).map (MulAut.conj u).toMonoidHom := by
+  rw [← y443H_map_comp_rho, comp_rho_eq_conj_of f u h, ← Subgroup.map_map]
+
+theorem f_C'_eq_conj_of
+    (h : ∀ s : MonsterY443Gen, f (y443RhoM (y443T s)) = u * f (y443T s) * u⁻¹) :
+    f y443C' = u * f y443C * u⁻¹ := by
+  have := DFunLike.congr_fun (comp_rho_eq_conj_of f u h) y443C
+  exact this
+
+theorem injOn_H'_of_conj_of
+    (h : ∀ s : MonsterY443Gen, f (y443RhoM (y443T s)) = u * f (y443T s) * u⁻¹)
+    (hinj : Set.InjOn f y443H) : Set.InjOn f y443H' := by
+  rw [← injOn_comp_rho_iff, comp_rho_eq_conj_of f u h]
+  intro a ha b hb hab
+  exact hinj ha hb ((MulAut.conj u).injective hab)
 
 end ConjTransfer
 
@@ -505,6 +627,10 @@ theorem y443R_le_inf : y443R ≤ y443H ⊓ y443H' := le_inf y443R_le_H y443R_le_
 theorem y443K_le_H :
     y443K ≤ y443H := fun _ hk => (y443K_le_H_and_conj hk).1
 
+theorem y443K'_le_H' :
+    y443K' ≤ y443H' := by
+  rw [← y443RhoM_map_K, ← y443RhoM_map_H]
+  exact Subgroup.map_mono y443K_le_H
 
 theorem y443C_mem_H' :
     y443C ∈ y443H' := y443R_le_H' y443C_mem_R
@@ -513,6 +639,12 @@ theorem y443X_mem_H' : y443X ∈ y443H' := y443T_mem_H' y443E2_ne_E1.symm
 
 theorem y443Y_mem_H' : y443Y ∈ y443H' := y443T_mem_H' y443D1_ne_E2
 
+theorem y443Y_mem_R : y443Y ∈ y443R := y443T_mem_R y443D1_ne_E1 y443D1_ne_E2
+
+theorem y443C'_mem_H' :
+    y443C' ∈ y443H' := by
+  rw [← y443RhoM_map_H]
+  exact Subgroup.mem_map_of_mem _ y443C_mem_H
 
 theorem y443C'_mem_R :
     y443C' ∈ y443R := by
@@ -529,6 +661,35 @@ theorem y443C'_comm_H'
   rw [map_mul, map_mul, y443RhoM_rhoM] at h2
   exact h2
 
+theorem y443C_mem_center_R :
+    ∃ hc : y443C ∈ y443R, (⟨y443C, hc⟩ : y443R) ∈ Subgroup.center y443R := by
+  refine ⟨y443C_mem_R, ?_⟩
+  rw [Subgroup.mem_center_iff]
+  intro g
+  exact Subtype.ext (y443C_comm_H (y443R_le_H g.2))
+
+theorem y443C'_mem_center_R :
+    ∃ hc : y443C' ∈ y443R, (⟨y443C', hc⟩ : y443R) ∈ Subgroup.center y443R := by
+  refine ⟨y443C'_mem_R, ?_⟩
+  rw [Subgroup.mem_center_iff]
+  intro g
+  exact Subtype.ext (y443C'_comm_H' (y443R_le_H' g.2))
+
+theorem y443C'_mem_center_H' :
+    ∃ hc : y443C' ∈ y443H', (⟨y443C', hc⟩ : y443H') ∈ Subgroup.center y443H' := by
+  refine ⟨y443C'_mem_H', ?_⟩
+  rw [Subgroup.mem_center_iff]
+  intro g
+  exact Subtype.ext (y443C'_comm_H' g.2)
+
+theorem y443X'_mem_H : y443X' ∈ y443H := y443T_mem_H y443E2_ne_E1
+
+theorem y443Y'_mem_H : y443Y' ∈ y443H := y443T_mem_H y443D2_ne_E1
+
+theorem y443Y'_mem_R : y443Y' ∈ y443R := y443T_mem_R y443D2_ne_E1 y443D2_ne_E2
+
+theorem y443C_comm_X' :
+    y443X' * y443C = y443C * y443X' := y443C_comm_H y443X'_mem_H
 
 theorem y443C'_comm_X :
     y443X * y443C' = y443C' * y443X := y443C'_comm_H' y443X_mem_H'
@@ -545,11 +706,36 @@ theorem y443T_comm_X'
 theorem y443X'_mul_self :
     y443X' * y443X' = 1 := y443T_mul_self _
 
+theorem y443Y'_mul_self :
+    y443Y' * y443Y' = 1 := y443T_mul_self _
 
 theorem y443C'_mul_self :
     y443C' * y443C' = 1 := by
   rw [← y443RhoM_C, ← map_mul, y443C_mul_self, map_one]
 
+theorem y443_x'y'_cube :
+    (y443X' * y443Y') ^ 3 = 1 := by
+  rw [← y443RhoM_X, ← y443RhoM_Y, ← map_mul, ← map_pow, y443_xy_cube, map_one]
+
+theorem y443Y'_mem_H' : y443Y' ∈ y443H' := y443T_mem_H' y443D2_ne_E2
+
+theorem y443K'_le :
+
+    y443K' ≤ y443H' ⊓ y443H'.map (MulAut.conj y443X').toMonoidHom := by
+  intro k hk
+  rw [← y443RhoM_map_K] at hk
+  obtain ⟨k₀, hk₀, rfl⟩ := Subgroup.mem_map.1 hk
+  obtain ⟨h1, h2⟩ := y443K_le hk₀
+  refine ⟨?_, ?_⟩
+  · rw [← y443RhoM_map_H]
+    exact Subgroup.mem_map_of_mem _ h1
+  · obtain ⟨h, hh, hk'⟩ := Subgroup.mem_map.1 h2
+    refine Subgroup.mem_map.2 ⟨y443RhoM h, ?_, ?_⟩
+    · rw [← y443RhoM_map_H]
+      exact Subgroup.mem_map_of_mem _ hh
+    · have := congrArg y443RhoM hk'
+      rw [← y443RhoM_X]
+      simpa [MulAut.conj_apply] using this
 
 theorem y443S_mem_H' :
     y443S ∈ y443H' :=
@@ -572,6 +758,44 @@ theorem y443S_conj_mem_H'
     y443S * r * y443S ∈ y443H' :=
   y443H'.mul_mem (y443H'.mul_mem y443S_mem_H' (y443R_le_H' hr)) y443S_mem_H'
 
+theorem y443_closure_R_K :
+    Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ (y443K : Set MonsterY443Derived)) =
+      y443H := by
+  refine le_antisymm ((Subgroup.closure_le _).2 (Set.union_subset y443R_le_H y443K_le_H)) ?_
+  rw [y443H, Subgroup.closure_le]
+  rintro _ ⟨s, hs, rfl⟩
+  by_cases hs2 : s = y443E2
+  · subst hs2
+    refine Subgroup.subset_closure (Or.inr ?_)
+    exact y443T_mem_K hs y443E2_ne_D1
+  · exact Subgroup.subset_closure (Or.inl (y443T_mem_R hs hs2))
+
+theorem y443_closure_R_K' :
+    Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ (y443K' : Set MonsterY443Derived)) =
+      y443H' := by
+  have h := congrArg (Subgroup.map y443RhoM.toMonoidHom) y443_closure_R_K
+  rw [MonoidHom.map_closure, Set.image_union, ← Subgroup.coe_map, ← Subgroup.coe_map,
+    y443RhoM_map_R, y443RhoM_map_K, y443RhoM_map_H] at h
+  exact h
+
+theorem y443_closure_R_X :
+    Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ {y443X}) = y443H' := by
+  refine le_antisymm ((Subgroup.closure_le _).2
+    (Set.union_subset y443R_le_H' (Set.singleton_subset_iff.2 y443X_mem_H'))) ?_
+  rw [y443H', Subgroup.closure_le]
+  rintro _ ⟨s, hs, rfl⟩
+  by_cases hs1 : s = y443E1
+  · subst hs1
+    exact Subgroup.subset_closure (Or.inr rfl)
+  · exact Subgroup.subset_closure (Or.inl (y443T_mem_R hs1 hs))
+
+theorem y443_closure_R_X' :
+    Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ {y443X'}) = y443H := by
+  have h := congrArg (Subgroup.map y443RhoM.toMonoidHom) y443_closure_R_X
+  rw [MonoidHom.map_closure, Set.image_union, ← Subgroup.coe_map, y443RhoM_map_R,
+    Set.image_singleton, y443RhoM_map_H'] at h
+  have e : y443RhoM.toMonoidHom y443X = y443X' := y443RhoM_X
+  rwa [e] at h
 
 theorem y443_closure_H_H' :
     Subgroup.closure ((y443H : Set MonsterY443Derived) ∪ (y443H' : Set MonsterY443Derived)) =
@@ -583,6 +807,64 @@ theorem y443_closure_H_H' :
     exact Subgroup.subset_closure (Or.inr (y443T_mem_H' y443E2_ne_E1.symm))
   · exact Subgroup.subset_closure (Or.inl (y443T_mem_H hs))
 
+theorem y443_sup_H_H' :
+    y443H ⊔ y443H' = ⊤ := by
+  rw [Subgroup.sup_eq_closure]
+  exact y443_closure_H_H'
+
+theorem y443_closure_H'_X' :
+    Subgroup.closure ((y443H' : Set MonsterY443Derived) ∪ {y443X'}) = ⊤ := by
+  rw [eq_top_iff, ← y443_closure_range_T, Subgroup.closure_le]
+  rintro _ ⟨s, rfl⟩
+  by_cases hs : s = y443E2
+  · subst hs
+    exact Subgroup.subset_closure (Or.inr rfl)
+  · exact Subgroup.subset_closure (Or.inl (y443T_mem_H' hs))
+
+theorem y443_closure_R_X_X' :
+    Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ {y443X, y443X'}) = ⊤ := by
+  rw [eq_top_iff, ← y443_closure_range_T, Subgroup.closure_le]
+  rintro _ ⟨s, rfl⟩
+  by_cases hs1 : s = y443E1
+  · subst hs1
+    exact Subgroup.subset_closure (Or.inr (Or.inl rfl))
+  · by_cases hs2 : s = y443E2
+    · subst hs2
+      exact Subgroup.subset_closure (Or.inr (Or.inr rfl))
+    · exact Subgroup.subset_closure (Or.inl (y443T_mem_R hs1 hs2))
+
+theorem y443C_mem_center_of_C'_eq
+    (h : y443C' = y443C) :
+    y443C ∈ Subgroup.center MonsterY443Derived := by
+  rw [Subgroup.mem_center_iff]
+  intro g
+  have hle : (⊤ : Subgroup MonsterY443Derived) ≤ Subgroup.centralizer {y443C} := by
+    rw [← y443_closure_H_H', Subgroup.closure_le]
+    rintro m (hm | hm)
+    · exact Subgroup.mem_centralizer_singleton_iff.2 (y443C_comm_H hm)
+    · have := y443C'_comm_H' hm
+      rw [h] at this
+      exact Subgroup.mem_centralizer_singleton_iff.2 this
+  exact Subgroup.mem_centralizer_singleton_iff.1 (hle (Subgroup.mem_top g))
+
+theorem y443C'_ne_C_of
+    {G : Type*} [Group G] (f : MonsterY443Derived →* G) {g : G}
+    (hg : g ∈ f.range) (hne : f y443C * g ≠ g * f y443C) : y443C' ≠ y443C := by
+  intro h
+  obtain ⟨m, rfl⟩ := hg
+  have := Subgroup.mem_center_iff.1 (y443C_mem_center_of_C'_eq h) m
+  exact hne (by rw [← map_mul, ← map_mul, this])
+
+theorem y443_inf_eq_R_of_injOn {G : Type*} [Group G] (f : MonsterY443Derived →* G)
+    (hinj : Set.InjOn f y443H) (hRH : y443H.map f ⊓ y443H'.map f = y443R.map f) :
+    y443H ⊓ y443H' = y443R := by
+  refine le_antisymm (fun m hm => ?_) y443R_le_inf
+  have hfm : f m ∈ y443R.map f := hRH ▸ ⟨Subgroup.mem_map_of_mem f hm.1,
+    Subgroup.mem_map_of_mem f hm.2⟩
+  obtain ⟨r, hr, hrm⟩ := Subgroup.mem_map.1 hfm
+  have : r = m := hinj (y443R_le_H hr) hm.1 hrm
+  rw [← this]
+  exact hr
 
 theorem y443_closure_R_S_of_injOn
     {G : Type*} [Group G] (f : MonsterY443Derived →* G)
@@ -617,6 +899,69 @@ theorem y443_closure_H_S_eq_top
   · exact Subgroup.subset_closure (Or.inl hm)
   · exact hH' hm
 
+theorem y443_second_parabolic_source :
+    (y443X ∈ y443H' ∧ y443C ∈ y443H' ∧ y443Y ∈ y443H') ∧
+    (y443C ∈ y443R ∧ y443C' ∈ y443R ∧ y443R ≤ y443H ⊓ y443H') ∧
+    (y443S ∈ y443H' ∧ y443S * y443S = 1) ∧
+    ((∃ hc : y443C ∈ y443R, (⟨y443C, hc⟩ : y443R) ∈ Subgroup.center y443R) ∧
+      (∃ hc : y443C' ∈ y443R, (⟨y443C', hc⟩ : y443R) ∈ Subgroup.center y443R) ∧
+      (∃ hc : y443C' ∈ y443H', (⟨y443C', hc⟩ : y443H') ∈ Subgroup.center y443H')) ∧
+    (Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ (y443K : Set MonsterY443Derived)) =
+        y443H ∧
+      Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ (y443K' : Set MonsterY443Derived)) =
+        y443H' ∧
+      Subgroup.closure ((y443R : Set MonsterY443Derived) ∪ {y443X}) = y443H' ∧
+      Subgroup.closure ((y443H : Set MonsterY443Derived) ∪ (y443H' : Set MonsterY443Derived)) =
+        ⊤ ∧
+      Subgroup.closure ((y443H' : Set MonsterY443Derived) ∪ {y443X'}) = ⊤) :=
+  ⟨⟨y443X_mem_H', y443C_mem_H', y443Y_mem_H'⟩, ⟨y443C_mem_R, y443C'_mem_R, y443R_le_inf⟩,
+    ⟨y443S_mem_H', y443S_mul_self⟩,
+    ⟨y443C_mem_center_R, y443C'_mem_center_R, y443C'_mem_center_H'⟩,
+    ⟨y443_closure_R_K, y443_closure_R_K', y443_closure_R_X, y443_closure_H_H',
+      y443_closure_H'_X'⟩⟩
+
+theorem y443H_finite_card_le_of
+    (hQ : Finite Q343 ∧ Nat.card Q343 ≤ Q343N) :
+    Finite y443H ∧ Nat.card y443H ≤ Q343N := by
+  obtain ⟨hfin, hcard⟩ := hQ
+  obtain ⟨φ, hφ, -⟩ := y443_Q343_epimorphism
+  have := hfin
+  exact ⟨Finite.of_surjective φ hφ, (Nat.card_le_card_of_surjective φ hφ).trans hcard⟩
+
+theorem natCard_H'_eq_natCard_H :
+    Nat.card y443H' = Nat.card y443H :=
+  Nat.card_congr y443HEquivH'.symm.toEquiv
+
+theorem y443H'_finite_card_le_of
+    (hQ : Finite Q343 ∧ Nat.card Q343 ≤ Q343N) :
+    Finite y443H' ∧ Nat.card y443H' ≤ Q343N := by
+  obtain ⟨hfin, hcard⟩ := y443H_finite_card_le_of hQ
+  have := hfin
+  exact ⟨Finite.of_equiv _ y443HEquivH'.toEquiv, by rw [natCard_H'_eq_natCard_H]; exact hcard⟩
+
+theorem y443_Q343_epimorphism' :
+    ∃ φ : Q343 →* y443H', Function.Surjective φ ∧
+      ∀ c : ℕ, c < 11 →
+        ((φ (Q343.π (yGen 3 4 3 c)) : y443H') : MonsterY443Derived) =
+          y443T (y443GenOfLetter (ρL (shiftAt 3 c))) := by
+  obtain ⟨φ, hφ, hgen⟩ := y443_Q343_epimorphism
+  refine ⟨y443HEquivH'.toMonoidHom.comp φ, y443HEquivH'.surjective.comp hφ, fun c hc => ?_⟩
+  show ((y443HEquivH' (φ (Q343.π (yGen 3 4 3 c))) : y443H') : MonsterY443Derived) = _
+  rw [y443HEquivH'_coe, hgen c hc, y443RhoM_T]
+  unfold y443RhoSym
+  rw [y443LetterOfGen_genOfLetter _ (by unfold shiftAt; split_ifs <;> omega)]
+
+theorem y443R_card_le_of
+    (hQ : Finite Q343 ∧ Nat.card Q343 ≤ Q343N) :
+    Nat.card y443R ≤ Nat.card y443H := by
+  have := (y443H_finite_card_le_of hQ).1
+  exact Subgroup.card_le_of_le y443R_le_H
+
+theorem y443_inf_card_le_of
+    (hQ : Finite Q343 ∧ Nat.card Q343 ≤ Q343N) :
+    Nat.card (y443H ⊓ y443H' : Subgroup MonsterY443Derived) ≤ Q343N := by
+  have := (y443H_finite_card_le_of hQ).1
+  exact (Subgroup.card_le_of_le inf_le_left).trans (y443H_finite_card_le_of hQ).2
 
 end ArmSwap
 

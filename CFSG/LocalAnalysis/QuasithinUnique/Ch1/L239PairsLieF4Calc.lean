@@ -285,6 +285,27 @@ theorem polyEval_sigmaPoly (hK : Nat.card K = 2 ^ (2 * m + 1)) (x : ℕ → K)
   rw [← hσ]
   exact this
 
+theorem comm_fam
+    (hK : Nat.card K = 2 ^ (2 * m + 1)) {n i j k : ℕ} (hi : i ≤ 11) (hj : j ≤ 11)
+    (hk : k ≤ 11) {p q r : Poly} (hp : varsBelow 24 p = true) (hq : varsBelow 24 q = true)
+    (hr : varsBelow 24 r = true)
+    (h : weq n (famWord i p (sigmaPoly p) ++ famWord j q (sigmaPoly q))
+      (famWord k r (sigmaPoly r) ++ famWord j q (sigmaPoly q) ++ famWord i p (sigmaPoly p)) = true)
+    (x : ℕ → K) (hx : ∀ n < 12, x (n + 12) = largeReeSigma m (x n)) :
+    ⁅fam m K i (polyEval x p), fam m K j (polyEval x q)⁆ = fam m K k (polyEval x r) := by
+  have : CharP K 2 := ‹CharP K F4.prime›
+  obtain ⟨σ, hσ, hσσ⟩ := exists_sigma (m := m) hK
+  have hs : ∀ p : Poly, varsBelow 24 p = true →
+      polyEval x (sigmaPoly p) = largeReeSigma m (polyEval x p) := by
+    intro p hp
+    have := polyEval_polySubst_sigmaVar σ hσσ (n := 12) x
+      (fun i hi => by rw [hx i hi, ← hσ]) hp
+    rw [← hσ]
+    exact this
+  have e := comm_eq_of_weq h x
+  rw [wordEval_famWord hi x p _ (hs p hp), wordEval_famWord hj x q _ (hs q hq),
+    wordEval_famWord hk x r _ (hs r hr)] at e
+  exact e
 
 @[expose] def famProdWord (l : List (ℕ × Poly)) : Word :=
   l.flatMap fun e => famWord e.1 e.2 (sigmaPoly e.2)

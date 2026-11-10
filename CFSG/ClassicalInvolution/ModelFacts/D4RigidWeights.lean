@@ -87,6 +87,9 @@ theorem commute_xr_u2 (a c : F) : Commute (xr F a) (u2 F c) :=
 theorem commute_xr_u3 (a c : F) : Commute (xr F a) (u3 F c) :=
   ((fr F).commute_longRoot_longRoot_right ne32 ne12 false false true c a).symm
 
+theorem xr_add (a b : F) : xr F (a + b) = xr F a * xr F b := by
+  unfold xr
+  rw [← map_mul, ← ofAdd_add]
 
 theorem xr_zero : xr F 0 = 1 := by
   unfold xr
@@ -99,6 +102,9 @@ theorem xr_pow (a : F) (n : ℕ) : xr F a ^ n = xr F (n • a) := by
 theorem xr_pow_char {p : ℕ} [CharP F p] (a : F) : xr F a ^ p = 1 := by
   rw [xr_pow, nsmul_eq_mul, CharP.cast_eq_zero, zero_mul, xr_zero]
 
+theorem xn_pow_char {p : ℕ} [CharP F p] (a : F) : xn F a ^ p = 1 := by
+  unfold xn
+  rw [← map_pow, ← ofAdd_nsmul, nsmul_eq_mul, CharP.cast_eq_zero, zero_mul, ofAdd_zero, map_one]
 
 theorem coe_spinAction_u0 :
     ⇑(spinAction (quadPlus 4 F) (u0 F 1)) = tvm (.inl 0) (.inl 1) (.inr 1) (.inr 0) := by

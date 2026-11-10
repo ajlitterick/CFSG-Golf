@@ -28,6 +28,12 @@ omit hδ hcd in
 theorem longest_mul_longest : longest cs Set.univ * longest cs Set.univ = (1 : W) :=
   isLongest_univ.mul_self
 
+theorem dist_companion_right (x : C) : δ d (companion cs δ c d x) = δ c x := by
+  have h := isApartmentMap_oppChamber hδ hcd (longest cs Set.univ)
+    (longest cs Set.univ * δ c x)
+  rw [oppChamber_longest hδ hcd, isLongest_univ.inv_eq, ← mul_assoc,
+    longest_mul_longest, one_mul] at h
+  exact h
 
 theorem dist_companion_left (x : C) :
     δ (companion cs δ c d x) c = (δ c x)⁻¹ * longest cs Set.univ := by
@@ -457,6 +463,22 @@ theorem isGerm_transport {x : C} {g : C → C'} (hg : IsGerm cs δ δ' c d c' d'
     obtain ⟨h1, h2, h3⟩ := (ascending_cons_iff hδ).mp hγ
     exact ih (isGerm_extGerm hδ hδ' hcent hS hext hcd hcd' hg h1 h2) h3
 
+theorem transport_congr {x : C} {g₁ g₂ : C → C'} (hg : IsGerm cs δ δ' c d c' d' x g₁)
+    (h : Set.EqOn g₁ g₂ (foundation cs δ 2 x ∪ {companion cs δ c d x}))
+    {γ : List (ι × C)} (hγ : Ascending cs δ c x γ) :
+    Set.EqOn (transport cs δ δ' c d c' d' x g₁ γ) (transport cs δ δ' c d c' d' x g₂ γ)
+      (foundation cs δ 2 (galleryEnd x γ) ∪ {companion cs δ c d (galleryEnd x γ)}) := by
+  induction γ generalizing x g₁ g₂ with
+  | nil => exact h
+  | cons p γ ih =>
+    obtain ⟨h1, h2, h3⟩ := (ascending_cons_iff hδ).mp hγ
+    refine ih (isGerm_extGerm hδ hδ' hcent hS hext hcd hcd' hg h1 h2) ?_ h3
+    have hE := extGerm_congr hδ hδ' hcent hS hext hcd hcd' hg h
+    refine hE.mono ?_
+    rintro u (hu | hu)
+    · exact Or.inl (foundation_two_subset_three hδ h1 hu)
+    · rw [Set.mem_singleton_iff.mp hu, companion_step hδ hcent hcd h1 h2]
+      exact Or.inr ⟨_, rfl⟩
 
 end Transport
 

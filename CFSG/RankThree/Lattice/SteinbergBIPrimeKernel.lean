@@ -265,6 +265,20 @@ theorem intCast_zmod_ne_zero {p : ℕ} {d : ℤ} (h0 : 0 < d) (hd : d < p) : (d 
   have := Int.le_of_dvd h0 h
   omega
 
+theorem fin_cons_toVec {k : ℕ} (a : List ℤ) (L : List (List ℤ)) :
+    (Fin.cons (toVec n a) (fun j : Fin k => toVec n (L.getD j [])) : Fin (k + 1) → Fin n → ℤ) =
+      fun j : Fin (k + 1) => toVec n ((a :: L).getD j []) := by
+  funext j
+  refine Fin.cases ?_ (fun i => ?_) j
+  · rfl
+  · rw [Fin.cons_succ]
+    rfl
+
+theorem orbit_fun_eq (W : List (List ℤ)) (β : List ℤ) (m : ℕ) :
+    (fun j : Fin m => (toMat n W ^ (j : ℕ)) *ᵥ toVec n β) =
+      fun j : Fin m => toVec n ((lorbit n W β m).getD j []) := by
+  funext j
+  rw [toVec_lorbit_getD j.isLt]
 
 theorem of_cols_eq_toMat (cs : List (List ℤ)) :
     (Matrix.of fun i (j : Fin n) => toVec n (cs.getD j []) i) = toMat n (lcols n cs) := by

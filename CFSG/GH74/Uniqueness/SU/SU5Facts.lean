@@ -140,6 +140,9 @@ theorem of_types (hS : IsJ2Type S) (hTS : T ≤ S) (hT : IsL34Type T) (hx : x �
     exact hT₀
   · simp [MulAut.conj_apply, hg]
 
+theorem facts_of_types (hS : IsJ2Type S) (hTS : T ≤ S) (hT : IsL34Type T) (hx : x ∈ S)
+    (hxT : x ∉ T) (hx2 : x ^ 2 = 1) {z : G} (hz : IsZGen S z) : J2Facts S T x z :=
+  (of_types hS hTS hT hx hxT hx2).facts hz
 
 end J2Emb
 

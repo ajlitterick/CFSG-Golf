@@ -27,8 +27,17 @@ open CFSG.Sporadic.McL (a b J orb rep_alpha rep_alpha_inv rep_beta actionChecks_
 @[expose] def expand (w : List (ℕ × Bool)) : List (ℕ × Bool) :=
   w.flatMap fun l => if l.2 then hsAB l.1 else invL (hsAB l.1)
 
+@[expose] def commL (u v : List (ℕ × Bool)) : List (ℕ × Bool) := u ++ v ++ invL u ++ invL v
 
 @[expose] def pos (w : List ℕ) : List (ℕ × Bool) := w.map fun i => (i, true)
 
+@[expose] def certU : List (List ℕ) := [[1, 2, 0, 2], [0, 1, 2, 0, 2], [0, 2, 0, 2, 0]]
+
+@[expose] def certV : List (List ℕ) :=
+  [[1, 0, 2, 0, 2, 0, 1, 0, 1], [0, 1, 0, 2, 0, 2, 1, 0, 2, 0, 2],
+   [1, 2, 0, 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 1, 2, 0, 1]]
+
+@[expose] def certWords : List (List (ℕ × Bool)) :=
+  (List.range 3).map fun k => (k, false) :: commL (pos (certU.getD k [])) (pos (certV.getD k []))
 
 end CFSG.Sporadic.Presentation.McL

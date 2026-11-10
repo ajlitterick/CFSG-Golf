@@ -97,6 +97,36 @@ theorem eq_of_card_inf_centralizer_le {Q A₀ A : Subgroup G} (hA₀Q : A₀ ≤
     have := Subgroup.card_le_of_le hIZ
     omega
 
+theorem inf_centralizer_mul_eq {A₀ : Subgroup G} (hA₀ : ∀ a ∈ A₀, ∀ b ∈ A₀, a * b = b * a)
+    (t : G) {a : G} (ha : a ∈ A₀) :
+    A₀ ⊓ Subgroup.centralizer ({t * a} : Set G) = A₀ ⊓ Subgroup.centralizer ({t} : Set G) := by
+  ext y
+  simp only [Subgroup.mem_inf, Subgroup.mem_centralizer_singleton_iff, and_congr_right_iff]
+  intro hy
+  have hay := hA₀ a ha y hy
+  constructor
+  · intro e
+    refine mul_right_cancel (b := a) ?_
+    calc y * t * a = y * (t * a) := mul_assoc _ _ _
+      _ = t * a * y := e
+      _ = t * (a * y) := mul_assoc _ _ _
+      _ = t * (y * a) := by rw [hay]
+      _ = t * y * a := (mul_assoc _ _ _).symm
+  · intro e
+    calc y * (t * a) = y * t * a := (mul_assoc _ _ _).symm
+      _ = t * y * a := by rw [e]
+      _ = t * (y * a) := mul_assoc _ _ _
+      _ = t * (a * y) := by rw [hay]
+      _ = t * a * y := (mul_assoc _ _ _).symm
+
+theorem card_inf_centralizer_le_of_reps {Q A₀ : Subgroup G}
+    (hA₀ : ∀ a ∈ A₀, ∀ b ∈ A₀, a * b = b * a) {b : ℕ}
+    (hrep : ∀ x ∈ Q, x ∉ A₀ → ∃ t a, a ∈ A₀ ∧ x = t * a ∧
+      Nat.card ↥(A₀ ⊓ Subgroup.centralizer ({t} : Set G)) ≤ b) :
+    ∀ x ∈ Q, x ∉ A₀ → Nat.card ↥(A₀ ⊓ Subgroup.centralizer ({x} : Set G)) ≤ b := by
+  intro x hx hxA
+  obtain ⟨t, a, ha, rfl, hb⟩ := hrep x hx hxA
+  rwa [inf_centralizer_mul_eq hA₀ t ha]
 
 theorem card_inf_centralizer_lt_of_injective {Q : Subgroup G} (hQ : Nat.card Q = 729) {c : G}
     (f : Fin 4 → G) (hf : ∀ i, f i ∈ Q) (hinj : Function.Injective fun i => f i * c * (f i)⁻¹) :

@@ -42,6 +42,9 @@ theorem uD : pairNe U32 = true := by quickRfl
 theorem uLB : Nat.beq U32.length 32 = true := by quickRfl
 theorem uL : U32.length = 32 := Nat.eq_of_beq_eq_true uLB
 
+theorem negPi : (Nat.beq Pi (wP V [4, 5, 5])).not = true := by quickRfl
+
+theorem negD : (pairNe (U32.head! :: U32)).not = true := by quickRfl
 
 theorem canJ' : allN 9 (fun j => canonK 1755 11 (mask 11) (1755 * 11) (TitsJ.S j)) = true := canJ
 

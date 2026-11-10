@@ -15,6 +15,11 @@ theorem ch21194_id : idK gP = true := by decide +kernel
 
 theorem ch21194_dist : distK gP = true := by decide +kernel
 
+theorem ch21194_rel_neg : relK (fun z => gP (-z)) = false := by decide +kernel
+
+theorem ch21194_dist_neg : distK (fun _ => gP 0) = false := by decide +kernel
+
+theorem ch21194_id_neg : idK (fun _ => gP 11) = false := by decide +kernel
 
 end CFSG.KC.M24R3
 

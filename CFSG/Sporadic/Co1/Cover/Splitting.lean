@@ -96,6 +96,7 @@ theorem exists_P_section [Group.IsPerfect P] (hND : NoPerfectDoubleCover P)
 
 instance preV_normal : (preV ρ ψ).Normal := MonoidHom.normal_ker _
 
+theorem right_of_mem_preV {x : X} (hx : x ∈ preV ρ ψ) : (ψ x).right = 1 := hx
 
 theorem psi_preV (t : preV ρ ψ) : ψ t.1 = inl (ψ t.1).left := by
   have h : (ψ t.1).right = 1 := t.2

@@ -26,6 +26,23 @@ theorem native_distance_three_label_is_outer_local_involution_final
   native_distance_three_label_is_outer_local_involution_of
     (distThreePathFact_of_ambient ambientRootOrbitsHyp) distThreeBaseTransvFact_holds hu
 
+theorem native_distance_three_single_orbit_and_8064_paths_final :
+    (∀ v u u' : CVert, u ∈ sphereDistThree v → u' ∈ sphereDistThree v →
+      ∃ g : Shat, cvMul v g = v ∧ cvMul u g = u') ∧
+    (∀ v w : CVert, w ∈ sphereFour v →
+      (cgraph.neighborSet w ∩ sphereDistThree v).ncard = 8064 ∧
+        ∀ u ∈ cgraph.neighborSet w ∩ sphereDistThree v,
+          pairStabOrbit w v u = cgraph.neighborSet w ∩ sphereDistThree v) ∧
+    (∀ v w : CVert, w ∈ sphereThree v → Disjoint (cgraph.neighborSet w) (sphereDistThree v)) ∧
+    (∀ v u : CVert, u ∈ sphereDistThree v → (xSet v u).Nonempty ∧
+      (∀ w ∈ xSet v u, ∀ w' ∈ xSet v u,
+        ∃ g : Shat, cvMul v g = v ∧ cvMul u g = u ∧ cvMul w g = w') ∧
+      ∀ w ∈ xSet v u, Nat.card ↥(vStab v ⊓ vStab u ⊓ vStab w) = 3397386240) ∧
+    (∀ v u : CVert, u ∈ sphereDistThree v → (xSet u v).Nonempty ∧
+      (∀ w ∈ xSet u v, ∀ w' ∈ xSet u v,
+        ∃ g : Shat, cvMul v g = v ∧ cvMul u g = u ∧ cvMul w g = w') ∧
+      ∀ w ∈ xSet u v, Nat.card ↥(vStab v ⊓ vStab u ⊓ vStab w) = 3397386240) :=
+  distThreePaths_of_ambient ambientRootOrbitsHyp
 
 theorem native_distance_three_pair_split_pinned_F4_final
     {v u : CVert}

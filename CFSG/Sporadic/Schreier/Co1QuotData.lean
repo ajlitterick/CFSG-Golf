@@ -316,5 +316,6 @@ namespace CFSG.Sporadic.Co1Schreier.Data
     8180587, 4785257, 16195202, 16055768, 2292960, 13782052, 2765543, 12151679, 7139147, 5268529,
     8706396, 11760868, 4036008, 13839041]
 
+@[expose] def quotFixed : Nat := 16663704
 
 end CFSG.Sporadic.Co1Schreier.Data

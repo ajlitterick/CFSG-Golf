@@ -47,6 +47,22 @@ theorem fixOmega_card :
       284 :=
   Certificates.certificate3081.2.1
 
+theorem fixDelta_lt : ∀ j : Fin 891,
+    Native.actD 22 (genRows 6) (6144 ^^^ n6VecArr[(j : ℕ)]!) < 2 ^ 22 :=
+  Certificates.certificate3081.2.2.1
+
+theorem fixDelta_card : (Finset.univ.filter fun j : Fin 891 =>
+    Native.actD 22 (genRows 6) (6144 ^^^ n6VecArr[(j : ℕ)]!) = 6144 ^^^ n6VecArr[(j : ℕ)]!).card =
+      27 :=
+  Certificates.certificate3081.2.2.2.1
+
+theorem fixTau_lt :
+    ∀ i : Fin 1408, Native.actD 22 (genRows 6) o14VecArr[(i : ℕ)]! < 2 ^ 22 :=
+  Certificates.certificate3081.2.2.2.2.1
+
+theorem fixTau_card : (Finset.univ.filter fun i : Fin 1408 =>
+    Native.actD 22 (genRows 6) o14VecArr[(i : ℕ)]! = o14VecArr[(i : ℕ)]!).card = 256 :=
+  Certificates.certificate3081.2.2.2.2.2
 
 theorem ncard_fix_OmegaW :
     {x | x ∈ OmegaW ∧ wAct v0 (genK 6) x = x}.ncard = 284 := by
@@ -54,6 +70,35 @@ theorem ncard_fix_OmegaW :
     (fun j : Ω => Native.actD 22 (genRows 6) (shortVec j) = shortVec j)
     (fun j => wAct_genK_decW_eq_iff 6 (shortVec_lt j) (fixOmega_lt j)), fixOmega_card]
 
+theorem DeltaW_eq_range :
+    DeltaW = Set.range fun j : Fin 891 => sigmaW + n6vec j := rfl
+
+theorem ncard_fix_DeltaW :
+    {x | x ∈ DeltaW ∧ wAct v0 (genK 6) x = x}.ncard = 27 := by
+  rw [DeltaW_eq_range, ncard_fix_range sigmaW_add_injective (genK 6)
+    (fun j : Fin 891 =>
+      Native.actD 22 (genRows 6) (6144 ^^^ n6VecArr[(j : ℕ)]!) = 6144 ^^^ n6VecArr[(j : ℕ)]!)
+    (fun j => by
+      rw [sigmaW_add_n6vec]
+      exact wAct_genK_decW_eq_iff 6 (shift_codes_ok j j.2).2.1 (fixDelta_lt j)), fixDelta_card]
+
+theorem tauOrb_eq_range :
+    usigOrbit tauW = Set.range fun i
+    : Fin 1408 => decW o14VecArr[(i : ℕ)]! :=
+  usigOrbit_tau
+
+theorem tauVec_injective : Function.Injective fun i : Fin 1408 =>
+    decW o14VecArr[(i : ℕ)]! :=
+  fun i j h => Fin.ext (tauP_inj i i.2 j j.2 (by rw [tauP_eq, tauP_eq]; exact h))
+
+theorem ncard_fix_tauOrb :
+    {x | x ∈ usigOrbit tauW ∧ wAct v0 (genK 6) x = x}.ncard = 256 := by
+  rw [tauOrb_eq_range, ncard_fix_range tauVec_injective (genK 6)
+    (fun i : Fin 1408 => Native.actD 22 (genRows 6) o14VecArr[(i : ℕ)]! = o14VecArr[(i : ℕ)]!)
+    (fun i => wAct_genK_decW_eq_iff 6 (tau_lt i) (fixTau_lt i)), fixTau_card]
+
+theorem wAct_genK_six_sigmaW :
+    wAct v0 (genK 6) sigmaW = sigmaW := genK_mem_Usig 6
 
 theorem genRows_six_tau : Native.actD 22 (genRows 6) 60 = 60 := by decide +kernel
 

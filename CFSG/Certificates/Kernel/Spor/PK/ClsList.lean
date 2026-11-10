@@ -126,6 +126,14 @@ theorem sameSet_perm {SP c : Nat} {L : List (Nat × Nat)}
   rw [heq]
   exact (hperm.map _).symm
 
+theorem blk_packL {S : List Nat} (hS : ∀ x ∈ S, x < 2 ^ 44) {q : Nat} (hq : q < S.length) :
+    blk (packL 44 S) 44 (mask 44) q = S.getD q 0 := by
+  have hf : ∀ i < S.length, S.getD i 0 < 2 ^ 44 := by
+    intro i hi
+    rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hi, Option.getD_some]
+    exact hS _ (List.getElem_mem hi)
+  rw [packL_eq hS, blk_eq]
+  exact fd_enc hf hq
 
 theorem nodup_of_increasing {SP c : Nat}
     (h : allN (Nat.sub c 1) (fun k => Nat.blt (blk SP 44 17592186044415 k)

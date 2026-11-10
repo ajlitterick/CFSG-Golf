@@ -66,6 +66,7 @@ instance : One SE := ⟨⟨0, 0, 0, 0⟩⟩
 instance : Mul SE := ⟨mul⟩
 instance : Inv SE := ⟨inv⟩
 
+theorem one_def : (1 : SE) = ⟨0, 0, 0, 0⟩ := rfl
 theorem mul_def (a b : SE) : a * b = mul a b := rfl
 theorem inv_def (a : SE) : a⁻¹ = inv a := rfl
 

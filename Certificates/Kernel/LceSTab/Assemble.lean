@@ -55,6 +55,10 @@ theorem andB_intro {a b : Bool} (ha : a = true) (hb : b = true) : andB a b = tru
   rw [ha, hb]
   rfl
 
+theorem andB_right {a b : Bool} (h : andB a b = true) : b = true := by
+  cases a
+  · exact absurd h (by simp [andB])
+  · exact h
 
 theorem chunkLoop_append (g : Nat → Nat → Nat) : ∀ (l1 l2 : List Nat) (x : Nat),
     List.rec (motive := fun _ => Nat → Nat) (fun S => S) (fun C _ ih S => strictN (g C S) ih)

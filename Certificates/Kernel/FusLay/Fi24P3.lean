@@ -55,6 +55,15 @@ theorem fin_in : (betaFi24P3.facts.all (factIn outs) && memB betaFi24P3.rA outs 
 
 theorem seeds : seedRegsL lay F A B betaFi24P3.rA betaFi24P3.rB = true := by quickRfl
 
+theorem ren_neg : (!renOK [0, 1, 36, 32] betaFi24P3Prog cs) = true := by decide +kernel
+
+theorem ch_neg : (!chunkV lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
+  quickRfl
+
+theorem fa_neg : (!factL lay (initR lay A B betaFi24P3N) betaFi24P3N
+    (betaFi24P3.facts.getD 5 default)) = true := by quickRfl
+
+theorem seeds_neg : (!seedRegsL lay F B A betaFi24P3.rA betaFi24P3.rB) = true := by quickRfl
 
 end CertificateChecks.KernelFusLay.Fi24P3
 

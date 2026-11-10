@@ -38,6 +38,13 @@ noncomputable abbrev W : Array (List ℤ) := pairWords ()
 theorem W_letter : ∀ j < W.size, ∀ z ∈ W[j]!, z ≠ 0 ∧ (z.natAbs ≤ 2 ∨ z.natAbs < j + 3) := by
   decide +kernel
 
+theorem slpOK_W : CFSG.Sporadic.Fi23.Native.slpOK W = true := by
+  unfold CFSG.Sporadic.Fi23.Native.slpOK
+  refine allIn_eq_true.2 fun j _ hj => List.all_eq_true.2 fun z hz => ?_
+  obtain ⟨h1, h2⟩ := W_letter j hj z hz
+  simp only [Bool.and_eq_true, bne_iff_ne, ne_eq, Bool.or_eq_true, decide_eq_true_eq]
+  exact ⟨h1, h2⟩
+
 
 @[expose] noncomputable def line (j : ℕ) : J := slpG genG W j
 

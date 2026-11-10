@@ -219,5 +219,12 @@ theorem not_extend
   rw [map_one, map_evalPos] at e
   exact e
 
+theorem ctuc_on_eight_normalized_local_lifts_do_not_extend :
+    (∀ r ∈ innerIdx, ∀ m : onM, betaFun r m = bElem r * m * (bElem r)⁻¹) ∧
+      ∀ r ∈ exclIdx, ∀ α : MulAut Pv,
+        (onM.subgroupOf Pv).map α.toMonoidHom = onM.subgroupOf Pv →
+          ¬ ∀ m : onM, ((α ⟨m, onM_le m.2⟩ : Pv) : Equiv.Perm (Fin N)) =
+            (betaFun r m : Equiv.Perm (Fin N)) :=
+  ⟨fun _ hr m => betaFun_inner hr m, fun _ hr α _ h => not_extend hr α h⟩
 
 end CFSG.Sporadic.ONOddCore

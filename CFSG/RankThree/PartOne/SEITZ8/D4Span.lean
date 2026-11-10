@@ -40,6 +40,8 @@ structure Rat3 (σ : K →+* K) (k : Subfield K) : Prop where
 @[expose] def Rat3.res {σ : K →+* K} {k : Subfield K} (h : Rat3 σ k) : k →+* k :=
   RingHom.restrict σ k k h.stable
 
+theorem Rat3.res_apply {σ : K →+* K} {k : Subfield K} (h : Rat3 σ k) (a : k) :
+    ((h.res a : k) : K) = σ a := rfl
 
 @[expose] def vanishX : Bool :=
   (List.range 4).all fun k₀ => (List.range 4).all fun k₁ => (List.range 4).all fun k₃ =>

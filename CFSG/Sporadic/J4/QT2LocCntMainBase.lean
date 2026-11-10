@@ -9,6 +9,7 @@ namespace CFSG.Sporadic.J4.QT2
 
 open CFSG.Sporadic.J4 CFSG.Sporadic.J4.QT
 
+theorem length_zMasks : zMasks.length = 1771 := chkZMasks_parts.2.1
 
 theorem nodup_zMasks : zMasks.Nodup := chkZMasks_parts.2.2.1
 

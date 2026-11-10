@@ -8,6 +8,8 @@ public section
 
 namespace CFSG.KD.ThRelNorm
 
+theorem norm_DA : CFSG.KC.relsNorm CFSG.KD.ThA.RR (nat_lit 29) = true := by quickRfl
+theorem norm_DB : CFSG.KC.relsNorm CFSG.KD.ThB.RR (nat_lit 39) = true := by quickRfl
 
 end CFSG.KD.ThRelNorm
 

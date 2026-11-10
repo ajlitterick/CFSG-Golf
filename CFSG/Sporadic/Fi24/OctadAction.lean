@@ -49,6 +49,8 @@ theorem tR_smul
     (k : Fin 306936) : tR • k = tPerm k :=
   cls_injective (by rw [cls_smul_R, cls_tPerm, tR_inv])
 
+theorem tR_smul_root :
+    tR • root = root := by rw [tR_smul, tPerm_root]
 
 theorem cls_eq_conj_of_smul_root
     {x : R} {k : Fin 306936} (h : x • root = k) :
@@ -85,6 +87,10 @@ theorem idx_jR
   · rw [idx_of_lt _ hi, idx_of_lt _ hi, jR_smul]
   · rw [idx_of_not_lt _ hi, idx_of_not_lt _ hi]
 
+theorem rep_jR
+    {P : Table} {g : J} (h : Rep 306936 P g) : Rep 306936 P (jR g) := by
+  intro i hi
+  rw [h i hi, idx_jR]
 
 theorem idx_tR
     {i : ℕ} (hi : i < 306936) : idx 306936 tR i = (tPerm ⟨i, hi⟩).val := by
@@ -153,5 +159,33 @@ theorem rep_nB :
     Rep 306936 (wordT nPts (letterJ letters) normWords[1]!) nB :=
   Rep.wordT (by norm_num) _ fun z hz => rep_letterJ (normWords_letters (by norm_num) z hz).2
 
+@[expose] noncomputable def genR
+    (z : ℤ) : R := if z.natAbs = 14 then tR else jR (genLetterG z)
+
+theorem rep_letterR
+    {tP : Table} (htP : Rep 306936 tP tR) {z : ℤ} (hz : z.natAbs ≤ 14) :
+    Rep 306936 (letterR letters tP z) (genR z) := by
+  unfold letterR genR
+  by_cases h14 : z.natAbs = 14
+  · rw [ite_eq_left h14, ite_eq_left h14]
+    exact htP
+  · rw [ite_eq_right h14, ite_eq_right h14]
+    exact rep_jR (rep_letterJ (by omega))
+
+theorem rep_wordT_R
+    {tP : Table} (htP : Rep 306936 tP tR) {w : List ℤ}
+    (hw : ∀ z ∈ w, z.natAbs ≤ 14) :
+    Rep 306936 (wordT nPts (letterR letters tP) w) (wordG genR w) :=
+  Rep.wordT (by norm_num) w fun z hz => rep_letterR htP (hw z hz)
+
+theorem rep_conjTab
+    {tP W : Table} (htP : Rep 306936 tP tR) {x : R} (hW : Rep 306936 W x)
+    (hinv : invOK nPts W (invT nPts W) = true) {k : Fin 306936} (hk : ap W 0 = k.val) :
+    Rep 306936 (conjTab tP W) (cls k) := by
+  have hroot : x • root = k := by
+    apply Fin.ext
+    rw [← hk, hW 0 (by norm_num), idx_of_lt x (by norm_num)]
+  rw [cls_eq_conj_of_smul_root hroot, mul_assoc]
+  exact hW.compT (htP.compT (Rep.inv_of_invOK hW hinv))
 
 end CFSG.Sporadic.Fi24

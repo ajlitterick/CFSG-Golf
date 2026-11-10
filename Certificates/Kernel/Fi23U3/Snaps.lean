@@ -27,6 +27,10 @@ theorem init : eqL (S.SL.getD 0 []) (initR lay A B 25) = true := by quickRfl
 
 #kc_forall_tree ch_all (fun i => chU i = true) 5 CertificateChecks.KernelFi23U3.chU
 
+theorem m_eq : S.m = 5 := rfl
+
+theorem ch_neg : (!chunkL lay prog 50 0 (S.SL.getD 0 []) (S.SL.getD 2 [])) = true := by
+  quickRfl
 
 @[expose] noncomputable def RF : List Nat := S.SL.getD 5 []
 

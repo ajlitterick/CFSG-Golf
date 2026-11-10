@@ -13,6 +13,7 @@ namespace CertificateChecks.Batch3033
 
 theorem hm_succ : ∀ i < 76, hm i < hm (i + 1) := by decide +kernel
 
+theorem hm_corrupt : ¬ hm 76 < hm 0 := by decide +kernel
 
 theorem hm_lt {i j : ℕ} (hij : i < j) (hj : j < 77) : hm i < hm j := by
   induction j with

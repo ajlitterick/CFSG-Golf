@@ -29,6 +29,9 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
     · exact ⟨1, G.one_mem, by rw [map_one, toAdd_one, zero_smul]⟩
     · exact ⟨e, he, by rw [one_smul]⟩
 
+theorem mem_psiImage {G : Subgroup Cbar} {w : Wv (phi0 (coordOf rStar))} :
+    w ∈ psiImage G ↔ ∃ e : Ebar, (e : Cbar) ∈ G ∧ Multiplicative.toAdd (psiBar e) = w :=
+  Iff.rfl
 
 section Generation
 

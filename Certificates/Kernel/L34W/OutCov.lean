@@ -56,6 +56,7 @@ theorem ch22971g_inv : invOKK T1X.F = true := by decide +kernel
 
 theorem ch22971g_match : matchOK YT RP = true := by decide +kernel
 
+theorem ch22971g_kap : kapOK AlX.F OC.K = true := by decide +kernel
 
 @[expose] noncomputable def ocE (G : Nat → Nat) (k cnt : Nat) (T PL POS SRT SRI : Nat → Nat) : Bool :=
   bAnd(penumHdK (pidn 42 6) cnt 64 T PL,
@@ -72,6 +73,29 @@ theorem ch22971e_5 : ocE OCE5.G OCE5.k OCE5.cnt OCE5.T OCE5.PL OCE5.POS OCE5.SRT
 theorem ch22971e_6 : ocE OCE6.G OCE6.k OCE6.cnt OCE6.T OCE6.PL OCE6.POS OCE6.SRT OCE6.SRI = true := by
   decide +kernel
 
+theorem ch22971n_s3 : (!c3K YT L34S.T (YT 64) (OC.FT 0) 8 (Nat.xor (OC.S3 0) (Nat.shiftLeft 1 (32 + 13)))
+    4) = true := by decide +kernel
+
+theorem ch22971n_wa : (!c4AK YT T1X.F AlX.F OCE0.T OCE0.cnt 4369 (OC.LT 0) 32 16) = true := by
+  decide +kernel
+
+theorem ch22971n_wb : (!c4BK YT T1X.F AlX.F OCE2.T OCE2.cnt 4369 (YT 128) (OC.FT 2) 4 (OC.LT 2) 48
+    0) = true := by decide +kernel
+
+theorem ch22971n_v : (!c5K T1X.F AlX.F 4369 1 0) = true := by decide +kernel
+
+theorem ch22971n_l : (!lOK YT AlX.F 1 0 4369 (YT 64) (Nat.shiftRight (OC.LT 0) 12) 31) = true := by
+  decide +kernel
+
+theorem ch22971n_f : (!fixOK T1X.F AlX.F 4369 1 (Nat.xor (OC.FK 0) 1) 8) = true := by decide +kernel
+
+theorem ch22971n_m : (!matchOK YT (patchT RP 2 (RP 1))) = true := by decide +kernel
+
+theorem ch22971n_k : (!kapOK AlX.F (patchT OC.K 0 (Nat.xor (OC.K 0) (Nat.shiftLeft 7 48)))) = true := by
+  decide +kernel
+
+theorem ch22971n_i : (!invOKK (patchT T1X.F 0 (Nat.lor (T1X.F 0) (Nat.shiftLeft 1 6)))) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34W
 

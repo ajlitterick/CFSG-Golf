@@ -99,6 +99,13 @@ end Cover
 section CoverBound
 
 
+theorem card_mulAut_le_mclCover :
+    Nat.card (MulAut McLMultiplier.MclCover) ≤
+      2 * Nat.card (McLMultiplier.MclCover ⧸ Subgroup.center McLMultiplier.MclCover) := by
+  obtain ⟨e⟩ := nonempty_centerQuot_mulEquiv_mclCover
+  have := isPerfect_mclCover
+  exact card_mulAut_le_of_centerQuot_mcl e
+
 theorem card_mulAut_le_of_mulEquiv_mclCover {M : Type} [Group M]
     (φ : M ≃* McLMultiplier.MclCover) :
     Nat.card (MulAut M) ≤ 2 * Nat.card (M ⧸ Subgroup.center M) := by
@@ -120,6 +127,17 @@ theorem exists_mulEquiv_extend_of_mclCover {B₁ B₂ : Type} [Group B₁] [Grou
   exact exists_mulEquiv_extend_of_index_two hM₁ hM₂ μ (card_center_of_mulEquiv_mclCover φ₂)
     (card_mulAut_le_of_mulEquiv_mclCover φ₂) hinv₁ hinv₂
 
+theorem exists_mulEquiv_of_mclCover_center {B₁ B₂ : Type} [Group B₁] [Group B₂]
+    {M₁ : Subgroup B₁} {M₂ : Subgroup B₂} (hM₁ : M₁.index = 2) (hM₂ : M₂.index = 2)
+    (φ₂ : M₂ ≃* McLMultiplier.MclCover) (μ : M₁ ≃* M₂)
+    (hinv₁ : ∀ b : B₁, b ∉ M₁ → ∀ z : M₁, z ∈ center M₁ → b * (z : B₁) * b⁻¹ = (z : B₁)⁻¹)
+    (hinv₂ : ∀ b : B₂, b ∉ M₂ → ∀ z : M₂, z ∈ center M₂ → b * (z : B₂) * b⁻¹ = (z : B₂)⁻¹)
+    {z₁ : M₁} {z₂ : M₂} (hz₁ : z₁ ∈ center M₁) (hz₂ : z₂ ∈ center M₂) (h₁ : z₁ ≠ 1)
+    (h₂ : z₂ ≠ 1) :
+    ∃ ν : B₁ ≃* B₂, ν (z₁ : B₁) = (z₂ : B₂) ∧ ∃ α : MulAut M₂, ∀ m : M₁, ν m = α (μ m) := by
+  have := finite_of_mulEquiv_mclCover φ₂
+  exact exists_mulEquiv_of_index_two_center hM₁ hM₂ μ (card_center_of_mulEquiv_mclCover φ₂)
+    (card_mulAut_le_of_mulEquiv_mclCover φ₂) hinv₁ hinv₂ hz₁ hz₂ h₁ h₂
 
 end CoverBound
 

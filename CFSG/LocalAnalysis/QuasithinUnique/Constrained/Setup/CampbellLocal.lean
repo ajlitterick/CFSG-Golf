@@ -29,6 +29,10 @@ theorem Adm.isElemAbelian {H Y : Subgroup G} (h : Adm H Y) : CFSG.Open.IsElemAbe
   obtain ⟨A, hA, hYA⟩ := h
   exact isElemAbelian_mono hA.2.1 hYA
 
+theorem adm_tr {S₀ Y : Subgroup G} (α : S₀ ≃* S₀) (g : G) [Finite G] (h : Adm S₀ Y) :
+    Adm (cj S₀ g) (tr S₀ α g Y) := by
+  obtain ⟨A, hA, hYA⟩ := h
+  exact ⟨tr S₀ α g A, isMaxElemAbelian_tr hA, tr_mono hYA⟩
 
 theorem adm_trInv {S₀ Y : Subgroup G} (α : S₀ ≃* S₀) (g : G) [Finite G]
     (h : Adm (cj S₀ g) Y) : Adm S₀ (trInv S₀ α g Y) := by
@@ -96,6 +100,16 @@ theorem sylow_not_core_comm_Vmod [Finite G] [Finite k] (h : IsSeed S ρ (Ecore G
     calc t * v = (t * v * t⁻¹) * t := by group
       _ = v * t := by rw [this]
 
+theorem Vmod_inf_centralizer_of_not_le [Finite G] [Finite k] (h : IsSeed S ρ (Ecore G) ψ)
+    {Y : Subgroup G} (hY : Y ≤ (S : Subgroup G)) (hYQ : ¬ Y ≤ CFSG.pCore 2 G) :
+    Vmod G ⊓ Subgroup.centralizer (Y : Set G) = Zfix S := by
+  apply le_antisymm
+  · obtain ⟨y, hyY, hyQ⟩ := IsConcreteLE.not_le_iff_exists.mp hYQ
+    rintro v ⟨hv, hvc⟩
+    exact h.sylow_not_core_comm_Vmod (hY hyY) hyQ hv (Subgroup.mem_centralizer_iff.mp hvc y hyY)
+  · rintro z ⟨hzV, hzc⟩
+    exact ⟨hzV, Subgroup.mem_centralizer_iff.mpr fun y hy =>
+      Subgroup.mem_centralizer_iff.mp hzc y (hY hy)⟩
 
 end IsSeed
 

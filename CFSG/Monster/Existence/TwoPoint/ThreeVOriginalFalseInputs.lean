@@ -27,5 +27,12 @@ open CFSG.Monster.AxisCount
     .perm #[12, 14, 2, 3, 0, 1, 15, 13, 4, 7, 19, 17,
         16, 18, 5, 6, 21, 20, 10, 9, 11, 8, 23, 22]]
 
+@[expose, noinline] def fiT2ConjCheck : Bool :=
+  fiEqP (fiRhoT ++ fiCT2) (fiCT2 ++ fiWT2) (HS.pw fiRhoT ++ HS.pw fiCT2)
+    (HS.pw fiCT2 ++ HS.pw fiWT2)
+
+@[expose, noinline] def fiT2AlphaConjCheck : Bool :=
+  fiEqP (gxXWord ++ fiCT2Alpha) (fiCT2Alpha ++ (fiWT2 ++ fiWAlpha))
+    (HS.pw gxXWord ++ HS.pw fiCT2Alpha) (HS.pw fiCT2Alpha ++ (HS.pw fiWT2 ++ HS.pw fiWAlpha))
 
 end CFSG.Monster.Existence

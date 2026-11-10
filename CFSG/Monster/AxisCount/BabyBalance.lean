@@ -33,6 +33,12 @@ namespace CFSG.Monster.AxisCount
 
 @[expose] def babyTotal : ℕ := 11_707_448_673_375
 
+theorem babyM_col_sum (i : Fin 10) : ∑ t, babyM t i = babyL := by
+  fin_cases i <;> simp [Fin.sum_univ_succ, babyM, babyL]
+
+theorem babySizes_balance (t : Fin 10) :
+    ∑ i, babyM t i * babySizes i = babyL * babySizes t := by
+  fin_cases t <;> simp [Fin.sum_univ_succ, babyM, babyL, babySizes]
 
 theorem sum_babySizes : ∑ i, babySizes i = babyTotal := by
   simp [Fin.sum_univ_succ, babySizes, babyTotal]

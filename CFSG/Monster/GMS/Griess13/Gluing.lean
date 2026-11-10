@@ -73,6 +73,13 @@ theorem perfect_acts_trivially (ρ : Representation (ZMod 2) Γ V) {W : Submodul
   intro p hp
   exact hcomm (hperf hp)
 
+theorem list_prod_commutator_mem (P : Subgroup Γ) (l : List (Γ × Γ))
+    (hl : ∀ q ∈ l, q.1 ∈ P ∧ q.2 ∈ P) :
+    (l.map fun q => q.1 * q.2 * q.1⁻¹ * q.2⁻¹).prod ∈ ⁅P, P⁆ := by
+  apply Subgroup.list_prod_mem
+  intro x hx
+  obtain ⟨q, hq, rfl⟩ := List.mem_map.mp hx
+  exact Subgroup.commutator_mem_commutator (hl q hq).1 (hl q hq).2
 
 theorem closure_le_commutator {S : Set Γ}
     (hS : ∀ s ∈ S, s ∈ ⁅Subgroup.closure S, Subgroup.closure S⁆) :
@@ -264,6 +271,8 @@ variable {Γ : Type*} [Group Γ] {V V' : Type*} [AddCommGroup V] [Module (ZMod 2
       _ = ρ' g⁻¹ (f (ρ g (ρ g⁻¹ v))) := by rw [hg']
       _ = ρ' g⁻¹ (f v) := by rw [rho_apply_inv_apply ρ g v]
 
+theorem mem_intertwiners {f : V →ₗ[ZMod 2] V'} {g : Γ} :
+    g ∈ intertwiners ρ ρ' f ↔ ∀ v, f (ρ g v) = ρ' g (f v) := Iff.rfl
 
 theorem intertwine_of_mem_closure (f : V →ₗ[ZMod 2] V') {S : Set Γ}
     (hS : ∀ g ∈ S, ∀ v, f (ρ g v) = ρ' g (f v)) {g : Γ} (hg : g ∈ Subgroup.closure S) (v : V) :
@@ -304,6 +313,18 @@ theorem exists_equiv_of_closure_eq_top (f : V ≃ₗ[ZMod 2] V') {S : Set Γ}
   ⟨f, fun g v =>
     intertwine_of_mem_closure ρ ρ' (f : V →ₗ[ZMod 2] V') h (hS ▸ Subgroup.mem_top g) v⟩
 
+theorem exists_equiv_of_glue (f : V ≃ₗ[ZMod 2] V') {N : Subgroup Γ}
+    (hN : ∀ n ∈ N, ∀ v, f (ρ n v) = ρ' n (f v)) {g : Γ} (hg7 : g ^ 7 = 1) {κ : Type*}
+    (x : κ → Γ) (hxN : ∀ k, x k ∈ N) (hyN : ∀ k, g * x k * g⁻¹ ∈ N)
+    (huniq : ∀ M : Module.End (ZMod 2) V',
+      (∀ k, M * ρ' (x k) = ρ' (g * x k * g⁻¹) * M) → IsUnit M → M ^ 7 = 1 → M = ρ' g)
+    (hgen : Subgroup.closure ((N : Set Γ) ∪ {g}) = ⊤) :
+    ∃ ψ : V ≃ₗ[ZMod 2] V', ∀ γ v, ψ (ρ γ v) = ρ' γ (ψ v) := by
+  refine exists_equiv_of_closure_eq_top ρ ρ' f hgen ?_
+  rintro s (hs | hs)
+  · exact hN s hs
+  · rw [Set.mem_singleton_iff.mp hs]
+    exact intertwine_of_glue ρ ρ' f hN hg7 x hxN hyN huniq
 
 theorem huniq_of_matrix {d : ℕ} (ρ' : Representation (ZMod 2) Γ (Fin d → ZMod 2))
     (G : Γ → Matrix (Fin d) (Fin d) (ZMod 2)) (hG : ∀ γ, ρ' γ = Matrix.mulVecLin (G γ))

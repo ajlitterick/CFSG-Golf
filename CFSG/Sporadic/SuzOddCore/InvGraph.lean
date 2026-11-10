@@ -87,5 +87,13 @@ theorem suzT_adj
     invGraph.Adj (g x) (g y) ↔ invGraph.Adj x y := by
   rw [← invNbr_adj, ← invNbr_adj, invNbr_inv_T hg x y]
 
+theorem invGraph_regular
+    (x : Fin 1782) : {y | invGraph.Adj x y}.ncard = 416 := by
+  have hset : {y | invGraph.Adj x y} = finSet 1782 invNbr[(x : ℕ)]! := by
+    ext y
+    rw [Set.mem_ofPred_eq, ← invNbr_adj]
+    rfl
+  rw [hset, ← invGraph_check.2.2.1 x x.2]
+  exact ncard_finSet (invNbr_facts.point x)
 
 end CFSG.Sporadic.SuzOddCore

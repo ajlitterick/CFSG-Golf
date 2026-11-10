@@ -28,5 +28,11 @@ namespace CFSG.PSL3Four.Native.FWComm
           queue := queue.push w
   return (par, dep)
 
+@[expose] def commTreeOK (O : Array Tab) (par dep : Array Nat) : Bool :=
+  0 < O.size && dep[0]! == 0 &&
+    allBelow O.size fun i => i == 0 ||
+      (par[i]! < O.size && dep[par[i]!]! < dep[i]! && tabsCommute O[i]! O[par[i]!]!)
+
+@[expose] def fwGens (_ : Unit := ()) : Array Tab := (invTabs).extract 0 7
 
 end CFSG.PSL3Four.Native.FWComm

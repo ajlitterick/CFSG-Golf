@@ -94,6 +94,9 @@ theorem map_conj_equiv (n : X) (A : Subgroup X) :
   ext x
   simp [MulAut.conj_apply]
 
+theorem isSylowIn_map_equiv {p : ℕ} {P H : Subgroup X} (h : IsSylowIn p P H) :
+    IsSylowIn p (P.map e.toMonoidHom) (H.map e.toMonoidHom) :=
+  NFA6.isSylowIn_of_map e.symm.injective (by rwa [map_symm_map, map_symm_map])
 
 theorem map_nineFrattini_equiv (Z : Subgroup X) :
     (nineFrattini Z).map e.toMonoidHom = nineFrattini (Z.map e.toMonoidHom) := by
@@ -173,6 +176,8 @@ theorem IsGood915.swap {L1 L2 : Subgroup X} {y : X} (h : IsGood915 L1 L2 y) :
     IsGood915 L2 L1 y :=
   ⟨h.1, h.2.symm⟩
 
+theorem IsGood915.swap_iff {L1 L2 : Subgroup X} {y : X} : IsGood915 L1 L2 y ↔ IsGood915 L2 L1 y :=
+  ⟨IsGood915.swap, IsGood915.swap⟩
 
 theorem NGM.exists_good_map_equiv {L1 L2 K : Subgroup X} (h : ∃ y ∈ K, IsGood915 L1 L2 y) :
     ∃ y ∈ K.map e.toMonoidHom, IsGood915 (L1.map e.toMonoidHom) (L2.map e.toMonoidHom) y := by
@@ -210,6 +215,9 @@ theorem FiveWit.swap {L1 L2 T A H R Lh : Subgroup X} (h : FiveWit L1 L2 T A H R 
     FiveWit L2 L1 T A H R Lh :=
   { h with good := h.good.imp fun _ hy => ⟨hy.1, hy.2.swap⟩ }
 
+theorem FiveWit.swap_iff {L1 L2 T A H R Lh : Subgroup X} :
+    FiveWit L1 L2 T A H R Lh ↔ FiveWit L2 L1 T A H R Lh :=
+  ⟨FiveWit.swap, FiveWit.swap⟩
 
 theorem SevenWit.map_equiv {L1 L2 T A K Y : Subgroup X} (h : SevenWit L1 L2 T A K Y) :
     SevenWit (L1.map e.toMonoidHom) (L2.map e.toMonoidHom) (T.map e.toMonoidHom)
@@ -224,6 +232,9 @@ theorem SevenWit.swap {L1 L2 T A K Y : Subgroup X} (h : SevenWit L1 L2 T A K Y) 
     SevenWit L2 L1 T A K Y :=
   { h with good := h.good.imp fun _ hy => ⟨hy.1, hy.2.swap⟩ }
 
+theorem SevenWit.swap_iff {L1 L2 T A K Y : Subgroup X} :
+    SevenWit L1 L2 T A K Y ↔ SevenWit L2 L1 T A K Y :=
+  ⟨SevenWit.swap, SevenWit.swap⟩
 
 theorem Kill761.map_equiv {U K : Subgroup X} (h : Kill761 U K) :
     Kill761 (U.map e.toMonoidHom) (K.map e.toMonoidHom) := by
@@ -292,6 +303,9 @@ theorem KillWit.swap {L1 L2 T U K Y : Subgroup X} (h : KillWit L1 L2 T U K Y) :
     KillWit L2 L1 T U K Y :=
   { h with good := h.good.imp fun _ hy => ⟨hy.1, hy.2.swap⟩ }
 
+theorem KillWit.swap_iff {L1 L2 T U K Y : Subgroup X} :
+    KillWit L1 L2 T U K Y ↔ KillWit L2 L1 T U K Y :=
+  ⟨KillWit.swap, KillWit.swap⟩
 
 theorem NGM.table_map_equiv {L1 L2 T A : Subgroup X}
     (h : (∃ H R Lh : Subgroup X, FiveWit L1 L2 T A H R Lh) ∨

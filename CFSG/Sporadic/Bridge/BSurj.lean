@@ -18,6 +18,9 @@ open scoped Matrix
 
 private theorem presentation_eq : SporadicName.B.presentation = pres := rfl
 
+theorem bProg_lt : ∀ ins ∈ bProg, ins.lt bN = true := by decide +kernel
+
+theorem bTreg_lt : ∀ k < 11, bTreg k < bN := by decide +kernel
 
 @[expose] def Wd.eval {G : Type*} [Monoid G] (g : ℕ → G) : Wd → G
   | .gen i => g i
@@ -39,6 +42,49 @@ theorem wB_eval {G : Type*} [Group G] {g : ℕ → G} (i : ∀ k < 11, (g k)⁻�
     i 5 (by norm_num), i 6 (by norm_num), i 7 (by norm_num), i 8 (by norm_num), i 9 (by norm_num),
     i 10 (by norm_num), mul_assoc]
 
+theorem rep_wd {G : Type*} [Monoid G] {n : ℕ} {f : G →* Matrix (Fin n) (Fin n) (ZMod 2)}
+    {T : Array Mat} {g : ℕ → G} (hT : ∀ i < 11, Rep f (T.getD i #[]) (g i)) :
+    ∀ w : Wd, w.gensLt 11 = true → Rep f (w.evalN n T) (w.eval g)
+  | .gen i, h => by
+    simp only [Wd.gensLt, decide_eq_true_eq] at h
+    exact hT i h
+  | .mul u v, h => by
+    simp only [Wd.gensLt, Bool.and_eq_true] at h
+    exact rep_mul (rep_wd hT u h.1) (rep_wd hT v h.2)
+  | .pow u e, h => by
+    simp only [Wd.gensLt] at h
+    exact rep_pow (rep_wd hT u h) e
+
+theorem rep_wordN {G : Type*} [Group G] {n : ℕ} {f : G →* Matrix (Fin n) (Fin n) (ZMod 2)}
+    {T : Array Mat} {g : ℕ → G} (hT : ∀ i < 11, Rep f (T.getD i #[]) (g i))
+    (hinv : ∀ i < 11, g i * g i = 1) :
+    ∀ w : List (ℕ × Bool), (∀ l ∈ w, l.1 < 11) → Rep f (wordN n T w) (wordProd g w) := by
+  have hl : ∀ l : ℕ × Bool, l.1 < 11 →
+      Rep f (T.getD l.1 #[]) (if l.2 then g l.1 else (g l.1)⁻¹) := by
+    intro l hl
+    split_ifs
+    · exact hT l.1 hl
+    · rw [inv_eq_of_mul_eq_one_right (hinv l.1 hl)]
+      exact hT l.1 hl
+  have key : ∀ (w : List (ℕ × Bool)), (∀ l ∈ w, l.1 < 11) → ∀ (acc : Mat) (a : G),
+      Rep f acc a → Rep f (w.foldl (fun acc l' => mulP n acc (T.getD l'.1 #[])) acc)
+        (a * (w.map fun l => if l.2 then g l.1 else (g l.1)⁻¹).prod) := by
+    intro w
+    induction w with
+    | nil => intro _ acc a h; simpa using h
+    | cons l w ih =>
+      intro hw acc a h
+      rw [List.foldl_cons, List.map_cons, List.prod_cons, ← mul_assoc]
+      exact ih (fun l' hl' => hw l' (List.mem_cons_of_mem _ hl')) _ _
+        (rep_mul h (hl l (hw l List.mem_cons_self)))
+  intro w
+  cases w with
+  | nil => intro _; simpa [wordN, wordProd] using (rep_one (f := f))
+  | cons l w =>
+    intro hw
+    have := key w (fun l' hl' => hw l' (List.mem_cons_of_mem _ hl')) _ _
+      (hl l (hw l List.mem_cons_self))
+    simpa [wordN, wordProd] using this
 
 theorem wordProd_flatten_replicate {G : Type*} [Group G] (g : ℕ → G) (base : List (ℕ × Bool))
     (k : ℕ) : wordProd g (List.replicate k base).flatten = wordProd g base ^ k := by
@@ -49,6 +95,19 @@ theorem wordProd_flatten_replicate {G : Type*} [Group G] (g : ℕ → G) (base :
     simp only [wordProd, List.map_append, List.prod_append] at ih ⊢
     rw [ih, pow_succ']
 
+theorem rels_of_relsOK {G : Type*} [Group G] {f : G →* Matrix (Fin 4370) (Fin 4370) (ZMod 2)}
+    (hf : Function.Injective f) {T : Array Mat} {g : ℕ → G}
+    (hT : ∀ i < 11, Rep f (T.getD i #[]) (g i)) (hinv : ∀ i < 11, g i * g i = 1)
+    {rels : List (List (ℕ × Bool))} (h : relsOK T rels = true) :
+    ∀ v ∈ rels, wordProd g v = 1 := by
+  intro v hv
+  have := (List.all_eq_true.1 h) v hv
+  simp only [Bool.and_eq_true, List.all_eq_true, decide_eq_true_eq] at this
+  obtain ⟨⟨hbase, hB⟩, hC⟩ := this
+  have hr : v = (List.replicate (relFactor v).2 (relFactor v).1).flatten := beq_iff_eq.1 hB
+  have hrep := rep_pow (rep_wordN hT hinv (relFactor v).1 hbase) (relFactor v).2
+  exact (congrArg (wordProd g) hr).trans
+    ((wordProd_flatten_replicate g _ _).trans (eq_of_rep hf hrep rep_one hC))
 
 theorem conj_facts {A B a b : Mat} (ha : a.size ≤ 4370) (hb : b.size ≤ 4370)
     (h : conjChecks A B a b = true) :
@@ -82,6 +141,41 @@ structure BridgeFacts (rels : List (List (ℕ × Bool))) : Prop where
   conj : ∃ Gu : GL (Fin 4370) (ZMod 2), glA₁ * Gu = Gu * bGL ((wA : Wd).eval tB) ∧
     glA₂ * Gu = Gu * bGL ((wB : Wd).eval tB)
 
+theorem bridgeFacts_of
+    {A B : Mat} (hA : Rep bMat A bA₁) (hB : Rep bMat B bA₂)
+    {rels : List (List (ℕ × Bool))}
+    (h : bChecks A B (regRun 4370 bN bProg A B).1 (regRun 4370 bN bProg A B).2 rels = true) :
+    BridgeFacts rels := by
+  have hf := bMat_injective
+  unfold bChecks at h
+  dsimp only at h
+  simp only [Bool.and_eq_true] at h
+  obtain ⟨⟨⟨⟨⟨hflag, hinv⟩, hrels⟩, hgA⟩, hgB⟩, hconj⟩ := h
+  have hR := regRun_rep (f := bMat) bN bProg bProg_lt hA hB hflag
+  set T : Array Mat := Array.ofFn (n := 11) fun k =>
+      (regRun 4370 bN bProg A B).1.getD (bTreg k.1) #[] with hTdef
+  have hT : ∀ k < 11, Rep bMat (T.getD k #[]) (tB k) := by
+    intro k hk
+    have e : T.getD k #[] = (regRun 4370 bN bProg A B).1.getD (bTreg k) #[] := by
+      simp [hTdef, Array.getD_eq_getD_getElem?, hk]
+    rw [e]
+    exact hR (bTreg k) (bTreg_lt k hk)
+  have hinv' : ∀ i < 11, tB i * tB i = 1 := by
+    intro i hi
+    have := (List.all_eq_true.1 hinv) i (List.mem_range.2 hi)
+    exact eq_of_rep hf (rep_mul (hT i hi) (hT i hi)) rep_one this
+  refine ⟨hinv', ?_, ?_⟩
+  · exact rels_of_relsOK hf hT hinv' hrels
+  · have ra := rep_wd (f := bMat) hT wA hgA
+    have rb := rep_wd (f := bMat) hT wB hgB
+    obtain ⟨G, Gi, h1, h2, h3⟩ := conj_facts ra.1 rb.1 hconj
+    have hAc : cmat 4370 A = genA₁ := by rw [hA.2, bMat_bA₁]
+    have hBc : cmat 4370 B = genA₂ := by rw [hB.2, bMat_bA₂]
+    rw [hAc, ra.2] at h1
+    rw [hBc, rb.2] at h2
+    refine ⟨⟨G, Gi, h3, mul_eq_one_comm.1 h3⟩, Units.ext ?_, Units.ext ?_⟩
+    · simpa [Matrix.GeneralLinearGroup.val_mkOfDetNeZero, coe_bGL] using h1
+    · simpa [Matrix.GeneralLinearGroup.val_mkOfDetNeZero, coe_bGL] using h2
 
 theorem conj_words {T : ℕ → NativeSporadic.B}
     (hinv : ∀ i < 11, T i * T i = 1) {Gu : GL (Fin 4370) (ZMod 2)}

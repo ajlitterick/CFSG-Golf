@@ -178,6 +178,8 @@ theorem bigBase_joint : bigBase Data.jointChain = base3 := by decide
 
 @[expose] def onz32 : Equiv.Perm (Fin 32) := permOfArr 32 Data.T32z
 
+@[expose] def onDelta : List (Equiv.Perm (Fin 120)) :=
+  Data.D120Generators.toList.map (permOfArr 120)
 
 @[expose] def codeF4 (c : ℕ) : PSL3Four.F4 := ⟨⟨c % 4, Nat.mod_lt _ (by norm_num)⟩⟩
 
@@ -205,5 +207,62 @@ theorem bigBase_joint : bigBase Data.jointChain = base3 := by decide
 @[expose] def onU : Subgroup (Matrix.SpecialLinearGroup (Fin 3) PSL3Four.F4) :=
   Subgroup.closure {g | g ∈ onElems}
 
+theorem det_elem (i j : Fin 3) (h : i ≠ j) (a : PSL3Four.F4) :
+    ((elemSL i j h a : Matrix.SpecialLinearGroup (Fin 3) PSL3Four.F4) :
+      Matrix (Fin 3) (Fin 3) PSL3Four.F4) = 1 + Matrix.single i j a ∧
+    (1 + Matrix.single i j a : Matrix (Fin 3) (Fin 3) PSL3Four.F4).det = 1 :=
+  ⟨rfl, Matrix.det_transvection_of_ne i j h a⟩
+
+theorem at_on_outer_certificate_data :
+    (∀ w, evalS w = Quiver.SchreierGraph.evalWord (fun h : Fin 7 => sgen h) (ptoLetters 7 w)) ∧
+    (∀ w, evalS w ∈ Pv) ∧ onT ≤ Pv ∧ onM ≤ Pv ∧ onL ≤ Pv ∧ onD0 ≤ Pv ∧
+    onz ∈ Pv ∧ onq ∈ Pv ∧ ont ∈ Pv ∧ onc ∈ Pv ∧
+    Data.TChain.degree = 245520 ∧ Data.MChain.degree = 245520 ∧ Data.LChain.degree = 245520 ∧
+    Data.McommChain.degree = 245520 ∧ Data.LcommChain.degree = 245520 ∧
+    Data.jointChain.degree = 245520 ∧
+    onTgens = Data.TWords.toList.map evalS ∧ onMgens = Data.MWords.toList.map evalS ∧
+    onLgens = Data.LWords.toList.map evalS ∧ onDgens = Data.intersectionWords.toList.map evalS ∧
+    onT = Subgroup.closure {g | g ∈ onTgens} ∧ onM = Subgroup.closure {g | g ∈ onMgens} ∧
+    onL = Subgroup.closure {g | g ∈ onLgens} ∧ onD0 = Subgroup.closure {g | g ∈ onDgens} ∧
+    onz = evalS Data.zWord ∧ onq = evalS Data.centerGeneratorWord ∧ ont = evalS Data.tWord ∧
+    onc = evalS Data.pairConjugatorWord ∧ onQ = Subgroup.zpowers onq ∧
+    onM1 = onM.map (MulAut.conj onc).toMonoidHom ∧
+    onWMgens = Data.MCommutatorSpecs.toList.map (commSpec onMgens) ∧
+    onWLgens = Data.LCommutatorSpecs.toList.map (commSpec onLgens) ∧
+    onWM = Subgroup.closure {g | g ∈ onWMgens} ∧ onWL = Subgroup.closure {g | g ∈ onWLgens} ∧
+    onTChain.original.toList = onTgens ∧ onMChain.original.toList = onMgens ∧
+    onLChain.original.toList = onLgens ∧ onMcommChain.original.toList = onWMgens ∧
+    onLcommChain.original.toList = onWLgens ∧ onJointChain.original.toList = onJgens ∧
+    onTChain.base.toList = base3 ∧ onMChain.base.toList = base3 ∧ onLChain.base.toList = base3 ∧
+    onMcommChain.base.toList = base3 ∧ onLcommChain.base.toList = base3 ∧
+    onJointChain.base.toList = base3 ∧
+    onX = Subgroup.closure (Set.range fun j : Fin Data.PSL120Chain.generators.size =>
+      permOfArr 120 Data.PSL120Chain.generators[j.val]!) ∧
+    onR = Data.TPoints.toList.map ptN ∧
+    onB = Data.quotientBlocks.toList.map (fun b => b.toList.map ptN) ∧
+    onu = permOfArr 120 Data.quotientConjugator ∧ onz32 = permOfArr 32 Data.T32z ∧
+    onDelta = Data.D120Generators.toList.map (permOfArr 120) ∧
+    Fintype.card PSL3Four.F4 = 4 ∧
+    (∀ x : PSL3Four.F4, x * x + x + 1 = 0 ↔ x = PSL3Four.F4.ω ∨ x = 1 + PSL3Four.F4.ω) ∧
+    onTargetVecs = Data.targetPoints.toList.map vecOfCodes ∧
+    onFanoBlocks = Data.targetFanoBlocks.toList.map (fun b => (b.toList.map pt21).toFinset) ∧
+    (∀ (i j : Fin 3) (h : i ≠ j) (a : PSL3Four.F4),
+      ((elemSL i j h a : Matrix.SpecialLinearGroup (Fin 3) PSL3Four.F4) :
+        Matrix (Fin 3) (Fin 3) PSL3Four.F4) = 1 + Matrix.single i j a ∧
+      (1 + Matrix.single i j a : Matrix (Fin 3) (Fin 3) PSL3Four.F4).det = 1) ∧
+    onU = Subgroup.closure {g | g ∈ onElems} := by
+  refine ⟨fun _ => rfl, evalS_mem, closure_evalList_le _, closure_evalList_le _,
+    closure_evalList_le _, closure_evalList_le _, evalS_mem _, evalS_mem _, evalS_mem _,
+    evalS_mem _, rfl, rfl, rfl, rfl, rfl, rfl,
+    rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
+    rfl, rfl, rfl, rfl, rfl, rfl, ?_, ?_, ?_, ?_, ?_, ?_, by
+      rw [onX, onPSL120Chain, smallChain, ofArrays_originalSubgroup], rfl, rfl, rfl, rfl, rfl,
+    PSL3Four.F4.card_eq, PSL3Four.F4.roots_quadratic, rfl, rfl, det_elem, rfl⟩
+  · rw [← bigBase_T]; simp [onTChain, bigChain, RawSchreierDatum.ofWords]
+  · rw [← bigBase_M]; simp [onMChain, bigChain, RawSchreierDatum.ofWords]
+  · rw [← bigBase_L]; simp [onLChain, bigChain, RawSchreierDatum.ofWords]
+  · rw [← bigBase_Mcomm]; simp [onMcommChain, bigChain, RawSchreierDatum.ofWords]
+  · rw [← bigBase_Lcomm]; simp [onLcommChain, bigChain, RawSchreierDatum.ofWords]
+  · rw [← bigBase_joint]; simp [onJointChain, bigChain, RawSchreierDatum.ofWords]
 
 end CFSG.ONSchreier

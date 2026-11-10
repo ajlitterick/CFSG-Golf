@@ -112,6 +112,8 @@ theorem ptD_commute_iff' (u v : Fin 3510) :
     apply Subtype.ext
     rw [pairModel_tv, ← chiD_mul_mul]
 
+theorem localD_χ :
+    localD.χ = chiD := rfl
 
 theorem chiD_conj
     (h : Cd) (g : Fi22.J) (hg : rho h = pi22 g) (x : LocalClass D23 d) :

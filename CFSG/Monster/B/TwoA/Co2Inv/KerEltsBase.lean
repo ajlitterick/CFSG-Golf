@@ -40,6 +40,8 @@ theorem dC_apply_eq_zero (i : Fin 24) : (dC : Fin 24 → ZMod 2) i = 0 ↔ ¬ (i
     change ((p : Equiv.Perm (Fin 24)))⁻¹ i = i
     rw [Equiv.Perm.inv_eq_iff_eq, hp i hi]
 
+theorem mem_Tperm {p : AutPerm} :
+    p ∈ Tperm ↔ ∀ i : Fin 24, (i : ℕ) < 8 → (p : Equiv.Perm (Fin 24)) i = i := Iff.rfl
 
 theorem Tperm_le_Foct : Tperm ≤ Foct := by
   intro p hp

@@ -23,6 +23,15 @@ theorem syl_sound (hA : codeP (gA : Perm (Fin n)) = cA) (hB : codeP (gB : Perm (
       (∀ x ∈ sylowList H gA gB rgw rwords, x ^ (2 ^ a) = 1) := by
   exact Pf.syl_sound' gA gB hA hB rgw rwords a h
 
+theorem sylG_sound (hA : codeP (gA : Perm (Fin n)) = cA) (hB : codeP (gB : Perm (Fin n)) = cB)
+    (rgw rwords : List (List ℤ)) (a : ℕ)
+    (h : sylGK n a (rlK n cA cB rgw rwords) (List.map (evalZK n [cA, cB]) rgw) = true) :
+    (sylowList H gA gB rgw rwords).length = 2 ^ a ∧ (sylowList H gA gB rgw rwords).Nodup ∧
+      (1 : H) ∈ sylowList H gA gB rgw rwords ∧
+      (∀ x ∈ sylowList H gA gB rgw rwords, ∀ g ∈ sylowGens H gA gB rgw,
+        x * g ∈ sylowList H gA gB rgw rwords) ∧
+      (∀ x ∈ sylowList H gA gB rgw rwords, x ^ (2 ^ a) = 1) := by
+  exact Pf.sylG_sound' gA gB hA hB rgw rwords a h
 
 theorem rank_sound (hA : codeP (gA : Perm (Fin n)) = cA) (hB : codeP (gB : Perm (Fin n)) = cB)
     (rgw rwords : List (List ℤ)) (k : ℕ) (hn : n ≤ 32)

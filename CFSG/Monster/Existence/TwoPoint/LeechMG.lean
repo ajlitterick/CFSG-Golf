@@ -20,6 +20,8 @@ theorem leech_exists_short_rep {v : L2} (hv : v ∈ shortSet) :
     have h : phi0 (coordOf q) = v := by rw [← toAdd_phiQ, hq, toAdd_ofAdd]
     ⟨q, hv.elim fun u hu => ⟨u, hu.1, hu.2.trans h.symm⟩, h⟩
 
+theorem isShortCoord_of_phi0_mem {q : Q} (h : phi0 (coordOf q) ∈ shortSet) :
+    IsShortCoord (coordOf q) := h
 
 theorem leech_isConj_tGriess_rhoGriess
     {r : Q} (hr : IsShortCoord (coordOf r)) :
@@ -27,6 +29,10 @@ theorem leech_isConj_tGriess_rhoGriess
   (exists_Gvis_conj_short isShortCoord_rStar hr).elim fun g hg =>
     isConj_iff.2 ⟨⟨g, Gvis_le_AutO hg.1⟩, Subtype.ext hg.2.1⟩
 
+theorem leech_rhoGriess_comm_iff {q q' : Q} :
+    rhoGriess q * rhoGriess q' = rhoGriess q' * rhoGriess q ↔ q' * q = q * q' :=
+  ⟨fun h => rhoGriess_injective ((rhoGriess_mul q' q).trans (h.trans (rhoGriess_mul q q').symm)),
+    fun h => (rhoGriess_mul q' q).symm.trans ((congrArg rhoGriess h).trans (rhoGriess_mul q q'))⟩
 
 theorem leech_rhoGriess_mul_self {q : Q} (h : q * q = 1) : rhoGriess q * rhoGriess q = 1 :=
   (rhoGriess_mul q q).symm.trans ((congrArg rhoGriess h).trans rhoGriess_one)

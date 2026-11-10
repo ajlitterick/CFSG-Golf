@@ -140,6 +140,7 @@ variable {H : Type*} [Group H] {p : ℕ} {hB : IsBaerGroup H p}
 
 instance [Finite H] : Finite (Baer H p hB) := inferInstanceAs (Finite H)
 
+theorem toB_injective : Function.Injective (toB hB) := fun _ _ h => h
 
 theorem ofB_injective : Function.Injective (ofB (hB := hB)) := fun _ _ h => h
 

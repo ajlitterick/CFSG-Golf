@@ -45,6 +45,11 @@ theorem co2Packed_facts {i : ℕ} (hi : i < 2300) :
       ∀ j < 2300, co2PackedVecs[i]! = co2PackedVecs[j]! → i = j :=
   co2Faithful_check.2.1 i hi
 
+theorem co2Vec_ne_zero
+    {i : ℕ} (hi : i < 2300) : co2Vec i ≠ 0 := by
+  intro h
+  rw [co2Vec_eq hi, ← toVecD_zero 22] at h
+  exact (co2Packed_facts hi).2.1 (toVecD_injective (co2Packed_facts hi).1 (by norm_num) h)
 
 theorem co2Vec_injective
     {i j : ℕ} (hi : i < 2300) (hj : j < 2300)
@@ -288,5 +293,36 @@ theorem co2SeedB_val : co2SeedB.val.val = co2A2 := by
   rw [← co2MatEquiv_val, co2SeedB, MulEquiv.apply_symm_apply]
   rfl
 
+theorem co2PermEquiv_seed
+    {u : Blueprint.NativeSporadic.Co2} {k : Fin 2}
+    (hu : u.val.val = (co2SeedGL k : Matrix (Fin 22) (Fin 22) (ZMod 2))) :
+    (co2PermEquiv u : Equiv.Perm (Fin 2300)) = co2Gen k := by
+  refine Equiv.ext fun i => Fin.ext (co2Vec_injective (Fin.isLt _) (Fin.isLt _) ?_)
+  rw [co2Vec_permEquiv, hu, ← co2GLLin_apply, ← co2SeedLin, co2SeedLin_apply]
+
+theorem co2PermEquiv_seedA :
+    (co2PermEquiv co2SeedA : Equiv.Perm (Fin 2300)) = co2Gen 0 :=
+  co2PermEquiv_seed (k := 0) co2SeedA_val
+
+theorem co2PermEquiv_seedB :
+    (co2PermEquiv co2SeedB : Equiv.Perm (Fin 2300)) = co2Gen 1 :=
+  co2PermEquiv_seed (k := 1) co2SeedB_val
+
+theorem fam_co2_faithful_permutation_action :
+    (∀ i < 2300, co2Vec i ≠ 0) ∧
+    (∀ i < 2300, ∀ j < 2300, co2Vec i = co2Vec j → i = j) ∧
+    co2BasisList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 23, 28, 41, 61] ∧
+    LinearIndependent (ZMod 2) (fun t : Fin 22 => co2Vec (co2BasisList.getD t 0)) ∧
+    Submodule.span (ZMod 2) (Set.range fun t : Fin 22 => co2Vec (co2BasisList.getD t 0)) = ⊤ ∧
+    (∀ i : Fin 2300, co2A1 *ᵥ co2Vec i = co2Vec (co2Gen 0 i)) ∧
+    (∀ i : Fin 2300, co2A2 *ᵥ co2Vec i = co2Vec (co2Gen 1 i)) ∧
+    (∀ (u : Blueprint.NativeSporadic.Co2) (i : Fin 2300),
+      co2Vec ((co2PermEquiv u : Equiv.Perm (Fin 2300)) i) = u.val.val *ᵥ co2Vec i) ∧
+    co2SeedA.val.val = co2A1 ∧ co2SeedB.val.val = co2A2 ∧
+    (co2PermEquiv co2SeedA : Equiv.Perm (Fin 2300)) = co2Gen 0 ∧
+    (co2PermEquiv co2SeedB : Equiv.Perm (Fin 2300)) = co2Gen 1 :=
+  ⟨fun _ hi => co2Vec_ne_zero hi, fun _ hi _ hj h => co2Vec_injective hi hj h, rfl,
+    co2Basis_linearIndependent, co2Basis_span, co2A1_mulVec, co2A2_mulVec, co2Vec_permEquiv,
+    co2SeedA_val, co2SeedB_val, co2PermEquiv_seedA, co2PermEquiv_seedB⟩
 
 end CFSG.Sporadic.Co2Cert

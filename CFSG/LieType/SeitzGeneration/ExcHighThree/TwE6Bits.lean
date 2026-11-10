@@ -21,6 +21,8 @@ namespace Bits2
 
 @[expose] def one : Bits2 := ⟨oneBits, 0⟩
 
+@[expose] def eqb (X Y : Bits2) : Bool :=
+  decide (X.a % 2 ^ 6084 = Y.a % 2 ^ 6084) && decide (X.b % 2 ^ 6084 = Y.b % 2 ^ 6084)
 
 end Bits2
 
@@ -183,6 +185,23 @@ theorem hasBits2_one [CharP K 2]
     toEnd_oneBits.symm.symm, toEnd_zero]
   simp
 
+theorem hasBits2_of_hasBits [CharP K 2]
+    (ω : K) {g : adjointGroup Tag.E6 K} {A : ℕ} (h : E6Bits.HasBits K g A) :
+    HasBits2 K ω (g : ModGL Tag.E6 K) ⟨A, 0⟩ := by
+  unfold HasBits2 toEnd2
+  rw [toEnd_zero, smul_zero, add_zero]
+  exact h
+
+theorem hasBits2_prod2 [CharP K 2]
+    {ω : K} (hω : ω ^ 2 + ω + 1 = 0) : ∀ (L : List (ModGL Tag.E6 K)) (M : List Bits2),
+    List.Forall₂ (HasBits2 K ω) L M → HasBits2 K ω L.prod (prod2 M)
+  | [], [], _ => by simpa [prod2] using hasBits2_one ω
+  | g :: L, X :: M, h => by
+    obtain ⟨hg, hL⟩ := List.forall₂_cons.1 h
+    rw [List.prod_cons]
+    exact hg.mul hω (hasBits2_prod2 hω L M hL)
+  | [], _ :: _, h => by cases h
+  | _ :: _, [], h => by cases h
 
 section Omega
 

@@ -164,6 +164,9 @@ theorem evalM_spec {mulF : F3P → F3P → F3P} (hm : IsMul ι r mulF) {ρ α : 
     obtain ⟨ha, ea⟩ := evalM_spec hm hρ hα a
     exact ⟨F3P.valid_neg ha, by simp only [evalM, eval]; rw [F3P.ev_neg, ea]⟩
 
+theorem isMul_mulMod {f : F3P} {k : ℕ} (hf : f.Valid) (hf0 : F3P.ev ι r f = 0) :
+    IsMul ι r (F3P.mulMod f k) :=
+  fun _ _ ha hb => ⟨F3P.valid_mulMod hf ha, F3P.ev_mulMod hf ha hb hf0⟩
 
 end ev
 

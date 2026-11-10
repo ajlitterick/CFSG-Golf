@@ -21,6 +21,7 @@ open Timmesfeld.M3B (WT LM matOf mone mmul mpow mOfRows)
 
 theorem vmK_eq (w : ℕ) (B : MatK) : vmK w B = M3BF.mvK w B := rfl
 
+theorem mmK_eq (A B : MatK) : mmK A B = M3BF.mmK A B := rfl
 
 theorem vecK_eq (A : MatK) (w : Fin 12 → ZMod 3) : vecK A w = Matrix.vecMul w (toMatK A) := by
   funext i

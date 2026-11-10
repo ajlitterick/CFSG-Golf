@@ -156,6 +156,7 @@ theorem gmulFun_smul_left (t : ℚ) (u v : SpaceB) : gmulFun (t • u) v = t •
     (fun u v v' => by rw [gmulFun_comm, gmulFun_add_left, gmulFun_comm v, gmulFun_comm v'])
     (fun t u v => by rw [gmulFun_comm, gmulFun_smul_left, gmulFun_comm v])
 
+theorem gmul_apply (u v : SpaceB) : gmul u v = gmulFun u v := rfl
 
 theorem gmul_comm (u v : SpaceB) : gmul u v = gmul v u := gmulFun_comm u v
 
@@ -341,6 +342,9 @@ theorem bform_comm (u v : SpaceB) : bform u v = bform v u := by
     exact Finset.sum_congr rfl fun c _ => mul_comm _ _
   · exact Finset.sum_congr rfl fun j _ => Finset.sum_congr rfl fun i _ => mul_comm _ _
 
+theorem bform_gmul_assoc (u v w : SpaceB) : bform (gmul u v) w = bform u (gmul v w) := by
+  rw [bform_comm u, gmul_apply, gmul_apply]
+  exact T_cycle u v w
 
 theorem fAWW_zero_left (N N' : SpaceW) : fAWW 0 N N' = 0 := by simp [fAWW]
 

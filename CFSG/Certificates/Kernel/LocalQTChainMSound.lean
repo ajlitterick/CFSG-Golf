@@ -347,6 +347,14 @@ theorem idxM_inj (hn : n ≤ 32) {C : List Lvl} (hok : chainOK n C = true)
       subst he
       exact sift_inj hn C hC fx fy ex ey
 
+theorem idxM_lt_chainF (hn : n ≤ 32) {C : List Lvl} (hok : chainOK n C = true)
+    (hI : chainInj n C = true) {F x : ℕ} (fx : FC n x) (hlt : idxM n C F x < F) :
+    idxM n C F x < chainF C := by
+  have hC := all_lvOK C [] (by rw [← chainOK_eq]; exact hok) hI
+  rw [idxM_sift] at hlt ⊢
+  cases ex : sift n C x with
+  | none => rw [ex] at hlt; exact absurd hlt (lt_irrefl F)
+  | some k => exact sift_lt hn C hC fx ex
 
 end CFSG.KC.LQT.CM
 

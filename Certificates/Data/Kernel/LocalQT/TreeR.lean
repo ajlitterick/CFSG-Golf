@@ -41,6 +41,9 @@ namespace CFSG.KC.LQT.TR
 open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.LQT.PP CFSG.KC.LQT.RW CFSG.KC.LQT.RB
 open CFSG.Quasithin.H13.KGRank
 
+@[expose] noncomputable def cenR (W g N zi : Nat) (PT CT : Nat → Nat) (lo len : Nat) : Bool :=
+  (fun (mul : Nat → Nat → Nat) => allR lo len fun i => Nat.beq (mul zi i) (mul i zi))
+    (mulT W g N PT CT)
 
 @[expose] noncomputable def candR (W g N : Nat) (PT CT : Nat → Nat) : List Nat :=
   List.cons 0 (invsB N (mulT W g N PT CT))

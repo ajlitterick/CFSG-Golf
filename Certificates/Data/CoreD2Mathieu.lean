@@ -9,6 +9,24 @@ namespace Certificates.CoreD2Perm
 open CFSG.PSL3Four.Native
 open Certificates.FusD2Perm (powT wordT)
 
+@[expose] def pairOKZ (D : Data) (q : Nat × Nat) : Bool :=
+  if q.1 == q.2 then
+    decide (q.1 < D.eW.length) && powT D.n (eT D q.1) D.p == idTab D.n &&
+      !(eT D q.1 == idTab D.n) &&
+      allBelow D.eW.length fun k => comp D.n (eT D q.1) (eT D k) == comp D.n (eT D k) (eT D q.1)
+  else pairOK D q
+
+@[expose] def checkZ (D : Data) : Bool :=
+  D.eK == 3 &&
+    (anyBelow D.eW.length fun i => anyBelow D.eW.length fun j =>
+      !(comp D.n (eT D i) (eT D j) == comp D.n (eT D j) (eT D i))) &&
+    (allBelow 2 fun j =>
+      (giT D)[j]!.size == D.n && comp D.n (giT D)[j]! (gsT D)[j]! == idTab D.n) &&
+    (allBelow (gT D).size fun j =>
+      (gTi D)[j]!.size == D.n && comp D.n (gTi D)[j]! (gT D)[j]! == idTab D.n) &&
+    enumOK D.n (eGens D) (eEnum D) && (eEnum D).tabs.size == D.p ^ D.eK &&
+    D.pairs.all (pairOKZ D) && D.fd.length == D.gWs.length && fusOK D &&
+    wordT D.n (gT D) (gTi D) D.wA == D.aT && wordT D.n (gT D) (gTi D) D.wB == D.bT
 
 @[expose] def m12CoreData : Data where
   n := 12

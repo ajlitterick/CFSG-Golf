@@ -113,6 +113,7 @@ theorem mem_center_iff (x : Equiv.Perm (Fin 6)) :
       rcases hx with rfl | rfl | rfl | rfl <;> decide +kernel
     exact ⟨hxS, fun y hy => (center_check x hxS).mpr hx y hy⟩
 
+theorem aBar2_le_sylowS6 : aBar2 ≤ sylowS6 := fun x hx => ((mem_center_iff x).mpr hx).1
 
 theorem card_perm_six : Nat.card (Equiv.Perm (Fin 6)) = 720 := by
   rw [Nat.card_perm, Nat.card_fin]

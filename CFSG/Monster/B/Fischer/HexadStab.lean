@@ -54,6 +54,14 @@ theorem mem_KB {k : CFSG.Blueprint.NativeSporadic.M22} :
 
 @[expose] def g₃ : CFSG.Blueprint.NativeSporadic.M22 := wordM22 [-2, -1, -2, -1, 2, 2, 1, 2, 1, 2]
 
+theorem g₁_eq : g₁ = m22a⁻¹ * m22b ^ 2 * m22a := by
+  simp [g₁, wordM22, letterM22, pow_two, mul_assoc]
+
+theorem g₂_eq : g₂ = (m22b⁻¹ * m22a⁻¹) ^ 2 * m22b⁻¹ * (m22a * m22b) ^ 3 := by
+  simp [g₂, wordM22, letterM22, pow_succ, mul_assoc]
+
+theorem g₃_eq : g₃ = (m22b⁻¹ * m22a⁻¹) ^ 2 * m22b ^ 2 * (m22a * m22b) ^ 2 := by
+  simp [g₃, wordM22, letterM22, pow_succ, mul_assoc]
 
 @[expose] def genG₁ (t : ℕ) : ℕ :=
   [4, 5, 2, 3, 0, 1, 11, 10, 9, 8, 7, 6, 13, 12, 14, 15, 20, 21, 18, 19, 16, 17].getD t 0
@@ -73,6 +81,11 @@ theorem genG₂_spec : ∀ t : Fin 22, ((psiHom g₂ (coordAt t : Fin 24)) : ℕ
 theorem genG₃_spec : ∀ t : Fin 22, ((psiHom g₃ (coordAt t : Fin 24)) : ℕ) = genG₃ t + 2 := by
   decide +kernel
 
+theorem genG₁_lt : ∀ t : Fin 22, genG₁ t < 22 := by decide
+
+theorem genG₂_lt : ∀ t : Fin 22, genG₂ t < 22 := by decide
+
+theorem genG₃_lt : ∀ t : Fin 22, genG₃ t < 22 := by decide
 
 theorem g₁_mem_KB : g₁ ∈ KB := by
   rw [mem_KB]

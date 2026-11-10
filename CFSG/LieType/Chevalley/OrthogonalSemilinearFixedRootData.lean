@@ -301,6 +301,13 @@ theorem mk_eq_of_theta
     obtain ⟨y', hy', e⟩ := D.bijOn_kernelRoots.mapsTo ⟨_, y.2, rfl⟩
     exact (ih₁ (b' := ⟨y', hy'⟩) ha e.symm).trans (ih₂ e.symm hb)
 
+theorem J_nonempty :
+    D.J.Nonempty := by
+  obtain ⟨i₀, hJ⟩ := D.isThetaOrbit
+  obtain ⟨⟨α, hα⟩, rfl⟩ := Quotient.exists_rep i₀
+  refine ⟨⟦⟨α, hα⟩⟧, ?_⟩
+  rw [hJ]
+  exact ⟨0, α, ⟨hα, rfl⟩, α, ⟨hα, rfl⟩, by simp⟩
 
 theorem mapsTo_roots :
     Set.MapsTo D.θ (toReal '' D.roots) (toReal '' D.roots) := by

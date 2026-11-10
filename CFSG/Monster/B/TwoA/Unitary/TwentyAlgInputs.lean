@@ -57,5 +57,6 @@ open CFSG.Monster.Code
 @[expose] def eRows (c : ℕ) : Array ℕ :=
   ((List.range 20).map fun i => if i = c / 20 then 1 <<< (c % 20) else 0).toArray
 
+variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V] (b : Module.Basis (Fin 20) (ZMod 2) V)
 
 end CFSG.Monster.B.TwoA.Unitary

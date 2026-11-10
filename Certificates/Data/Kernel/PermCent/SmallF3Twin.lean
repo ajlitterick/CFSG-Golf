@@ -47,6 +47,10 @@ variable {n : Nat} [Small n]
 @[expose] noncomputable def fourGenC (LA LP : List (CV n)) : Bool :=
   cent48C LP && order13C LA LP
 
+@[expose] noncomputable def cent3OddAllC (LA LP : List (CV 28)) : Bool :=
+  LP.all fun g => !(decide (g * g * g = 1) && !decide (g = 1)) ||
+    (LP.filter fun x => eq22C g x x g).length % 2 == 1 ||
+    LA.all fun σ => !(powOneC σ 2 && eq22C σ g g σ) || siftC CFSG.GH74.KGroups.U33.QP σ 0
 
 end CFSG.Certificates.Kernel.PkCV.SmallF3T
 

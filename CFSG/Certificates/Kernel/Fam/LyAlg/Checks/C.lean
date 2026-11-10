@@ -19,6 +19,8 @@ theorem comb : Nat.beq (CFSG.KC.Fam.lincomb RW 5 12 8 L H RWn [1793, 2051, 514, 
 theorem rnull : Nat.beq (CFSG.KC.Ord.mulR 5 12 1332 111 8 L H CM RM Cm C0v) 0 = true := by
   quickRfl
 
+theorem vcol : Nat.beq (Nat.land C0v CM) C0v = true := by
+  quickRfl
 
 theorem vrowcol : Nat.beq C0v (CFSG.KC.Fam.colOf 12 1332 111 vrow) = true := by
   quickRfl

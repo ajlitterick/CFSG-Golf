@@ -33,6 +33,14 @@ where
 #kc_each ch725109v 0 6
 #kc_each ch725109i 0 1
 
+theorem ch725109n_vlen : notB (vChk (List.tail (unitsK (D.k1K.getD 0 []) (nat_lit 512)))
+    (D.k1B.getD 0 []) (D.zS.getD (D.k1zw.getD 0 (0, 0)).1 []) (D.wS.getD (D.k1zw.getD 0 (0, 0)).2 [])
+    D.x7p D.x7q) = true := by
+  quickRfl
+
+theorem ch725109n_vz : notB (vChk (unitsK (D.k1K.getD 0 []) (nat_lit 512)) (D.k1B.getD 0 [])
+    List.nil List.nil D.x7p D.x7q) = true := by
+  quickRfl
 
 end CertificateChecks.KernelL52I
 

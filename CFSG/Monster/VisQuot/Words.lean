@@ -118,5 +118,12 @@ theorem conj_kGen_nine : kGen 0 * kGen 9 * (kGen 0)⁻¹ = permHom betaAut := by
   rw [← kGen_zero_mul_self, ← mul_assoc]
   exact h
 
+theorem kGen_nine_eq : kGen 9 = modTwoUnit (gO (bC 6)) := by
+  rw [kGen_of_three_le (by decide)]
+  rfl
+
+theorem kGen_three_eq : kGen 3 = modTwoUnit (gO (bC 0)) := by
+  rw [kGen_of_three_le (by decide)]
+  rfl
 
 end CFSG.Monster.VisQuot

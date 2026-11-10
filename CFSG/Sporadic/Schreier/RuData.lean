@@ -64,6 +64,8 @@ namespace CFSG.Sporadic.RuSchreier
 @[expose] def ruSeedWord : List ℤ :=
   [2, 1]
 
+@[expose] def ruOddProductOrder : ℕ :=
+  7
 
 @[expose] def ruSWords : List (List ℤ) :=
   [
@@ -106,6 +108,8 @@ namespace CFSG.Sporadic.RuSchreier
   [
     0, 1, 2, 1, 3, 4, 3, 2, 5, 4, 3, 4, 6, 4, 5, 3, 0, 0, 1, 5, 6, 6, 5, 2, 2, 0, 1, 6]
 
+@[expose] def ruDerivedProvenance : List (ℕ × ℕ × List ℤ) :=
+  [(0, 2, []), (0, 3, []), (1, 3, []), (2, 3, []), (0, 3, [3])]
 
 @[expose] def ruQuotientBits : List ℕ :=
   [1, 0, 2, 4]
@@ -244,6 +248,8 @@ namespace CFSG.Sporadic.RuSchreier
 @[expose] def ruAlignmentSeedWord : List ℤ :=
   [2, 1, 2]
 
+@[expose] def ruAlignmentProductOrder : ℕ :=
+  15
 
 @[expose] def ruLMWords : List (List ℤ) :=
   [

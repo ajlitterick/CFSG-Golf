@@ -169,6 +169,16 @@ theorem basis_aDim_one : (rootPB phi3).basis (aDim 1) = AdjoinRoot.root phi3 := 
   unfold rootPB
   exact AdjoinRoot.powerBasis_gen _
 
+theorem root_mul_basis_zero :
+    AdjoinRoot.root phi3 * (rootPB phi3).basis (aDim 0) = (rootPB phi3).basis (aDim 1) := by
+  apply (rootPB phi3).basis.repr.injective
+  ext b
+  have hroot : (rootPB phi3).basis.repr (AdjoinRoot.root phi3 *
+      (rootPB phi3).basis (aDim 0)) b = rootMat phi3 b (aDim 0) := by
+    rw [← Algebra.leftMulMatrix_eq_repr_mul (rootPB phi3).basis (AdjoinRoot.root phi3) b (aDim 0)]
+    rfl
+  rw [hroot, rootMat_apply, Module.Basis.repr_self, Finsupp.single_apply]
+  rcases fin_two_cases b with rfl | rfl <;> simp [aDim]
 
 theorem root_mul_basis_one :
     AdjoinRoot.root phi3 * (rootPB phi3).basis (aDim 1) =
@@ -286,6 +296,15 @@ theorem blockGen_succ (n : ℕ) (i : Fin (R n)) :
   apply Fin.ext
   simp [pairCoord]
 
+theorem blockGen_comm (n : ℕ) {i j : Fin (R n)} (hij : i ≠ j) :
+    Commute (blockGen n i) (blockGen n j) := by
+  rcases lt_or_gt_of_ne hij with h | h
+  · have hle : (pairIdx n i).val + 2 ≤ (pairIdx n j).val := by
+      simp [pairIdx]; omega
+    exact omegaBlock_comm (n := n) hle
+  · have hle : (pairIdx n j).val + 2 ≤ (pairIdx n i).val := by
+      simp [pairIdx]; omega
+    exact (omegaBlock_comm (n := n) hle).symm
 
 theorem blockGen_mulVec_zero (n : ℕ) (i : Fin (R n)) :
     ((blockGen n i : SpecialLinearGroup (Fin (n + 1)) F2) :
@@ -1069,6 +1088,16 @@ theorem permMatSL_mul_self (n : ℕ) (σ : Equiv.Perm (Fin (R n))) :
     (σ * σ).permMatrix (AdjoinRoot phi3)
   rw [Matrix.permMatrix_mul]
 
+theorem theta_perm_inv_eq (n : ℕ) (σ : Equiv.Perm (Fin (R n))) :
+    ((CoordSL.theta phi3 (eps n) (permMatSL n σ) :
+      SpecialLinearGroup (Fin (n + 1)) F2))⁻¹ =
+      (CoordSL.theta phi3 (eps n) (permMatSL n σ.symm) :
+        SpecialLinearGroup (Fin (n + 1)) F2) := by
+  rw [show ((CoordSL.theta phi3 (eps n) (permMatSL n σ) :
+      SpecialLinearGroup (Fin (n + 1)) F2))⁻¹ =
+      (CoordSL.theta phi3 (eps n) ((permMatSL n σ)⁻¹) :
+        SpecialLinearGroup (Fin (n + 1)) F2) from (map_inv _ _).symm,
+    permMatSL_inv]
 
 theorem theta_perm_sq (n : ℕ) (σ : Equiv.Perm (Fin (R n))) (hσ : σ * σ = 1) :
     (CoordSL.theta phi3 (eps n) (permMatSL n σ) :
@@ -1277,6 +1306,23 @@ theorem torusCoord_symm_blockGen (n : ℕ) (j : Fin (R n)) :
   apply Subtype.ext
   rw [torusCoord_gen]
 
+theorem blockGen_pow_ne_of_ne {n : ℕ} {i j : Fin (R n)} (hij : i ≠ j)
+    {e : ℕ} (he : e = 1 ∨ e = 2 ∨ e = 4) :
+    (blockGen n j) ^ e ≠ blockGen n i := by
+  intro h
+  have hsub : (⟨blockGen n j, blockGen_mem n j⟩ : ↥(halfTorus n)) ^ e =
+      ⟨blockGen n i, blockGen_mem n i⟩ := by
+    apply Subtype.ext
+    rw [Subgroup.coe_pow]
+    exact h
+  have hconj := congrArg (fun x : ↥(halfTorus n) => (torusCoord n).symm x) hsub
+  rw [map_pow, torusCoord_symm_blockGen, torusCoord_symm_blockGen] at hconj
+  have heval := congrFun hconj j
+  simp only [Pi.pow_apply, Pi.mulSingle_apply, hij.symm, if_false] at heval
+  rcases he with rfl | rfl | rfl
+  · exact (by decide : (Multiplicative.ofAdd (1 : ZMod 3)) ^ 1 ≠ 1) heval
+  · exact (by decide : (Multiplicative.ofAdd (1 : ZMod 3)) ^ 2 ≠ 1) heval
+  · exact (by decide : (Multiplicative.ofAdd (1 : ZMod 3)) ^ 4 ≠ 1) heval
 
 noncomputable def fourEmb (n : ℕ) (hR : 4 ≤ R n) : Fin 4 ↪ Fin (R n) :=
   Fin.castLEEmb hR
@@ -1295,11 +1341,17 @@ theorem tau2_sq : tau2 * tau2 = 1 := by decide
 
 theorem tau1_comm_tau2 : tau1 * tau2 = tau2 * tau1 := by decide
 
+theorem tau1_symm_zero : tau1.symm 0 = 1 := by decide
+
+theorem tau2_symm_zero : tau2.symm 0 = 2 := by decide
 
 theorem tau1_one : tau1 1 = 0 := by decide
 
 theorem tau2_two : tau2 2 = 0 := by decide
 
+theorem tau1_two : tau1 2 = 3 := by decide
+
+theorem tau1_three : tau1 3 = 2 := by decide
 
 theorem sigmaOf_apply (n : ℕ) (hR : 4 ≤ R n) (τ : Equiv.Perm (Fin 4)) (i : Fin 4) :
     sigmaOf n hR τ (fourEmb n hR i) = fourEmb n hR (τ i) := by
@@ -1336,6 +1388,32 @@ theorem sigma2_symm_zero (n : ℕ) (hR : 4 ≤ R n) :
   rw [Equiv.symm_apply_eq]
   rw [sigmaOf_apply, tau2_two]
 
+theorem sigma1_symm_two (n : ℕ) (hR : 4 ≤ R n) :
+    (sigmaOf n hR tau1).symm (fourEmb n hR 2) = fourEmb n hR 3 := by
+  rw [Equiv.symm_apply_eq]
+  rw [sigmaOf_apply, tau1_three]
+
+theorem blockGen_pow_ne_pow_of_ne {n : ℕ} {i j : Fin (R n)} (hij : i ≠ j)
+    {e f : ℕ} (he : e = 1 ∨ e = 2 ∨ e = 4) :
+    (blockGen n j) ^ e ≠ (blockGen n i) ^ f := by
+  intro h
+  have hsub : (⟨blockGen n j, blockGen_mem n j⟩ : ↥(halfTorus n)) ^ e =
+      (⟨blockGen n i, blockGen_mem n i⟩ : ↥(halfTorus n)) ^ f := by
+    apply Subtype.ext
+    rw [Subgroup.coe_pow, Subgroup.coe_pow]
+    exact h
+  have hconj := congrArg (fun x : ↥(halfTorus n) => (torusCoord n).symm x) hsub
+  rw [map_pow, map_pow, torusCoord_symm_blockGen, torusCoord_symm_blockGen] at hconj
+  have heval := congrFun hconj j
+  simp only [Pi.pow_apply, Pi.mulSingle_apply, hij.symm, if_false, one_pow] at heval
+  rcases he with rfl | rfl | rfl <;>
+    exact (by decide : (Multiplicative.ofAdd (1 : ZMod 3)) ^ _ ≠ 1) heval
+
+theorem prod_two_cond {a b : Prop} [Decidable a] [Decidable b] :
+    (if a then 2 else 1) * (if b then 2 else 1) = 1 ∨
+    (if a then 2 else 1) * (if b then 2 else 1) = 2 ∨
+    (if a then 2 else 1) * (if b then 2 else 1) = 4 := by
+  by_cases ha : a <;> by_cases hb : b <;> simp [ha, hb]
 
 omit [Finite G] in
 theorem psi_u_blockGen {n : ℕ} {ψ : Matrix.SpecialLinearGroup (Fin (n + 1)) GGHalf.F2 →* G}
@@ -2002,6 +2080,7 @@ theorem ggQ2Lin_nine_le_displ {n : ℕ}
   exact ggQ2Lin_displ_card hF hi01 hi02 hi12 ht1 ht2 hd1 hd2 hd1mem hd2mem
 
 
+
 theorem ggQ2Lin_thetaMat_injective {n s r : ℕ}
     (ε : Fin (n + 1) ≃ (Fin (rootPB phi3).dim × Fin s) ⊕ Fin r) :
     Function.Injective (CoordSL.thetaMat phi3 ε) := by
@@ -2476,6 +2555,8 @@ theorem ggQTwoVACCellOn_lin : GGQTwoVACCellOn GGQ2VACLabLin := by
     · exact Or.inl (ggQ2Lin_oneBlock_W6 hS hn hF hBs hzt ht hDclos hs hn5)
     · exact Or.inr (ggQ2Lin_oneBlock_W7 hS hn hF hBs hzt ht hDclos hs hn6)
   exact ⟨ggQTwoI1_of_eq hS hB, ggQTwoK1_of_eq hS hB, h9, hone⟩
+
+
 
 
 end CFSG.StandardType

@@ -68,6 +68,8 @@ theorem isConj_el_of_isConst (hn : 2 ≤ n) {d r e : Fin 4 → ZMod (2 ^ n)} {π
 @[expose] def wT (n : ℕ) : L4Model n :=
   el ![-3, 1, 1, 1] 1 (by rw [detSum_one_iff, Fin.sum_univ_four]; simp; ring)
 
+@[expose] def yT (n : ℕ) : L4Model n :=
+  el ![1, 0, 0, -1] 1 (by rw [detSum_one_iff, Fin.sum_univ_four]; simp)
 
 theorem detSum_uw1 (hn : 3 ≤ n) : detSum (fun _ : Fin 4 => ss n) s23 := by
   rw [detSum, sgnH_s23 (by omega), Finset.sum_const, Finset.card_univ, Fintype.card_fin,
@@ -89,6 +91,14 @@ theorem detSum_tx : detSum (![-1, 0, 1, 0] : Fin 4 → ZMod (2 ^ n)) tP := by
 
 @[expose] def txT (n : ℕ) : L4Model n := el ![-1, 0, 1, 0] tP detSum_tx
 
+theorem yT_pow (hn : 2 ≤ n) : yT n ^ 2 ^ (n - 1) = y1T (by omega) := by
+  rw [yT, y1T, el_one_pow, el_eq_el_iff hn]
+  have h2 := hh_add_hh (n := n) (by omega)
+  refine ⟨rfl, isConst_of_eq_four 0 ?_ ?_ ?_ ?_⟩ <;>
+    simp only [Pi.sub_apply, Pi.smul_apply, hv, Matrix.cons_val, nsmul_eq_mul, Pi.mul_apply,
+      Pi.natCast_apply, Nat.cast_one,
+      Nat.cast_zero, mul_one, mul_zero] <;>
+    first | ring1 | linear_combination h2 | linear_combination -h2
 
 theorem uT_mul_w1T (hn : 3 ≤ n) : uT (n := n) (by omega) * w1T hn = uw1T hn := by
   rw [uT, w1T, uw1T, el_mul, el_eq_el_iff (by omega), pv_s23]

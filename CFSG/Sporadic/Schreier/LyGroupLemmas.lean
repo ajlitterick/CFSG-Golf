@@ -46,6 +46,40 @@ section Fixed
 
 variable {G X : Type*} [Group G] [MulAction G X] [Finite G]
 
+theorem centralizer_eq_of_transitive (z : G) (C : Subgroup G)
+    (hC : C ≤ Subgroup.centralizer {z}) (F : Finset X)
+    (hF : ∀ x, x ∈ F ↔ z • x = x) (x₀ : X) (hx₀ : x₀ ∈ F)
+    (m : ℕ) (hstab : Nat.card ↥(Subgroup.centralizer {z} ⊓ MulAction.stabilizer G x₀) ≤ m)
+    (hcard : F.card * m ≤ Nat.card C) :
+    C = Subgroup.centralizer {z} ∧ Nat.card C = F.card * m := by
+  set Z := Subgroup.centralizer ({z} : Set G)
+  have hZF : ∀ g ∈ Z, ∀ x ∈ F, g • x ∈ F := by
+    intro g hg x hx
+    rw [hF] at hx ⊢
+    have hgz : g * z = z * g := Subgroup.mem_centralizer_singleton_iff.1 hg
+    rw [← mul_smul, ← hgz, mul_smul, hx]
+  have horbit : Nat.card (MulAction.orbit Z x₀) ≤ F.card := by
+    have hsub : MulAction.orbit Z x₀ ⊆ (F : Set X) := by
+      rintro _ ⟨g, rfl⟩
+      exact hZF g g.2 x₀ hx₀
+    calc Nat.card (MulAction.orbit Z x₀) ≤ Nat.card (F : Set X) :=
+          Nat.card_mono (Set.toFinite _) hsub
+      _ = F.card := by simp
+  have hstab' : Nat.card (MulAction.stabilizer Z x₀) ≤ m := by
+    refine le_trans (le_of_eq ?_) hstab
+    refine Nat.card_congr
+      { toFun := fun g => ⟨g.1.1, g.1.2, g.2⟩
+        invFun := fun g => ⟨⟨g.1, g.2.1⟩, g.2.2⟩
+        left_inv := fun g => rfl
+        right_inv := fun g => rfl }
+  have hZcard : Nat.card Z ≤ F.card * m := by
+    rw [← Nat.card_congr (MulAction.orbitProdStabilizerEquivGroup Z x₀), Nat.card_prod]
+    exact Nat.mul_le_mul horbit hstab'
+  have hle : Nat.card Z ≤ Nat.card C := le_trans hZcard hcard
+  have heq : C = Z := Subgroup.eq_of_le_of_card_ge hC hle
+  refine ⟨heq, le_antisymm ?_ hcard⟩
+  rw [heq]
+  exact hZcard
 
 end Fixed
 
@@ -105,5 +139,17 @@ theorem eq_one_of_trivial_on_quotient {C : Type*} [Group C] (Z : Subgroup C)
   rw [MulAut.one_apply]
   exact (inv_mul_eq_one.1 this).symm
 
+theorem perm_eq_of_commute {X ι : Type*} (gens : ι → Equiv.Perm X) (r : X → X)
+    (w : X → List ι) (hw : ∀ x, ((w x).map gens).prod (r x) = x) (σ : Equiv.Perm X)
+    (hσ : ∀ i, σ * gens i = gens i * σ) (x : X) :
+    σ x = ((w x).map gens).prod (σ (r x)) := by
+  have hcomm : ∀ L : List ι, σ * (L.map gens).prod = (L.map gens).prod * σ := by
+    intro L
+    induction L with
+    | nil => simp
+    | cons i L ih =>
+      rw [List.map_cons, List.prod_cons, ← mul_assoc, hσ i, mul_assoc, ih, ← mul_assoc]
+  conv_lhs => rw [← hw x]
+  rw [← Equiv.Perm.mul_apply, hcomm, Equiv.Perm.mul_apply]
 
 end CFSG.Sporadic.LySchreier

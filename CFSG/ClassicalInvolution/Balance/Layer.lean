@@ -373,6 +373,12 @@ theorem orderOf_mk_oddCore_eq_two {X : Type*} [Group X] [Finite X] {x : X} (hx :
     exact (Nat.not_even_iff_odd.mpr (OddCore.odd_card X)) (even_iff_two_dvd.mpr hdvd)
   exact orderOf_eq_prime h2 h1
 
+theorem mem_centralizer_singleton_of_isElemAbelian {G : Type*} [Group G] {E₀ : Subgroup G}
+    (hE₀ : IsElemAbelian 2 E₀) {f t : G} (hf : f ∈ E₀) (ht : t ∈ E₀) :
+    t ∈ Subgroup.centralizer {f} := by
+  rw [Subgroup.mem_centralizer_singleton_iff]
+  exact congrArg Subtype.val (hE₀.1.is_comm.comm (⟨t, ht⟩ : E₀) ⟨f, hf⟩)
+
 
 end BInclusion
 

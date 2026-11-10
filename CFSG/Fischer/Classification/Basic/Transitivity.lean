@@ -697,6 +697,30 @@ theorem Pair.cReach_conj_gen (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
       rw [hyeq] at h1
       exact (cReach.step hc hyA hy.2.2.symm).trans h1.symm
 
+theorem Pair.cReach_conj_of_mem (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
+    (hS : IsSimpleGroup (commutator X)) (hna : ∃ a b : commutator X, a * b ≠ b * a)
+    (hconn : (commGraph E).Connected) {d h : X} (hd : d ∈ E) (hh : h ∈ localGroupD E d) :
+    ∀ c ∈ farClass E d, cReach E d c (h * c * h⁻¹) := by
+  induction hh using Subgroup.closure_induction with
+  | mem s hs => exact fun c hc => Pair.cReach_conj_gen hP hZ hS hna hconn hd hs hc
+  | one =>
+    intro c _
+    rw [one_mul, inv_one, mul_one]
+    exact Relation.ReflTransGen.refl
+  | mul x y hx hy ihx ihy =>
+    intro c hc
+    have hyc : y * c * y⁻¹ ∈ farClass E d :=
+      Pair.conj_mem_farClass hP (commute_of_mem_localGroupD hy) hc
+    have h2 := ihx _ hyc
+    rw [show x * (y * c * y⁻¹) * x⁻¹ = x * y * c * (x * y)⁻¹ by group] at h2
+    exact (ihy c hc).trans h2
+  | inv x hx ihx =>
+    intro c hc
+    have hxc : x⁻¹ * c * x⁻¹⁻¹ ∈ farClass E d :=
+      Pair.conj_mem_farClass hP (commute_of_mem_localGroupD (inv_mem hx)) hc
+    have h2 := ihx _ hxc
+    rw [show x * (x⁻¹ * c * x⁻¹⁻¹) * x⁻¹ = c by group] at h2
+    exact h2.symm
 
 theorem Pair.exists_conj_of_cReach (hP : Pair X E) {d a b : X} (hd : d ∈ E)
     (h : cReach E d a b) : ∃ k ∈ localGroupD E d, k * a * k⁻¹ = b := by
@@ -871,5 +895,11 @@ theorem Pair.exists_centralizer_conj_localClass (hP : Pair X E) (hZ : Subgroup.c
   exact ⟨h, Subgroup.mem_centralizer_singleton_iff.2
     (commute_of_mem_localGroup (fun g hg => hg.2.2) hh), hhg⟩
 
+theorem Pair.exists_centralizer_conj_far (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
+    (hS : IsSimpleGroup (commutator X)) (hna : ∃ a b : commutator X, a * b ≠ b * a)
+    {d x c : X} (hd : d ∈ E) (hx : x ∈ E) (hxd : x * d ≠ d * x) (hc : c ∈ E)
+    (hcd : c * d ≠ d * c) : ∃ h ∈ Subgroup.centralizer ({d} : Set X), h * x * h⁻¹ = c := by
+  obtain ⟨h, hh, hhc⟩ := Pair.exists_conj_far hP hZ hS hna hd hx hxd c hc hcd
+  exact ⟨h, Subgroup.mem_centralizer_singleton_iff.2 (commute_of_mem_localGroupD hh), hhc⟩
 
 end CFSG.Fischer.Classification

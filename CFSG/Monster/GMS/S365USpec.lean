@@ -98,6 +98,10 @@ open CFSG.Sporadic.Co1.Module.Odd (rho3 Hst omega0 S_card_eq isCo1TwoA_rho3 rho3
 
 @[expose] def SS : Set Co1 := {t : Co1 | t ∈ Hst ∧ IsConj rho3 t}
 
+theorem SS_conj_mem
+    {n t : Co1} (hn : n ∈ Hst) (ht : t ∈ SS) : n * t * n⁻¹ ∈ SS :=
+  ⟨Subgroup.mul_mem _ (Subgroup.mul_mem _ hn ht.1) (Subgroup.inv_mem _ hn),
+    ht.2.trans (isConj_iff.2 ⟨n, rfl⟩)⟩
 
 theorem card_centralizer_rho3 :
     Nat.card ↥(Subgroup.centralizer ({rho3} : Set Co1)) = 89181388800 := by

@@ -63,6 +63,16 @@ theorem ch709441mk15 : masksK D.pts D.frames.toList (D.MF) (4200) 280 = true := 
 theorem ch709441inc : incK D.MF 4479 = true := by
   quickRfl
 
+theorem ch709441mk_negBit :
+    (!masksK D.pts D.frames.toList (fun j => Nat.xor (D.MF j) 1) 0 1) = true := by
+  quickRfl
+
+theorem ch709441mk_negShift :
+    (!masksK D.pts D.frames.toList (fun j => D.MF (Nat.succ j)) 0 1) = true := by
+  quickRfl
+
+theorem ch709441inc_neg : (!incK (fun j => D.MF (Nat.sub j 1)) 4479) = true := by
+  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

@@ -112,6 +112,9 @@ theorem size_binvCand (n : ℕ) (t : ByteArray) : (binvCand n t).size = 2 * n :=
   rw [binvCand_eq_foldl, key]
   exact Array.size_replicate ..
 
+theorem RepB.size_eq {n : ℕ} {b : ByteArray} {g : Equiv.Perm (Fin n)} (hb : RepB n b g) :
+    b.size = 2 * n :=
+  hb.1
 
 theorem RepB.apply {n : ℕ} {b : ByteArray} {g : Equiv.Perm (Fin n)} (hb : RepB n b g) {x : ℕ}
     (hx : x < n) : bget b x = (g ⟨x, hx⟩ : ℕ) :=
@@ -157,5 +160,15 @@ theorem repB_binv {n : ℕ} {t : ByteArray} {g : Equiv.Perm (Fin n)} (ht : RepB 
     (h : bisInv n t (binvCand n t) = true) : RepB n (binvCand n t) g⁻¹ :=
   repB_inv_of_bisInv ht (size_binvCand n t) h
 
+theorem bEq_iff {n : ℕ} {t u : ByteArray} {g h : Equiv.Perm (Fin n)} (ht : RepB n t g)
+    (hu : RepB n u h) : bEq n t u = true ↔ g = h := by
+  rw [bEq, allLt_iff]
+  constructor
+  · intro H
+    refine Equiv.ext fun x => Fin.ext ?_
+    have := H x x.2
+    rwa [beq_iff_eq, ht.2 x, hu.2 x] at this
+  · rintro rfl i hi
+    rw [beq_iff_eq, ht.apply hi, hu.apply hi]
 
 end CFSG.YGroups.DCE

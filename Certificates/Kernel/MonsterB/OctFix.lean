@@ -195,6 +195,10 @@ theorem g_w : ∀ j < 8, ga (w (16 + j)) = gaRows.getD j 0 ∧ gd (w (16 + j)) =
 theorem g_indep : ∀ m < 2 ^ 8, xorB (fun j => gaRows.getD j 0) m 8 = 0 →
     xorB (fun j => gdRows.getD j 0) m 8 = 0 → m = 0 := by decide +kernel
 
+theorem fx_w16_ne : ¬ fx (w 16) := by decide +kernel
+
+theorem g_indep_corrupt : ¬ ∀ m < 2 ^ 8, xorB (fun j => (0 :: gaRows.tail).getD j 0) m 8 = 0 →
+    xorB (fun j => (0 :: gdRows.tail).getD j 0) m 8 = 0 → m = 0 := by decide +kernel
 
 theorem span_fixed (c : ℕ) : ∀ k ≤ 16, fx (xorB w c k) ∧ (F (xorB w c k)).1 = false
   | 0, _ => fx_zero

@@ -110,6 +110,20 @@ private theorem exists_smul_cls_zero_eq
     exact smul_four_eq s u v w z hs0 hs1 hs2 hs3
   rw [mul_smul, hq, hsY]
 
+theorem exists_smul_stdSextet {S : Finset (Finset (Fin 24))}
+    (hS : IsSextet S) : ∃ τ ∈ M24g, τ • stdSextet = S := by
+  have hSkeep : IsSextet S := hS
+  obtain ⟨hcard, htet, hdisj, hcov, hoct⟩ := hS
+  have hSne : S.Nonempty := Finset.card_pos.1 (by rw [hcard]; norm_num)
+  obtain ⟨B, hB⟩ := hSne
+  have hB4 : B.card = 4 := htet B hB
+  obtain ⟨τ, hτ, hτB⟩ := exists_smul_cls_zero_eq B hB4
+  refine ⟨τ, hτ, ?_⟩
+  have hBmem : B ∈ τ • stdSextet := by
+    rw [← hτB]
+    exact Finset.mem_smul_finset.2 ⟨cls 0, cls_mem_stdSextet 0, rfl⟩
+  exact CFSG.ASVolI.AppH.sextet_eq_of_mem
+    (CFSG.ASVolI.AppH.isSextet_smul hτ isSextet_stdSextet) hSkeep hBmem hB
 
 private theorem smul_cls {σ : S24} (hσ : σ ∈ blockP lab6) (i : Fin 6) :
     σ • cls i = cls (lab6 (σ (rep6 i))) := by

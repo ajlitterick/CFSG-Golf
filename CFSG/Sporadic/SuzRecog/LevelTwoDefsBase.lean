@@ -18,6 +18,11 @@ theorem getElem!_map_nat {L : Array (Array ℕ)} (f : Array ℕ → Array ℕ) {
     (L.map f)[i]! = f L[i]! := by
   rw [getElem!_pos (L.map f) i (by simpa using hi), Array.getElem_map, getElem!_pos L i hi]
 
+theorem Rep.of_eqA {n : ℕ} {t u : Array ℕ} {g : Equiv.Perm (Fin n)} (hu : Rep n u g)
+    (h : eqA n t u = true) : Rep n t g := fun x => by
+  rw [← hu x]
+  have := allLt_spec h x.2
+  simpa [beq_iff_eq] using this
 
 theorem eq_of_conjEq {g gi a b : Array ℕ} {G A B : Equiv.Perm (Fin 1782)} (hg : Rep 1782 g G)
     (hgi : Rep 1782 gi G⁻¹) (ha : Rep 1782 a A) (hb : Rep 1782 b B)
@@ -26,6 +31,12 @@ theorem eq_of_conjEq {g gi a b : Array ℕ} {G A B : Equiv.Perm (Fin 1782)} (hg 
   have := eq_of_eqA hb (rep_compA hg (rep_compA ha hgi)) h
   rw [this, mul_assoc]
 
+theorem rep_of_conjEq {g gi a b : Array ℕ} {G A : Equiv.Perm (Fin 1782)} (hg : Rep 1782 g G)
+    (hgi : Rep 1782 gi G⁻¹) (ha : Rep 1782 a A) (h : conjEq g gi a b = true) :
+    Rep 1782 b (G * A * G⁻¹) := by
+  rw [conjEq] at h
+  have := Rep.of_eqA (rep_compA hg (rep_compA ha hgi)) h
+  rwa [← mul_assoc] at this
 
 @[expose] noncomputable def x1 : Equiv.Perm (Fin 1782) := permC 1782 gens[0]!
 

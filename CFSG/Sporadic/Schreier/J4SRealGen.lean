@@ -89,6 +89,14 @@ theorem sigmaFun_indep (hN : SelfNormalizing (G := G) y₀) {α : MulAut G} {j j
   rw [sigmaFun_smul hα, sigmaFun_smul hα']
   rw [show α g * j' = (α g * j) * (j⁻¹ * j') by group, mul_smul (α g * j), hn]
 
+theorem sigmaFun_conj (g : G) (y : Y) : sigmaFun y₀ (MulAut.conj g) g y = g • y := by
+  have hc : StabConj y₀ (MulAut.conj g) g := by
+    intro h
+    rw [MulAut.conj_apply]
+    group
+  obtain ⟨g', rfl⟩ := exists_smul_eq G y₀ y
+  rw [sigmaFun_smul hc, MulAut.conj_apply, ← mul_smul]
+  group
 
 end Sigma
 
@@ -133,6 +141,13 @@ theorem sigmaHom_equivariant (α : MulAut G) (h : G) (y : Y) :
   rw [sigmaHom_apply, sigmaHom_apply, sigma_eq hN hex (Classical.choose_spec (hex α))]
   exact sigmaFun_equivariant (Classical.choose_spec (hex α)) h y
 
+include hN in
+theorem sigmaHom_conj (g : G) (y : Y) : sigmaHom hN hex (MulAut.conj g) y = g • y := by
+  have hc : StabConj y₀ (MulAut.conj g) g := by
+    intro h
+    rw [MulAut.conj_apply]
+    group
+  rw [sigmaHom_apply, sigma_eq hN hex hc, sigmaFun_conj]
 
 end Hom
 

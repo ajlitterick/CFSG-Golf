@@ -51,6 +51,9 @@ theorem BaseK.hyp31 {G : Type} [Group G] [Finite G] {A : Subgroup G} (h : BaseK 
     AS76b.Hyp31 A :=
   ⟨h.hyp.standard, h.hypII, h.oddCore, by have := h.hyp.rank; omega, h.hyp.not_normal⟩
 
+theorem BaseK.toBase {G : Type} [Group G] [Finite G] {A : Subgroup G} (h : BaseK G A) :
+    Base G A :=
+  ⟨h.hyp.toNF, h.oddCore, h.hypII, h.type⟩
 
 structure Frame (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G)
     (E F : Subgroup G) : Prop where
@@ -155,6 +158,17 @@ structure Hyp19 (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G) : Pro
   ∀ (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G), Hyp19 G z X T →
     ∀ x ∈ X, ∀ h ∈ centralizer ({z} : Set G), h⁻¹ * x * h ∈ T → h⁻¹ * x * h ∈ X
 
+@[expose] def Sec2Suz : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
+    Frame G A A R g E F → TypeL34 (rankTwoQuot A) → Odd (Nat.card (center A)) →
+    L34GeneralBelow (Nat.card G) → IsSporadic (rankTwoX A) .Suz
+
+@[expose] def Sec4He : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
+    Frame G A A R g E F → TypeL34 (rankTwoQuot A) → Even (Nat.card (center A)) →
+    L34GeneralBelow (Nat.card G) →
+      Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
+        IsSporadic (rankTwoX A) .He
 
 @[expose] def Sec2SuzXR : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
@@ -168,5 +182,10 @@ structure Hyp19 (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G) : Pro
       Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
         IsSporadic (rankTwoX A) .He
 
+theorem sec2SuzXR_of (h : Sec2Suz) : Sec2SuzXR :=
+  fun G _ _ A R g E F hF hL ho hb _ => h G A R g E F hF hL ho hb
+
+theorem sec4HeXR_of (h : Sec4He) : Sec4HeXR :=
+  fun G _ _ A R g E F hF hL he hb _ => h G A R g E F hF hL he hb
 
 end CFSG.ComponentClassification.AS81

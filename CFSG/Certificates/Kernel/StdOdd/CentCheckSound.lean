@@ -167,6 +167,54 @@ theorem fixesOK_sound {M : ℕ} {vs : List ℕ} {i : ℕ} (h : fixesOK M vs i = 
   rw [planeApply_sound (lenN_vecsPl vs), ptB_vecsPl vs hjl] at he
   exact he
 
+theorem siftK_sound {βs : List ℕ} {k : List ℕ → Bool} : ∀ (Ls : List (List ℕ))
+    (Ss : List (List (List ℕ))) (j : ℕ) (T : List ℕ), lenN T = 156 → siftK Ls Ss βs j T k = true →
+    ∃ Tl : ℕ → List ℕ, Tl 0 = T ∧ (∀ l, lenN (Tl l) = 156) ∧ k (Tl Ls.length) = true ∧
+      ∀ l < Ls.length, (∀ i, ptB (Tl (l + 1)) i =
+        walkElt (Ls.getD l []) (Ss.getD l []) i *ᵥ ptB (Tl l) i) ∧
+        ptB (Tl (l + 1)) (j + l) = vecB (nthN βs (j + l))
+  | [], Ss, j, T, hl, h => ⟨fun _ => T, rfl, fun _ => hl, h, fun l hl' => absurd hl' (by simp)⟩
+  | Ms :: Ls, [], j, T, hl, h => by
+    change false = true at h
+    exact absurd h (by decide)
+  | Ms :: Ls, S :: Ss, j, T, hl, h => by
+    change walkK Ms S T (fun T' =>
+        andB (Nat.beq (Nat.land (neqV T' (nthN βs j) (Nat.succ j)) (Nat.shiftLeft 1 j)) 0)
+          (siftK Ls Ss βs (Nat.succ j) T' k)) = true at h
+    obtain ⟨V, hk, hV, hpt⟩ := walkK_sound S T hl h
+    rw [andB_eq, Bool.and_eq_true] at hk
+    obtain ⟨h1, h2⟩ := hk
+    obtain ⟨Tl, h0, hlen, hend, hstep⟩ := siftK_sound Ls Ss (j + 1) V hV h2
+    have hj : ptB V j = vecB (nthN βs j) := by
+      by_contra hne
+      have hb := (neqV_sound hV (nthN βs j) (j + 1) j).2 ⟨by omega, hne⟩
+      have h0' := congrArg (fun x => x.testBit j) (Nat.eq_of_beq_eq_true h1)
+      change ((neqV V (nthN βs j) (j + 1)) &&& (1 <<< j)).testBit j = (0 : ℕ).testBit j at h0'
+      rw [Nat.testBit_and, hb, Nat.testBit_shiftLeft, Nat.zero_testBit] at h0'
+      simp at h0'
+    refine ⟨fun l => Nat.rec T (fun l _ => Tl l) l, rfl, fun l => ?_, ?_, fun l hl' => ?_⟩
+    · cases l
+      · exact hl
+      · exact hlen _
+    · change k (Tl Ls.length) = true
+      exact hend
+    · cases l with
+      | zero =>
+        refine ⟨fun i => ?_, ?_⟩
+        · change ptB (Tl 0) i = _
+          rw [h0, hpt i]
+          rfl
+        · change ptB (Tl 0) (j + 0) = _
+          rw [h0, Nat.add_zero, hj]
+      | succ l =>
+        have hl2 : l < Ls.length := by simp at hl'; omega
+        obtain ⟨hs1, hs2⟩ := hstep l hl2
+        refine ⟨fun i => ?_, ?_⟩
+        · change ptB (Tl (l + 1)) i = walkElt (Ls.getD l []) (Ss.getD l []) i *ᵥ ptB (Tl l) i
+          exact hs1 i
+        · change ptB (Tl (l + 1)) (j + (l + 1)) = _
+          rw [show j + (l + 1) = j + 1 + l by omega]
+          exact hs2
 
 end CFSG.KS.StdOdd.Chain
 

@@ -112,6 +112,21 @@ theorem n24EntryV_eq (GN : List Nat) (MP : Nat) (x : CV 16) :
   unfold n24EntryV n24EntryN
   rw [n24PreV_eq, n24ChkV_eq]
 
+theorem fam0_of_chkN (c : CV 16) (h : fam0ChkN c = true) : ∀ V ∈ fam0, V.image (ev c) ∈ fam0 := by
+  intro V hV
+  rw [mem_fam0] at hV ⊢
+  unfold fam0ChkN at h
+  rw [List.all_eq_true] at h
+  have := of_decide_eq_true (h V hV)
+  rwa [← pN_image, List.mem_map_of_injective pN_injective] at this
+
+theorem fam1_of_chkN (c : CV 16) (h : fam1ChkN c = true) : ∀ V ∈ fam1, V.image (ev c) ∈ fam1 := by
+  intro V hV
+  rw [mem_fam1] at hV ⊢
+  unfold fam1ChkN at h
+  rw [List.all_eq_true] at h
+  have := of_decide_eq_true (h V hV)
+  rwa [← pN_image, List.mem_map_of_injective pN_injective] at this
 
 theorem planes0_map : planes0.map List.toFinset = fam0L := rfl
 

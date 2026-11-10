@@ -418,6 +418,11 @@ theorem thompson_ok : thompsonCheck = true := by
     rw [e, len_rec (q := tZ) (hi := 12) (by rw [cT]; norm_num) fun i hi => tZ_eq hi]
     exact beq_of hTc.2
 
+theorem threeLocal_ok : threeEnumCheck = true ∧ gxCheck = true ∧ rInTCheck = true ∧
+    rNormalCheck = true ∧ sylowIntCheck = true ∧ rStructCheck = true ∧ aStructCheck = true ∧
+    aInvCheck = true ∧ weakCheck = true ∧ thompsonCheck = true :=
+  ⟨threeEnum_ok, gx_ok, rInT_ok, rNormal_ok, sylowInt_ok, rStruct_ok, aStruct_ok, aInv_ok,
+    weak_ok, thompson_ok⟩
 
 end CertificateChecks.KernelSpor.McLTK
 

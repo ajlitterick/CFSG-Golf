@@ -20,6 +20,9 @@ theorem stdLevi_le_stdGroup' :
     stdLevi firstJ ≤ stdGroup :=
   (stdLevi_le_nativeParabolic two_mem_firstJ).trans (nativeParabolic_le_stdGroup firstJ)
 
+theorem leviStar_le_parStar :
+    leviStar ≤ parStar firstJ := fun _ hγ =>
+  stdLevi_le_nativeParabolic two_mem_firstJ hγ
 
 theorem leviProj_betaPar
     (b : betaGroup) (p : nativeParabolic firstJ) :
@@ -54,6 +57,47 @@ theorem leviProj_betaPar
             ModGL Tag.E6 K)
     rw [parStar_left_mul, map_mul, Subgroup.coe_mul, leviProj_betaPar]
 
+theorem coe_piStar_left
+    (γ : parStar firstJ) :
+    (((piStar γ : GStar).left : stdGroup) : ModGL Tag.E6 K) =
+      (leviProj two_mem_firstJ (parLeft γ) : ModGL Tag.E6 K) :=
+  rfl
+
+theorem piStar_right
+    (γ : parStar firstJ) : (piStar γ : GStar).right = γ.1.right :=
+  rfl
+
+theorem piStar_of_mem
+    {γ : parStar firstJ} (hγ : (γ : GStar) ∈ leviStar) :
+    piStar γ = ⟨γ, hγ⟩ := by
+  refine Subtype.ext (SemidirectProduct.ext (Subtype.ext ?_) rfl)
+  rw [coe_piStar_left, leviProj_of_mem two_mem_firstJ hγ]
+
+theorem piStar_eq_one_iff
+    (γ : parStar firstJ) : piStar γ = 1 ↔ (γ : GStar) ∈ radStar := by
+  rw [mem_radStar]
+  constructor
+  · intro h
+    have h1 := congrArg (fun z : leviStar => (((z : GStar).left : stdGroup) : ModGL Tag.E6 K)) h
+    have h2 := congrArg (fun z : leviStar => (z : GStar).right) h
+    simp only [coe_piStar_left] at h1
+    refine ⟨(leviProj_eq_one_iff two_mem_firstJ (parLeft γ)).1 (Subtype.ext h1), h2⟩
+  · rintro ⟨h1, h2⟩
+    refine Subtype.ext (SemidirectProduct.ext (Subtype.ext ?_) h2)
+    rw [coe_piStar_left, (leviProj_eq_one_iff two_mem_firstJ (parLeft γ)).2 h1]
+    rfl
+
+theorem exists_mul_of_mem_parStar
+    (γ : parStar firstJ) :
+    ∃ u ∈ radStar, ∃ l ∈ leviStar, (γ : GStar) = u * l := by
+  have key : ∀ l : leviStar, piStar γ = l →
+      ∃ u ∈ radStar, ∃ l' ∈ leviStar, (γ : GStar) = u * l' := by
+    intro l hlγ
+    let lP : parStar firstJ := ⟨l, leviStar_le_parStar l.2⟩
+    have h1 : piStar lP = l := piStar_of_mem l.2
+    have h2 : piStar (γ * lP⁻¹) = 1 := by rw [map_mul, map_inv, h1, hlγ, mul_inv_cancel]
+    exact ⟨γ * (l : GStar)⁻¹, (piStar_eq_one_iff _).1 h2, l, l.2, by rw [inv_mul_cancel_right]⟩
+  exact key _ rfl
 
 abbrev parIStar
     (d : Fin 5) : Subgroup GStar :=
@@ -140,6 +184,56 @@ theorem mem_parIStar_iff_parLeft
   rw [e]
   exact apply_mem_nativeParabolic_iff _ _ _
 
+abbrev fibCosets
+    (d : Fin 5) : Type := leviStar ⧸ (fibLStar d).subgroupOf leviStar
+
+theorem fibLStar_le_leviStar
+    (d : Fin 5) : fibLStar d ≤ leviStar := fun _ hγ =>
+  leviParabolic_le_stdLevi two_mem_firstJ (fibIF_subset d) hγ
+
+open _root_.Classical in
+@[expose] def fibCoset
+    (d : Fin 5) (x : GStar) : fibCosets d :=
+  if h : ∃ γ : parStar firstJ, (γ : GStar) * SemidirectProduct.inl (fibT d) * (γ : GStar)⁻¹ = x
+  then QuotientGroup.mk (piStar h.choose) else QuotientGroup.mk 1
+
+theorem fibCoset_conj
+    (d : Fin 5) (γ : parStar firstJ) :
+    fibCoset d ((γ : GStar) * SemidirectProduct.inl (fibT d) * (γ : GStar)⁻¹) =
+      QuotientGroup.mk (piStar γ) := by
+  have hex : ∃ γ' : parStar firstJ, (γ' : GStar) * SemidirectProduct.inl (fibT d) *
+      (γ' : GStar)⁻¹ = (γ : GStar) * SemidirectProduct.inl (fibT d) * (γ : GStar)⁻¹ := ⟨γ, rfl⟩
+  rw [fibCoset, dite_eq_left hex]
+  set δ := hex.choose
+  have hδ : (γ : GStar)⁻¹ * δ ∈ parIStar d :=
+    (mem_conjOrbit_radStar_iff γ.2 δ.2).1 (by rw [hex.choose_spec]; exact mem_conjOrbit_self _ _)
+  obtain ⟨u, hu, l, hl, e⟩ := exists_mul_of_mem_parIStar hδ
+  refine (QuotientGroup.eq.2 ?_).symm
+  have hu' : piStar ⟨u, radStar_le_parStar hu⟩ = 1 := (piStar_eq_one_iff _).2 hu
+  have hl' : piStar ⟨l, leviStar_le_parStar (fibLStar_le_leviStar d hl)⟩ =
+      ⟨l, fibLStar_le_leviStar d hl⟩ := piStar_of_mem _
+  have e' : (γ⁻¹ * δ : parStar firstJ) = ⟨u, radStar_le_parStar hu⟩ *
+      ⟨l, leviStar_le_parStar (fibLStar_le_leviStar d hl)⟩ := Subtype.ext e
+  rw [← map_inv, ← map_mul, e', map_mul, hu', hl', one_mul, Subgroup.mem_subgroupOf]
+  exact hl
+
+theorem fibCoset_mul
+    (d : Fin 5) {u l : GStar} (hu : u ∈ radStar) (hl : l ∈ leviStar) :
+    fibCoset d (u * l * SemidirectProduct.inl (fibT d) * (u * l)⁻¹) =
+      QuotientGroup.mk (⟨l, hl⟩ : leviStar) := by
+  have h := fibCoset_conj d (⟨u, radStar_le_parStar hu⟩ * ⟨l, leviStar_le_parStar hl⟩)
+  rw [map_mul, (piStar_eq_one_iff _).2 hu, piStar_of_mem hl, one_mul] at h
+  exact h
+
+theorem fibCoset_eq_iff
+    {d : Fin 5} {x y : GStar} (hx : x ∈ fibOrbit d) (hy : y ∈ fibOrbit d) :
+    fibCoset d x = fibCoset d y ↔ y ∈ conjOrbit radStar x := by
+  obtain ⟨γ, hγ, rfl⟩ := hx
+  obtain ⟨γ', hγ', rfl⟩ := hy
+  rw [mem_conjOrbit_radStar_iff hγ hγ', fibCoset_conj d ⟨γ, hγ⟩, fibCoset_conj d ⟨γ', hγ'⟩,
+    QuotientGroup.eq, ← map_inv, ← map_mul, Subgroup.mem_subgroupOf, mem_betaStar, mem_betaStar,
+    coe_piStar_left, ← mem_nativeParabolic_iff two_mem_firstJ (fibIF_subset d)]
+  exact Iff.rfl
 
 open _root_.Classical in
 @[expose] def fibSub
@@ -201,6 +295,14 @@ theorem fibSub_conj_conj
     ← parStar_left_mul]
   rfl
 
+theorem fibLevi_of_JJ
+    {d : Fin 5} (hd : d = 0 ∨ d = 4) : fibLevi d = stdLevi firstJ := by
+  have hJ : ((({1, 2, 3} : Finset (Fin 4)) : Set (Fin 4))) = firstJ := by
+    ext i
+    simp [firstJ]
+  rcases hd with rfl | rfl
+  · exact (congrArg (leviParabolic firstJ) hJ).trans leviParabolic_firstJ
+  · exact (congrArg (leviParabolic firstJ) hJ).trans leviParabolic_firstJ
 
 theorem mem_conjOrbit_radStar_of_JJ
     {d : Fin 5} (hd : d = 0 ∨ d = 4) {x y : GStar}

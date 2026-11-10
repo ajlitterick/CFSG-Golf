@@ -47,6 +47,11 @@ namespace CertificateChecks.KernelSporSch.Ru7045
 open CFSG.KC.Enum CFSG.KS CFSG.KS.RowTree CFSG.KS.RuTree CFSG.KLC.Fi22 CFSG.KS.SporSch
   CertificateChecks.KernelSporSch
 
+theorem negCnt : sB (Nat.land (mS (nat_lit 4060)) (Row (nat_lit 1))) (fun M =>
+    andB (notB (cntAt (nat_lit 511) M (pgW 11 TitsGN.NB (nat_lit 0))))
+      (notB (eqB (Nat.beq (popK (Nat.land M (Row (dPt (pgW 11 TitsGN.NB (nat_lit 9))))) (nat_lit 4060))
+        (nat_lit 512)) (nbrK (nat_lit 9) (pgW 11 TitsGN.NB (nat_lit 9)))))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.Ru7045
 

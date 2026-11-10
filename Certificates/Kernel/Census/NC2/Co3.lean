@@ -44,6 +44,29 @@ theorem m_eq : P.m = 4 := rfl
 
 theorem nc2_K : nc2L L.lay (P.SL.getD P.m []) data = true := by decide +kernel
 
+theorem neg_exp : (!nc2L L.lay (P.SL.getD P.m []) { data with oddExp := data.oddExp + 2 }) =
+    true := by
+  decide +kernel
+
+theorem neg_seeds : (!liveL L.lay P.C0 [L.B, L.A] P.S1) = true := by decide +kernel
+
+theorem neg_sq : (!nc2L L.lay (P.SL.getD P.m [])
+    { data with sq := (data.sq.head! ^^^ 2) :: data.sq.tail }) = true := by
+  decide +kernel
+
+theorem neg_cj : (!nc2L L.lay (P.SL.getD P.m [])
+    { data with cj := ((data.cj.head!.head! ^^^ 2) :: data.cj.head!.tail) :: data.cj.tail }) =
+      true := by
+  decide +kernel
+
+theorem neg_sigma : (!nc2L L.lay (P.SL.getD P.m [])
+    { data with sigma := data.sigma.head! :: data.sigma.tail.tail ++ [data.sigma.head!] }) =
+      true := by
+  decide +kernel
+
+theorem neg_pairs : (!nc2L L.lay (P.SL.getD P.m []) { data with pairs := data.pairs.tail }) =
+    true := by
+  decide +kernel
 
 end CertificateChecks.KernelNC2.Co3
 

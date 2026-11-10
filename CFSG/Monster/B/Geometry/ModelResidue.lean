@@ -135,6 +135,11 @@ variable (cs δ) in
     rw [Equiv.Perm.inv_eq_iff_eq]; exact hg.2.1.symm, by
     rw [Equiv.Perm.inv_eq_iff_eq]; exact hg.2.2.symm⟩
 
+omit hδ in
+theorem mem_residueStab {R : Set C} {y z : R} {g : Equiv.Perm R} :
+    g ∈ residueStab cs δ R y z ↔
+      g ∈ typeAut cs (fun u v : R => δ u v) ∧ g y = y ∧ g z = z :=
+  Iff.rfl
 
 theorem IsModelResidue.nat_card_residueStab {r₁ r₂ : F → F → Prop} {i j : ι} {x : C}
     {f : C → F} (hf : IsModelResidue cs δ r₁ r₂ i j x f) (hr₁ : ∀ a, r₁ a a) (hr₂ : ∀ a, r₂ a a)

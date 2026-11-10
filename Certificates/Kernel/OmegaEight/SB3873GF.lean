@@ -18,6 +18,14 @@ theorem FK_eqN (k m x : ℕ) :
   rw [rowFN_eq]
   exact rowF_eq k m x
 
+@[expose] noncomputable def conjF (k m z a n : ℕ) : Bool :=
+  strictB (wLit.getD (16 * k + m - 16) 0) fun W => strictB (lLit.getD k 0) fun L =>
+    (List.range' a n).all fun y =>
+      mulK z y == mulK (rowFN mulK sNfRow W L (rowFN mulK sNfRow W L y)) z
+
+theorem conjF_eq (k m z a n : ℕ) : conjF k m z a n = conjOK k m z a n := by
+  unfold conjF conjOK
+  simp only [cen_strictB, FK_eqN]
 
 @[expose] def CenBF (k m z : ℕ) (Q B : List ℕ) : Prop :=
   ∀ s < 16, (strictB (wLit.getD (16 * k + m - 16) 0) fun W => strictB (lLit.getD k 0) fun L =>

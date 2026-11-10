@@ -280,6 +280,29 @@ theorem refs_of (k : Nat) (P : List Nat) (h : refsOK k P = true) :
   rw [h1, Bool.not_true, Bool.false_or] at this
   exact Nat.blt_eq.mp this
 
+theorem relRange_spec {RS : Nat → Nat} {PR : Nat → List Nat} {lo : Nat} :
+    ∀ n, relProgsRangeOK RB L RS mul ONE PR lo n = true →
+      ∀ i < n, progOK RB L RS mul ONE (PR (lo + i)) ONE = true
+  | 0, _, i, hi => absurd hi (Nat.not_lt_zero i)
+  | n + 1, h, i, hi => by
+    have h' : andB (relProgsRangeOK RB L RS mul ONE PR lo n)
+      (progOK RB L RS mul ONE (PR (Nat.add lo n)) ONE) = true := h
+    obtain ⟨h1, h2⟩ := (andB_iff _ _).1 h'
+    rcases Nat.lt_succ_iff_lt_or_eq.1 hi with hi | rfl
+    · exact relRange_spec n h1 i hi
+    · exact h2
+
+theorem stateRange_spec {RS : Nat → Nat} {PS : Nat → List Nat} {lo : Nat} :
+    ∀ n, stateProgsRangeOK RB L RS mul ONE PS lo n = true →
+      ∀ i < n, progOK RB L RS mul ONE (PS (lo + i)) (RS (lo + i)) = true
+  | 0, _, i, hi => absurd hi (Nat.not_lt_zero i)
+  | n + 1, h, i, hi => by
+    have h' : andB (stateProgsRangeOK RB L RS mul ONE PS lo n)
+      (progOK RB L RS mul ONE (PS (Nat.add lo n)) (RS (Nat.add lo n))) = true := h
+    obtain ⟨h1, h2⟩ := (andB_iff _ _).1 h'
+    rcases Nat.lt_succ_iff_lt_or_eq.1 hi with hi | rfl
+    · exact stateRange_spec n h1 i hi
+    · exact h2
 
 theorem range_join {p : Nat → Prop} {lo n m : Nat} (h1 : ∀ i < n, p (lo + i))
     (h2 : ∀ i < m, p (lo + n + i)) : ∀ i < n + m, p (lo + i) := by
@@ -339,6 +362,11 @@ theorem relProgs_one (hs : LayoutSound Q Mt mul vld ONE) (hroot : rootsOK RB vld
     (fun ins hi h1' => hst _ (refs_of nS (PR j) h2 ins hi h1'))
   rw [← this.2, hs.one_mt]
 
+theorem mem_rotC {w : List Nat} {n x : Nat} (h : x ∈ rotC w n) : x ∈ w := by
+  unfold rotC at h
+  rcases List.mem_append.1 h with h | h
+  · exact List.mem_of_mem_drop h
+  · exact List.mem_of_mem_take h
 
 theorem mem_rotC_of {w : List Nat} {x : Nat} (h : x ∈ w) (n : Nat) : x ∈ rotC w n := by
   unfold rotC

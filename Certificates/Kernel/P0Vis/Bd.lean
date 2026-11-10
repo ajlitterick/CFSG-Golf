@@ -11,6 +11,7 @@ open CFSG.KC.P0Vis CFSG.Monster.B.TwoA.Sp8.WordRel
 
 theorem bd : bdOK p0Data = true := by decide +kernel
 
+theorem bdNeg : bdOK ⟨[[512]], [], [], [], []⟩ = false := by decide +kernel
 
 end CFSG.KD.P0Vis
 

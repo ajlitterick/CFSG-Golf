@@ -211,6 +211,25 @@ end Core
 
 end PSLStep
 
+theorem not_nine_dvd_card_of_psl_step
+    {K : Type} [Group K] [Finite K]
+    (hD : HasDihedralSylowTwo K)
+    (h4 : 2 ^ 2 ∣ Nat.card K ∧ ¬ 2 ^ 3 ∣ Nat.card K)
+    (hNC : ¬ CFSG.HasNormalPComplement 2 K) (hO : CFSG.oddCore K = ⊥)
+    {u : K} (hu : u ^ 2 = 1) (hu1 : u ≠ 1)
+    (hcu : Nat.card (Subgroup.centralizer ({u} : Set K)) = 12) :
+    ¬ 9 ∣ Nat.card K := by
+  rcases CFSG.ABGDGroups.aSeven_or_embedding_of_hasDihedralSylowTwo hD hNC hO with
+    ⟨⟨e⟩⟩ | ⟨F, _, _, hF, ι, M, hι, hM, hMle, hodd⟩
+  · exact (PSLStep.false_of_mulEquiv_alternatingGroup_seven_of_not_dvd e h4.2).elim
+  · rcases PSLStep.core_of_embedding hF hι hM hMle hodd h4.2 hu hu1 hcu (Or.inr rfl) with
+      ⟨-, h⟩ | ⟨-, -, h⟩ | ⟨h, -⟩ | ⟨h, -⟩
+    · omega
+    · omega
+    · rw [h]
+      norm_num
+    · rw [h]
+      norm_num
 
 theorem card_eq_of_psl_step_four
     {K : Type} [Group K] [Finite K]

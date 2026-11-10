@@ -298,6 +298,12 @@ section Chain
 
 variable {G : Type} [Group G] [Finite G]
 
+omit [Finite G] in
+theorem deltaCore_eq_bot_of_le {A E₀ : Subgroup G}
+    (hE₀A : E₀ ≤ A) (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥) :
+    ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥ :=
+  fun F hF => hΔ F ⟨hF.1.trans hE₀A, hF.2⟩
+
 
 end Chain
 

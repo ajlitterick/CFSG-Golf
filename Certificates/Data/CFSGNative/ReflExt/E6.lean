@@ -18,6 +18,8 @@ set_option compiler.extract_closed false
 
 @[expose, reducible] def e6Frame (D s : Nat) : Pt := mkFrame 3 6 D e6Row s [1, 0, 2, 0, 1, 2] 1360488960
 
+@[expose] def e6Check (_ : Unit := ()) : Bool :=
+  checkFrame (e6Frame 6 0) && checkFrame (e6Frame 7 1) && checkFrame (e6Frame 7 0)
 
 end CFSG.ReflExt
 

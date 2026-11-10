@@ -73,6 +73,10 @@ variable {G : Type} [Group G]
 
 @[expose] def TypeOneCase (G : Type) [Group G] (k : Kind) : Prop := OneClassInv G ∨ k = Kind.m12
 
+@[expose] def T4C (z : G) (k : Kind) (S T : Subgroup G) : Prop :=
+  (TypeOneCase G k ∧ T = S) ∨
+    (¬ TypeOneCase G k ∧ ∃ U : Subgroup G, U ≤ S ∧ IVK.IsFourSubgroup U ∧ z ∈ U ∧ (∃ t ∈ U, SwapsComps z t) ∧
+      pLayerOf 2 (centralizer (U : Set G)) ≠ ⊥ ∧ T = S ⊓ centralizer (U : Set G))
 
 @[expose] def T5A (z : G) (k : Kind) (S T Tstar : Subgroup G) : Prop :=
   (TypeOneCase G k ∧ T = S ∧ Tstar = S) ∨

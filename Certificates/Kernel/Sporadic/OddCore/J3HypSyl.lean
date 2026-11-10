@@ -85,6 +85,8 @@ theorem sE : penumSlK 6156 13 (mask 13) (6156 * 13) true J3HS.G J3HS.GI 3 J3HS.c
 theorem sHF : slK J3HS.cnt (hsortPtKF 6156 13 (mask 13) J3HS.cnt J3HS.T J3HS.HS J3HS.HSI)
     0 J3HS.cnt = true := by quickRfl
 
+theorem sHF_neg : hsortPtKF 6156 13 (mask 13) J3HS.cnt (fun _ => 0) J3HS.HS J3HS.HSI 0 = false := by
+  decide +kernel
 
 @[expose] noncomputable def pc (p q : Nat) : Nat := pcomp 6156 13 (mask 13) p q
 
@@ -106,6 +108,8 @@ theorem sHF : slK J3HS.cnt (hsortPtKF 6156 13 (mask 13) J3HS.cnt J3HS.T J3HS.HS 
 theorem center_okF : centerKF (J3CentP 9) = true := by
   quickRfl
 
+theorem center_neg : centerKF (pidn 6156 13) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.J3HypSyl
 

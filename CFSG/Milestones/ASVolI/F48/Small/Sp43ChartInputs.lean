@@ -15,6 +15,8 @@ open CFSG.Quasithin
     List (Fin m × Bool) :=
   s.toList.map fun c => (⟨al.toList.idxOf c.toLower % m, Nat.mod_lt _ hm⟩, c.isLower)
 
+@[expose] def burnsideF48s_sp43c_invW {m : ℕ} (w : List (Fin m × Bool)) : List (Fin m × Bool) :=
+  (w.map fun l => (l.1, !l.2)).reverse
 
 @[expose] def burnsideF48s_sp43c_letL {m : ℕ} (gl gli : Fin m → List ℕ) (l : Fin m × Bool) :
     List ℕ :=
@@ -286,6 +288,8 @@ open CFSG.Quasithin
 @[expose] def burnsideF48s_sp43c_Dl (j : ℕ) : List ℕ :=
   burnsideF48s_sp43c_evL4 (burnsideF48s_sp43c_Dw.getD j [])
 
+@[expose] def burnsideF48s_sp43c_Dli (j : ℕ) : List ℕ :=
+  burnsideF48s_sp43c_evL4 (burnsideF48s_sp43c_invW (burnsideF48s_sp43c_Dw.getD j []))
 
 @[expose] def burnsideF48s_sp43c_trP : List ℕ := [0, 3, 4]
 
@@ -364,6 +368,38 @@ open CFSG.Quasithin
           (burnsideF48s_sp43c_Dl ((dec.getD j []).getD t (0, 0, 0)).1))
           (burnsideF48s_sp43c_Bl ((dec.getD j []).getD t (0, 0, 0)).2.2)))
 
+@[expose] def burnsideF48s_sp43c_glF (j : ℕ) (k : Fin 3) : List ℕ :=
+  ![burnsideF48s_sp43c_L 0, burnsideF48s_sp43c_L 1, burnsideF48s_sp43c_Dl j] k
+
+@[expose] def burnsideF48s_sp43c_gliF (j : ℕ) (k : Fin 3) : List ℕ :=
+  ![burnsideF48s_sp43c_Li 0, burnsideF48s_sp43c_Li 1, burnsideF48s_sp43c_Dli j] k
+
+@[expose] def burnsideF48s_sp43c_farW : List (List (Fin 3 × Bool) × List (Fin 3 × Bool)) :=
+  [
+    ([(0, true), (2, true), (0, true), (2, false), (0, true), (2, true)],
+      [(0, false), (2, false), (0, false), (2, true), (0, false)]),
+    ([(0, true), (2, true), (0, true), (2, false), (0, true), (2, true)],
+      [(0, false), (2, true), (0, false), (2, false), (0, false)]),
+    ([(0, true), (1, false), (2, true), (1, true), (0, true), (1, true), (0, false), (2, false),
+       (1, false)],
+      [(0, true), (1, true), (2, true), (1, false), (2, true), (1, true), (0, true), (2, false)]),
+    ([(0, true), (0, true), (2, true), (0, false), (2, true), (0, false), (2, true)],
+      [(0, true), (1, true), (2, true), (1, true), (2, true), (0, true)]),
+    ([(0, true), (1, false), (2, true), (0, true), (1, false), (0, false), (0, false), (1, false),
+       (0, true), (2, true), (1, false)],
+      [(1, true), (2, true), (1, true), (0, true), (1, true), (2, true), (1, true), (2, true)])]
+
+@[expose] def burnsideF48s_sp43c_xw : List (Fin 4 × Bool) :=
+  [(2, true), (1, true), (2, true), (1, false), (2, true)]
+
+@[expose] def burnsideF48s_sp43c_yw : List (Fin 4 × Bool) :=
+  [(0, true), (3, false), (0, false), (1, false), (2, true), (1, false), (2, true)]
+
+@[expose] def burnsideF48s_sp43c_checkGens (_ : Unit := ()) : Bool :=
+  (List.range 4).all fun i =>
+    decide (burnsideF48s_sp43c_L i = U42F431.evalW (burnsideF48s_sp43XY.getD i [])) &&
+      decide (burnsideF48s_sp43c_Li i =
+        U42F431.evalW (U42F431.invW (burnsideF48s_sp43XY.getD i [])))
 
 @[expose] def burnsideF48s_sp43c_checkSub (_ : Unit := ()) : Bool :=
   burnsideF48s_sp43c_groupB burnsideF48s_sp43c_glB burnsideF48s_sp43c_gliB
@@ -381,6 +417,18 @@ open CFSG.Quasithin
     burnsideF48s_sp43c_coverB 3 burnsideF48s_sp43c_trQ burnsideF48s_sp43c_witQ
       burnsideF48s_sp43c_decQ
 
+@[expose] def burnsideF48s_sp43c_checkFar (_ : Unit := ()) : Bool :=
+  (List.range 5).all fun i =>
+    decide (burnsideF48s_sp43c_evL (burnsideF48s_sp43c_glF (i + 3))
+        (burnsideF48s_sp43c_gliF (i + 3)) (burnsideF48s_sp43c_farW.getD i ([], [])).1 =
+          burnsideF48s_sp43c_L 2) &&
+      decide (burnsideF48s_sp43c_evL (burnsideF48s_sp43c_glF (i + 3))
+        (burnsideF48s_sp43c_gliF (i + 3)) (burnsideF48s_sp43c_farW.getD i ([], [])).2 =
+          burnsideF48s_sp43c_L 3)
+
+@[expose] def burnsideF48s_sp43c_checkXY (_ : Unit := ()) : Bool :=
+  decide (burnsideF48s_sp43c_evL4 burnsideF48s_sp43c_xw = U42F431.xL) &&
+    decide (burnsideF48s_sp43c_evL4 burnsideF48s_sp43c_yw = U42F431.yL)
 
 @[expose] def burnsideF48s_sp43c_checkS (_ : Unit := ()) : Bool :=
   let SL := burnsideF48s_sp43c_SL ()

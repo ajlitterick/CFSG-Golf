@@ -39,6 +39,20 @@ open CFSG.KC.LQT.PP CFSG.KC.LQT.BW
 @[expose] noncomputable def fstT (TF : Nat → Nat) (qp : List (Nat × Nat)) : List Nat :=
   List.rec (motive := fun _ => List Nat) [] (fun p _ ih => List.cons (TF p.1) ih) qp
 
+@[expose] noncomputable def baseTK (n w : Nat) (B ta tb : List Nat) (prog qp : List (Nat × Nat))
+    (TF : Nat → Nat) (K m RS : Nat) (RT : Nat → Nat) (zn gn gin hn hin k fuel dd : Nat) : Bool :=
+  (fun (N : Nat) => allBs [tabL n ta, tabL n tb, slpOKK prog 2,
+    Nat.beq (TF 0) (codeK w ta), Nat.beq (TF 1) (codeK w tb),
+    Nat.ble N (Nat.mul K m), Nat.ble n (Nat.mul 64 RS),
+    allA qp (fun p => andB (Nat.blt p.1 N) (Nat.blt p.2 N)),
+    allBs [Nat.blt zn N, Nat.blt gn N, Nat.blt gin N, Nat.blt hn N, Nat.blt hin N],
+    allA qp (fun p => Nat.beq (mulW n w (TF p.2) (TF p.1)) (oneW n w)),
+    Nat.beq (mulW n w (TF gin) (TF gn)) (oneW n w), Nat.beq (mulW n w (TF hin) (TF hn)) (oneW n w),
+    allL B (fun b => Nat.blt b n),
+    rowsT w RS RT (fstT TF qp),
+    baseWQ w B (imgsR w RS RT) (rangeK (lenA qp)) (lenA qp) (ptsW w B (fstT TF qp)) (TF zn) (TF gn)
+      (TF gin) (TF hn) (TF hin) k fuel dd])
+  (Nat.add (lenA prog) 2)
 
 end CFSG.KC.LQT.BT
 

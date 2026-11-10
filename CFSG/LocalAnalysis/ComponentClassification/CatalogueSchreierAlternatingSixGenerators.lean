@@ -128,5 +128,8 @@ theorem commutator_order : orderOf (x * y * x⁻¹ * y⁻¹) = 2 := by
     decide +kernel
   exact orderOf_eq_prime hcommutator.1 hcommutator.2
 
+theorem generating_pair_word_orders :
+    (orderOf x, orderOf y, orderOf (x * y), orderOf (x * y * x⁻¹ * y⁻¹)) = (3, 5, 4, 2) := by
+  rw [x_order, y_order, xy_order, commutator_order]
 
 end CFSG.ComponentClassification.CatalogueSchreierAlternating.DegreeSix

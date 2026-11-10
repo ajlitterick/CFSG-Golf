@@ -71,6 +71,8 @@ theorem blockSwapJ_six_mul_self :
     (((graphGram7 F)⁻¹ : GL (Fin 7) F) : Matrix (Fin 7) (Fin 7) F) = gram7 F :=
   rfl
 
+theorem graphGram6_inv : (graphGram6 F)⁻¹ = graphGram6 F :=
+  Units.ext rfl
 
 theorem graphGram7_inv : (graphGram7 F)⁻¹ = graphGram7 F :=
   Units.ext rfl

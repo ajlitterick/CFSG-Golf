@@ -70,6 +70,10 @@ theorem IsSylow2Of.nonempty_mulEquiv {P Q A : Subgroup G} (hP : IsSylow2Of P A)
     ((Sylow.equiv T₁ T₂).trans
       (Subgroup.equivMapOfInjective (T₂ : Subgroup A) A.subtype A.subtype_injective))⟩
 
+omit [Finite G] in
+theorem nonempty_mulEquiv_conjSubgroup (g : G) (A : Subgroup G) :
+    Nonempty (A ≃* conjSubgroup g A) :=
+  ⟨MulEquiv.subgroupMap (MulAut.conj g) A⟩
 
 end SylowOf
 
@@ -116,6 +120,61 @@ theorem exists_mul_of_natCard_eq [Finite G] (hA : A ≤ M) (hB : B ≤ M) (hAB :
   obtain ⟨p, hp⟩ := hbij.2 ⟨m, hm⟩
   exact ⟨p.1, p.1.2, p.2, p.2.2, (congrArg Subtype.val hp).symm⟩
 
+theorem nonempty_mulEquiv_of_complements [Finite G] {C : Subgroup G} (hAM : A ≤ M) (hBM : B ≤ M)
+    (hCM : C ≤ M) (hBn : M ≤ Subgroup.normalizer (B : Set G)) (hAB : A ⊓ B = ⊥)
+    (hCB : C ⊓ B = ⊥) (hA : Nat.card M = Nat.card A * Nat.card B)
+    (hC : Nat.card M = Nat.card C * Nat.card B) : Nonempty (A ≃* C) := by
+  have : (B.subgroupOf M).Normal :=
+    (Subgroup.normal_subgroupOf_iff_le_normalizer hBM).mpr hBn
+  have key : ∀ {X : Subgroup G}, X ≤ M → X ⊓ B = ⊥ → Nat.card M = Nat.card X * Nat.card B →
+      Nonempty (X ≃* (M ⧸ B.subgroupOf M)) := by
+    intro X hXM hXB hX
+    let f : X →* M ⧸ B.subgroupOf M :=
+      (QuotientGroup.mk' (B.subgroupOf M)).comp (Subgroup.inclusion hXM)
+    have hinj : Function.Injective f := by
+      rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
+      intro x hx
+      have h1 : Subgroup.inclusion hXM x ∈ B.subgroupOf M := (QuotientGroup.eq_one_iff _).mp hx
+      have h2 : (x : G) ∈ X ⊓ B := ⟨x.2, h1⟩
+      rw [hXB, Subgroup.mem_bot] at h2
+      exact Subgroup.mem_bot.mpr (Subtype.ext h2)
+    have hcard : Nat.card (M ⧸ B.subgroupOf M) = Nat.card X := by
+      have h3 := Subgroup.card_eq_card_quotient_mul_card_subgroup (B.subgroupOf M)
+      have h4 : Nat.card (B.subgroupOf M) = Nat.card B :=
+        Nat.card_congr (Subgroup.subgroupOfEquivOfLe hBM).toEquiv
+      rw [h4, hX] at h3
+      exact (Nat.eq_of_mul_eq_mul_right Nat.card_pos h3).symm
+    have hbij : Function.Bijective f := hinj.bijective_of_nat_card_le hcard.le
+    exact ⟨MulEquiv.ofBijective f hbij⟩
+  obtain ⟨e₁⟩ := key hAM hAB hA
+  obtain ⟨e₂⟩ := key hCM hCB hC
+  exact ⟨e₁.trans e₂.symm⟩
+
+theorem nonempty_mulEquiv_prod (hA : A ≤ M) (hB : B ≤ M) (hAB : A ⊓ B = ⊥)
+    (hcomm : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a) (hM : ∀ m ∈ M, ∃ a ∈ A, ∃ b ∈ B, m = a * b) :
+    Nonempty (M ≃* A × B) := by
+  let f : A × B →* M := (Subgroup.inclusion hA).noncommCoprod (Subgroup.inclusion hB)
+    (fun a b => Subtype.ext (hcomm a a.2 b b.2))
+  have hf : Function.Bijective f := by
+    refine ⟨fun p p' hpp => mul_injective_of_inf_eq_bot hAB (congrArg Subtype.val hpp), ?_⟩
+    rintro ⟨m, hm⟩
+    obtain ⟨a, ha, b, hb, rfl⟩ := hM m hm
+    exact ⟨(⟨a, ha⟩, ⟨b, hb⟩), rfl⟩
+  exact ⟨(MulEquiv.ofBijective f hf).symm⟩
+
+theorem mul_conj_comm_of_commute {t u r : G} (h : (t⁻¹ * r * t) * u = u * (t⁻¹ * r * t)) :
+    r * (t * u * t⁻¹) = (t * u * t⁻¹) * r := by
+  calc r * (t * u * t⁻¹) = t * ((t⁻¹ * r * t) * u) * t⁻¹ := by group
+    _ = t * (u * (t⁻¹ * r * t)) * t⁻¹ := by rw [h]
+    _ = (t * u * t⁻¹) * r := by group
+
+theorem mul_self_eq_one_of_natCard_eq_two {X : Subgroup G} (h : Nat.card X = 2) :
+    ∀ x ∈ X, x * x = 1 := by
+  intro x hx
+  have h1 : (⟨x, hx⟩ : X) ^ Nat.card X = 1 := pow_card_eq_one'
+  rw [h] at h1
+  have h2 := congrArg Subtype.val h1
+  simpa [pow_two] using h2
 
 theorem commute_of_mul_self_eq_one {x y : G} (hx : x * x = 1) (hy : y * y = 1)
     (hxy : (x * y) * (x * y) = 1) : x * y = y * x := by

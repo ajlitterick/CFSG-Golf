@@ -106,6 +106,7 @@ theorem fix_of_commute {ψ : ↥(cayleyGroup F) → (Ix3 → F)} (hψ : ψ ∈ Z
   rw [hc, e2, h0, map_zero, add_zero, zero_add] at e1
   exact e1.symm
 
+@[expose] def tCC (c : Fˣ) : Fˣ × Fˣ := (c, c)
 
 namespace TEquiv
 

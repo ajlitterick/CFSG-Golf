@@ -31,6 +31,19 @@ instance ruQ_elem :
 theorem isPGroup_ruS :
     IsPGroup 2 ruS := IsPGroup.of_card (n := 14) (by rw [card_ruS]; norm_num)
 
+theorem frattini_ruS :
+    frattini ruS = ruRS := by
+  have : Fact (IsPGroup 2 ruS) := ⟨isPGroup_ruS⟩
+  rw [CFSG.frattini_eq_closure_commutator_union_powers (p := 2), ← ruRS_eq_commutator]
+  apply le_antisymm
+  · rw [Subgroup.closure_le]
+    rintro x (hx | ⟨y, rfl⟩)
+    · exact hx
+    · show y ^ 2 ∈ ruRS
+      rw [← QuotientGroup.eq_one_iff (N := ruRS), QuotientGroup.mk_pow]
+      exact ruQ_sq _
+  · intro x hx
+    exact Subgroup.subset_closure (Or.inl hx)
 
 theorem ruZ_memS :
     ruZ ∈ ruS := ruJ_leS ruZ_memJ
@@ -92,6 +105,35 @@ theorem center_ruS :
 @[expose] def ruResYS :
     ruS →* Equiv.Perm (Fin 80) := ruResY.comp (Subgroup.inclusion ruS_leC)
 
+@[expose] def ruImYS :
+    Subgroup (Equiv.Perm (Fin 80)) := (ruS.subgroupOf ruC).map ruResY
+
+@[expose] def ruImYR :
+    Subgroup (Equiv.Perm (Fin 80)) := (ruR.subgroupOf ruC).map ruResY
+
+theorem ruResYS_range :
+    ruResYS.range = ruImYS := by
+  rw [ruResYS, MonoidHom.range_comp, ruImYS]
+  congr 1
+  ext x
+  simp only [MonoidHom.mem_range, Subgroup.mem_subgroupOf]
+  constructor
+  · rintro ⟨y, rfl⟩
+    exact y.2
+  · intro hx
+    exact ⟨⟨x, hx⟩, rfl⟩
+
+theorem ruImYR_eq :
+    ruImYR = ruRS.map ruResYS := by
+  rw [ruImYR, ruResYS, ← Subgroup.map_map]
+  congr 1
+  ext x
+  simp only [Subgroup.mem_map, Subgroup.mem_subgroupOf]
+  constructor
+  · intro hx
+    exact ⟨⟨x, ruR_leS hx⟩, hx, rfl⟩
+  · rintro ⟨y, hy, rfl⟩
+    exact hy
 
 theorem ruResYS_ker :
     ruResYS.ker = (Subgroup.zpowers ruZ).subgroupOf ruS := by
@@ -109,5 +151,41 @@ instance ruZS_normal :
   rw [← ruResYS_ker]
   infer_instance
 
+theorem card_zpowers_ruZ_S :
+    Nat.card ((Subgroup.zpowers ruZ).subgroupOf ruS) = 2 := by
+  rw [card_subgroupOf_of_le ((Subgroup.zpowers_le).2 ruZ_memS), Nat.card_zpowers, orderOf_ruZ]
+
+theorem card_ruImYS :
+    Nat.card ruImYS = 8192 := by
+  have h := card_ker_mul_card_range ruResYS
+  rw [ruResYS_ker, card_zpowers_ruZ_S, card_ruS, ruResYS_range] at h
+  exact Nat.eq_of_mul_eq_mul_left (by norm_num : 0 < 2) (h.trans (by norm_num))
+
+theorem card_ruImYR :
+    Nat.card ruImYR = 1024 := by
+  let f := ruResYS.comp ruRS.subtype
+  have hker : f.ker = ((Subgroup.zpowers ruZ).subgroupOf ruS).subgroupOf ruRS := by
+    ext x
+    rw [MonoidHom.mem_ker, MonoidHom.comp_apply, ← MonoidHom.mem_ker, ruResYS_ker,
+      Subgroup.mem_subgroupOf]
+    rfl
+  have hle : (Subgroup.zpowers ruZ).subgroupOf ruS ≤ ruRS := by
+    intro x hx
+    rw [Subgroup.mem_subgroupOf] at hx ⊢
+    exact (Subgroup.zpowers_le.2 ruZ_memR) hx
+  have h := card_ker_mul_card_range f
+  rw [hker, card_subgroupOf_of_le hle, card_zpowers_ruZ_S, card_ruRS, MonoidHom.range_comp,
+    Subgroup.range_subtype, ← ruImYR_eq] at h
+  exact Nat.eq_of_mul_eq_mul_left (by norm_num : 0 < 2) (h.trans (by norm_num))
+
+theorem ruImYS_iso :
+    Nonempty ((ruS ⧸ (Subgroup.zpowers ruZ).subgroupOf ruS) ≃* ruImYS) :=
+  ⟨((QuotientGroup.quotientMulEquivOfEq ruResYS_ker).symm.trans
+    (QuotientGroup.quotientKerEquivRange ruResYS)).trans (MulEquiv.subgroupCongr ruResYS_range)⟩
+
+theorem ruImYS_commutator :
+    ⁅ruImYS, ruImYS⁆ = ruImYR := by
+  rw [← ruResYS_range, MonoidHom.range_eq_map, ← Subgroup.map_commutator, ← commutator_def,
+    ← ruRS_eq_commutator, ruImYR_eq]
 
 end CFSG.Sporadic.RuSchreier

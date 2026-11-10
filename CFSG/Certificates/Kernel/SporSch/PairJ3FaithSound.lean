@@ -324,6 +324,14 @@ theorem mulF_id_sound {d A B : Nat} (h : Nat.beq (mulF d A B) (idF d) = true) :
 @[expose] noncomputable def triRow (d z i : Nat) : Nat :=
   Nat.shiftLeft (Nat.land (Nat.shiftRight z (offP d i)) (Nat.sub (pw2 (Nat.sub d i)) 1)) i
 
+theorem triRow_lt (d z i : Nat) (hi : i < d) : triRow d z i < 2 ^ d := by
+  unfold triRow
+  change ((z >>> offP d i) &&& (pw2 (d - i) - 1)) <<< i < 2 ^ d
+  rw [pw2_eq, Nat.shiftLeft_eq]
+  have h1 : (z >>> offP d i) &&& (2 ^ (d - i) - 1) < 2 ^ (d - i) :=
+    Nat.and_lt_two_pow _ (by have := Nat.one_le_two_pow (n := d - i); omega)
+  calc _ < 2 ^ (d - i) * 2 ^ i := Nat.mul_lt_mul_of_pos_right h1 (Nat.two_pow_pos i)
+    _ = 2 ^ d := by rw [← Nat.pow_add]; congr 1; omega
 
 theorem triP_eq (d z : Nat) : triP d z = orN d fun i => Nat.shiftLeft (triRow d z i) (Nat.mul d i) := by
   unfold triP triRow
@@ -331,6 +339,41 @@ theorem triP_eq (d z : Nat) : triP d z = orN d fun i => Nat.shiftLeft (triRow d 
   funext i
   exact Nat.shiftLeft_add _ i (d * i)
 
+theorem triP_row (d z i : Nat) (hi : i < d) : rowF d (triP d z) i = triRow d z i := by
+  rw [rowF, triP_eq]
+  exact fget_orN d d _ (fun j hj => triRow_lt d z j hj) i hi
+
+theorem offP_eq (d i : Nat) : offP d i = pairIdx d i i := by
+  unfold offP pairIdx
+  rw [Nat.sub_self, Nat.add_zero]
+  rfl
+
+theorem triRows_eq (d z : Nat) : triRowsZ d z = unpackP d (triP d z) := by
+  apply Array.ext (by simp [triRowsZ, unpackP])
+  intro i h1 h2
+  have hi : i < d := by simpa [unpackP] using h2
+  simp only [triRowsZ, unpackP, Array.getElem_ofFn]
+  rw [triP_row d z i hi, triRow, offP_eq, pw2_eq]
+  rfl
+
+theorem packRows_eq (d U : Nat) : packRowsZ d (unpackP d U) = packP d U := by
+  unfold packRowsZ packP
+  have key : ∀ n, n ≤ d → (List.range n).foldl (fun acc i =>
+      acc ||| (((unpackP d U)[i]?.getD 0 >>> i) <<< pairIdx d i i)) 0 =
+      orN n fun i => Nat.shiftLeft (Nat.shiftRight (rowF d U i) i) (offP d i) := by
+    intro n
+    induction n with
+    | zero => intro _; rfl
+    | succ n ih =>
+      intro hn
+      rw [List.range_succ, List.foldl_append, ih (by omega), List.foldl_cons, List.foldl_nil,
+        unpackP_get d U n (by omega), ← offP_eq]
+      exact Nat.lor_comm _ _
+  exact key d le_rfl
+
+theorem packK_sound {d z : Nat} (h : Nat.beq (packP d (triP d z)) z = true) :
+    packRowsZ d (triRowsZ d z) = z := by
+  rw [triRows_eq, packRows_eq, Nat.eq_of_beq_eq_true h]
 
 theorem rowF_xor (d U V j : Nat) : rowF d (Nat.xor U V) j = rowF d U j ^^^ rowF d V j := by
   apply Nat.eq_of_testBit_eq
@@ -376,6 +419,19 @@ theorem ofBits_eq (d A j : Nat) :
         exact Nat.lor_comm _ _
   exact key d le_rfl
 
+theorem trB_row (d A j : Nat) (hj : j < d) : rowF d (trB d A) j = colB d A j := by
+  rw [rowF, trB]
+  exact fget_orN d d _ (fun i _ => colB_lt d A i) j hj
+
+theorem polarK_sound {d z M : Nat} (h : Nat.beq (polarP d z) M = true) :
+    polarRowsZ d z = unpackP d M := by
+  rw [← Nat.eq_of_beq_eq_true h, polarP, strictN_eq', polarRowsZ, triRows_eq]
+  apply Array.ext (by simp [addRows, unpackP, transposeRows])
+  intro j h1 h2
+  have hj : j < d := by simpa [unpackP] using h2
+  simp only [addRows, Array.getElem_zipWith, transposeRows, Array.getElem_ofFn, unpackP]
+  rw [rowF_xor, trB_row d _ j hj, ← ofBits_eq]
+  simp only [unpackP]
 
 theorem get!_data (x : ByteArray) (i : Nat) : x.get! i = x.data[i]! := by
   cases x
@@ -442,6 +498,33 @@ theorem HexRows.of_eq {s : String} {cs : List Char} {d : Nat} {F : Nat → Nat} 
     (he : s = String.ofList cs) (h : hexRowsK d F lo cnt cs = true) : HexRows s d F lo cnt :=
   he ▸ hexRowsK_sound h
 
+theorem rowsGo_sound (d M : Nat) : ∀ (L : List Nat) (i : Nat), rowsGo d M L i = true →
+    L = (List.range' i L.length).map (rowF d M) ∧ i + L.length = d := by
+  intro L
+  induction L with
+  | nil => intro i h; exact ⟨rfl, by simpa using Nat.eq_of_beq_eq_true h⟩
+  | cons x L ih =>
+    intro i h
+    change Bool.rec (motive := fun _ => Bool) false (rowsGo d M L (i + 1)) (Nat.beq x (rowF d M i))
+      = true at h
+    cases h1 : Nat.beq x (rowF d M i) <;> rw [h1] at h
+    · exact absurd h Bool.false_ne_true
+    · obtain ⟨e1, e2⟩ := ih (i + 1) h
+      refine ⟨?_, by simp; omega⟩
+      rw [List.length_cons, List.range'_succ, List.map_cons, ← e1, Nat.eq_of_beq_eq_true h1]
+
+theorem rowsEqK_sound {d M : Nat} {L : List Nat} (h : rowsEqK d M L = true) :
+    L.toArray = unpackP d M := by
+  change Bool.rec (motive := fun _ => Bool) false (rowsGo d M L 0) (Nat.blt M (pw2 (d * d))) = true
+    at h
+  cases h1 : Nat.blt M (pw2 (d * d)) <;> rw [h1] at h
+  · exact absurd h Bool.false_ne_true
+  · obtain ⟨e1, e2⟩ := rowsGo_sound d M L 0 h
+    apply Array.ext'
+    rw [List.toList_toArray, e1]
+    apply List.ext_getElem (by simp [unpackP]; omega)
+    intro j h1 h2
+    simp [unpackP]
 
 theorem parLt_of_forall {n chunks : Nat} {p : Nat → Bool} (h : ∀ i < n, p i = true) :
     parLt n chunks p = true := by
@@ -663,6 +746,28 @@ private theorem colB_bit (d A j t : Nat) :
     rw [Nat.testBit_shiftLeft]
     simp
 
+private theorem trB_bit {d : Nat} (hd : 0 < d) (A q : Nat) :
+    (trB d A).testBit q = true ↔ q < d * d ∧ A.testBit (q % d * d + q / d) = true := by
+  have hq := Nat.div_add_mod q d
+  have e : q = q / d * d + q % d := by rw [Nat.mul_comm]; omega
+  rw [e, trB, testBit_orN_fields d (fun j => colB d A j) d (fun j _ => colB_lt d A j) (q / d)
+    (q % d) (Nat.mod_lt q hd)]
+  rw [← e]
+  rw [Bool.and_eq_true, decide_eq_true_eq, colB_bit, rowF_bit]
+  have hm := Nat.mod_lt q hd
+  simp only [hm, true_and]
+  constructor
+  · rintro ⟨h1, h2⟩
+    refine ⟨?_, ?_⟩
+    · calc q = q / d * d + q % d := e
+        _ < q / d * d + d := by omega
+        _ = (q / d + 1) * d := by ring
+        _ ≤ d * d := by rw [Nat.mul_comm d d]; exact Nat.mul_le_mul_right d h1
+    · simp only [Bool.and_eq_true, decide_eq_true_eq] at h2
+      exact h2.2
+  · rintro ⟨h1, h2⟩
+    have hj : q / d < d := (Nat.div_lt_iff_lt_mul hd).2 h1
+    exact ⟨hj, by simp [hj, h2]⟩
 
 private theorem spread_bit {d r : Nat} (hd : 2 ≤ d) (hr : r < 2 ^ d) (p : Nat) :
     ((Nat.land (Nat.mul r (repU (2 * (d - 1)) ((d + 1) / 2))) (repU (2 * d) ((d + 1) / 2))) |||
@@ -811,6 +916,224 @@ private theorem trP_unpack {d : Nat} (hd : 2 ≤ d) (A : Nat) :
   rw [trP_row hd A j hj, ← ofBits_eq]
   simp only [unpackP]
 
+private theorem xor_eqK (a b : Nat) : Nat.xor a b = a ^^^ b := rfl
+
+private theorem mterm_bit {d : Nat} (hd : 0 < d) (A B k p : Nat) :
+    (Nat.land (Nat.mul (Nat.land (Nat.shiftRight A k) (repU d d)) (Nat.sub (pw2 d) 1))
+      (Nat.mul (Nat.land (Nat.shiftRight B (Nat.mul d k)) (Nat.sub (pw2 d) 1)) (repU d d))).testBit p =
+      (decide (p / d < d) && A.testBit (d * (p / d) + k) && B.testBit (d * k + p % d)) := by
+  have hrm : Nat.sub (pw2 d) 1 = 2 ^ d - 1 := by rw [← pw2_eq]; rfl
+  have hrm_lt : 2 ^ d - 1 < 2 ^ d := by have := Nat.one_le_two_pow (n := d); omega
+  set a : Nat → Nat := fun m => if A.testBit (d * m + k) then 1 else 0 with ha
+  have hX : Nat.land (Nat.shiftRight A k) (repU d d) = pk d a d := by
+    apply Nat.eq_of_testBit_eq
+    intro p
+    change ((A >>> k) &&& repU d d).testBit p = _
+    rw [Nat.testBit_and, Nat.testBit_shiftRight, repU_bit hd,
+      pk_bit hd (fun m => by simp only [ha]; split <;> simp [Nat.one_lt_two_pow (by omega : d ≠ 0)])]
+    simp only [ha]
+    by_cases hm : p % d = 0
+    · have hp : k + p = d * (p / d) + k := by have := Nat.div_add_mod p d; omega
+      rw [hp]
+      split <;> rename_i hA <;> simp [hm, hA]
+    · split <;> simp [hm, Nat.testBit_lt_two_pow (Nat.one_lt_two_pow hm)]
+  have hr : Nat.land (Nat.shiftRight B (Nat.mul d k)) (Nat.sub (pw2 d) 1) < 2 ^ d := by
+    rw [hrm]
+    exact Nat.and_lt_two_pow _ hrm_lt
+  rw [hX, hrm]
+  change ((pk d a d * (2 ^ d - 1)) &&& (((B >>> (d * k)) &&& (2 ^ d - 1)) * repU d d)).testBit p = _
+  rw [Nat.testBit_and, Nat.mul_comm (pk d a d), pk_mul, Nat.mul_comm _ (repU d d)]
+  rw [Nat.mul_comm (repU d d)]
+  rw [pk_bit hd (fun m => by simp only [ha]; split <;> simp [hrm_lt]),
+    mul_repU_bit hd (Nat.and_lt_two_pow _ hrm_lt)]
+  rw [Nat.testBit_and, Nat.testBit_shiftRight, Nat.testBit_two_pow_sub_one]
+  have hm := Nat.mod_lt p hd
+  simp only [ha]
+  split <;> rename_i hA <;> simp [hm, hA]
+
+private theorem mulP_row {d : Nat} (hd : 0 < d) (A B q : Nat) (hq : q < d) :
+    rowF d (mulP d A B) q = vmF d B (rowF d A q) := by
+  have key : ∀ K, K ≤ d → ∀ t < d,
+      (Nat.rec (motive := fun _ => Nat) 0 (fun k acc => mstepP d (repU d d) (Nat.sub (pw2 d) 1) A B acc k)
+        K).testBit (q * d + t) =
+      (Nat.rec (motive := fun _ => Nat) 0 (fun k acc => Bool.rec (motive := fun _ => Nat) acc
+        (Nat.xor (rowF d B k) acc) (bit (rowF d A q) k)) K).testBit t := by
+    intro K
+    induction K with
+    | zero => intro _ t _; simp
+    | succ K ih =>
+      intro hK t ht
+      change (Nat.xor _ _).testBit (q * d + t) =
+        (Bool.rec (motive := fun _ => Nat) _ (Nat.xor (rowF d B K) _) (bit (rowF d A q) K)).testBit t
+      have hdiv : (q * d + t) / d = q := by
+        rw [Nat.add_comm, Nat.add_mul_div_right _ _ hd, Nat.div_eq_of_lt ht, Nat.zero_add]
+      have hmod : (q * d + t) % d = t := by
+        rw [Nat.add_comm, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt ht]
+      rw [xor_eqK, Nat.testBit_xor, ih (by omega) t ht]
+      rw [mterm_bit hd, hdiv, hmod, bit_eq, rowF_bit]
+      have hK' : K < d := by omega
+      simp only [hK', hq, decide_true, Bool.true_and]
+      have e1 : d * q + K = q * d + K := by ring
+      rw [e1]
+      cases A.testBit (q * d + K)
+      · simp
+      · change _ = (Nat.xor (rowF d B K) _).testBit t
+        rw [xor_eqK, Nat.testBit_xor, rowF_bit]
+        simp only [ht, decide_true, Bool.true_and]
+        have e2 : d * K + t = K * d + t := by ring
+        rw [e2, Bool.xor_comm]
+  apply Nat.eq_of_testBit_eq
+  intro t
+  rw [rowF_bit]
+  by_cases ht : t < d
+  · simp only [ht, decide_true, Bool.true_and]
+    unfold mulP
+    rw [strictN_eq', strictN_eq']
+    exact key d le_rfl t ht
+  · simp only [ht, decide_false, Bool.false_and]
+    exact (Nat.testBit_lt_two_pow (lt_of_lt_of_le (vmF_lt d B _)
+      (Nat.pow_le_pow_right (by norm_num) (by omega)))).symm
+
+private theorem mulP_unpack {d : Nat} (hd : 0 < d) (A B : Nat) :
+    mulRows d (unpackP d A) (unpackP d B) = unpackP d (mulP d A B) := by
+  rw [mulRows_unpack]
+  apply Array.ext (by simp [unpackP])
+  intro i h1 h2
+  have hi : i < d := by simpa [unpackP] using h2
+  simp only [unpackP, Array.getElem_ofFn]
+  rw [mulF_row d A B i hi, mulP_row hd A B i hi]
+
+private theorem one_bit (k : Nat) : (1 : Nat).testBit k = decide (k = 0) := by
+  cases k with
+  | zero => simp
+  | succ j => simp [Nat.testBit_succ]
+
+private theorem diag_bit {d i j : Nat} (hi : i < d) (hj : j < d) :
+    (repU (d + 1) d).testBit (i * d + j) = decide (j = i) := by
+  rw [repU_bit (by omega)]
+  apply Bool.eq_iff_iff.2
+  simp only [Bool.and_eq_true, decide_eq_true_eq]
+  constructor
+  · rintro ⟨h1, h2⟩
+    have hp := Nat.div_add_mod (i * d + j) (d + 1)
+    rw [h2, Nat.add_zero] at hp
+    have e : i * d + j = d * ((i * d + j) / (d + 1)) + (i * d + j) / (d + 1) := by
+      conv_lhs => rw [← hp]
+      ring
+    exact ((divmod_uniq hj h1 e).2).trans ((divmod_uniq hj h1 e).1).symm
+  · rintro rfl
+    have e : j * d + j = (d + 1) * j := by ring
+    rw [e, Nat.mul_div_cancel_left _ (by omega), Nat.mul_mod_right]
+    exact ⟨hj, rfl⟩
+
+private theorem su_eq (d : Nat) :
+    Nat.sub (Nat.shiftLeft (repU d d) d) (Nat.mul 2 (repU (d + 1) d)) =
+      pk d (fun i => 2 ^ d - 2 ^ (i + 1)) d := by
+  rcases Nat.eq_zero_or_pos d with h0 | hd
+  · subst h0
+    simp only [pk, Finset.range_zero, Finset.sum_empty]
+    rfl
+  have e1 : Nat.shiftLeft (repU d d) d = pk d (fun _ => 2 ^ d) d := by
+    change repU d d <<< d = _
+    rw [Nat.shiftLeft_eq, repU_eq hd, Nat.mul_comm, pk_mul]
+    simp
+  have e2 : Nat.mul 2 (repU (d + 1) d) = pk d (fun i => 2 ^ (i + 1)) d := by
+    change 2 * repU (d + 1) d = _
+    rw [repU_eq (by omega), pk, pk, Finset.mul_sum]
+    refine Finset.sum_congr rfl fun i _ => ?_
+    rw [one_mul, ← Nat.pow_succ', ← Nat.pow_add, Nat.succ_eq_add_one]
+    congr 1
+    ring
+  change Nat.shiftLeft (repU d d) d - Nat.mul 2 (repU (d + 1) d) = _
+  rw [e1, e2, pk, pk, pk, ← Finset.sum_tsub_distrib]
+  · refine Finset.sum_congr rfl fun i _ => ?_
+    rw [Nat.sub_mul]
+  · intro i hi
+    have : i < d := Finset.mem_range.1 hi
+    exact Nat.mul_le_mul_right _ (Nat.pow_le_pow_right (by norm_num) (by omega))
+
+private theorem pow_sub_bit {d a t : Nat} (ha : a ≤ d) :
+    (2 ^ d - 2 ^ a).testBit t = (decide (a ≤ t) && decide (t < d)) := by
+  have e : 2 ^ d - 2 ^ a = (2 ^ (d - a) - 1) <<< a := by
+    rw [Nat.shiftLeft_eq, Nat.sub_mul, one_mul, ← Nat.pow_add, Nat.sub_add_cancel ha]
+  rw [e, Nat.testBit_shiftLeft, Nat.testBit_two_pow_sub_one]
+  apply Bool.eq_iff_iff.2
+  simp only [Bool.and_eq_true, decide_eq_true_eq, ge_iff_le]
+  omega
+
+private theorem canonP_row {d : Nat} (hd : 2 ≤ d) (C i : Nat) (hi : i < d) :
+    rowF d (canonP d C) i =
+      (((rowF d C i ^^^ colB d C i) >>> (i + 1)) <<< (i + 1)) ||| (rowF d C i &&& (1 <<< i)) := by
+  have hd0 : 0 < d := by omega
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [rowF_bit]
+  unfold canonP diagP
+  rw [strictN_eq', strictN_eq', su_eq]
+  change (decide (j < d) && ((((C ^^^ trP d C) &&& pk d (fun i => 2 ^ d - 2 ^ (i + 1)) d) |||
+    (C &&& repU (d + 1) d)).testBit (i * d + j))) = _
+  simp only [Nat.testBit_or, Nat.testBit_and, Nat.testBit_xor, Nat.testBit_shiftLeft,
+    Nat.testBit_shiftRight, one_bit]
+  by_cases hj : j < d
+  · have hdiv : (i * d + j) / d = i := by
+      rw [Nat.add_comm, Nat.add_mul_div_right _ _ hd0, Nat.div_eq_of_lt hj, Nat.zero_add]
+    have hmod : (i * d + j) % d = j := by
+      rw [Nat.add_comm, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt hj]
+    have hC : C.testBit (i * d + j) = (rowF d C i).testBit j := by rw [rowF_bit]; simp [hj]
+    have hT : (trP d C).testBit (i * d + j) = (colB d C i).testBit j := by
+      rw [← trP_row hd C i hi, rowF_bit]
+      simp [hj]
+    rw [hC, hT, pk_bit (u := fun i => 2 ^ d - 2 ^ (i + 1)) hd0
+      (fun i => Nat.sub_lt (Nat.two_pow_pos d) (Nat.two_pow_pos _)), hdiv,
+      hmod, pow_sub_bit (by omega), diag_bit hi hj]
+    by_cases hij : i + 1 ≤ j
+    · rw [show i + 1 + (j - (i + 1)) = j by omega]
+      have hne : j ≠ i := by omega
+      have hne' : j - i ≠ 0 := by omega
+      simp [hj, hi, hij, hne, hne']
+    · by_cases he : j = i
+      · subst he
+        simp [hj]
+      · have h1 : ¬ i ≤ j := by omega
+        simp [hj, hij, he, h1]
+  · simp only [hj, decide_false, Bool.false_and]
+    have hC : (rowF d C i).testBit j = false := by rw [rowF_bit]; simp [hj]
+    have hT : (colB d C i).testBit j = false := by
+      cases h : (colB d C i).testBit j
+      · rfl
+      · exact absurd ((colB_bit d C i j).1 h).1 hj
+    rw [hC, Bool.false_and, Bool.or_false]
+    cases hb : decide (j ≥ i + 1)
+    · rfl
+    · simp only [Bool.true_and]
+      rw [show i + 1 + (j - (i + 1)) = j by simp at hb; omega, hC, hT]
+      rfl
+
+private theorem canonP_unpack {d : Nat} (hd : 2 ≤ d) (C : Nat) :
+    canonRows d (unpackP d C) = unpackP d (canonP d C) := by
+  apply Array.ext (by simp [canonRows, unpackP])
+  intro i h1 h2
+  have hi : i < d := by simpa [unpackP] using h2
+  simp only [canonRows, Array.getElem_ofFn]
+  rw [unpackP_get d C i hi]
+  have hT : (transposeRows d (unpackP d C))[i]?.getD 0 = colB d C i := by
+    rw [trP_unpack hd, unpackP_get d _ i hi, trP_row hd C i hi]
+  rw [hT]
+  simp only [unpackP, Array.getElem_ofFn]
+  rw [canonP_row hd C i hi]
+
+theorem pullK_sound {d A AT z z' : Nat} (hd : 2 ≤ d) (hT : Nat.beq (trP d A) AT = true)
+    (h : pullK d A AT z z' = true) : pullOKZ d (unpackP d A) z z' = true := by
+  unfold pullOKZ
+  rw [triRows_eq, triRows_eq, trP_unpack hd, mulP_unpack (by omega), mulP_unpack (by omega),
+    canonP_unpack hd, Nat.eq_of_beq_eq_true hT]
+  unfold pullK at h
+  rw [Nat.eq_of_beq_eq_true h]
+  exact beq_self_eq_true _
+
+theorem pullK_one_counterexample :
+    pullK 1 1 (trP 1 1) 0 1 = true ∧ pullOKZ 1 (unpackP 1 1) 0 1 = false := by
+  decide +kernel
 
 private theorem getNK_eq : ∀ (L : List Nat) (i : Nat), getNK L i = L[i]?.getD 0
   | [], _ => rfl
@@ -1073,6 +1396,10 @@ theorem sepK_sound {d nm : Nat} {Ts TTs : List Nat} {terms : List (List Nat)}
   · simp [unpackP]
   · exact mulF_id_sound hX
 
+theorem sepK_one_counterexample :
+    sepK 1 1 [1] [trP 1 1] [[0]] 1 0 1 (trP 1 1) 0 1 1 [] = true ∧
+      combK 1 [1] [[0]] = 1 ∧ mulVecRows 1 (unpackP 1 1) 1 = 1 := by
+  decide +kernel
 
 theorem strictB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by
   cases y <;> rfl
@@ -1080,6 +1407,15 @@ theorem strictB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by
 theorem bAnd_eq (a b : Bool) : Bool.rec (motive := fun _ => Bool) false b a = (a && b) := by
   cases a <;> rfl
 
+theorem formB_sound {d w m A1 A1T A2 A2T P0 P1 : Nat} {F : Nat → Nat} {r : Nat} (hd : 2 ≤ d)
+    (hT1 : Nat.beq (trP d A1) A1T = true) (hT2 : Nat.beq (trP d A2) A2T = true)
+    (h : formB d w m A1 A1T A2 A2T P0 P1 F r = true) :
+    packRowsZ d (triRowsZ d (F r)) = F r ∧
+      pullOKZ d (unpackP d A1) (F r) (F (CFSG.KC.Enum.pg w m P0 r)) = true ∧
+      pullOKZ d (unpackP d A2) (F r) (F (CFSG.KC.Enum.pg w m P1 r)) = true := by
+  unfold formB at h
+  rw [strictB_eq, bAnd_eq, bAnd_eq, Bool.and_eq_true, Bool.and_eq_true] at h
+  exact ⟨packK_sound h.1, pullK_sound hd hT1 h.2.1, pullK_sound hd hT2 h.2.2⟩
 
 end CFSG.KS.SporSch.PF2
 

@@ -95,6 +95,8 @@ section Aut2
 
 variable {F : Type} [Field F] [Finite F] {K : Type} [Group K]
 
+@[expose] def autNormalizer (A : Subgroup (MulAut K)) (X : Subgroup K) : Subgroup (MulAut K) :=
+  A ⊓ MulAction.stabilizer (MulAut K) X
 
 @[expose] def IsFAutL2 (α : MulAut K) : Prop :=
   ∃ (F : Type) (_ : Field F) (_ : Finite F) (e : K ≃* L2 F), α ∈ fieldAutSub e

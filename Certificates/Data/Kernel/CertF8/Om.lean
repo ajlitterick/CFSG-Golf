@@ -13,6 +13,7 @@ open CFSG.KC.CertF8 (mulS6)
 
 @[expose] noncomputable def impB (a b : Bool) : Bool := Bool.rec (motive := fun _ => Bool) true b a
 
+@[expose] noncomputable def notB (a : Bool) : Bool := Bool.rec (motive := fun _ => Bool) true false a
 
 @[expose] noncomputable def allFrom (lo cnt : Nat) (f : Nat → Bool) : Bool :=
   Nat.rec (motive := fun _ => Bool) true (fun d ih => andB ih (f (Nat.add lo d))) cnt

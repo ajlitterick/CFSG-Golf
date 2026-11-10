@@ -29,6 +29,8 @@ abbrev baseChamber :
 abbrev inclE
     (i : Fin 4) (g : Pc i) : Eam := Subgroup.inclusion (Pc_le_Eam i) g
 
+theorem coe_inclE
+    (i : Fin 4) (g : Pc i) : ((inclE i g : Eam) : Dfull) = g := rfl
 
 @[expose] def chamberMulPerm
     (g : Eam) : Equiv.Perm Chamber where

@@ -44,6 +44,8 @@ theorem PhiV_mem_Hvis
 @[expose] def PhiH :
     Gvis →* Hvis := PhiV.codRestrict Hvis PhiV_mem_Hvis
 
+theorem coe_PhiH
+    (g : Gvis) : ((PhiH g : Hvis) : GLV) = PhiV g := rfl
 
 theorem ker_PhiV : PhiV.ker = rhoQvis := by
   rw [PhiV, MonoidHom.ker_comp_of_injective _ _ opQHom_injective, ker_piVis]

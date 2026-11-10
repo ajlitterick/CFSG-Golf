@@ -255,6 +255,9 @@ theorem exists_mem_ρ_eq {q : Perm (Fin n)} (hq : q ∈ X.Q) : ∃ x ∈ S, X.C.
   obtain ⟨x, hx⟩ := X.C.exists_ρ_eq (Perm.mem_alternatingGroup.1 (X.hQA hq))
   exact ⟨x, X.mem_of_ρ_mem (hx ▸ hq), hx⟩
 
+include X in
+theorem center_le : center K ≤ S := fun x hx =>
+  X.mem_of_ρ_mem (by rw [(X.C.ρ_eq_one_iff).2 hx]; exact X.Q.one_mem)
 
 theorem isotropic_map {E : Subgroup K} (hE : ∀ e ∈ E, e * e = 1) :
     ∀ σ ∈ E.map X.C.ρ, σ = 1 ∨ IsoI σ := by
@@ -633,5 +636,11 @@ theorem coverSylowData_of_good (hn : 8 ≤ n) (hn' : n ≤ 11)
 
 end Bridge
 
+theorem coverSylowData_of_check {n : ℕ} (hn : 8 ≤ n) (hn' : n ≤ 11)
+    (h : sylowCheck n (if n ≤ 9 then 64 else 128) = true) :
+    CFSG.OddStandard.Solomon75.CoverSylowData n := by
+  have : NeZero n := ⟨by omega⟩
+  obtain ⟨hP0, hgood⟩ := sylowGood_of_check hn hn' (by split_ifs <;> norm_num) h
+  exact coverSylowData_of_good hn hn' hP0 hgood
 
 end CFSG.OddStandard.Solomon75.AhatData

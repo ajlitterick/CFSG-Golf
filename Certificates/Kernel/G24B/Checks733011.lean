@@ -107,6 +107,11 @@ theorem ch733011_eRecs : ∀ t < 4, recK2 28 12 6 2 EE.CF (genR 28 12 6 2 EE.CF)
   kc_cover 64
 theorem ch733011_e : eK ej = true := by quickRfl
 
+theorem ch733011_negTorus : (!torusK tc (ht.map Nat.succ)) = true := by quickRfl
+
+theorem ch733011_negCosets : (!cosetK rv rw rt rc) = true := by quickRfl
+
+theorem ch733011_negOrder3 : (!ord3QK (o3.map Nat.succ)) = true := by quickRfl
 
 end CFSG.KD.G24B
 

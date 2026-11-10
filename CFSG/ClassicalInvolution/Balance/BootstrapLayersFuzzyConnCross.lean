@@ -95,6 +95,50 @@ theorem FrameBasis.linkN {B J N : Subgroup G} {t u : G} (hb : FrameBasis p f �
     triangleResidual N a ∈ linkFamily p f 𝒞 a :=
   triangleResidual_mem_linkFamily hb.memN hb.clsN (hb.tqN hb.aB)
 
+theorem exists_frame_of_cross (ld : LinkData p f 𝒞 a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
+    (hinv : ConjInvariant 𝒞) (hcan : 𝒞 ⊆ canonicalMembers p f G) {M : Subgroup G} (hM𝒞 : M ∈ 𝒞)
+    (hM : IsClassicalMember p f M a) {J : Subgroup G} {t : G} (hJ𝒞 : J ∈ 𝒞)
+    (hJ : IsClassicalMember p f J t) (haJ : a ∈ trivialOnQuot J) (hta : t ≠ a) {N : Subgroup G}
+    {u : G} (hN𝒞 : N ∈ 𝒞) (hN : IsClassicalMember p f N u) (haN : a ∈ trivialOnQuot N)
+    (hua : u ≠ a) {j₁ j₂ : Fin ld.D.card} (hj : j₁ ≠ j₂)
+    (h₁ : modOdd a (triangleResidual J a) ≤ (secComponentHom ld.sec.normalizes ld.D j₁).range)
+    (h₂ : modOdd a (triangleResidual N a) ≤ (secComponentHom ld.sec.normalizes ld.D j₂).range)
+    (hclass : ¬ SameClass a t u) :
+    ∃ B : Subgroup G, FuzzyFrameOn p f 𝒞 B ∧ a ∈ fuzzyVertices p f 𝒞 B ∧
+      u ∈ fuzzyVertices p f 𝒞 B := by
+  obtain ⟨x, hx, B, hB, haB, -, -, hxuB, hBN⟩ :=
+    exists_crossFrame ld hp2 hq hinv hcan hM𝒞 hM hJ𝒞 hJ haJ hta hN𝒞 hN haN hua hj h₁ h₂ hclass
+  have hxC : x ∈ Subgroup.centralizer ({a} : Set G) := by
+    rw [involutionOddCore_eq_oddCoreIn] at hx
+    exact oddCoreIn_le _ hx
+  refine ⟨B.map (MulAut.conj x⁻¹).toMonoidHom, FuzzyFrameOn.map hinv hB x⁻¹, ?_, ?_⟩
+  · have := mem_fuzzyVertices_map hinv haB x⁻¹
+    rwa [conj_eq_of_mem_centralizer_singleton (inv_mem hxC)] at this
+  · have hv : x * u * x⁻¹ ∈ fuzzyVertices p f 𝒞 B :=
+      ⟨hxuB, conjSub x N, hinv x N hN𝒞, hN.conj x, hBN⟩
+    have := mem_fuzzyVertices_map hinv hv x⁻¹
+    have e : x⁻¹ * (x * u * x⁻¹) * x⁻¹⁻¹ = u := by group
+    rwa [e] at this
+
+theorem exists_frame_of_comp (ld : LinkData p f 𝒞 a) (hp2 : p ≠ 2) (hinv : ConjInvariant 𝒞)
+    {A J N : Subgroup G} {t u : G} (hb : FrameBasis p f 𝒞 a A J t N u) {J₀ : Subgroup G} {u₀ : G}
+    (hJ₀𝒞 : J₀ ∈ 𝒞) (hJ₀ : IsClassicalMember p f J₀ u₀) (ha₀ : a ∈ trivialOnQuot J₀)
+    {j : Fin ld.D.card}
+    (hcJ : modOdd a (triangleResidual J a) ≤ (secComponentHom ld.sec.normalizes ld.D j).range)
+    (hc₀ : modOdd a (triangleResidual J₀ a) ≤ (secComponentHom ld.sec.normalizes ld.D j).range) :
+    ∃ B : Subgroup G, FuzzyFrameOn p f 𝒞 B ∧ a ∈ fuzzyVertices p f 𝒞 B ∧
+      u₀ ∈ fuzzyVertices p f 𝒞 B := by
+  have ha2 : a * a = 1 := hb.sq hb.aB
+  obtain ⟨g, hg, -, hgt⟩ := ld.sec.exists_conj_of_vertices ld.D hp2 j
+    (by have := ld.h5 j; omega) hb.linkJ (triangleResidual_mem_linkFamily hJ₀𝒞 hJ₀ ha₀)
+    (isSectionMember_triangleResidual hb.clsJ ha2 (hb.tqJ hb.aB)).isCentralInvolution
+    (isSectionMember_triangleResidual hJ₀ ha2 ha₀).isCentralInvolution hcJ hc₀
+  refine ⟨A.map (MulAut.conj g).toMonoidHom, FuzzyFrameOn.map hinv hb.frame g, ?_, ?_⟩
+  · have := mem_fuzzyVertices_map hinv hb.vertex g
+    rwa [conj_eq_of_mem_centralizer_singleton hg] at this
+  · have hv : t ∈ fuzzyVertices p f 𝒞 A := ⟨hb.tB, J, hb.memJ, hb.clsJ, hb.tqJ⟩
+    have := mem_fuzzyVertices_map hinv hv g
+    rwa [hgt] at this
 
 theorem frames_link_of_cross (ld : LinkData p f 𝒞 a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
     (hinv : ConjInvariant 𝒞) (hcan : 𝒞 ⊆ canonicalMembers p f G)

@@ -26,6 +26,8 @@ open CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc CFSG.KC.PairBnb
 #kc_forall_tree e7c2All (fun i => bnbR (nbP (packT e7Nb)) (wtF 56 2 1) e7O2 200
   (rootMask 56 119 e7Nb i) 53 = true) 63 ch129090b.i
 
+theorem e7_neg : bnbR (nbP (packT e7Nb)) (wtF 56 1 1) e7O1 200 (rootMask 56 119 e7Nb 62) 0 = false := by
+  decide +kernel
 
 theorem e7_nbP_lt : ∀ v < 119, nbP (packT e7Nb) v = e7Nb.getD v 0 := by
   decide +kernel

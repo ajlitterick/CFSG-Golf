@@ -273,5 +273,13 @@ theorem finite_AutO_and_orbits :
 
 instance : Finite AutO := finite_AutO_and_orbits.2
 
+theorem rational_isometric_algebra_automorphisms_finite :
+    (∀ g : SpaceB ≃ₗ[ℚ] SpaceB, g ∈ AutO ↔
+      (∀ u v, g (gmul u v) = gmul (g u) (g v)) ∧ ∀ u v, bform (g u) (g v) = bform u v) ∧
+    Finite AutO ∧ Finite ShortQ ∧
+    (∀ r : ShortQ, (MulAction.orbit AutO (axis r.1)).Finite) ∧
+    Submodule.span ℚ (⋃ r : ShortQ, MulAction.orbit AutO (axis r.1)) = ⊤ :=
+  ⟨fun _ => mem_AutO, finite_AutO_and_orbits.2, inferInstance, finite_AutO_and_orbits.1,
+    axisSpan_eq_top⟩
 
 end CFSG.Monster.Griess

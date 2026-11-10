@@ -54,5 +54,16 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.GLS in
+open CFSG.GH74.GLS.C3 in
+open CFSG.GH74.GLS.C3.Layer2 in
+open CFSG.GH74.GLS.C3.Layer2.L5 in
+open CFSG.GH74.GLS.C3.Layer2.L5.Fus in
+open Equiv Perm Subgroup CFSG.GH74.GLS.C3.Prop121 CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model in
+theorem certificate5057 : (sh1WW.all fun pw => decide (evalWG sh1Gens pw.2 = pw.1)) = true ∧
+    sh1WW.length = 128 ∧ (sh1WW.map fun pw => codeP16 pw.1).Nodup := by
+  exact CertificateChecks.Batch5057.sh1WW_chk_0
 
 end Certificates

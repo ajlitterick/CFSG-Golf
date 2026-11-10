@@ -46,6 +46,16 @@ theorem g_zero {k : ℕ} (hk : k < 2) : censusAct k 0 = 0 := by
   rw [Nat.xor_self] at h
   rw [h, Nat.xor_self]
 
+theorem g_lt {k : ℕ} (hk : k < 2) (v : ℕ) : censusAct k v < 2 ^ 22 := by
+  rcases (by omega : k = 0 ∨ k = 1) with rfl | rfl
+  · have h := censusAct_pB false v
+    simp only [Bool.false_eq_true, ↓reduceIte] at h
+    rw [← h]
+    exact CFSG.KC.F2W.vmF_lt _ _ _
+  · have h := censusAct_pB true v
+    simp only [↓reduceIte] at h
+    rw [← h]
+    exact CFSG.KC.F2W.vmF_lt _ _ _
 
 @[expose] noncomputable def btB (a b : ℕ) : ℕ := Nat.xor (betaK LOq a b) (betaK LOq b a)
 
@@ -60,6 +70,9 @@ theorem btB_eq (a b : ℕ) : btB a b = (bt a b).toNat := by
 
 theorem btK_ok : btK = true := by quickRfl
 
+theorem btK_neg : (allLt 22 fun i => allLt 22 fun j =>
+    Nat.beq (btB (CFSG.KC.M1F2.vmF 22 pR1 (2 ^ i)) (2 ^ j)) (btB (2 ^ i) (2 ^ j))) = false := by
+  decide +kernel
 
 theorem g_pB {k : ℕ} (hk : k < 2) (v : ℕ) :
     censusAct k v = CFSG.KC.M1F2.vmF 22 (if k = 0 then pR1 else pR2) v := by

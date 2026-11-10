@@ -12,6 +12,8 @@ open Subgroup CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier
 
 abbrev Gp : Type := Equiv.Perm (Fin 6156)
 
+@[expose] def prodT (R : Array Table) (l : List ℕ) : Table :=
+  l.foldl (fun T i => compT 6156 T R[i]!) (idT 6156)
 
 @[expose] def prodG (Rg : ℕ → Gp) (l : List ℕ) : Gp := (l.map Rg).prod
 
@@ -27,6 +29,15 @@ inductive TFact where
   | ordEq (i m : ℕ)
   deriving DecidableEq
 
+@[expose] def idxOK (R : Array Table) (l : List ℕ) : Bool := l.all fun i => decide (i < R.size)
+
+@[expose] def TFact.ok (R : Array Table) (Es : Array (Array Table)) : TFact → Bool
+  | .eqP l₁ l₂ => idxOK R l₁ && idxOK R l₂ && tblEq 6156 (prodT R l₁) (prodT R l₂)
+  | .neP l₁ l₂ => idxOK R l₁ && idxOK R l₂ && !tblEq 6156 (prodT R l₁) (prodT R l₂)
+  | .memE e l => decide (e < Es.size) && idxOK R l && memT 6156 Es[e]! (prodT R l)
+  | .inP l => idxOK R l && j3Sift (prodT R l)
+  | .notInP l => idxOK R l && !j3Sift (prodT R l)
+  | .ordEq i m => decide (i < R.size) && decide (0 < m) && ordTest 6156 m R[i]!
 
 @[expose] noncomputable def TFact.sem (Rg : ℕ → Gp) (K : ℕ → Subgroup Gp) : TFact → Prop
   | .eqP l₁ l₂ => prodG Rg l₁ = prodG Rg l₂
@@ -55,6 +66,15 @@ inductive Cond where
   | .and c d => c.wfB nR nE && d.wfB nR nE
   | .imp c d => c.wfB nR nE && d.wfB nR nE
 
+@[expose] def Cond.eval (R : Array Table) (Es : Array (Array Table)) (T Ti : Table) :
+    Cond → Bool
+  | .comm r => commTT 6156 T R[r]!
+  | .commM w r => commTT 6156 (compT 6156 T R[w]!) R[r]!
+  | .memConj e r => memT 6156 Es[e]! (compT 6156 (compT 6156 T R[r]!) Ti)
+  | .memSelf e => memT 6156 Es[e]! T
+  | .not c => !(c.eval R Es T Ti)
+  | .and c d => c.eval R Es T Ti && d.eval R Es T Ti
+  | .imp c d => !(c.eval R Es T Ti) || d.eval R Es T Ti
 
 @[expose] noncomputable def Cond.sem (Rg : ℕ → Gp) (K : ℕ → Subgroup Gp) (x : Gp) : Cond → Prop
   | .comm r => x * Rg r = Rg r * x
@@ -72,6 +92,18 @@ inductive TLoop where
   | exE (e : ℕ) (c : Cond)
   deriving DecidableEq
 
+@[expose] def loopCount (R : Array Table) (Es : Array (Array Table)) (e : ℕ) (c : Cond) : ℕ :=
+  ((List.range Es[e]!.size).filter fun k =>
+    c.eval R Es (Es[e]!)[k]! (invT 6156 (Es[e]!)[k]!)).length
+
+@[expose] def TLoop.ok (R : Array Table) (Es : Array (Array Table)) : TLoop → Bool
+  | .allE e c => decide (e < Es.size) && c.wfB R.size Es.size &&
+      decide (loopCount R Es e c = Es[e]!.size)
+  | .countEq e c b => decide (e < Es.size) && c.wfB R.size Es.size &&
+      decide (loopCount R Es e c = b)
+  | .countLe e c b => decide (e < Es.size) && c.wfB R.size Es.size &&
+      decide (loopCount R Es e c ≤ b)
+  | .exE e c => decide (e < Es.size) && c.wfB R.size Es.size && decide (0 < loopCount R Es e c)
 
 @[expose] noncomputable def TLoop.sem (Rg : ℕ → Gp) (K : ℕ → Subgroup Gp) : TLoop → Prop
   | .allE e c => ∀ x ∈ K e, c.sem Rg K x

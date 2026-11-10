@@ -44,6 +44,15 @@ set_option Elab.async false
 theorem ch17254_ok : fiCgK prog ps ne = true := by
   quickRfl
 
+example : fiCgK [[1, 1]] [([3], [])] [1, 2] = true := by decide +kernel
+
+example : fiCgK [[1, 2]] [([3], [])] [] = false := by decide +kernel
+
+example : fiCgK [] [([1, 2], [2, 1])] [] = false := by decide +kernel
+
+example : fiCgK [[]] [] [3] = false := by decide +kernel
+
+example : fiCgK [[1, 1]] [] [3] = false := by decide +kernel
 
 end CertificateChecks.KernelCentGenK.Fi23
 

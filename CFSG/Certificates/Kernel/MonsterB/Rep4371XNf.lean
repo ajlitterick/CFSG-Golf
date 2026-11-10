@@ -136,6 +136,13 @@ theorem eqModel_of_coeff {D₁ D₂ : Int} {A B : Terms} (h : ∀ c, coeffC c A 
   rw [List.mem_append, List.mem_map, List.mem_map] at he
   rcases he with ⟨t, -, rfl⟩ | ⟨t, -, rfl⟩ <;> exact key t
 
+theorem eqModel_of_nf {D₁ D₂ : Int} {L₁ L₂ : Terms}
+    (h : nfT (scaleT D₂ L₁) = nfT (scaleT D₁ L₂)) :
+    Model.eqModel D₁ (L₁.map td) D₂ (L₂.map td) = true := by
+  refine eqModel_of_coeff fun c => ?_
+  have e := congrArg (coeffC c) h
+  rw [coeffC_nfT, coeffC_nfT, coeffC_scaleT, coeffC_scaleT] at e
+  rw [Int.mul_comm, e, Int.mul_comm]
 
 @[expose] def rowP (f : Nat → Terms) (TH k : Nat) (R : Terms) : Prop :=
   ∀ c, coeffC c (actVecT f (rawT TH k)) = 8 * coeffC c (actVecT (rawT TH) R)

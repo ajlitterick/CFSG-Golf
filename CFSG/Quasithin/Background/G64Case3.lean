@@ -35,6 +35,10 @@ theorem map_conj_one (H : Subgroup M) : H.map (MulAut.conj (1 : M)).toMonoidHom 
   rw [mem_map_conj]
   simp
 
+theorem map_conj_le {H L : Subgroup M} {g : M} (h : ∀ x ∈ H, g * x * g⁻¹ ∈ L) :
+    H.map (MulAut.conj g).toMonoidHom ≤ L := by
+  rintro _ ⟨x, hx, rfl⟩
+  exact h x hx
 
 theorem card_map_conj [Finite M] (H : Subgroup M) (g : M) :
     Nat.card ↥(H.map (MulAut.conj g).toMonoidHom) = Nat.card H :=

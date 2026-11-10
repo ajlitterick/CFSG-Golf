@@ -1,6 +1,9 @@
 module
 
 public import CFSG.Quasithin.Background.D2Transport
+public import CFSG.Quasithin.Background.FixVTransport
+public import CFSG.Quasithin.Background.D2Offenders
+public import CFSG.Quasithin.Background.G2L2
 public import CFSG.Quasithin.Vol2.Ch3Sec1Aux
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34InputsD3
 import CFSG.GroupTheory.ElementaryAbelianTransport
@@ -22,6 +25,7 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
+public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
@@ -63,6 +67,20 @@ section Congr
 
 variable {V V' : Type*} [CommGroup V] [CommGroup V'] (e : V ≃* V')
 
+theorem commSeries_map_congr (A : Subgroup (MulAut V)) (k : ℕ) :
+    commSeries (A.map (congrHom e)) k = (commSeries A k).map e.toMonoidHom :=
+  commSeries_map_mulAutCongr e A k
+
+private theorem fixV_map_congr (A : Subgroup (MulAut V)) :
+    fixV (A.map (congrHom e)) = (fixV A).map e.toMonoidHom :=
+  fixV_map_congr_equiv e A
+
+theorem rAV_map_congr (A : Subgroup (MulAut V)) : rAV (A.map (congrHom e)) = rAV A :=
+  rAV_map_mulAutCongr e A
+
+theorem IsA2.map_congr {X A : Subgroup (MulAut V)} (h : IsA2 X A) :
+    IsA2 (X.map (congrHom e)) (A.map (congrHom e)) :=
+  isA2_map_mulAutCongr e h
 
 theorem kq_map_congr_le [Finite V] [Finite V'] (X : Subgroup (MulAut V)) (k : ℕ) :
     kq (X.map (congrHom e)) k ≤ kq X k :=

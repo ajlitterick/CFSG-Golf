@@ -141,6 +141,13 @@ public lemma of_eq {a b : ℂ} (h : a = b) : CongruentModTwo a b := by
   rw [h]
   exact refl b
 
+/-- `a ≡ 0` iff `a` is twice an algebraic integer. -/
+public lemma iff_exists {a : ℂ} : CongruentModTwo a 0 ↔ ∃ w : ℂ, IsIntegral ℤ w ∧ a = 2 * w := by
+  constructor
+  · rintro ⟨w, hw, hw'⟩
+    exact ⟨w, hw, by simpa using hw'⟩
+  · rintro ⟨w, hw, hw'⟩
+    exact ⟨w, hw, by rw [hw']; ring⟩
 
 end CongruentModTwo
 

@@ -98,6 +98,9 @@ theorem trace_tauMat : trace tauMat = 783 := by
     trace_octBlock, Fintype.card_fin]
   norm_num
 
+theorem trace_tauMat_sq : trace (tauMat ^ 2) = 783 := by
+  rw [sq_eq_transpose_of_pow_three tauMat_pow_three tauMat_mul_transpose, trace_transpose,
+    trace_tauMat]
 
 theorem tauMat_mem_dyadic : ∀ x y, tauMat x y ∈ dyadic :=
   diag2_mem_dyadic one_apply_mem_dyadic (diag2_mem_dyadic (kron1_mem_dyadic _ cyc3_mem_dyadic)
@@ -171,6 +174,7 @@ theorem tauMat_oct_apply_of_notMem (d : OctadWord) (v : Octad.EvenQuot (octSupp 
 
 theorem coe_tauB : (tauB : SpaceB →ₗ[ℚ] SpaceB) = toLin tbasis tbasis tauMatᵀ := rfl
 
+theorem coe_tauB_symm : (tauB.symm : SpaceB →ₗ[ℚ] SpaceB) = toLin tbasis tbasis tauMat := rfl
 
 theorem tauB_apply (u : SpaceB) : tauB u = toLin tbasis tbasis tauMatᵀ u := rfl
 
@@ -207,6 +211,20 @@ theorem tauB_oct (d : OctadWord) (v : Octad.EvenQuot (octSupp d)) :
   · intro w
     rw [tauMat_oct_apply_oct]
 
+theorem tauB_Xlift_rOct {d : OctadWord} {δ : Finset (Fin 24)} (hδ : δ ⊆ octSupp d)
+    (he : Even δ.card) :
+    tauB ((0 : symMat), Xlift (rOct d δ), (0 : SpaceW)) =
+      ∑ v : Octad.EvenQuot (octSupp d),
+        ((8 : ℚ)⁻¹ * (-1) ^ ((δ ∩ octRep d v).card + (octRep d v).card / 2)) •
+          ((0 : symMat), Xlift (rOct d (octRep d v)), (0 : SpaceW)) := by
+  rw [← tbasis_oct_cls hδ he, tauB_oct]
+  refine Finset.sum_congr rfl fun v _ => ?_
+  obtain ⟨h1, h2, h3⟩ := octRep_spec d v
+  rw [tbasis_oct]
+  refine congrArg₂ (· • ·) ?_ rfl
+  calc octHD d (Octad.cls (octSupp d) δ) v =
+        octHD d (Octad.cls (octSupp d) δ) (Octad.cls (octSupp d) (octRep d v)) := by rw [h3]
+    _ = _ := octHD_cls d hδ he h1 h2
 
 theorem bform_tauB (u v : SpaceB) : bform (tauB u) (tauB v) = bform u v :=
   bform_toLin_of_gram tbasis bform_tbasis tauMat_mul_diagonal_tnorm u v
@@ -228,6 +246,11 @@ theorem tauB_mem_BR_iff {u : SpaceB} : tauB u ∈ BR ↔ u ∈ BR :=
 theorem tauB_symm_mem_BR_iff {u : SpaceB} : tauB.symm u ∈ BR ↔ u ∈ BR :=
   ⟨fun h => by simpa using tauB_mem_BR h, tauB_symm_mem_BR⟩
 
+theorem map_tauB_BR : BR.map ((tauB : SpaceB →ₗ[ℚ] SpaceB).restrictScalars dyadic) = BR := by
+  ext u
+  refine ⟨?_, fun h => ⟨tauB.symm u, tauB_symm_mem_BR h, tauB.apply_symm_apply u⟩⟩
+  rintro ⟨v, hv, rfl⟩
+  exact tauB_mem_BR hv
 
 theorem coe_pow_linearEquiv (e : SpaceB ≃ₗ[ℚ] SpaceB) (n : ℕ) :
     ((e ^ n : SpaceB ≃ₗ[ℚ] SpaceB) : SpaceB →ₗ[ℚ] SpaceB) = (e : SpaceB →ₗ[ℚ] SpaceB) ^ n :=
@@ -246,6 +269,9 @@ theorem trace_tauB : LinearMap.trace ℚ SpaceB tauB = 783 := by
   rw [LinearMap.trace_eq_matrix_trace ℚ tbasis, coe_tauB, LinearMap.toMatrix_toLin,
     trace_transpose, trace_tauMat]
 
+theorem trace_tauB_sq : LinearMap.trace ℚ SpaceB ((tauB : SpaceB →ₗ[ℚ] SpaceB) ^ 2) = 783 := by
+  rw [coe_tauB_pow, LinearMap.trace_eq_matrix_trace ℚ tbasis, LinearMap.toMatrix_toLin,
+    trace_transpose, trace_tauMat_sq]
 
 theorem tauB_ne_one : tauB ≠ 1 := by
   intro h
@@ -257,5 +283,49 @@ theorem orderOf_tauB : orderOf tauB = 3 := by
   have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
   exact orderOf_eq_prime tauB_pow_three tauB_ne_one
 
+theorem finrank_ker_tauB_sub_one :
+    finrank ℚ (LinearMap.ker ((tauB : SpaceB →ₗ[ℚ] SpaceB) - 1)) = 66150 := by
+  have h3 : (tauB : SpaceB →ₗ[ℚ] SpaceB) ^ 3 = 1 := by
+    rw [← coe_pow_linearEquiv, tauB_pow_three]
+    rfl
+  have key := three_mul_finrank_ker_sub_one _ h3
+  rw [trace_tauB, trace_tauB_sq, finrank_B] at key
+  have h' : ((3 * finrank ℚ (LinearMap.ker ((tauB : SpaceB →ₗ[ℚ] SpaceB) - 1)) : ℕ) : ℚ) =
+      ((3 * 66150 : ℕ) : ℚ) := by
+    push_cast
+    rw [key]
+    norm_num
+  have h'' := Nat.cast_injective h'
+  omega
+
+theorem rational_triality_matrix :
+    (∀ i : Fin 24, tauB (tbasis (.inl i)) = tbasis (.inl i)) ∧
+    (∀ (p : LtPair) (k : Fin 3),
+      tauB (tbasis (.inr (.inl (p, k)))) = tbasis (.inr (.inl (p, k + 1)))) ∧
+    (∀ (c : C₀) (i : Fin 24) (k : Fin 3),
+      tauB (tbasis (.inr (.inr (.inl (c, i, k))))) = tbasis (.inr (.inr (.inl (c, i, k + 1))))) ∧
+    (∀ (d : OctadWord) (v : Octad.EvenQuot (octSupp d)),
+      tauB (tbasis (.inr (.inr (.inr ⟨d, v⟩)))) =
+        ∑ w, (fourierMatrix (QuadraticMap.polarBilin (Octad.quadForm (octSupp d))) 3 *
+          signMatrix (Octad.quadForm (octSupp d))) v w • tbasis (.inr (.inr (.inr ⟨d, w⟩)))) ∧
+    (∀ (d : OctadWord) (δ ε : Finset (Fin 24)), δ ⊆ octSupp d → Even δ.card →
+      ε ⊆ octSupp d → Even ε.card →
+      (fourierMatrix (QuadraticMap.polarBilin (Octad.quadForm (octSupp d))) 3 *
+          signMatrix (Octad.quadForm (octSupp d))) (Octad.cls (octSupp d) δ)
+            (Octad.cls (octSupp d) ε) =
+        (8 : ℚ)⁻¹ * (-1) ^ ((δ ∩ ε).card + ε.card / 2)) ∧
+    (∀ (d : OctadWord) (δ : Finset (Fin 24)), δ ⊆ octSupp d → Even δ.card →
+      tauB ((0 : symMat), Xlift (rOct d δ), (0 : SpaceW)) =
+        ∑ v : Octad.EvenQuot (octSupp d),
+          ((8 : ℚ)⁻¹ * (-1) ^ ((δ ∩ octRep d v).card + (octRep d v).card / 2)) •
+            ((0 : symMat), Xlift (rOct d (octRep d v)), (0 : SpaceW))) ∧
+    (∀ u v : SpaceB, bform (tauB u) (tauB v) = bform u v) ∧
+    BR.map ((tauB : SpaceB →ₗ[ℚ] SpaceB).restrictScalars dyadic) = BR ∧
+    orderOf tauB = 3 ∧
+    LinearMap.trace ℚ SpaceB tauB = 783 ∧
+    finrank ℚ (LinearMap.ker ((tauB : SpaceB →ₗ[ℚ] SpaceB) - 1)) = 66150 :=
+  ⟨tauB_diag, tauB_pair, tauB_odd, tauB_oct,
+    fun d _ _ hδ hδe hε hεe => octHD_cls d hδ hδe hε hεe, fun _ _ hδ he => tauB_Xlift_rOct hδ he,
+    bform_tauB, map_tauB_BR, orderOf_tauB, trace_tauB, finrank_ker_tauB_sub_one⟩
 
 end CFSG.Monster.Griess

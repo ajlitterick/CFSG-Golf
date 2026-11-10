@@ -37,6 +37,10 @@ theorem packVec_zero : packVec (0 : V₀) = 0 := by
   have h : (0 : V₀) = Code.vec 0 := (vec_zero).symm
   rw [h, packVec_vec (by norm_num)]
 
+theorem packVec_injective : Function.Injective packVec := by
+  intro u v h
+  have h' := congrArg Code.vec h
+  rwa [vec_packVec u, vec_packVec v] at h'
 
 theorem zmod2_val_eq_ite (z : ZMod 2) : z.val = if z == 1 then 1 else 0 := by
   rcases CFSG.RankThree.Literature.FSmith.zmod2_cases z with h | h
@@ -337,6 +341,8 @@ theorem ofTabFun_injective {t : Array ℕ} (h : isHomTab t = true) :
   map_one' := ofTabFun_one h
   map_mul' x y := ofTabFun_mul h x y
 
+theorem ofTabFun_apply (t : Array ℕ) (h : isHomTab t = true) (x : Q0) :
+    ofTabFun t h x = dec t[enc x]! := rfl
 
 @[expose] noncomputable def ofTab (t : Array ℕ) (h : isHomTab t = true) : Q0 ≃* Q0 :=
   MulEquiv.ofBijective (ofTabFun t h)
@@ -360,6 +366,8 @@ theorem tabOf_ofTab (t : Array ℕ) (h : isHomTab t = true) : tabOf (ofTab t h) 
       rwa [enc_dec hi128] at h
     rw [h1, ofTab_apply, enc_dec hi128, enc_dec (hc.2.1 i hi128)]
 
+theorem exists_tabOf_eq (t : Array ℕ) (h : isHomTab t = true) : ∃ φ, tabOf φ = t :=
+  ⟨ofTab t h, tabOf_ofTab t h⟩
 
 theorem array_eq_of_getElem!_eq {s t : Array ℕ} (hs : s.size = 128) (ht : t.size = 128)
     (h : ∀ i < 128, s[i]! = t[i]!) : s = t := by
@@ -387,6 +395,11 @@ private theorem foldl_if_true (t : Array ℕ) : ∀ (l : List ℕ) (r : Array �
     rw [List.foldl_cons, List.foldl_cons, if_pos (h a (by simp))]
     exact foldl_if_true t l (r.set! (t[a]!) a) (fun x hx => h x (by simp [hx]))
 
+theorem ofFn_getElem! {n : ℕ} {f : Fin n → ℕ} {i : ℕ} (hi : i < n) :
+    (Array.ofFn f)[i]! = f ⟨i, hi⟩ := by
+  have hidx : i < (Array.ofFn f).size := by simpa using hi
+  rw [Array.getElem!_eq_getD, ← Array.getElem_eq_getD (fallback := default) (h := hidx)]
+  simp only [Array.getElem_ofFn, Array.size_ofFn]
 
 theorem invTab_size (t : Array ℕ) : (invTab t).size = 128 := by
   rw [invTab]
@@ -507,6 +520,13 @@ theorem innTabs_getElem! {e : ℕ} (he : e < 128) : (innTabs ())[e]! = innTab e 
   rw [Array.getElem!_eq_getD, ← Array.getElem_eq_getD (fallback := default) (h := hidx)]
   simp only [innTabs, Array.getElem_ofFn, Array.size_ofFn]
 
+theorem tabOf_one : tabOf (1 : Q0 ≃* Q0) = Array.ofFn (n := 128) fun i => i.val := by
+  apply array_eq_of_getElem!_eq (tabOf_size _) (by simp)
+  intro i hi
+  have hii : enc (dec i) = i := enc_dec hi
+  rw [← hii]
+  rw [tabOf_getElem! (1 : Q0 ≃* Q0) (dec i), ofFn_getElem! (by rw [enc_dec hi]; exact hi)]
+  simp
 
 @[expose] def fStep (g f : ℕ) (F : Array Bool) (v : ℕ) : Array Bool :=
   if v = 0 then F

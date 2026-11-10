@@ -185,6 +185,9 @@ theorem toMat_nMat
         matOf (xOp Tag.E6 K ⟨j, hj⟩ 1) := by
   rw [Native.nMat, toMat_mul, toMat_mul, toMat_xMat j hj, ← matOf_yOp ⟨j, hj⟩, ofBits_true_false]
 
+theorem glMat_xUnit
+    (i : Fin Tag.E6.rank) (c : K) :
+    glMat (xUnit Tag.E6 K i c) = matOf (xOp Tag.E6 K i c) := rfl
 
 theorem glMat_weylElt
     (i : Fin Tag.E6.rank) :
@@ -349,6 +352,9 @@ theorem orderOf_eq_of_ordP
   rw [h.2] at e
   exact Bool.false_ne_true e
 
+theorem glMat_genA_mul_genB :
+    glMat (genA * genB) = toMat (Native.mul nativeAB.1 nativeAB.2) := by
+  rw [map_mul, glMat_genA, glMat_genB, matA, matB, toMat_mul]
 
 private theorem glMat_signed
     (hA : genA * genA = 1) (hB : genB * genB * genB = 1)
@@ -377,6 +383,30 @@ theorem glMat_wordProd
       rw [List.foldl_cons, ih, toMat_mul, wordProd_cons, map_mul, glMat_signed hA hB, mul_assoc]
   rw [Native.wordMat, key, toMat_one, one_mul]
 
+theorem genA_mul_genA_of_relCheck
+    {ws : List (List (ℕ × Bool))}
+    (h : Native.relCheck bracketCodes formBits fwdProg idxA idxB ws = true) :
+    genA * genA = 1 ∧ genB * genB * genB = 1 ∧
+      ∀ v ∈ ws, Native.eqM (Native.wordMat nativeAB.1 nativeAB.2 v) Native.one = true := by
+  simp only [Native.relCheck, Bool.and_eq_true, List.all_eq_true] at h
+  refine ⟨eq_of_glMat ?_ h.1.1, eq_of_glMat ?_ h.1.2, h.2⟩
+  · rw [map_mul, glMat_genA, matA, toMat_mul]
+    rfl
+  · rw [map_mul, map_mul, glMat_genB, matB, toMat_mul, toMat_mul]
+    rfl
+
+theorem relators_hold
+    (ws : List (List (ℕ × Bool)))
+    (h : Native.relCheck bracketCodes formBits fwdProg idxA idxB ws = true) :
+    ∀ v ∈ ws, wordProd (img2 genA genB) v = 1 := by
+  obtain ⟨hA, hB, hw⟩ := genA_mul_genA_of_relCheck h
+  exact fun v hv => eq_of_glMat (glMat_wordProd hA hB v) (hw v hv)
+
+theorem relators_hold_std
+    (ws : List (List (ℕ × Bool)))
+    (h : Native.relCheck bracketCodes formBits fwdProg idxA idxB ws = true) :
+    ∀ v ∈ ws, wordProd (img2 stdA stdB) v = 1 := fun v hv =>
+  Subtype.ext (by rw [coe_wordProd, img2_stdA_stdB, relators_hold ws h v hv]; rfl)
 
 theorem check_eq_true :
     Native.check bracketCodes formBits fwdProg idxA idxB bwdProg letterIdx = true :=
@@ -401,6 +431,10 @@ theorem orderOf_genB :
   have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
   orderOf_eq_of_ordP glMat_genB check_parts.2.2.1
 
+theorem orderOf_genA_mul_genB :
+    orderOf (genA * genB) = 19 :=
+  have : Fact (Nat.Prime 19) := ⟨by norm_num⟩
+  orderOf_eq_of_ordP glMat_genA_mul_genB check_parts.2.2.2
 
 theorem closure_genA_genB :
     Subgroup.closure {genA, genB} = stdGroup := by
@@ -423,6 +457,10 @@ theorem closure_genA_genB :
     rcases hx with rfl | rfl
     exacts [Subgroup.subset_closure (by simp), Subgroup.subset_closure (by simp)]
 
+theorem twistedE6_two_standard_generators :
+    genA ∈ stdGroup ∧ genB ∈ stdGroup ∧ Subgroup.closure {genA, genB} = stdGroup ∧
+      orderOf genA = 2 ∧ orderOf genB = 3 ∧ orderOf (genA * genB) = 19 :=
+  ⟨genA_mem, genB_mem, closure_genA_genB, orderOf_genA, orderOf_genB, orderOf_genA_mul_genB⟩
 
 open CFSG.Sporadic.Bridge CFSG.Sporadic.Bridge.TwoGen
 
@@ -434,6 +472,11 @@ theorem orderOf_wordProd
   have hB : genB * genB * genB = 1 := by rw [← pow_three', ← orderOf_genB, pow_orderOf_eq_one]
   exact orderOf_eq_of_ordP (glMat_wordProd hA hB v) h
 
+theorem orderOf_ababb :
+    orderOf (wordProd (img2 genA genB) [(0, true), (1, true), (0, true), (1, true), (1, true)]) =
+      5 :=
+  have : Fact (Nat.Prime 5) := ⟨by norm_num⟩
+  orderOf_wordProd _ Certificates.certificate10004.2
 
 theorem closure_stdA_stdB :
     Subgroup.closure {stdA, stdB} = (⊤ : Subgroup stdGroup) := by
@@ -441,5 +484,19 @@ theorem closure_stdA_stdB :
   rw [MonoidHom.map_closure, ← MonoidHom.range_eq_map, Subgroup.range_subtype, Set.image_pair]
   exact closure_genA_genB
 
+theorem orderOf_stdA :
+    orderOf stdA = 2 := by
+  rw [← Subgroup.orderOf_coe]
+  exact orderOf_genA
+
+theorem orderOf_stdB :
+    orderOf stdB = 3 := by
+  rw [← Subgroup.orderOf_coe]
+  exact orderOf_genB
+
+theorem orderOf_stdA_mul_stdB :
+    orderOf (stdA * stdB) = 19 := by
+  rw [← Subgroup.orderOf_coe]
+  exact orderOf_genA_mul_genB
 
 end CFSG.LieType.Chevalley.C2E6Std.MatrixModel

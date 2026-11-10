@@ -88,6 +88,15 @@ theorem ptD_mem_dset
   rw [ptD.injective.mem_set_image]
   rfl
 
+theorem mem_dset
+    {B : Bits} {x : D} : x ∈ dset B ↔ bitAt B (ptD.symm x).val = true := by
+  rw [← ptD.apply_symm_apply x, ptD_mem_dset, Equiv.apply_symm_apply]
+
+theorem dset_eq_of_bitAt
+    {A B : Bits} (h : ∀ x < 3510, bitAt A x = bitAt B x) :
+    dset A = dset B := by
+  ext y
+  rw [mem_dset, mem_dset, h _ (ptD.symm y).2]
 
 theorem bitAt_eq_of_dset_eq
     {A B : Bits} (h : dset A = dset B) {x : ℕ} (hx : x < 3510) :

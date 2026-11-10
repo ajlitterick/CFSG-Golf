@@ -13,6 +13,14 @@ open CFSG.Monster.B CFSG.Monster.B.Rep4371 CFSG.KC.Rep4371Row
 theorem bxor_pair (A B a b : Bool) : ((A ^^ B) ^^ (a ^^ b)) = ((A ^^ a) ^^ (B ^^ b)) := by
   cases A <;> cases B <;> cases a <;> cases b <;> rfl
 
+theorem nxor_cancel_left (a b : ℕ) : a ^^^ (a ^^^ b) = b := by
+  rw [← Nat.xor_assoc, Nat.xor_self, Nat.zero_xor]
+
+theorem nxor_left_comm (a b c : ℕ) : a ^^^ (b ^^^ c) = b ^^^ (a ^^^ c) := by
+  rw [← Nat.xor_assoc, Nat.xor_comm a b, Nat.xor_assoc]
+
+theorem bxor_cancel_left (a b : Bool) : (a ^^ (a ^^ b)) = b := by
+  cases a <;> cases b <;> rfl
 
 @[expose] def Lin (g : ℕ → ℕ) : Prop := ∀ x y, g (x ^^^ y) = g x ^^^ g y
 
@@ -213,6 +221,7 @@ theorem pi0N_lin : Lin Model.pi0N := pi0N_xor
 
 theorem and_lin (m : ℕ) : Lin fun x => x &&& m := fun _ _ => Nat.and_xor_distrib_right
 
+theorem parN_lin (k : ℕ) : BLin (Model.parN k) := parN_xor k
 
 theorem packPar_lin (k : ℕ) (m : ℕ → ℕ) (n : ℕ) :
     Lin fun w => Model.packN (fun j => Model.parN k (w &&& m j)) n := fun x y => by
@@ -225,6 +234,7 @@ theorem packPar_lin (k : ℕ) (m : ℕ → ℕ) (n : ℕ) :
 
 theorem wordN_lin : Lin Model.wordN := combN_lin _ _
 
+theorem repN_lin : Lin Model.repN := combN_lin _ _
 
 theorem dualN_lin : Lin Model.dualN := packPar_lin 24 Model.bmaskN 12
 

@@ -50,6 +50,9 @@ theorem OrthNormData.cχ_apply (g : Φ.V ≃ₗ[Φ.F] Φ.V) (u : Fin Φ.r → �
     N.cχ g u = N.χ (g (N.χ.symm u)) := by
   simp [OrthNormData.cχ, LinearEquiv.autCongr_apply]
 
+theorem OrthNormData.cχ_symm_apply (g : (Fin Φ.r → 𝔽₄) ≃ₗ[Φ.F] (Fin Φ.r → 𝔽₄)) (v : Φ.V) :
+    N.cχ.symm g v = N.χ.symm (g (N.χ v)) :=
+  LinearEquiv.autCongr_symm_apply_apply N.χ g v
 
 theorem OrthNormData.cχ_mem_iff (g : Φ.V ≃ₗ[Φ.F] Φ.V) :
     N.cχ g ∈ TauCeti.QuadraticMap.orthogonalGroup (Qn N.E Φ.r) ↔
@@ -77,6 +80,10 @@ theorem OrthNormData.cχ_rep (g : Su 𝔽₄ 2 1 Φ.r) :
     N.cχ (N.rep g) = suEndN (F := Φ.F) σ₂ Φ.r g := by
   simp [OrthNormData.rep]
 
+theorem OrthNormData.rep_apply (g : Su 𝔽₄ 2 1 Φ.r) (v : Φ.V) :
+    N.rep g v = N.χ.symm (g • N.χ v) := by
+  rw [OrthNormData.rep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, N.cχ_symm_apply,
+    suEndN_apply]
 
 theorem OrthNormData.rep_mem_orth (g : Su 𝔽₄ 2 1 Φ.r) :
     N.rep g ∈ TauCeti.QuadraticMap.orthogonalGroup Φ.Q := by

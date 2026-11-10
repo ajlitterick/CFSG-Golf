@@ -152,6 +152,9 @@ theorem eq_pow_x1p_of_fix_of_even {σ : Perm (Fin 11)}
 
 @[expose] def invP : Perm (Fin 11) := swap 1 2 * swap 3 4 * swap 5 6 * swap 7 8
 
+theorem invP_sq : invP ^ 2 = 1 := by decide
+
+theorem invP_support : invP.support.card = 8 := by decide
 
 theorem invP_sign : sign invP = 1 := by decide
 

@@ -33,6 +33,33 @@ structure FuzzyFrameDataStarE (Ω : Set (Subgroup G)) (L₀ : Subgroup G) (z₀ 
 
 variable {p f}
 
+omit [Finite G] in
+theorem inCommonComponent_exactCore {x : G} {K L : Subgroup G}
+    (h : InCommonComponent x K L) : InCommonComponent x K (exactCore x L) := by
+  obtain ⟨Q, hQ, hK, hL⟩ := h
+  refine ⟨Q, hQ, hK, le_trans ?_ hL⟩
+  rintro _ ⟨k, hk, rfl⟩
+  exact ⟨k, exactCore_le_left x L hk, rfl⟩
+
+theorem FuzzyFrameDataStar.toE {Ω : Set (Subgroup G)} {L₀ : Subgroup G} {z₀ : G}
+    {A : Subgroup G} {S : Set (Subgroup G)} {a : G} (h : FuzzyFrameDataStar p f Ω L₀ z₀ A S a) :
+    FuzzyFrameDataStarE p f Ω L₀ z₀ A S a where
+  mem := h.mem
+  cls := h.cls
+  z₀A := h.z₀A
+  tq := h.tq
+  frame := h.frame
+  aA := h.aA
+  a1 := h.a1
+  aClassical := h.aClassical
+  cover K hK hKa := by
+    obtain ⟨g, hg, hcc⟩ := h.cover K hK hKa
+    exact ⟨g, hg, inCommonComponent_exactCore hcc⟩
+  nine h9 := by
+    obtain ⟨x, hxA, hx1, hcov, hlevi⟩ := h.nine h9
+    refine ⟨x, hxA, hx1, fun K hK => ?_, hlevi⟩
+    obtain ⟨g, hg, hcc⟩ := hcov K hK
+    exact ⟨g, hg, inCommonComponent_exactCore hcc⟩
 
 end Data
 
@@ -124,9 +151,15 @@ variable (p f : ℕ) [Fact p.Prime]
       ∃ (L₀ : Subgroup G) (z₀ : G) (A : Subgroup G) (S : Set (Subgroup G)) (a : G),
         FuzzyFrameDataStarE p f (CoreAssembly.conjClass K) L₀ z₀ A S a ∧ Hyp51 A
 
+@[expose] def FrameExistsStarE : Prop :=
+  FrameExistsOnE p f fun _ _ _ _ _ => True
 
 variable {p f}
 
+theorem FrameExistsOn.toE {P : ShapePred} (h : FrameExistsOn p f P) : FrameExistsOnE p f P :=
+  fun G _ _ _ hnab hp2 hq K z hz hB hD hP => by
+    obtain ⟨L₀, z₀, A, S, a, hfr, hA⟩ := h G hnab hp2 hq K z hz hB hD hP
+    exact ⟨L₀, z₀, A, S, a, hfr.toE, hA⟩
 
 theorem FrameExistsOnE.mono {P Q : ShapePred}
     (hPQ : ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G) (z : G), Q G K z → P G K z)
@@ -140,6 +173,33 @@ theorem FrameExistsOnE.or {P Q : ShapePred} (hP : FrameExistsOnE p f P)
   fun G _ _ _ hnab hp2 hq K z hz hB hD hPQ => hPQ.elim (hP G hnab hp2 hq K z hz hB hD)
     (hQ G hnab hp2 hq K z hz hB hD)
 
+theorem frameExistsStarE_of_cover {P : ShapePred} (hP : FrameExistsOnE p f P)
+    (hcover : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+      ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
+        DConnected (CoreAssembly.conjClass K) → P G K z) :
+    FrameExistsStarE p f :=
+  fun G _ _ _ hnab hp2 hq K z hz hB hD _ => hP G hnab hp2 hq K z hz hB hD
+    (hcover G hnab K z hz hB hD)
+
+theorem bootNoTripleD_of_frameExistsStarE (h52 : Lemma52) (h : FrameExistsStarE p f) :
+    BootNoTripleD p f := by
+  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn _ _
+  obtain ⟨L₀, z₀, A, S, a, hfr, hA⟩ := h G hnab hp2 hq K z hz hBelow hconn trivial
+  have hΩ := inClass_conjugates hz
+  have hIH := localLieSystems_of_citBelowU hΩ hBelow
+  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_fuzzyFrameStarE hnab hp2 hq hΩ
+    (exists_single_class K) hIH hconn hfr (h52 G A hA)
+  exact ⟨hex, hP1 K (mem_conjClass_self K) z hz⟩
+
+theorem exactP1D_of_frameExistsStarE (h52 : Lemma52) (h : FrameExistsStarE p f) :
+    ExactP1D p f := by
+  intro G _ _ _ hnab hp2 hq hBelow K z hz _ _ hD
+  obtain ⟨L₀, z₀, A, S, a, hfr, hA⟩ := h G hnab hp2 hq K z hz hBelow hD trivial
+  have hΩ := inClass_conjugates hz
+  have hIH := localLieSystems_of_citBelowU hΩ hBelow
+  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_fuzzyFrameStarE hnab hp2 hq hΩ
+    (exists_single_class K) hIH hD hfr (h52 G A hA)
+  exact ⟨hex, hP1 K (mem_conjClass_self K) z hz⟩
 
 end Exists
 

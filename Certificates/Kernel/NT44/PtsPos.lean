@@ -34,6 +34,8 @@ open CFSG.KC.LQT.P (allN)
 
 theorem nt44_pos : allN 448 (posAt (nt44Pts 0) (nt44Pos 0)) = true := by quickRfl
 
+theorem nt44_pos_neg : (!posAt (nt44Pts 0) (nt44Pos 0 + 1) 0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelNT44
 

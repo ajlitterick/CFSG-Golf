@@ -258,6 +258,15 @@ theorem exists_smul_highRoot_eq
 
 end Weyl
 
+@[expose] def coverRoots : (τ : Tag) → List (Fin τ.rank → ℤ)
+  | .E6 => [highRoot .E6, (Pi.single (5 : Fin 6) 1 : Fin 6 → ℤ),
+      (Pi.single (2 : Fin 6) 1 : Fin 6 → ℤ)]
+  | .E7 => [highRoot .E7, (Pi.single (6 : Fin 7) 1 : Fin 7 → ℤ),
+      (Pi.single (3 : Fin 7) 1 : Fin 7 → ℤ)]
+  | .E8 => [highRoot .E8, (Pi.single (1 : Fin 8) 1 : Fin 8 → ℤ),
+      (Pi.single (5 : Fin 8) 1 : Fin 8 → ℤ)]
+  | _ => []
+
 
 local instance ePilotRootsNeZeroE6 : NeZero Tag.E6.rank := ⟨by decide⟩
 

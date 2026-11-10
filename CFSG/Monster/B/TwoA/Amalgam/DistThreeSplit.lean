@@ -150,6 +150,10 @@ end Split
     (v : CVert) : Subgroup Shat :=
   (commutator (vStab v)).map (vStab v).subtype
 
+theorem derivedStab_le
+    (v : CVert) : derivedStab v ≤ vStab v := by
+  rintro _ ⟨y, -, rfl⟩
+  exact y.2
 
 theorem coe_mem_derivedStab_iff
     {v : CVert} (y : vStab v) :
@@ -203,6 +207,11 @@ theorem not_mem_derivedStab_of_eq_beta
     (v u : CVert) : Subgroup Shat :=
   vStab v ⊓ vStab u ⊓ derivedStab v ⊓ derivedStab u
 
+theorem pairF4_comm
+    (v u : CVert) : pairF4 v u = pairF4 u v := by
+  ext x
+  simp only [pairF4, Subgroup.mem_inf]
+  tauto
 
 theorem pairF4_le_inf
     (v u : CVert) : pairF4 v u ≤ vStab v ⊓ vStab u :=
@@ -252,6 +261,8 @@ theorem map_comap_jStar
   map_one' := rfl
   map_mul' _ _ := rfl
 
+theorem coe_pairF4ToN (hLN : (pairF4 v u).subgroupOf (vStab v) ≤ jStar.comap ρ)
+    (f : pairF4 v u) : (((pairF4ToN hLN f : jStar.comap ρ) : vStab v) : Shat) = f := rfl
 
 theorem pairF4_subgroupOf_le_comap
     (hmap : (jStar.comap ρ).map (vStab v).subtype = vStab v ⊓ vStab u ⊓ derivedStab v) :

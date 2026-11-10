@@ -119,6 +119,10 @@ theorem ncard_fix_le (x : G) :
 
 end SuborbitHyp
 
+theorem fix_le_div {f s c t C : ℕ} (hs : 0 < s) (h : f * s ≤ C * t) (hC : C ≤ c) :
+    f ≤ c * t / s := by
+  rw [Nat.le_div_iff_mul_le hs]
+  exact h.trans (Nat.mul_le_mul_right _ hC)
 
 theorem orderOf_of_isConj {M : Type*} [Group M] {x t : M} (h : IsConj x t) : orderOf t = orderOf x := by
   obtain ⟨c, hc⟩ := isConj_iff.mp h

@@ -23,6 +23,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KS.Raw CFSG.PSL3Four.Native
 
 theorem gens_k : gensOK GT = true := by decide +kernel
 
+theorem gens_neg : (!gensOK fun k => GT (nIf(Nat.beq k 0, 1, nIf(Nat.beq k 1, 0, k)))) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34W
 

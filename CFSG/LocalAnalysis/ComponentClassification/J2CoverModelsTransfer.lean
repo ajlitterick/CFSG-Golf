@@ -24,6 +24,27 @@ theorem isNormCocycle_transfer {h : S → S → ZMod 2} (hh : IsNormCocycle h) :
     rw [factor_mul, cosetAct_mul, factor_mul (cosetAct i g)]
     exact hh.2.2 _ _ _
 
+theorem transfer_add (h h' : S → S → ZMod 2) (g k : P) :
+    transfer (fun s t => h s t + h' s t) g k = transfer h g k + transfer h' g k :=
+  Finset.sum_add_distrib
+
+theorem transfer_smul (e : ZMod 2) (h : S → S → ZMod 2) (g k : P) :
+    transfer (fun s t => e * h s t) g k = e * transfer h g k :=
+  (Finset.mul_sum _ _ _).symm
+
+theorem transfer_sum {ι : Type*} (u : Finset ι) (h : ι → S → S → ZMod 2) (g k : P) :
+    transfer (fun s t => ∑ j ∈ u, h j s t) g k = ∑ j ∈ u, transfer (h j) g k :=
+  Finset.sum_comm
+
+theorem transfer_cob (b : S → ZMod 2) (g k : P) :
+    transfer (cob b) g k = cob (fun g => ∑ i : Fin 4725, b (factor i g)) g k := by
+  have h1 : ∑ i : Fin 4725, b (factor (cosetAct i g) k) = ∑ i : Fin 4725, b (factor i k) :=
+    Equiv.sum_comp (cosetPerm g) (fun i => b (factor i k))
+  have h2 : ∑ i : Fin 4725, b (factor i g * factor (cosetAct i g) k) =
+      ∑ i : Fin 4725, b (factor i (g * k)) :=
+    Finset.sum_congr rfl fun i _ => by rw [factor_mul]
+  simp only [transfer, cob]
+  rw [Finset.sum_add_distrib, Finset.sum_add_distrib, h1, h2]
 
 theorem IsNormCocycle.restrict {g : P → P → ZMod 2} (hg : IsNormCocycle g) :
     IsNormCocycle fun s t : S => g (incl s) (incl t) := by
@@ -140,6 +161,14 @@ theorem transfer_fCoc (s t : S) : transfer fCoc (incl s) (incl t) + cob muCoch s
   simp only at this
   grind
 
+theorem transfer_hCoc_zero (s t : S) : transfer (hCoc 0) (incl s) (incl t) = fCoc s t := by
+  rw [transfer_hCoc (by norm_num)]
+  have he : eFlag 0 = 1 := by decide
+  have hb : ∀ s : S, bCoch 0 s = 0 := fun s => by
+    rw [bCoch, mk1, show bMask 0 = 0 by decide]
+    simp [maskBit]
+  rw [he, one_mul, cob, hb, hb, hb]
+  simp
 
 @[expose] def fixCount (σ : Perm315) : ℕ := Fintype.card {p : Fin 315 // σ p = p}
 
@@ -242,6 +271,24 @@ theorem orderOf_elt_two : orderOf (elt 2) = 2 := by
     exact absurd (elt_injective (by norm_num) (by norm_num) (h.trans elt_zero.symm))
       (by norm_num)
 
+theorem fCoc_not_cob : ¬ ∃ b : S → ZMod 2, ∀ s t, fCoc s t = cob b s t := by
+  rintro ⟨b, hb⟩
+  have hw := orderOf_elt_two
+  have hd := fCoc_diag (elt 2) hw
+  rw [fixCount_elt_two] at hd
+  have hf : fCoc (elt 2) (elt 2) = 1 := by
+    rcases hd with ⟨h, -⟩ | ⟨-, h⟩
+    · exact absurd h (by norm_num)
+    · exact h
+  have h1 := hb 1 1
+  have h2 := hb (elt 2) (elt 2)
+  rw [isNormCocycle_fCoc.1, cob, mul_one] at h1
+  have hsq : elt 2 * elt 2 = 1 := by
+    have := pow_orderOf_eq_one (elt 2)
+    rw [hw, pow_two] at this
+    exact this
+  rw [hf, cob, hsq] at h2
+  grind
 
 theorem exists_conj_mem_S (x : P) (hx : orderOf x = 2) :
     ∃ g : P, ((g * x * g⁻¹ : P) : Perm315) ∈ S := by

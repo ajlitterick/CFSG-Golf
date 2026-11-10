@@ -34,6 +34,14 @@ theorem ch26683B :
     baseK G C26683.RP C26683.QP C26683.QIP C26683.NC C26683.NCW C26683.ZQ = true := by
   quickRfl
 
+theorem ch26683W :
+    bAnd(eqWLI co1WordsS C26683.WS, eqWLI co1WordsC C26683.WC) = true := by
+  quickRfl
+
+theorem ch26683T1 :
+    withXY TB.P TB.PI (nat_lit 10) (nat_lit 11)
+      (fun X Y Xi Yi => tree1K X Y Xi Yi C26683.H1 C26683.T1R) = true := by
+  quickRfl
 
 theorem ch26683T2 :
     withXY TB.P TB.PI (nat_lit 10) (nat_lit 11) (fun X Y Xi Yi =>

@@ -87,6 +87,10 @@ theorem letterT_ok : ∀ k < 46, involOK (letterT k) = true :=
     pQ.check && pQ.orderCertificate == 10321920 && sQ.check && sQ.orderCertificate == 32768 &&
     tQ.check && tQ.orderCertificate == 64
 
+@[expose] def structureCheck : Bool :=
+  (aGens.map toTable).all (fun x => ordTest 693 2 x && (aGens.map toTable).all (commT 693 x)) &&
+    (kGens ++ tGens).all (fun k => aGens.all fun a => aQ.sift (k * a * k⁻¹) 0) &&
+    tGens.all (fun g => kQ.sift g 0)
 
 @[expose] def fixCheck : Bool :=
   fixedList 693 (arrOf j3) == fixA &&
@@ -94,6 +98,44 @@ theorem letterT_ok : ∀ k < 46, involOK (letterT k) = true :=
     translatesOK letterArrs fixA orbitRecord.1 orbitRecord.2.1 orbitRecord.2.2 &&
     keysSortedOK orbitRecord.1 && orbitRecord.1.size == 891
 
+@[expose] def orbitCheck : Bool :=
+  repsOK 693 (listTables kGens) (listTables (kGens.map (·⁻¹))) (cosetOrderTables aQ 1 2)
+      ([j1, j2, j3].map toTable) 600 &&
+    repSizes 693 (listTables kGens) (listTables (kGens.map (·⁻¹))) ([j1, j2, j3].map toTable)
+      600 == [21, 210, 280] &&
+    ([j1, j2, j3].map toTable).all (ordTest 693 2) &&
+    ([j1, j2, j3].map fun g => (fixedList 693 (arrOf g)).length) == [181, 53, 21] &&
+    (allTables kQ).countP (fun k => (aGens.map toTable).all (commT 693 k)) == 1
+
+@[expose] def sylowCheck : Bool :=
+  repsOK 693 (listTables sGens) (listTables (sGens.map (·⁻¹))) (cosetOrderTables sQ 1 2)
+      (sReps.map toTable) 100 &&
+    (sReps.map toTable).all (ordTest 693 2) &&
+    (List.zip sConjs sReps).all (fun p => aQ.sift (p.1 * p.2 * p.1⁻¹) 0) &&
+    (sGens.map toTable).all (commT 693 (toTable j1)) &&
+    (allTables sQ).countP (fun x => (sGens.map toTable).all (commT 693 x)) == 2
+
+@[expose] def thompsonCheck : Bool :=
+  let A := allTables aQ
+  let T := allTables tQ
+  let tG := tGens.map toTable
+  let e := idT 693
+  T.all (fun x => tG.all (commT 693 x) || decide (T.countP (fun y => commT 693 y x) ≤ 16)) &&
+    decide (T.countP (fun x => tG.all (commT 693 x)) ≤ 16) &&
+    T.all (fun x => tblEq 693 x e || decide (A.countP (fun a => commT 693 a x) ≤ 32)) &&
+    T.all (fun x => tblEq 693 (compT 693 x x) e ||
+      decide (A.countP (fun a => commT 693 a x) ≤ 16)) &&
+    T.all (fun b => T.all fun c => tblEq 693 b c || tblEq 693 b e || tblEq 693 c e ||
+      !tblEq 693 (compT 693 b b) e || !tblEq 693 (compT 693 c c) e || !commT 693 b c ||
+      decide (A.countP (fun a => commT 693 a b && commT 693 a c) ≤ 16))
+
+@[expose] def squareCheck : Bool :=
+  ordTest 693 3 (toTable o1) && ordTest 693 3 (toTable o2) &&
+    commT 693 (toTable o1) (toTable j1) && commT 693 (toTable o2) (toTable j1) &&
+    tblEq 693 (toTable ((o1 * o2) ^ 2)) (toTable j1) &&
+    tblEq 693 (toTable (y2 ^ 2)) (toTable j2) &&
+    (allTables kQ).all (fun k => !commT 693 k (toTable j3) ||
+      (allTables aQ).all fun a => !tblEq 693 (powT 693 2 (compT 693 a k)) (toTable j3))
 
 @[expose] def betaCheck : Bool :=
   beta.size == 42 && allIn 0 42 (fun i => decide (beta[i]! < 693)) &&

@@ -29,6 +29,40 @@ structure LayoutSound (Q : Nat → Prop) (Mt : Nat → Matrix (Fin d) (Fin d) K)
 theorem strictN_eqG (y : Nat) (k : Nat → Nat) : CFSG.KC.Loop.strictN y k = k y := by
   cases y <;> rfl
 
+theorem brec_presG {Q : Nat → Prop} {x y : Nat} (c : Bool) (hx : Q x) (hy : Q y) :
+    Q (Bool.rec (motive := fun _ => Nat) x y c) := by
+  cases c
+  · exact hx
+  · exact hy
+
+theorem nrec_presG {Q : Nat → Prop} {x : Nat} {s : Nat → Nat → Nat} (hx : Q x)
+    (hs : ∀ i a, Q a → Q (s i a)) : ∀ m, Q (Nat.rec (motive := fun _ => Nat) x s m)
+  | 0 => hx
+  | m + 1 => hs m _ (nrec_presG hx hs m)
+
+theorem powR_presG {Q : Nat → Prop} {mul : Nat → Nat → Nat} {ONE M : Nat} (e : Nat)
+    (hmul : ∀ A B, Q A → Q B → Q (mul A B)) (hone : Q ONE) (hM : Q M) :
+    Q (powR mul ONE M e) := by
+  unfold powR
+  generalize (nat_lit 16) = m
+  apply nrec_presG hone
+  intro i a ha
+  rw [strictN_eqG]
+  have hsq := brec_presG (Q := Q) (Nat.beq a ONE) (hmul a a ha ha) ha
+  exact brec_presG _ hsq (brec_presG _ (hmul _ _ hsq hM) hM)
+
+theorem inv_mem_of_finiteG {M : Type*} [Monoid M] [Finite M] {C : Submonoid M} {x y : M}
+    (hx : x ∈ C) (hxy : x * y = 1) (hyx : y * x = 1) : y ∈ C := by
+  let u : Mˣ := ⟨x, y, hxy, hyx⟩
+  have : Finite Mˣ := Finite.of_injective (fun v : Mˣ => (v : M)) Units.val_injective
+  have hpos := (isOfFinOrder_of_finite u).orderOf_pos
+  have e : u⁻¹ = u ^ (orderOf u - 1) := by
+    calc u⁻¹ = u⁻¹ * u ^ orderOf u := by rw [pow_orderOf_eq_one, mul_one]
+      _ = u⁻¹ * (u * u ^ (orderOf u - 1)) := by rw [← pow_succ', Nat.sub_add_cancel hpos]
+      _ = u ^ (orderOf u - 1) := by rw [← mul_assoc, inv_mul_cancel, one_mul]
+  have hy : y = ((u ^ (orderOf u - 1) : Mˣ) : M) := by rw [← e]; rfl
+  rw [hy, Units.val_pow_eq_pow_val]
+  exact pow_mem hx _
 
 theorem rec_andG {f : Nat → Bool} : ∀ m,
     Nat.rec (motive := fun _ => Bool) true (fun g ih => andB ih (f g)) m = true →
@@ -58,10 +92,128 @@ theorem nthRel_eqG : ∀ (l : List (List (Nat × Bool))) (k : Nat) (hk : k < l.l
     rw [nthRel_eqG l k (by simp at hk; omega)]
     rfl
 
+@[expose] noncomputable def chunkRunG (RB : Nat → Nat) (mul : Nat → Nat → Nat) (vld : Nat → Bool)
+    (ONE : Nat) : Nat → Nat → Nat → Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ S => S)
+    (fun _ ih2 J S => CFSG.KC.Loop.strictN (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.succ S)
+        (andB (Nat.blt (nat_lit 0) S) (insOK RB mul vld ONE S (bitsN J (nat_lit 0) (nat_lit 50)))))
+      (ih2 (Nat.shiftRight J (nat_lit 50))))
+
+theorem chunkRunG_succ (RB : Nat → Nat) (mul : Nat → Nat → Nat) (vld : Nat → Bool)
+    (ONE m J S : Nat) :
+    chunkRunG RB mul vld ONE (m + 1) J S =
+      CFSG.KC.Loop.strictN (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.succ S)
+          (andB (Nat.blt (nat_lit 0) S) (insOK RB mul vld ONE S (bitsN J (nat_lit 0) (nat_lit 50)))))
+        (chunkRunG RB mul vld ONE m (Nat.shiftRight J (nat_lit 50))) :=
+  rfl
+
+theorem runSlp_consG (RB : Nat → Nat) (mul : Nat → Nat → Nat) (vld : Nat → Bool)
+    (ONE C : Nat) (Cs : List Nat) (s : Nat) :
+    runSlp RB mul vld ONE (C :: Cs) s =
+      runSlp RB mul vld ONE Cs (chunkRunG RB mul vld ONE (Nat.land C (nat_lit 255))
+        (Nat.shiftRight C (nat_lit 8)) s) :=
+  strictN_eqG _ _
 
 variable {Q : Nat → Prop} {Mt : Nat → Matrix (Fin d) (Fin d) K} {mul : Nat → Nat → Nat}
   {vld : Nat → Bool} {ONE : Nat}
 
+theorem slpSeg_soundG [Finite K] {Lg S0 S1 : Nat} {RB : Nat → Nat} {Cs : List Nat}
+    (hs : LayoutSound Q Mt mul vld ONE)
+    (hS : Nat.beq (runSlp RB mul vld ONE Cs S0) S1 = true)
+    (h0 : RegsInG Q Mt Lg RB S0) : RegsInG Q Mt Lg RB S1 := by
+  set C := Submonoid.closure (rootSetG Mt Lg RB) with hC
+  have : Finite (Matrix (Fin d) (Fin d) K) := inferInstanceAs (Finite (Fin d → Fin d → K))
+  let P : Nat → Prop := fun X => Q X ∧ Mt X ∈ C
+  have hmulP : ∀ A B, P A → P B → P (mul A B) := by
+    intro A B hA hB
+    obtain ⟨h1, h2⟩ := hs.mul_sound A B hA.1 hB.1
+    exact ⟨h1, by rw [h2]; exact C.mul_mem hA.2 hB.2⟩
+  have hP : ∀ r, 0 < r → ∀ s, RegsInG Q Mt Lg RB s → r < s → P (RB r) :=
+    fun r hr s hs' hrs => hs' r hr hrs
+  have hins : ∀ s ins, RegsInG Q Mt Lg RB s → 0 < s →
+      insOK RB mul vld ONE s ins = true → RegsInG Q Mt Lg RB (s + 1) := by
+    intro s ins hs' hs0 h
+    have hnew : P (RB s) := by
+      unfold insOK at h
+      generalize Nat.land ins (nat_lit 3) = k at h
+      generalize bitsN ins (nat_lit 2) (nat_lit 16) = a at h
+      generalize bitsN ins (nat_lit 18) (nat_lit 16) = b at h
+      generalize bitsN ins (nat_lit 34) (nat_lit 16) = e at h
+      dsimp only at h
+      revert h
+      cases Nat.beq k (nat_lit 0)
+      · cases Nat.beq k (nat_lit 1)
+        · cases Nat.beq k (nat_lit 2)
+          · intro h
+            exact absurd h Bool.false_ne_true
+          · intro h
+            obtain ⟨ha, h⟩ := (andB_iff _ _).1 h
+            obtain ⟨hv, h⟩ := (andB_iff _ _).1 h
+            obtain ⟨ha0, has⟩ := (andB_iff _ _).1 ha
+            have hPa := hP a (Nat.blt_eq.mp ha0) s hs' (Nat.blt_eq.mp has)
+            have hq := hs.vld_q _ hv
+            have hm := (hs.mul_sound _ _ hPa.1 hq).2
+            rw [Nat.eq_of_beq_eq_true h, hs.one_mt] at hm
+            have hxy : Mt (RB a) * Mt (RB s) = 1 := hm.symm
+            exact ⟨hq, inv_mem_of_finiteG hPa.2 hxy (mul_eq_one_comm.1 hxy)⟩
+        · intro h
+          obtain ⟨ha, h⟩ := (andB_iff _ _).1 h
+          obtain ⟨-, h⟩ := (andB_iff _ _).1 h
+          obtain ⟨ha0, has⟩ := (andB_iff _ _).1 ha
+          have hPa := hP a (Nat.blt_eq.mp ha0) s hs' (Nat.blt_eq.mp has)
+          have hp := powR_presG (Q := P) e hmulP ⟨hs.one_q, by rw [hs.one_mt]; exact C.one_mem⟩ hPa
+          rw [← Nat.eq_of_beq_eq_true h] at hp
+          exact hp
+      · intro h
+        obtain ⟨ha, h⟩ := (andB_iff _ _).1 h
+        obtain ⟨hb, h⟩ := (andB_iff _ _).1 h
+        obtain ⟨ha0, has⟩ := (andB_iff _ _).1 ha
+        obtain ⟨hb0, hbs⟩ := (andB_iff _ _).1 hb
+        have hPa := hP a (Nat.blt_eq.mp ha0) s hs' (Nat.blt_eq.mp has)
+        have hPb := hP b (Nat.blt_eq.mp hb0) s hs' (Nat.blt_eq.mp hbs)
+        have hp := hmulP _ _ hPa hPb
+        rw [← Nat.eq_of_beq_eq_true h] at hp
+        exact hp
+    intro r hr hrs
+    rcases Nat.lt_succ_iff_lt_or_eq.1 hrs with hrs | rfl
+    · exact hs' r hr hrs
+    · exact hnew
+  have hzero : RegsInG Q Mt Lg RB 0 := fun r _ hr => absurd hr (Nat.not_lt_zero r)
+  have hchunk : ∀ m J s, RegsInG Q Mt Lg RB s →
+      RegsInG Q Mt Lg RB (chunkRunG RB mul vld ONE m J s) := by
+    intro m
+    induction m with
+    | zero => intro J s hs'; exact hs'
+    | succ m ih =>
+      intro J s hs'
+      rw [chunkRunG_succ, strictN_eqG]
+      refine ih (Nat.shiftRight J (nat_lit 50)) _ ?_
+      cases hb : andB (Nat.blt (nat_lit 0) s)
+          (insOK RB mul vld ONE s (bitsN J (nat_lit 0) (nat_lit 50)))
+      · exact hzero
+      · obtain ⟨h1, h2⟩ := (andB_iff _ _).1 hb
+        exact hins s _ hs' (Nat.blt_eq.mp h1) h2
+  have hrun : ∀ (Cs : List Nat) s, RegsInG Q Mt Lg RB s →
+      RegsInG Q Mt Lg RB (runSlp RB mul vld ONE Cs s) := by
+    intro Cs
+    induction Cs with
+    | nil => intro s hs'; exact hs'
+    | cons C Cs ih =>
+      intro s hs'
+      rw [runSlp_consG]
+      exact ih _ (hchunk _ _ _ hs')
+  rw [← Nat.eq_of_beq_eq_true hS]
+  exact hrun Cs S0 h0
+
+theorem regsIn_rootsG {Lg : Nat} {RB : Nat → Nat} (hs : LayoutSound Q Mt mul vld ONE)
+    (hroot : rootsOK RB vld 1 (Lg + 1) = true) : RegsInG Q Mt Lg RB (Lg + 1) := by
+  intro r hr0 hr
+  refine ⟨?_, Submonoid.subset_closure ⟨r, hr0, by omega, rfl⟩⟩
+  have h := rec_andG (f := fun i => Bool.rec (motive := fun _ => Bool) true (vld (RB i))
+    (Nat.ble 1 i)) (Lg + 1) hroot r hr
+  have hb1 : Nat.ble 1 r = true := Nat.ble_eq.mpr hr0
+  rw [hb1] at h
+  exact hs.vld_q _ h
 
 theorem letM_q {Lg : Nat} {RB : Nat → Nat} (hs : LayoutSound Q Mt mul vld ONE)
     (hroot : rootsOK RB vld 1 (Lg + 1) = true) (hinv : invsOK RB mul vld Lg ONE = true)
@@ -96,6 +248,48 @@ variable (Q Mt) in
   lo ≤ hi ∧ (Q Sin → Q Sout ∧ Mt Sout =
     Mt Sin * ((sel lo hi 0 (nthRel rels r)).map fun x => Mt (letM RB Lg x)).prod)
 
+theorem segG_join {Lg : Nat} {RB : Nat → Nat} {rels : List (List (Nat × Bool))}
+    {r a b c S1 S2 S3 : Nat} (h1 : SegG Q Mt Lg RB rels r a b S1 S2)
+    (h2 : SegG Q Mt Lg RB rels r b c S2 S3) : SegG Q Mt Lg RB rels r a c S1 S3 := by
+  refine ⟨h1.1.trans h2.1, fun hS => ?_⟩
+  obtain ⟨hc2, e2⟩ := h1.2 hS
+  obtain ⟨hc3, e3⟩ := h2.2 hc2
+  refine ⟨hc3, ?_⟩
+  rw [e3, e2, mul_assoc, ← List.prod_append, ← List.map_append, sel_append h1.1 h2.1]
+
+theorem nthRel_memG : ∀ (l : List (List (Nat × Bool))) (k : Nat), k < lenL l → nthRel l k ∈ l
+  | [], _, hk => absurd hk (Nat.not_lt_zero _)
+  | _ :: _, 0, _ => List.mem_cons_self
+  | _ :: l, k + 1, hk => by
+    change nthRel l k ∈ _
+    exact List.mem_cons_of_mem _ (nthRel_memG l k (Nat.lt_of_succ_lt_succ hk))
+
+theorem segG_of_check {Lg r lo hi Sin Sout : Nat} {RB : Nat → Nat}
+    {rels : List (List (Nat × Bool))} (hs : LayoutSound Q Mt mul vld ONE)
+    (hroot : rootsOK RB vld 1 (Lg + 1) = true) (hinv : invsOK RB mul vld Lg ONE = true)
+    (hb : relsBounded rels Lg = true)
+    (h : relSegOK RB mul rels ONE Lg r lo hi Sin Sout = true) :
+    SegG Q Mt Lg RB rels r lo hi Sin Sout := by
+  have h' : andB (Nat.blt r (lenL rels)) (andB (Nat.blt lo hi) (andB (Nat.ble hi (lenL (nthRel rels r)))
+      (Nat.beq (segProd RB mul ONE Lg lo hi (nthRel rels r) 0 Sin) Sout))) = true := h
+  obtain ⟨hr, h'⟩ := (andB_iff _ _).1 h'
+  obtain ⟨hlh, h'⟩ := (andB_iff _ _).1 h'
+  obtain ⟨-, h'⟩ := (andB_iff _ _).1 h'
+  have hseg := Nat.eq_of_beq_eq_true h'
+  have hmem := nthRel_memG rels r (Nat.blt_eq.mp hr)
+  have hbd := relsBounded_spec hb _ hmem
+  refine ⟨Nat.le_of_lt (Nat.blt_eq.mp hlh), fun hS => ?_⟩
+  have hsg := segProd_sel (P := Q) (M := Mt) (lo := lo) (hi := hi) hs.mul_sound hs.one_mt
+    (nthRel rels r) 0 Sin hS (fun x hx => letM_q hs hroot hinv (hbd x hx))
+  rw [hseg] at hsg
+  exact hsg
+
+theorem segG_of_relOK {Lg r : Nat} {RB : Nat → Nat} {rels : List (List (Nat × Bool))}
+    (hs : LayoutSound Q Mt mul vld ONE)
+    (hroot : rootsOK RB vld 1 (Lg + 1) = true) (hinv : invsOK RB mul vld Lg ONE = true)
+    (hb : relsBounded rels Lg = true) (h : relOK RB mul rels Lg ONE r = true) :
+    SegG Q Mt Lg RB rels r 0 (lenL (nthRel rels r)) ONE ONE :=
+  segG_of_check hs hroot hinv hb h
 
 theorem rel_of_segG {Lg r : Nat} {RB : Nat → Nat} {rels : List (List (Nat × Bool))}
     (hs : LayoutSound Q Mt mul vld ONE)

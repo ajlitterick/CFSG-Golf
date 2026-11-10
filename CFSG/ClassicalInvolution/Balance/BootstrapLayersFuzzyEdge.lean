@@ -16,6 +16,15 @@ section Edge
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G]
 
+theorem mem_trivialOnQuot_canonMember_of_commutes {M N : Subgroup G} {a u : G}
+    (hM : IsClassicalMember p f M a) (hN : IsClassicalMember p f N u)
+    (hMN : ∀ m ∈ M, ∀ n ∈ N, m * n = n * m) :
+    u ∈ trivialOnQuot (canonMember M a) ∧ a ∈ trivialOnQuot (canonMember N u) := by
+  have cM := isCentralInvolution_of_isClassicalMember hM
+  have cN := isCentralInvolution_of_isClassicalMember hN
+  have hau : a * u = u * a := hMN a cM.mem u cN.mem
+  exact ⟨mem_trivialOnQuot_canonMember_of_centralizes hM fun m hm => (hMN m hm u cN.mem).symm,
+    mem_trivialOnQuot_canonMember_of_centralizes hN fun n hn => hMN a cM.mem n hn⟩
 
 end Edge
 

@@ -198,6 +198,19 @@ theorem hCoc_free {j l : ℕ} (hj : j < 6) (hl : l < 6) :
   rw [hCoc, ← elt_succ hk, tbl_elt _ (by omega) (Nat.mod_lt _ (by norm_num)), h]
   by_cases hjl : j = l <;> simp [hjl]
 
+theorem chi_hom {k : ℕ} (hk : k < 3) (s t : S) : chi k (s * t) = chi k s + chi k t := by
+  have h := (cocycleCheck_parts.2.2 k hk).2 (idx s) (idx_lt s) (idx t) (idx_lt t)
+  obtain ⟨hm1, hm2⟩ := mulIdx_spec (a := idx s) (idx_lt t)
+  rw [elt_idx, elt_idx] at hm2
+  rw [chi, ← hm2, mk1_elt _ hm1, ← elt_idx s, ← elt_idx t, mk1_elt _ (idx_lt _),
+    mk1_elt _ (idx_lt _), idx_elt (idx_lt s), idx_elt (idx_lt t), ← mulTab_get (idx_lt s)
+    (idx_lt t), h]
+  cases maskBit (chiMask k) (idx s) <;> cases maskBit (chiMask k) (idx t) <;> decide
+
+theorem chi_gen {k m : ℕ} (hk : k < 3) (hm : m < 3) : chi k (yS m) = if k = m then 1 else 0 := by
+  have h := (cocycleCheck_parts.2.2 k hk).1 m hm
+  rw [chi, ← elt_succ hm, mk1_elt _ (by omega), h]
+  by_cases hkm : k = m <;> simp [hkm]
 
 section Tree
 
@@ -472,5 +485,60 @@ theorem exists_eq_cob_add_sum (g : S → S → ZMod 2) (hg : IsNormCocycle g) :
   simp only at h0
   grind
 
+theorem eq_zero_of_sum_eq_cob (ε : Fin 6 → ZMod 2) (b : S → ZMod 2)
+    (h : ∀ s t, ∑ j, ε j * hCoc j s t = cob b s t) : ε = 0 := by
+  have hb1 : b 1 = 0 := by
+    have := h 1 1
+    rw [Finset.sum_eq_zero fun j _ => by rw [(isNormCocycle_hCoc j.isLt).1, mul_zero], cob,
+      mul_one] at this
+    grind
+  have htree : ∀ x, x ≠ 0 → x < 128 → b (elt x) = b (yS (gen x)) + b (elt (par x)) := by
+    intro x hx0 hx
+    have := h (yS (gen x)) (elt (par x))
+    rw [Finset.sum_eq_zero fun j _ => by rw [hCoc_tree j.isLt hx0 hx, mul_zero], cob,
+      ← elt_cons hx0 hx] at this
+    grind
+  set χ : S → ZMod 2 := fun s => ∑ k : Fin 3, b (yS k) * chi k s with hχ
+  have hχm : ∀ s t, χ (s * t) = χ s + χ t := fun s t => by
+    rw [hχ]
+    simp only
+    rw [← Finset.sum_add_distrib]
+    exact Finset.sum_congr rfl fun k _ => by rw [chi_hom k.isLt, mul_add]
+  have hχy : ∀ m < 3, χ (yS m) = b (yS m) := fun m hm => by
+    rw [hχ]
+    simp only
+    have : ∀ k : Fin 3, b (yS k) * chi k (yS m) = if k = ⟨m, hm⟩ then b (yS k) else 0 :=
+      fun k => by
+        rw [chi_gen k.isLt hm]
+        by_cases hk : (k : ℕ) = m
+        · rw [ite_eq_left hk, ite_eq_left (Fin.ext hk), mul_one]
+        · rw [ite_eq_right hk, ite_eq_right (fun h => hk (by rw [h])), mul_zero]
+    rw [Finset.sum_congr rfl fun k _ => this k, Finset.sum_ite_eq']
+    simp
+  have hχ1 : χ 1 = 0 := by
+    have := hχm 1 1
+    rw [mul_one] at this
+    grind
+  have hbχ : ∀ n, n < 128 → b (elt n) = χ (elt n) := by
+    intro n
+    induction n using Nat.strong_induction_on with
+    | _ n ih =>
+      intro hn
+      by_cases hn0 : n = 0
+      · subst hn0
+        rw [elt_zero, hb1, hχ1]
+      · have hp := par_lt hn0
+        rw [htree n hn0 hn, elt_cons hn0 hn, hχm, hχy _ (gen_lt n), ih _ hp (hp.trans hn)]
+  have hcob : ∀ s t, cob b s t = 0 := fun s t => by
+    rw [cob, ← elt_idx s, ← elt_idx t, ← (mulIdx_spec (a := idx s) (idx_lt t)).2,
+      hbχ _ (idx_lt s), hbχ _ (idx_lt t), hbχ _ (mulIdx_spec (a := idx s) (idx_lt t)).1,
+      (mulIdx_spec (a := idx s) (idx_lt t)).2, hχm]
+    grind
+  funext m
+  have := h (yS (qPos m / 128)) (elt (qPos m % 128))
+  have hs : ∀ j : Fin 6, ε j * hCoc j (yS (qPos m / 128)) (elt (qPos m % 128)) =
+      ε j * (if (j : ℕ) = m then 1 else 0) := fun j => by rw [hCoc_free j.isLt m.isLt]
+  rw [Finset.sum_congr rfl fun j _ => hs j, sum_fin_six_delta ε m.isLt, hcob] at this
+  simpa using this
 
 end CFSG.ComponentClassification.J2Cover.Models

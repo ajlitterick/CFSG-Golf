@@ -133,6 +133,7 @@ theorem mem_of_mem_neighborSet {u z : V} (hz : z ∈ (sliceGraph lab Y).neighbor
     z ∈ Y :=
   hz.2.1
 
+theorem mem_of_adj {y z : V} (h : (sliceGraph lab Y).Adj y z) : y ∈ Y := h.1
 
 theorem lab_mem_sliceGroup {y : V} (hy : y ∈ Y) : lab y ∈ sliceGroup lab Y :=
   Subgroup.subset_closure ⟨y, hy, rfl⟩

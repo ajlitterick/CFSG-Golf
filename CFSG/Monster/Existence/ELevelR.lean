@@ -279,5 +279,18 @@ theorem RE_hinv : ∃ r ∈ RE, r * r ∈ FE ∧ r ∉ FE ∧ xGriess⁻¹ * r �
     rw [xGriess_inv_mul_rhoGriess] at h
     exact key _ (coordOf_mul_zQ _) (rhoGriess_mem_FE_iff.1 h)
 
+theorem FE_le_RE : FE ≤ RE := by
+  have ht : tGriess ∈ RE := by
+    rw [← rhoGriess_rStar]
+    exact rhoGriess_mem_RE (mem_RQ_iff.2 ⟨rfl, rStar_mul_rTwo.trans rTwo_mul_rStar.symm⟩)
+  have hu : uGriess ∈ RE := by
+    rw [← rhoGriess_rTwo]
+    exact rhoGriess_mem_RE (mem_RQ_iff.2 ⟨rTwo_mul_rStar.trans rStar_mul_rTwo.symm, rfl⟩)
+  intro g hg
+  rcases mem_FE.1 hg with rfl | rfl | rfl | rfl
+  · exact RE.one_mem
+  · exact ht
+  · exact hu
+  · exact RE.mul_mem ht hu
 
 end CFSG.Monster.Existence

@@ -21,6 +21,39 @@ structure F4Data (F : Type) [Field F] where
   cases : ∀ x : F, x = 0 ∨ x = 1 ∨ x = ω ∨ x = ω + 1
   pow4 : ∀ x : F, x ^ 4 = x
 
+theorem exists_f4Data [Fintype F] (hF : Fintype.card F = 4) : Nonempty (F4Data F) := by
+  classical
+  have pow4 : ∀ x : F, x ^ 4 = x := fun x => by
+    rw [← hF]
+    exact FiniteField.pow_card x
+  obtain ⟨ω, hω⟩ : ∃ ω : F, ω ∉ ({0, 1} : Finset F) := by
+    by_contra h
+    push Not at h
+    have h1 := Finset.card_le_card (fun x (_ : x ∈ (Finset.univ : Finset F)) => h x)
+    rw [Finset.card_univ, hF] at h1
+    have h2 := Finset.card_le_two (a := (0 : F)) (b := 1)
+    omega
+  simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hω
+  obtain ⟨hω0, hω1⟩ := hω
+  have h3 : ω ^ 3 = 1 := by
+    have h : ω * (ω ^ 3 - 1) = 0 := by
+      rw [mul_sub, ← pow_succ', pow4, mul_one, sub_self]
+    exact sub_eq_zero.1 ((mul_eq_zero.1 h).resolve_left hω0)
+  have hsq : ω ^ 2 = ω + 1 := by
+    have h : (ω - 1) * (ω ^ 2 - ω - 1) = 0 := by grind
+    have h' := (mul_eq_zero.1 h).resolve_left (sub_ne_zero.2 hω1)
+    grind
+  refine ⟨⟨ω, hsq, fun x => ?_, pow4⟩⟩
+  have h : x * (x - 1) * ((x - ω) * (x - ω - 1)) = 0 := by
+    have := pow4 x
+    grind
+  rcases mul_eq_zero.1 h with h | h
+  · rcases mul_eq_zero.1 h with h | h
+    · exact Or.inl h
+    · exact Or.inr (Or.inl (sub_eq_zero.1 h))
+  · rcases mul_eq_zero.1 h with h | h
+    · exact Or.inr (Or.inr (Or.inl (sub_eq_zero.1 h)))
+    · exact Or.inr (Or.inr (Or.inr (by grind)))
 
 namespace F4Data
 
@@ -319,9 +352,30 @@ theorem val_nsmul_add {A : Type*} [AddCommMonoid A] (a b : ZMod 2) (Y : A) (hY :
     rw [← Finset.sum_add_distrib]
     exact Finset.sum_congr rfl fun p _ => val_nsmul_add _ _ _ (hermA_add_self _)
 
+theorem hermAct_lam (D : F4Data F) (g : SL2 F) (x : Fin 5 → ZMod 2) :
+    hermAct 1 D.hσ g (D.lam x) = D.lam (pv (D.phi g) x) := by
+  change hermAct 1 D.hσ g (∑ p, (x p).val • D.X p) = ∑ q, ((pv (D.phi g) x) q).val • D.X q
+  rw [map_sum, ← Equiv.sum_comp (D.phi g) fun q => ((pv (D.phi g) x) q).val • D.X q]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [map_nsmul, D.phi_spec, pv_apply, Perm.inv_def, Equiv.symm_apply_apply]
+
+theorem incl_proj5 (x : Fin 5 → ZMod 2) (hx : ∑ i, x i = 0) :
+    coords5.incl (coords5.proj x) = x := by
+  have hs : ∑ i, (x - coords5.incl (coords5.proj x)) i = 0 := by
+    simp only [Pi.sub_apply, Finset.sum_sub_distrib, hx, coords5.sum_incl, sub_self]
+  rcases coords5.ker_proj _ hs (by rw [map_sub, coords5.proj_incl, sub_self]) with h | h
+  · exact (sub_eq_zero.1 h).symm
+  · rw [h] at hs
+    exact absurd hs (by decide)
 
 @[expose] def M (D : F4Data F) : (Fin 4 → ZMod 2) →+ ↥(hermA 1 F) := D.lam.comp coords5.incl
 
+theorem M_equivariant (D : F4Data F) [Finite F] (hF : Nat.card F = 4) (g : SL2 F)
+    (y : Fin 4 → ZMod 2) :
+    D.M (coords5.actA (D.slEquiv hF g) y) = hermAct 1 D.hσ g (D.M y) := by
+  change D.lam (coords5.incl (coords5.proj (pv (D.phi g) (coords5.incl y)))) =
+    hermAct 1 D.hσ g (D.lam (coords5.incl y))
+  rw [incl_proj5 _ (by rw [sum_pv]; exact coords5.sum_incl y), D.hermAct_lam]
 
 abbrev kap : ZMod 2 →+* F := ZMod.castHom (dvd_refl 2) F
 
@@ -369,8 +423,76 @@ theorem M_01 (D : F4Data F) (y : Fin 4 → ZMod 2) :
   simp
   grind
 
+theorem M_injective (D : F4Data F) : Function.Injective D.M := by
+  rw [injective_iff_map_eq_zero]
+  intro y hy
+  have e00 := D.M_00 y
+  have e11 := D.M_11 y
+  have e01 := D.M_01 y
+  rw [hy] at e00 e11 e01
+  have hk : Function.Injective (kap : ZMod 2 →+* F) := (kap : ZMod 2 →+* F).injective
+  have y1 : y 1 = 0 := hk (by rw [← e00, map_zero]; rfl)
+  have y0 : y 0 = 0 := hk (by rw [← e11, map_zero]; rfl)
+  rw [y0, y1] at e01
+  have h2 : ∀ z : ZMod 2, z = 0 ∨ z = 1 := by decide
+  have h0 := D.ω_ne_zero
+  have h1 := D.ω_ne_one
+  have hz : y 2 = 0 ∧ y 3 = 0 := by
+    rcases h2 (y 2) with e2 | e2 <;> rcases h2 (y 3) with e3 | e3 <;> rw [e2, e3] at e01 <;>
+      simp at e01 <;> first | exact ⟨e2, e3⟩ | grind
+  funext i
+  fin_cases i
+  · exact y0
+  · exact y1
+  · exact hz.1
+  · exact hz.2
+
+theorem M_surjective (D : F4Data F) : Function.Surjective D.M := by
+  intro Y
+  have hsq : ∀ x : F, sig 1 x = x → ∃ z : ZMod 2, kap z = x := fun x hx => by
+    rw [sig_one] at hx
+    have h : x * (x - 1) = 0 := by grind
+    rcases mul_eq_zero.1 h with h | h
+    · exact ⟨0, by rw [map_zero, h]⟩
+    · exact ⟨1, by rw [map_one, sub_eq_zero.1 h]⟩
+  obtain ⟨za, ha⟩ := hsq _ (hermA_00 Y)
+  obtain ⟨zd, hd⟩ := hsq _ (hermA_11 Y)
+  obtain ⟨c0, c1, hb⟩ : ∃ c0 c1 : ZMod 2,
+      kap c0 + kap c1 * D.ω = (Y : Matrix (Fin 2) (Fin 2) F) 0 1 := by
+    rcases D.cases ((Y : Matrix (Fin 2) (Fin 2) F) 0 1) with h | h | h | h
+    · exact ⟨0, 0, by rw [h]; simp⟩
+    · exact ⟨1, 0, by rw [h]; simp⟩
+    · exact ⟨0, 1, by rw [h]; simp⟩
+    · exact ⟨1, 1, by rw [h]; simp; ring⟩
+  refine ⟨![zd, za, c1 + zd + za, c0 + zd + za], hermA_ext ?_ ?_ ?_⟩
+  · rw [M_00]
+    exact ha
+  · rw [M_01, ← hb]
+    simp only [Matrix.cons_val]
+    congr 2 <;> grind
+  · rw [M_11]
+    exact hd
 
 end F4Data
 
+variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
+
+theorem alternatingNatural_of_binaryOrthogonalFour [Fintype F] (hF : Fintype.card F = 2 ^ (2 * 1))
+    {ρ : Representation (ZMod 2) Γ W} (h : Explicit.BinaryOrthogonalFour ρ F 1) :
+    Explicit.AlternatingNatural ρ 5 .alternating := by
+  obtain ⟨D⟩ := exists_f4Data (F := F) (by rw [hF]; rfl)
+  have hN : Nat.card F = 4 := by
+    rw [Nat.card_eq_fintype_card, hF]
+    rfl
+  obtain ⟨θ, β, hβ⟩ := BinaryOrthogonalFour.intertwiner D.hσ h
+  let Me : (Fin 4 → ZMod 2) ≃+ ↥(hermA 1 F) :=
+    AddEquiv.ofBijective D.M ⟨D.M_injective, D.M_surjective⟩
+  refine coords5.alternatingNatural_of_intertwiner (θ := θ.trans (D.slEquiv hN))
+    (e := β.trans Me.symm) fun γ w => ?_
+  apply Me.injective
+  rw [AddEquiv.trans_apply, AddEquiv.apply_symm_apply, hβ, MulEquiv.trans_apply]
+  change _ = D.M (coords5.actA (D.slEquiv hN (θ γ)) (Me.symm (β w)))
+  rw [D.M_equivariant]
+  exact congrArg _ (Me.apply_symm_apply (β w)).symm
 
 end CFSG.Quasithin.SteinbergCB.I16.Orth4

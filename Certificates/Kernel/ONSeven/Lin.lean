@@ -47,6 +47,9 @@ theorem peq_of_onP {t u : Array Nat} {F G : Nat → Nat} (hF : L F) (hG : L G)
     have hi : i < 245520 := hi
     rw [ht i hi, hu i hi, agree hF hG h i hi]
 
+theorem peq_false_of_ne {t u : Array Nat} {i : Nat} (hi : i < 245520) (h : t[i]! ≠ u[i]!) :
+    peq nPts t u = false :=
+  peq_false_of (n := nPts) hi h
 
 end CertificateChecks.KernelSpor.ONS
 

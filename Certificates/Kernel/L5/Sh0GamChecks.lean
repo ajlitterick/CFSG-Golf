@@ -15,6 +15,12 @@ theorem relsChkK_true : relsChkK = true := by decide +kernel
 
 #kc_each CFSG.Certificates.Kernel.L5S.gamK 0 4
 
+theorem gamChkT_neg : (!gamChkT tF iT (gamL 0) (List.range 128) 0) = true := by
+  decide +kernel
+
+theorem wdChkK_neg : (!((List.range 128).all fun i =>
+    decide (evFromT tF gsK 0 ((wdK.set 1 [1]).getD i []) = i))) = true := by
+  decide +kernel
 
 end CFSG.Certificates.Kernel.L5S
 

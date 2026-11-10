@@ -336,5 +336,34 @@ theorem not_isMulCommutative_quotCQ : ¬ IsMulCommutative (locC ⧸ locQ.subgrou
   rw [card_quotient_CQ] at hp
   rcases hp.eq_one_or_self_of_dvd 2 (by norm_num) with h2 | h2 <;> norm_num at h2
 
+theorem commutator_quotCQ : commutator (locC ⧸ locQ.subgroupOf locC) = ⊤ :=
+  CFSG.GroupTheory.commutator_eq_top_of_isSimpleGroup isSimpleGroup_quotCQ
+    not_isMulCommutative_quotCQ
+
+theorem CTUC_Co2_first_centralizer_symplectic_quotient :
+    LinearIndependent (ZMod 2) sixVec ∧ (∀ k, (sixBasis k : Co2V) = sixVec k) ∧
+    Module.finrank (ZMod 2) V6 = 6 ∧
+    (∀ c : locC, V6.map (linC c : Co2V →ₗ[ZMod 2] Co2V) = V6) ∧
+    LinearMap.BilinForm.toMatrix sixBasis sixForm = sixGram ∧ sixGramᵀ = sixGram ∧
+    (∀ k, sixGram k k = 0) ∧ sixGram.det ≠ 0 ∧ sixForm.IsAlt ∧ sixForm.Nondegenerate ∧
+    sixAction.range = TauCeti.BilinForm.isometryGroup sixForm ∧
+    sixAction.ker = locQ.subgroupOf locC ∧
+    Nonempty (locC ⧸ locQ.subgroupOf locC ≃* StatedSp 3 (ZMod 2)) ∧
+    Nonempty (locC ⧸ locQ.subgroupOf locC ≃* StatedProj (StatedSp 3 (ZMod 2))) ∧
+    Nat.card (locC ⧸ locQ.subgroupOf locC) = 1451520 ∧
+    IsSimpleGroup (locC ⧸ locQ.subgroupOf locC) ∧
+    ¬ IsMulCommutative (locC ⧸ locQ.subgroupOf locC) ∧
+    commutator (locC ⧸ locQ.subgroupOf locC) = ⊤ := by
+  obtain ⟨e⟩ := nonempty_quotCQ_equiv_statedSp
+  refine ⟨sixVec_linearIndependent, sixBasis_apply, finrank_V6, V6_map, toMatrix_sixForm, ?_, ?_,
+    sixGram_eq ▸ sixGramLit_det_ne_zero, sixForm_isAlt, sixForm_nondegenerate, sixAction_range_eq,
+    sixAction_ker, ⟨e⟩,
+    ⟨e.trans CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSix.projEquiv⟩,
+    card_quotient_CQ, isSimpleGroup_quotCQ, not_isMulCommutative_quotCQ, commutator_quotCQ⟩
+  · rw [sixGram_eq]
+    exact sixGramLit_symm
+  · intro k
+    rw [sixGram_eq]
+    exact sixGramLit_diag k
 
 end CFSG.Sporadic.Co2Schreier

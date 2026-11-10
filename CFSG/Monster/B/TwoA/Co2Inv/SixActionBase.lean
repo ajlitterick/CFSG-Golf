@@ -54,6 +54,11 @@ theorem mem_Zsp_iff
   · rintro ⟨c, -, rfl⟩
     exact zComb_mem c
 
+theorem decW_ne_zero {c : ℕ} (h0 : 0 < c) (hc : c < 2 ^ 22) : decW c ≠ 0 := by
+  intro h
+  rw [← decW_zero] at h
+  have := decW_injective hc (by norm_num) h
+  omega
 
 theorem wFr_mem_Zsp :
     wFr ∈ Zsp := by
@@ -143,6 +148,9 @@ instance finite_isometryGroup_bZ :
     {g : Kstab v0} (hg : g ∈ wSetStab Zsp) : Zsp →ₗ[ZMod 2] Zsp :=
   (wAct v0 g).restrict fun x hx => hg x hx
 
+theorem coe_resLin
+    {g : Kstab v0} (hg : g ∈ wSetStab Zsp) (x : Zsp) :
+    (resLin hg x : Wv v0) = wAct v0 g x := rfl
 
 @[expose] def resGL :
     wSetStab Zsp →* (Zsp ≃ₗ[ZMod 2] Zsp) where

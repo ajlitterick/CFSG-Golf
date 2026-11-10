@@ -18,6 +18,15 @@ theorem Dlt_smul_mem {ℓ : ℕ} {h : J} (hh : h ∈ Hj) {v : Row} (hv : v ∈ D
   obtain ⟨k, hk, rfl⟩ := hv
   exact ⟨h * k, Hj.mul_mem hh hk, (mul_smul h k _).symm⟩
 
+theorem Rel_smul_w₀ (hF : J4Facts) {ℓ : ℕ} {g : J} {q : Row} :
+    Rel ℓ (g • w₀) q ↔ g⁻¹ • q ∈ Dlt ℓ := by
+  constructor
+  · rintro ⟨g', hg', hmem⟩
+    have h1 : (g⁻¹ * g') • w₀ = w₀ := by rw [mul_smul, hg', inv_smul_smul]
+    have hH : g⁻¹ * g' ∈ Hj := mem_Hj_of_smul_root hF h1
+    have := Dlt_smul_mem hH hmem
+    rwa [← mul_smul, mul_assoc, mul_inv_cancel, mul_one] at this
+  · exact fun h => ⟨g, rfl, h⟩
 
 theorem eta_smul_toRow (hM : MatFacts) (c : ℕ) (v : V2) :
     eta uJ 11 c • toRow v.toVec =
@@ -51,6 +60,13 @@ private theorem fix2B_facts : ∀ l ∈ List.range' 1 4, ∀ c ∈ tMasks,
   simp only [List.all_eq_true] at h
   exact h
 
+private theorem fix2A_facts : ∀ l ∈ List.range' 2 2, ∀ c ∈ zMasks,
+    differs (frApply (frTable (etaRows (uTab (locMats ()) (locInvs ())) 11 c))
+      (pathVec (repPaths.getD l []))) (pathVec (repPaths.getD l [])) = true := by
+  have h := chkFix2A_true
+  unfold chkFix2A at h
+  simp only [List.all_eq_true] at h
+  exact h
 
 theorem conj_fix_transfer {g k : J} {x : J} {p : Row} (hfix : (g * x * g⁻¹) • (k • p) = k • p) :
     x • ((g⁻¹ * k) • p) = (g⁻¹ * k) • p := by

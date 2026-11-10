@@ -13,5 +13,8 @@ namespace CFSG.YGroups.Y443
 
 open CFSG.Monster.AxisCount
 
+theorem align_b :
+    wordLin (wcWord ++ omegaWord) = wordLin (omegaWord ++ tWord) :=
+  Certificates.certificate10108
 
 end CFSG.YGroups.Y443

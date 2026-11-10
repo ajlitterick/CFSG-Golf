@@ -312,6 +312,12 @@ theorem conj_f_a : uf o * ua o * (uf o)⁻¹ = ub o := by
   rw [mat_mul, mat_mul]
   exact mat_F_S o.hω o.h2
 
+theorem conj_f_b : uf o * ub o * (uf o)⁻¹ = ua o ^ 2 := by
+  rw [mul_inv_eq_iff_eq_mul, uf, ub, ua, ← map_pow, ← map_mul, ← map_mul]
+  congr 1
+  apply su_ext
+  rw [mat_mul, mat_mul, pow_two, mat_mul]
+  exact mat_F_D o.hω o.h2
 
 theorem conj_g_a : ug o * ua o * (ug o)⁻¹ = ua o ^ 2 * ub o ^ 2 := by
   rw [mul_inv_eq_iff_eq_mul, ug, ua, ub, ← map_pow, ← map_pow, ← map_mul, ← map_mul, ← map_mul]
@@ -454,6 +460,7 @@ theorem theta_conj (x y : Multiplicative (ZMod 3 × ZMod 3)) (hx : x ≠ 1) (hy 
     _ = theta o y := e2
 
 end OmegaData
+
 
 
 end CFSG.GH74.QTGen4.Leaves.F112

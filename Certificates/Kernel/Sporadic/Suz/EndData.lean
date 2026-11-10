@@ -45,6 +45,9 @@ open CFSG.ComponentClassification.RankTwoSporadic.Suz CFSG.Monster.B.Co2.Native
 
 @[expose] def noDerivs : List (List Int) := []
 
+@[expose] def suzEndHWords : List (List Nat) :=
+  [[0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0],
+   [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0]]
 
 @[expose] def suzEndSWords : List (List Nat) :=
   [[0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1],

@@ -439,6 +439,11 @@ theorem hasType_congr (k : Fin 3) (φ : X ≃* Y) (hE : φ '' E = F) :
   · exact F23_congr φ hE
   · exact F24_congr φ hE
 
+theorem F22_map (h : F22 X E) (φ : X ≃* Y) : F22 Y (φ '' E) := (F22_congr φ rfl).1 h
+
+theorem F23_map (h : F23 X E) (φ : X ≃* Y) : F23 Y (φ '' E) := (F23_congr φ rfl).1 h
+
+theorem F24_map (h : F24 X E) (φ : X ≃* Y) : F24 Y (φ '' E) := (F24_congr φ rfl).1 h
 
 theorem hasType_map {k : Fin 3} (h : HasType k X E) (φ : X ≃* Y) : HasType k Y (φ '' E) :=
   (hasType_congr k φ rfl).1 h
@@ -614,6 +619,9 @@ section LocalStructure
       C = Subgroup.zpowers d ⊔ L ∧ Subgroup.zpowers d ⊓ L = ⊥ ∧
       Subgroup.zpowers d ≤ Subgroup.centralizer (L : Set G))
 
+theorem localStructure_iff (k : Fin 3) (D : Set (Carrier k)) :
+    LocalStructure k D ↔ ∀ d ∈ D, LocalStructureAt k d :=
+  Iff.rfl
 
 theorem LocalStructureAt.map {k : Fin 3} {d : X} (h : LocalStructureAt k d) (φ : X ≃* Y) :
     LocalStructureAt k (φ d) := by
@@ -630,6 +638,18 @@ theorem LocalStructureAt.map {k : Fin 3} {d : X} (h : LocalStructureAt k d) (φ 
       (card_center_congr (centralizerEquiv φ d)).symm.trans hcard,
       ⟨(centralizerQuotientEquiv φ d).symm.trans iso⟩⟩
 
+theorem localStructureAt_congr {k : Fin 3} (φ : X ≃* Y) (d : X) :
+    LocalStructureAt k (φ d) ↔ LocalStructureAt k d :=
+  ⟨fun h => by simpa using h.map φ.symm, fun h => h.map φ⟩
+
+theorem localStructure_of_mulEquiv {k : Fin 3} {D : Set Y} (φ : Y ≃* Carrier k)
+    (h : ∀ d ∈ D, LocalStructureAt k d) : LocalStructure k (φ '' D) := by
+  rintro _ ⟨d, hd, rfl⟩
+  exact (h d hd).map φ
+
+theorem localStructure_map {k : Fin 3} {D : Set (Carrier k)} (h : LocalStructure k D)
+    (φ : Carrier k ≃* Carrier k) : LocalStructure k (φ '' D) :=
+  localStructure_of_mulEquiv φ h
 
 end LocalStructure
 

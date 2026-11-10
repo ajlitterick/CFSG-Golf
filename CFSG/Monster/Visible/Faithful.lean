@@ -18,6 +18,7 @@ abbrev rhoQvis : Subgroup Gvis := rhoQ.subgroupOf Gvis
 @[expose] def rhoN (r : Q) : rhoQvis :=
   ⟨⟨rhoEquiv r, rhoEquiv_mem_Gvis r⟩, Subgroup.mem_subgroupOf.2 (rhoEquiv_mem_rhoQ r)⟩
 
+theorem coe_coe_rhoN (r : Q) : ((rhoN r : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv r := rfl
 
 theorem rhoN_mul (r r' : Q) : rhoN (r * r') = rhoN r' * rhoN r :=
   Subtype.ext (Subtype.ext (rhoEquiv_mul r r'))
@@ -253,5 +254,30 @@ theorem repQuot_mk (g : Gvis) : repQuot (QuotientGroup.mk g) = repVis g := rfl
 theorem repQuot_injective : Function.Injective repQuot :=
   (QuotientGroup.injective_lift_iff _ _ _).2 ker_repVis.symm
 
+theorem visible_quotient_faithful_action :
+    rhoQvis.Normal ∧
+    (∀ x : Gvis, x ∈ rhoQvis ↔ ∃ r : Q, rhoEquiv r = x) ∧
+    (∀ r : Q, ((rhoN r : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv r) ∧
+    zRho = Subgroup.zpowers (rhoN zQ) ∧ ((rhoN zQ : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = xB ∧
+    (∀ r : Q, visModEquivQuot (QuotientGroup.mk (rhoN r)) = QuotientGroup.mk r) ∧
+    (∀ (g : Gvis) (x : rhoQvis), conjVis g (QuotientGroup.mk x) =
+      QuotientGroup.mk (MulAut.conjNormal g x) ∧
+      ((MulAut.conjNormal g x : rhoQvis) : Gvis) = g * x * g⁻¹) ∧
+    (∀ (p : Pvis) (t : Q), conjVis ⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩
+      (QuotientGroup.mk (rhoN t)) = QuotientGroup.mk (rhoN (conjQ p t))) ∧
+    conjVis.ker = rhoQvis ∧
+    (∀ (g : Gvis) (x : rhoQvis),
+      ((repVis g : LinearMap.GeneralLinearGroup (ZMod 2) (Additive VisMod)) :
+        Additive VisMod →ₗ[ZMod 2] Additive VisMod) (Additive.ofMul (QuotientGroup.mk x)) =
+        Additive.ofMul (QuotientGroup.mk (MulAut.conjNormal g x))) ∧
+    repVis.ker = rhoQvis ∧
+    (∀ g : Gvis, repQuot (QuotientGroup.mk g) = repVis g) ∧
+    Function.Injective repQuot ∧
+    IsElementaryAbelian 2 VisMod ∧ Nat.card VisMod = 2 ^ 24 ∧
+    Module.finrank (ZMod 2) (Additive VisMod) = 24 :=
+  ⟨normal_rhoQ_subgroupOf, fun _ => Subgroup.mem_subgroupOf.trans mem_rhoQ, coe_coe_rhoN, rfl,
+    coe_coe_rhoN_zQ, visModEquivQuot_mk, fun g x => ⟨conjVis_mk g x, MulAut.conjNormal_apply g x⟩,
+    conjVis_thetaEquiv_mk, ker_conjVis, repVis_apply, ker_repVis, repQuot_mk, repQuot_injective,
+    isElementaryAbelian_visMod, natCard_visMod, finrank_visMod⟩
 
 end CFSG.Monster.Visible

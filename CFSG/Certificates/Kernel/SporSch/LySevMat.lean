@@ -159,6 +159,12 @@ theorem arr2_ext {A B : Array (Array Nat)} {n m : Nat} (hA : A.size = n) (hB : B
     have := h i hi j hj
     rwa [getElem!_pos _ j j1, getElem!_pos _ j j2] at this
 
+theorem unpack_size (w S X : Nat) : (unpackL 111 w S X).size = 111 ∧
+    ∀ i < 111, ((unpackL 111 w S X)[i]!).size = 111 := by
+  refine ⟨by simp [unpackL], fun i hi => ?_⟩
+  unfold unpackL
+  rw [ofFn_get! _ hi]
+  simp
 
 theorem mulXU_size (A : Array (Array Nat)) : (mulXU A).size = 111 ∧
     ∀ i < 111, ((mulXU A)[i]!).size = 7 := by

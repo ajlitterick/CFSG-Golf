@@ -339,6 +339,7 @@ theorem sigma_unique {m : ↥M} {σ : Fq n ≃+* Fq n} (h : IsSemilinearWith (H.
     exact H.sigma_unique (m := a * b)
       (by rw [map_mul]; exact (H.isSemilinear_sigma a).mul (H.isSemilinear_sigma b))
 
+theorem chi_apply (m : ↥M) : H.chi m = H.sigma m := rfl
 
 theorem isSemilinear_chi (m : ↥M) : IsSemilinearWith (H.actHom m) (H.chi m) :=
   H.isSemilinear_sigma m
@@ -1144,6 +1145,24 @@ section Order
 
 variable {F : Type} [Field F] [Finite F]
 
+theorem two_le_orderOf {σ : F ≃+* F} (hσ : σ ≠ 1) : 2 ≤ orderOf σ := by
+  have h := card_eq_fixCard_pow σ
+  have h1 : 1 < Nat.card F := Finite.one_lt_card
+  have h0 : orderOf σ ≠ 0 := by
+    intro h0
+    rw [h0, pow_zero] at h
+    omega
+  have h2 : orderOf σ ≠ 1 := fun h' => hσ (orderOf_eq_one_iff.1 h')
+  omega
+
+theorem fixCard_sq_le_card {σ : F ≃+* F} (hσ : σ ≠ 1) : fixCard σ ^ 2 ≤ Nat.card F := by
+  rw [card_eq_fixCard_pow σ]
+  exact Nat.pow_le_pow_right (fixCard_pos σ) (two_le_orderOf hσ)
+
+theorem fixCard_lt_card {σ : F ≃+* F} (hσ : σ ≠ 1) : fixCard σ < Nat.card F := by
+  have h2 := two_le_fixCard σ
+  have := fixCard_sq_le_card hσ
+  nlinarith
 
 end Order
 
@@ -1190,6 +1209,74 @@ end CoordData
 
 namespace CoordData
 
+variable {L M T : Subgroup G} {n : ℕ} (H : CoordData G L M n)
+
+include H in
+theorem fixCard_chi_of_not_mem (hT : CFSG.ABGLocalTools.IsSylowOf 2 T M) {x : G} (hx : x ∈ T)
+    (hx1 : x ∉ Rl L T ⊔ Dc L T) :
+    fixCard (H.chi ⟨x, hT.le hx⟩) ^ 2 ≤ 2 ^ n ∧ fixCard (H.chi ⟨x, hT.le hx⟩) < 2 ^ n := by
+  have hσ : H.chi ⟨x, hT.le hx⟩ ≠ 1 := fun h => hx1 ((H.chi_eq_one_iff_mem hT hx).1 h)
+  rw [← H.card_Fq]
+  exact ⟨fixCard_sq_le_card hσ, fixCard_lt_card hσ⟩
+
+include H in
+theorem relIndex_Ec_le_cube (hT : CFSG.ABGLocalTools.IsSylowOf 2 T M) (hA : H.Adapted T) {x : G}
+    (hx : x ∈ T) {X : Subgroup G} (hXD : X ≤ Dc L T) (hxX : ∀ u ∈ X, x * u = u * x) :
+    (Ec L T ⊓ X).relIndex X ≤ fixCard (H.chi ⟨x, hT.le hx⟩) ^ 3 := by
+  have h1 := H.relIndex_sup_le hT hA hx hXD hxX
+  have h2 := H.relIndex_Ec_le hT hx (Y := (blockU L ⊔ Ec L T) ⊓ X) inf_le_left
+    (fun u hu => hxX u hu.2)
+  have e : Ec L T ⊓ ((blockU L ⊔ Ec L T) ⊓ X) = Ec L T ⊓ X := by
+    ext y
+    simp only [Subgroup.mem_inf]
+    exact ⟨fun h => ⟨h.1, h.2.2⟩, fun h => ⟨h.1, Subgroup.mem_sup_right h.1, h.2⟩⟩
+  rw [e] at h2
+  have hle : Ec L T ⊓ X ≤ (blockU L ⊔ Ec L T) ⊓ X := inf_le_inf_right _ le_sup_right
+  have h3 := Subgroup.relIndex_mul_relIndex (Ec L T ⊓ X) ((blockU L ⊔ Ec L T) ⊓ X) X hle
+    inf_le_right
+  rw [← h3]
+  calc (Ec L T ⊓ X).relIndex ((blockU L ⊔ Ec L T) ⊓ X) *
+        ((blockU L ⊔ Ec L T) ⊓ X).relIndex X
+      ≤ fixCard (H.chi ⟨x, hT.le hx⟩) ^ 2 * fixCard (H.chi ⟨x, hT.le hx⟩) :=
+        Nat.mul_le_mul h2 h1
+    _ = fixCard (H.chi ⟨x, hT.le hx⟩) ^ 3 := by ring
+
+include H in
+theorem card_blockU_inf_centralizer_le (hT : CFSG.ABGLocalTools.IsSylowOf 2 T M) {x : G}
+    (hx : x ∈ T) :
+    Nat.card ↥(blockU L ⊓ Subgroup.centralizer ({x} : Set G)) ≤
+      fixCard (H.chi ⟨x, hT.le hx⟩) ^ 2 * Nat.card ↥(blockZ L) := by
+  set Y : Subgroup G := blockU L ⊓ Subgroup.centralizer ({x} : Set G) with hY
+  have hYVE : Y ≤ blockU L ⊔ Ec L T := inf_le_left.trans le_sup_left
+  have hxY : ∀ u ∈ Y, x * u = u * x := fun u hu =>
+    (Subgroup.mem_centralizer_singleton_iff.1 hu.2).symm
+  have h1 := H.relIndex_Ec_le hT hx hYVE hxY
+  rw [Subgroup.inf_relIndex_right] at h1
+  have h2 := Subgroup.relIndex_mul_card (H := Ec L T) (K := Y)
+  have h3 : Nat.card ↥(Ec L T ⊓ Y) ≤ Nat.card ↥(blockZ L) := by
+    refine Subgroup.card_le_of_le fun u hu => ⟨hu.2.1, ?_⟩
+    exact hu.1.2
+  rw [← h2]
+  exact Nat.mul_le_mul h1 h3
+
+include H in
+theorem card_Rl_inf_centralizer_le (hT : CFSG.ABGLocalTools.IsSylowOf 2 T M) (hA : H.Adapted T)
+    {x : G} (hx : x ∈ T) :
+    Nat.card ↥(Rl L T ⊓ Subgroup.centralizer ({x} : Set G)) ≤
+      fixCard (H.chi ⟨x, hT.le hx⟩) * Nat.card ↥(oTwoIn L) := by
+  set X : Subgroup G := Rl L T ⊓ Subgroup.centralizer ({x} : Set G) with hX
+  have hXT₁ : X ≤ Rl L T ⊔ Dc L T := inf_le_left.trans le_sup_left
+  have hxX : ∀ u ∈ X, x * u = u * x := fun u hu =>
+    (Subgroup.mem_centralizer_singleton_iff.1 hu.2).symm
+  have h1 := H.relIndex_Dc_le hT hA hx hXT₁ hxX
+  rw [Subgroup.inf_relIndex_right] at h1
+  have h2 := Subgroup.relIndex_mul_card (H := Dc L T) (K := X)
+  have h3 : Nat.card ↥(Dc L T ⊓ X) ≤ Nat.card ↥(oTwoIn L) := by
+    refine Subgroup.card_le_of_le fun u hu => ?_
+    rw [← Rl_inf_Dc H.nat H.le H.normal hT]
+    exact ⟨hu.2.1, hu.1⟩
+  rw [← h2]
+  exact Nat.mul_le_mul h1 h3
 
 end CoordData
 

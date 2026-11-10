@@ -1232,6 +1232,10 @@ theorem Config.three_mem_J {b x : G} {L : Subgroup G} (h : Config b x L) {y : G}
   (QuotientGroup.quotientMulEquivOfEq (cf2_ker_eq hp hJL hcov).symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective _ (cf2_hom_surjective p hJL hcov))
 
+theorem cf2_equiv_mk {p : ℕ} (hp : p.Prime) {J L : Subgroup G} (hJL : J ≤ L)
+    (hcov : L ≤ J ⊔ GLAPPrimeCoreOf p L) (j : ↥J) :
+    cf2_equiv hp hJL hcov (QuotientGroup.mk j) = QuotientGroup.mk (⟨(j : G), hJL j.2⟩ : ↥L) :=
+  rfl
 
 theorem cf2_mem_oPrimeP {p : ℕ} (hp : p.Prime) {J L : Subgroup G} (hJL : J ≤ L)
     (hcov : L ≤ J ⊔ GLAPPrimeCoreOf p L) {y : G} (hyJ : y ∈ J) (hyL : y ∈ oPrimePOf p L) :
@@ -1713,6 +1717,9 @@ omit [Finite G] in
 theorem bar1_mul (b : G) {y z : G} (hy : y ∈ Cen b) (hz : z ∈ Cen b) :
     bar1_bar b hy * bar1_bar b hz = bar1_bar b (mul_mem hy hz) := rfl
 
+omit [Finite G] in
+theorem bar1_inv (b : G) {y : G} (hy : y ∈ Cen b) :
+    (bar1_bar b hy)⁻¹ = bar1_bar b (inv_mem hy) := rfl
 
 omit [Finite G] in
 theorem bar1_eq_iff {b y z : G} (hy : y ∈ Cen b) (hz : z ∈ Cen b) :
@@ -2021,6 +2028,9 @@ theorem CentMod.congr {b x x' : G} {K : Subgroup G} (h : CentMod b K x) (hx' : x
       (by rw [show (⟨x⁻¹, inv_mem hx'⟩ : ↥(Cen b)) = ⟨x, hx'⟩⁻¹ from rfl, map_inv]
           exact inv_mem h1)
 
+omit [Finite G] in
+theorem mem_centModSub {b : G} {K : Subgroup G} {g : G} : g ∈ centModSub b K ↔ CentMod b K g :=
+  Iff.rfl
 
 theorem Config.of_centMod {b x : G} {L K : Subgroup G} (hL : GLAPComponent 3 (Cen b) L)
     (hLK : L ≤ K) (hx : CentMod b K x) (hord : orderOf x = 3) : Config b x L := by
@@ -2767,5 +2777,9 @@ theorem lemma25_of_inputs (h24 : Lemma24) (h18 : Input18_3_4) (h112 : Input11_2_
     · exact part_a h18 h112 h191 h196 h143 hS hs hconc hx hord ha
     · exact part_b h18 h112 h191 h196 h143 hS hs hLi hconc hx hord hc hDx hbeq
 
+open Lemma25Ns CFSG.HardMathSupport.Solomon.UniquenessMaximal in
+theorem lemma25_of_inputs_weak (h24 : Lemma24) (h18 : Input18_3_4) (h112 : Input11_2_2)
+    (h191 : Input19_1_2) (h196 : Input19_6_9) (h143 : Input14_3_L3) : Lemma25 :=
+  lemma25_of_strong (lemma25_of_inputs h24 h18 h112 h191 h196 h143)
 
 end CFSG.HardMathSupport.Solomon.LocalBalance

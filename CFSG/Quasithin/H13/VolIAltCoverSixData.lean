@@ -135,6 +135,7 @@ theorem ev2_01_mem : ev2 0 1 ∈ coreMod 6 := by
 
 theorem ev2_01_mul_self : ev2 0 1 * ev2 0 1 = 1 := by decide
 
+theorem ev2_01_five : Multiplicative.toAdd (ev2 0 1) 5 = 0 := by decide
 
 theorem allOnes_six_five : Multiplicative.toAdd (allOnes 6) 5 = 1 := rfl
 
@@ -190,6 +191,8 @@ theorem card_dnQuot_six : Nat.card (DnQuot 6) = 16 := by
 @[expose] def act6 : ↥(alternatingGroup (Fin 6)) →* MulAut ↥(coreMod 6) :=
   (coreAct 6).comp (alternatingGroup (Fin 6)).subtype
 
+theorem act6_apply (σ : ↥(alternatingGroup (Fin 6))) (x : ↥(coreMod 6)) :
+    act6 σ x = coreAct 6 (σ : Perm (Fin 6)) x := rfl
 
 theorem coe_act6 (σ : ↥(alternatingGroup (Fin 6))) (x : ↥(coreMod 6)) :
     (act6 σ x : PermMod 6) = permAct 6 (σ : Perm (Fin 6)) x := rfl

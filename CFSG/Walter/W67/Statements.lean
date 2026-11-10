@@ -154,6 +154,12 @@ end CT7
 @[expose] def S_psl2_three_oddMultiplier : Prop :=
   ∀ n : ℕ, Odd n → OddMultiplierTrivial (PSL(2, GaloisField 3 n))
 
+@[expose] def S_lemma_8_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] {L : Type} [Group L] [Finite L] (hL : JRGroup L), 3 < hL.q →
+    hL.R1 ∧ hL.R2 ∧ hL.R4 → ∀ (Z : Subgroup G) [Z.Normal], Z ≤ Subgroup.center G →
+    Odd (Nat.card Z) → Z ≠ ⊥ → commutator G = ⊤ → (G ⧸ Z) ≃* L →
+    ∃ hII : HypII G, hII.fr.E = Z
+
 
 @[expose] def S_outCyclic_of_R : Prop :=
   ∀ {L : Type} [Group L] [Finite L] (hL : JRGroup L), 5 < hL.q → JTThreeHyp → OutCyclic L

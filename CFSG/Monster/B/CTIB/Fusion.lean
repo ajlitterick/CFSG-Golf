@@ -70,6 +70,31 @@ theorem letterS_neg_three :
     letterS (-3) = (gs 2)⁻¹ := by
   rw [letterS, ite_eq_right (by decide), show (- -3 : ℤ).toNat - 1 = 2 by decide]
 
+theorem letterS_neg3
+    {l : ℤ} (hl : IsLetter3 l) : letterS (-l) = (letterS l)⁻¹ := by
+  rcases hl with hl | rfl | rfl
+  · exact letterS_neg hl
+  · rw [letterS_neg_three, letterS_three]
+  · rw [show -(-3 : ℤ) = 3 from rfl, letterS_three, letterS_neg_three, inv_inv]
+
+theorem wordS'_invWord3 :
+    ∀ {w : List ℤ}, (∀ l ∈ w, IsLetter3 l) →
+    wordS' (invWord w) = (wordS' w)⁻¹
+  | [], _ => by rw [invWord, List.map_nil, List.reverse_nil, wordS'_nil, inv_one]
+  | l :: w, hw => by
+    have hl := hw l (List.mem_cons_self ..)
+    rw [invWord, List.map_cons, List.reverse_cons, ← invWord, wordS'_append,
+      wordS'_invWord3 fun l' h => hw l' (List.mem_cons_of_mem _ h)]
+    rw [show wordS' [-l] = letterS (-l) by rw [wordS']; simp, letterS_neg3 hl,
+      show wordS' (l :: w) = letterS l * wordS' w by rw [wordS']; simp [wordS'],
+      _root_.mul_inv_rev]
+
+theorem invWord_letters3 {w : List ℤ} (hw : ∀ l ∈ w, IsLetter3 l) :
+    ∀ l ∈ invWord w, IsLetter3 l := by
+  intro l hl
+  rw [invWord, List.mem_reverse, List.mem_map] at hl
+  obtain ⟨a, ha, rfl⟩ := hl
+  rcases hw a ha with (rfl | rfl | rfl | rfl) | rfl | rfl <;> decide
 
 theorem gs2_pow_three :
     gs 2 ^ 3 = 1 := by

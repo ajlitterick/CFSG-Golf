@@ -27,6 +27,14 @@ section Algebra
 
 end Algebra
 
+structure KleinQuat (M : Type*) [Group M] (y y' : M) : Prop where
+  comm : y * y' = y' * y
+  sq_eq : y * y = y' * y'
+  sq_central : y * y ∈ Subgroup.center M
+  sq_sq : (y * y) * (y * y) = 1
+  not_central : y ∉ Subgroup.center M
+  not_central' : y' ∉ Subgroup.center M
+  prod_not_central : y * y' ∉ Subgroup.center M
 
 section Lie
 

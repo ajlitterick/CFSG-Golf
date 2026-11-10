@@ -26,6 +26,9 @@ theorem sig4_mem : sig4 ∈ alternatingGroup (Fin 12) := by
   rw [Perm.mem_alternatingGroup, sig4]
   decide
 
+theorem sig6_mem : sig6 ∈ alternatingGroup (Fin 12) := by
+  rw [Perm.mem_alternatingGroup, sig6]
+  decide
 
 theorem cycleType_of_sq {σ : Perm (Fin 12)} (h : σ ^ 2 = 1) {k : ℕ}
     (hk : σ.support.card = 2 * k) : σ.cycleType = Multiset.replicate k 2 := by
@@ -188,5 +191,6 @@ theorem thetaJ_aJ :
   have e : (⟨aJ, aJ_mem_HJ⟩ : HJ) = ⟨h1J, h1J_mem⟩ := Subtype.ext h1J_eq_aJ.symm
   rw [e, thetaJ_h1, natPerm1_eq_sig6]
 
+abbrev t6H : HJ := ⟨aJ, aJ_mem_HJ⟩
 
 end CFSG.Sporadic.HNOddCore

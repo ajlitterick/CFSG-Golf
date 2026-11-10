@@ -85,6 +85,13 @@ theorem existence_carrier :
   rw [carrierGroup_two]
   exact existence_native hPF hHF hFF hTF hfix22 hcent22 he hd1 hcover
 
+include hPF hHF hFF hTF hfix22 hcent22 he hd1 hcover in
+theorem fischer_existence_two :
+    Subgroup.center (Carrier 2) = ⊥ ∧ IsSimpleGroup (commutator (Carrier 2)) ∧
+      ∃ D : Set (Carrier 2), HasType 2 (Carrier 2) D ∧
+        (∀ E : Set (Carrier 2), Pair (Carrier 2) E → E = D) ∧ LocalStructure 2 D := by
+  obtain ⟨h1, h2, h3, h4, h5⟩ := existence_carrier hPF hHF hFF hTF hfix22 hcent22 he hd1 hcover
+  exact ⟨h1, h2, _, h3, h4, h5⟩
 
 theorem fischer_uniqueness_two
     (X : Type) [Group X] (E : Set X) (_hP : Pair X E)

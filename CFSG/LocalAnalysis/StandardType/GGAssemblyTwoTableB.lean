@@ -89,6 +89,27 @@ theorem ggTableB_family_cover (lab : LargeEvenLabel) :
   by_cases hl : l = 3 <;> cases t <;>
     simp [GGTableBLinearLabel, GGTableBUnitaryLabel, GGTableBOrthLabel, GGTableBOtherLabel, hl]
 
+theorem ggTableB_rest_cover (p : ℕ) (lab : LargeEvenLabel) :
+    ((((GGTypeASplitLabel p lab ∨ GGTableBSympLabel p lab) ∨
+      GGTableBRest GGTableBLinearLabel p lab) ∨ GGTableBRest GGTableBUnitaryLabel p lab) ∨
+        GGTableBRest GGTableBOrthLabel p lab) ∨ GGTableBRest GGTableBOtherLabel p lab := by
+  by_cases hP : GGTableBProvedLabel p lab
+  · exact Or.inl (Or.inl (Or.inl (Or.inl hP)))
+  · rcases ggTableB_family_cover lab with h | h | h | h
+    · exact Or.inl (Or.inl (Or.inl (Or.inr ⟨h, hP⟩)))
+    · exact Or.inl (Or.inl (Or.inr ⟨h, hP⟩))
+    · exact Or.inl (Or.inr ⟨h, hP⟩)
+    · exact Or.inr ⟨h, hP⟩
+
+theorem ggBstarInput_of_families (htor : GGPGLToralityInput)
+    (hL : GGBstarInputOn (GGTableBRest GGTableBLinearLabel))
+    (hU : GGBstarInputOn (GGTableBRest GGTableBUnitaryLabel))
+    (hO : GGBstarInputOn (GGTableBRest GGTableBOrthLabel))
+    (hX : GGBstarInputOn (GGTableBRest GGTableBOtherLabel)) : GGBstarInput :=
+  ggBstarInput_of_cover
+    (((((ggBstarInputOn_typeA_split htor).or ggBstarInputOn_symplectic).or hL).or hU).or hO |>.or
+      hX)
+    fun p lab _ _ => ggTableB_rest_cover p lab
 
 theorem LargeEvenLabelAll.and {lab : LargeEvenLabel} {P P' : LargeEvenRawCont}
     (h : LargeEvenLabelAll lab P) (h' : LargeEvenLabelAll lab P') :
@@ -128,6 +149,27 @@ theorem ggStdSubPreInputOn_of_labels_adm {S : ℕ → LargeEvenLabel → Prop}
     GGTableBUnitaryLiftLabel p lab →
       LargeEvenLabelAll lab fun R _ I _ => GGEndNodeAdm p (ggUnitaryTorusRank p (lab.rank + 1)) R I
 
+@[expose] def GGEndNodeAdmOrthPlusInput : Prop :=
+  ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
+    GGTableBOrthPlusLiftLabel p lab →
+      LargeEvenLabelAll lab fun R _ I _ => GGEndNodeAdm p lab.rank R I
+
+@[expose] def GGEndNodeAdmOrthMinusInput : Prop :=
+  ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
+    GGTableBOrthMinusLiftLabel p lab →
+      LargeEvenLabelAll lab fun R _ I _ => GGEndNodeAdm p (lab.rank - 1) R I
+
+theorem ggStdSubPreInputOn_orthPlusLift (ha₀ : GGLNoncyclicInput)
+    (hE : GGEndNodeAdmOrthPlusInput) : GGStdSubPreInputOn GGTableBOrthPlusLiftLabel :=
+  ggStdSubPreInputOn_of_labels_adm ha₀ fun p lab hp hlab h =>
+    ((largeEvenLabelAll_torusLift_D h.1 hlab h.2.1 hp h.2.2).and (hE p lab hp hlab h)).mono
+      fun _ _ _ _ hh => ⟨_, hh.1, hh.2⟩
+
+theorem ggStdSubPreInputOn_orthMinusLift (ha₀ : GGLNoncyclicInput)
+    (hE : GGEndNodeAdmOrthMinusInput) : GGStdSubPreInputOn GGTableBOrthMinusLiftLabel :=
+  ggStdSubPreInputOn_of_labels_adm ha₀ fun p lab hp hlab h =>
+    ((largeEvenLabelAll_torusLift_twD h.1 hlab h.2.1 hp h.2.2).and (hE p lab hp hlab h)).mono
+      fun _ _ _ _ hh => ⟨_, hh.1, hh.2⟩
 
 section Unitary
 
@@ -149,6 +191,29 @@ theorem ggStdSubPreInputOn_unitaryLift (ha₀ : GGLNoncyclicInput)
 @[expose] def GGTableBRestB (F : LargeEvenLabel → Prop) (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   F lab ∧ ¬ GGTableBProvedLabelB p lab
 
+theorem ggStdSubPreInput_of_families (ha₀ : GGLNoncyclicInput) (htor : GGPGLToralityInput)
+    (hEU : GGEndNodeAdmUnitaryInput) (hEOp : GGEndNodeAdmOrthPlusInput)
+    (hEOm : GGEndNodeAdmOrthMinusInput)
+    (hL : GGStdSubPreInputOn (GGTableBRestB GGTableBLinearLabel))
+    (hU : GGStdSubPreInputOn (GGTableBRestB GGTableBUnitaryLabel))
+    (hO : GGStdSubPreInputOn (GGTableBRestB GGTableBOrthLabel))
+    (hX : GGStdSubPreInputOn (GGTableBRestB GGTableBOtherLabel)) : GGStdSubPreInput :=
+  ggStdSubPreInput_of_cover
+    ((((((((ggStdSubPreInputOn_typeA_split htor).or ggStdSubPreInputOn_symplectic).or
+      (ggStdSubPreInputOn_unitaryLift ha₀ hEU)).or (ggStdSubPreInputOn_orthPlusLift ha₀ hEOp)).or
+      (ggStdSubPreInputOn_orthMinusLift ha₀ hEOm)).or hL).or hU).or hO |>.or hX)
+    fun p lab _ _ => by
+      by_cases hP : GGTableBProvedLabelB p lab
+      · rcases hP with h | h | h | h
+        · exact Or.inl (Or.inl (Or.inl (Or.inl (Or.inl (Or.inl (Or.inl h))))))
+        · exact Or.inl (Or.inl (Or.inl (Or.inl (Or.inl (Or.inl (Or.inr h))))))
+        · exact Or.inl (Or.inl (Or.inl (Or.inl (Or.inl (Or.inr h)))))
+        · exact Or.inl (Or.inl (Or.inl (Or.inl (Or.inr h))))
+      · rcases ggTableB_family_cover lab with h | h | h | h
+        · exact Or.inl (Or.inl (Or.inl (Or.inr ⟨h, hP⟩)))
+        · exact Or.inl (Or.inl (Or.inr ⟨h, hP⟩))
+        · exact Or.inl (Or.inr ⟨h, hP⟩)
+        · exact Or.inr ⟨h, hP⟩
 
 end Unitary
 

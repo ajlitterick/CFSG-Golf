@@ -23,6 +23,10 @@ theorem d1_k5 : d1OK 5 5 = true := by decide +kernel
 
 theorem d1_k10 : d1OK 10 4 = true := by decide +kernel
 
+theorem d1_neg : (!d1One T1X.F AlX.F OT BT CM
+    (patchT D1W 1872 (Nat.lor (Nat.sub (D1W 1872) (Nat.shiftLeft (pg 10 (mask 10) (D1W 1872) 1) 10))
+      (Nat.shiftLeft (pg 10 (mask 10) (D1W 1872) 0) 10))) (kbMasks.getD 13 0) 13) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelL34W
 

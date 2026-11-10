@@ -68,6 +68,16 @@ theorem dih_cube151b (hp : p = 3 ∨ p = 5) :
       ∃ i j : ZMod p, w = (DihedralGroup.r i, DihedralGroup.r j) := by
   rcases hp with rfl | rfl <;> decide
 
+theorem dih_cent151b (hp : p = 3 ∨ p = 5) :
+    ∀ w : DihedralGroup p × DihedralGroup p,
+      w * (DihedralGroup.r 1, 1) = (DihedralGroup.r 1, 1) * w →
+      w * (1, DihedralGroup.r 1) = (1, DihedralGroup.r 1) * w →
+        ∃ i j : ZMod p, w = (DihedralGroup.r i, DihedralGroup.r j) := by
+  rcases hp with rfl | rfl <;> decide
+
+theorem dih_center151b (hp : p = 3 ∨ p = 5) :
+    ∀ w : DihedralGroup p × DihedralGroup p, (∀ v, w * v = v * w) → w = 1 := by
+  rcases hp with rfl | rfl <;> decide
 
 theorem dih_center_one151b (hp : p = 3 ∨ p = 5) :
     ∀ d : DihedralGroup p, (∀ d' : DihedralGroup p, d * d' = d' * d) → d = 1 := by
@@ -78,6 +88,12 @@ theorem dih_rot_gen151b (hp : p = 3 ∨ p = 5) :
       DihedralGroup.r 1 := by
   rcases hp with rfl | rfl <;> decide
 
+theorem dih_invol151b (hp : p = 3 ∨ p = 5) :
+    ∀ w : DihedralGroup p × DihedralGroup p, w * w = 1 →
+      w * (DihedralGroup.r 1, 1) * w⁻¹ = (DihedralGroup.r 1, 1)⁻¹ →
+      w * (1, DihedralGroup.r 1) * w⁻¹ = (1, DihedralGroup.r 1) →
+        ∃ k : ZMod p, w = (DihedralGroup.sr k, 1) := by
+  rcases hp with rfl | rfl <;> decide
 
 end Dihedral
 
@@ -144,6 +160,8 @@ theorem ι_inl (x : DihedralGroup p) : S.ι (x, 1) = S.ι₁ x := by
 theorem ι_inr (y : DihedralGroup p) : S.ι (1, y) = S.ι₂ y := by
   rw [ι_apply]; simp
 
+theorem ι_mul_inl_inr (x y : DihedralGroup p) : S.ι (x, y) = S.ι (x, 1) * S.ι (1, y) := by
+  rw [← map_mul]; simp
 
 theorem ι_inl_mem (x : DihedralGroup p) : S.ι (x, 1) ∈ S.A₁ := by
   rw [ι_inl]; exact S.ι₁_mem x
@@ -183,6 +201,10 @@ theorem s₁_sq (hp : p = 3 ∨ p = 5) : S.s₁ ^ 2 = 1 := by
     rcases hp with rfl | rfl <;> decide
   rw [s₁, ← map_pow, h, map_one]
 
+theorem s₂_sq (hp : p = 3 ∨ p = 5) : S.s₂ ^ 2 = 1 := by
+  have h : ((1, DihedralGroup.sr 0) : DihedralGroup p × DihedralGroup p) ^ 2 = 1 := by
+    rcases hp with rfl | rfl <;> decide
+  rw [s₂, ← map_pow, h, map_one]
 
 theorem s₁_a₁ (hp : p = 3 ∨ p = 5) : S.s₁ * S.a₁ * S.s₁⁻¹ = S.a₁⁻¹ := by
   have h : ((DihedralGroup.sr 0, 1) : DihedralGroup p × DihedralGroup p) *
@@ -217,6 +239,12 @@ theorem s₁_ne_one (hp : p = 3 ∨ p = 5) : S.s₁ ≠ 1 := fun h => by
     rcases hp with rfl | rfl <;> decide
   exact h2 h1
 
+theorem s₂_ne_one (hp : p = 3 ∨ p = 5) : S.s₂ ≠ 1 := fun h => by
+  have h1 : ((1, DihedralGroup.sr 0) : DihedralGroup p × DihedralGroup p) = 1 :=
+    S.ι_injective (h.trans (map_one S.ι).symm)
+  have h2 : ¬ (((1, DihedralGroup.sr 0) : DihedralGroup p × DihedralGroup p) = 1) := by
+    rcases hp with rfl | rfl <;> decide
+  exact h2 h1
 
 theorem range_ι : S.ι.range = S.A₁ ⊔ S.A₂ := by
   apply le_antisymm
@@ -253,6 +281,11 @@ theorem swap_a₁ : S.swap.a₁ = S.a₂ := by
 theorem swap_a₂ : S.swap.a₂ = S.a₁ := by
   rw [a₂, ι_inr, swap_ι₂, a₁, ι_inl]
 
+theorem swap_s₁ : S.swap.s₁ = S.s₂ := by
+  rw [s₁, ι_inl, swap_ι₁, s₂, ι_inr]
+
+theorem swap_s₂ : S.swap.s₂ = S.s₁ := by
+  rw [s₂, ι_inr, swap_ι₂, s₁, ι_inl]
 
 abbrev W₁ : Subgroup W := commSub (⊤ : Subgroup W) S.A₁
 
@@ -260,6 +293,7 @@ abbrev W₂ : Subgroup W := commSub (⊤ : Subgroup W) S.A₂
 
 theorem swap_W₁ : S.swap.W₁ = S.W₂ := rfl
 
+theorem swap_W₂ : S.swap.W₂ = S.W₁ := rfl
 
 theorem ι₁_r (hp : p = 3 ∨ p = 5) (k : ZMod p) : S.ι₁ (DihedralGroup.r k) = S.a₁ ^ k.val := by
   have : NeZero p := ⟨by rcases hp with rfl | rfl <;> norm_num⟩

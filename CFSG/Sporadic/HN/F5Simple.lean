@@ -113,6 +113,8 @@ theorem subTreeFacts {j : ℕ} (hj : j < D.subReps.size) :
     TreeFacts D.n (S D)[j]! (lv1 D) (pairG (gs D)) D.subReps[j]! :=
   treeOK_facts (fun l hl => rep_pairG_all hF l (lv1_lt hF hl)) (hF.subTrees j hj)
 
+omit hF in
+theorem lettersGroup_lv1 : lettersGroup (lv1 D) (pairG (gs D)) = lvl D 1 := rfl
 
 omit hF in
 theorem orbit_conj {H : Subgroup (J D)} {x p q : Fin D.n} (hp : p ∈ MulAction.orbit H x)
@@ -315,5 +317,20 @@ theorem isSimpleGroup_J (hn2 : 2 ≤ D.n) {k : ℕ} (hk : D.subReps.size = k + 1
   · rw [orderOf_c hF hw hpC, card_stabilizer_root hF]
     rwa [Finset.prod_congr rfl fun l hl => T_pts_size hF (Finset.mem_Ico.1 hl).2]
 
+theorem isSimpleGroup_seedUnits (hn2 : 2 ≤ D.n) {k : ℕ} (hk : D.subReps.size = k + 1)
+    (hw : ∀ z ∈ D.gWord, z = 1 ∨ z = -1 ∨ z = 2 ∨ z = -2)
+    (hpA : D.ordA.1.Prime) (hpB : D.ordB.1.Prime) (hpC : D.ordC.1.Prime)
+    (hcop : Nat.Coprime (D.ordA.1 ^ D.ordA.2) (D.ordB.1 ^ D.ordB.2))
+    (hprod : Nat.Coprime (D.ordC.1 ^ D.ordC.2)
+      (∏ l ∈ Finset.Ico 1 D.base.size, D.orbSizes[l]!)) :
+    IsSimpleGroup (CFSG.Blueprint.NativeSporadic.seedMonoid 5 D.d 1 D.seedA D.seedB)ˣ :=
+  @MulEquiv.isSimpleGroup _ _ _ _
+    (isSimpleGroup_J hF hn2 hk hw hpA hpB hpC hcop hprod) (seedEquiv hF.toBaseFacts)
+
+theorem card_seedUnits :
+    Nat.card (CFSG.Blueprint.NativeSporadic.seedMonoid 5 D.d 1 D.seedA D.seedB)ˣ =
+      ∏ l ∈ Finset.Ico 0 D.base.size, D.orbSizes[l]! := by
+  rw [Nat.card_congr (seedEquiv hF.toBaseFacts).toEquiv, card_J hF]
+  exact Finset.prod_congr rfl fun l hl => T_pts_size hF (Finset.mem_Ico.1 hl).2
 
 end CFSG.Sporadic.F5

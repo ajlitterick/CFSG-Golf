@@ -44,6 +44,40 @@ theorem charK_injective :
   have := congrArg (fun χ : E →* Kbarˣ => ((χ e : Kbarˣ) : Kbar)) h
   exact ι4.injective this
 
+theorem exists_charK_eq
+    (χ : E →* Kbarˣ) : ∃ f, χ = charK f := by
+  have hroot : ∀ x : Kbar, x ^ 3 = 1 → ∃ k : ZMod 3, x = wK ^ k.val := by
+    intro x hx
+    have h1 : 1 + wK + wK ^ 2 = 0 := by
+      have : (wK - 1) * (1 + wK + wK ^ 2) = 0 := by
+        rw [show (wK - 1) * (1 + wK + wK ^ 2) = wK ^ 3 - 1 by ring, wK_cube, sub_self]
+      rcases mul_eq_zero.mp this with h | h
+      · exact absurd (sub_eq_zero.mp h) wK_ne_one
+      · exact h
+    have hprod : (x - 1) * (x - wK) * (x - wK ^ 2) = 0 := by
+      have : (x - 1) * (x - wK) * (x - wK ^ 2) =
+          x ^ 3 - (1 + wK + wK ^ 2) * x ^ 2 + (1 + wK + wK ^ 2) * wK * x - wK ^ 3 := by ring
+      rw [this, h1, hx, wK_cube]
+      ring
+    rcases mul_eq_zero.mp hprod with h | h
+    · rcases mul_eq_zero.mp h with h | h
+      · exact ⟨0, by rw [sub_eq_zero.mp h, ZMod.val_zero, pow_zero]⟩
+      · exact ⟨1, by rw [sub_eq_zero.mp h, ZMod.val_one, pow_one]⟩
+    · exact ⟨2, by rw [sub_eq_zero.mp h]; rfl⟩
+  choose k hk using fun j : Fin 6 => hroot (χ ⟨a j, a_mem_E j⟩) (by
+    rw [← Units.val_pow_eq_pow_val, ← map_pow]
+    have : (⟨a j, a_mem_E j⟩ : E) ^ 3 = 1 := Subtype.ext (by
+      rw [SubgroupClass.coe_pow]; exact a_pow_three j)
+    rw [this, map_one, Units.val_one])
+  refine ⟨k, MonoidHom.eq_of_eqOn_dense E_closure_top ?_⟩
+  rintro ⟨_, hx⟩ ⟨j, rfl⟩
+  apply Units.ext
+  rw [hk j]
+  have : (⟨a j, hx⟩ : E) = ⟨eProd (Pi.single j 1), eProd_mem _⟩ :=
+    Subtype.ext (eProd_single j).symm
+  rw [this, charK_eProd]
+  unfold chi
+  rw [dotProduct_single, mul_one]
 
 variable {n : ℕ} (ρ : A →* GL (Fin n) (ZMod 2))
 
