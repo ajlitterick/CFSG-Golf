@@ -78,8 +78,12 @@ def is_external(mod: str) -> bool:
 
 def git_tree_hash(repo: str) -> str:
     try:
-        return subprocess.run(["git", "-C", repo, "rev-parse", "HEAD^{tree}"],
-                              capture_output=True, text=True, check=True).stdout.strip()
+        # hash only the Lean roots, so commits to tools/ or docs keep the cache valid
+        names = list(ROOT_DIRS) + [n + ".lean" for n in ROOT_FILES]
+        out = subprocess.run(["git", "-C", repo, "ls-tree", "HEAD", "--"] + names,
+                             capture_output=True, text=True, check=True).stdout
+        import hashlib
+        return hashlib.sha256(out.encode()).hexdigest()
     except Exception:
         return "nogit"
 
