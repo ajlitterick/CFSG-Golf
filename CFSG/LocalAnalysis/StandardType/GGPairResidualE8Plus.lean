@@ -13,6 +13,18 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaForkCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
+public import Certificates.Certificate1953
+public import Certificates.Certificate1954
+public import Certificates.Certificate2264
+public import Certificates.Certificate2267
+public import Certificates.Certificate8032
+public import Certificates.Certificate8033
+public import Certificates.Certificate8064
+public import Certificates.Certificate8080
+public import Certificates.Certificate13604
+public import Certificates.Certificate13659
+public import Certificates.Certificate13660
+public import Certificates.Certificate830101
 
 public section
 

@@ -33,6 +33,8 @@ import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.RankThree.PartTwo.KFacts.K412Alternating
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
+import Certificates.Certificate8166
+import Certificates.Certificate8169
 
 public section
 

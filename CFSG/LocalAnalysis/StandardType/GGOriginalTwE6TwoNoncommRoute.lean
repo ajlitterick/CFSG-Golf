@@ -10,6 +10,9 @@ import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
+public import Certificates.Certificate27014
+public import Certificates.Certificate27015
+public import Certificates.Certificate27582
 public noncomputable section
 namespace CFSG.StandardType
 open CFSG.Assembly CFSG.Open CFSG.GroupTheory CFSG.ClassicalInvolution.Phan

@@ -4,6 +4,23 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24Cens
 public import CFSG.Sporadic.FischerOddCore.Fi24TJComp
 public import CFSG.Sporadic.Fi24.EdgeSwapCert
 public import CFSG.Sporadic.Fi22.InvFix
+public import Certificates.Certificate1000
+public import Certificates.Certificate1001
+public import Certificates.Certificate1002
+public import Certificates.Certificate1003
+public import Certificates.Certificate1004
+public import Certificates.Certificate1005
+public import Certificates.Certificate1006
+public import Certificates.Certificate1007
+public import Certificates.Certificate1009
+public import Certificates.Certificate1010
+public import Certificates.Certificate1011
+public import Certificates.Certificate1012
+public import Certificates.Certificate1013
+public import Certificates.Certificate1016
+public import Certificates.Certificate1017
+public import Certificates.Certificate1018
+public import Certificates.Certificate1019
 
 public section
 

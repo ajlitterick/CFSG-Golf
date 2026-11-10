@@ -37,6 +37,8 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
+public import Certificates.Certificate13657
+public import Certificates.Certificate7769
 
 public section
 

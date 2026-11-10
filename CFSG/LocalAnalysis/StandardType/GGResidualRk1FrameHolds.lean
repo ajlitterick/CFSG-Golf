@@ -28,6 +28,15 @@ import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
+public import Certificates.Certificate707001
+public import Certificates.Certificate707002
+public import Certificates.Certificate707010
+public import Certificates.Certificate707011
+public import Certificates.Certificate707012
+public import Certificates.Certificate709545
+public import Certificates.Certificate709548
+public import Certificates.Certificate709549
+public import Certificates.Certificate709590
 
 public section
 

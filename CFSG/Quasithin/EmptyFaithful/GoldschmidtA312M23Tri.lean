@@ -7,6 +7,7 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsIdx
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
+public import Certificates.Certificate4170
 
 public section
 

@@ -13,6 +13,7 @@ import CFSG.Certificates.CosetTableShort
 import CFSG.Certificates.NativeSchreierCard
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.Open.Defs
+import Certificates.Certificate272037
 
 public section
 

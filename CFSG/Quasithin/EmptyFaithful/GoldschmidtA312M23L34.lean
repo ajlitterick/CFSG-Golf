@@ -14,6 +14,7 @@ public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
 public import CFSG.LieType.Simplicity.Classical
+public import Certificates.Certificate4170
 
 public section
 

@@ -5,6 +5,7 @@ public import Certificates.Data.ParrottPSp43L1
 public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
 public import CFSG.RankThree.GF2n.Parrott.LiftOrderThree
 public import CFSG.GroupTheory.ConjTransport
+public import Certificates.Certificate946017Base
 
 @[expose] public section
 

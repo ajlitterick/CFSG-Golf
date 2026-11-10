@@ -6,6 +6,7 @@ import Certificates
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
 import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
+public import Certificates.Certificate1322030
 
 public section
 
