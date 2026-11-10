@@ -60,8 +60,12 @@ KIND_DECL, KIND_OTHER, KIND_EXAMPLE = 0, 1, 2
 
 
 def strip(text: str) -> str:
-    """Remove comments and strings, keeping the line structure."""
-    return STRIP_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
+    """Remove comments, keeping the line structure."""
+    # string literals are kept (interpolated strings such as s!"{foo x}" contain code);
+    # matching them first only stops `--` or `/-` inside a string from starting a comment
+    return STRIP_RE.sub(
+        lambda m: m.group(0) if m.group(0).startswith('"') else "\n" * m.group(0).count("\n"),
+        text)
 
 
 # indented lines that start a command: declarations (their keywords cannot occur inside a
