@@ -13,14 +13,6 @@ public noncomputable def CFSG.subgroupSum {G : Type*} [Group G] [Finite G] {F : 
   let _ : Fintype H := Fintype.ofFinite H
   exact ∑ h : H, ρ h v
 
-public theorem CFSG.subgroupSum_eq_sum {G : Type*} [Group G] [Finite G] {F : Type*} [Field F]
-    {V : Type*} [AddCommGroup V] [Module F V] (ρ : Representation F G V)
-    (H : Subgroup G) (v : V) :
-    subgroupSum ρ H v =
-      (by
-        let _ : Fintype H := Fintype.ofFinite H
-        exact ∑ h : H, ρ h v) := by
-  rfl
 
 private noncomputable def CFSG.conjByEquiv {G : Type*} [Group G] (R : Subgroup G) (x : G) :
     R ≃ R.conjBy x := by
